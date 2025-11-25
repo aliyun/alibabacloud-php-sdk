@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bizCode;
@@ -31,38 +29,41 @@ class result extends Model
     public $reasonDetail;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'bizCode'      => 'BizCode',
-        'openTime'     => 'OpenTime',
-        'reasonCode'   => 'ReasonCode',
+        'bizCode' => 'BizCode',
+        'openTime' => 'OpenTime',
+        'reasonCode' => 'ReasonCode',
         'reasonDetail' => 'ReasonDetail',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
         }
+
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
+
         if (null !== $this->reasonDetail) {
             $res['ReasonDetail'] = $this->reasonDetail;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -70,26 +71,30 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
         }
+
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
+
         if (isset($map['ReasonDetail'])) {
             $model->reasonDetail = $map['ReasonDetail'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

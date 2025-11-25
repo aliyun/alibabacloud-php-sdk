@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponseBody\result\riskVerifyResult;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -19,23 +19,27 @@ class result extends Model
 
     public function validate()
     {
+        if (null !== $this->riskVerifyResult) {
+            $this->riskVerifyResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskVerifyResult) {
-            $res['RiskVerifyResult'] = null !== $this->riskVerifyResult ? $this->riskVerifyResult->toMap() : null;
+            $res['RiskVerifyResult'] = null !== $this->riskVerifyResult ? $this->riskVerifyResult->toArray($noStream) : $this->riskVerifyResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20221125;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyV2Request;
@@ -14,11 +13,10 @@ use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cloudauth extends OpenApiClient
 {
@@ -43,82 +41,104 @@ class Cloudauth extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 企业要素核验
-     *  *
-     * @param EntElementVerifyRequest $request EntElementVerifyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Enterprise Element Verification.
      *
-     * @return EntElementVerifyResponse EntElementVerifyResponse
+     * @remarks
+     * Supports only enterprises and individual businesses.
+     *
+     * @param request - EntElementVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntElementVerifyResponse
+     *
+     * @param EntElementVerifyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EntElementVerifyResponse
      */
     public function entElementVerifyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entName)) {
-            $query['EntName'] = $request->entName;
-        }
-        if (!Utils::isUnset($request->infoVerifyType)) {
-            $query['InfoVerifyType'] = $request->infoVerifyType;
-        }
-        if (!Utils::isUnset($request->legalPersonCertNo)) {
-            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
-        }
-        if (!Utils::isUnset($request->legalPersonName)) {
-            $query['LegalPersonName'] = $request->legalPersonName;
-        }
-        if (!Utils::isUnset($request->licenseNo)) {
-            $query['LicenseNo'] = $request->licenseNo;
-        }
-        if (!Utils::isUnset($request->merchantBizId)) {
-            $query['MerchantBizId'] = $request->merchantBizId;
-        }
-        if (!Utils::isUnset($request->merchantUserId)) {
-            $query['MerchantUserId'] = $request->merchantUserId;
-        }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
-        }
-        if (!Utils::isUnset($request->userAuthorization)) {
-            $query['UserAuthorization'] = $request->userAuthorization;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EntElementVerify',
-            'version'     => '2022-11-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EntElementVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->entName) {
+            @$query['EntName'] = $request->entName;
         }
 
-        return EntElementVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->infoVerifyType) {
+            @$query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+
+        if (null !== $request->legalPersonCertNo) {
+            @$query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->licenseNo) {
+            @$query['LicenseNo'] = $request->licenseNo;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->userAuthorization) {
+            @$query['UserAuthorization'] = $request->userAuthorization;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EntElementVerify',
+            'version' => '2022-11-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EntElementVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 企业要素核验
-     *  *
-     * @param EntElementVerifyRequest $request EntElementVerifyRequest
+     * Enterprise Element Verification.
      *
-     * @return EntElementVerifyResponse EntElementVerifyResponse
+     * @remarks
+     * Supports only enterprises and individual businesses.
+     *
+     * @param request - EntElementVerifyRequest
+     *
+     * @returns EntElementVerifyResponse
+     *
+     * @param EntElementVerifyRequest $request
+     *
+     * @return EntElementVerifyResponse
      */
     public function entElementVerify($request)
     {
@@ -128,71 +148,96 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @summary 企业要素验证V2
-     *  *
-     * @param EntElementVerifyV2Request $request EntElementVerifyV2Request
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Enterprise Element Verification V2.
      *
-     * @return EntElementVerifyV2Response EntElementVerifyV2Response
+     * @remarks
+     * The Enterprise Element Verification API provides a service for verifying the consistency of enterprise element information, used to identify the authenticity of enterprise information.
+     * It supports various institutions including enterprises, individual businesses, farmers\\" professional cooperatives, government agencies, public institutions, social organizations, legal profession institutions, and owners\\" meetings for 2-3 elements;
+     * For 4 elements, it supports enterprises, individual businesses, farmers\\" professional cooperatives, and legal professions.
+     *
+     * @param request - EntElementVerifyV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntElementVerifyV2Response
+     *
+     * @param EntElementVerifyV2Request $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EntElementVerifyV2Response
      */
     public function entElementVerifyV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entName)) {
-            $query['EntName'] = $request->entName;
-        }
-        if (!Utils::isUnset($request->infoVerifyType)) {
-            $query['InfoVerifyType'] = $request->infoVerifyType;
-        }
-        if (!Utils::isUnset($request->legalPersonCertNo)) {
-            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
-        }
-        if (!Utils::isUnset($request->legalPersonName)) {
-            $query['LegalPersonName'] = $request->legalPersonName;
-        }
-        if (!Utils::isUnset($request->licenseNo)) {
-            $query['LicenseNo'] = $request->licenseNo;
-        }
-        if (!Utils::isUnset($request->merchantBizId)) {
-            $query['MerchantBizId'] = $request->merchantBizId;
-        }
-        if (!Utils::isUnset($request->merchantUserId)) {
-            $query['MerchantUserId'] = $request->merchantUserId;
-        }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
-        }
-        if (!Utils::isUnset($request->userAuthorization)) {
-            $query['UserAuthorization'] = $request->userAuthorization;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EntElementVerifyV2',
-            'version'     => '2022-11-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EntElementVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->entName) {
+            @$query['EntName'] = $request->entName;
         }
 
-        return EntElementVerifyV2Response::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->infoVerifyType) {
+            @$query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+
+        if (null !== $request->legalPersonCertNo) {
+            @$query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->licenseNo) {
+            @$query['LicenseNo'] = $request->licenseNo;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->userAuthorization) {
+            @$query['UserAuthorization'] = $request->userAuthorization;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EntElementVerifyV2',
+            'version' => '2022-11-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EntElementVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 企业要素验证V2
-     *  *
-     * @param EntElementVerifyV2Request $request EntElementVerifyV2Request
+     * Enterprise Element Verification V2.
      *
-     * @return EntElementVerifyV2Response EntElementVerifyV2Response
+     * @remarks
+     * The Enterprise Element Verification API provides a service for verifying the consistency of enterprise element information, used to identify the authenticity of enterprise information.
+     * It supports various institutions including enterprises, individual businesses, farmers\\" professional cooperatives, government agencies, public institutions, social organizations, legal profession institutions, and owners\\" meetings for 2-3 elements;
+     * For 4 elements, it supports enterprises, individual businesses, farmers\\" professional cooperatives, and legal professions.
+     *
+     * @param request - EntElementVerifyV2Request
+     *
+     * @returns EntElementVerifyV2Response
+     *
+     * @param EntElementVerifyV2Request $request
+     *
+     * @return EntElementVerifyV2Response
      */
     public function entElementVerifyV2($request)
     {
@@ -202,62 +247,74 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @summary 企业经营异常查询
-     *  *
-     * @param EntRiskQueryRequest $request EntRiskQueryRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Abnormal Business Operation Query.
      *
-     * @return EntRiskQueryResponse EntRiskQueryResponse
+     * @param request - EntRiskQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntRiskQueryResponse
+     *
+     * @param EntRiskQueryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EntRiskQueryResponse
      */
     public function entRiskQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->merchantBizId)) {
-            $query['MerchantBizId'] = $request->merchantBizId;
-        }
-        if (!Utils::isUnset($request->merchantUserId)) {
-            $query['MerchantUserId'] = $request->merchantUserId;
-        }
-        if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
-        }
-        if (!Utils::isUnset($request->paramValue)) {
-            $query['ParamValue'] = $request->paramValue;
-        }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
-        }
-        if (!Utils::isUnset($request->userAuthorization)) {
-            $query['UserAuthorization'] = $request->userAuthorization;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EntRiskQuery',
-            'version'     => '2022-11-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EntRiskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
         }
 
-        return EntRiskQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->paramType) {
+            @$query['ParamType'] = $request->paramType;
+        }
+
+        if (null !== $request->paramValue) {
+            @$query['ParamValue'] = $request->paramValue;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->userAuthorization) {
+            @$query['UserAuthorization'] = $request->userAuthorization;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EntRiskQuery',
+            'version' => '2022-11-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EntRiskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 企业经营异常查询
-     *  *
-     * @param EntRiskQueryRequest $request EntRiskQueryRequest
+     * Abnormal Business Operation Query.
      *
-     * @return EntRiskQueryResponse EntRiskQueryResponse
+     * @param request - EntRiskQueryRequest
+     *
+     * @returns EntRiskQueryResponse
+     *
+     * @param EntRiskQueryRequest $request
+     *
+     * @return EntRiskQueryResponse
      */
     public function entRiskQuery($request)
     {
@@ -267,83 +324,102 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @summary 企业认证
-     *  *
-     * @param EntVerifyRequest $request EntVerifyRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Enterprise Authentication.
      *
-     * @return EntVerifyResponse EntVerifyResponse
+     * @param request - EntVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntVerifyResponse
+     *
+     * @param EntVerifyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return EntVerifyResponse
      */
     public function entVerifyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountNo)) {
-            $query['AccountNo'] = $request->accountNo;
-        }
-        if (!Utils::isUnset($request->entName)) {
-            $query['EntName'] = $request->entName;
-        }
-        if (!Utils::isUnset($request->infoVerifyType)) {
-            $query['InfoVerifyType'] = $request->infoVerifyType;
-        }
-        if (!Utils::isUnset($request->legalPersonCertNo)) {
-            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
-        }
-        if (!Utils::isUnset($request->legalPersonMobile)) {
-            $query['LegalPersonMobile'] = $request->legalPersonMobile;
-        }
-        if (!Utils::isUnset($request->legalPersonName)) {
-            $query['LegalPersonName'] = $request->legalPersonName;
-        }
-        if (!Utils::isUnset($request->licenseNo)) {
-            $query['LicenseNo'] = $request->licenseNo;
-        }
-        if (!Utils::isUnset($request->merchantBizId)) {
-            $query['MerchantBizId'] = $request->merchantBizId;
-        }
-        if (!Utils::isUnset($request->merchantUserId)) {
-            $query['MerchantUserId'] = $request->merchantUserId;
-        }
-        if (!Utils::isUnset($request->riskModelVersion)) {
-            $query['RiskModelVersion'] = $request->riskModelVersion;
-        }
-        if (!Utils::isUnset($request->riskVerifyType)) {
-            $query['RiskVerifyType'] = $request->riskVerifyType;
-        }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
-        }
-        if (!Utils::isUnset($request->userAuthorization)) {
-            $query['UserAuthorization'] = $request->userAuthorization;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EntVerify',
-            'version'     => '2022-11-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EntVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->accountNo) {
+            @$query['AccountNo'] = $request->accountNo;
         }
 
-        return EntVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->entName) {
+            @$query['EntName'] = $request->entName;
+        }
+
+        if (null !== $request->infoVerifyType) {
+            @$query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+
+        if (null !== $request->legalPersonCertNo) {
+            @$query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+
+        if (null !== $request->legalPersonMobile) {
+            @$query['LegalPersonMobile'] = $request->legalPersonMobile;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->licenseNo) {
+            @$query['LicenseNo'] = $request->licenseNo;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->riskModelVersion) {
+            @$query['RiskModelVersion'] = $request->riskModelVersion;
+        }
+
+        if (null !== $request->riskVerifyType) {
+            @$query['RiskVerifyType'] = $request->riskVerifyType;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->userAuthorization) {
+            @$query['UserAuthorization'] = $request->userAuthorization;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EntVerify',
+            'version' => '2022-11-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EntVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 企业认证
-     *  *
-     * @param EntVerifyRequest $request EntVerifyRequest
+     * Enterprise Authentication.
      *
-     * @return EntVerifyResponse EntVerifyResponse
+     * @param request - EntVerifyRequest
+     *
+     * @returns EntVerifyResponse
+     *
+     * @param EntVerifyRequest $request
+     *
+     * @return EntVerifyResponse
      */
     public function entVerify($request)
     {

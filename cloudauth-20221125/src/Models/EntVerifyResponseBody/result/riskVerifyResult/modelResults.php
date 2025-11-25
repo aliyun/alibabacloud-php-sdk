@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponseBody\result\riskVerifyResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelResults extends Model
 {
     /**
-     * @example model_1
-     *
      * @var string
      */
     public $modelName;
@@ -21,19 +19,21 @@ class modelResults extends Model
     public $result;
     protected $_name = [
         'modelName' => 'ModelName',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -41,17 +41,18 @@ class modelResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

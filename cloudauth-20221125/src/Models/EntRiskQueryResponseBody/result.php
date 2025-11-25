@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryResponseBody\result\riskList;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bizCode;
@@ -22,36 +20,41 @@ class result extends Model
     public $riskList;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'bizCode'  => 'BizCode',
+        'bizCode' => 'BizCode',
         'riskList' => 'RiskList',
-        'status'   => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->riskList)) {
+            Model::validateArray($this->riskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->riskList) {
-            $res['RiskList'] = [];
-            if (null !== $this->riskList && \is_array($this->riskList)) {
-                $n = 0;
-                foreach ($this->riskList as $item) {
-                    $res['RiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->riskList)) {
+                $res['RiskList'] = [];
+                $n1 = 0;
+                foreach ($this->riskList as $item1) {
+                    $res['RiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -59,26 +62,29 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['RiskList'])) {
             if (!empty($map['RiskList'])) {
                 $model->riskList = [];
-                $n               = 0;
-                foreach ($map['RiskList'] as $item) {
-                    $model->riskList[$n++] = null !== $item ? riskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RiskList'] as $item1) {
+                    $model->riskList[$n1] = riskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
