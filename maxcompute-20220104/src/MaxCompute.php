@@ -3344,6 +3344,10 @@ class MaxCompute extends OpenApiClient
             @$body['extNodeIdList'] = $request->extNodeIdList;
         }
 
+        if (null !== $request->extNodeNameList) {
+            @$body['extNodeNameList'] = $request->extNodeNameList;
+        }
+
         if (null !== $request->from) {
             @$body['from'] = $request->from;
         }
@@ -3386,6 +3390,10 @@ class MaxCompute extends OpenApiClient
 
         if (null !== $request->statusList) {
             @$body['statusList'] = $request->statusList;
+        }
+
+        if (null !== $request->taskNameList) {
+            @$body['taskNameList'] = $request->taskNameList;
         }
 
         if (null !== $request->to) {

@@ -19,6 +19,11 @@ class ListJobInfosRequest extends Model
     public $extNodeIdList;
 
     /**
+     * @var string[]
+     */
+    public $extNodeNameList;
+
+    /**
      * @var int
      */
     public $from;
@@ -74,6 +79,11 @@ class ListJobInfosRequest extends Model
     public $statusList;
 
     /**
+     * @var string[]
+     */
+    public $taskNameList;
+
+    /**
      * @var int
      */
     public $to;
@@ -110,6 +120,7 @@ class ListJobInfosRequest extends Model
     protected $_name = [
         'ascOrder' => 'ascOrder',
         'extNodeIdList' => 'extNodeIdList',
+        'extNodeNameList' => 'extNodeNameList',
         'from' => 'from',
         'instanceIdList' => 'instanceIdList',
         'jobOwnerList' => 'jobOwnerList',
@@ -121,6 +132,7 @@ class ListJobInfosRequest extends Model
         'sortByList' => 'sortByList',
         'sortOrderList' => 'sortOrderList',
         'statusList' => 'statusList',
+        'taskNameList' => 'taskNameList',
         'to' => 'to',
         'typeList' => 'typeList',
         'orderColumn' => 'orderColumn',
@@ -134,6 +146,9 @@ class ListJobInfosRequest extends Model
     {
         if (\is_array($this->extNodeIdList)) {
             Model::validateArray($this->extNodeIdList);
+        }
+        if (\is_array($this->extNodeNameList)) {
+            Model::validateArray($this->extNodeNameList);
         }
         if (\is_array($this->instanceIdList)) {
             Model::validateArray($this->instanceIdList);
@@ -162,6 +177,9 @@ class ListJobInfosRequest extends Model
         if (\is_array($this->statusList)) {
             Model::validateArray($this->statusList);
         }
+        if (\is_array($this->taskNameList)) {
+            Model::validateArray($this->taskNameList);
+        }
         if (\is_array($this->typeList)) {
             Model::validateArray($this->typeList);
         }
@@ -181,6 +199,17 @@ class ListJobInfosRequest extends Model
                 $n1 = 0;
                 foreach ($this->extNodeIdList as $item1) {
                     $res['extNodeIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->extNodeNameList) {
+            if (\is_array($this->extNodeNameList)) {
+                $res['extNodeNameList'] = [];
+                $n1 = 0;
+                foreach ($this->extNodeNameList as $item1) {
+                    $res['extNodeNameList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -293,6 +322,17 @@ class ListJobInfosRequest extends Model
             }
         }
 
+        if (null !== $this->taskNameList) {
+            if (\is_array($this->taskNameList)) {
+                $res['taskNameList'] = [];
+                $n1 = 0;
+                foreach ($this->taskNameList as $item1) {
+                    $res['taskNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->to) {
             $res['to'] = $this->to;
         }
@@ -349,6 +389,17 @@ class ListJobInfosRequest extends Model
                 $n1 = 0;
                 foreach ($map['extNodeIdList'] as $item1) {
                     $model->extNodeIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['extNodeNameList'])) {
+            if (!empty($map['extNodeNameList'])) {
+                $model->extNodeNameList = [];
+                $n1 = 0;
+                foreach ($map['extNodeNameList'] as $item1) {
+                    $model->extNodeNameList[$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -456,6 +507,17 @@ class ListJobInfosRequest extends Model
                 $n1 = 0;
                 foreach ($map['statusList'] as $item1) {
                     $model->statusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['taskNameList'])) {
+            if (!empty($map['taskNameList'])) {
+                $model->taskNameList = [];
+                $n1 = 0;
+                foreach ($map['taskNameList'] as $item1) {
+                    $model->taskNameList[$n1] = $item1;
                     ++$n1;
                 }
             }

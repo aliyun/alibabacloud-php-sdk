@@ -37,12 +37,22 @@ class jobInfoList extends Model
     /**
      * @var string
      */
+    public $extNodeName;
+
+    /**
+     * @var string
+     */
     public $extNodeOnDuty;
 
     /**
      * @var string
      */
     public $extPlantFrom;
+
+    /**
+     * @var string
+     */
+    public $extPlatformId;
 
     /**
      * @var float
@@ -142,6 +152,11 @@ class jobInfoList extends Model
     /**
      * @var string
      */
+    public $taskName;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -159,8 +174,10 @@ class jobInfoList extends Model
         'cuUsage' => 'cuUsage',
         'endAtTime' => 'endAtTime',
         'extNodeId' => 'extNodeId',
+        'extNodeName' => 'extNodeName',
         'extNodeOnDuty' => 'extNodeOnDuty',
         'extPlantFrom' => 'extPlantFrom',
+        'extPlatformId' => 'extPlatformId',
         'inputBytes' => 'inputBytes',
         'instanceId' => 'instanceId',
         'jobOwner' => 'jobOwner',
@@ -180,6 +197,7 @@ class jobInfoList extends Model
         'statusSnapshot' => 'statusSnapshot',
         'submittedAtTime' => 'submittedAtTime',
         'tags' => 'tags',
+        'taskName' => 'taskName',
         'tenantId' => 'tenantId',
         'totalTime' => 'totalTime',
         'waitingTime' => 'waitingTime',
@@ -216,12 +234,20 @@ class jobInfoList extends Model
             $res['extNodeId'] = $this->extNodeId;
         }
 
+        if (null !== $this->extNodeName) {
+            $res['extNodeName'] = $this->extNodeName;
+        }
+
         if (null !== $this->extNodeOnDuty) {
             $res['extNodeOnDuty'] = $this->extNodeOnDuty;
         }
 
         if (null !== $this->extPlantFrom) {
             $res['extPlantFrom'] = $this->extPlantFrom;
+        }
+
+        if (null !== $this->extPlatformId) {
+            $res['extPlatformId'] = $this->extPlatformId;
         }
 
         if (null !== $this->inputBytes) {
@@ -307,6 +333,10 @@ class jobInfoList extends Model
             $res['tags'] = $this->tags;
         }
 
+        if (null !== $this->taskName) {
+            $res['taskName'] = $this->taskName;
+        }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -350,12 +380,20 @@ class jobInfoList extends Model
             $model->extNodeId = $map['extNodeId'];
         }
 
+        if (isset($map['extNodeName'])) {
+            $model->extNodeName = $map['extNodeName'];
+        }
+
         if (isset($map['extNodeOnDuty'])) {
             $model->extNodeOnDuty = $map['extNodeOnDuty'];
         }
 
         if (isset($map['extPlantFrom'])) {
             $model->extPlantFrom = $map['extPlantFrom'];
+        }
+
+        if (isset($map['extPlatformId'])) {
+            $model->extPlatformId = $map['extPlatformId'];
         }
 
         if (isset($map['inputBytes'])) {
@@ -439,6 +477,10 @@ class jobInfoList extends Model
 
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
+        }
+
+        if (isset($map['taskName'])) {
+            $model->taskName = $map['taskName'];
         }
 
         if (isset($map['tenantId'])) {

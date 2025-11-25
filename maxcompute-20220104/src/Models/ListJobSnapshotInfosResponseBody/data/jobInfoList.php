@@ -41,6 +41,11 @@ class jobInfoList extends Model
     /**
      * @var string
      */
+    public $extPlatformId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -164,6 +169,7 @@ class jobInfoList extends Model
         'extNodeId' => 'extNodeId',
         'extNodeOnDuty' => 'extNodeOnDuty',
         'extPlantFrom' => 'extPlantFrom',
+        'extPlatformId' => 'extPlatformId',
         'instanceId' => 'instanceId',
         'jobOwner' => 'jobOwner',
         'jobType' => 'jobType',
@@ -220,6 +226,10 @@ class jobInfoList extends Model
 
         if (null !== $this->extPlantFrom) {
             $res['extPlantFrom'] = $this->extPlantFrom;
+        }
+
+        if (null !== $this->extPlatformId) {
+            $res['extPlatformId'] = $this->extPlatformId;
         }
 
         if (null !== $this->instanceId) {
@@ -351,6 +361,10 @@ class jobInfoList extends Model
 
         if (isset($map['extPlantFrom'])) {
             $model->extPlantFrom = $map['extPlantFrom'];
+        }
+
+        if (isset($map['extPlatformId'])) {
+            $model->extPlatformId = $map['extPlatformId'];
         }
 
         if (isset($map['instanceId'])) {
