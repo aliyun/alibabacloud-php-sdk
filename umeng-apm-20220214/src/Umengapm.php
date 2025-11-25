@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
+use AlibabaCloud\Dara\Models\FileField;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsShrinkRequest;
@@ -38,13 +40,12 @@ use AlibabaCloud\SDK\Umengapm\V20220214\Models\UpdateAlertPlanResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileAdvanceRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileResponse;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Umengapm extends OpenApiClient
 {
@@ -54,6 +55,101 @@ class Umengapm extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('umeng-apm', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form, $runtime)
+    {
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
+        ];
+
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
+
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
+        }
+
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -69,71 +165,83 @@ class Umengapm extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 删除符号表记录
-     *  *
-     * @param DeleteSymRecordsRequest $tmpReq  DeleteSymRecordsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除符号表记录.
      *
-     * @return DeleteSymRecordsResponse DeleteSymRecordsResponse
+     * @param tmpReq - DeleteSymRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSymRecordsResponse
+     *
+     * @param DeleteSymRecordsRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSymRecordsResponse
      */
     public function deleteSymRecordsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteSymRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->appVersions)) {
-            $request->appVersionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appVersions, 'appVersions', 'simple');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->appVersionsShrink)) {
-            $body['appVersions'] = $request->appVersionsShrink;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $body['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $body['fileType'] = $request->fileType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSymRecords',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/deleteSymRecords',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteSymRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appVersions) {
+            $request->appVersionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appVersions, 'appVersions', 'simple');
         }
 
-        return DeleteSymRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->appVersionsShrink) {
+            @$body['appVersions'] = $request->appVersionsShrink;
+        }
+
+        if (null !== $request->dataSourceId) {
+            @$body['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['fileType'] = $request->fileType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSymRecords',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/deleteSymRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSymRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除符号表记录
-     *  *
-     * @param DeleteSymRecordsRequest $request DeleteSymRecordsRequest
+     * 删除符号表记录.
      *
-     * @return DeleteSymRecordsResponse DeleteSymRecordsResponse
+     * @param Request - DeleteSymRecordsRequest
+     *
+     * @returns DeleteSymRecordsResponse
+     *
+     * @param DeleteSymRecordsRequest $request
+     *
+     * @return DeleteSymRecordsResponse
      */
     public function deleteSymRecords($request)
     {
@@ -144,55 +252,65 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取分钟粒度稳定性统计数据
-     *  *
-     * @param GetErrorMinuteStatTrendRequest $request GetErrorMinuteStatTrendRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取分钟粒度稳定性统计数据.
      *
-     * @return GetErrorMinuteStatTrendResponse GetErrorMinuteStatTrendResponse
+     * @param Request - GetErrorMinuteStatTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetErrorMinuteStatTrendResponse
+     *
+     * @param GetErrorMinuteStatTrendRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetErrorMinuteStatTrendResponse
      */
     public function getErrorMinuteStatTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetErrorMinuteStatTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/GetErrorMinuteStatTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetErrorMinuteStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
         }
 
-        return GetErrorMinuteStatTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetErrorMinuteStatTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/GetErrorMinuteStatTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetErrorMinuteStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取分钟粒度稳定性统计数据
-     *  *
-     * @param GetErrorMinuteStatTrendRequest $request GetErrorMinuteStatTrendRequest
+     * 获取分钟粒度稳定性统计数据.
      *
-     * @return GetErrorMinuteStatTrendResponse GetErrorMinuteStatTrendResponse
+     * @param Request - GetErrorMinuteStatTrendRequest
+     *
+     * @returns GetErrorMinuteStatTrendResponse
+     *
+     * @param GetErrorMinuteStatTrendRequest $request
+     *
+     * @return GetErrorMinuteStatTrendResponse
      */
     public function getErrorMinuteStatTrend($request)
     {
@@ -203,61 +321,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取H5页面性能统计数据
-     *  *
-     * @param GetH5PageTrendRequest $request GetH5PageTrendRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取H5页面性能统计数据.
      *
-     * @return GetH5PageTrendResponse GetH5PageTrendResponse
+     * @param Request - GetH5PageTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetH5PageTrendResponse
+     *
+     * @param GetH5PageTrendRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetH5PageTrendResponse
      */
     public function getH5PageTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->timeUnit)) {
-            $query['timeUnit'] = $request->timeUnit;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetH5PageTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getH5PageTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetH5PageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetH5PageTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->timeUnit) {
+            @$query['timeUnit'] = $request->timeUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetH5PageTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getH5PageTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetH5PageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取H5页面性能统计数据
-     *  *
-     * @param GetH5PageTrendRequest $request GetH5PageTrendRequest
+     * 获取H5页面性能统计数据.
      *
-     * @return GetH5PageTrendResponse GetH5PageTrendResponse
+     * @param Request - GetH5PageTrendRequest
+     *
+     * @returns GetH5PageTrendResponse
+     *
+     * @param GetH5PageTrendRequest $request
+     *
+     * @return GetH5PageTrendResponse
      */
     public function getH5PageTrend($request)
     {
@@ -268,61 +398,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取启动性能统计数据
-     *  *
-     * @param GetLaunchTrendRequest $request GetLaunchTrendRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取启动性能统计数据.
      *
-     * @return GetLaunchTrendResponse GetLaunchTrendResponse
+     * @param Request - GetLaunchTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLaunchTrendResponse
+     *
+     * @param GetLaunchTrendRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLaunchTrendResponse
      */
     public function getLaunchTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->timeUnit)) {
-            $query['timeUnit'] = $request->timeUnit;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetLaunchTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getLaunchTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetLaunchTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetLaunchTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->timeUnit) {
+            @$query['timeUnit'] = $request->timeUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLaunchTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getLaunchTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLaunchTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取启动性能统计数据
-     *  *
-     * @param GetLaunchTrendRequest $request GetLaunchTrendRequest
+     * 获取启动性能统计数据.
      *
-     * @return GetLaunchTrendResponse GetLaunchTrendResponse
+     * @param Request - GetLaunchTrendRequest
+     *
+     * @returns GetLaunchTrendResponse
+     *
+     * @param GetLaunchTrendRequest $request
+     *
+     * @return GetLaunchTrendResponse
      */
     public function getLaunchTrend($request)
     {
@@ -333,61 +475,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取原生页面性能统计数据
-     *  *
-     * @param GetNativePageTrendRequest $request GetNativePageTrendRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取原生页面性能统计数据.
      *
-     * @return GetNativePageTrendResponse GetNativePageTrendResponse
+     * @param Request - GetNativePageTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNativePageTrendResponse
+     *
+     * @param GetNativePageTrendRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetNativePageTrendResponse
      */
     public function getNativePageTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->timeUnit)) {
-            $query['timeUnit'] = $request->timeUnit;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNativePageTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getNativePageTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNativePageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetNativePageTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->timeUnit) {
+            @$query['timeUnit'] = $request->timeUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNativePageTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getNativePageTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNativePageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取原生页面性能统计数据
-     *  *
-     * @param GetNativePageTrendRequest $request GetNativePageTrendRequest
+     * 获取原生页面性能统计数据.
      *
-     * @return GetNativePageTrendResponse GetNativePageTrendResponse
+     * @param Request - GetNativePageTrendRequest
+     *
+     * @returns GetNativePageTrendResponse
+     *
+     * @param GetNativePageTrendRequest $request
+     *
+     * @return GetNativePageTrendResponse
      */
     public function getNativePageTrend($request)
     {
@@ -398,52 +552,61 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取分钟粒度网络统计数据
-     *  *
-     * @param GetNetworkMinuteTrendRequest $request GetNetworkMinuteTrendRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取分钟粒度网络统计数据.
      *
-     * @return GetNetworkMinuteTrendResponse GetNetworkMinuteTrendResponse
+     * @param Request - GetNetworkMinuteTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkMinuteTrendResponse
+     *
+     * @param GetNetworkMinuteTrendRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetNetworkMinuteTrendResponse
      */
     public function getNetworkMinuteTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNetworkMinuteTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getNetworkMinuteTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNetworkMinuteTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
         }
 
-        return GetNetworkMinuteTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkMinuteTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getNetworkMinuteTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkMinuteTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取分钟粒度网络统计数据
-     *  *
-     * @param GetNetworkMinuteTrendRequest $request GetNetworkMinuteTrendRequest
+     * 获取分钟粒度网络统计数据.
      *
-     * @return GetNetworkMinuteTrendResponse GetNetworkMinuteTrendResponse
+     * @param Request - GetNetworkMinuteTrendRequest
+     *
+     * @returns GetNetworkMinuteTrendResponse
+     *
+     * @param GetNetworkMinuteTrendRequest $request
+     *
+     * @return GetNetworkMinuteTrendResponse
      */
     public function getNetworkMinuteTrend($request)
     {
@@ -454,61 +617,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取网络性能统计数据
-     *  *
-     * @param GetNetworkTrendRequest $request GetNetworkTrendRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取网络性能统计数据.
      *
-     * @return GetNetworkTrendResponse GetNetworkTrendResponse
+     * @param Request - GetNetworkTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkTrendResponse
+     *
+     * @param GetNetworkTrendRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetNetworkTrendResponse
      */
     public function getNetworkTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->timeUnit)) {
-            $query['timeUnit'] = $request->timeUnit;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNetworkTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getNetworkTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNetworkTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetNetworkTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->timeUnit) {
+            @$query['timeUnit'] = $request->timeUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getNetworkTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取网络性能统计数据
-     *  *
-     * @param GetNetworkTrendRequest $request GetNetworkTrendRequest
+     * 获取网络性能统计数据.
      *
-     * @return GetNetworkTrendResponse GetNetworkTrendResponse
+     * @param Request - GetNetworkTrendRequest
+     *
+     * @returns GetNetworkTrendResponse
+     *
+     * @param GetNetworkTrendRequest $request
+     *
+     * @return GetNetworkTrendResponse
      */
     public function getNetworkTrend($request)
     {
@@ -519,61 +694,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线统计数据
-     *  *
-     * @param GetStatTrendRequest $request GetStatTrendRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取离线统计数据.
      *
-     * @return GetStatTrendResponse GetStatTrendResponse
+     * @param Request - GetStatTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStatTrendResponse
+     *
+     * @param GetStatTrendRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetStatTrendResponse
      */
     public function getStatTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetStatTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getStatTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetStatTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStatTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getStatTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取离线统计数据
-     *  *
-     * @param GetStatTrendRequest $request GetStatTrendRequest
+     * 获取离线统计数据.
      *
-     * @return GetStatTrendResponse GetStatTrendResponse
+     * @param Request - GetStatTrendRequest
+     *
+     * @returns GetStatTrendResponse
+     *
+     * @param GetStatTrendRequest $request
+     *
+     * @return GetStatTrendResponse
      */
     public function getStatTrend($request)
     {
@@ -584,61 +771,73 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取符号表文件上传参数
-     *  *
-     * @param GetSymUploadParamRequest $request GetSymUploadParamRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取符号表文件上传参数.
      *
-     * @return GetSymUploadParamResponse GetSymUploadParamResponse
+     * @param Request - GetSymUploadParamRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSymUploadParamResponse
+     *
+     * @param GetSymUploadParamRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSymUploadParamResponse
      */
     public function getSymUploadParamWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
-        }
-        if (!Utils::isUnset($request->flutterName)) {
-            $query['flutterName'] = $request->flutterName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSymUploadParam',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/getSymUploadParam',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSymUploadParamResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetSymUploadParamResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['fileType'] = $request->fileType;
+        }
+
+        if (null !== $request->flutterName) {
+            @$query['flutterName'] = $request->flutterName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSymUploadParam',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/getSymUploadParam',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSymUploadParamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取符号表文件上传参数
-     *  *
-     * @param GetSymUploadParamRequest $request GetSymUploadParamRequest
+     * 获取符号表文件上传参数.
      *
-     * @return GetSymUploadParamResponse GetSymUploadParamResponse
+     * @param Request - GetSymUploadParamRequest
+     *
+     * @returns GetSymUploadParamResponse
+     *
+     * @param GetSymUploadParamRequest $request
+     *
+     * @return GetSymUploadParamResponse
      */
     public function getSymUploadParam($request)
     {
@@ -649,55 +848,65 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 获取今日实时统计数据
-     *  *
-     * @param GetTodayStatTrendRequest $request GetTodayStatTrendRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取今日实时统计数据.
      *
-     * @return GetTodayStatTrendResponse GetTodayStatTrendResponse
+     * @param Request - GetTodayStatTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTodayStatTrendResponse
+     *
+     * @param GetTodayStatTrendRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTodayStatTrendResponse
      */
     public function getTodayStatTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetTodayStatTrend',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/stat/getTodayStatTrend',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTodayStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return GetTodayStatTrendResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTodayStatTrend',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stat/getTodayStatTrend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTodayStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取今日实时统计数据
-     *  *
-     * @param GetTodayStatTrendRequest $request GetTodayStatTrendRequest
+     * 获取今日实时统计数据.
      *
-     * @return GetTodayStatTrendResponse GetTodayStatTrendResponse
+     * @param Request - GetTodayStatTrendRequest
+     *
+     * @returns GetTodayStatTrendResponse
+     *
+     * @param GetTodayStatTrendRequest $request
+     *
+     * @return GetTodayStatTrendResponse
      */
     public function getTodayStatTrend($request)
     {
@@ -708,55 +917,65 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 更新监控告警计划
-     *  *
-     * @param UpdateAlertPlanRequest $request UpdateAlertPlanRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新监控告警计划.
      *
-     * @return UpdateAlertPlanResponse UpdateAlertPlanResponse
+     * @param Request - UpdateAlertPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertPlanResponse
+     *
+     * @param UpdateAlertPlanRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAlertPlanResponse
      */
     public function updateAlertPlanWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->planId)) {
-            $query['planId'] = $request->planId;
-        }
-        if (!Utils::isUnset($request->versions)) {
-            $query['versions'] = $request->versions;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateAlertPlan',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/updateAlertPlan',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAlertPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
         }
 
-        return UpdateAlertPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->planId) {
+            @$query['planId'] = $request->planId;
+        }
+
+        if (null !== $request->versions) {
+            @$query['versions'] = $request->versions;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertPlan',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/updateAlertPlan',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新监控告警计划
-     *  *
-     * @param UpdateAlertPlanRequest $request UpdateAlertPlanRequest
+     * 更新监控告警计划.
      *
-     * @return UpdateAlertPlanResponse UpdateAlertPlanResponse
+     * @param Request - UpdateAlertPlanRequest
+     *
+     * @returns UpdateAlertPlanResponse
+     *
+     * @param UpdateAlertPlanRequest $request
+     *
+     * @return UpdateAlertPlanResponse
      */
     public function updateAlertPlan($request)
     {
@@ -767,64 +986,77 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @summary 上传符号表文件
-     *  *
-     * @param UploadSymbolFileRequest $request UploadSymbolFileRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 上传符号表文件.
      *
-     * @return UploadSymbolFileResponse UploadSymbolFileResponse
+     * @param Request - UploadSymbolFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadSymbolFileResponse
+     *
+     * @param UploadSymbolFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadSymbolFileResponse
      */
     public function uploadSymbolFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['appVersion'] = $request->appVersion;
-        }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['dataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
-        }
-        if (!Utils::isUnset($request->flutterName)) {
-            $query['flutterName'] = $request->flutterName;
-        }
-        if (!Utils::isUnset($request->ossUrl)) {
-            $query['ossUrl'] = $request->ossUrl;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UploadSymbolFile',
-            'version'     => '2022-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/uploadSymbolFile',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UploadSymbolFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appVersion) {
+            @$query['appVersion'] = $request->appVersion;
         }
 
-        return UploadSymbolFileResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->dataSourceId) {
+            @$query['dataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['fileType'] = $request->fileType;
+        }
+
+        if (null !== $request->flutterName) {
+            @$query['flutterName'] = $request->flutterName;
+        }
+
+        if (null !== $request->ossUrl) {
+            @$query['ossUrl'] = $request->ossUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadSymbolFile',
+            'version' => '2022-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/uploadSymbolFile',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadSymbolFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上传符号表文件
-     *  *
-     * @param UploadSymbolFileRequest $request UploadSymbolFileRequest
+     * 上传符号表文件.
      *
-     * @return UploadSymbolFileResponse UploadSymbolFileResponse
+     * @param Request - UploadSymbolFileRequest
+     *
+     * @returns UploadSymbolFileResponse
+     *
+     * @param UploadSymbolFileRequest $request
+     *
+     * @return UploadSymbolFileResponse
      */
     public function uploadSymbolFile($request)
     {
@@ -844,71 +1076,84 @@ class Umengapm extends OpenApiClient
     public function uploadSymbolFileAdvance($request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'umeng-apm',
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'umeng-apm',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $uploadSymbolFileReq = new UploadSymbolFileRequest([]);
-        OpenApiUtilClient::convert($request, $uploadSymbolFileReq);
-        if (!Utils::isUnset($request->ossUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->ossUrlObject,
+        Utils::convert($request, $uploadSymbolFileReq);
+        if (null !== $request->ossUrlObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->ossUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $uploadSymbolFileReq->ossUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $uploadSymbolFileReq->ossUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->uploadSymbolFileWithOptions($uploadSymbolFileReq, $headers, $runtime);

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNetworkMinuteTrendRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5fb6001a73749c24fd9cb356
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2024-09-27 09:07
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'dataSourceId' => 'dataSourceId',
-        'startTime'    => 'startTime',
+        'startTime' => 'startTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['dataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -47,17 +41,18 @@ class GetNetworkMinuteTrendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNetworkMinuteTrendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSourceId'])) {
             $model->dataSourceId = $map['dataSourceId'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAlertPlanRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5fb6001a73749c24fd9cb356
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 18288
-     *
      * @var int
      */
     public $planId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example "1.1.0,1.2.0,1.3.0"
-     *
      * @var string
      */
     public $versions;
     protected $_name = [
         'dataSourceId' => 'dataSourceId',
-        'planId'       => 'planId',
-        'versions'     => 'versions',
+        'planId' => 'planId',
+        'versions' => 'versions',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['dataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->planId) {
             $res['planId'] = $this->planId;
         }
+
         if (null !== $this->versions) {
             $res['versions'] = $this->versions;
         }
@@ -60,20 +51,22 @@ class UpdateAlertPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAlertPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSourceId'])) {
             $model->dataSourceId = $map['dataSourceId'];
         }
+
         if (isset($map['planId'])) {
             $model->planId = $map['planId'];
         }
+
         if (isset($map['versions'])) {
             $model->versions = $map['versions'];
         }

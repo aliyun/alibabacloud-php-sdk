@@ -1,3 +1,6 @@
+2025-11-25 Version: 1.3.1
+- Update SDK.
+
 2025-03-06 Version: 1.3.0
 - Support API GetErrorMinuteStatTrend.
 - Support API GetNetworkMinuteTrend.
