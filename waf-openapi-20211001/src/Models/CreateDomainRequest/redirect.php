@@ -63,6 +63,11 @@ class redirect extends Model
     /**
      * @var int
      */
+    public $maxBodySize;
+
+    /**
+     * @var int
+     */
     public $readTimeout;
 
     /**
@@ -130,6 +135,7 @@ class redirect extends Model
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
         'loadbalance' => 'Loadbalance',
+        'maxBodySize' => 'MaxBodySize',
         'readTimeout' => 'ReadTimeout',
         'requestHeaders' => 'RequestHeaders',
         'retry' => 'Retry',
@@ -223,6 +229,10 @@ class redirect extends Model
 
         if (null !== $this->loadbalance) {
             $res['Loadbalance'] = $this->loadbalance;
+        }
+
+        if (null !== $this->maxBodySize) {
+            $res['MaxBodySize'] = $this->maxBodySize;
         }
 
         if (null !== $this->readTimeout) {
@@ -350,6 +360,10 @@ class redirect extends Model
 
         if (isset($map['Loadbalance'])) {
             $model->loadbalance = $map['Loadbalance'];
+        }
+
+        if (isset($map['MaxBodySize'])) {
+            $model->maxBodySize = $map['MaxBodySize'];
         }
 
         if (isset($map['ReadTimeout'])) {

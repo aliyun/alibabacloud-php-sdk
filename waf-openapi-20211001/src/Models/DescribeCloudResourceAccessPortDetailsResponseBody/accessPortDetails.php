@@ -62,6 +62,11 @@ class accessPortDetails extends Model
     public $logHeaders;
 
     /**
+     * @var int
+     */
+    public $maxBodySize;
+
+    /**
      * @var string
      */
     public $ownerUserId;
@@ -131,6 +136,7 @@ class accessPortDetails extends Model
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
         'logHeaders' => 'LogHeaders',
+        'maxBodySize' => 'MaxBodySize',
         'ownerUserId' => 'OwnerUserId',
         'port' => 'Port',
         'protocol' => 'Protocol',
@@ -227,6 +233,10 @@ class accessPortDetails extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maxBodySize) {
+            $res['MaxBodySize'] = $this->maxBodySize;
         }
 
         if (null !== $this->ownerUserId) {
@@ -361,6 +371,10 @@ class accessPortDetails extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxBodySize'])) {
+            $model->maxBodySize = $map['MaxBodySize'];
         }
 
         if (isset($map['OwnerUserId'])) {

@@ -27,6 +27,11 @@ class redirect extends Model
     /**
      * @var int
      */
+    public $maxBodySize;
+
+    /**
+     * @var int
+     */
     public $readTimeout;
 
     /**
@@ -57,6 +62,7 @@ class redirect extends Model
         'keepalive' => 'Keepalive',
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
+        'maxBodySize' => 'MaxBodySize',
         'readTimeout' => 'ReadTimeout',
         'requestHeaders' => 'RequestHeaders',
         'writeTimeout' => 'WriteTimeout',
@@ -89,6 +95,10 @@ class redirect extends Model
 
         if (null !== $this->keepaliveTimeout) {
             $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
+        }
+
+        if (null !== $this->maxBodySize) {
+            $res['MaxBodySize'] = $this->maxBodySize;
         }
 
         if (null !== $this->readTimeout) {
@@ -150,6 +160,10 @@ class redirect extends Model
 
         if (isset($map['KeepaliveTimeout'])) {
             $model->keepaliveTimeout = $map['KeepaliveTimeout'];
+        }
+
+        if (isset($map['MaxBodySize'])) {
+            $model->maxBodySize = $map['MaxBodySize'];
         }
 
         if (isset($map['ReadTimeout'])) {
