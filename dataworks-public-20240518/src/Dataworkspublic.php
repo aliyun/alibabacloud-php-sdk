@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagShrinkRequest;
@@ -121,6 +123,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComputeResourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagShrinkRequest;
@@ -200,6 +204,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseRequest;
@@ -306,6 +312,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComponentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComponentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlerTypesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponse;
@@ -507,6 +516,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetada
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagShrinkRequest;
@@ -1365,6 +1376,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createComponentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - CreateComputeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComputeResourceResponse
+     *
+     * @param CreateComputeResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateComputeResourceResponse
+     */
+    public function createComputeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionProperties) {
+            @$query['ConnectionProperties'] = $request->connectionProperties;
+        }
+
+        if (null !== $request->connectionPropertiesMode) {
+            @$query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateComputeResource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateComputeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - CreateComputeResourceRequest
+     *
+     * @returns CreateComputeResourceResponse
+     *
+     * @param CreateComputeResourceRequest $request
+     *
+     * @return CreateComputeResourceResponse
+     */
+    public function createComputeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createComputeResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -4534,6 +4622,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 验证用.
+     *
+     * @param Request - DeleteComputeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComputeResourceResponse
+     *
+     * @param DeleteComputeResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteComputeResourceResponse
+     */
+    public function deleteComputeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComputeResource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComputeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - DeleteComputeResourceRequest
+     *
+     * @returns DeleteComputeResourceResponse
+     *
+     * @param DeleteComputeResourceRequest $request
+     *
+     * @return DeleteComputeResourceResponse
+     */
+    public function deleteComputeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComputeResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an alert rule configured for a synchronization task.
      *
      * @param Request - DeleteDIAlarmRuleRequest
@@ -6985,6 +7134,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getComponentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - GetComputeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeResourceResponse
+     *
+     * @param GetComputeResourceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetComputeResourceResponse
+     */
+    public function getComputeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetComputeResource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetComputeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - GetComputeResourceRequest
+     *
+     * @returns GetComputeResourceResponse
+     *
+     * @param GetComputeResourceRequest $request
+     *
+     * @return GetComputeResourceResponse
+     */
+    public function getComputeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getComputeResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -10178,6 +10388,97 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listComponentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param tmpReq - ListComputeResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComputeResourcesResponse
+     *
+     * @param ListComputeResourcesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListComputeResourcesResponse
+     */
+    public function listComputeResourcesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListComputeResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListComputeResources',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListComputeResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - ListComputeResourcesRequest
+     *
+     * @returns ListComputeResourcesResponse
+     *
+     * @param ListComputeResourcesRequest $request
+     *
+     * @return ListComputeResourcesResponse
+     */
+    public function listComputeResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComputeResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -16258,6 +16559,79 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateComponentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - UpdateComputeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateComputeResourceResponse
+     *
+     * @param UpdateComputeResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateComputeResourceResponse
+     */
+    public function updateComputeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionProperties) {
+            @$query['ConnectionProperties'] = $request->connectionProperties;
+        }
+
+        if (null !== $request->connectionPropertiesMode) {
+            @$query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateComputeResource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateComputeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证用.
+     *
+     * @param Request - UpdateComputeResourceRequest
+     *
+     * @returns UpdateComputeResourceResponse
+     *
+     * @param UpdateComputeResourceRequest $request
+     *
+     * @return UpdateComputeResourceResponse
+     */
+    public function updateComputeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateComputeResourceWithOptions($request, $runtime);
     }
 
     /**
