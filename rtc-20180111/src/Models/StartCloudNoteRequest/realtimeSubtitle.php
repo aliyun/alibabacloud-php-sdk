@@ -12,6 +12,11 @@ class realtimeSubtitle extends Model
     /**
      * @var bool
      */
+    public $asrCallback;
+
+    /**
+     * @var bool
+     */
     public $enabled;
 
     /**
@@ -19,6 +24,7 @@ class realtimeSubtitle extends Model
      */
     public $translation;
     protected $_name = [
+        'asrCallback' => 'AsrCallback',
         'enabled' => 'Enabled',
         'translation' => 'Translation',
     ];
@@ -34,6 +40,10 @@ class realtimeSubtitle extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrCallback) {
+            $res['AsrCallback'] = $this->asrCallback;
+        }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -53,6 +63,10 @@ class realtimeSubtitle extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrCallback'])) {
+            $model->asrCallback = $map['AsrCallback'];
+        }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
