@@ -3643,6 +3643,10 @@ class Polardbx extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

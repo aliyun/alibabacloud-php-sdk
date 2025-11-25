@@ -22,10 +22,16 @@ class DescribeComponentPropetiesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
         'componentName' => 'ComponentName',
         'regionId' => 'RegionId',
+        'storageType' => 'StorageType',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DescribeComponentPropetiesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DescribeComponentPropetiesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;
