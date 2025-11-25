@@ -57,6 +57,11 @@ class CreateAppInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $publicEndpointEnabled;
+
+    /**
+     * @var bool
+     */
     public $publicNetworkAccessEnabled;
 
     /**
@@ -83,6 +88,7 @@ class CreateAppInstanceRequest extends Model
         'dashboardUsername' => 'DashboardUsername',
         'databasePassword' => 'DatabasePassword',
         'instanceClass' => 'InstanceClass',
+        'publicEndpointEnabled' => 'PublicEndpointEnabled',
         'publicNetworkAccessEnabled' => 'PublicNetworkAccessEnabled',
         'RAGEnabled' => 'RAGEnabled',
         'regionId' => 'RegionId',
@@ -134,6 +140,10 @@ class CreateAppInstanceRequest extends Model
 
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
+        }
+
+        if (null !== $this->publicEndpointEnabled) {
+            $res['PublicEndpointEnabled'] = $this->publicEndpointEnabled;
         }
 
         if (null !== $this->publicNetworkAccessEnabled) {
@@ -197,6 +207,10 @@ class CreateAppInstanceRequest extends Model
 
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
+        }
+
+        if (isset($map['PublicEndpointEnabled'])) {
+            $model->publicEndpointEnabled = $map['PublicEndpointEnabled'];
         }
 
         if (isset($map['PublicNetworkAccessEnabled'])) {

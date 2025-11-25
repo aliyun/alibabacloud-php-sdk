@@ -147,6 +147,10 @@ class RdsAi extends OpenApiClient
             @$query['InstanceClass'] = $request->instanceClass;
         }
 
+        if (null !== $request->publicEndpointEnabled) {
+            @$query['PublicEndpointEnabled'] = $request->publicEndpointEnabled;
+        }
+
         if (null !== $request->publicNetworkAccessEnabled) {
             @$query['PublicNetworkAccessEnabled'] = $request->publicNetworkAccessEnabled;
         }
@@ -1235,6 +1239,10 @@ class RdsAi extends OpenApiClient
         $query = [];
         if (null !== $request->dashboardPassword) {
             @$query['DashboardPassword'] = $request->dashboardPassword;
+        }
+
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
         }
 
         if (null !== $request->instanceName) {

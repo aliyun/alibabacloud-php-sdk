@@ -16,6 +16,11 @@ class ResetInstancePasswordRequest extends Model
     /**
      * @var string
      */
+    public $databasePassword;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -24,6 +29,7 @@ class ResetInstancePasswordRequest extends Model
     public $regionId;
     protected $_name = [
         'dashboardPassword' => 'DashboardPassword',
+        'databasePassword' => 'DatabasePassword',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class ResetInstancePasswordRequest extends Model
         $res = [];
         if (null !== $this->dashboardPassword) {
             $res['DashboardPassword'] = $this->dashboardPassword;
+        }
+
+        if (null !== $this->databasePassword) {
+            $res['DatabasePassword'] = $this->databasePassword;
         }
 
         if (null !== $this->instanceName) {
@@ -61,6 +71,10 @@ class ResetInstancePasswordRequest extends Model
         $model = new self();
         if (isset($map['DashboardPassword'])) {
             $model->dashboardPassword = $map['DashboardPassword'];
+        }
+
+        if (isset($map['DatabasePassword'])) {
+            $model->databasePassword = $map['DatabasePassword'];
         }
 
         if (isset($map['InstanceName'])) {
