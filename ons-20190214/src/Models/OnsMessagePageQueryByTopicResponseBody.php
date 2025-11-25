@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePageQueryByTopicResponseBody\msgFoundDo;
-use AlibabaCloud\Tea\Model;
 
 class OnsMessagePageQueryByTopicResponseBody extends Model
 {
     /**
-     * @description The information about the message that is queried.
-     *
      * @var msgFoundDo
      */
     public $msgFoundDo;
 
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-     *
-     * @example 5DC2A47E-2B31-4722-96C8-FA59C9*****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class OnsMessagePageQueryByTopicResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->msgFoundDo) {
+            $this->msgFoundDo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msgFoundDo) {
-            $res['MsgFoundDo'] = null !== $this->msgFoundDo ? $this->msgFoundDo->toMap() : null;
+            $res['MsgFoundDo'] = null !== $this->msgFoundDo ? $this->msgFoundDo->toArray($noStream) : $this->msgFoundDo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class OnsMessagePageQueryByTopicResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsMessagePageQueryByTopicResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MsgFoundDo'])) {
             $model->msgFoundDo = msgFoundDo::fromMap($map['MsgFoundDo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

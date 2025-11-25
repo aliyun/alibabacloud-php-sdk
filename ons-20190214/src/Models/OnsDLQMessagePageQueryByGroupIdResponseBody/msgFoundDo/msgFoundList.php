@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsDLQMessagePageQueryByGroupIdResponseBody\msgFoundDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsDLQMessagePageQueryByGroupIdResponseBody\msgFoundDo\msgFoundList\onsRestMessageDo;
-use AlibabaCloud\Tea\Model;
 
 class msgFoundList extends Model
 {
@@ -17,17 +17,24 @@ class msgFoundList extends Model
         'onsRestMessageDo' => 'OnsRestMessageDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->onsRestMessageDo)) {
+            Model::validateArray($this->onsRestMessageDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onsRestMessageDo) {
-            $res['OnsRestMessageDo'] = [];
-            if (null !== $this->onsRestMessageDo && \is_array($this->onsRestMessageDo)) {
-                $n = 0;
-                foreach ($this->onsRestMessageDo as $item) {
-                    $res['OnsRestMessageDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onsRestMessageDo)) {
+                $res['OnsRestMessageDo'] = [];
+                $n1 = 0;
+                foreach ($this->onsRestMessageDo as $item1) {
+                    $res['OnsRestMessageDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class msgFoundList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return msgFoundList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnsRestMessageDo'])) {
             if (!empty($map['OnsRestMessageDo'])) {
                 $model->onsRestMessageDo = [];
-                $n = 0;
-                foreach ($map['OnsRestMessageDo'] as $item) {
-                    $model->onsRestMessageDo[$n++] = null !== $item ? onsRestMessageDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OnsRestMessageDo'] as $item1) {
+                    $model->onsRestMessageDo[$n1] = onsRestMessageDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

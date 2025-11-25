@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicSubDetailResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList;
 
 class subscriptionDataList extends Model
 {
     /**
-     * @var subscriptionDataList\subscriptionDataList[]
+     * @var subscriptionDataList[]
      */
     public $subscriptionDataList;
     protected $_name = [
         'subscriptionDataList' => 'SubscriptionDataList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subscriptionDataList)) {
+            Model::validateArray($this->subscriptionDataList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscriptionDataList) {
-            $res['SubscriptionDataList'] = [];
-            if (null !== $this->subscriptionDataList && \is_array($this->subscriptionDataList)) {
-                $n = 0;
-                foreach ($this->subscriptionDataList as $item) {
-                    $res['SubscriptionDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscriptionDataList)) {
+                $res['SubscriptionDataList'] = [];
+                $n1 = 0;
+                foreach ($this->subscriptionDataList as $item1) {
+                    $res['SubscriptionDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class subscriptionDataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subscriptionDataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubscriptionDataList'])) {
             if (!empty($map['SubscriptionDataList'])) {
                 $model->subscriptionDataList = [];
-                $n = 0;
-                foreach ($map['SubscriptionDataList'] as $item) {
-                    $model->subscriptionDataList[$n++] = null !== $item ? subscriptionDataList\subscriptionDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubscriptionDataList'] as $item1) {
+                    $model->subscriptionDataList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

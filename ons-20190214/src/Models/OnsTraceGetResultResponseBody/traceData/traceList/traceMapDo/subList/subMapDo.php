@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo\subList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo\subList\subMapDo\clientList;
-use AlibabaCloud\Tea\Model;
 
 class subMapDo extends Model
 {
     /**
-     * @description The information about message consumption by consumers in the group.
-     *
      * @var clientList
      */
     public $clientList;
 
     /**
-     * @description The number of consumption failures.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $failCount;
 
     /**
-     * @description The ID of the consumer group.
-     *
-     * @example GID_test
-     *
      * @var string
      */
     public $subGroupName;
 
     /**
-     * @description The number of successful consumptions.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $successCount;
@@ -49,20 +35,29 @@ class subMapDo extends Model
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->clientList) {
+            $this->clientList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientList) {
-            $res['ClientList'] = null !== $this->clientList ? $this->clientList->toMap() : null;
+            $res['ClientList'] = null !== $this->clientList ? $this->clientList->toArray($noStream) : $this->clientList;
         }
+
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
+
         if (null !== $this->subGroupName) {
             $res['SubGroupName'] = $this->subGroupName;
         }
+
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
@@ -70,23 +65,26 @@ class subMapDo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subMapDo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientList'])) {
             $model->clientList = clientList::fromMap($map['ClientList']);
         }
+
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
+
         if (isset($map['SubGroupName'])) {
             $model->subGroupName = $map['SubGroupName'];
         }
+
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }

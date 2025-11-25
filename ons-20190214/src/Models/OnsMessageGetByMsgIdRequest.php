@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsMessageGetByMsgIdRequest extends Model
 {
     /**
-     * @description The ID of the instance to which the message you want to query belongs.
-     *
-     * @example MQ_INST_111111111111_DOxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the message that you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example 1E0578FE110F18B4AAC235C05F2*****
-     *
      * @var string
      */
     public $msgId;
 
     /**
-     * @description The topic that contains the message you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example test-mq_topic
-     *
      * @var string
      */
     public $topic;
@@ -44,17 +28,22 @@ class OnsMessageGetByMsgIdRequest extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -62,20 +51,22 @@ class OnsMessageGetByMsgIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsMessageGetByMsgIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

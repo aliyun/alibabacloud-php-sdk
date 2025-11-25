@@ -1,3 +1,6 @@
+2025-11-25 Version: 2.0.2
+- Update SDK.
+
 2025-03-21 Version: 2.0.1
 - Update API OnsConsumerGetConnection: update response param.
 - Update API OnsTopicSubDetail: update response param.

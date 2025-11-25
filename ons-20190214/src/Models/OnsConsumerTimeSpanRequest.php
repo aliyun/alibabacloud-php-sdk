@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsConsumerTimeSpanRequest extends Model
 {
     /**
-     * @description The ID of the consumer group whose reset time range you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example GID_test_group_id
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the instance to which the consumer group belongs.
-     *
-     * @example MQ_INST_111111111111_DOxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The topic to which the consumer group subscribes.
-     *
-     * This parameter is required.
-     *
-     * @example test-mq_topic
-     *
      * @var string
      */
     public $topic;
@@ -44,17 +28,22 @@ class OnsConsumerTimeSpanRequest extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -62,20 +51,22 @@ class OnsConsumerTimeSpanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsConsumerTimeSpanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

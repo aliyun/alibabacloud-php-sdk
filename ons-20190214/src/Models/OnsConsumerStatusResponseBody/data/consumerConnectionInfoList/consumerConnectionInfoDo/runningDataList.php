@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo\runningDataList\consumerRunningDataDo;
-use AlibabaCloud\Tea\Model;
 
 class runningDataList extends Model
 {
@@ -17,17 +17,24 @@ class runningDataList extends Model
         'consumerRunningDataDo' => 'ConsumerRunningDataDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->consumerRunningDataDo)) {
+            Model::validateArray($this->consumerRunningDataDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerRunningDataDo) {
-            $res['ConsumerRunningDataDo'] = [];
-            if (null !== $this->consumerRunningDataDo && \is_array($this->consumerRunningDataDo)) {
-                $n = 0;
-                foreach ($this->consumerRunningDataDo as $item) {
-                    $res['ConsumerRunningDataDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consumerRunningDataDo)) {
+                $res['ConsumerRunningDataDo'] = [];
+                $n1 = 0;
+                foreach ($this->consumerRunningDataDo as $item1) {
+                    $res['ConsumerRunningDataDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class runningDataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return runningDataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumerRunningDataDo'])) {
             if (!empty($map['ConsumerRunningDataDo'])) {
                 $model->consumerRunningDataDo = [];
-                $n = 0;
-                foreach ($map['ConsumerRunningDataDo'] as $item) {
-                    $model->consumerRunningDataDo[$n++] = null !== $item ? consumerRunningDataDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConsumerRunningDataDo'] as $item1) {
+                    $model->consumerRunningDataDo[$n1] = consumerRunningDataDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

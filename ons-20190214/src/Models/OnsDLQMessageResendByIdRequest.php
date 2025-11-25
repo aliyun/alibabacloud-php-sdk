@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsDLQMessageResendByIdRequest extends Model
 {
     /**
-     * @description The ID of the consumer group in which you want to query dead-letter messages.
-     *
-     * This parameter is required.
-     *
-     * @example GID_test_group_id
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the instance in which the dead-letter message you want to query resides.
-     *
-     * @example MQ_INST_188077086902****_BXSuW61e
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the dead-letter message that you want to send to a consumer group for consumption.
-     *
-     * This parameter is required.
-     *
-     * @example 0BC16699343051CD9F1D798E7734****
-     *
      * @var string
      */
     public $msgId;
@@ -44,17 +28,22 @@ class OnsDLQMessageResendByIdRequest extends Model
         'msgId' => 'MsgId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
         }
@@ -62,20 +51,22 @@ class OnsDLQMessageResendByIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsDLQMessageResendByIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
         }

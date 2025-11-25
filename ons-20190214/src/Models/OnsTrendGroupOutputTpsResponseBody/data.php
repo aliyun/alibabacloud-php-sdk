@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendGroupOutputTpsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTrendGroupOutputTpsResponseBody\data\records;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The data set returned based on sampling period.
-     *
      * @var records
      */
     public $records;
 
     /**
-     * @description The name of the table.
-     *
-     * @example MQ_INST_111111111111_DOxxxxxx%test@MQ_INST_111111111111_DOxxxxxx%GID_test trend chart of delivered messages
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The unit of the timestamp.
-     *
-     * @example time
-     *
      * @var string
      */
     public $XUnit;
 
     /**
-     * @description The total number of messages.
-     *
-     * @example msg
-     *
      * @var string
      */
     public $YUnit;
@@ -49,20 +35,29 @@ class data extends Model
         'YUnit' => 'YUnit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->records) {
+            $this->records->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->records) {
-            $res['Records'] = null !== $this->records ? $this->records->toMap() : null;
+            $res['Records'] = null !== $this->records ? $this->records->toArray($noStream) : $this->records;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->XUnit) {
             $res['XUnit'] = $this->XUnit;
         }
+
         if (null !== $this->YUnit) {
             $res['YUnit'] = $this->YUnit;
         }
@@ -70,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Records'])) {
             $model->records = records::fromMap($map['Records']);
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['XUnit'])) {
             $model->XUnit = $map['XUnit'];
         }
+
         if (isset($map['YUnit'])) {
             $model->YUnit = $map['YUnit'];
         }

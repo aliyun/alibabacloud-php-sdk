@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsGroupCreateResponseBody extends Model
 {
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-     *
-     * @example A07E3902-B92E-44A6-B6C5-6AA111111****
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class OnsGroupCreateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class OnsGroupCreateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsGroupCreateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

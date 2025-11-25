@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerAccumulateResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerAccumulateResponseBody\data\detailInTopicList\detailInTopicDo;
-use AlibabaCloud\Tea\Model;
 
 class detailInTopicList extends Model
 {
@@ -17,17 +17,24 @@ class detailInTopicList extends Model
         'detailInTopicDo' => 'DetailInTopicDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->detailInTopicDo)) {
+            Model::validateArray($this->detailInTopicDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailInTopicDo) {
-            $res['DetailInTopicDo'] = [];
-            if (null !== $this->detailInTopicDo && \is_array($this->detailInTopicDo)) {
-                $n = 0;
-                foreach ($this->detailInTopicDo as $item) {
-                    $res['DetailInTopicDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detailInTopicDo)) {
+                $res['DetailInTopicDo'] = [];
+                $n1 = 0;
+                foreach ($this->detailInTopicDo as $item1) {
+                    $res['DetailInTopicDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class detailInTopicList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInTopicList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailInTopicDo'])) {
             if (!empty($map['DetailInTopicDo'])) {
                 $model->detailInTopicDo = [];
-                $n = 0;
-                foreach ($map['DetailInTopicDo'] as $item) {
-                    $model->detailInTopicDo[$n++] = null !== $item ? detailInTopicDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DetailInTopicDo'] as $item1) {
+                    $model->detailInTopicDo[$n1] = detailInTopicDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

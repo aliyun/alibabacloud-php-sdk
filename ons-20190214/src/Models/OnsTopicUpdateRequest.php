@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsTopicUpdateRequest extends Model
 {
     /**
-     * @description The ID of the instance to which the topic belongs.
-     *
-     * @example MQ_INST_111111111111_DOxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The read/write mode that you want to configure for the topic. Valid values:
-     *
-     *   **6**: Both read and write operations are allowed.
-     *   **4**: Write operations are forbidden.
-     *   **2**: Read operations are forbidden.
-     *
-     * This parameter is required.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $perm;
 
     /**
-     * @description The name of the topic that you want to manage.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $topic;
@@ -48,17 +28,22 @@ class OnsTopicUpdateRequest extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->perm) {
             $res['Perm'] = $this->perm;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -66,20 +51,22 @@ class OnsTopicUpdateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsTopicUpdateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Perm'])) {
             $model->perm = $map['Perm'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

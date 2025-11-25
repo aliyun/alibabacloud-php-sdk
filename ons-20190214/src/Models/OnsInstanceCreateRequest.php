@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsInstanceCreateRequest extends Model
 {
     /**
-     * @description The name of the instance. The name must meet the following rules:
-     *
-     *   The name of the instance must be unique in the region where the instance is deployed.
-     *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-     *
-     * This parameter is required.
-     *
-     * @example Test instance
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The description of the instance.
-     *
-     * @example Description
-     *
      * @var string
      */
     public $remark;
@@ -35,14 +22,18 @@ class OnsInstanceCreateRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -50,17 +41,18 @@ class OnsInstanceCreateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsInstanceCreateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerGetConnectionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerGetConnectionResponseBody\data\connectionList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The client connection information of the consumer group.
-     *
      * @var connectionList
      */
     public $connectionList;
@@ -25,14 +23,21 @@ class data extends Model
         'messageModel' => 'MessageModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->connectionList) {
+            $this->connectionList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionList) {
-            $res['ConnectionList'] = null !== $this->connectionList ? $this->connectionList->toMap() : null;
+            $res['ConnectionList'] = null !== $this->connectionList ? $this->connectionList->toArray($noStream) : $this->connectionList;
         }
+
         if (null !== $this->messageModel) {
             $res['MessageModel'] = $this->messageModel;
         }
@@ -40,17 +45,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionList'])) {
             $model->connectionList = connectionList::fromMap($map['ConnectionList']);
         }
+
         if (isset($map['MessageModel'])) {
             $model->messageModel = $map['MessageModel'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicListResponseBody\data\publishInfoDo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'publishInfoDo' => 'PublishInfoDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->publishInfoDo)) {
+            Model::validateArray($this->publishInfoDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publishInfoDo) {
-            $res['PublishInfoDo'] = [];
-            if (null !== $this->publishInfoDo && \is_array($this->publishInfoDo)) {
-                $n = 0;
-                foreach ($this->publishInfoDo as $item) {
-                    $res['PublishInfoDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->publishInfoDo)) {
+                $res['PublishInfoDo'] = [];
+                $n1 = 0;
+                foreach ($this->publishInfoDo as $item1) {
+                    $res['PublishInfoDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublishInfoDo'])) {
             if (!empty($map['PublishInfoDo'])) {
                 $model->publishInfoDo = [];
-                $n = 0;
-                foreach ($map['PublishInfoDo'] as $item) {
-                    $model->publishInfoDo[$n++] = null !== $item ? publishInfoDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PublishInfoDo'] as $item1) {
+                    $model->publishInfoDo[$n1] = publishInfoDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

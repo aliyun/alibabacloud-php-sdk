@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo\jstack;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo\jstack\threadTrackDo\trackList;
-use AlibabaCloud\Tea\Model;
 
 class threadTrackDo extends Model
 {
     /**
-     * @description The name of the thread.
-     *
-     * @example ConsumeMessageThread_0
-     *
      * @var string
      */
     public $thread;
 
     /**
-     * @description The details of thread stack traces.
-     *
      * @var trackList
      */
     public $trackList;
@@ -29,32 +23,40 @@ class threadTrackDo extends Model
         'trackList' => 'TrackList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->trackList) {
+            $this->trackList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->thread) {
             $res['Thread'] = $this->thread;
         }
+
         if (null !== $this->trackList) {
-            $res['TrackList'] = null !== $this->trackList ? $this->trackList->toMap() : null;
+            $res['TrackList'] = null !== $this->trackList ? $this->trackList->toArray($noStream) : $this->trackList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return threadTrackDo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Thread'])) {
             $model->thread = $map['Thread'];
         }
+
         if (isset($map['TrackList'])) {
             $model->trackList = trackList::fromMap($map['TrackList']);
         }

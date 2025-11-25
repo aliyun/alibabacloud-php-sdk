@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnsTopicStatusRequest extends Model
 {
     /**
-     * @description The ID of the instance that contains the topic you want to query.
-     *
-     * @example MQ_INST_188077086902****_BXSuW61e
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the topic that you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $topic;
@@ -32,14 +22,18 @@ class OnsTopicStatusRequest extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -47,17 +41,18 @@ class OnsTopicStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsTopicStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

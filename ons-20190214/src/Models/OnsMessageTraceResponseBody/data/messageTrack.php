@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class messageTrack extends Model
 {
     /**
-     * @description The ID of the consumer group that subscribes to the topic.
-     *
-     * @example GID_test_group_id
-     *
      * @var string
      */
     public $consumerGroup;
 
     /**
-     * @description The ID of the instance to which the message you want to query belongs.
-     *
-     * @example MQ_INST_111111111111_DOxxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The status of the message. Valid values:
-     *
-     *   **CONSUMED**: The message is consumed.
-     *   **CONSUMED_BUT_FILTERED**: No consumer group subscribes to the message. The message is filtered out and not consumed.
-     *   **NOT_CONSUME_YET**: The message is not consumed.
-     *   **NOT_ONLINE**: The consumer group is offline.
-     *   **UNKNOWN**: The message is not consumed due to unknown reasons.
-     *
-     * @example CONSUMED
-     *
      * @var string
      */
     public $trackType;
@@ -46,17 +28,22 @@ class messageTrack extends Model
         'trackType' => 'TrackType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerGroup) {
             $res['ConsumerGroup'] = $this->consumerGroup;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->trackType) {
             $res['TrackType'] = $this->trackType;
         }
@@ -64,20 +51,22 @@ class messageTrack extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return messageTrack
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumerGroup'])) {
             $model->consumerGroup = $map['ConsumerGroup'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TrackType'])) {
             $model->trackType = $map['TrackType'];
         }

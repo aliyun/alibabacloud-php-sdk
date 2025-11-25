@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo\runningDataList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class consumerRunningDataDo extends Model
 {
     /**
-     * @description The number of messages that failed to be consumed each hour.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $failedCountPerHour;
 
     /**
-     * @description The TPS for failed message consumption.
-     *
-     * @example 0
-     *
      * @var float
      */
     public $failedTps;
 
     /**
-     * @description The TPS for successful message consumption.
-     *
-     * @example 0
-     *
      * @var float
      */
     public $okTps;
 
     /**
-     * @description The consumption RT. Unit: milliseconds.
-     *
-     * @example 0
-     *
      * @var float
      */
     public $rt;
 
     /**
-     * @description The name of the topic to which the consumer subscribes.
-     *
-     * @example test-mq_topic
-     *
      * @var string
      */
     public $topic;
@@ -60,23 +40,30 @@ class consumerRunningDataDo extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedCountPerHour) {
             $res['FailedCountPerHour'] = $this->failedCountPerHour;
         }
+
         if (null !== $this->failedTps) {
             $res['FailedTps'] = $this->failedTps;
         }
+
         if (null !== $this->okTps) {
             $res['OkTps'] = $this->okTps;
         }
+
         if (null !== $this->rt) {
             $res['Rt'] = $this->rt;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -84,26 +71,30 @@ class consumerRunningDataDo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerRunningDataDo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedCountPerHour'])) {
             $model->failedCountPerHour = $map['FailedCountPerHour'];
         }
+
         if (isset($map['FailedTps'])) {
             $model->failedTps = $map['FailedTps'];
         }
+
         if (isset($map['OkTps'])) {
             $model->okTps = $map['OkTps'];
         }
+
         if (isset($map['Rt'])) {
             $model->rt = $map['Rt'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupSubDetailResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class OnsGroupSubDetailResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-     *
-     * @example 3364E875-013B-442A-BC3C-C1A84DC6****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class OnsGroupSubDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class OnsGroupSubDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsGroupSubDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

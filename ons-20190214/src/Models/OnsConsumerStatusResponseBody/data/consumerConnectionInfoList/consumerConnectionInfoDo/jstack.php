@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\consumerConnectionInfoList\consumerConnectionInfoDo\jstack\threadTrackDo;
-use AlibabaCloud\Tea\Model;
 
 class jstack extends Model
 {
@@ -17,17 +17,24 @@ class jstack extends Model
         'threadTrackDo' => 'ThreadTrackDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->threadTrackDo)) {
+            Model::validateArray($this->threadTrackDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->threadTrackDo) {
-            $res['ThreadTrackDo'] = [];
-            if (null !== $this->threadTrackDo && \is_array($this->threadTrackDo)) {
-                $n = 0;
-                foreach ($this->threadTrackDo as $item) {
-                    $res['ThreadTrackDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->threadTrackDo)) {
+                $res['ThreadTrackDo'] = [];
+                $n1 = 0;
+                foreach ($this->threadTrackDo as $item1) {
+                    $res['ThreadTrackDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class jstack extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jstack
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ThreadTrackDo'])) {
             if (!empty($map['ThreadTrackDo'])) {
                 $model->threadTrackDo = [];
-                $n = 0;
-                foreach ($map['ThreadTrackDo'] as $item) {
-                    $model->threadTrackDo[$n++] = null !== $item ? threadTrackDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ThreadTrackDo'] as $item1) {
+                    $model->threadTrackDo[$n1] = threadTrackDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

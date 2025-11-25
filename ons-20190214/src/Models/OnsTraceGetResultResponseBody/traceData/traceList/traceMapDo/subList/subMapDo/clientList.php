@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo\subList\subMapDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo\subList\subMapDo\clientList\subClientInfoDo;
-use AlibabaCloud\Tea\Model;
 
 class clientList extends Model
 {
@@ -17,17 +17,24 @@ class clientList extends Model
         'subClientInfoDo' => 'SubClientInfoDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subClientInfoDo)) {
+            Model::validateArray($this->subClientInfoDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subClientInfoDo) {
-            $res['SubClientInfoDo'] = [];
-            if (null !== $this->subClientInfoDo && \is_array($this->subClientInfoDo)) {
-                $n = 0;
-                foreach ($this->subClientInfoDo as $item) {
-                    $res['SubClientInfoDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subClientInfoDo)) {
+                $res['SubClientInfoDo'] = [];
+                $n1 = 0;
+                foreach ($this->subClientInfoDo as $item1) {
+                    $res['SubClientInfoDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class clientList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clientList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubClientInfoDo'])) {
             if (!empty($map['SubClientInfoDo'])) {
                 $model->subClientInfoDo = [];
-                $n = 0;
-                foreach ($map['SubClientInfoDo'] as $item) {
-                    $model->subClientInfoDo[$n++] = null !== $item ? subClientInfoDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubClientInfoDo'] as $item1) {
+                    $model->subClientInfoDo[$n1] = subClientInfoDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

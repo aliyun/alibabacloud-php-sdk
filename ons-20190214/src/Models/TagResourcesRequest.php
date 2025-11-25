@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\TagResourcesRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for RocketMQ instance that contains the resource to which you want to attach tags.
-     *
-     * > This parameter is required when you attach tags to a topic or a group.
-     *
-     * @example MQ_INST_188077086902****_BXSuW61e
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The resource IDs.
-     *
-     * This parameter is required.
-     *
-     * @example TopicA
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource to which you want to attach tags. Valid values:
-     *
-     *   **INSTANCE**
-     *   **TOPIC**
-     *   **GROUP**
-     *
-     * This parameter is required.
-     *
-     * @example TOPIC
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The tags that you want to attach to the resource.
-     *
-     * This parameter is required.
-     *
      * @var tag[]
      */
     public $tag;
@@ -61,26 +35,46 @@ class TagResourcesRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,31 +82,40 @@ class TagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

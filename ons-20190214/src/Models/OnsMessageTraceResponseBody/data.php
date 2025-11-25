@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponseBody\data\messageTrack;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'messageTrack' => 'MessageTrack',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messageTrack)) {
+            Model::validateArray($this->messageTrack);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageTrack) {
-            $res['MessageTrack'] = [];
-            if (null !== $this->messageTrack && \is_array($this->messageTrack)) {
-                $n = 0;
-                foreach ($this->messageTrack as $item) {
-                    $res['MessageTrack'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messageTrack)) {
+                $res['MessageTrack'] = [];
+                $n1 = 0;
+                foreach ($this->messageTrack as $item1) {
+                    $res['MessageTrack'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageTrack'])) {
             if (!empty($map['MessageTrack'])) {
                 $model->messageTrack = [];
-                $n = 0;
-                foreach ($map['MessageTrack'] as $item) {
-                    $model->messageTrack[$n++] = null !== $item ? messageTrack::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MessageTrack'] as $item1) {
+                    $model->messageTrack[$n1] = messageTrack::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

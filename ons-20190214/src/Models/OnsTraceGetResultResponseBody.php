@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData;
-use AlibabaCloud\Tea\Model;
 
 class OnsTraceGetResultResponseBody extends Model
 {
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-     *
-     * @example 84EE24D2-851F-40D6-B99E-4D6AB909****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the message trace.
-     *
      * @var traceData
      */
     public $traceData;
@@ -29,32 +23,40 @@ class OnsTraceGetResultResponseBody extends Model
         'traceData' => 'TraceData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->traceData) {
+            $this->traceData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->traceData) {
-            $res['TraceData'] = null !== $this->traceData ? $this->traceData->toMap() : null;
+            $res['TraceData'] = null !== $this->traceData ? $this->traceData->toArray($noStream) : $this->traceData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnsTraceGetResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TraceData'])) {
             $model->traceData = traceData::fromMap($map['TraceData']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsTraceGetResultResponseBody\traceData\traceList\traceMapDo\subList\subMapDo;
-use AlibabaCloud\Tea\Model;
 
 class subList extends Model
 {
@@ -17,17 +17,24 @@ class subList extends Model
         'subMapDo' => 'SubMapDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subMapDo)) {
+            Model::validateArray($this->subMapDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subMapDo) {
-            $res['SubMapDo'] = [];
-            if (null !== $this->subMapDo && \is_array($this->subMapDo)) {
-                $n = 0;
-                foreach ($this->subMapDo as $item) {
-                    $res['SubMapDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subMapDo)) {
+                $res['SubMapDo'] = [];
+                $n1 = 0;
+                foreach ($this->subMapDo as $item1) {
+                    $res['SubMapDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class subList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubMapDo'])) {
             if (!empty($map['SubMapDo'])) {
                 $model->subMapDo = [];
-                $n = 0;
-                foreach ($map['SubMapDo'] as $item) {
-                    $model->subMapDo[$n++] = null !== $item ? subMapDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubMapDo'] as $item1) {
+                    $model->subMapDo[$n1] = subMapDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePageQueryByTopicResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessagePageQueryByTopicResponseBody\msgFoundDo\msgFoundList;
-use AlibabaCloud\Tea\Model;
 
 class msgFoundDo extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The total number of returned pages.
-     *
-     * @example 400
-     *
      * @var int
      */
     public $maxPageCount;
 
     /**
-     * @description The information about messages on the returned page. The information that is contained in this parameter is the same as the information that is returned by the [OnsMessageGetByMsgId](https://help.aliyun.com/document_detail/29607.html) operation.
-     *
      * @var msgFoundList
      */
     public $msgFoundList;
 
     /**
-     * @description The ID of the query task. The first time you call this operation to query the messages that are sent to a specified consumer group within a specified time range, this parameter is returned. You can use the task ID to query the details of messages on other returned pages.
-     *
-     * @example 0BC1310300002A9F000021E4D7A48346
-     *
      * @var string
      */
     public $taskId;
@@ -49,20 +35,29 @@ class msgFoundDo extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->msgFoundList) {
+            $this->msgFoundList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->maxPageCount) {
             $res['MaxPageCount'] = $this->maxPageCount;
         }
+
         if (null !== $this->msgFoundList) {
-            $res['MsgFoundList'] = null !== $this->msgFoundList ? $this->msgFoundList->toMap() : null;
+            $res['MsgFoundList'] = null !== $this->msgFoundList ? $this->msgFoundList->toArray($noStream) : $this->msgFoundList;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -70,23 +65,26 @@ class msgFoundDo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return msgFoundDo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['MaxPageCount'])) {
             $model->maxPageCount = $map['MaxPageCount'];
         }
+
         if (isset($map['MsgFoundList'])) {
             $model->msgFoundList = msgFoundList::fromMap($map['MsgFoundList']);
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

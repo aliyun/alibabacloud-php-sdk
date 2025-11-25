@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsInstanceCreateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the instance that you created.
-     *
-     * @example MQ_INST_188077086902****_BXSuW61e
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The edition of the instance that you created. Valid value:
-     *
-     *   **1**: Standard Edition instances
-     *
-     * @example 1
-     *
      * @var int
      */
     public $instanceType;
@@ -32,14 +22,18 @@ class data extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

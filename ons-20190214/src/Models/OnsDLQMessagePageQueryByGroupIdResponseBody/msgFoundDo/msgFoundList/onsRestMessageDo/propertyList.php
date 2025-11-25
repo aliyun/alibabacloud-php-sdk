@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsDLQMessagePageQueryByGroupIdResponseBody\msgFoundDo\msgFoundList\onsRestMessageDo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsDLQMessagePageQueryByGroupIdResponseBody\msgFoundDo\msgFoundList\onsRestMessageDo\propertyList\messageProperty;
-use AlibabaCloud\Tea\Model;
 
 class propertyList extends Model
 {
@@ -17,17 +17,24 @@ class propertyList extends Model
         'messageProperty' => 'MessageProperty',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messageProperty)) {
+            Model::validateArray($this->messageProperty);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageProperty) {
-            $res['MessageProperty'] = [];
-            if (null !== $this->messageProperty && \is_array($this->messageProperty)) {
-                $n = 0;
-                foreach ($this->messageProperty as $item) {
-                    $res['MessageProperty'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messageProperty)) {
+                $res['MessageProperty'] = [];
+                $n1 = 0;
+                foreach ($this->messageProperty as $item1) {
+                    $res['MessageProperty'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class propertyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageProperty'])) {
             if (!empty($map['MessageProperty'])) {
                 $model->messageProperty = [];
-                $n = 0;
-                foreach ($map['MessageProperty'] as $item) {
-                    $model->messageProperty[$n++] = null !== $item ? messageProperty::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MessageProperty'] as $item1) {
+                    $model->messageProperty[$n1] = messageProperty::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,34 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of the tag that is attached to the consumer group. This parameter is not required. If you configure this parameter, you must configure the **Key** parameter.**** If you configure both the Key and Value parameters, the consumer groups are filtered based on the specified tag. If you do not configure these parameters, all consumer groups are queried.
-     *
-     *   The value of this parameter cannot be an empty string.
-     *   The tag value must be 1 to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
-     *
-     * This parameter is required.
-     *
-     * @example CartService
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag that is attached to the group. This parameter is not required. If you configure this parameter, you must configure the **Key** parameter.**** If you configure both the Key and Value parameters, the consumer groups are filtered based on the specified tag. If you do not configure these parameters, all consumer groups are queried.
-     *
-     *   The value of this parameter can be an empty string.
-     *   The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
-     *
-     * This parameter is required.
-     *
-     * @example ServiceA
-     *
      * @var string
      */
     public $value;
@@ -40,14 +22,18 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -55,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

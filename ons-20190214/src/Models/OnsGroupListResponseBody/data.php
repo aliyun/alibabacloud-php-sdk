@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupListResponseBody\data\subscribeInfoDo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'subscribeInfoDo' => 'SubscribeInfoDo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subscribeInfoDo)) {
+            Model::validateArray($this->subscribeInfoDo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscribeInfoDo) {
-            $res['SubscribeInfoDo'] = [];
-            if (null !== $this->subscribeInfoDo && \is_array($this->subscribeInfoDo)) {
-                $n = 0;
-                foreach ($this->subscribeInfoDo as $item) {
-                    $res['SubscribeInfoDo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscribeInfoDo)) {
+                $res['SubscribeInfoDo'] = [];
+                $n1 = 0;
+                foreach ($this->subscribeInfoDo as $item1) {
+                    $res['SubscribeInfoDo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubscribeInfoDo'])) {
             if (!empty($map['SubscribeInfoDo'])) {
                 $model->subscribeInfoDo = [];
-                $n = 0;
-                foreach ($map['SubscribeInfoDo'] as $item) {
-                    $model->subscribeInfoDo[$n++] = null !== $item ? subscribeInfoDo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubscribeInfoDo'] as $item1) {
+                    $model->subscribeInfoDo[$n1] = subscribeInfoDo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

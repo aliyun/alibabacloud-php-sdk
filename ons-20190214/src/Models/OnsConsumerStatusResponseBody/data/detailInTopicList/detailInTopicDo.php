@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerStatusResponseBody\data\detailInTopicList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class detailInTopicDo extends Model
 {
     /**
-     * @description The latency of message consumption in the topic. Unit: milliseconds.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $delayTime;
 
     /**
-     * @description The most recent point in time when a message was consumed.
-     *
-     * The value of this parameter is a UNIX timestamp in milliseconds.
-     *
-     * @example 1570701259403
-     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
-     * @description The topic name.
-     *
-     * @example test-mq_topic
-     *
      * @var string
      */
     public $topic;
 
     /**
-     * @description The number of accumulated messages in the topic.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $totalDiff;
@@ -52,20 +34,26 @@ class detailInTopicDo extends Model
         'totalDiff' => 'TotalDiff',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
         }
+
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
+
         if (null !== $this->totalDiff) {
             $res['TotalDiff'] = $this->totalDiff;
         }
@@ -73,23 +61,26 @@ class detailInTopicDo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInTopicDo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
         }
+
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }
+
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
         }

@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\TagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key. If you configure this parameter, you must also configure the **Value** parameter.****
-     *   The value of this parameter cannot be an empty string.
-     *   A tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. A tag key cannot start with `acs:` or `aliyun`.
-     *
-     * This parameter is required.
-     *
-     * @example FinanceDept
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag that you want to attach to the resource. If you configure this parameter, you must also configure the **Key** parameter.****
-     *   The value of this parameter can be an empty string.
-     *   A tag value must be 1 to 128 characters in length and cannot contain `http://` or `https://`. A tag value cannot start with `acs:` or `aliyun`.
-     *
-     * This parameter is required.
-     *
-     * @example FinanceJoshua
-     *
      * @var string
      */
     public $value;
@@ -38,14 +22,18 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -53,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
