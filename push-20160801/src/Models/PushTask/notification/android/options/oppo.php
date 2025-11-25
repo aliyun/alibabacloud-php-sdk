@@ -14,6 +14,16 @@ class oppo extends Model
     public $category;
 
     /**
+     * @var string
+     */
+    public $deleteIntentData;
+
+    /**
+     * @var string
+     */
+    public $intelligentIntent;
+
+    /**
      * @var int
      */
     public $notifyLevel;
@@ -34,6 +44,8 @@ class oppo extends Model
     public $privateTitleParameters;
     protected $_name = [
         'category' => 'Category',
+        'deleteIntentData' => 'DeleteIntentData',
+        'intelligentIntent' => 'IntelligentIntent',
         'notifyLevel' => 'NotifyLevel',
         'privateContentParameters' => 'PrivateContentParameters',
         'privateMsgTemplateId' => 'PrivateMsgTemplateId',
@@ -50,6 +62,14 @@ class oppo extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->deleteIntentData) {
+            $res['DeleteIntentData'] = $this->deleteIntentData;
+        }
+
+        if (null !== $this->intelligentIntent) {
+            $res['IntelligentIntent'] = $this->intelligentIntent;
         }
 
         if (null !== $this->notifyLevel) {
@@ -81,6 +101,14 @@ class oppo extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['DeleteIntentData'])) {
+            $model->deleteIntentData = $map['DeleteIntentData'];
+        }
+
+        if (isset($map['IntelligentIntent'])) {
+            $model->intelligentIntent = $map['IntelligentIntent'];
         }
 
         if (isset($map['NotifyLevel'])) {

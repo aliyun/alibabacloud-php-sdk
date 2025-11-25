@@ -1146,6 +1146,18 @@ class Push extends OpenApiClient
             @$query['AndroidOpenUrl'] = $request->androidOpenUrl;
         }
 
+        if (null !== $request->androidOppoDeleteIntentData) {
+            @$query['AndroidOppoDeleteIntentData'] = $request->androidOppoDeleteIntentData;
+        }
+
+        if (null !== $request->androidOppoIntelligentIntent) {
+            @$query['AndroidOppoIntelligentIntent'] = $request->androidOppoIntelligentIntent;
+        }
+
+        if (null !== $request->androidOppoIntentEnv) {
+            @$query['AndroidOppoIntentEnv'] = $request->androidOppoIntentEnv;
+        }
+
         if (null !== $request->androidOppoPrivateContentParametersShrink) {
             @$query['AndroidOppoPrivateContentParameters'] = $request->androidOppoPrivateContentParametersShrink;
         }

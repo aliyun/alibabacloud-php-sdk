@@ -181,6 +181,21 @@ class PushShrinkRequest extends Model
     /**
      * @var string
      */
+    public $androidOppoDeleteIntentData;
+
+    /**
+     * @var string
+     */
+    public $androidOppoIntelligentIntent;
+
+    /**
+     * @var int
+     */
+    public $androidOppoIntentEnv;
+
+    /**
+     * @var string
+     */
     public $androidOppoPrivateContentParametersShrink;
 
     /**
@@ -602,6 +617,9 @@ class PushShrinkRequest extends Model
         'androidNotifyType' => 'AndroidNotifyType',
         'androidOpenType' => 'AndroidOpenType',
         'androidOpenUrl' => 'AndroidOpenUrl',
+        'androidOppoDeleteIntentData' => 'AndroidOppoDeleteIntentData',
+        'androidOppoIntelligentIntent' => 'AndroidOppoIntelligentIntent',
+        'androidOppoIntentEnv' => 'AndroidOppoIntentEnv',
         'androidOppoPrivateContentParametersShrink' => 'AndroidOppoPrivateContentParameters',
         'androidOppoPrivateMsgTemplateId' => 'AndroidOppoPrivateMsgTemplateId',
         'androidOppoPrivateTitleParametersShrink' => 'AndroidOppoPrivateTitleParameters',
@@ -824,6 +842,18 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->androidOpenUrl) {
             $res['AndroidOpenUrl'] = $this->androidOpenUrl;
+        }
+
+        if (null !== $this->androidOppoDeleteIntentData) {
+            $res['AndroidOppoDeleteIntentData'] = $this->androidOppoDeleteIntentData;
+        }
+
+        if (null !== $this->androidOppoIntelligentIntent) {
+            $res['AndroidOppoIntelligentIntent'] = $this->androidOppoIntelligentIntent;
+        }
+
+        if (null !== $this->androidOppoIntentEnv) {
+            $res['AndroidOppoIntentEnv'] = $this->androidOppoIntentEnv;
         }
 
         if (null !== $this->androidOppoPrivateContentParametersShrink) {
@@ -1283,6 +1313,18 @@ class PushShrinkRequest extends Model
 
         if (isset($map['AndroidOpenUrl'])) {
             $model->androidOpenUrl = $map['AndroidOpenUrl'];
+        }
+
+        if (isset($map['AndroidOppoDeleteIntentData'])) {
+            $model->androidOppoDeleteIntentData = $map['AndroidOppoDeleteIntentData'];
+        }
+
+        if (isset($map['AndroidOppoIntelligentIntent'])) {
+            $model->androidOppoIntelligentIntent = $map['AndroidOppoIntelligentIntent'];
+        }
+
+        if (isset($map['AndroidOppoIntentEnv'])) {
+            $model->androidOppoIntentEnv = $map['AndroidOppoIntentEnv'];
         }
 
         if (isset($map['AndroidOppoPrivateContentParameters'])) {
