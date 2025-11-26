@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DescribeMetricListRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DescribeMetricListResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotStreamResponseRequest;
@@ -429,6 +431,79 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->deleteAlertStrategyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询指标.
+     *
+     * @param request - DescribeMetricListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instance) {
+            @$query['instance'] = $request->instance;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['metricName'] = $request->metricName;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetricList',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/openapi/proxy/get/describeMetricList',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指标.
+     *
+     * @param request - DescribeMetricListRequest
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeMetricListWithOptions($request, $headers, $runtime);
     }
 
     /**

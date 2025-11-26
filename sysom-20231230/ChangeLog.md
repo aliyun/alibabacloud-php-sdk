@@ -1,3 +1,7 @@
+2025-11-26 Version: 1.10.0
+- Support API DescribeMetricList.
+
+
 2025-11-03 Version: 1.9.5
 - Update API CreateAlertStrategy: add request parameters body.k8sLabel.
 - Update API GetAgentTask: add response parameters Body.data.status.
