@@ -12340,6 +12340,10 @@ class Polardb extends OpenApiClient
             @$query['DBName'] = $request->DBName;
         }
 
+        if (null !== $request->extensionName) {
+            @$query['ExtensionName'] = $request->extensionName;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }

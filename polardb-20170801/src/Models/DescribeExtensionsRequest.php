@@ -21,6 +21,11 @@ class DescribeExtensionsRequest extends Model
     /**
      * @var string
      */
+    public $extensionName;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -40,6 +45,7 @@ class DescribeExtensionsRequest extends Model
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'DBName' => 'DBName',
+        'extensionName' => 'ExtensionName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -60,6 +66,10 @@ class DescribeExtensionsRequest extends Model
 
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->extensionName) {
+            $res['ExtensionName'] = $this->extensionName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -95,6 +105,10 @@ class DescribeExtensionsRequest extends Model
 
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['ExtensionName'])) {
+            $model->extensionName = $map['ExtensionName'];
         }
 
         if (isset($map['OwnerAccount'])) {
