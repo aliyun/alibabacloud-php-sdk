@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForView\pushingSetting;
 
-class SubscriptionForView extends Model
+class IncidentEscalationPolicyForView extends Model
 {
     /**
      * @var string
@@ -25,29 +24,29 @@ class SubscriptionForView extends Model
     public $enable;
 
     /**
-     * @var FilterSetting
+     * @var IncidentEscalationStageForView[]
      */
-    public $filterSetting;
+    public $escalationStageList;
 
     /**
      * @var string
      */
-    public $notifyStrategyId;
-
-    /**
-     * @var pushingSetting
-     */
-    public $pushingSetting;
+    public $name;
 
     /**
      * @var string
      */
-    public $subscriptionId;
+    public $ownerType;
 
     /**
      * @var string
      */
-    public $subscriptionName;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $source;
 
     /**
      * @var string
@@ -67,29 +66,32 @@ class SubscriptionForView extends Model
     /**
      * @var string
      */
+    public $uuid;
+
+    /**
+     * @var string
+     */
     public $workspace;
     protected $_name = [
         'createTime' => 'createTime',
         'description' => 'description',
         'enable' => 'enable',
-        'filterSetting' => 'filterSetting',
-        'notifyStrategyId' => 'notifyStrategyId',
-        'pushingSetting' => 'pushingSetting',
-        'subscriptionId' => 'subscriptionId',
-        'subscriptionName' => 'subscriptionName',
+        'escalationStageList' => 'escalationStageList',
+        'name' => 'name',
+        'ownerType' => 'ownerType',
+        'regionId' => 'regionId',
+        'source' => 'source',
         'syncFromType' => 'syncFromType',
         'updateTime' => 'updateTime',
         'userId' => 'userId',
+        'uuid' => 'uuid',
         'workspace' => 'workspace',
     ];
 
     public function validate()
     {
-        if (null !== $this->filterSetting) {
-            $this->filterSetting->validate();
-        }
-        if (null !== $this->pushingSetting) {
-            $this->pushingSetting->validate();
+        if (\is_array($this->escalationStageList)) {
+            Model::validateArray($this->escalationStageList);
         }
         parent::validate();
     }
@@ -109,24 +111,31 @@ class SubscriptionForView extends Model
             $res['enable'] = $this->enable;
         }
 
-        if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
+        if (null !== $this->escalationStageList) {
+            if (\is_array($this->escalationStageList)) {
+                $res['escalationStageList'] = [];
+                $n1 = 0;
+                foreach ($this->escalationStageList as $item1) {
+                    $res['escalationStageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->notifyStrategyId) {
-            $res['notifyStrategyId'] = $this->notifyStrategyId;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
-        if (null !== $this->pushingSetting) {
-            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
+        if (null !== $this->ownerType) {
+            $res['ownerType'] = $this->ownerType;
         }
 
-        if (null !== $this->subscriptionId) {
-            $res['subscriptionId'] = $this->subscriptionId;
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
-        if (null !== $this->subscriptionName) {
-            $res['subscriptionName'] = $this->subscriptionName;
+        if (null !== $this->source) {
+            $res['source'] = $this->source;
         }
 
         if (null !== $this->syncFromType) {
@@ -139,6 +148,10 @@ class SubscriptionForView extends Model
 
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
+        }
+
+        if (null !== $this->uuid) {
+            $res['uuid'] = $this->uuid;
         }
 
         if (null !== $this->workspace) {
@@ -168,24 +181,31 @@ class SubscriptionForView extends Model
             $model->enable = $map['enable'];
         }
 
-        if (isset($map['filterSetting'])) {
-            $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
+        if (isset($map['escalationStageList'])) {
+            if (!empty($map['escalationStageList'])) {
+                $model->escalationStageList = [];
+                $n1 = 0;
+                foreach ($map['escalationStageList'] as $item1) {
+                    $model->escalationStageList[$n1] = IncidentEscalationStageForView::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['notifyStrategyId'])) {
-            $model->notifyStrategyId = $map['notifyStrategyId'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
-        if (isset($map['pushingSetting'])) {
-            $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
+        if (isset($map['ownerType'])) {
+            $model->ownerType = $map['ownerType'];
         }
 
-        if (isset($map['subscriptionId'])) {
-            $model->subscriptionId = $map['subscriptionId'];
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
-        if (isset($map['subscriptionName'])) {
-            $model->subscriptionName = $map['subscriptionName'];
+        if (isset($map['source'])) {
+            $model->source = $map['source'];
         }
 
         if (isset($map['syncFromType'])) {
@@ -198,6 +218,10 @@ class SubscriptionForView extends Model
 
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
+        }
+
+        if (isset($map['uuid'])) {
+            $model->uuid = $map['uuid'];
         }
 
         if (isset($map['workspace'])) {

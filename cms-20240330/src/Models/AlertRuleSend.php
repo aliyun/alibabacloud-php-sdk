@@ -19,12 +19,18 @@ class AlertRuleSend extends Model
     public $notification;
 
     /**
+     * @var string[]
+     */
+    public $notifyStrategies;
+
+    /**
      * @var bool
      */
     public $sendToArms;
     protected $_name = [
         'action' => 'action',
         'notification' => 'notification',
+        'notifyStrategies' => 'notifyStrategies',
         'sendToArms' => 'sendToArms',
     ];
 
@@ -35,6 +41,9 @@ class AlertRuleSend extends Model
         }
         if (null !== $this->notification) {
             $this->notification->validate();
+        }
+        if (\is_array($this->notifyStrategies)) {
+            Model::validateArray($this->notifyStrategies);
         }
         parent::validate();
     }
@@ -48,6 +57,17 @@ class AlertRuleSend extends Model
 
         if (null !== $this->notification) {
             $res['notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
+        }
+
+        if (null !== $this->notifyStrategies) {
+            if (\is_array($this->notifyStrategies)) {
+                $res['notifyStrategies'] = [];
+                $n1 = 0;
+                foreach ($this->notifyStrategies as $item1) {
+                    $res['notifyStrategies'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->sendToArms) {
@@ -71,6 +91,17 @@ class AlertRuleSend extends Model
 
         if (isset($map['notification'])) {
             $model->notification = AlertRuleNotification::fromMap($map['notification']);
+        }
+
+        if (isset($map['notifyStrategies'])) {
+            if (!empty($map['notifyStrategies'])) {
+                $model->notifyStrategies = [];
+                $n1 = 0;
+                foreach ($map['notifyStrategies'] as $item1) {
+                    $model->notifyStrategies[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['sendToArms'])) {

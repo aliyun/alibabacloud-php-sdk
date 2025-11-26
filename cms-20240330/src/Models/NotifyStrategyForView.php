@@ -7,10 +7,17 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\customTemplateEntries;
 use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\groupingSetting;
+use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\pushingSetting;
+use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\repeatNotifySetting;
 use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForView\routes;
 
 class NotifyStrategyForView extends Model
 {
+    /**
+     * @var int
+     */
+    public $autoRecoverSeconds;
+
     /**
      * @var string
      */
@@ -32,6 +39,11 @@ class NotifyStrategyForView extends Model
     public $enable;
 
     /**
+     * @var FilterSetting
+     */
+    public $filterSetting;
+
+    /**
      * @var groupingSetting
      */
     public $groupingSetting;
@@ -40,6 +52,11 @@ class NotifyStrategyForView extends Model
      * @var bool
      */
     public $ignoreRestoredNotification;
+
+    /**
+     * @var mixed[]
+     */
+    public $incidentEscalationPolicies;
 
     /**
      * @var string
@@ -52,9 +69,29 @@ class NotifyStrategyForView extends Model
     public $notifyStrategyName;
 
     /**
+     * @var pushingSetting
+     */
+    public $pushingSetting;
+
+    /**
+     * @var string[]
+     */
+    public $receiverNames;
+
+    /**
+     * @var repeatNotifySetting
+     */
+    public $repeatNotifySetting;
+
+    /**
      * @var routes[]
      */
     public $routes;
+
+    /**
+     * @var string
+     */
+    public $syncFromType;
 
     /**
      * @var string
@@ -70,19 +107,32 @@ class NotifyStrategyForView extends Model
      * @var string
      */
     public $workspace;
+
+    /**
+     * @var WorkspaceFilterSetting
+     */
+    public $workspaceFilterSetting;
     protected $_name = [
+        'autoRecoverSeconds' => 'autoRecoverSeconds',
         'createTime' => 'createTime',
         'customTemplateEntries' => 'customTemplateEntries',
         'description' => 'description',
         'enable' => 'enable',
+        'filterSetting' => 'filterSetting',
         'groupingSetting' => 'groupingSetting',
         'ignoreRestoredNotification' => 'ignoreRestoredNotification',
+        'incidentEscalationPolicies' => 'incidentEscalationPolicies',
         'notifyStrategyId' => 'notifyStrategyId',
         'notifyStrategyName' => 'notifyStrategyName',
+        'pushingSetting' => 'pushingSetting',
+        'receiverNames' => 'receiverNames',
+        'repeatNotifySetting' => 'repeatNotifySetting',
         'routes' => 'routes',
+        'syncFromType' => 'syncFromType',
         'updateTime' => 'updateTime',
         'userId' => 'userId',
         'workspace' => 'workspace',
+        'workspaceFilterSetting' => 'workspaceFilterSetting',
     ];
 
     public function validate()
@@ -90,11 +140,29 @@ class NotifyStrategyForView extends Model
         if (\is_array($this->customTemplateEntries)) {
             Model::validateArray($this->customTemplateEntries);
         }
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
         if (null !== $this->groupingSetting) {
             $this->groupingSetting->validate();
         }
+        if (\is_array($this->incidentEscalationPolicies)) {
+            Model::validateArray($this->incidentEscalationPolicies);
+        }
+        if (null !== $this->pushingSetting) {
+            $this->pushingSetting->validate();
+        }
+        if (\is_array($this->receiverNames)) {
+            Model::validateArray($this->receiverNames);
+        }
+        if (null !== $this->repeatNotifySetting) {
+            $this->repeatNotifySetting->validate();
+        }
         if (\is_array($this->routes)) {
             Model::validateArray($this->routes);
+        }
+        if (null !== $this->workspaceFilterSetting) {
+            $this->workspaceFilterSetting->validate();
         }
         parent::validate();
     }
@@ -102,6 +170,10 @@ class NotifyStrategyForView extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRecoverSeconds) {
+            $res['autoRecoverSeconds'] = $this->autoRecoverSeconds;
+        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -125,6 +197,10 @@ class NotifyStrategyForView extends Model
             $res['enable'] = $this->enable;
         }
 
+        if (null !== $this->filterSetting) {
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
+        }
+
         if (null !== $this->groupingSetting) {
             $res['groupingSetting'] = null !== $this->groupingSetting ? $this->groupingSetting->toArray($noStream) : $this->groupingSetting;
         }
@@ -133,12 +209,42 @@ class NotifyStrategyForView extends Model
             $res['ignoreRestoredNotification'] = $this->ignoreRestoredNotification;
         }
 
+        if (null !== $this->incidentEscalationPolicies) {
+            if (\is_array($this->incidentEscalationPolicies)) {
+                $res['incidentEscalationPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->incidentEscalationPolicies as $item1) {
+                    $res['incidentEscalationPolicies'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->notifyStrategyId) {
             $res['notifyStrategyId'] = $this->notifyStrategyId;
         }
 
         if (null !== $this->notifyStrategyName) {
             $res['notifyStrategyName'] = $this->notifyStrategyName;
+        }
+
+        if (null !== $this->pushingSetting) {
+            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
+        }
+
+        if (null !== $this->receiverNames) {
+            if (\is_array($this->receiverNames)) {
+                $res['receiverNames'] = [];
+                $n1 = 0;
+                foreach ($this->receiverNames as $item1) {
+                    $res['receiverNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->repeatNotifySetting) {
+            $res['repeatNotifySetting'] = null !== $this->repeatNotifySetting ? $this->repeatNotifySetting->toArray($noStream) : $this->repeatNotifySetting;
         }
 
         if (null !== $this->routes) {
@@ -150,6 +256,10 @@ class NotifyStrategyForView extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->syncFromType) {
+            $res['syncFromType'] = $this->syncFromType;
         }
 
         if (null !== $this->updateTime) {
@@ -164,6 +274,10 @@ class NotifyStrategyForView extends Model
             $res['workspace'] = $this->workspace;
         }
 
+        if (null !== $this->workspaceFilterSetting) {
+            $res['workspaceFilterSetting'] = null !== $this->workspaceFilterSetting ? $this->workspaceFilterSetting->toArray($noStream) : $this->workspaceFilterSetting;
+        }
+
         return $res;
     }
 
@@ -175,6 +289,10 @@ class NotifyStrategyForView extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['autoRecoverSeconds'])) {
+            $model->autoRecoverSeconds = $map['autoRecoverSeconds'];
+        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -198,6 +316,10 @@ class NotifyStrategyForView extends Model
             $model->enable = $map['enable'];
         }
 
+        if (isset($map['filterSetting'])) {
+            $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
+        }
+
         if (isset($map['groupingSetting'])) {
             $model->groupingSetting = groupingSetting::fromMap($map['groupingSetting']);
         }
@@ -206,12 +328,42 @@ class NotifyStrategyForView extends Model
             $model->ignoreRestoredNotification = $map['ignoreRestoredNotification'];
         }
 
+        if (isset($map['incidentEscalationPolicies'])) {
+            if (!empty($map['incidentEscalationPolicies'])) {
+                $model->incidentEscalationPolicies = [];
+                $n1 = 0;
+                foreach ($map['incidentEscalationPolicies'] as $item1) {
+                    $model->incidentEscalationPolicies[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['notifyStrategyId'])) {
             $model->notifyStrategyId = $map['notifyStrategyId'];
         }
 
         if (isset($map['notifyStrategyName'])) {
             $model->notifyStrategyName = $map['notifyStrategyName'];
+        }
+
+        if (isset($map['pushingSetting'])) {
+            $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
+        }
+
+        if (isset($map['receiverNames'])) {
+            if (!empty($map['receiverNames'])) {
+                $model->receiverNames = [];
+                $n1 = 0;
+                foreach ($map['receiverNames'] as $item1) {
+                    $model->receiverNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['repeatNotifySetting'])) {
+            $model->repeatNotifySetting = repeatNotifySetting::fromMap($map['repeatNotifySetting']);
         }
 
         if (isset($map['routes'])) {
@@ -225,6 +377,10 @@ class NotifyStrategyForView extends Model
             }
         }
 
+        if (isset($map['syncFromType'])) {
+            $model->syncFromType = $map['syncFromType'];
+        }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
@@ -235,6 +391,10 @@ class NotifyStrategyForView extends Model
 
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
+        }
+
+        if (isset($map['workspaceFilterSetting'])) {
+            $model->workspaceFilterSetting = WorkspaceFilterSetting::fromMap($map['workspaceFilterSetting']);
         }
 
         return $model;

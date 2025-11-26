@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
@@ -28,6 +29,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
@@ -40,8 +42,15 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataHeaders;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
@@ -49,6 +58,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
@@ -75,6 +86,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyDashboardsRequest
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyDashboardsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyPodMonitorsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyPodMonitorsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsRequest;
@@ -106,6 +119,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusUserSettingRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusUserSettingResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRequest;
@@ -389,6 +404,54 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createAggTaskGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建云资源中心.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudResourceResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateCloudResourceResponse
+     */
+    public function createCloudResourceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudResource',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cloudresource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云资源中心.
+     *
+     * @returns CreateCloudResourceResponse
+     *
+     * @return CreateCloudResourceResponse
+     */
+    public function createCloudResource()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCloudResourceWithOptions($headers, $runtime);
     }
 
     /**
@@ -1150,6 +1213,54 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除云资源中心.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudResourceResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteCloudResourceResponse
+     */
+    public function deleteCloudResourceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudResource',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cloudresource',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除云资源中心.
+     *
+     * @returns DeleteCloudResourceResponse
+     *
+     * @return DeleteCloudResourceResponse
+     */
+    public function deleteCloudResource()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
      * Delete EntityStore related storage.
      *
      * @param headers - map
@@ -1679,6 +1790,67 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询地域信息列表.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询地域信息列表.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Check addon release (view connection status).
      *
      * @param headers - map
@@ -1782,6 +1954,188 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * 查询云资源中心.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudResourceResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCloudResourceResponse
+     */
+    public function getCloudResourceWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCloudResource',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cloudresource',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云资源中心.
+     *
+     * @returns GetCloudResourceResponse
+     *
+     * @return GetCloudResourceResponse
+     */
+    public function getCloudResource()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 查询云资源中心数据.
+     *
+     * @param request - GetCloudResourceDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudResourceDataResponse
+     *
+     * @param GetCloudResourceDataRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetCloudResourceDataResponse
+     */
+    public function getCloudResourceDataWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCloudResourceData',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cloudresource/data',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCloudResourceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云资源中心数据.
+     *
+     * @param request - GetCloudResourceDataRequest
+     *
+     * @returns GetCloudResourceDataResponse
+     *
+     * @param GetCloudResourceDataRequest $request
+     *
+     * @return GetCloudResourceDataResponse
+     */
+    public function getCloudResourceData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCloudResourceDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取云监控开通状态
+     *
+     * @param request - GetCmsServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCmsServiceResponse
+     *
+     * @param GetCmsServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCmsServiceResponse
+     */
+    public function getCmsServiceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->product) {
+            @$query['product'] = $request->product;
+        }
+
+        if (null !== $request->service) {
+            @$query['service'] = $request->service;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCmsService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cmsservice',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取云监控开通状态
+     *
+     * @param request - GetCmsServiceRequest
+     *
+     * @returns GetCmsServiceResponse
+     *
+     * @param GetCmsServiceRequest $request
+     *
+     * @return GetCmsServiceResponse
+     */
+    public function getCmsService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCmsServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2037,6 +2391,67 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getPrometheusInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询指定环境实例.
+     *
+     * @param request - GetPrometheusUserSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPrometheusUserSettingResponse
+     *
+     * @param GetPrometheusUserSettingRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPrometheusUserSettingResponse
+     */
+    public function getPrometheusUserSettingWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPrometheusUserSetting',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/prometheus-user-setting',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPrometheusUserSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定环境实例.
+     *
+     * @param request - GetPrometheusUserSettingRequest
+     *
+     * @returns GetPrometheusUserSettingResponse
+     *
+     * @param GetPrometheusUserSettingRequest $request
+     *
+     * @return GetPrometheusUserSettingResponse
+     */
+    public function getPrometheusUserSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPrometheusUserSettingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3056,6 +3471,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 获取接入中心策略的存储要求信息.
+     *
+     * @param request - ListIntegrationPolicyServiceMonitorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntegrationPolicyServiceMonitorsResponse
+     *
+     * @param string                                      $policyId
+     * @param ListIntegrationPolicyServiceMonitorsRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListIntegrationPolicyServiceMonitorsResponse
+     */
+    public function listIntegrationPolicyServiceMonitorsWithOptions($policyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addonReleaseName) {
+            @$query['addonReleaseName'] = $request->addonReleaseName;
+        }
+
+        if (null !== $request->encryptYaml) {
+            @$query['encryptYaml'] = $request->encryptYaml;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIntegrationPolicyServiceMonitors',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-policies/' . Url::percentEncode($policyId) . '/service-monitors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntegrationPolicyServiceMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取接入中心策略的存储要求信息.
+     *
+     * @param request - ListIntegrationPolicyServiceMonitorsRequest
+     *
+     * @returns ListIntegrationPolicyServiceMonitorsResponse
+     *
+     * @param string                                      $policyId
+     * @param ListIntegrationPolicyServiceMonitorsRequest $request
+     *
+     * @return ListIntegrationPolicyServiceMonitorsResponse
+     */
+    public function listIntegrationPolicyServiceMonitors($policyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIntegrationPolicyServiceMonitorsWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
      * Get Storage Requirements Information for Access Center Policy.
      *
      * @remarks
@@ -4058,7 +4544,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新订阅.
+     * 更新通知策略.
      *
      * @param request - UpdateNotifyStrategyRequest
      * @param headers - map
@@ -4102,7 +4588,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新订阅.
+     * 更新通知策略.
      *
      * @param request - UpdateNotifyStrategyRequest
      *
@@ -4228,6 +4714,69 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updatePrometheusInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新Prom实例信息.
+     *
+     * @param request - UpdatePrometheusUserSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePrometheusUserSettingResponse
+     *
+     * @param string                             $settingKey
+     * @param UpdatePrometheusUserSettingRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdatePrometheusUserSettingResponse
+     */
+    public function updatePrometheusUserSettingWithOptions($settingKey, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->settingValue) {
+            @$query['settingValue'] = $request->settingValue;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePrometheusUserSetting',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/prometheus-user-setting/' . Url::percentEncode($settingKey) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePrometheusUserSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Prom实例信息.
+     *
+     * @param request - UpdatePrometheusUserSettingRequest
+     *
+     * @returns UpdatePrometheusUserSettingResponse
+     *
+     * @param string                             $settingKey
+     * @param UpdatePrometheusUserSettingRequest $request
+     *
+     * @return UpdatePrometheusUserSettingResponse
+     */
+    public function updatePrometheusUserSetting($settingKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePrometheusUserSettingWithOptions($settingKey, $request, $headers, $runtime);
     }
 
     /**
