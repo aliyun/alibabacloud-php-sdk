@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\Application;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ApplicationConfig;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CollationTimeZone;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta\scalingPolicies;
 use AlibabaCloud\SDK\Emr\V20210320\Models\NodeAttributes;
 use AlibabaCloud\SDK\Emr\V20210320\Models\NodeGroup;
@@ -50,6 +51,11 @@ class clusterCloneMeta extends Model
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @var CollationTimeZone
+     */
+    public $collationTimeZone;
 
     /**
      * @var bool
@@ -128,6 +134,7 @@ class clusterCloneMeta extends Model
         'clusterName' => 'ClusterName',
         'clusterState' => 'ClusterState',
         'clusterType' => 'ClusterType',
+        'collationTimeZone' => 'CollationTimeZone',
         'deletionProtection' => 'DeletionProtection',
         'deployMode' => 'DeployMode',
         'emrDefaultRole' => 'EmrDefaultRole',
@@ -154,6 +161,9 @@ class clusterCloneMeta extends Model
         }
         if (\is_array($this->bootstrapScripts)) {
             Model::validateArray($this->bootstrapScripts);
+        }
+        if (null !== $this->collationTimeZone) {
+            $this->collationTimeZone->validate();
         }
         if (null !== $this->nodeAttributes) {
             $this->nodeAttributes->validate();
@@ -223,6 +233,10 @@ class clusterCloneMeta extends Model
 
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+
+        if (null !== $this->collationTimeZone) {
+            $res['CollationTimeZone'] = null !== $this->collationTimeZone ? $this->collationTimeZone->toArray($noStream) : $this->collationTimeZone;
         }
 
         if (null !== $this->deletionProtection) {
@@ -360,6 +374,10 @@ class clusterCloneMeta extends Model
 
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+
+        if (isset($map['CollationTimeZone'])) {
+            $model->collationTimeZone = CollationTimeZone::fromMap($map['CollationTimeZone']);
         }
 
         if (isset($map['DeletionProtection'])) {

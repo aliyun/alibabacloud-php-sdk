@@ -149,6 +149,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAutoRenewRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAutoRenewResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
@@ -1006,6 +1008,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * 导出应用服务配置.
+     *
      * @param request - ExportApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1028,12 +1032,24 @@ class Emr extends OpenApiClient
             @$query['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->configScope) {
+            @$query['ConfigScope'] = $request->configScope;
+        }
+
         if (null !== $request->exportMode) {
             @$query['ExportMode'] = $request->exportMode;
         }
 
         if (null !== $request->fileFormat) {
             @$query['FileFormat'] = $request->fileFormat;
+        }
+
+        if (null !== $request->nodeGroupIds) {
+            @$query['NodeGroupIds'] = $request->nodeGroupIds;
+        }
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
         }
 
         if (null !== $request->regionId) {
@@ -1059,6 +1075,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * 导出应用服务配置.
+     *
      * @param request - ExportApplicationConfigsRequest
      *
      * @returns ExportApplicationConfigsResponse
@@ -5937,6 +5955,83 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClusterAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateClusterAutoRenewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateClusterAutoRenewResponse
+     *
+     * @param UpdateClusterAutoRenewRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateClusterAutoRenewResponse
+     */
+    public function updateClusterAutoRenewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenewInstances) {
+            @$query['AutoRenewInstances'] = $request->autoRenewInstances;
+        }
+
+        if (null !== $request->clusterAutoRenew) {
+            @$query['ClusterAutoRenew'] = $request->clusterAutoRenew;
+        }
+
+        if (null !== $request->clusterAutoRenewDuration) {
+            @$query['ClusterAutoRenewDuration'] = $request->clusterAutoRenewDuration;
+        }
+
+        if (null !== $request->clusterAutoRenewDurationUnit) {
+            @$query['ClusterAutoRenewDurationUnit'] = $request->clusterAutoRenewDurationUnit;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->renewAllInstances) {
+            @$query['RenewAllInstances'] = $request->renewAllInstances;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateClusterAutoRenew',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateClusterAutoRenewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateClusterAutoRenewRequest
+     *
+     * @returns UpdateClusterAutoRenewResponse
+     *
+     * @param UpdateClusterAutoRenewRequest $request
+     *
+     * @return UpdateClusterAutoRenewResponse
+     */
+    public function updateClusterAutoRenew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClusterAutoRenewWithOptions($request, $runtime);
     }
 
     /**

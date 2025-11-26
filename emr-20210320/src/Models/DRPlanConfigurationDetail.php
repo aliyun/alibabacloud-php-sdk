@@ -102,6 +102,11 @@ class DRPlanConfigurationDetail extends Model
     /**
      * @var string
      */
+    public $scalingTimeZone;
+
+    /**
+     * @var string
+     */
     public $securityMode;
 
     /**
@@ -132,6 +137,7 @@ class DRPlanConfigurationDetail extends Model
         'releaseVersion' => 'ReleaseVersion',
         'resourceGroupId' => 'ResourceGroupId',
         'scalingPolicies' => 'ScalingPolicies',
+        'scalingTimeZone' => 'ScalingTimeZone',
         'securityMode' => 'SecurityMode',
         'subscriptionConfig' => 'SubscriptionConfig',
         'tags' => 'Tags',
@@ -279,6 +285,10 @@ class DRPlanConfigurationDetail extends Model
             }
         }
 
+        if (null !== $this->scalingTimeZone) {
+            $res['ScalingTimeZone'] = $this->scalingTimeZone;
+        }
+
         if (null !== $this->securityMode) {
             $res['SecurityMode'] = $this->securityMode;
         }
@@ -414,6 +424,10 @@ class DRPlanConfigurationDetail extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ScalingTimeZone'])) {
+            $model->scalingTimeZone = $map['ScalingTimeZone'];
         }
 
         if (isset($map['SecurityMode'])) {

@@ -21,6 +21,11 @@ class ExportApplicationConfigsRequest extends Model
     /**
      * @var string
      */
+    public $configScope;
+
+    /**
+     * @var string
+     */
     public $exportMode;
 
     /**
@@ -29,14 +34,27 @@ class ExportApplicationConfigsRequest extends Model
     public $fileFormat;
 
     /**
+     * @var string[]
+     */
+    public $nodeGroupIds;
+
+    /**
+     * @var string[]
+     */
+    public $nodeIds;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'applicationConfigFiles' => 'ApplicationConfigFiles',
         'clusterId' => 'ClusterId',
+        'configScope' => 'ConfigScope',
         'exportMode' => 'ExportMode',
         'fileFormat' => 'FileFormat',
+        'nodeGroupIds' => 'NodeGroupIds',
+        'nodeIds' => 'NodeIds',
         'regionId' => 'RegionId',
     ];
 
@@ -44,6 +62,12 @@ class ExportApplicationConfigsRequest extends Model
     {
         if (\is_array($this->applicationConfigFiles)) {
             Model::validateArray($this->applicationConfigFiles);
+        }
+        if (\is_array($this->nodeGroupIds)) {
+            Model::validateArray($this->nodeGroupIds);
+        }
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
         }
         parent::validate();
     }
@@ -66,12 +90,38 @@ class ExportApplicationConfigsRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
+        if (null !== $this->configScope) {
+            $res['ConfigScope'] = $this->configScope;
+        }
+
         if (null !== $this->exportMode) {
             $res['ExportMode'] = $this->exportMode;
         }
 
         if (null !== $this->fileFormat) {
             $res['FileFormat'] = $this->fileFormat;
+        }
+
+        if (null !== $this->nodeGroupIds) {
+            if (\is_array($this->nodeGroupIds)) {
+                $res['NodeGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroupIds as $item1) {
+                    $res['NodeGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->nodeIds) {
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -104,12 +154,38 @@ class ExportApplicationConfigsRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
+        if (isset($map['ConfigScope'])) {
+            $model->configScope = $map['ConfigScope'];
+        }
+
         if (isset($map['ExportMode'])) {
             $model->exportMode = $map['ExportMode'];
         }
 
         if (isset($map['FileFormat'])) {
             $model->fileFormat = $map['FileFormat'];
+        }
+
+        if (isset($map['NodeGroupIds'])) {
+            if (!empty($map['NodeGroupIds'])) {
+                $model->nodeGroupIds = [];
+                $n1 = 0;
+                foreach ($map['NodeGroupIds'] as $item1) {
+                    $model->nodeGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['NodeIds'])) {
+            if (!empty($map['NodeIds'])) {
+                $model->nodeIds = [];
+                $n1 = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyResponseBody\scalingPolicy;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emr\V20210320\Models\CollationTimeZone;
 use AlibabaCloud\SDK\Emr\V20210320\Models\MetricsTrigger;
 use AlibabaCloud\SDK\Emr\V20210320\Models\TimeTrigger;
 
@@ -24,6 +25,11 @@ class scalingRules extends Model
      * @var int
      */
     public $adjustmentValue;
+
+    /**
+     * @var CollationTimeZone
+     */
+    public $collationTimeZone;
 
     /**
      * @var MetricsTrigger
@@ -48,6 +54,7 @@ class scalingRules extends Model
         'activityType' => 'ActivityType',
         'adjustmentType' => 'AdjustmentType',
         'adjustmentValue' => 'AdjustmentValue',
+        'collationTimeZone' => 'CollationTimeZone',
         'metricsTrigger' => 'MetricsTrigger',
         'ruleName' => 'RuleName',
         'timeTrigger' => 'TimeTrigger',
@@ -56,6 +63,9 @@ class scalingRules extends Model
 
     public function validate()
     {
+        if (null !== $this->collationTimeZone) {
+            $this->collationTimeZone->validate();
+        }
         if (null !== $this->metricsTrigger) {
             $this->metricsTrigger->validate();
         }
@@ -78,6 +88,10 @@ class scalingRules extends Model
 
         if (null !== $this->adjustmentValue) {
             $res['AdjustmentValue'] = $this->adjustmentValue;
+        }
+
+        if (null !== $this->collationTimeZone) {
+            $res['CollationTimeZone'] = null !== $this->collationTimeZone ? $this->collationTimeZone->toArray($noStream) : $this->collationTimeZone;
         }
 
         if (null !== $this->metricsTrigger) {
@@ -117,6 +131,10 @@ class scalingRules extends Model
 
         if (isset($map['AdjustmentValue'])) {
             $model->adjustmentValue = $map['AdjustmentValue'];
+        }
+
+        if (isset($map['CollationTimeZone'])) {
+            $model->collationTimeZone = CollationTimeZone::fromMap($map['CollationTimeZone']);
         }
 
         if (isset($map['MetricsTrigger'])) {
