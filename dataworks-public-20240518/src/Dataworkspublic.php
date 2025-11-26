@@ -79,6 +79,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
@@ -2989,6 +2992,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建身份凭证
+     *
+     * @param tmpReq - CreateIdentifyCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIdentifyCredentialResponse
+     *
+     * @param CreateIdentifyCredentialRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateIdentifyCredentialResponse
+     */
+    public function createIdentifyCredentialWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateIdentifyCredentialShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->identifyCredential) {
+            $request->identifyCredentialShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->identifyCredential, 'IdentifyCredential', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->identifyCredentialShrink) {
+            @$body['IdentifyCredential'] = $request->identifyCredentialShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateIdentifyCredential',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateIdentifyCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建身份凭证
+     *
+     * @param Request - CreateIdentifyCredentialRequest
+     *
+     * @returns CreateIdentifyCredentialResponse
+     *
+     * @param CreateIdentifyCredentialRequest $request
+     *
+     * @return CreateIdentifyCredentialResponse
+     */
+    public function createIdentifyCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIdentifyCredentialWithOptions($request, $runtime);
     }
 
     /**
