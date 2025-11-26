@@ -27,6 +27,11 @@ class Permission extends Model
     /**
      * @var string
      */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
     public $function;
 
     /**
@@ -52,6 +57,7 @@ class Permission extends Model
         'access' => 'access',
         'columns' => 'columns',
         'database' => 'database',
+        'expireTime' => 'expireTime',
         'function' => 'function',
         'principal' => 'principal',
         'resourceType' => 'resourceType',
@@ -80,6 +86,10 @@ class Permission extends Model
 
         if (null !== $this->database) {
             $res['database'] = $this->database;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['expireTime'] = $this->expireTime;
         }
 
         if (null !== $this->function) {
@@ -123,6 +133,10 @@ class Permission extends Model
 
         if (isset($map['database'])) {
             $model->database = $map['database'];
+        }
+
+        if (isset($map['expireTime'])) {
+            $model->expireTime = $map['expireTime'];
         }
 
         if (isset($map['function'])) {

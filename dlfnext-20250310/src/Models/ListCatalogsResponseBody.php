@@ -17,15 +17,24 @@ class ListCatalogsResponseBody extends Model
      * @var string
      */
     public $nextPageToken;
+
+    /**
+     * @var PrepayResource[]
+     */
+    public $prepayResource;
     protected $_name = [
         'catalogs' => 'catalogs',
         'nextPageToken' => 'nextPageToken',
+        'prepayResource' => 'prepayResource',
     ];
 
     public function validate()
     {
         if (\is_array($this->catalogs)) {
             Model::validateArray($this->catalogs);
+        }
+        if (\is_array($this->prepayResource)) {
+            Model::validateArray($this->prepayResource);
         }
         parent::validate();
     }
@@ -46,6 +55,17 @@ class ListCatalogsResponseBody extends Model
 
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
+        }
+
+        if (null !== $this->prepayResource) {
+            if (\is_array($this->prepayResource)) {
+                $res['prepayResource'] = [];
+                $n1 = 0;
+                foreach ($this->prepayResource as $item1) {
+                    $res['prepayResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -72,6 +92,17 @@ class ListCatalogsResponseBody extends Model
 
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
+        }
+
+        if (isset($map['prepayResource'])) {
+            if (!empty($map['prepayResource'])) {
+                $model->prepayResource = [];
+                $n1 = 0;
+                foreach ($map['prepayResource'] as $item1) {
+                    $model->prepayResource[$n1] = PrepayResource::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
