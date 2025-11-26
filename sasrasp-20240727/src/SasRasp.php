@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\SasRasp\V20240727;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SasRasp\V20240727\Models\DescribeAttackProtectionCountRequest;
 use AlibabaCloud\SDK\SasRasp\V20240727\Models\DescribeAttackProtectionCountResponse;
 use AlibabaCloud\SDK\SasRasp\V20240727\Models\DescribeAttacksRequest;
 use AlibabaCloud\SDK\SasRasp\V20240727\Models\DescribeAttacksResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class SasRasp extends OpenApiClient
 {
@@ -39,39 +37,48 @@ class SasRasp extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary DescribeAttackProtectionCount
-     *  *
-     * @param DescribeAttackProtectionCountRequest $request DescribeAttackProtectionCountRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * DescribeAttackProtectionCount.
      *
-     * @return DescribeAttackProtectionCountResponse DescribeAttackProtectionCountResponse
+     * @param request - DescribeAttackProtectionCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAttackProtectionCountResponse
+     *
+     * @param DescribeAttackProtectionCountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAttackProtectionCountResponse
      */
     public function describeAttackProtectionCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentType)) {
-            $query['AgentType'] = $request->agentType;
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAttackProtectionCount',
@@ -89,11 +96,15 @@ class SasRasp extends OpenApiClient
     }
 
     /**
-     * @summary DescribeAttackProtectionCount
-     *  *
-     * @param DescribeAttackProtectionCountRequest $request DescribeAttackProtectionCountRequest
+     * DescribeAttackProtectionCount.
      *
-     * @return DescribeAttackProtectionCountResponse DescribeAttackProtectionCountResponse
+     * @param request - DescribeAttackProtectionCountRequest
+     *
+     * @returns DescribeAttackProtectionCountResponse
+     *
+     * @param DescribeAttackProtectionCountRequest $request
+     *
+     * @return DescribeAttackProtectionCountResponse
      */
     public function describeAttackProtectionCount($request)
     {
@@ -103,78 +114,102 @@ class SasRasp extends OpenApiClient
     }
 
     /**
-     * @summary 查询攻击项
-     *  *
-     * @param DescribeAttacksRequest $request DescribeAttacksRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询攻击项.
      *
-     * @return DescribeAttacksResponse DescribeAttacksResponse
+     * @param request - DescribeAttacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAttacksResponse
+     *
+     * @param DescribeAttacksRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeAttacksResponse
      */
     public function describeAttacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentType)) {
-            $query['AgentType'] = $request->agentType;
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
         }
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->attackHostId)) {
-            $query['AttackHostId'] = $request->attackHostId;
+
+        if (null !== $request->attackHostId) {
+            @$query['AttackHostId'] = $request->attackHostId;
         }
-        if (!Utils::isUnset($request->attackType)) {
-            $query['AttackType'] = $request->attackType;
+
+        if (null !== $request->attackType) {
+            @$query['AttackType'] = $request->attackType;
         }
-        if (!Utils::isUnset($request->attackUrl)) {
-            $query['AttackUrl'] = $request->attackUrl;
+
+        if (null !== $request->attackUrl) {
+            @$query['AttackUrl'] = $request->attackUrl;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->handlerType)) {
-            $query['HandlerType'] = $request->handlerType;
+
+        if (null !== $request->handlerType) {
+            @$query['HandlerType'] = $request->handlerType;
         }
-        if (!Utils::isUnset($request->hostname)) {
-            $query['Hostname'] = $request->hostname;
+
+        if (null !== $request->hostname) {
+            @$query['Hostname'] = $request->hostname;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->raspType)) {
-            $query['RaspType'] = $request->raspType;
+
+        if (null !== $request->raspType) {
+            @$query['RaspType'] = $request->raspType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->remote)) {
-            $query['Remote'] = $request->remote;
+
+        if (null !== $request->remote) {
+            @$query['Remote'] = $request->remote;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $query['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$query['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
-        if (!Utils::isUnset($request->unionId)) {
-            $query['UnionId'] = $request->unionId;
+
+        if (null !== $request->unionId) {
+            @$query['UnionId'] = $request->unionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeAttacks',
@@ -192,11 +227,15 @@ class SasRasp extends OpenApiClient
     }
 
     /**
-     * @summary 查询攻击项
-     *  *
-     * @param DescribeAttacksRequest $request DescribeAttacksRequest
+     * 查询攻击项.
      *
-     * @return DescribeAttacksResponse DescribeAttacksResponse
+     * @param request - DescribeAttacksRequest
+     *
+     * @returns DescribeAttacksResponse
+     *
+     * @param DescribeAttacksRequest $request
+     *
+     * @return DescribeAttacksResponse
      */
     public function describeAttacks($request)
     {
