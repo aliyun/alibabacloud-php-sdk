@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\BailianModelOnChip\V20240816;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionCreateRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionCreateResponse;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionEuCreateRequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionEuCreateResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenRequest;
@@ -14,6 +16,8 @@ use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineShrinkRequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\OmniRealtimeConversationEURequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\OmniRealtimeConversationEUResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -112,6 +116,67 @@ class BailianModelOnChip extends OpenApiClient
         $headers = [];
 
         return $this->activeInteractionCreateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 主动交互消息生成eu.
+     *
+     * @param request - ActiveInteractionEuCreateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActiveInteractionEuCreateResponse
+     *
+     * @param ActiveInteractionEuCreateRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ActiveInteractionEuCreateResponse
+     */
+    public function activeInteractionEuCreateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->image) {
+            @$body['image'] = $request->image;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ActiveInteractionEuCreate',
+            'version' => '2024-08-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/api/eu/active/interaction/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ActiveInteractionEuCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 主动交互消息生成eu.
+     *
+     * @param request - ActiveInteractionEuCreateRequest
+     *
+     * @returns ActiveInteractionEuCreateResponse
+     *
+     * @param ActiveInteractionEuCreateRequest $request
+     *
+     * @return ActiveInteractionEuCreateResponse
+     */
+    public function activeInteractionEuCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activeInteractionEuCreateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -341,5 +406,74 @@ class BailianModelOnChip extends OpenApiClient
         $headers = [];
 
         return $this->modelTypeDetermineWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 音频-供机械臂调用.
+     *
+     * @param request - OmniRealtimeConversationEURequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OmniRealtimeConversationEUResponse
+     *
+     * @param OmniRealtimeConversationEURequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return OmniRealtimeConversationEUResponse
+     */
+    public function omniRealtimeConversationEUWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->inputAudio) {
+            @$body['inputAudio'] = $request->inputAudio;
+        }
+
+        if (null !== $request->userPrompt) {
+            @$body['userPrompt'] = $request->userPrompt;
+        }
+
+        if (null !== $request->voice) {
+            @$body['voice'] = $request->voice;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OmniRealtimeConversationEU',
+            'version' => '2024-08-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/api/eu/active/interaction/audio',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OmniRealtimeConversationEUResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 音频-供机械臂调用.
+     *
+     * @param request - OmniRealtimeConversationEURequest
+     *
+     * @returns OmniRealtimeConversationEUResponse
+     *
+     * @param OmniRealtimeConversationEURequest $request
+     *
+     * @return OmniRealtimeConversationEUResponse
+     */
+    public function omniRealtimeConversationEU($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->omniRealtimeConversationEUWithOptions($request, $headers, $runtime);
     }
 }
