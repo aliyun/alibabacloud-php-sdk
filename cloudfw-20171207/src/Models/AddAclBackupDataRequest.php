@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class AddAclBackupDataRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $backUpTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
+    protected $_name = [
+        'backUpTime' => 'BackUpTime',
+        'description' => 'Description',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->backUpTime) {
+            $res['BackUpTime'] = $this->backUpTime;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['BackUpTime'])) {
+            $model->backUpTime = $map['BackUpTime'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+
+        return $model;
+    }
+}
