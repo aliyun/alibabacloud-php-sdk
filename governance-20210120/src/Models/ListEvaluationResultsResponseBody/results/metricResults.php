@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\accountSummary;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\availableRemediation;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\errorInfo;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\resourcesSummary;
 
@@ -15,6 +16,11 @@ class metricResults extends Model
      * @var accountSummary
      */
     public $accountSummary;
+
+    /**
+     * @var availableRemediation[]
+     */
+    public $availableRemediation;
 
     /**
      * @var errorInfo
@@ -57,6 +63,7 @@ class metricResults extends Model
     public $status;
     protected $_name = [
         'accountSummary' => 'AccountSummary',
+        'availableRemediation' => 'AvailableRemediation',
         'errorInfo' => 'ErrorInfo',
         'evaluationTime' => 'EvaluationTime',
         'id' => 'Id',
@@ -72,6 +79,9 @@ class metricResults extends Model
         if (null !== $this->accountSummary) {
             $this->accountSummary->validate();
         }
+        if (\is_array($this->availableRemediation)) {
+            Model::validateArray($this->availableRemediation);
+        }
         if (null !== $this->errorInfo) {
             $this->errorInfo->validate();
         }
@@ -86,6 +96,17 @@ class metricResults extends Model
         $res = [];
         if (null !== $this->accountSummary) {
             $res['AccountSummary'] = null !== $this->accountSummary ? $this->accountSummary->toArray($noStream) : $this->accountSummary;
+        }
+
+        if (null !== $this->availableRemediation) {
+            if (\is_array($this->availableRemediation)) {
+                $res['AvailableRemediation'] = [];
+                $n1 = 0;
+                foreach ($this->availableRemediation as $item1) {
+                    $res['AvailableRemediation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->errorInfo) {
@@ -133,6 +154,17 @@ class metricResults extends Model
         $model = new self();
         if (isset($map['AccountSummary'])) {
             $model->accountSummary = accountSummary::fromMap($map['AccountSummary']);
+        }
+
+        if (isset($map['AvailableRemediation'])) {
+            if (!empty($map['AvailableRemediation'])) {
+                $model->availableRemediation = [];
+                $n1 = 0;
+                foreach ($map['AvailableRemediation'] as $item1) {
+                    $model->availableRemediation[$n1] = availableRemediation::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ErrorInfo'])) {
