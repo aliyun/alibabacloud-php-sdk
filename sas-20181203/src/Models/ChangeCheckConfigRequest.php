@@ -63,6 +63,11 @@ class ChangeCheckConfigRequest extends Model
     public $removedCheck;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var int[]
      */
     public $standardIds;
@@ -92,6 +97,7 @@ class ChangeCheckConfigRequest extends Model
         'endTime' => 'EndTime',
         'regionId' => 'RegionId',
         'removedCheck' => 'RemovedCheck',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'standardIds' => 'StandardIds',
         'startTime' => 'StartTime',
         'systemConfig' => 'SystemConfig',
@@ -186,6 +192,10 @@ class ChangeCheckConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->standardIds) {
@@ -288,6 +298,10 @@ class ChangeCheckConfigRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['StandardIds'])) {

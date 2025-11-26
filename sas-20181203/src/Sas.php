@@ -4152,6 +4152,10 @@ class Sas extends OpenApiClient
             @$query['RemovedCheck'] = $request->removedCheck;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->standardIds) {
             @$query['StandardIds'] = $request->standardIds;
         }
@@ -39791,7 +39795,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取实例授权取值范围.
+     * Get Instance Authorization Value Range.
      *
      * @param request - GetInstanceAuthRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39821,7 +39825,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取实例授权取值范围.
+     * Get Instance Authorization Value Range.
      *
      * @returns GetInstanceAuthRangeResponse
      *
@@ -48791,7 +48795,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询多账号授权分配列表.
+     * Query Multi-Account Authorization Allocation List.
+     *
+     * @remarks
+     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -48834,7 +48841,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询多账号授权分配列表.
+     * Query Multi-Account Authorization Allocation List.
+     *
+     * @remarks
+     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      *
@@ -63533,7 +63543,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改多账号实例配置.
+     * Modify Multi-Account Instance Configuration.
      *
      * @param request - UpdateMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -63572,7 +63582,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改多账号实例配置.
+     * Modify Multi-Account Instance Configuration.
      *
      * @param request - UpdateMultiUserInstancesRequest
      *
