@@ -19,6 +19,11 @@ class ModifyNodeNumberRequest extends Model
     public $nodeGroupId;
 
     /**
+     * @var int
+     */
+    public $parallelism;
+
+    /**
      * @var string
      */
     public $promotionOptionNo;
@@ -27,11 +32,18 @@ class ModifyNodeNumberRequest extends Model
      * @var int
      */
     public $target;
+
+    /**
+     * @var int
+     */
+    public $terminationGracePeriodSeconds;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'nodeGroupId' => 'NodeGroupId',
+        'parallelism' => 'Parallelism',
         'promotionOptionNo' => 'PromotionOptionNo',
         'target' => 'Target',
+        'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
     ];
 
     public function validate()
@@ -50,12 +62,20 @@ class ModifyNodeNumberRequest extends Model
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
 
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
+        }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
 
         if (null !== $this->target) {
             $res['Target'] = $this->target;
+        }
+
+        if (null !== $this->terminationGracePeriodSeconds) {
+            $res['TerminationGracePeriodSeconds'] = $this->terminationGracePeriodSeconds;
         }
 
         return $res;
@@ -77,12 +97,20 @@ class ModifyNodeNumberRequest extends Model
             $model->nodeGroupId = $map['NodeGroupId'];
         }
 
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
+        }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
 
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
+        }
+
+        if (isset($map['TerminationGracePeriodSeconds'])) {
+            $model->terminationGracePeriodSeconds = $map['TerminationGracePeriodSeconds'];
         }
 
         return $model;

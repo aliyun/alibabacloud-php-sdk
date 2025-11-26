@@ -1040,12 +1040,20 @@ class Starrocks extends OpenApiClient
             @$query['NodeGroupId'] = $request->nodeGroupId;
         }
 
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
+        }
+
         if (null !== $request->promotionOptionNo) {
             @$query['PromotionOptionNo'] = $request->promotionOptionNo;
         }
 
         if (null !== $request->target) {
             @$query['Target'] = $request->target;
+        }
+
+        if (null !== $request->terminationGracePeriodSeconds) {
+            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
 
         $req = new OpenApiRequest([
