@@ -26,6 +26,11 @@ class instanceList extends Model
     public $enableHiveAccess;
 
     /**
+     * @var string
+     */
+    public $enableSSL;
+
+    /**
      * @var endpoints[]
      */
     public $endpoints;
@@ -103,6 +108,7 @@ class instanceList extends Model
         'commodityCode' => 'CommodityCode',
         'creationTime' => 'CreationTime',
         'enableHiveAccess' => 'EnableHiveAccess',
+        'enableSSL' => 'EnableSSL',
         'endpoints' => 'Endpoints',
         'expirationTime' => 'ExpirationTime',
         'instanceChargeType' => 'InstanceChargeType',
@@ -144,6 +150,10 @@ class instanceList extends Model
 
         if (null !== $this->enableHiveAccess) {
             $res['EnableHiveAccess'] = $this->enableHiveAccess;
+        }
+
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
 
         if (null !== $this->endpoints) {
@@ -241,6 +251,10 @@ class instanceList extends Model
 
         if (isset($map['EnableHiveAccess'])) {
             $model->enableHiveAccess = $map['EnableHiveAccess'];
+        }
+
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
 
         if (isset($map['Endpoints'])) {

@@ -53,6 +53,11 @@ class instance extends Model
     /**
      * @var bool
      */
+    public $enableSSL;
+
+    /**
+     * @var bool
+     */
     public $enableServerless;
 
     /**
@@ -168,6 +173,7 @@ class instance extends Model
         'creationTime' => 'CreationTime',
         'disk' => 'Disk',
         'enableHiveAccess' => 'EnableHiveAccess',
+        'enableSSL' => 'EnableSSL',
         'enableServerless' => 'EnableServerless',
         'endpoints' => 'Endpoints',
         'expirationTime' => 'ExpirationTime',
@@ -236,6 +242,10 @@ class instance extends Model
 
         if (null !== $this->enableHiveAccess) {
             $res['EnableHiveAccess'] = $this->enableHiveAccess;
+        }
+
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
 
         if (null !== $this->enableServerless) {
@@ -381,6 +391,10 @@ class instance extends Model
 
         if (isset($map['EnableHiveAccess'])) {
             $model->enableHiveAccess = $map['EnableHiveAccess'];
+        }
+
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
 
         if (isset($map['EnableServerless'])) {
