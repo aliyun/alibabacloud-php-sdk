@@ -641,6 +641,10 @@ class PaiStudio extends OpenApiClient
             @$body['AlgorithmVersion'] = $request->algorithmVersion;
         }
 
+        if (null !== $request->assignNodeSpec) {
+            @$body['AssignNodeSpec'] = $request->assignNodeSpec;
+        }
+
         if (null !== $request->codeDir) {
             @$body['CodeDir'] = $request->codeDir;
         }

@@ -47,6 +47,11 @@ class GetTrainingJobResponseBody extends Model
     public $algorithmVersion;
 
     /**
+     * @var AssignNodeSpec
+     */
+    public $assignNodeSpec;
+
+    /**
      * @var computeResource
      */
     public $computeResource;
@@ -211,6 +216,7 @@ class GetTrainingJobResponseBody extends Model
         'algorithmProvider' => 'AlgorithmProvider',
         'algorithmSpec' => 'AlgorithmSpec',
         'algorithmVersion' => 'AlgorithmVersion',
+        'assignNodeSpec' => 'AssignNodeSpec',
         'computeResource' => 'ComputeResource',
         'duration' => 'Duration',
         'environments' => 'Environments',
@@ -249,6 +255,9 @@ class GetTrainingJobResponseBody extends Model
     {
         if (null !== $this->algorithmSpec) {
             $this->algorithmSpec->validate();
+        }
+        if (null !== $this->assignNodeSpec) {
+            $this->assignNodeSpec->validate();
         }
         if (null !== $this->computeResource) {
             $this->computeResource->validate();
@@ -322,6 +331,10 @@ class GetTrainingJobResponseBody extends Model
 
         if (null !== $this->algorithmVersion) {
             $res['AlgorithmVersion'] = $this->algorithmVersion;
+        }
+
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
         }
 
         if (null !== $this->computeResource) {
@@ -542,6 +555,10 @@ class GetTrainingJobResponseBody extends Model
 
         if (isset($map['AlgorithmVersion'])) {
             $model->algorithmVersion = $map['AlgorithmVersion'];
+        }
+
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
 
         if (isset($map['ComputeResource'])) {

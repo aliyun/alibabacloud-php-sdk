@@ -37,6 +37,11 @@ class CreateTrainingJobRequest extends Model
     public $algorithmVersion;
 
     /**
+     * @var AssignNodeSpec
+     */
+    public $assignNodeSpec;
+
+    /**
      * @var Location
      */
     public $codeDir;
@@ -125,6 +130,7 @@ class CreateTrainingJobRequest extends Model
         'algorithmProvider' => 'AlgorithmProvider',
         'algorithmSpec' => 'AlgorithmSpec',
         'algorithmVersion' => 'AlgorithmVersion',
+        'assignNodeSpec' => 'AssignNodeSpec',
         'codeDir' => 'CodeDir',
         'computeResource' => 'ComputeResource',
         'environments' => 'Environments',
@@ -148,6 +154,9 @@ class CreateTrainingJobRequest extends Model
     {
         if (null !== $this->algorithmSpec) {
             $this->algorithmSpec->validate();
+        }
+        if (null !== $this->assignNodeSpec) {
+            $this->assignNodeSpec->validate();
         }
         if (null !== $this->codeDir) {
             $this->codeDir->validate();
@@ -205,6 +214,10 @@ class CreateTrainingJobRequest extends Model
 
         if (null !== $this->algorithmVersion) {
             $res['AlgorithmVersion'] = $this->algorithmVersion;
+        }
+
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
         }
 
         if (null !== $this->codeDir) {
@@ -340,6 +353,10 @@ class CreateTrainingJobRequest extends Model
 
         if (isset($map['AlgorithmVersion'])) {
             $model->algorithmVersion = $map['AlgorithmVersion'];
+        }
+
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
 
         if (isset($map['CodeDir'])) {

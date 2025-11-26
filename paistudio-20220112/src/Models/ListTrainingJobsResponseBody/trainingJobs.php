@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AssignNodeSpec;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\computeResource;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\experimentConfig;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponseBody\trainingJobs\hyperParameters;
@@ -31,6 +32,11 @@ class trainingJobs extends Model
      * @var string
      */
     public $algorithmVersion;
+
+    /**
+     * @var AssignNodeSpec
+     */
+    public $assignNodeSpec;
 
     /**
      * @var computeResource
@@ -155,6 +161,7 @@ class trainingJobs extends Model
         'algorithmName' => 'AlgorithmName',
         'algorithmProvider' => 'AlgorithmProvider',
         'algorithmVersion' => 'AlgorithmVersion',
+        'assignNodeSpec' => 'AssignNodeSpec',
         'computeResource' => 'ComputeResource',
         'dlcJobId' => 'DlcJobId',
         'environments' => 'Environments',
@@ -183,6 +190,9 @@ class trainingJobs extends Model
 
     public function validate()
     {
+        if (null !== $this->assignNodeSpec) {
+            $this->assignNodeSpec->validate();
+        }
         if (null !== $this->computeResource) {
             $this->computeResource->validate();
         }
@@ -232,6 +242,10 @@ class trainingJobs extends Model
 
         if (null !== $this->algorithmVersion) {
             $res['AlgorithmVersion'] = $this->algorithmVersion;
+        }
+
+        if (null !== $this->assignNodeSpec) {
+            $res['AssignNodeSpec'] = null !== $this->assignNodeSpec ? $this->assignNodeSpec->toArray($noStream) : $this->assignNodeSpec;
         }
 
         if (null !== $this->computeResource) {
@@ -398,6 +412,10 @@ class trainingJobs extends Model
 
         if (isset($map['AlgorithmVersion'])) {
             $model->algorithmVersion = $map['AlgorithmVersion'];
+        }
+
+        if (isset($map['AssignNodeSpec'])) {
+            $model->assignNodeSpec = AssignNodeSpec::fromMap($map['AssignNodeSpec']);
         }
 
         if (isset($map['ComputeResource'])) {
