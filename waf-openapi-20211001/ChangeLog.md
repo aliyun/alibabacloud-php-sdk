@@ -1,3 +1,6 @@
+2025-11-26 Version: 7.0.3
+- Generated php 2021-10-01 for waf-openapi.
+
 2025-11-25 Version: 7.0.2
 - Update API CreateCloudResource: add request parameters Redirect.MaxBodySize.
 - Update API CreateDomain: add request parameters Redirect.MaxBodySize.
