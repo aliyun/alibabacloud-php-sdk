@@ -404,6 +404,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryInstancesInfoResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNacosGrayConfigRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNacosGrayConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecRequest;
@@ -15322,6 +15324,91 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询nacos灰度配置.
+     *
+     * @param request - QueryNacosGrayConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryNacosGrayConfigResponse
+     *
+     * @param QueryNacosGrayConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryNacosGrayConfigResponse
+     */
+    public function queryNacosGrayConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->dataId) {
+            @$query['DataId'] = $request->dataId;
+        }
+
+        if (null !== $request->grayName) {
+            @$query['GrayName'] = $request->grayName;
+        }
+
+        if (null !== $request->group) {
+            @$query['Group'] = $request->group;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->requestPars) {
+            @$query['RequestPars'] = $request->requestPars;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryNacosGrayConfig',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryNacosGrayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询nacos灰度配置.
+     *
+     * @param request - QueryNacosGrayConfigRequest
+     *
+     * @returns QueryNacosGrayConfigResponse
+     *
+     * @param QueryNacosGrayConfigRequest $request
+     *
+     * @return QueryNacosGrayConfigResponse
+     */
+    public function queryNacosGrayConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryNacosGrayConfigWithOptions($request, $runtime);
     }
 
     /**
