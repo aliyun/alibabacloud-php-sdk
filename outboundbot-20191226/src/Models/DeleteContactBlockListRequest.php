@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteContactBlockListRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c6320d3c-fa45-4011-b3b1-acdfabe3a8c6
-     *
      * @var string
      */
     public $contactBlockListId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c6320d3c-fa45-4011-b3b1-acdfabe3a8c6
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 160131
-     *
      * @var string
      */
     public $operator;
@@ -38,17 +28,22 @@ class DeleteContactBlockListRequest extends Model
         'operator' => 'Operator',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactBlockListId) {
             $res['ContactBlockListId'] = $this->contactBlockListId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -56,20 +51,22 @@ class DeleteContactBlockListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteContactBlockListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactBlockListId'])) {
             $model->contactBlockListId = $map['ContactBlockListId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

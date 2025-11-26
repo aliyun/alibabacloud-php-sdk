@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListScriptRecordingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c209abb3-6804-4a75-b2c7-dd55c8c61b6a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -41,10 +29,6 @@ class ListScriptRecordingRequest extends Model
     public $refIdsJson;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example d004cfd2-6a81-491c-83c6-cbe186620c95
-     *
      * @var string
      */
     public $scriptId;
@@ -55,17 +39,11 @@ class ListScriptRecordingRequest extends Model
     public $search;
 
     /**
-     * @example [
-     * "8"
-     * ]
-     *
      * @var string
      */
     public $statesJson;
 
     /**
-     * @example ["d17d5bfa-4972-4389-9718-f9602edabe48"]
-     *
      * @var string
      */
     public $uuidsJson;
@@ -80,32 +58,42 @@ class ListScriptRecordingRequest extends Model
         'uuidsJson' => 'UuidsJson',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->refIdsJson) {
             $res['RefIdsJson'] = $this->refIdsJson;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->search) {
             $res['Search'] = $this->search;
         }
+
         if (null !== $this->statesJson) {
             $res['StatesJson'] = $this->statesJson;
         }
+
         if (null !== $this->uuidsJson) {
             $res['UuidsJson'] = $this->uuidsJson;
         }
@@ -113,35 +101,42 @@ class ListScriptRecordingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListScriptRecordingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RefIdsJson'])) {
             $model->refIdsJson = $map['RefIdsJson'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['Search'])) {
             $model->search = $map['Search'];
         }
+
         if (isset($map['StatesJson'])) {
             $model->statesJson = $map['StatesJson'];
         }
+
         if (isset($map['UuidsJson'])) {
             $model->uuidsJson = $map['UuidsJson'];
         }

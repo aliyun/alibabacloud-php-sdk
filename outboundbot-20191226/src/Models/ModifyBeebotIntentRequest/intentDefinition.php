@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class intentDefinition extends Model
 {
@@ -14,8 +14,6 @@ class intentDefinition extends Model
     public $aliasName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $intentName;
@@ -24,14 +22,18 @@ class intentDefinition extends Model
         'intentName' => 'IntentName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
         }
@@ -39,17 +41,18 @@ class intentDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return intentDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];
         }

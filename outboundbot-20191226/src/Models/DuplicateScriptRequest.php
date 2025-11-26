@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DuplicateScriptRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6114e7e8-4140-48d9-b46d-65ea29f13fe8
-     *
      * @var string
      */
     public $sourceScriptId;
@@ -38,17 +28,22 @@ class DuplicateScriptRequest extends Model
         'sourceScriptId' => 'SourceScriptId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->sourceScriptId) {
             $res['SourceScriptId'] = $this->sourceScriptId;
         }
@@ -56,20 +51,22 @@ class DuplicateScriptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DuplicateScriptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SourceScriptId'])) {
             $model->sourceScriptId = $map['SourceScriptId'];
         }

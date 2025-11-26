@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentUserSayRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userSayDefinition extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10717802
-     *
      * @var int
      */
     public $intentId;
@@ -28,14 +22,18 @@ class userSayDefinition extends Model
         'intentId' => 'IntentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
         }
@@ -43,17 +41,18 @@ class userSayDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSayDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];
         }

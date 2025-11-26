@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateUploadUrlRequest extends Model
 {
     /**
-     * @example faaf8508-9542-4ac4-84a2-0ddcbb5f79a6 (2).json
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example 3b9b5dc6d67ee9fa
-     *
      * @var string
      */
     public $key;
@@ -26,14 +22,18 @@ class GenerateUploadUrlRequest extends Model
         'key' => 'Key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -41,17 +41,18 @@ class GenerateUploadUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateUploadUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

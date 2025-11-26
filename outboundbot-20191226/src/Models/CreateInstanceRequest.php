@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceRequest extends Model
 {
@@ -19,31 +19,21 @@ class CreateInstanceRequest extends Model
     public $instanceDescription;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $maxConcurrentConversation;
 
     /**
-     * @example Provided
-     *
      * @var string
      */
     public $nluServiceType;
 
     /**
-     * @example rg-acfmwd4qr3z773y
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -56,26 +46,44 @@ class CreateInstanceRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callingNumber)) {
+            Model::validateArray($this->callingNumber);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+            if (\is_array($this->callingNumber)) {
+                $res['CallingNumber'] = [];
+                $n1 = 0;
+                foreach ($this->callingNumber as $item1) {
+                    $res['CallingNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->maxConcurrentConversation) {
             $res['MaxConcurrentConversation'] = $this->maxConcurrentConversation;
         }
+
         if (null !== $this->nluServiceType) {
             $res['NluServiceType'] = $this->nluServiceType;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -83,31 +91,41 @@ class CreateInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumber'])) {
             if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = $map['CallingNumber'];
+                $model->callingNumber = [];
+                $n1 = 0;
+                foreach ($map['CallingNumber'] as $item1) {
+                    $model->callingNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['MaxConcurrentConversation'])) {
             $model->maxConcurrentConversation = $map['MaxConcurrentConversation'];
         }
+
         if (isset($map['NluServiceType'])) {
             $model->nluServiceType = $map['NluServiceType'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

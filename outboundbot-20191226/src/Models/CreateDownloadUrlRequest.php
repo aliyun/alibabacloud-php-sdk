@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDownloadUrlRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 137da36b41304bcd999a0a7895dc6881
-     *
      * @var string
      */
     public $downloadTaskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6f91885fa24b4c408d8f4eb392fd8ae6
-     *
      * @var string
      */
     public $fileId;
@@ -30,14 +22,18 @@ class CreateDownloadUrlRequest extends Model
         'fileId' => 'FileId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadTaskId) {
             $res['DownloadTaskId'] = $this->downloadTaskId;
         }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
@@ -45,17 +41,18 @@ class CreateDownloadUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDownloadUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadTaskId'])) {
             $model->downloadTaskId = $map['DownloadTaskId'];
         }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }

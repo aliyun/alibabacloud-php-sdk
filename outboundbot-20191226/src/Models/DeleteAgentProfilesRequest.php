@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAgentProfilesRequest extends Model
 {
@@ -14,8 +14,6 @@ class DeleteAgentProfilesRequest extends Model
     public $agentProfileIds;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $appIp;
@@ -24,14 +22,28 @@ class DeleteAgentProfilesRequest extends Model
         'appIp' => 'AppIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->agentProfileIds)) {
+            Model::validateArray($this->agentProfileIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentProfileIds) {
-            $res['AgentProfileIds'] = $this->agentProfileIds;
+            if (\is_array($this->agentProfileIds)) {
+                $res['AgentProfileIds'] = [];
+                $n1 = 0;
+                foreach ($this->agentProfileIds as $item1) {
+                    $res['AgentProfileIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->appIp) {
             $res['AppIp'] = $this->appIp;
         }
@@ -39,19 +51,25 @@ class DeleteAgentProfilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAgentProfilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentProfileIds'])) {
             if (!empty($map['AgentProfileIds'])) {
-                $model->agentProfileIds = $map['AgentProfileIds'];
+                $model->agentProfileIds = [];
+                $n1 = 0;
+                foreach ($map['AgentProfileIds'] as $item1) {
+                    $model->agentProfileIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['AppIp'])) {
             $model->appIp = $map['AppIp'];
         }

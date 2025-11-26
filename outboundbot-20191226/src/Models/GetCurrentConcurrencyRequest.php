@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCurrentConcurrencyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +16,12 @@ class GetCurrentConcurrencyRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class GetCurrentConcurrencyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCurrentConcurrencyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

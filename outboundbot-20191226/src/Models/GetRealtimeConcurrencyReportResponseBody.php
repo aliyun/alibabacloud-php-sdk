@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetRealtimeConcurrencyReportResponseBody\reports;
-use AlibabaCloud\Tea\Model;
 
 class GetRealtimeConcurrencyReportResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 1743474900488
-     *
      * @var int
      */
     public $reportDate;
@@ -43,15 +35,11 @@ class GetRealtimeConcurrencyReportResponseBody extends Model
     public $reports;
 
     /**
-     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -65,29 +53,41 @@ class GetRealtimeConcurrencyReportResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->reports) {
+            $this->reports->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->reportDate) {
             $res['ReportDate'] = $this->reportDate;
         }
+
         if (null !== $this->reports) {
-            $res['Reports'] = null !== $this->reports ? $this->reports->toMap() : null;
+            $res['Reports'] = null !== $this->reports ? $this->reports->toArray($noStream) : $this->reports;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -95,32 +95,38 @@ class GetRealtimeConcurrencyReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRealtimeConcurrencyReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ReportDate'])) {
             $model->reportDate = $map['ReportDate'];
         }
+
         if (isset($map['Reports'])) {
             $model->reports = reports::fromMap($map['Reports']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssignJobsAsyncRequest extends Model
 {
@@ -14,19 +14,11 @@ class AssignJobsAsyncRequest extends Model
     public $callingNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 12f3dd08-0c55-44ce-9b64-e69d35ed3a76
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example d004cfd2-6a81-491c-83c6-cbe186620c95
-     *
      * @var string
      */
     public $jobGroupId;
@@ -37,8 +29,6 @@ class AssignJobsAsyncRequest extends Model
     public $jobsJson;
 
     /**
-     * @example {"maxAttemptsPerDay":"3","minAttemptInterval":"10","routingStrategy":"LocalProvinceFirst","repeatDays":["1","2","3"],"workingTime":[{"beginTime":"10:00:00","endTime":"11:00:00"},{"beginTime":"14:00:00","endTime":"15:00:00"}],"repeatable":true,"endTime":1707494400000,"startTime":1706976000000,"repeatBy":"Week"}
-     *
      * @var string
      */
     public $strategyJson;
@@ -50,23 +40,50 @@ class AssignJobsAsyncRequest extends Model
         'strategyJson' => 'StrategyJson',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callingNumber)) {
+            Model::validateArray($this->callingNumber);
+        }
+        if (\is_array($this->jobsJson)) {
+            Model::validateArray($this->jobsJson);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+            if (\is_array($this->callingNumber)) {
+                $res['CallingNumber'] = [];
+                $n1 = 0;
+                foreach ($this->callingNumber as $item1) {
+                    $res['CallingNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
+
         if (null !== $this->jobsJson) {
-            $res['JobsJson'] = $this->jobsJson;
+            if (\is_array($this->jobsJson)) {
+                $res['JobsJson'] = [];
+                $n1 = 0;
+                foreach ($this->jobsJson as $item1) {
+                    $res['JobsJson'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->strategyJson) {
             $res['StrategyJson'] = $this->strategyJson;
         }
@@ -74,30 +91,44 @@ class AssignJobsAsyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssignJobsAsyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumber'])) {
             if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = $map['CallingNumber'];
+                $model->callingNumber = [];
+                $n1 = 0;
+                foreach ($map['CallingNumber'] as $item1) {
+                    $model->callingNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
+
         if (isset($map['JobsJson'])) {
             if (!empty($map['JobsJson'])) {
-                $model->jobsJson = $map['JobsJson'];
+                $model->jobsJson = [];
+                $n1 = 0;
+                foreach ($map['JobsJson'] as $item1) {
+                    $model->jobsJson[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StrategyJson'])) {
             $model->strategyJson = $map['StrategyJson'];
         }

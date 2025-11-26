@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEmptyNumberNoMoreCallsInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example db3e679b-7d5e-4d9b-828a-345adca455f3
-     *
      * @var string
      */
     public $entryId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $strategyLevel;
@@ -28,14 +22,18 @@ class GetEmptyNumberNoMoreCallsInfoRequest extends Model
         'strategyLevel' => 'StrategyLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
+
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -43,17 +41,18 @@ class GetEmptyNumberNoMoreCallsInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEmptyNumberNoMoreCallsInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
+
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

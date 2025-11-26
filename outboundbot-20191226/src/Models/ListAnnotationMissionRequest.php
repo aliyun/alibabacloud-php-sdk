@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAnnotationMissionRequest extends Model
 {
     /**
-     * @example 0943abcb-bd7d-4ace-8cf7-97d39d4dd0b9
-     *
      * @var string
      */
     public $annotationMissionId;
@@ -26,43 +24,31 @@ class ListAnnotationMissionRequest extends Model
     public $annotationStatusListFilter;
 
     /**
-     * @example [1]
-     *
      * @var string
      */
     public $annotationStatusListStringFilter;
 
     /**
-     * @example 1673280000000
-     *
      * @var int
      */
     public $createTimeEndFilter;
 
     /**
-     * @example 1661961600000
-     *
      * @var int
      */
     public $createTimeStartFilter;
 
     /**
-     * @example 191ef468-75a2-4004-9441-a5c31bf5cd9d
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageIndex;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -78,35 +64,56 @@ class ListAnnotationMissionRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->annotationStatusListFilter)) {
+            Model::validateArray($this->annotationStatusListFilter);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotationMissionId) {
             $res['AnnotationMissionId'] = $this->annotationMissionId;
         }
+
         if (null !== $this->annotationMissionName) {
             $res['AnnotationMissionName'] = $this->annotationMissionName;
         }
+
         if (null !== $this->annotationStatusListFilter) {
-            $res['AnnotationStatusListFilter'] = $this->annotationStatusListFilter;
+            if (\is_array($this->annotationStatusListFilter)) {
+                $res['AnnotationStatusListFilter'] = [];
+                $n1 = 0;
+                foreach ($this->annotationStatusListFilter as $item1) {
+                    $res['AnnotationStatusListFilter'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->annotationStatusListStringFilter) {
             $res['AnnotationStatusListStringFilter'] = $this->annotationStatusListStringFilter;
         }
+
         if (null !== $this->createTimeEndFilter) {
             $res['CreateTimeEndFilter'] = $this->createTimeEndFilter;
         }
+
         if (null !== $this->createTimeStartFilter) {
             $res['CreateTimeStartFilter'] = $this->createTimeStartFilter;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -114,40 +121,53 @@ class ListAnnotationMissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAnnotationMissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnnotationMissionId'])) {
             $model->annotationMissionId = $map['AnnotationMissionId'];
         }
+
         if (isset($map['AnnotationMissionName'])) {
             $model->annotationMissionName = $map['AnnotationMissionName'];
         }
+
         if (isset($map['AnnotationStatusListFilter'])) {
             if (!empty($map['AnnotationStatusListFilter'])) {
-                $model->annotationStatusListFilter = $map['AnnotationStatusListFilter'];
+                $model->annotationStatusListFilter = [];
+                $n1 = 0;
+                foreach ($map['AnnotationStatusListFilter'] as $item1) {
+                    $model->annotationStatusListFilter[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['AnnotationStatusListStringFilter'])) {
             $model->annotationStatusListStringFilter = $map['AnnotationStatusListStringFilter'];
         }
+
         if (isset($map['CreateTimeEndFilter'])) {
             $model->createTimeEndFilter = $map['CreateTimeEndFilter'];
         }
+
         if (isset($map['CreateTimeStartFilter'])) {
             $model->createTimeStartFilter = $map['CreateTimeStartFilter'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptResponseBody\script;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nluProfile extends Model
 {
@@ -34,20 +34,26 @@ class nluProfile extends Model
         'supportBeebotPrompts' => 'SupportBeebotPrompts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fcFunction) {
             $res['FcFunction'] = $this->fcFunction;
         }
+
         if (null !== $this->fcHttpTriggerUrl) {
             $res['FcHttpTriggerUrl'] = $this->fcHttpTriggerUrl;
         }
+
         if (null !== $this->fcRegion) {
             $res['FcRegion'] = $this->fcRegion;
         }
+
         if (null !== $this->supportBeebotPrompts) {
             $res['SupportBeebotPrompts'] = $this->supportBeebotPrompts;
         }
@@ -55,23 +61,26 @@ class nluProfile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nluProfile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FcFunction'])) {
             $model->fcFunction = $map['FcFunction'];
         }
+
         if (isset($map['FcHttpTriggerUrl'])) {
             $model->fcHttpTriggerUrl = $map['FcHttpTriggerUrl'];
         }
+
         if (isset($map['FcRegion'])) {
             $model->fcRegion = $map['FcRegion'];
         }
+
         if (isset($map['SupportBeebotPrompts'])) {
             $model->supportBeebotPrompts = $map['SupportBeebotPrompts'];
         }

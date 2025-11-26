@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAfterAnswerDelayPlaybackRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c46001bc-3ead-4bfd-9a69-4b5b66a4a3f4
-     *
      * @var string
      */
     public $entryId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $strategyLevel;
@@ -28,14 +22,18 @@ class GetAfterAnswerDelayPlaybackRequest extends Model
         'strategyLevel' => 'StrategyLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
+
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -43,17 +41,18 @@ class GetAfterAnswerDelayPlaybackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAfterAnswerDelayPlaybackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
+
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

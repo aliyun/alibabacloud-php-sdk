@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsResponseBody\data\intentList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsResponseBody\data\intentList\userSay\userSayData;
-use AlibabaCloud\Tea\Model;
 
 class userSay extends Model
 {
     /**
-     * @example 1234567
-     *
      * @var string
      */
     public $fromId;
 
     /**
-     * @example 17448458
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $strict;
@@ -41,26 +35,36 @@ class userSay extends Model
         'userSayData' => 'UserSayData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userSayData)) {
+            Model::validateArray($this->userSayData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromId) {
             $res['FromId'] = $this->fromId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->strict) {
             $res['Strict'] = $this->strict;
         }
+
         if (null !== $this->userSayData) {
-            $res['UserSayData'] = [];
-            if (null !== $this->userSayData && \is_array($this->userSayData)) {
-                $n = 0;
-                foreach ($this->userSayData as $item) {
-                    $res['UserSayData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userSayData)) {
+                $res['UserSayData'] = [];
+                $n1 = 0;
+                foreach ($this->userSayData as $item1) {
+                    $res['UserSayData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,29 +72,33 @@ class userSay extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSay
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromId'])) {
             $model->fromId = $map['FromId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Strict'])) {
             $model->strict = $map['Strict'];
         }
+
         if (isset($map['UserSayData'])) {
             if (!empty($map['UserSayData'])) {
                 $model->userSayData = [];
-                $n = 0;
-                foreach ($map['UserSayData'] as $item) {
-                    $model->userSayData[$n++] = null !== $item ? userSayData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserSayData'] as $item1) {
+                    $model->userSayData[$n1] = userSayData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

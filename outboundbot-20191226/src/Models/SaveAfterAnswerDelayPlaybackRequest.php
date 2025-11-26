@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveAfterAnswerDelayPlaybackRequest extends Model
 {
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $afterAnswerDelayPlayback;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 980116ec-2d3d-4747-8059-dc25e7af8501
-     *
      * @var string
      */
     public $entryId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $strategyLevel;
@@ -36,17 +28,22 @@ class SaveAfterAnswerDelayPlaybackRequest extends Model
         'strategyLevel' => 'StrategyLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->afterAnswerDelayPlayback) {
             $res['AfterAnswerDelayPlayback'] = $this->afterAnswerDelayPlayback;
         }
+
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
+
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -54,20 +51,22 @@ class SaveAfterAnswerDelayPlaybackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveAfterAnswerDelayPlaybackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AfterAnswerDelayPlayback'])) {
             $model->afterAnswerDelayPlayback = $map['AfterAnswerDelayPlayback'];
         }
+
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
+
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

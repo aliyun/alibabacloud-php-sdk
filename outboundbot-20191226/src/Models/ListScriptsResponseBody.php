@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsResponseBody\scripts;
-use AlibabaCloud\Tea\Model;
 
 class ListScriptsResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
-     *
      * @var string
      */
     public $requestId;
@@ -43,8 +35,6 @@ class ListScriptsResponseBody extends Model
     public $scripts;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -57,26 +47,37 @@ class ListScriptsResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->scripts) {
+            $this->scripts->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scripts) {
-            $res['Scripts'] = null !== $this->scripts ? $this->scripts->toMap() : null;
+            $res['Scripts'] = null !== $this->scripts ? $this->scripts->toArray($noStream) : $this->scripts;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -84,29 +85,34 @@ class ListScriptsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListScriptsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Scripts'])) {
             $model->scripts = scripts::fromMap($map['Scripts']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

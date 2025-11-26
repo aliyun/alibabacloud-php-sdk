@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagResourcesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagResources extends Model
 {
     /**
-     * @example b949ae1f-01dc-4191-ae5a-70fbe6772fd8
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @example key1
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @example value1
-     *
      * @var string
      */
     public $tagValue;
@@ -42,20 +34,26 @@ class tagResources extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -63,23 +61,26 @@ class tagResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

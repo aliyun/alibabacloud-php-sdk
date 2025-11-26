@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteScriptRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example b3d5ac22-9643-49c6-aa84-777f6656f9f5
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 5c589560-6b9d-4415-a3e0-049c4ff05f56
-     *
      * @var string
      */
     public $scriptId;
@@ -30,14 +22,18 @@ class DeleteScriptRequest extends Model
         'scriptId' => 'ScriptId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
@@ -45,17 +41,18 @@ class DeleteScriptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteScriptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }

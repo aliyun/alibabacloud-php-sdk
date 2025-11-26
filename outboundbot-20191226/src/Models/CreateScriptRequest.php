@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateScriptRequest extends Model
 {
@@ -24,59 +24,41 @@ class CreateScriptRequest extends Model
     public $agentLlm;
 
     /**
-     * @example {\\"appKey\\":\\"kknxKIhTTUcpCzYX\\",\\"maxEndSilence\\":\\"400\\",\\"silenceTimeout\\":\\"5\\"}
-     *
      * @var string
      */
     public $asrConfig;
 
     /**
-     * @example chatbot-cn-IfaUfqaUnb
-     *
      * @var string
      */
     public $chatbotId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $emotionEnable;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $industry;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c46001bc-3ead-4bfd-9a69-4b5b66a4a3f4
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $longWaitEnable;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $miniPlaybackEnable;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $newBargeInEnable;
@@ -92,15 +74,11 @@ class CreateScriptRequest extends Model
     public $nluEngine;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $scene;
 
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $scriptContent;
@@ -111,8 +89,6 @@ class CreateScriptRequest extends Model
     public $scriptDescription;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $scriptName;
@@ -123,15 +99,11 @@ class CreateScriptRequest extends Model
     public $scriptNluProfileJsonString;
 
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $scriptWaveform;
 
     /**
-     * @example {\\"voice\\":\\"aixia\\",\\"volume\\":\\"50\\",\\"speechRate\\":\\"-150\\",\\"pitchRate\\":\\"0\\"}
-     *
      * @var string
      */
     public $ttsConfig;
@@ -158,68 +130,110 @@ class CreateScriptRequest extends Model
         'ttsConfig' => 'TtsConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->scriptContent)) {
+            Model::validateArray($this->scriptContent);
+        }
+        if (\is_array($this->scriptWaveform)) {
+            Model::validateArray($this->scriptWaveform);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->agentLlm) {
             $res['AgentLlm'] = $this->agentLlm;
         }
+
         if (null !== $this->asrConfig) {
             $res['AsrConfig'] = $this->asrConfig;
         }
+
         if (null !== $this->chatbotId) {
             $res['ChatbotId'] = $this->chatbotId;
         }
+
         if (null !== $this->emotionEnable) {
             $res['EmotionEnable'] = $this->emotionEnable;
         }
+
         if (null !== $this->industry) {
             $res['Industry'] = $this->industry;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->longWaitEnable) {
             $res['LongWaitEnable'] = $this->longWaitEnable;
         }
+
         if (null !== $this->miniPlaybackEnable) {
             $res['MiniPlaybackEnable'] = $this->miniPlaybackEnable;
         }
+
         if (null !== $this->newBargeInEnable) {
             $res['NewBargeInEnable'] = $this->newBargeInEnable;
         }
+
         if (null !== $this->nluAccessType) {
             $res['NluAccessType'] = $this->nluAccessType;
         }
+
         if (null !== $this->nluEngine) {
             $res['NluEngine'] = $this->nluEngine;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->scriptContent) {
-            $res['ScriptContent'] = $this->scriptContent;
+            if (\is_array($this->scriptContent)) {
+                $res['ScriptContent'] = [];
+                $n1 = 0;
+                foreach ($this->scriptContent as $item1) {
+                    $res['ScriptContent'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->scriptDescription) {
             $res['ScriptDescription'] = $this->scriptDescription;
         }
+
         if (null !== $this->scriptName) {
             $res['ScriptName'] = $this->scriptName;
         }
+
         if (null !== $this->scriptNluProfileJsonString) {
             $res['ScriptNluProfileJsonString'] = $this->scriptNluProfileJsonString;
         }
+
         if (null !== $this->scriptWaveform) {
-            $res['ScriptWaveform'] = $this->scriptWaveform;
+            if (\is_array($this->scriptWaveform)) {
+                $res['ScriptWaveform'] = [];
+                $n1 = 0;
+                foreach ($this->scriptWaveform as $item1) {
+                    $res['ScriptWaveform'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ttsConfig) {
             $res['TtsConfig'] = $this->ttsConfig;
         }
@@ -227,75 +241,104 @@ class CreateScriptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateScriptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['AgentLlm'])) {
             $model->agentLlm = $map['AgentLlm'];
         }
+
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = $map['AsrConfig'];
         }
+
         if (isset($map['ChatbotId'])) {
             $model->chatbotId = $map['ChatbotId'];
         }
+
         if (isset($map['EmotionEnable'])) {
             $model->emotionEnable = $map['EmotionEnable'];
         }
+
         if (isset($map['Industry'])) {
             $model->industry = $map['Industry'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LongWaitEnable'])) {
             $model->longWaitEnable = $map['LongWaitEnable'];
         }
+
         if (isset($map['MiniPlaybackEnable'])) {
             $model->miniPlaybackEnable = $map['MiniPlaybackEnable'];
         }
+
         if (isset($map['NewBargeInEnable'])) {
             $model->newBargeInEnable = $map['NewBargeInEnable'];
         }
+
         if (isset($map['NluAccessType'])) {
             $model->nluAccessType = $map['NluAccessType'];
         }
+
         if (isset($map['NluEngine'])) {
             $model->nluEngine = $map['NluEngine'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['ScriptContent'])) {
             if (!empty($map['ScriptContent'])) {
-                $model->scriptContent = $map['ScriptContent'];
+                $model->scriptContent = [];
+                $n1 = 0;
+                foreach ($map['ScriptContent'] as $item1) {
+                    $model->scriptContent[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ScriptDescription'])) {
             $model->scriptDescription = $map['ScriptDescription'];
         }
+
         if (isset($map['ScriptName'])) {
             $model->scriptName = $map['ScriptName'];
         }
+
         if (isset($map['ScriptNluProfileJsonString'])) {
             $model->scriptNluProfileJsonString = $map['ScriptNluProfileJsonString'];
         }
+
         if (isset($map['ScriptWaveform'])) {
             if (!empty($map['ScriptWaveform'])) {
-                $model->scriptWaveform = $map['ScriptWaveform'];
+                $model->scriptWaveform = [];
+                $n1 = 0;
+                foreach ($map['ScriptWaveform'] as $item1) {
+                    $model->scriptWaveform[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TtsConfig'])) {
             $model->ttsConfig = $map['TtsConfig'];
         }

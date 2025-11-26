@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyOutboundCallNumberRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 52e80b02-0126-4556-a1e6-ef5b3747ed53/a9a3ddc7-d7d7-48cd-82b5-b31bb5510e71_2a66f8ad-dfbb-4980-9b84-439171295a11.xlsx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10088
-     *
      * @var string
      */
     public $number;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example fa0e21e9-caab-4629-9121-1e341243d599
-     *
      * @var string
      */
     public $outboundCallNumberId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $rateLimitCount;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $rateLimitPeriod;
@@ -60,23 +40,30 @@ class ModifyOutboundCallNumberRequest extends Model
         'rateLimitPeriod' => 'RateLimitPeriod',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->outboundCallNumberId) {
             $res['OutboundCallNumberId'] = $this->outboundCallNumberId;
         }
+
         if (null !== $this->rateLimitCount) {
             $res['RateLimitCount'] = $this->rateLimitCount;
         }
+
         if (null !== $this->rateLimitPeriod) {
             $res['RateLimitPeriod'] = $this->rateLimitPeriod;
         }
@@ -84,26 +71,30 @@ class ModifyOutboundCallNumberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyOutboundCallNumberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['OutboundCallNumberId'])) {
             $model->outboundCallNumberId = $map['OutboundCallNumberId'];
         }
+
         if (isset($map['RateLimitCount'])) {
             $model->rateLimitCount = $map['RateLimitCount'];
         }
+
         if (isset($map['RateLimitPeriod'])) {
             $model->rateLimitPeriod = $map['RateLimitPeriod'];
         }

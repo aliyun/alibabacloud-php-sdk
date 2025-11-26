@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBeebotIntentShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example e5035654-1745-484a-8c5b-165f7c7bcd79
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $intentDefinitionShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
-     *
      * @var string
      */
     public $scriptId;
@@ -38,17 +28,22 @@ class CreateBeebotIntentShrinkRequest extends Model
         'scriptId' => 'ScriptId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentDefinitionShrink) {
             $res['IntentDefinition'] = $this->intentDefinitionShrink;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
@@ -56,20 +51,22 @@ class CreateBeebotIntentShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBeebotIntentShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentDefinition'])) {
             $model->intentDefinitionShrink = $map['IntentDefinition'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }

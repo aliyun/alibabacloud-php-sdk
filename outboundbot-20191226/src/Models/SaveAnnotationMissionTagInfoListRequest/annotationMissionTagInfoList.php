@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\SaveAnnotationMissionTagInfoListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class annotationMissionTagInfoList extends Model
 {
@@ -14,8 +14,6 @@ class annotationMissionTagInfoList extends Model
     public $annotationMissionTagInfoDescription;
 
     /**
-     * @description tag id
-     *
      * @var string
      */
     public $annotationMissionTagInfoId;
@@ -26,22 +24,16 @@ class annotationMissionTagInfoList extends Model
     public $annotationMissionTagInfoName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $delete;
 
     /**
-     * @example bdbff6a5-1f68-4b41-8d37-6ff805ce165a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example bdbff6a5-1f68-4b41-8d37-6ff805ce165a
-     *
      * @var string
      */
     public $tenantId;
@@ -54,26 +46,34 @@ class annotationMissionTagInfoList extends Model
         'tenantId' => 'TenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotationMissionTagInfoDescription) {
             $res['AnnotationMissionTagInfoDescription'] = $this->annotationMissionTagInfoDescription;
         }
+
         if (null !== $this->annotationMissionTagInfoId) {
             $res['AnnotationMissionTagInfoId'] = $this->annotationMissionTagInfoId;
         }
+
         if (null !== $this->annotationMissionTagInfoName) {
             $res['AnnotationMissionTagInfoName'] = $this->annotationMissionTagInfoName;
         }
+
         if (null !== $this->delete) {
             $res['Delete'] = $this->delete;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -81,29 +81,34 @@ class annotationMissionTagInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return annotationMissionTagInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnnotationMissionTagInfoDescription'])) {
             $model->annotationMissionTagInfoDescription = $map['AnnotationMissionTagInfoDescription'];
         }
+
         if (isset($map['AnnotationMissionTagInfoId'])) {
             $model->annotationMissionTagInfoId = $map['AnnotationMissionTagInfoId'];
         }
+
         if (isset($map['AnnotationMissionTagInfoName'])) {
             $model->annotationMissionTagInfoName = $map['AnnotationMissionTagInfoName'];
         }
+
         if (isset($map['Delete'])) {
             $model->delete = $map['Delete'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

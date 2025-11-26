@@ -4,10 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ApplyNumberDistrictInfoParsingResultRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ApplyNumberDistrictInfoParsingResultResponse;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\AssignJobsAsyncShrinkRequest;
@@ -53,12 +50,6 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupExportTaskReques
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupExportTaskResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberDistrictInfoDownloadUrlRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberDistrictInfoDownloadUrlResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberDistrictInfoParsingTaskRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberDistrictInfoParsingTaskResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateOutboundCallNumberRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateOutboundCallNumberResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptWaveformRequest;
@@ -123,7 +114,6 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobGroupRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobGroupResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeNumberDistrictInfoStatusResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptVoiceConfigRequest;
@@ -138,8 +128,6 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTTSDemoRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTTSDemoResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DialogueRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DialogueResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DismissNumberDistrictInfoParsingResultRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DismissNumberDistrictInfoParsingResultResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DownloadRecordingRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DownloadRecordingResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DownloadScriptRecordingRequest;
@@ -173,8 +161,6 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetContactWhiteListRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetContactWhiteListResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetCurrentConcurrencyRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetCurrentConcurrencyResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetEffectiveDaysRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetEffectiveDaysResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetEmptyNumberNoMoreCallsInfoRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetEmptyNumberNoMoreCallsInfoResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetJobDataUploadParamsRequest;
@@ -236,8 +222,6 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListOutboundCallNumbersRequest
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListOutboundCallNumbersResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListResourceTagsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListResourceTagsResponse;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListSchedulerInstancesRequest;
-use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListSchedulerInstancesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptPublishHistoriesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptPublishHistoriesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptRecordingRequest;
@@ -350,11 +334,10 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\UploadScriptRecordingRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\UploadScriptRecordingResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\WithdrawScriptReviewRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\WithdrawScriptReviewResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class OutboundBot extends OpenApiClient
 {
@@ -379,101 +362,68 @@ class OutboundBot extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 生效号码库解析结果
-     *  *
-     * @param ApplyNumberDistrictInfoParsingResultRequest $request ApplyNumberDistrictInfoParsingResultRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 创建外呼任务
      *
-     * @return ApplyNumberDistrictInfoParsingResultResponse ApplyNumberDistrictInfoParsingResultResponse
-     */
-    public function applyNumberDistrictInfoParsingResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ApplyNumberDistrictInfoParsingResult',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ApplyNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 生效号码库解析结果
-     *  *
-     * @param ApplyNumberDistrictInfoParsingResultRequest $request ApplyNumberDistrictInfoParsingResultRequest
+     * @param request - AssignJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ApplyNumberDistrictInfoParsingResultResponse ApplyNumberDistrictInfoParsingResultResponse
-     */
-    public function applyNumberDistrictInfoParsingResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->applyNumberDistrictInfoParsingResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建外呼任务
-     *  *
-     * @param AssignJobsRequest $request AssignJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @returns AssignJobsResponse
      *
-     * @return AssignJobsResponse AssignJobsResponse
+     * @param AssignJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AssignJobsResponse
      */
     public function assignJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isAsynchrony)) {
-            $query['IsAsynchrony'] = $request->isAsynchrony;
+
+        if (null !== $request->isAsynchrony) {
+            @$query['IsAsynchrony'] = $request->isAsynchrony;
         }
-        if (!Utils::isUnset($request->jobDataParsingTaskId)) {
-            $query['JobDataParsingTaskId'] = $request->jobDataParsingTaskId;
+
+        if (null !== $request->jobDataParsingTaskId) {
+            @$query['JobDataParsingTaskId'] = $request->jobDataParsingTaskId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobsJson)) {
-            $query['JobsJson'] = $request->jobsJson;
+
+        if (null !== $request->jobsJson) {
+            @$query['JobsJson'] = $request->jobsJson;
         }
-        if (!Utils::isUnset($request->rosterType)) {
-            $query['RosterType'] = $request->rosterType;
+
+        if (null !== $request->rosterType) {
+            @$query['RosterType'] = $request->rosterType;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AssignJobs',
@@ -491,11 +441,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 创建外呼任务
-     *  *
-     * @param AssignJobsRequest $request AssignJobsRequest
+     * 创建外呼任务
      *
-     * @return AssignJobsResponse AssignJobsResponse
+     * @param request - AssignJobsRequest
+     *
+     * @returns AssignJobsResponse
+     *
+     * @param AssignJobsRequest $request
+     *
+     * @return AssignJobsResponse
      */
     public function assignJobs($request)
     {
@@ -505,42 +459,54 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 异步创建外呼任务
-     *  *
-     * @param AssignJobsAsyncRequest $tmpReq  AssignJobsAsyncRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 异步创建外呼任务
      *
-     * @return AssignJobsAsyncResponse AssignJobsAsyncResponse
+     * @param tmpReq - AssignJobsAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignJobsAsyncResponse
+     *
+     * @param AssignJobsAsyncRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AssignJobsAsyncResponse
      */
     public function assignJobsAsyncWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AssignJobsAsyncShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->callingNumber)) {
-            $request->callingNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callingNumber, 'CallingNumber', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callingNumber) {
+            $request->callingNumberShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callingNumber, 'CallingNumber', 'json');
         }
-        if (!Utils::isUnset($tmpReq->jobsJson)) {
-            $request->jobsJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobsJson, 'JobsJson', 'json');
+
+        if (null !== $tmpReq->jobsJson) {
+            $request->jobsJsonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobsJson, 'JobsJson', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->callingNumberShrink)) {
-            $body['CallingNumber'] = $request->callingNumberShrink;
+        if (null !== $request->callingNumberShrink) {
+            @$body['CallingNumber'] = $request->callingNumberShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $body['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$body['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobsJsonShrink)) {
-            $body['JobsJson'] = $request->jobsJsonShrink;
+
+        if (null !== $request->jobsJsonShrink) {
+            @$body['JobsJson'] = $request->jobsJsonShrink;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $body['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$body['StrategyJson'] = $request->strategyJson;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AssignJobsAsync',
@@ -558,11 +524,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 异步创建外呼任务
-     *  *
-     * @param AssignJobsAsyncRequest $request AssignJobsAsyncRequest
+     * 异步创建外呼任务
      *
-     * @return AssignJobsAsyncResponse AssignJobsAsyncResponse
+     * @param request - AssignJobsAsyncRequest
+     *
+     * @returns AssignJobsAsyncResponse
+     *
+     * @param AssignJobsAsyncRequest $request
+     *
+     * @return AssignJobsAsyncResponse
      */
     public function assignJobsAsync($request)
     {
@@ -572,35 +542,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CancelJobsRequest $request CancelJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - CancelJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelJobsResponse CancelJobsResponse
+     * @returns CancelJobsResponse
+     *
+     * @param CancelJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelJobsResponse
      */
     public function cancelJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobReferenceId)) {
-            $query['JobReferenceId'] = $request->jobReferenceId;
+
+        if (null !== $request->jobReferenceId) {
+            @$query['JobReferenceId'] = $request->jobReferenceId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelJobs',
@@ -618,9 +599,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CancelJobsRequest $request CancelJobsRequest
+     * @param request - CancelJobsRequest
      *
-     * @return CancelJobsResponse CancelJobsResponse
+     * @returns CancelJobsResponse
+     *
+     * @param CancelJobsRequest $request
+     *
+     * @return CancelJobsResponse
      */
     public function cancelJobs($request)
     {
@@ -630,23 +615,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -664,9 +656,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param request - ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -676,59 +672,78 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateAgentProfileRequest $request CreateAgentProfileRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAgentProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAgentProfileResponse CreateAgentProfileResponse
+     * @returns CreateAgentProfileResponse
+     *
+     * @param CreateAgentProfileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAgentProfileResponse
      */
     public function createAgentProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentProfileTemplateId)) {
-            $body['AgentProfileTemplateId'] = $request->agentProfileTemplateId;
+        if (null !== $request->agentProfileTemplateId) {
+            @$body['AgentProfileTemplateId'] = $request->agentProfileTemplateId;
         }
-        if (!Utils::isUnset($request->appIp)) {
-            $body['AppIp'] = $request->appIp;
+
+        if (null !== $request->appIp) {
+            @$body['AppIp'] = $request->appIp;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->faqCategoryIds)) {
-            $body['FaqCategoryIds'] = $request->faqCategoryIds;
+
+        if (null !== $request->faqCategoryIds) {
+            @$body['FaqCategoryIds'] = $request->faqCategoryIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instructionJson)) {
-            $body['InstructionJson'] = $request->instructionJson;
+
+        if (null !== $request->instructionJson) {
+            @$body['InstructionJson'] = $request->instructionJson;
         }
-        if (!Utils::isUnset($request->labelsJson)) {
-            $body['LabelsJson'] = $request->labelsJson;
+
+        if (null !== $request->labelsJson) {
+            @$body['LabelsJson'] = $request->labelsJson;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->modelConfig)) {
-            $body['ModelConfig'] = $request->modelConfig;
+
+        if (null !== $request->modelConfig) {
+            @$body['ModelConfig'] = $request->modelConfig;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->promptJson)) {
-            $body['PromptJson'] = $request->promptJson;
+
+        if (null !== $request->promptJson) {
+            @$body['PromptJson'] = $request->promptJson;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $body['Scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$body['Scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $body['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->variablesJson)) {
-            $body['VariablesJson'] = $request->variablesJson;
+
+        if (null !== $request->variablesJson) {
+            @$body['VariablesJson'] = $request->variablesJson;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAgentProfile',
@@ -746,9 +761,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateAgentProfileRequest $request CreateAgentProfileRequest
+     * @param request - CreateAgentProfileRequest
      *
-     * @return CreateAgentProfileResponse CreateAgentProfileResponse
+     * @returns CreateAgentProfileResponse
+     *
+     * @param CreateAgentProfileRequest $request
+     *
+     * @return CreateAgentProfileResponse
      */
     public function createAgentProfile($request)
     {
@@ -758,76 +777,102 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateAnnotationMissionRequest $tmpReq  CreateAnnotationMissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 创建标注任务
      *
-     * @return CreateAnnotationMissionResponse CreateAnnotationMissionResponse
+     * @param tmpReq - CreateAnnotationMissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnnotationMissionResponse
+     *
+     * @param CreateAnnotationMissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAnnotationMissionResponse
      */
     public function createAnnotationMissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAnnotationMissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->annotationMissionDebugDataSourceList)) {
-            $request->annotationMissionDebugDataSourceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->annotationMissionDebugDataSourceList, 'AnnotationMissionDebugDataSourceList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->annotationMissionDebugDataSourceList) {
+            $request->annotationMissionDebugDataSourceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->annotationMissionDebugDataSourceList, 'AnnotationMissionDebugDataSourceList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->annotationMissionDataSourceType)) {
-            $query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
+
+        if (null !== $request->annotationMissionDataSourceType) {
+            @$query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
         }
-        if (!Utils::isUnset($request->annotationMissionDebugDataSourceListShrink)) {
-            $query['AnnotationMissionDebugDataSourceList'] = $request->annotationMissionDebugDataSourceListShrink;
+
+        if (null !== $request->annotationMissionDebugDataSourceListShrink) {
+            @$query['AnnotationMissionDebugDataSourceList'] = $request->annotationMissionDebugDataSourceListShrink;
         }
-        if (!Utils::isUnset($request->annotationMissionDebugDataSourceListJsonString)) {
-            $query['AnnotationMissionDebugDataSourceListJsonString'] = $request->annotationMissionDebugDataSourceListJsonString;
+
+        if (null !== $request->annotationMissionDebugDataSourceListJsonString) {
+            @$query['AnnotationMissionDebugDataSourceListJsonString'] = $request->annotationMissionDebugDataSourceListJsonString;
         }
-        if (!Utils::isUnset($request->annotationMissionName)) {
-            $query['AnnotationMissionName'] = $request->annotationMissionName;
+
+        if (null !== $request->annotationMissionName) {
+            @$query['AnnotationMissionName'] = $request->annotationMissionName;
         }
-        if (!Utils::isUnset($request->chatbotId)) {
-            $query['ChatbotId'] = $request->chatbotId;
+
+        if (null !== $request->chatbotId) {
+            @$query['ChatbotId'] = $request->chatbotId;
         }
-        if (!Utils::isUnset($request->conversationTimeEndFilter)) {
-            $query['ConversationTimeEndFilter'] = $request->conversationTimeEndFilter;
+
+        if (null !== $request->conversationTimeEndFilter) {
+            @$query['ConversationTimeEndFilter'] = $request->conversationTimeEndFilter;
         }
-        if (!Utils::isUnset($request->conversationTimeStartFilter)) {
-            $query['ConversationTimeStartFilter'] = $request->conversationTimeStartFilter;
+
+        if (null !== $request->conversationTimeStartFilter) {
+            @$query['ConversationTimeStartFilter'] = $request->conversationTimeStartFilter;
         }
-        if (!Utils::isUnset($request->excludeOtherSession)) {
-            $query['ExcludeOtherSession'] = $request->excludeOtherSession;
+
+        if (null !== $request->excludeOtherSession) {
+            @$query['ExcludeOtherSession'] = $request->excludeOtherSession;
         }
-        if (!Utils::isUnset($request->finished)) {
-            $query['Finished'] = $request->finished;
+
+        if (null !== $request->finished) {
+            @$query['Finished'] = $request->finished;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->samplingCount)) {
-            $query['SamplingCount'] = $request->samplingCount;
+
+        if (null !== $request->samplingCount) {
+            @$query['SamplingCount'] = $request->samplingCount;
         }
-        if (!Utils::isUnset($request->samplingRate)) {
-            $query['SamplingRate'] = $request->samplingRate;
+
+        if (null !== $request->samplingRate) {
+            @$query['SamplingRate'] = $request->samplingRate;
         }
-        if (!Utils::isUnset($request->samplingType)) {
-            $query['SamplingType'] = $request->samplingType;
+
+        if (null !== $request->samplingType) {
+            @$query['SamplingType'] = $request->samplingType;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->sessionEndReasonFilterList)) {
-            $query['SessionEndReasonFilterList'] = $request->sessionEndReasonFilterList;
+
+        if (null !== $request->sessionEndReasonFilterList) {
+            @$query['SessionEndReasonFilterList'] = $request->sessionEndReasonFilterList;
         }
-        if (!Utils::isUnset($request->sessionEndReasonFilterListJsonString)) {
-            $query['SessionEndReasonFilterListJsonString'] = $request->sessionEndReasonFilterListJsonString;
+
+        if (null !== $request->sessionEndReasonFilterListJsonString) {
+            @$query['SessionEndReasonFilterListJsonString'] = $request->sessionEndReasonFilterListJsonString;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAnnotationMission',
@@ -845,9 +890,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateAnnotationMissionRequest $request CreateAnnotationMissionRequest
+     * 创建标注任务
      *
-     * @return CreateAnnotationMissionResponse CreateAnnotationMissionResponse
+     * @param request - CreateAnnotationMissionRequest
+     *
+     * @returns CreateAnnotationMissionResponse
+     *
+     * @param CreateAnnotationMissionRequest $request
+     *
+     * @return CreateAnnotationMissionResponse
      */
     public function createAnnotationMission($request)
     {
@@ -857,44 +908,60 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchJobsRequest $request CreateBatchJobsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建任务
      *
-     * @return CreateBatchJobsResponse CreateBatchJobsResponse
+     * @param request - CreateBatchJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchJobsResponse
+     *
+     * @param CreateBatchJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBatchJobsResponse
      */
     public function createBatchJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->batchJobDescription)) {
-            $query['BatchJobDescription'] = $request->batchJobDescription;
+        if (null !== $request->batchJobDescription) {
+            @$query['BatchJobDescription'] = $request->batchJobDescription;
         }
-        if (!Utils::isUnset($request->batchJobName)) {
-            $query['BatchJobName'] = $request->batchJobName;
+
+        if (null !== $request->batchJobName) {
+            @$query['BatchJobName'] = $request->batchJobName;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobFilePath)) {
-            $query['JobFilePath'] = $request->jobFilePath;
+
+        if (null !== $request->jobFilePath) {
+            @$query['JobFilePath'] = $request->jobFilePath;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
-        if (!Utils::isUnset($request->submitted)) {
-            $query['Submitted'] = $request->submitted;
+
+        if (null !== $request->submitted) {
+            @$query['Submitted'] = $request->submitted;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBatchJobs',
@@ -912,9 +979,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchJobsRequest $request CreateBatchJobsRequest
+     * 创建任务
      *
-     * @return CreateBatchJobsResponse CreateBatchJobsResponse
+     * @param request - CreateBatchJobsRequest
+     *
+     * @returns CreateBatchJobsResponse
+     *
+     * @param CreateBatchJobsRequest $request
+     *
+     * @return CreateBatchJobsResponse
      */
     public function createBatchJobs($request)
     {
@@ -924,61 +997,80 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBatchRepeatJob
-     *  *
-     * @param CreateBatchRepeatJobRequest $request CreateBatchRepeatJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * CreateBatchRepeatJob.
      *
-     * @return CreateBatchRepeatJobResponse CreateBatchRepeatJobResponse
+     * @param request - CreateBatchRepeatJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchRepeatJobResponse
+     *
+     * @param CreateBatchRepeatJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateBatchRepeatJobResponse
      */
     public function createBatchRepeatJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->filterStatus)) {
-            $query['FilterStatus'] = $request->filterStatus;
+
+        if (null !== $request->filterStatus) {
+            @$query['FilterStatus'] = $request->filterStatus;
         }
-        if (!Utils::isUnset($request->flashSmsExtras)) {
-            $query['FlashSmsExtras'] = $request->flashSmsExtras;
+
+        if (null !== $request->flashSmsExtras) {
+            @$query['FlashSmsExtras'] = $request->flashSmsExtras;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->minConcurrency)) {
-            $query['MinConcurrency'] = $request->minConcurrency;
+
+        if (null !== $request->minConcurrency) {
+            @$query['MinConcurrency'] = $request->minConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->recallCallingNumber)) {
-            $query['RecallCallingNumber'] = $request->recallCallingNumber;
+
+        if (null !== $request->recallCallingNumber) {
+            @$query['RecallCallingNumber'] = $request->recallCallingNumber;
         }
-        if (!Utils::isUnset($request->recallStrategyJson)) {
-            $query['RecallStrategyJson'] = $request->recallStrategyJson;
+
+        if (null !== $request->recallStrategyJson) {
+            @$query['RecallStrategyJson'] = $request->recallStrategyJson;
         }
-        if (!Utils::isUnset($request->ringingDuration)) {
-            $query['RingingDuration'] = $request->ringingDuration;
+
+        if (null !== $request->ringingDuration) {
+            @$query['RingingDuration'] = $request->ringingDuration;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->sourceGroupId)) {
-            $query['SourceGroupId'] = $request->sourceGroupId;
+
+        if (null !== $request->sourceGroupId) {
+            @$query['SourceGroupId'] = $request->sourceGroupId;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBatchRepeatJob',
@@ -996,11 +1088,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBatchRepeatJob
-     *  *
-     * @param CreateBatchRepeatJobRequest $request CreateBatchRepeatJobRequest
+     * CreateBatchRepeatJob.
      *
-     * @return CreateBatchRepeatJobResponse CreateBatchRepeatJobResponse
+     * @param request - CreateBatchRepeatJobRequest
+     *
+     * @returns CreateBatchRepeatJobResponse
+     *
+     * @param CreateBatchRepeatJobRequest $request
+     *
+     * @return CreateBatchRepeatJobResponse
      */
     public function createBatchRepeatJob($request)
     {
@@ -1010,33 +1106,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntent
-     *  *
-     * @param CreateBeebotIntentRequest $tmpReq  CreateBeebotIntentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * CreateBeebotIntent.
      *
-     * @return CreateBeebotIntentResponse CreateBeebotIntentResponse
+     * @param tmpReq - CreateBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentResponse
+     *
+     * @param CreateBeebotIntentRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBeebotIntentResponse
      */
     public function createBeebotIntentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBeebotIntentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDefinitionShrink)) {
-            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBeebotIntent',
@@ -1054,11 +1159,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntent
-     *  *
-     * @param CreateBeebotIntentRequest $request CreateBeebotIntentRequest
+     * CreateBeebotIntent.
      *
-     * @return CreateBeebotIntentResponse CreateBeebotIntentResponse
+     * @param request - CreateBeebotIntentRequest
+     *
+     * @returns CreateBeebotIntentResponse
+     *
+     * @param CreateBeebotIntentRequest $request
+     *
+     * @return CreateBeebotIntentResponse
      */
     public function createBeebotIntent($request)
     {
@@ -1068,33 +1177,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntentLgf
-     *  *
-     * @param CreateBeebotIntentLgfRequest $tmpReq  CreateBeebotIntentLgfRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * CreateBeebotIntentLgf.
      *
-     * @return CreateBeebotIntentLgfResponse CreateBeebotIntentLgfResponse
+     * @param tmpReq - CreateBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentLgfResponse
+     *
+     * @param CreateBeebotIntentLgfRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateBeebotIntentLgfResponse
      */
     public function createBeebotIntentLgfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBeebotIntentLgfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lgfDefinitionShrink)) {
-            $query['LgfDefinition'] = $request->lgfDefinitionShrink;
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBeebotIntentLgf',
@@ -1112,11 +1230,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntentLgf
-     *  *
-     * @param CreateBeebotIntentLgfRequest $request CreateBeebotIntentLgfRequest
+     * CreateBeebotIntentLgf.
      *
-     * @return CreateBeebotIntentLgfResponse CreateBeebotIntentLgfResponse
+     * @param request - CreateBeebotIntentLgfRequest
+     *
+     * @returns CreateBeebotIntentLgfResponse
+     *
+     * @param CreateBeebotIntentLgfRequest $request
+     *
+     * @return CreateBeebotIntentLgfResponse
      */
     public function createBeebotIntentLgf($request)
     {
@@ -1126,33 +1248,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntentUserSay
-     *  *
-     * @param CreateBeebotIntentUserSayRequest $tmpReq  CreateBeebotIntentUserSayRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * CreateBeebotIntentUserSay.
      *
-     * @return CreateBeebotIntentUserSayResponse CreateBeebotIntentUserSayResponse
+     * @param tmpReq - CreateBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentUserSayResponse
+     *
+     * @param CreateBeebotIntentUserSayRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateBeebotIntentUserSayResponse
      */
     public function createBeebotIntentUserSayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBeebotIntentUserSayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->userSayDefinitionShrink)) {
-            $query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBeebotIntentUserSay',
@@ -1170,11 +1301,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary CreateBeebotIntentUserSay
-     *  *
-     * @param CreateBeebotIntentUserSayRequest $request CreateBeebotIntentUserSayRequest
+     * CreateBeebotIntentUserSay.
      *
-     * @return CreateBeebotIntentUserSayResponse CreateBeebotIntentUserSayResponse
+     * @param request - CreateBeebotIntentUserSayRequest
+     *
+     * @returns CreateBeebotIntentUserSayResponse
+     *
+     * @param CreateBeebotIntentUserSayRequest $request
+     *
+     * @return CreateBeebotIntentUserSayResponse
      */
     public function createBeebotIntentUserSay($request)
     {
@@ -1184,29 +1319,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateDialogueFlowRequest $request CreateDialogueFlowRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDialogueFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateDialogueFlowResponse CreateDialogueFlowResponse
+     * @returns CreateDialogueFlowResponse
+     *
+     * @param CreateDialogueFlowRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDialogueFlowResponse
      */
     public function createDialogueFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dialogueFlowType)) {
-            $query['DialogueFlowType'] = $request->dialogueFlowType;
+        if (null !== $request->dialogueFlowType) {
+            @$query['DialogueFlowType'] = $request->dialogueFlowType;
         }
-        if (!Utils::isUnset($request->dialogueName)) {
-            $query['DialogueName'] = $request->dialogueName;
+
+        if (null !== $request->dialogueName) {
+            @$query['DialogueName'] = $request->dialogueName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDialogueFlow',
@@ -1224,9 +1368,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateDialogueFlowRequest $request CreateDialogueFlowRequest
+     * @param request - CreateDialogueFlowRequest
      *
-     * @return CreateDialogueFlowResponse CreateDialogueFlowResponse
+     * @returns CreateDialogueFlowResponse
+     *
+     * @param CreateDialogueFlowRequest $request
+     *
+     * @return CreateDialogueFlowResponse
      */
     public function createDialogueFlow($request)
     {
@@ -1236,17 +1384,22 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
+     * @returns CreateDownloadUrlResponse
+     *
+     * @param CreateDownloadUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDownloadUrlResponse
      */
     public function createDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDownloadUrl',
@@ -1264,9 +1417,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
+     * @param request - CreateDownloadUrlRequest
      *
-     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
+     * @returns CreateDownloadUrlResponse
+     *
+     * @param CreateDownloadUrlRequest $request
+     *
+     * @return CreateDownloadUrlResponse
      */
     public function createDownloadUrl($request)
     {
@@ -1276,35 +1433,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalQuestionRequest $request CreateGlobalQuestionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateGlobalQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalQuestionResponse CreateGlobalQuestionResponse
+     * @returns CreateGlobalQuestionResponse
+     *
+     * @param CreateGlobalQuestionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateGlobalQuestionResponse
      */
     public function createGlobalQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->answers)) {
-            $query['Answers'] = $request->answers;
+        if (null !== $request->answers) {
+            @$query['Answers'] = $request->answers;
         }
-        if (!Utils::isUnset($request->globalQuestionName)) {
-            $query['GlobalQuestionName'] = $request->globalQuestionName;
+
+        if (null !== $request->globalQuestionName) {
+            @$query['GlobalQuestionName'] = $request->globalQuestionName;
         }
-        if (!Utils::isUnset($request->globalQuestionType)) {
-            $query['GlobalQuestionType'] = $request->globalQuestionType;
+
+        if (null !== $request->globalQuestionType) {
+            @$query['GlobalQuestionType'] = $request->globalQuestionType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->questions)) {
-            $query['Questions'] = $request->questions;
+
+        if (null !== $request->questions) {
+            @$query['Questions'] = $request->questions;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGlobalQuestion',
@@ -1322,9 +1490,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalQuestionRequest $request CreateGlobalQuestionRequest
+     * @param request - CreateGlobalQuestionRequest
      *
-     * @return CreateGlobalQuestionResponse CreateGlobalQuestionResponse
+     * @returns CreateGlobalQuestionResponse
+     *
+     * @param CreateGlobalQuestionRequest $request
+     *
+     * @return CreateGlobalQuestionResponse
      */
     public function createGlobalQuestion($request)
     {
@@ -1334,35 +1506,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceDescription)) {
-            $query['InstanceDescription'] = $request->instanceDescription;
+
+        if (null !== $request->instanceDescription) {
+            @$query['InstanceDescription'] = $request->instanceDescription;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->maxConcurrentConversation)) {
-            $query['MaxConcurrentConversation'] = $request->maxConcurrentConversation;
+
+        if (null !== $request->maxConcurrentConversation) {
+            @$query['MaxConcurrentConversation'] = $request->maxConcurrentConversation;
         }
-        if (!Utils::isUnset($request->nluServiceType)) {
-            $query['NluServiceType'] = $request->nluServiceType;
+
+        if (null !== $request->nluServiceType) {
+            @$query['NluServiceType'] = $request->nluServiceType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInstance',
@@ -1380,9 +1563,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param request - CreateInstanceRequest
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -1392,25 +1579,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例绑定号码
-     *  *
-     * @param CreateInstanceBindNumberRequest $request CreateInstanceBindNumberRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 创建实例绑定号码
      *
-     * @return CreateInstanceBindNumberResponse CreateInstanceBindNumberResponse
+     * @param request - CreateInstanceBindNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceBindNumberResponse
+     *
+     * @param CreateInstanceBindNumberRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInstanceBindNumberResponse
      */
     public function createInstanceBindNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateInstanceBindNumber',
@@ -1428,11 +1622,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例绑定号码
-     *  *
-     * @param CreateInstanceBindNumberRequest $request CreateInstanceBindNumberRequest
+     * 创建实例绑定号码
      *
-     * @return CreateInstanceBindNumberResponse CreateInstanceBindNumberResponse
+     * @param request - CreateInstanceBindNumberRequest
+     *
+     * @returns CreateInstanceBindNumberResponse
+     *
+     * @param CreateInstanceBindNumberRequest $request
+     *
+     * @return CreateInstanceBindNumberResponse
      */
     public function createInstanceBindNumber($request)
     {
@@ -1442,35 +1640,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateIntentRequest $request CreateIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateIntentResponse CreateIntentResponse
+     * @returns CreateIntentResponse
+     *
+     * @param CreateIntentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateIntentResponse
      */
     public function createIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDescription)) {
-            $query['IntentDescription'] = $request->intentDescription;
+
+        if (null !== $request->intentDescription) {
+            @$query['IntentDescription'] = $request->intentDescription;
         }
-        if (!Utils::isUnset($request->intentName)) {
-            $query['IntentName'] = $request->intentName;
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
         }
-        if (!Utils::isUnset($request->keywords)) {
-            $query['Keywords'] = $request->keywords;
+
+        if (null !== $request->keywords) {
+            @$query['Keywords'] = $request->keywords;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->utterances)) {
-            $query['Utterances'] = $request->utterances;
+
+        if (null !== $request->utterances) {
+            @$query['Utterances'] = $request->utterances;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateIntent',
@@ -1488,9 +1697,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateIntentRequest $request CreateIntentRequest
+     * @param request - CreateIntentRequest
      *
-     * @return CreateIntentResponse CreateIntentResponse
+     * @returns CreateIntentResponse
+     *
+     * @param CreateIntentRequest $request
+     *
+     * @return CreateIntentResponse
      */
     public function createIntent($request)
     {
@@ -1500,23 +1713,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobDataParsingTaskRequest $request CreateJobDataParsingTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateJobDataParsingTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateJobDataParsingTaskResponse CreateJobDataParsingTaskResponse
+     * @returns CreateJobDataParsingTaskResponse
+     *
+     * @param CreateJobDataParsingTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateJobDataParsingTaskResponse
      */
     public function createJobDataParsingTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobFilePath)) {
-            $query['JobFilePath'] = $request->jobFilePath;
+
+        if (null !== $request->jobFilePath) {
+            @$query['JobFilePath'] = $request->jobFilePath;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateJobDataParsingTask',
@@ -1534,9 +1754,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobDataParsingTaskRequest $request CreateJobDataParsingTaskRequest
+     * @param request - CreateJobDataParsingTaskRequest
      *
-     * @return CreateJobDataParsingTaskResponse CreateJobDataParsingTaskResponse
+     * @returns CreateJobDataParsingTaskResponse
+     *
+     * @param CreateJobDataParsingTaskRequest $request
+     *
+     * @return CreateJobDataParsingTaskResponse
      */
     public function createJobDataParsingTask($request)
     {
@@ -1546,56 +1770,76 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobGroupRequest $request CreateJobGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建任务组.
      *
-     * @return CreateJobGroupResponse CreateJobGroupResponse
+     * @param request - CreateJobGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobGroupResponse
+     *
+     * @param CreateJobGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateJobGroupResponse
      */
     public function createJobGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->flashSmsExtras)) {
-            $query['FlashSmsExtras'] = $request->flashSmsExtras;
+
+        if (null !== $request->flashSmsExtras) {
+            @$query['FlashSmsExtras'] = $request->flashSmsExtras;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupDescription)) {
-            $query['JobGroupDescription'] = $request->jobGroupDescription;
+
+        if (null !== $request->jobGroupDescription) {
+            @$query['JobGroupDescription'] = $request->jobGroupDescription;
         }
-        if (!Utils::isUnset($request->jobGroupName)) {
-            $query['JobGroupName'] = $request->jobGroupName;
+
+        if (null !== $request->jobGroupName) {
+            @$query['JobGroupName'] = $request->jobGroupName;
         }
-        if (!Utils::isUnset($request->minConcurrency)) {
-            $query['MinConcurrency'] = $request->minConcurrency;
+
+        if (null !== $request->minConcurrency) {
+            @$query['MinConcurrency'] = $request->minConcurrency;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->recallCallingNumber)) {
-            $query['RecallCallingNumber'] = $request->recallCallingNumber;
+
+        if (null !== $request->recallCallingNumber) {
+            @$query['RecallCallingNumber'] = $request->recallCallingNumber;
         }
-        if (!Utils::isUnset($request->recallStrategyJson)) {
-            $query['RecallStrategyJson'] = $request->recallStrategyJson;
+
+        if (null !== $request->recallStrategyJson) {
+            @$query['RecallStrategyJson'] = $request->recallStrategyJson;
         }
-        if (!Utils::isUnset($request->ringingDuration)) {
-            $query['RingingDuration'] = $request->ringingDuration;
+
+        if (null !== $request->ringingDuration) {
+            @$query['RingingDuration'] = $request->ringingDuration;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateJobGroup',
@@ -1613,9 +1857,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobGroupRequest $request CreateJobGroupRequest
+     * 创建任务组.
      *
-     * @return CreateJobGroupResponse CreateJobGroupResponse
+     * @param request - CreateJobGroupRequest
+     *
+     * @returns CreateJobGroupResponse
+     *
+     * @param CreateJobGroupRequest $request
+     *
+     * @return CreateJobGroupResponse
      */
     public function createJobGroup($request)
     {
@@ -1625,26 +1875,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobGroupExportTaskRequest $request CreateJobGroupExportTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 创建任务组到处任务
      *
-     * @return CreateJobGroupExportTaskResponse CreateJobGroupExportTaskResponse
+     * @param request - CreateJobGroupExportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobGroupExportTaskResponse
+     *
+     * @param CreateJobGroupExportTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateJobGroupExportTaskResponse
      */
     public function createJobGroupExportTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->option)) {
-            $query['Option'] = $request->option;
+
+        if (null !== $request->option) {
+            @$query['Option'] = $request->option;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateJobGroupExportTask',
@@ -1662,9 +1922,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobGroupExportTaskRequest $request CreateJobGroupExportTaskRequest
+     * 创建任务组到处任务
      *
-     * @return CreateJobGroupExportTaskResponse CreateJobGroupExportTaskResponse
+     * @param request - CreateJobGroupExportTaskRequest
+     *
+     * @returns CreateJobGroupExportTaskResponse
+     *
+     * @param CreateJobGroupExportTaskRequest $request
+     *
+     * @return CreateJobGroupExportTaskResponse
      */
     public function createJobGroupExportTask($request)
     {
@@ -1674,232 +1940,104 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 创建号码库下载链接
-     *  *
-     * @param CreateNumberDistrictInfoDownloadUrlRequest $request CreateNumberDistrictInfoDownloadUrlRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 新建场景.
      *
-     * @return CreateNumberDistrictInfoDownloadUrlResponse CreateNumberDistrictInfoDownloadUrlResponse
-     */
-    public function createNumberDistrictInfoDownloadUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateNumberDistrictInfoDownloadUrl',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateNumberDistrictInfoDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建号码库下载链接
-     *  *
-     * @param CreateNumberDistrictInfoDownloadUrlRequest $request CreateNumberDistrictInfoDownloadUrlRequest
+     * @param request - CreateScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateNumberDistrictInfoDownloadUrlResponse CreateNumberDistrictInfoDownloadUrlResponse
-     */
-    public function createNumberDistrictInfoDownloadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNumberDistrictInfoDownloadUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 创建号码库解析任务
-     *  *
-     * @param CreateNumberDistrictInfoParsingTaskRequest $request CreateNumberDistrictInfoParsingTaskRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @returns CreateScriptResponse
      *
-     * @return CreateNumberDistrictInfoParsingTaskResponse CreateNumberDistrictInfoParsingTaskResponse
-     */
-    public function createNumberDistrictInfoParsingTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
-        }
-        if (!Utils::isUnset($request->fileSize)) {
-            $query['FileSize'] = $request->fileSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateNumberDistrictInfoParsingTask',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateNumberDistrictInfoParsingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建号码库解析任务
-     *  *
-     * @param CreateNumberDistrictInfoParsingTaskRequest $request CreateNumberDistrictInfoParsingTaskRequest
+     * @param CreateScriptRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return CreateNumberDistrictInfoParsingTaskResponse CreateNumberDistrictInfoParsingTaskResponse
-     */
-    public function createNumberDistrictInfoParsingTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNumberDistrictInfoParsingTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary CreateOutboundCallNumber
-     *  *
-     * @param CreateOutboundCallNumberRequest $request CreateOutboundCallNumberRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateOutboundCallNumberResponse CreateOutboundCallNumberResponse
-     */
-    public function createOutboundCallNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
-        }
-        if (!Utils::isUnset($request->rateLimitCount)) {
-            $query['RateLimitCount'] = $request->rateLimitCount;
-        }
-        if (!Utils::isUnset($request->rateLimitPeriod)) {
-            $query['RateLimitPeriod'] = $request->rateLimitPeriod;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateOutboundCallNumber',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary CreateOutboundCallNumber
-     *  *
-     * @param CreateOutboundCallNumberRequest $request CreateOutboundCallNumberRequest
-     *
-     * @return CreateOutboundCallNumberResponse CreateOutboundCallNumberResponse
-     */
-    public function createOutboundCallNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createOutboundCallNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 新建场景
-     *  *
-     * @param CreateScriptRequest $request CreateScriptRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateScriptResponse CreateScriptResponse
+     * @return CreateScriptResponse
      */
     public function createScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->agentLlm)) {
-            $query['AgentLlm'] = $request->agentLlm;
+
+        if (null !== $request->agentLlm) {
+            @$query['AgentLlm'] = $request->agentLlm;
         }
-        if (!Utils::isUnset($request->asrConfig)) {
-            $query['AsrConfig'] = $request->asrConfig;
+
+        if (null !== $request->asrConfig) {
+            @$query['AsrConfig'] = $request->asrConfig;
         }
-        if (!Utils::isUnset($request->chatbotId)) {
-            $query['ChatbotId'] = $request->chatbotId;
+
+        if (null !== $request->chatbotId) {
+            @$query['ChatbotId'] = $request->chatbotId;
         }
-        if (!Utils::isUnset($request->emotionEnable)) {
-            $query['EmotionEnable'] = $request->emotionEnable;
+
+        if (null !== $request->emotionEnable) {
+            @$query['EmotionEnable'] = $request->emotionEnable;
         }
-        if (!Utils::isUnset($request->industry)) {
-            $query['Industry'] = $request->industry;
+
+        if (null !== $request->industry) {
+            @$query['Industry'] = $request->industry;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->longWaitEnable)) {
-            $query['LongWaitEnable'] = $request->longWaitEnable;
+
+        if (null !== $request->longWaitEnable) {
+            @$query['LongWaitEnable'] = $request->longWaitEnable;
         }
-        if (!Utils::isUnset($request->miniPlaybackEnable)) {
-            $query['MiniPlaybackEnable'] = $request->miniPlaybackEnable;
+
+        if (null !== $request->miniPlaybackEnable) {
+            @$query['MiniPlaybackEnable'] = $request->miniPlaybackEnable;
         }
-        if (!Utils::isUnset($request->newBargeInEnable)) {
-            $query['NewBargeInEnable'] = $request->newBargeInEnable;
+
+        if (null !== $request->newBargeInEnable) {
+            @$query['NewBargeInEnable'] = $request->newBargeInEnable;
         }
-        if (!Utils::isUnset($request->nluAccessType)) {
-            $query['NluAccessType'] = $request->nluAccessType;
+
+        if (null !== $request->nluAccessType) {
+            @$query['NluAccessType'] = $request->nluAccessType;
         }
-        if (!Utils::isUnset($request->nluEngine)) {
-            $query['NluEngine'] = $request->nluEngine;
+
+        if (null !== $request->nluEngine) {
+            @$query['NluEngine'] = $request->nluEngine;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
+
+        if (null !== $request->scriptContent) {
+            @$query['ScriptContent'] = $request->scriptContent;
         }
-        if (!Utils::isUnset($request->scriptDescription)) {
-            $query['ScriptDescription'] = $request->scriptDescription;
+
+        if (null !== $request->scriptDescription) {
+            @$query['ScriptDescription'] = $request->scriptDescription;
         }
-        if (!Utils::isUnset($request->scriptName)) {
-            $query['ScriptName'] = $request->scriptName;
+
+        if (null !== $request->scriptName) {
+            @$query['ScriptName'] = $request->scriptName;
         }
-        if (!Utils::isUnset($request->scriptNluProfileJsonString)) {
-            $query['ScriptNluProfileJsonString'] = $request->scriptNluProfileJsonString;
+
+        if (null !== $request->scriptNluProfileJsonString) {
+            @$query['ScriptNluProfileJsonString'] = $request->scriptNluProfileJsonString;
         }
-        if (!Utils::isUnset($request->scriptWaveform)) {
-            $query['ScriptWaveform'] = $request->scriptWaveform;
+
+        if (null !== $request->scriptWaveform) {
+            @$query['ScriptWaveform'] = $request->scriptWaveform;
         }
-        if (!Utils::isUnset($request->ttsConfig)) {
-            $query['TtsConfig'] = $request->ttsConfig;
+
+        if (null !== $request->ttsConfig) {
+            @$query['TtsConfig'] = $request->ttsConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScript',
@@ -1917,11 +2055,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 新建场景
-     *  *
-     * @param CreateScriptRequest $request CreateScriptRequest
+     * 新建场景.
      *
-     * @return CreateScriptResponse CreateScriptResponse
+     * @param request - CreateScriptRequest
+     *
+     * @returns CreateScriptResponse
+     *
+     * @param CreateScriptRequest $request
+     *
+     * @return CreateScriptResponse
      */
     public function createScript($request)
     {
@@ -1931,32 +2073,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateScriptWaveformRequest $request CreateScriptWaveformRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateScriptWaveformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateScriptWaveformResponse CreateScriptWaveformResponse
+     * @returns CreateScriptWaveformResponse
+     *
+     * @param CreateScriptWaveformRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateScriptWaveformResponse
      */
     public function createScriptWaveformWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
+
+        if (null !== $request->scriptContent) {
+            @$query['ScriptContent'] = $request->scriptContent;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScriptWaveform',
@@ -1974,9 +2126,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateScriptWaveformRequest $request CreateScriptWaveformRequest
+     * @param request - CreateScriptWaveformRequest
      *
-     * @return CreateScriptWaveformResponse CreateScriptWaveformResponse
+     * @returns CreateScriptWaveformResponse
+     *
+     * @param CreateScriptWaveformRequest $request
+     *
+     * @return CreateScriptWaveformResponse
      */
     public function createScriptWaveform($request)
     {
@@ -1986,29 +2142,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateTagRequest $request CreateTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
      */
     public function createTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->tagGroup)) {
-            $query['TagGroup'] = $request->tagGroup;
+
+        if (null !== $request->tagGroup) {
+            @$query['TagGroup'] = $request->tagGroup;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTag',
@@ -2026,9 +2191,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param CreateTagRequest $request CreateTagRequest
+     * @param request - CreateTagRequest
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
      */
     public function createTag($request)
     {
@@ -2038,19 +2207,24 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 外呼历史导出
-     *  *
-     * @param CreateTaskExportTaskRequest $request CreateTaskExportTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 外呼历史导出.
      *
-     * @return CreateTaskExportTaskResponse CreateTaskExportTaskResponse
+     * @param request - CreateTaskExportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTaskExportTaskResponse
+     *
+     * @param CreateTaskExportTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateTaskExportTaskResponse
      */
     public function createTaskExportTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTaskExportTask',
@@ -2068,11 +2242,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 外呼历史导出
-     *  *
-     * @param CreateTaskExportTaskRequest $request CreateTaskExportTaskRequest
+     * 外呼历史导出.
      *
-     * @return CreateTaskExportTaskResponse CreateTaskExportTaskResponse
+     * @param request - CreateTaskExportTaskRequest
+     *
+     * @returns CreateTaskExportTaskResponse
+     *
+     * @param CreateTaskExportTaskRequest $request
+     *
+     * @return CreateTaskExportTaskResponse
      */
     public function createTaskExportTask($request)
     {
@@ -2082,28 +2260,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteAgentProfilesRequest $tmpReq  DeleteAgentProfilesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - DeleteAgentProfilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAgentProfilesResponse DeleteAgentProfilesResponse
+     * @returns DeleteAgentProfilesResponse
+     *
+     * @param DeleteAgentProfilesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAgentProfilesResponse
      */
     public function deleteAgentProfilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteAgentProfilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentProfileIds)) {
-            $request->agentProfileIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentProfileIds, 'AgentProfileIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentProfileIds) {
+            $request->agentProfileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentProfileIds, 'AgentProfileIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->agentProfileIdsShrink)) {
-            $body['AgentProfileIds'] = $request->agentProfileIdsShrink;
+        if (null !== $request->agentProfileIdsShrink) {
+            @$body['AgentProfileIds'] = $request->agentProfileIdsShrink;
         }
-        if (!Utils::isUnset($request->appIp)) {
-            $body['AppIp'] = $request->appIp;
+
+        if (null !== $request->appIp) {
+            @$body['AppIp'] = $request->appIp;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteAgentProfiles',
@@ -2121,9 +2307,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteAgentProfilesRequest $request DeleteAgentProfilesRequest
+     * @param request - DeleteAgentProfilesRequest
      *
-     * @return DeleteAgentProfilesResponse DeleteAgentProfilesResponse
+     * @returns DeleteAgentProfilesResponse
+     *
+     * @param DeleteAgentProfilesRequest $request
+     *
+     * @return DeleteAgentProfilesResponse
      */
     public function deleteAgentProfiles($request)
     {
@@ -2133,11 +2323,16 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 清空归属地号码库
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 清空归属地号码库.
      *
-     * @return DeleteAllNumberDistrictInfoResponse DeleteAllNumberDistrictInfoResponse
+     * @param request - DeleteAllNumberDistrictInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAllNumberDistrictInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAllNumberDistrictInfoResponse
      */
     public function deleteAllNumberDistrictInfoWithOptions($runtime)
     {
@@ -2158,9 +2353,11 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 清空归属地号码库
-     *  *
-     * @return DeleteAllNumberDistrictInfoResponse DeleteAllNumberDistrictInfoResponse
+     * 清空归属地号码库.
+     *
+     * @returns DeleteAllNumberDistrictInfoResponse
+     *
+     * @return DeleteAllNumberDistrictInfoResponse
      */
     public function deleteAllNumberDistrictInfo()
     {
@@ -2170,28 +2367,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntent
-     *  *
-     * @param DeleteBeebotIntentRequest $request DeleteBeebotIntentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * DeleteBeebotIntent.
      *
-     * @return DeleteBeebotIntentResponse DeleteBeebotIntentResponse
+     * @param request - DeleteBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentResponse
+     *
+     * @param DeleteBeebotIntentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBeebotIntentResponse
      */
     public function deleteBeebotIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBeebotIntent',
@@ -2209,11 +2414,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntent
-     *  *
-     * @param DeleteBeebotIntentRequest $request DeleteBeebotIntentRequest
+     * DeleteBeebotIntent.
      *
-     * @return DeleteBeebotIntentResponse DeleteBeebotIntentResponse
+     * @param request - DeleteBeebotIntentRequest
+     *
+     * @returns DeleteBeebotIntentResponse
+     *
+     * @param DeleteBeebotIntentRequest $request
+     *
+     * @return DeleteBeebotIntentResponse
      */
     public function deleteBeebotIntent($request)
     {
@@ -2223,31 +2432,40 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntentLgf
-     *  *
-     * @param DeleteBeebotIntentLgfRequest $request DeleteBeebotIntentLgfRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * DeleteBeebotIntentLgf.
      *
-     * @return DeleteBeebotIntentLgfResponse DeleteBeebotIntentLgfResponse
+     * @param request - DeleteBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentLgfResponse
+     *
+     * @param DeleteBeebotIntentLgfRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteBeebotIntentLgfResponse
      */
     public function deleteBeebotIntentLgfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->lgfId)) {
-            $query['LgfId'] = $request->lgfId;
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBeebotIntentLgf',
@@ -2265,11 +2483,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntentLgf
-     *  *
-     * @param DeleteBeebotIntentLgfRequest $request DeleteBeebotIntentLgfRequest
+     * DeleteBeebotIntentLgf.
      *
-     * @return DeleteBeebotIntentLgfResponse DeleteBeebotIntentLgfResponse
+     * @param request - DeleteBeebotIntentLgfRequest
+     *
+     * @returns DeleteBeebotIntentLgfResponse
+     *
+     * @param DeleteBeebotIntentLgfRequest $request
+     *
+     * @return DeleteBeebotIntentLgfResponse
      */
     public function deleteBeebotIntentLgf($request)
     {
@@ -2279,31 +2501,40 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntentUserSay
-     *  *
-     * @param DeleteBeebotIntentUserSayRequest $request DeleteBeebotIntentUserSayRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * DeleteBeebotIntentUserSay.
      *
-     * @return DeleteBeebotIntentUserSayResponse DeleteBeebotIntentUserSayResponse
+     * @param request - DeleteBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentUserSayResponse
+     *
+     * @param DeleteBeebotIntentUserSayRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteBeebotIntentUserSayResponse
      */
     public function deleteBeebotIntentUserSayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->userSayId)) {
-            $query['UserSayId'] = $request->userSayId;
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBeebotIntentUserSay',
@@ -2321,11 +2552,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DeleteBeebotIntentUserSay
-     *  *
-     * @param DeleteBeebotIntentUserSayRequest $request DeleteBeebotIntentUserSayRequest
+     * DeleteBeebotIntentUserSay.
      *
-     * @return DeleteBeebotIntentUserSayResponse DeleteBeebotIntentUserSayResponse
+     * @param request - DeleteBeebotIntentUserSayRequest
+     *
+     * @returns DeleteBeebotIntentUserSayResponse
+     *
+     * @param DeleteBeebotIntentUserSayRequest $request
+     *
+     * @return DeleteBeebotIntentUserSayResponse
      */
     public function deleteBeebotIntentUserSay($request)
     {
@@ -2335,26 +2570,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactBlockListRequest $request DeleteContactBlockListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteContactBlockListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactBlockListResponse DeleteContactBlockListResponse
+     * @returns DeleteContactBlockListResponse
+     *
+     * @param DeleteContactBlockListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteContactBlockListResponse
      */
     public function deleteContactBlockListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactBlockListId)) {
-            $query['ContactBlockListId'] = $request->contactBlockListId;
+        if (null !== $request->contactBlockListId) {
+            @$query['ContactBlockListId'] = $request->contactBlockListId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$query['Operator'] = $request->operator;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteContactBlockList',
@@ -2372,9 +2615,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactBlockListRequest $request DeleteContactBlockListRequest
+     * @param request - DeleteContactBlockListRequest
      *
-     * @return DeleteContactBlockListResponse DeleteContactBlockListResponse
+     * @returns DeleteContactBlockListResponse
+     *
+     * @param DeleteContactBlockListRequest $request
+     *
+     * @return DeleteContactBlockListResponse
      */
     public function deleteContactBlockList($request)
     {
@@ -2384,26 +2631,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactWhiteListRequest $request DeleteContactWhiteListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteContactWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactWhiteListResponse DeleteContactWhiteListResponse
+     * @returns DeleteContactWhiteListResponse
+     *
+     * @param DeleteContactWhiteListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteContactWhiteListResponse
      */
     public function deleteContactWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactWhiteListId)) {
-            $query['ContactWhiteListId'] = $request->contactWhiteListId;
+        if (null !== $request->contactWhiteListId) {
+            @$query['ContactWhiteListId'] = $request->contactWhiteListId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$query['Operator'] = $request->operator;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteContactWhiteList',
@@ -2421,9 +2676,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactWhiteListRequest $request DeleteContactWhiteListRequest
+     * @param request - DeleteContactWhiteListRequest
      *
-     * @return DeleteContactWhiteListResponse DeleteContactWhiteListResponse
+     * @returns DeleteContactWhiteListResponse
+     *
+     * @param DeleteContactWhiteListRequest $request
+     *
+     * @return DeleteContactWhiteListResponse
      */
     public function deleteContactWhiteList($request)
     {
@@ -2433,26 +2692,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDialogueFlowRequest $request DeleteDialogueFlowRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteDialogueFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteDialogueFlowResponse DeleteDialogueFlowResponse
+     * @returns DeleteDialogueFlowResponse
+     *
+     * @param DeleteDialogueFlowRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDialogueFlowResponse
      */
     public function deleteDialogueFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dialogueFlowId)) {
-            $query['DialogueFlowId'] = $request->dialogueFlowId;
+        if (null !== $request->dialogueFlowId) {
+            @$query['DialogueFlowId'] = $request->dialogueFlowId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDialogueFlow',
@@ -2470,9 +2737,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteDialogueFlowRequest $request DeleteDialogueFlowRequest
+     * @param request - DeleteDialogueFlowRequest
      *
-     * @return DeleteDialogueFlowResponse DeleteDialogueFlowResponse
+     * @returns DeleteDialogueFlowResponse
+     *
+     * @param DeleteDialogueFlowRequest $request
+     *
+     * @return DeleteDialogueFlowResponse
      */
     public function deleteDialogueFlow($request)
     {
@@ -2482,26 +2753,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalQuestionRequest $request DeleteGlobalQuestionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteGlobalQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalQuestionResponse DeleteGlobalQuestionResponse
+     * @returns DeleteGlobalQuestionResponse
+     *
+     * @param DeleteGlobalQuestionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteGlobalQuestionResponse
      */
     public function deleteGlobalQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalQuestionId)) {
-            $query['GlobalQuestionId'] = $request->globalQuestionId;
+        if (null !== $request->globalQuestionId) {
+            @$query['GlobalQuestionId'] = $request->globalQuestionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGlobalQuestion',
@@ -2519,9 +2798,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalQuestionRequest $request DeleteGlobalQuestionRequest
+     * @param request - DeleteGlobalQuestionRequest
      *
-     * @return DeleteGlobalQuestionResponse DeleteGlobalQuestionResponse
+     * @returns DeleteGlobalQuestionResponse
+     *
+     * @param DeleteGlobalQuestionRequest $request
+     *
+     * @return DeleteGlobalQuestionResponse
      */
     public function deleteGlobalQuestion($request)
     {
@@ -2531,20 +2814,26 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInstance',
@@ -2562,9 +2851,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param request - DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -2574,26 +2867,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntentRequest $request DeleteIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteIntentResponse DeleteIntentResponse
+     * @returns DeleteIntentResponse
+     *
+     * @param DeleteIntentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteIntentResponse
      */
     public function deleteIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIntent',
@@ -2611,9 +2912,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntentRequest $request DeleteIntentRequest
+     * @param request - DeleteIntentRequest
      *
-     * @return DeleteIntentResponse DeleteIntentResponse
+     * @returns DeleteIntentResponse
+     *
+     * @param DeleteIntentRequest $request
+     *
+     * @return DeleteIntentResponse
      */
     public function deleteIntent($request)
     {
@@ -2623,23 +2928,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobGroupRequest $request DeleteJobGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteJobGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobGroupResponse DeleteJobGroupResponse
+     * @returns DeleteJobGroupResponse
+     *
+     * @param DeleteJobGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteJobGroupResponse
      */
     public function deleteJobGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteJobGroup',
@@ -2657,9 +2969,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobGroupRequest $request DeleteJobGroupRequest
+     * @param request - DeleteJobGroupRequest
      *
-     * @return DeleteJobGroupResponse DeleteJobGroupResponse
+     * @returns DeleteJobGroupResponse
+     *
+     * @param DeleteJobGroupRequest $request
+     *
+     * @return DeleteJobGroupResponse
      */
     public function deleteJobGroup($request)
     {
@@ -2669,23 +2985,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOutboundCallNumberRequest $request DeleteOutboundCallNumberRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteOutboundCallNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteOutboundCallNumberResponse DeleteOutboundCallNumberResponse
+     * @returns DeleteOutboundCallNumberResponse
+     *
+     * @param DeleteOutboundCallNumberRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteOutboundCallNumberResponse
      */
     public function deleteOutboundCallNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundCallNumberId)) {
-            $query['OutboundCallNumberId'] = $request->outboundCallNumberId;
+
+        if (null !== $request->outboundCallNumberId) {
+            @$query['OutboundCallNumberId'] = $request->outboundCallNumberId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteOutboundCallNumber',
@@ -2703,9 +3026,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteOutboundCallNumberRequest $request DeleteOutboundCallNumberRequest
+     * @param request - DeleteOutboundCallNumberRequest
      *
-     * @return DeleteOutboundCallNumberResponse DeleteOutboundCallNumberResponse
+     * @returns DeleteOutboundCallNumberResponse
+     *
+     * @param DeleteOutboundCallNumberRequest $request
+     *
+     * @return DeleteOutboundCallNumberResponse
      */
     public function deleteOutboundCallNumber($request)
     {
@@ -2715,23 +3042,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptRequest $request DeleteScriptRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteScriptResponse DeleteScriptResponse
+     * @returns DeleteScriptResponse
+     *
+     * @param DeleteScriptRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteScriptResponse
      */
     public function deleteScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScript',
@@ -2749,9 +3083,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptRequest $request DeleteScriptRequest
+     * @param request - DeleteScriptRequest
      *
-     * @return DeleteScriptResponse DeleteScriptResponse
+     * @returns DeleteScriptResponse
+     *
+     * @param DeleteScriptRequest $request
+     *
+     * @return DeleteScriptResponse
      */
     public function deleteScript($request)
     {
@@ -2761,26 +3099,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptRecordingRequest $request DeleteScriptRecordingRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteScriptRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteScriptRecordingResponse DeleteScriptRecordingResponse
+     * @returns DeleteScriptRecordingResponse
+     *
+     * @param DeleteScriptRecordingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteScriptRecordingResponse
      */
     public function deleteScriptRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->uuidsJson)) {
-            $query['UuidsJson'] = $request->uuidsJson;
+
+        if (null !== $request->uuidsJson) {
+            @$query['UuidsJson'] = $request->uuidsJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScriptRecording',
@@ -2798,9 +3144,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptRecordingRequest $request DeleteScriptRecordingRequest
+     * @param request - DeleteScriptRecordingRequest
      *
-     * @return DeleteScriptRecordingResponse DeleteScriptRecordingResponse
+     * @returns DeleteScriptRecordingResponse
+     *
+     * @param DeleteScriptRecordingRequest $request
+     *
+     * @return DeleteScriptRecordingResponse
      */
     public function deleteScriptRecording($request)
     {
@@ -2810,26 +3160,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptWaveformRequest $request DeleteScriptWaveformRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteScriptWaveformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteScriptWaveformResponse DeleteScriptWaveformResponse
+     * @returns DeleteScriptWaveformResponse
+     *
+     * @param DeleteScriptWaveformRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteScriptWaveformResponse
      */
     public function deleteScriptWaveformWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->scriptWaveformId)) {
-            $query['ScriptWaveformId'] = $request->scriptWaveformId;
+
+        if (null !== $request->scriptWaveformId) {
+            @$query['ScriptWaveformId'] = $request->scriptWaveformId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScriptWaveform',
@@ -2847,9 +3205,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DeleteScriptWaveformRequest $request DeleteScriptWaveformRequest
+     * @param request - DeleteScriptWaveformRequest
      *
-     * @return DeleteScriptWaveformResponse DeleteScriptWaveformResponse
+     * @returns DeleteScriptWaveformResponse
+     *
+     * @param DeleteScriptWaveformRequest $request
+     *
+     * @return DeleteScriptWaveformResponse
      */
     public function deleteScriptWaveform($request)
     {
@@ -2859,30 +3221,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeBeebotIntent
-     *  *
-     * @description ****
-     *  *
-     * @param DescribeBeebotIntentRequest $request DescribeBeebotIntentRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * DescribeBeebotIntent.
      *
-     * @return DescribeBeebotIntentResponse DescribeBeebotIntentResponse
+     * @remarks
+     *
+     * @param request - DescribeBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBeebotIntentResponse
+     *
+     * @param DescribeBeebotIntentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBeebotIntentResponse
      */
     public function describeBeebotIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBeebotIntent',
@@ -2900,13 +3270,17 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeBeebotIntent
-     *  *
-     * @description ****
-     *  *
-     * @param DescribeBeebotIntentRequest $request DescribeBeebotIntentRequest
+     * DescribeBeebotIntent.
      *
-     * @return DescribeBeebotIntentResponse DescribeBeebotIntentResponse
+     * @remarks
+     *
+     * @param request - DescribeBeebotIntentRequest
+     *
+     * @returns DescribeBeebotIntentResponse
+     *
+     * @param DescribeBeebotIntentRequest $request
+     *
+     * @return DescribeBeebotIntentResponse
      */
     public function describeBeebotIntent($request)
     {
@@ -2916,26 +3290,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDialogueNodeStatisticsRequest $request DescribeDialogueNodeStatisticsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDialogueNodeStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDialogueNodeStatisticsResponse DescribeDialogueNodeStatisticsResponse
+     * @returns DescribeDialogueNodeStatisticsResponse
+     *
+     * @param DescribeDialogueNodeStatisticsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDialogueNodeStatisticsResponse
      */
     public function describeDialogueNodeStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDialogueNodeStatistics',
@@ -2953,9 +3335,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeDialogueNodeStatisticsRequest $request DescribeDialogueNodeStatisticsRequest
+     * @param request - DescribeDialogueNodeStatisticsRequest
      *
-     * @return DescribeDialogueNodeStatisticsResponse DescribeDialogueNodeStatisticsResponse
+     * @returns DescribeDialogueNodeStatisticsResponse
+     *
+     * @param DescribeDialogueNodeStatisticsRequest $request
+     *
+     * @return DescribeDialogueNodeStatisticsResponse
      */
     public function describeDialogueNodeStatistics($request)
     {
@@ -2965,25 +3351,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeDsReports
-     *  *
-     * @param DescribeDsReportsRequest $request DescribeDsReportsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * DescribeDsReports.
      *
-     * @return DescribeDsReportsResponse DescribeDsReportsResponse
+     * @param request - DescribeDsReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDsReportsResponse
+     *
+     * @param DescribeDsReportsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDsReportsResponse
      */
     public function describeDsReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDsReports',
@@ -3001,11 +3394,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeDsReports
-     *  *
-     * @param DescribeDsReportsRequest $request DescribeDsReportsRequest
+     * DescribeDsReports.
      *
-     * @return DescribeDsReportsResponse DescribeDsReportsResponse
+     * @param request - DescribeDsReportsRequest
+     *
+     * @returns DescribeDsReportsResponse
+     *
+     * @param DescribeDsReportsRequest $request
+     *
+     * @return DescribeDsReportsResponse
      */
     public function describeDsReports($request)
     {
@@ -3015,26 +3412,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalQuestionRequest $request DescribeGlobalQuestionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeGlobalQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalQuestionResponse DescribeGlobalQuestionResponse
+     * @returns DescribeGlobalQuestionResponse
+     *
+     * @param DescribeGlobalQuestionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeGlobalQuestionResponse
      */
     public function describeGlobalQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalQuestionId)) {
-            $query['GlobalQuestionId'] = $request->globalQuestionId;
+        if (null !== $request->globalQuestionId) {
+            @$query['GlobalQuestionId'] = $request->globalQuestionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalQuestion',
@@ -3052,9 +3457,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalQuestionRequest $request DescribeGlobalQuestionRequest
+     * @param request - DescribeGlobalQuestionRequest
      *
-     * @return DescribeGlobalQuestionResponse DescribeGlobalQuestionResponse
+     * @returns DescribeGlobalQuestionResponse
+     *
+     * @param DescribeGlobalQuestionRequest $request
+     *
+     * @return DescribeGlobalQuestionResponse
      */
     public function describeGlobalQuestion($request)
     {
@@ -3064,23 +3473,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupExecutingInfoRequest $request DescribeGroupExecutingInfoRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeGroupExecutingInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupExecutingInfoResponse DescribeGroupExecutingInfoResponse
+     * @returns DescribeGroupExecutingInfoResponse
+     *
+     * @param DescribeGroupExecutingInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeGroupExecutingInfoResponse
      */
     public function describeGroupExecutingInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGroupExecutingInfo',
@@ -3098,9 +3514,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupExecutingInfoRequest $request DescribeGroupExecutingInfoRequest
+     * @param request - DescribeGroupExecutingInfoRequest
      *
-     * @return DescribeGroupExecutingInfoResponse DescribeGroupExecutingInfoResponse
+     * @returns DescribeGroupExecutingInfoResponse
+     *
+     * @param DescribeGroupExecutingInfoRequest $request
+     *
+     * @return DescribeGroupExecutingInfoResponse
      */
     public function describeGroupExecutingInfo($request)
     {
@@ -3110,22 +3530,28 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeInstance
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * DescribeInstance.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstance',
@@ -3143,11 +3569,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeInstance
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * DescribeInstance.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     *
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -3157,26 +3587,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentRequest $request DescribeIntentRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeIntentResponse DescribeIntentResponse
+     * @returns DescribeIntentResponse
+     *
+     * @param DescribeIntentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeIntentResponse
      */
     public function describeIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIntent',
@@ -3194,9 +3632,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentRequest $request DescribeIntentRequest
+     * @param request - DescribeIntentRequest
      *
-     * @return DescribeIntentResponse DescribeIntentResponse
+     * @returns DescribeIntentResponse
+     *
+     * @param DescribeIntentRequest $request
+     *
+     * @return DescribeIntentResponse
      */
     public function describeIntent($request)
     {
@@ -3206,26 +3648,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentStatisticsRequest $request DescribeIntentStatisticsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * DescribeIntentStatistics.
      *
-     * @return DescribeIntentStatisticsResponse DescribeIntentStatisticsResponse
+     * @param request - DescribeIntentStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIntentStatisticsResponse
+     *
+     * @param DescribeIntentStatisticsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeIntentStatisticsResponse
      */
     public function describeIntentStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeIntentStatistics',
@@ -3243,9 +3695,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntentStatisticsRequest $request DescribeIntentStatisticsRequest
+     * DescribeIntentStatistics.
      *
-     * @return DescribeIntentStatisticsResponse DescribeIntentStatisticsResponse
+     * @param request - DescribeIntentStatisticsRequest
+     *
+     * @returns DescribeIntentStatisticsResponse
+     *
+     * @param DescribeIntentStatisticsRequest $request
+     *
+     * @return DescribeIntentStatisticsResponse
      */
     public function describeIntentStatistics($request)
     {
@@ -3255,28 +3713,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取job信息
-     *  *
-     * @param DescribeJobRequest $request DescribeJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取job信息.
      *
-     * @return DescribeJobResponse DescribeJobResponse
+     * @param request - DescribeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJobResponse
+     *
+     * @param DescribeJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeJobResponse
      */
     public function describeJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->withScript)) {
-            $query['WithScript'] = $request->withScript;
+
+        if (null !== $request->withScript) {
+            @$query['WithScript'] = $request->withScript;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJob',
@@ -3294,11 +3760,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取job信息
-     *  *
-     * @param DescribeJobRequest $request DescribeJobRequest
+     * 获取job信息.
      *
-     * @return DescribeJobResponse DescribeJobResponse
+     * @param request - DescribeJobRequest
+     *
+     * @returns DescribeJobResponse
+     *
+     * @param DescribeJobRequest $request
+     *
+     * @return DescribeJobResponse
      */
     public function describeJob($request)
     {
@@ -3308,23 +3778,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobDataParsingTaskProgressRequest $request DescribeJobDataParsingTaskProgressRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeJobDataParsingTaskProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobDataParsingTaskProgressResponse DescribeJobDataParsingTaskProgressResponse
+     * @returns DescribeJobDataParsingTaskProgressResponse
+     *
+     * @param DescribeJobDataParsingTaskProgressRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeJobDataParsingTaskProgressResponse
      */
     public function describeJobDataParsingTaskProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobDataParsingTaskId)) {
-            $query['JobDataParsingTaskId'] = $request->jobDataParsingTaskId;
+
+        if (null !== $request->jobDataParsingTaskId) {
+            @$query['JobDataParsingTaskId'] = $request->jobDataParsingTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJobDataParsingTaskProgress',
@@ -3342,9 +3819,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobDataParsingTaskProgressRequest $request DescribeJobDataParsingTaskProgressRequest
+     * @param request - DescribeJobDataParsingTaskProgressRequest
      *
-     * @return DescribeJobDataParsingTaskProgressResponse DescribeJobDataParsingTaskProgressResponse
+     * @returns DescribeJobDataParsingTaskProgressResponse
+     *
+     * @param DescribeJobDataParsingTaskProgressRequest $request
+     *
+     * @return DescribeJobDataParsingTaskProgressResponse
      */
     public function describeJobDataParsingTaskProgress($request)
     {
@@ -3354,28 +3835,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeJobGroup
-     *  *
-     * @param DescribeJobGroupRequest $request DescribeJobGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * DescribeJobGroup.
      *
-     * @return DescribeJobGroupResponse DescribeJobGroupResponse
+     * @param request - DescribeJobGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJobGroupResponse
+     *
+     * @param DescribeJobGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeJobGroupResponse
      */
     public function describeJobGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->briefTypes)) {
-            $query['BriefTypes'] = $request->briefTypes;
+        if (null !== $request->briefTypes) {
+            @$query['BriefTypes'] = $request->briefTypes;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJobGroup',
@@ -3393,11 +3882,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DescribeJobGroup
-     *  *
-     * @param DescribeJobGroupRequest $request DescribeJobGroupRequest
+     * DescribeJobGroup.
      *
-     * @return DescribeJobGroupResponse DescribeJobGroupResponse
+     * @param request - DescribeJobGroupRequest
+     *
+     * @returns DescribeJobGroupResponse
+     *
+     * @param DescribeJobGroupRequest $request
+     *
+     * @return DescribeJobGroupResponse
      */
     public function describeJobGroup($request)
     {
@@ -3407,23 +3900,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobGroupExportTaskProgressRequest $request DescribeJobGroupExportTaskProgressRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeJobGroupExportTaskProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobGroupExportTaskProgressResponse DescribeJobGroupExportTaskProgressResponse
+     * @returns DescribeJobGroupExportTaskProgressResponse
+     *
+     * @param DescribeJobGroupExportTaskProgressRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeJobGroupExportTaskProgressResponse
      */
     public function describeJobGroupExportTaskProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJobGroupExportTaskProgress',
@@ -3441,9 +3941,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobGroupExportTaskProgressRequest $request DescribeJobGroupExportTaskProgressRequest
+     * @param request - DescribeJobGroupExportTaskProgressRequest
      *
-     * @return DescribeJobGroupExportTaskProgressResponse DescribeJobGroupExportTaskProgressResponse
+     * @returns DescribeJobGroupExportTaskProgressResponse
+     *
+     * @param DescribeJobGroupExportTaskProgressRequest $request
+     *
+     * @return DescribeJobGroupExportTaskProgressResponse
      */
     public function describeJobGroupExportTaskProgress($request)
     {
@@ -3453,62 +3957,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 查询号码库状态
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取场景信息.
      *
-     * @return DescribeNumberDistrictInfoStatusResponse DescribeNumberDistrictInfoStatusResponse
-     */
-    public function describeNumberDistrictInfoStatusWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-        $params = new Params([
-            'action' => 'DescribeNumberDistrictInfoStatus',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeNumberDistrictInfoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询号码库状态
-     *  *
-     * @return DescribeNumberDistrictInfoStatusResponse DescribeNumberDistrictInfoStatusResponse
-     */
-    public function describeNumberDistrictInfoStatus()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNumberDistrictInfoStatusWithOptions($runtime);
-    }
-
-    /**
-     * @summary 获取场景信息
-     *  *
-     * @param DescribeScriptRequest $request DescribeScriptRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeScriptResponse DescribeScriptResponse
+     * @returns DescribeScriptResponse
+     *
+     * @param DescribeScriptRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeScriptResponse
      */
     public function describeScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScript',
@@ -3526,11 +4000,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取场景信息
-     *  *
-     * @param DescribeScriptRequest $request DescribeScriptRequest
+     * 获取场景信息.
      *
-     * @return DescribeScriptResponse DescribeScriptResponse
+     * @param request - DescribeScriptRequest
+     *
+     * @returns DescribeScriptResponse
+     *
+     * @param DescribeScriptRequest $request
+     *
+     * @return DescribeScriptResponse
      */
     public function describeScript($request)
     {
@@ -3540,26 +4018,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeScriptVoiceConfigRequest $request DescribeScriptVoiceConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeScriptVoiceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeScriptVoiceConfigResponse DescribeScriptVoiceConfigResponse
+     * @returns DescribeScriptVoiceConfigResponse
+     *
+     * @param DescribeScriptVoiceConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeScriptVoiceConfigResponse
      */
     public function describeScriptVoiceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->scriptVoiceConfigId)) {
-            $query['ScriptVoiceConfigId'] = $request->scriptVoiceConfigId;
+
+        if (null !== $request->scriptVoiceConfigId) {
+            @$query['ScriptVoiceConfigId'] = $request->scriptVoiceConfigId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScriptVoiceConfig',
@@ -3577,9 +4063,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeScriptVoiceConfigRequest $request DescribeScriptVoiceConfigRequest
+     * @param request - DescribeScriptVoiceConfigRequest
      *
-     * @return DescribeScriptVoiceConfigResponse DescribeScriptVoiceConfigResponse
+     * @returns DescribeScriptVoiceConfigResponse
+     *
+     * @param DescribeScriptVoiceConfigRequest $request
+     *
+     * @return DescribeScriptVoiceConfigResponse
      */
     public function describeScriptVoiceConfig($request)
     {
@@ -3589,23 +4079,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTTSConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
+     * @returns DescribeTTSConfigResponse
+     *
+     * @param DescribeTTSConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeTTSConfigResponse
      */
     public function describeTTSConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTTSConfig',
@@ -3623,9 +4120,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
+     * @param request - DescribeTTSConfigRequest
      *
-     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
+     * @returns DescribeTTSConfigResponse
+     *
+     * @param DescribeTTSConfigRequest $request
+     *
+     * @return DescribeTTSConfigResponse
      */
     public function describeTTSConfig($request)
     {
@@ -3635,56 +4136,74 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSDemoRequest $request DescribeTTSDemoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTTSDemoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeTTSDemoResponse DescribeTTSDemoResponse
+     * @returns DescribeTTSDemoResponse
+     *
+     * @param DescribeTTSDemoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeTTSDemoResponse
      */
     public function describeTTSDemoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessKey)) {
-            $query['AccessKey'] = $request->accessKey;
+        if (null !== $request->accessKey) {
+            @$query['AccessKey'] = $request->accessKey;
         }
-        if (!Utils::isUnset($request->aliCustomizedVoice)) {
-            $query['AliCustomizedVoice'] = $request->aliCustomizedVoice;
+
+        if (null !== $request->aliCustomizedVoice) {
+            @$query['AliCustomizedVoice'] = $request->aliCustomizedVoice;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nlsServiceType)) {
-            $query['NlsServiceType'] = $request->nlsServiceType;
+
+        if (null !== $request->nlsServiceType) {
+            @$query['NlsServiceType'] = $request->nlsServiceType;
         }
-        if (!Utils::isUnset($request->pitchRate)) {
-            $query['PitchRate'] = $request->pitchRate;
+
+        if (null !== $request->pitchRate) {
+            @$query['PitchRate'] = $request->pitchRate;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->secretKey)) {
-            $query['SecretKey'] = $request->secretKey;
+
+        if (null !== $request->secretKey) {
+            @$query['SecretKey'] = $request->secretKey;
         }
-        if (!Utils::isUnset($request->speechRate)) {
-            $query['SpeechRate'] = $request->speechRate;
+
+        if (null !== $request->speechRate) {
+            @$query['SpeechRate'] = $request->speechRate;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
-        if (!Utils::isUnset($request->voice)) {
-            $query['Voice'] = $request->voice;
+
+        if (null !== $request->voice) {
+            @$query['Voice'] = $request->voice;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTTSDemo',
@@ -3702,9 +4221,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSDemoRequest $request DescribeTTSDemoRequest
+     * @param request - DescribeTTSDemoRequest
      *
-     * @return DescribeTTSDemoResponse DescribeTTSDemoResponse
+     * @returns DescribeTTSDemoResponse
+     *
+     * @param DescribeTTSDemoRequest $request
+     *
+     * @return DescribeTTSDemoResponse
      */
     public function describeTTSDemo($request)
     {
@@ -3714,23 +4237,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagHitsSummaryRequest $request DescribeTagHitsSummaryRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTagHitsSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagHitsSummaryResponse DescribeTagHitsSummaryResponse
+     * @returns DescribeTagHitsSummaryResponse
+     *
+     * @param DescribeTagHitsSummaryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeTagHitsSummaryResponse
      */
     public function describeTagHitsSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTagHitsSummary',
@@ -3748,9 +4278,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagHitsSummaryRequest $request DescribeTagHitsSummaryRequest
+     * @param request - DescribeTagHitsSummaryRequest
      *
-     * @return DescribeTagHitsSummaryResponse DescribeTagHitsSummaryResponse
+     * @returns DescribeTagHitsSummaryResponse
+     *
+     * @param DescribeTagHitsSummaryRequest $request
+     *
+     * @return DescribeTagHitsSummaryResponse
      */
     public function describeTagHitsSummary($request)
     {
@@ -3760,22 +4294,28 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 号码绑定实例列表
-     *  *
-     * @param DescribeTenantBindNumberRequest $request DescribeTenantBindNumberRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 号码绑定实例列表.
      *
-     * @return DescribeTenantBindNumberResponse DescribeTenantBindNumberResponse
+     * @param request - DescribeTenantBindNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTenantBindNumberResponse
+     *
+     * @param DescribeTenantBindNumberRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTenantBindNumberResponse
      */
     public function describeTenantBindNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTenantBindNumber',
@@ -3793,11 +4333,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 号码绑定实例列表
-     *  *
-     * @param DescribeTenantBindNumberRequest $request DescribeTenantBindNumberRequest
+     * 号码绑定实例列表.
      *
-     * @return DescribeTenantBindNumberResponse DescribeTenantBindNumberResponse
+     * @param request - DescribeTenantBindNumberRequest
+     *
+     * @returns DescribeTenantBindNumberResponse
+     *
+     * @param DescribeTenantBindNumberRequest $request
+     *
+     * @return DescribeTenantBindNumberResponse
      */
     public function describeTenantBindNumber($request)
     {
@@ -3807,50 +4351,66 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request DialogueRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DialogueResponse DialogueResponse
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
      */
     public function dialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionKey)) {
-            $query['ActionKey'] = $request->actionKey;
+        if (null !== $request->actionKey) {
+            @$query['ActionKey'] = $request->actionKey;
         }
-        if (!Utils::isUnset($request->actionParams)) {
-            $query['ActionParams'] = $request->actionParams;
+
+        if (null !== $request->actionParams) {
+            @$query['ActionParams'] = $request->actionParams;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->callType)) {
-            $query['CallType'] = $request->callType;
+
+        if (null !== $request->callType) {
+            @$query['CallType'] = $request->callType;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'Dialogue',
@@ -3868,9 +4428,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request DialogueRequest
+     * @param request - DialogueRequest
      *
-     * @return DialogueResponse DialogueResponse
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     *
+     * @return DialogueResponse
      */
     public function dialogue($request)
     {
@@ -3880,75 +4444,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 取消号码库解析结果
-     *  *
-     * @param DismissNumberDistrictInfoParsingResultRequest $request DismissNumberDistrictInfoParsingResultRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * DownloadRecording.
      *
-     * @return DismissNumberDistrictInfoParsingResultResponse DismissNumberDistrictInfoParsingResultResponse
-     */
-    public function dismissNumberDistrictInfoParsingResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DismissNumberDistrictInfoParsingResult',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DismissNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 取消号码库解析结果
-     *  *
-     * @param DismissNumberDistrictInfoParsingResultRequest $request DismissNumberDistrictInfoParsingResultRequest
+     * @param request - DownloadRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DismissNumberDistrictInfoParsingResultResponse DismissNumberDistrictInfoParsingResultResponse
-     */
-    public function dismissNumberDistrictInfoParsingResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dismissNumberDistrictInfoParsingResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary DownloadRecording
-     *  *
-     * @param DownloadRecordingRequest $request DownloadRecordingRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @returns DownloadRecordingResponse
      *
-     * @return DownloadRecordingResponse DownloadRecordingResponse
+     * @param DownloadRecordingRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DownloadRecordingResponse
      */
     public function downloadRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->needVoiceSliceRecording)) {
-            $query['NeedVoiceSliceRecording'] = $request->needVoiceSliceRecording;
+
+        if (null !== $request->needVoiceSliceRecording) {
+            @$query['NeedVoiceSliceRecording'] = $request->needVoiceSliceRecording;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DownloadRecording',
@@ -3966,11 +4491,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary DownloadRecording
-     *  *
-     * @param DownloadRecordingRequest $request DownloadRecordingRequest
+     * DownloadRecording.
      *
-     * @return DownloadRecordingResponse DownloadRecordingResponse
+     * @param request - DownloadRecordingRequest
+     *
+     * @returns DownloadRecordingResponse
+     *
+     * @param DownloadRecordingRequest $request
+     *
+     * @return DownloadRecordingResponse
      */
     public function downloadRecording($request)
     {
@@ -3980,26 +4509,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DownloadScriptRecordingRequest $request DownloadScriptRecordingRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DownloadScriptRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DownloadScriptRecordingResponse DownloadScriptRecordingResponse
+     * @returns DownloadScriptRecordingResponse
+     *
+     * @param DownloadScriptRecordingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DownloadScriptRecordingResponse
      */
     public function downloadScriptRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DownloadScriptRecording',
@@ -4017,9 +4554,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DownloadScriptRecordingRequest $request DownloadScriptRecordingRequest
+     * @param request - DownloadScriptRecordingRequest
      *
-     * @return DownloadScriptRecordingResponse DownloadScriptRecordingResponse
+     * @returns DownloadScriptRecordingResponse
+     *
+     * @param DownloadScriptRecordingRequest $request
+     *
+     * @return DownloadScriptRecordingResponse
      */
     public function downloadScriptRecording($request)
     {
@@ -4029,26 +4570,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DuplicateScriptRequest $request DuplicateScriptRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DuplicateScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DuplicateScriptResponse DuplicateScriptResponse
+     * @returns DuplicateScriptResponse
+     *
+     * @param DuplicateScriptRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DuplicateScriptResponse
      */
     public function duplicateScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->sourceScriptId)) {
-            $query['SourceScriptId'] = $request->sourceScriptId;
+
+        if (null !== $request->sourceScriptId) {
+            @$query['SourceScriptId'] = $request->sourceScriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DuplicateScript',
@@ -4066,9 +4615,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param DuplicateScriptRequest $request DuplicateScriptRequest
+     * @param request - DuplicateScriptRequest
      *
-     * @return DuplicateScriptResponse DuplicateScriptResponse
+     * @returns DuplicateScriptResponse
+     *
+     * @param DuplicateScriptRequest $request
+     *
+     * @return DuplicateScriptResponse
      */
     public function duplicateScript($request)
     {
@@ -4078,23 +4631,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ExportScriptRequest $request ExportScriptRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - ExportScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ExportScriptResponse ExportScriptResponse
+     * @returns ExportScriptResponse
+     *
+     * @param ExportScriptRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExportScriptResponse
      */
     public function exportScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ExportScript',
@@ -4112,9 +4672,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ExportScriptRequest $request ExportScriptRequest
+     * @param request - ExportScriptRequest
      *
-     * @return ExportScriptResponse ExportScriptResponse
+     * @returns ExportScriptResponse
+     *
+     * @param ExportScriptRequest $request
+     *
+     * @return ExportScriptResponse
      */
     public function exportScript($request)
     {
@@ -4124,23 +4688,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GenerateUploadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
+     * @returns GenerateUploadUrlResponse
+     *
+     * @param GenerateUploadUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GenerateUploadUrlResponse
      */
     public function generateUploadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GenerateUploadUrl',
@@ -4158,9 +4729,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
+     * @param request - GenerateUploadUrlRequest
      *
-     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
+     * @returns GenerateUploadUrlResponse
+     *
+     * @param GenerateUploadUrlRequest $request
+     *
+     * @return GenerateUploadUrlResponse
      */
     public function generateUploadUrl($request)
     {
@@ -4170,23 +4745,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAfterAnswerDelayPlaybackRequest $request GetAfterAnswerDelayPlaybackRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAfterAnswerDelayPlaybackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAfterAnswerDelayPlaybackResponse GetAfterAnswerDelayPlaybackResponse
+     * @returns GetAfterAnswerDelayPlaybackResponse
+     *
+     * @param GetAfterAnswerDelayPlaybackRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAfterAnswerDelayPlaybackResponse
      */
     public function getAfterAnswerDelayPlaybackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAfterAnswerDelayPlayback',
@@ -4204,9 +4786,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAfterAnswerDelayPlaybackRequest $request GetAfterAnswerDelayPlaybackRequest
+     * @param request - GetAfterAnswerDelayPlaybackRequest
      *
-     * @return GetAfterAnswerDelayPlaybackResponse GetAfterAnswerDelayPlaybackResponse
+     * @returns GetAfterAnswerDelayPlaybackResponse
+     *
+     * @param GetAfterAnswerDelayPlaybackRequest $request
+     *
+     * @return GetAfterAnswerDelayPlaybackResponse
      */
     public function getAfterAnswerDelayPlayback($request)
     {
@@ -4216,26 +4802,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentProfileRequest $request GetAgentProfileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAgentProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAgentProfileResponse GetAgentProfileResponse
+     * @returns GetAgentProfileResponse
+     *
+     * @param GetAgentProfileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAgentProfileResponse
      */
     public function getAgentProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentProfileId)) {
-            $body['AgentProfileId'] = $request->agentProfileId;
+        if (null !== $request->agentProfileId) {
+            @$body['AgentProfileId'] = $request->agentProfileId;
         }
-        if (!Utils::isUnset($request->appIp)) {
-            $body['AppIp'] = $request->appIp;
+
+        if (null !== $request->appIp) {
+            @$body['AppIp'] = $request->appIp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAgentProfile',
@@ -4253,9 +4847,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentProfileRequest $request GetAgentProfileRequest
+     * @param request - GetAgentProfileRequest
      *
-     * @return GetAgentProfileResponse GetAgentProfileResponse
+     * @returns GetAgentProfileResponse
+     *
+     * @param GetAgentProfileRequest $request
+     *
+     * @return GetAgentProfileResponse
      */
     public function getAgentProfile($request)
     {
@@ -4265,23 +4863,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentProfileTemplateRequest $request GetAgentProfileTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAgentProfileTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAgentProfileTemplateResponse GetAgentProfileTemplateResponse
+     * @returns GetAgentProfileTemplateResponse
+     *
+     * @param GetAgentProfileTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAgentProfileTemplateResponse
      */
     public function getAgentProfileTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentProfileTemplateId)) {
-            $body['AgentProfileTemplateId'] = $request->agentProfileTemplateId;
+        if (null !== $request->agentProfileTemplateId) {
+            @$body['AgentProfileTemplateId'] = $request->agentProfileTemplateId;
         }
-        if (!Utils::isUnset($request->appIp)) {
-            $body['AppIp'] = $request->appIp;
+
+        if (null !== $request->appIp) {
+            @$body['AppIp'] = $request->appIp;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAgentProfileTemplate',
@@ -4299,9 +4904,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAgentProfileTemplateRequest $request GetAgentProfileTemplateRequest
+     * @param request - GetAgentProfileTemplateRequest
      *
-     * @return GetAgentProfileTemplateResponse GetAgentProfileTemplateResponse
+     * @returns GetAgentProfileTemplateResponse
+     *
+     * @param GetAgentProfileTemplateRequest $request
+     *
+     * @return GetAgentProfileTemplateResponse
      */
     public function getAgentProfileTemplate($request)
     {
@@ -4311,20 +4920,26 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAnnotationMissionSummaryRequest $request GetAnnotationMissionSummaryRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAnnotationMissionSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAnnotationMissionSummaryResponse GetAnnotationMissionSummaryResponse
+     * @returns GetAnnotationMissionSummaryResponse
+     *
+     * @param GetAnnotationMissionSummaryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAnnotationMissionSummaryResponse
      */
     public function getAnnotationMissionSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionId)) {
-            $query['AnnotationMissionId'] = $request->annotationMissionId;
+        if (null !== $request->annotationMissionId) {
+            @$query['AnnotationMissionId'] = $request->annotationMissionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAnnotationMissionSummary',
@@ -4342,9 +4957,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAnnotationMissionSummaryRequest $request GetAnnotationMissionSummaryRequest
+     * @param request - GetAnnotationMissionSummaryRequest
      *
-     * @return GetAnnotationMissionSummaryResponse GetAnnotationMissionSummaryResponse
+     * @returns GetAnnotationMissionSummaryResponse
+     *
+     * @param GetAnnotationMissionSummaryRequest $request
+     *
+     * @return GetAnnotationMissionSummaryResponse
      */
     public function getAnnotationMissionSummary($request)
     {
@@ -4354,26 +4973,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAnnotationMissionTagInfoListRequest $request GetAnnotationMissionTagInfoListRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAnnotationMissionTagInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAnnotationMissionTagInfoListResponse GetAnnotationMissionTagInfoListResponse
+     * @returns GetAnnotationMissionTagInfoListResponse
+     *
+     * @param GetAnnotationMissionTagInfoListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetAnnotationMissionTagInfoListResponse
      */
     public function getAnnotationMissionTagInfoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAnnotationMissionTagInfoList',
@@ -4391,9 +5018,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAnnotationMissionTagInfoListRequest $request GetAnnotationMissionTagInfoListRequest
+     * @param request - GetAnnotationMissionTagInfoListRequest
      *
-     * @return GetAnnotationMissionTagInfoListResponse GetAnnotationMissionTagInfoListResponse
+     * @returns GetAnnotationMissionTagInfoListResponse
+     *
+     * @param GetAnnotationMissionTagInfoListRequest $request
+     *
+     * @return GetAnnotationMissionTagInfoListResponse
      */
     public function getAnnotationMissionTagInfoList($request)
     {
@@ -4403,23 +5034,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAsrServerInfoRequest $request GetAsrServerInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAsrServerInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAsrServerInfoResponse GetAsrServerInfoResponse
+     * @returns GetAsrServerInfoResponse
+     *
+     * @param GetAsrServerInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAsrServerInfoResponse
      */
     public function getAsrServerInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAsrServerInfo',
@@ -4437,9 +5075,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetAsrServerInfoRequest $request GetAsrServerInfoRequest
+     * @param request - GetAsrServerInfoRequest
      *
-     * @return GetAsrServerInfoResponse GetAsrServerInfoResponse
+     * @returns GetAsrServerInfoResponse
+     *
+     * @param GetAsrServerInfoRequest $request
+     *
+     * @return GetAsrServerInfoResponse
      */
     public function getAsrServerInfo($request)
     {
@@ -4449,22 +5091,28 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步外呼任务上传结果
-     *  *
-     * @param GetAssignJobsAsyncResultRequest $request GetAssignJobsAsyncResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取异步外呼任务上传结果.
      *
-     * @return GetAssignJobsAsyncResultResponse GetAssignJobsAsyncResultResponse
+     * @param request - GetAssignJobsAsyncResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssignJobsAsyncResultResponse
+     *
+     * @param GetAssignJobsAsyncResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAssignJobsAsyncResultResponse
      */
     public function getAssignJobsAsyncResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->asyncTaskId)) {
-            $query['AsyncTaskId'] = $request->asyncTaskId;
+        if (null !== $request->asyncTaskId) {
+            @$query['AsyncTaskId'] = $request->asyncTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAssignJobsAsyncResult',
@@ -4482,11 +5130,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步外呼任务上传结果
-     *  *
-     * @param GetAssignJobsAsyncResultRequest $request GetAssignJobsAsyncResultRequest
+     * 获取异步外呼任务上传结果.
      *
-     * @return GetAssignJobsAsyncResultResponse GetAssignJobsAsyncResultResponse
+     * @param request - GetAssignJobsAsyncResultRequest
+     *
+     * @returns GetAssignJobsAsyncResultResponse
+     *
+     * @param GetAssignJobsAsyncResultRequest $request
+     *
+     * @return GetAssignJobsAsyncResultResponse
      */
     public function getAssignJobsAsyncResult($request)
     {
@@ -4496,25 +5148,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统策略配置
-     *  *
-     * @param GetBaseStrategyPeriodRequest $request GetBaseStrategyPeriodRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取系统策略配置.
      *
-     * @return GetBaseStrategyPeriodResponse GetBaseStrategyPeriodResponse
+     * @param request - GetBaseStrategyPeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBaseStrategyPeriodResponse
+     *
+     * @param GetBaseStrategyPeriodRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetBaseStrategyPeriodResponse
      */
     public function getBaseStrategyPeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBaseStrategyPeriod',
@@ -4532,11 +5191,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统策略配置
-     *  *
-     * @param GetBaseStrategyPeriodRequest $request GetBaseStrategyPeriodRequest
+     * 获取系统策略配置.
      *
-     * @return GetBaseStrategyPeriodResponse GetBaseStrategyPeriodResponse
+     * @param request - GetBaseStrategyPeriodRequest
+     *
+     * @returns GetBaseStrategyPeriodResponse
+     *
+     * @param GetBaseStrategyPeriodRequest $request
+     *
+     * @return GetBaseStrategyPeriodResponse
      */
     public function getBaseStrategyPeriod($request)
     {
@@ -4546,9 +5209,14 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - GetConcurrentConversationQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetConcurrentConversationQuotaResponse GetConcurrentConversationQuotaResponse
+     * @returns GetConcurrentConversationQuotaResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConcurrentConversationQuotaResponse
      */
     public function getConcurrentConversationQuotaWithOptions($runtime)
     {
@@ -4569,7 +5237,9 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @return GetConcurrentConversationQuotaResponse GetConcurrentConversationQuotaResponse
+     * @returns GetConcurrentConversationQuotaResponse
+     *
+     * @return GetConcurrentConversationQuotaResponse
      */
     public function getConcurrentConversationQuota()
     {
@@ -4579,31 +5249,40 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetContactBlockList
-     *  *
-     * @param GetContactBlockListRequest $request GetContactBlockListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * GetContactBlockList.
      *
-     * @return GetContactBlockListResponse GetContactBlockListResponse
+     * @param request - GetContactBlockListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContactBlockListResponse
+     *
+     * @param GetContactBlockListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetContactBlockListResponse
      */
     public function getContactBlockListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->countTotalRow)) {
-            $query['CountTotalRow'] = $request->countTotalRow;
+        if (null !== $request->countTotalRow) {
+            @$query['CountTotalRow'] = $request->countTotalRow;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetContactBlockList',
@@ -4621,11 +5300,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetContactBlockList
-     *  *
-     * @param GetContactBlockListRequest $request GetContactBlockListRequest
+     * GetContactBlockList.
      *
-     * @return GetContactBlockListResponse GetContactBlockListResponse
+     * @param request - GetContactBlockListRequest
+     *
+     * @returns GetContactBlockListResponse
+     *
+     * @param GetContactBlockListRequest $request
+     *
+     * @return GetContactBlockListResponse
      */
     public function getContactBlockList($request)
     {
@@ -4635,31 +5318,40 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetContactWhiteList
-     *  *
-     * @param GetContactWhiteListRequest $request GetContactWhiteListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * GetContactWhiteList.
      *
-     * @return GetContactWhiteListResponse GetContactWhiteListResponse
+     * @param request - GetContactWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContactWhiteListResponse
+     *
+     * @param GetContactWhiteListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetContactWhiteListResponse
      */
     public function getContactWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->countTotalRow)) {
-            $query['CountTotalRow'] = $request->countTotalRow;
+        if (null !== $request->countTotalRow) {
+            @$query['CountTotalRow'] = $request->countTotalRow;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetContactWhiteList',
@@ -4677,11 +5369,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetContactWhiteList
-     *  *
-     * @param GetContactWhiteListRequest $request GetContactWhiteListRequest
+     * GetContactWhiteList.
      *
-     * @return GetContactWhiteListResponse GetContactWhiteListResponse
+     * @param request - GetContactWhiteListRequest
+     *
+     * @returns GetContactWhiteListResponse
+     *
+     * @param GetContactWhiteListRequest $request
+     *
+     * @return GetContactWhiteListResponse
      */
     public function getContactWhiteList($request)
     {
@@ -4691,20 +5387,26 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetCurrentConcurrencyRequest $request GetCurrentConcurrencyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetCurrentConcurrencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetCurrentConcurrencyResponse GetCurrentConcurrencyResponse
+     * @returns GetCurrentConcurrencyResponse
+     *
+     * @param GetCurrentConcurrencyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCurrentConcurrencyResponse
      */
     public function getCurrentConcurrencyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCurrentConcurrency',
@@ -4722,9 +5424,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetCurrentConcurrencyRequest $request GetCurrentConcurrencyRequest
+     * @param request - GetCurrentConcurrencyRequest
      *
-     * @return GetCurrentConcurrencyResponse GetCurrentConcurrencyResponse
+     * @returns GetCurrentConcurrencyResponse
+     *
+     * @param GetCurrentConcurrencyRequest $request
+     *
+     * @return GetCurrentConcurrencyResponse
      */
     public function getCurrentConcurrency($request)
     {
@@ -4734,71 +5440,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetEffectiveDaysRequest $request GetEffectiveDaysRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * GetEmptyNumberNoMoreCallsInfo.
      *
-     * @return GetEffectiveDaysResponse GetEffectiveDaysResponse
-     */
-    public function getEffectiveDaysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
-        }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetEffectiveDays',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetEffectiveDaysResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetEffectiveDaysRequest $request GetEffectiveDaysRequest
+     * @param request - GetEmptyNumberNoMoreCallsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetEffectiveDaysResponse GetEffectiveDaysResponse
-     */
-    public function getEffectiveDays($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getEffectiveDaysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary GetEmptyNumberNoMoreCallsInfo
-     *  *
-     * @param GetEmptyNumberNoMoreCallsInfoRequest $request GetEmptyNumberNoMoreCallsInfoRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @returns GetEmptyNumberNoMoreCallsInfoResponse
      *
-     * @return GetEmptyNumberNoMoreCallsInfoResponse GetEmptyNumberNoMoreCallsInfoResponse
+     * @param GetEmptyNumberNoMoreCallsInfoRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetEmptyNumberNoMoreCallsInfoResponse
      */
     public function getEmptyNumberNoMoreCallsInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEmptyNumberNoMoreCallsInfo',
@@ -4816,11 +5483,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetEmptyNumberNoMoreCallsInfo
-     *  *
-     * @param GetEmptyNumberNoMoreCallsInfoRequest $request GetEmptyNumberNoMoreCallsInfoRequest
+     * GetEmptyNumberNoMoreCallsInfo.
      *
-     * @return GetEmptyNumberNoMoreCallsInfoResponse GetEmptyNumberNoMoreCallsInfoResponse
+     * @param request - GetEmptyNumberNoMoreCallsInfoRequest
+     *
+     * @returns GetEmptyNumberNoMoreCallsInfoResponse
+     *
+     * @param GetEmptyNumberNoMoreCallsInfoRequest $request
+     *
+     * @return GetEmptyNumberNoMoreCallsInfoResponse
      */
     public function getEmptyNumberNoMoreCallsInfo($request)
     {
@@ -4830,34 +5501,44 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取上传信息
-     *  *
-     * @param GetJobDataUploadParamsRequest $request GetJobDataUploadParamsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取上传信息.
      *
-     * @return GetJobDataUploadParamsResponse GetJobDataUploadParamsResponse
+     * @param request - GetJobDataUploadParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobDataUploadParamsResponse
+     *
+     * @param GetJobDataUploadParamsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetJobDataUploadParamsResponse
      */
     public function getJobDataUploadParamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->busiType)) {
-            $query['BusiType'] = $request->busiType;
+        if (null !== $request->busiType) {
+            @$query['BusiType'] = $request->busiType;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->uniqueId)) {
-            $query['UniqueId'] = $request->uniqueId;
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobDataUploadParams',
@@ -4875,11 +5556,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取上传信息
-     *  *
-     * @param GetJobDataUploadParamsRequest $request GetJobDataUploadParamsRequest
+     * 获取上传信息.
      *
-     * @return GetJobDataUploadParamsResponse GetJobDataUploadParamsResponse
+     * @param request - GetJobDataUploadParamsRequest
+     *
+     * @returns GetJobDataUploadParamsResponse
+     *
+     * @param GetJobDataUploadParamsRequest $request
+     *
+     * @return GetJobDataUploadParamsResponse
      */
     public function getJobDataUploadParams($request)
     {
@@ -4889,25 +5574,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetMaxAttemptsPerDay
-     *  *
-     * @param GetMaxAttemptsPerDayRequest $request GetMaxAttemptsPerDayRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * GetMaxAttemptsPerDay.
      *
-     * @return GetMaxAttemptsPerDayResponse GetMaxAttemptsPerDayResponse
+     * @param request - GetMaxAttemptsPerDayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMaxAttemptsPerDayResponse
+     *
+     * @param GetMaxAttemptsPerDayRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetMaxAttemptsPerDayResponse
      */
     public function getMaxAttemptsPerDayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMaxAttemptsPerDay',
@@ -4925,11 +5617,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetMaxAttemptsPerDay
-     *  *
-     * @param GetMaxAttemptsPerDayRequest $request GetMaxAttemptsPerDayRequest
+     * GetMaxAttemptsPerDay.
      *
-     * @return GetMaxAttemptsPerDayResponse GetMaxAttemptsPerDayResponse
+     * @param request - GetMaxAttemptsPerDayRequest
+     *
+     * @returns GetMaxAttemptsPerDayResponse
+     *
+     * @param GetMaxAttemptsPerDayRequest $request
+     *
+     * @return GetMaxAttemptsPerDayResponse
      */
     public function getMaxAttemptsPerDay($request)
     {
@@ -4939,11 +5635,16 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码库模板下载链接
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取号码库模板下载链接.
      *
-     * @return GetNumberDistrictInfoTemplateDownloadUrlResponse GetNumberDistrictInfoTemplateDownloadUrlResponse
+     * @param request - GetNumberDistrictInfoTemplateDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
      */
     public function getNumberDistrictInfoTemplateDownloadUrlWithOptions($runtime)
     {
@@ -4964,9 +5665,11 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码库模板下载链接
-     *  *
-     * @return GetNumberDistrictInfoTemplateDownloadUrlResponse GetNumberDistrictInfoTemplateDownloadUrlResponse
+     * 获取号码库模板下载链接.
+     *
+     * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
+     *
+     * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
      */
     public function getNumberDistrictInfoTemplateDownloadUrl()
     {
@@ -4976,19 +5679,24 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetRealtimeConcurrencyReport
-     *  *
-     * @param GetRealtimeConcurrencyReportRequest $request GetRealtimeConcurrencyReportRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * GetRealtimeConcurrencyReport.
      *
-     * @return GetRealtimeConcurrencyReportResponse GetRealtimeConcurrencyReportResponse
+     * @param request - GetRealtimeConcurrencyReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRealtimeConcurrencyReportResponse
+     *
+     * @param GetRealtimeConcurrencyReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetRealtimeConcurrencyReportResponse
      */
     public function getRealtimeConcurrencyReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRealtimeConcurrencyReport',
@@ -5006,11 +5714,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetRealtimeConcurrencyReport
-     *  *
-     * @param GetRealtimeConcurrencyReportRequest $request GetRealtimeConcurrencyReportRequest
+     * GetRealtimeConcurrencyReport.
      *
-     * @return GetRealtimeConcurrencyReportResponse GetRealtimeConcurrencyReportResponse
+     * @param request - GetRealtimeConcurrencyReportRequest
+     *
+     * @returns GetRealtimeConcurrencyReportResponse
+     *
+     * @param GetRealtimeConcurrencyReportRequest $request
+     *
+     * @return GetRealtimeConcurrencyReportResponse
      */
     public function getRealtimeConcurrencyReport($request)
     {
@@ -5020,22 +5732,28 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetSummaryInfo
-     *  *
-     * @param GetSummaryInfoRequest $request GetSummaryInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * GetSummaryInfo.
      *
-     * @return GetSummaryInfoResponse GetSummaryInfoResponse
+     * @param request - GetSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSummaryInfoResponse
+     *
+     * @param GetSummaryInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSummaryInfoResponse
      */
     public function getSummaryInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSummaryInfo',
@@ -5053,11 +5771,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetSummaryInfo
-     *  *
-     * @param GetSummaryInfoRequest $request GetSummaryInfoRequest
+     * GetSummaryInfo.
      *
-     * @return GetSummaryInfoResponse GetSummaryInfoResponse
+     * @param request - GetSummaryInfoRequest
+     *
+     * @returns GetSummaryInfoResponse
+     *
+     * @param GetSummaryInfoRequest $request
+     *
+     * @return GetSummaryInfoResponse
      */
     public function getSummaryInfo($request)
     {
@@ -5067,17 +5789,24 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetTaskByUuidRequest $request GetTaskByUuidRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 根据TaskId获取Task信息.
      *
-     * @return GetTaskByUuidResponse GetTaskByUuidResponse
+     * @param request - GetTaskByUuidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskByUuidResponse
+     *
+     * @param GetTaskByUuidRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTaskByUuidResponse
      */
     public function getTaskByUuidWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTaskByUuid',
@@ -5095,9 +5824,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param GetTaskByUuidRequest $request GetTaskByUuidRequest
+     * 根据TaskId获取Task信息.
      *
-     * @return GetTaskByUuidResponse GetTaskByUuidResponse
+     * @param request - GetTaskByUuidRequest
+     *
+     * @returns GetTaskByUuidResponse
+     *
+     * @param GetTaskByUuidRequest $request
+     *
+     * @return GetTaskByUuidResponse
      */
     public function getTaskByUuid($request)
     {
@@ -5107,11 +5842,16 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetVersion
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * GetVersion.
      *
-     * @return GetVersionResponse GetVersionResponse
+     * @param request - GetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVersionResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVersionResponse
      */
     public function getVersionWithOptions($runtime)
     {
@@ -5132,9 +5872,11 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary GetVersion
-     *  *
-     * @return GetVersionResponse GetVersionResponse
+     * GetVersion.
+     *
+     * @returns GetVersionResponse
+     *
+     * @return GetVersionResponse
      */
     public function getVersion()
     {
@@ -5144,26 +5886,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ImportScriptRequest $request ImportScriptRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - ImportScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ImportScriptResponse ImportScriptResponse
+     * @returns ImportScriptResponse
+     *
+     * @param ImportScriptRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ImportScriptResponse
      */
     public function importScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nluEngine)) {
-            $query['NluEngine'] = $request->nluEngine;
+
+        if (null !== $request->nluEngine) {
+            @$query['NluEngine'] = $request->nluEngine;
         }
-        if (!Utils::isUnset($request->signatureUrl)) {
-            $query['SignatureUrl'] = $request->signatureUrl;
+
+        if (null !== $request->signatureUrl) {
+            @$query['SignatureUrl'] = $request->signatureUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ImportScript',
@@ -5181,9 +5931,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ImportScriptRequest $request ImportScriptRequest
+     * @param request - ImportScriptRequest
      *
-     * @return ImportScriptResponse ImportScriptResponse
+     * @returns ImportScriptResponse
+     *
+     * @param ImportScriptRequest $request
+     *
+     * @return ImportScriptResponse
      */
     public function importScript($request)
     {
@@ -5193,28 +5947,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary InflightTaskTimeout
-     *  *
-     * @param InflightTaskTimeoutRequest $request InflightTaskTimeoutRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * InflightTaskTimeout.
      *
-     * @return InflightTaskTimeoutResponse InflightTaskTimeoutResponse
+     * @param request - InflightTaskTimeoutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InflightTaskTimeoutResponse
+     *
+     * @param InflightTaskTimeoutRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InflightTaskTimeoutResponse
      */
     public function inflightTaskTimeoutWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'InflightTaskTimeout',
@@ -5232,11 +5994,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary InflightTaskTimeout
-     *  *
-     * @param InflightTaskTimeoutRequest $request InflightTaskTimeoutRequest
+     * InflightTaskTimeout.
      *
-     * @return InflightTaskTimeoutResponse InflightTaskTimeoutResponse
+     * @param request - InflightTaskTimeoutRequest
+     *
+     * @returns InflightTaskTimeoutResponse
+     *
+     * @param InflightTaskTimeoutRequest $request
+     *
+     * @return InflightTaskTimeoutResponse
      */
     public function inflightTaskTimeout($request)
     {
@@ -5246,26 +6012,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAgentProfilesRequest $request ListAgentProfilesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListAgentProfilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListAgentProfilesResponse ListAgentProfilesResponse
+     * @returns ListAgentProfilesResponse
+     *
+     * @param ListAgentProfilesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAgentProfilesResponse
      */
     public function listAgentProfilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appIp)) {
-            $body['AppIp'] = $request->appIp;
+        if (null !== $request->appIp) {
+            @$body['AppIp'] = $request->appIp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $body['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAgentProfiles',
@@ -5283,9 +6057,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAgentProfilesRequest $request ListAgentProfilesRequest
+     * @param request - ListAgentProfilesRequest
      *
-     * @return ListAgentProfilesResponse ListAgentProfilesResponse
+     * @returns ListAgentProfilesResponse
+     *
+     * @param ListAgentProfilesRequest $request
+     *
+     * @return ListAgentProfilesResponse
      */
     public function listAgentProfiles($request)
     {
@@ -5295,11 +6073,16 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 租户绑定号码列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 租户绑定号码列表.
      *
-     * @return ListAllTenantBindNumberBindingResponse ListAllTenantBindNumberBindingResponse
+     * @param request - ListAllTenantBindNumberBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllTenantBindNumberBindingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAllTenantBindNumberBindingResponse
      */
     public function listAllTenantBindNumberBindingWithOptions($runtime)
     {
@@ -5320,9 +6103,11 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 租户绑定号码列表
-     *  *
-     * @return ListAllTenantBindNumberBindingResponse ListAllTenantBindNumberBindingResponse
+     * 租户绑定号码列表.
+     *
+     * @returns ListAllTenantBindNumberBindingResponse
+     *
+     * @return ListAllTenantBindNumberBindingResponse
      */
     public function listAllTenantBindNumberBinding()
     {
@@ -5332,44 +6117,60 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAnnotationMissionRequest $request ListAnnotationMissionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 标注中心.
      *
-     * @return ListAnnotationMissionResponse ListAnnotationMissionResponse
+     * @param request - ListAnnotationMissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnnotationMissionResponse
+     *
+     * @param ListAnnotationMissionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAnnotationMissionResponse
      */
     public function listAnnotationMissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionId)) {
-            $query['AnnotationMissionId'] = $request->annotationMissionId;
+        if (null !== $request->annotationMissionId) {
+            @$query['AnnotationMissionId'] = $request->annotationMissionId;
         }
-        if (!Utils::isUnset($request->annotationMissionName)) {
-            $query['AnnotationMissionName'] = $request->annotationMissionName;
+
+        if (null !== $request->annotationMissionName) {
+            @$query['AnnotationMissionName'] = $request->annotationMissionName;
         }
-        if (!Utils::isUnset($request->annotationStatusListFilter)) {
-            $query['AnnotationStatusListFilter'] = $request->annotationStatusListFilter;
+
+        if (null !== $request->annotationStatusListFilter) {
+            @$query['AnnotationStatusListFilter'] = $request->annotationStatusListFilter;
         }
-        if (!Utils::isUnset($request->annotationStatusListStringFilter)) {
-            $query['AnnotationStatusListStringFilter'] = $request->annotationStatusListStringFilter;
+
+        if (null !== $request->annotationStatusListStringFilter) {
+            @$query['AnnotationStatusListStringFilter'] = $request->annotationStatusListStringFilter;
         }
-        if (!Utils::isUnset($request->createTimeEndFilter)) {
-            $query['CreateTimeEndFilter'] = $request->createTimeEndFilter;
+
+        if (null !== $request->createTimeEndFilter) {
+            @$query['CreateTimeEndFilter'] = $request->createTimeEndFilter;
         }
-        if (!Utils::isUnset($request->createTimeStartFilter)) {
-            $query['CreateTimeStartFilter'] = $request->createTimeStartFilter;
+
+        if (null !== $request->createTimeStartFilter) {
+            @$query['CreateTimeStartFilter'] = $request->createTimeStartFilter;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAnnotationMission',
@@ -5387,9 +6188,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAnnotationMissionRequest $request ListAnnotationMissionRequest
+     * 标注中心.
      *
-     * @return ListAnnotationMissionResponse ListAnnotationMissionResponse
+     * @param request - ListAnnotationMissionRequest
+     *
+     * @returns ListAnnotationMissionResponse
+     *
+     * @param ListAnnotationMissionRequest $request
+     *
+     * @return ListAnnotationMissionResponse
      */
     public function listAnnotationMission($request)
     {
@@ -5399,35 +6206,48 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAnnotationMissionSessionRequest $request ListAnnotationMissionSessionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * ListAnnotationMissionSession.
      *
-     * @return ListAnnotationMissionSessionResponse ListAnnotationMissionSessionResponse
+     * @param request - ListAnnotationMissionSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnnotationMissionSessionResponse
+     *
+     * @param ListAnnotationMissionSessionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListAnnotationMissionSessionResponse
      */
     public function listAnnotationMissionSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionId)) {
-            $query['AnnotationMissionId'] = $request->annotationMissionId;
+        if (null !== $request->annotationMissionId) {
+            @$query['AnnotationMissionId'] = $request->annotationMissionId;
         }
-        if (!Utils::isUnset($request->annotationMissionSessionId)) {
-            $query['AnnotationMissionSessionId'] = $request->annotationMissionSessionId;
+
+        if (null !== $request->annotationMissionSessionId) {
+            @$query['AnnotationMissionSessionId'] = $request->annotationMissionSessionId;
         }
-        if (!Utils::isUnset($request->environment)) {
-            $query['Environment'] = $request->environment;
+
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
         }
-        if (!Utils::isUnset($request->includeStatusListJsonString)) {
-            $query['IncludeStatusListJsonString'] = $request->includeStatusListJsonString;
+
+        if (null !== $request->includeStatusListJsonString) {
+            @$query['IncludeStatusListJsonString'] = $request->includeStatusListJsonString;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAnnotationMissionSession',
@@ -5445,9 +6265,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListAnnotationMissionSessionRequest $request ListAnnotationMissionSessionRequest
+     * ListAnnotationMissionSession.
      *
-     * @return ListAnnotationMissionSessionResponse ListAnnotationMissionSessionResponse
+     * @param request - ListAnnotationMissionSessionRequest
+     *
+     * @returns ListAnnotationMissionSessionResponse
+     *
+     * @param ListAnnotationMissionSessionRequest $request
+     *
+     * @return ListAnnotationMissionSessionResponse
      */
     public function listAnnotationMissionSession($request)
     {
@@ -5457,29 +6283,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListApiPluginsRequest $request ListApiPluginsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ListApiPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListApiPluginsResponse ListApiPluginsResponse
+     * @returns ListApiPluginsResponse
+     *
+     * @param ListApiPluginsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListApiPluginsResponse
      */
     public function listApiPluginsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->uuidsJson)) {
-            $query['UuidsJson'] = $request->uuidsJson;
+
+        if (null !== $request->uuidsJson) {
+            @$query['UuidsJson'] = $request->uuidsJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApiPlugins',
@@ -5497,9 +6332,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListApiPluginsRequest $request ListApiPluginsRequest
+     * @param request - ListApiPluginsRequest
      *
-     * @return ListApiPluginsResponse ListApiPluginsResponse
+     * @returns ListApiPluginsResponse
+     *
+     * @param ListApiPluginsRequest $request
+     *
+     * @return ListApiPluginsResponse
      */
     public function listApiPlugins($request)
     {
@@ -5509,34 +6348,44 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntent
-     *  *
-     * @param ListBeebotIntentRequest $request ListBeebotIntentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * ListBeebotIntent.
      *
-     * @return ListBeebotIntentResponse ListBeebotIntentResponse
+     * @param request - ListBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentResponse
+     *
+     * @param ListBeebotIntentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBeebotIntentResponse
      */
     public function listBeebotIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentName)) {
-            $query['IntentName'] = $request->intentName;
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBeebotIntent',
@@ -5554,11 +6403,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntent
-     *  *
-     * @param ListBeebotIntentRequest $request ListBeebotIntentRequest
+     * ListBeebotIntent.
      *
-     * @return ListBeebotIntentResponse ListBeebotIntentResponse
+     * @param request - ListBeebotIntentRequest
+     *
+     * @returns ListBeebotIntentResponse
+     *
+     * @param ListBeebotIntentRequest $request
+     *
+     * @return ListBeebotIntentResponse
      */
     public function listBeebotIntent($request)
     {
@@ -5568,37 +6421,48 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntentLgf
-     *  *
-     * @param ListBeebotIntentLgfRequest $request ListBeebotIntentLgfRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * ListBeebotIntentLgf.
      *
-     * @return ListBeebotIntentLgfResponse ListBeebotIntentLgfResponse
+     * @param request - ListBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentLgfResponse
+     *
+     * @param ListBeebotIntentLgfRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBeebotIntentLgfResponse
      */
     public function listBeebotIntentLgfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->lgfText)) {
-            $query['LgfText'] = $request->lgfText;
+
+        if (null !== $request->lgfText) {
+            @$query['LgfText'] = $request->lgfText;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBeebotIntentLgf',
@@ -5616,11 +6480,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntentLgf
-     *  *
-     * @param ListBeebotIntentLgfRequest $request ListBeebotIntentLgfRequest
+     * ListBeebotIntentLgf.
      *
-     * @return ListBeebotIntentLgfResponse ListBeebotIntentLgfResponse
+     * @param request - ListBeebotIntentLgfRequest
+     *
+     * @returns ListBeebotIntentLgfResponse
+     *
+     * @param ListBeebotIntentLgfRequest $request
+     *
+     * @return ListBeebotIntentLgfResponse
      */
     public function listBeebotIntentLgf($request)
     {
@@ -5630,37 +6498,48 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntentUserSay
-     *  *
-     * @param ListBeebotIntentUserSayRequest $request ListBeebotIntentUserSayRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * ListBeebotIntentUserSay.
      *
-     * @return ListBeebotIntentUserSayResponse ListBeebotIntentUserSayResponse
+     * @param request - ListBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentUserSayResponse
+     *
+     * @param ListBeebotIntentUserSayRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListBeebotIntentUserSayResponse
      */
     public function listBeebotIntentUserSayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBeebotIntentUserSay',
@@ -5678,11 +6557,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListBeebotIntentUserSay
-     *  *
-     * @param ListBeebotIntentUserSayRequest $request ListBeebotIntentUserSayRequest
+     * ListBeebotIntentUserSay.
      *
-     * @return ListBeebotIntentUserSayResponse ListBeebotIntentUserSayResponse
+     * @param request - ListBeebotIntentUserSayRequest
+     *
+     * @returns ListBeebotIntentUserSayResponse
+     *
+     * @param ListBeebotIntentUserSayRequest $request
+     *
+     * @return ListBeebotIntentUserSayResponse
      */
     public function listBeebotIntentUserSay($request)
     {
@@ -5692,26 +6575,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ListChatbotInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
+     * @returns ListChatbotInstancesResponse
+     *
+     * @param ListChatbotInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListChatbotInstancesResponse
      */
     public function listChatbotInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListChatbotInstances',
@@ -5729,9 +6620,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
+     * @param request - ListChatbotInstancesRequest
      *
-     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
+     * @returns ListChatbotInstancesResponse
+     *
+     * @param ListChatbotInstancesRequest $request
+     *
+     * @return ListChatbotInstancesResponse
      */
     public function listChatbotInstances($request)
     {
@@ -5741,23 +6636,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListDialogueFlowsRequest $request ListDialogueFlowsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListDialogueFlowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListDialogueFlowsResponse ListDialogueFlowsResponse
+     * @returns ListDialogueFlowsResponse
+     *
+     * @param ListDialogueFlowsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDialogueFlowsResponse
      */
     public function listDialogueFlowsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDialogueFlows',
@@ -5775,9 +6677,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListDialogueFlowsRequest $request ListDialogueFlowsRequest
+     * @param request - ListDialogueFlowsRequest
      *
-     * @return ListDialogueFlowsResponse ListDialogueFlowsResponse
+     * @returns ListDialogueFlowsResponse
+     *
+     * @param ListDialogueFlowsRequest $request
+     *
+     * @return ListDialogueFlowsResponse
      */
     public function listDialogueFlows($request)
     {
@@ -5787,17 +6693,22 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListDownloadTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListDownloadTasksResponse ListDownloadTasksResponse
+     * @returns ListDownloadTasksResponse
+     *
+     * @param ListDownloadTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDownloadTasksResponse
      */
     public function listDownloadTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDownloadTasks',
@@ -5815,9 +6726,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
+     * @param request - ListDownloadTasksRequest
      *
-     * @return ListDownloadTasksResponse ListDownloadTasksResponse
+     * @returns ListDownloadTasksResponse
+     *
+     * @param ListDownloadTasksRequest $request
+     *
+     * @return ListDownloadTasksResponse
      */
     public function listDownloadTasks($request)
     {
@@ -5827,17 +6742,22 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListFlashSmsTemplatesRequest $request ListFlashSmsTemplatesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListFlashSmsTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListFlashSmsTemplatesResponse ListFlashSmsTemplatesResponse
+     * @returns ListFlashSmsTemplatesResponse
+     *
+     * @param ListFlashSmsTemplatesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListFlashSmsTemplatesResponse
      */
     public function listFlashSmsTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFlashSmsTemplates',
@@ -5855,9 +6775,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListFlashSmsTemplatesRequest $request ListFlashSmsTemplatesRequest
+     * @param request - ListFlashSmsTemplatesRequest
      *
-     * @return ListFlashSmsTemplatesResponse ListFlashSmsTemplatesResponse
+     * @returns ListFlashSmsTemplatesResponse
+     *
+     * @param ListFlashSmsTemplatesRequest $request
+     *
+     * @return ListFlashSmsTemplatesResponse
      */
     public function listFlashSmsTemplates($request)
     {
@@ -5867,29 +6791,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListGlobalQuestionsRequest $request ListGlobalQuestionsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListGlobalQuestionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListGlobalQuestionsResponse ListGlobalQuestionsResponse
+     * @returns ListGlobalQuestionsResponse
+     *
+     * @param ListGlobalQuestionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListGlobalQuestionsResponse
      */
     public function listGlobalQuestionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGlobalQuestions',
@@ -5907,9 +6840,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListGlobalQuestionsRequest $request ListGlobalQuestionsRequest
+     * @param request - ListGlobalQuestionsRequest
      *
-     * @return ListGlobalQuestionsResponse ListGlobalQuestionsResponse
+     * @returns ListGlobalQuestionsResponse
+     *
+     * @param ListGlobalQuestionsRequest $request
+     *
+     * @return ListGlobalQuestionsResponse
      */
     public function listGlobalQuestions($request)
     {
@@ -5919,32 +6856,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -5962,9 +6909,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param request - ListInstancesRequest
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -5974,46 +6925,60 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 意图列表
-     *  *
-     * @param ListIntentionsRequest $request ListIntentionsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 意图列表.
      *
-     * @return ListIntentionsResponse ListIntentionsResponse
+     * @param request - ListIntentionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntentionsResponse
+     *
+     * @param ListIntentionsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIntentionsResponse
      */
     public function listIntentionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionDataSourceType)) {
-            $query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
+        if (null !== $request->annotationMissionDataSourceType) {
+            @$query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
         }
-        if (!Utils::isUnset($request->botId)) {
-            $query['BotId'] = $request->botId;
+
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
         }
-        if (!Utils::isUnset($request->environment)) {
-            $query['Environment'] = $request->environment;
+
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $query['UserNick'] = $request->userNick;
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIntentions',
@@ -6031,11 +6996,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 意图列表
-     *  *
-     * @param ListIntentionsRequest $request ListIntentionsRequest
+     * 意图列表.
      *
-     * @return ListIntentionsResponse ListIntentionsResponse
+     * @param request - ListIntentionsRequest
+     *
+     * @returns ListIntentionsResponse
+     *
+     * @param ListIntentionsRequest $request
+     *
+     * @return ListIntentionsResponse
      */
     public function listIntentions($request)
     {
@@ -6045,32 +7014,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListIntentsRequest $request ListIntentsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIntentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListIntentsResponse ListIntentsResponse
+     * @returns ListIntentsResponse
+     *
+     * @param ListIntentsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListIntentsResponse
      */
     public function listIntentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIntents',
@@ -6088,9 +7067,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListIntentsRequest $request ListIntentsRequest
+     * @param request - ListIntentsRequest
      *
-     * @return ListIntentsResponse ListIntentsResponse
+     * @returns ListIntentsResponse
+     *
+     * @param ListIntentsRequest $request
+     *
+     * @return ListIntentsResponse
      */
     public function listIntents($request)
     {
@@ -6100,44 +7083,58 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobGroupsRequest $request ListJobGroupsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ListJobGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListJobGroupsResponse ListJobGroupsResponse
+     * @returns ListJobGroupsResponse
+     *
+     * @param ListJobGroupsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListJobGroupsResponse
      */
     public function listJobGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->asyncQuery)) {
-            $query['AsyncQuery'] = $request->asyncQuery;
+        if (null !== $request->asyncQuery) {
+            @$query['AsyncQuery'] = $request->asyncQuery;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupStatusFilter)) {
-            $query['JobGroupStatusFilter'] = $request->jobGroupStatusFilter;
+
+        if (null !== $request->jobGroupStatusFilter) {
+            @$query['JobGroupStatusFilter'] = $request->jobGroupStatusFilter;
         }
-        if (!Utils::isUnset($request->onlyMinConcurrencyEnabled)) {
-            $query['OnlyMinConcurrencyEnabled'] = $request->onlyMinConcurrencyEnabled;
+
+        if (null !== $request->onlyMinConcurrencyEnabled) {
+            @$query['OnlyMinConcurrencyEnabled'] = $request->onlyMinConcurrencyEnabled;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchText)) {
-            $query['SearchText'] = $request->searchText;
+
+        if (null !== $request->searchText) {
+            @$query['SearchText'] = $request->searchText;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobGroups',
@@ -6155,9 +7152,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobGroupsRequest $request ListJobGroupsRequest
+     * @param request - ListJobGroupsRequest
      *
-     * @return ListJobGroupsResponse ListJobGroupsResponse
+     * @returns ListJobGroupsResponse
+     *
+     * @param ListJobGroupsRequest $request
+     *
+     * @return ListJobGroupsResponse
      */
     public function listJobGroups($request)
     {
@@ -6167,17 +7168,22 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobGroupsAsyncRequest $request ListJobGroupsAsyncRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ListJobGroupsAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListJobGroupsAsyncResponse ListJobGroupsAsyncResponse
+     * @returns ListJobGroupsAsyncResponse
+     *
+     * @param ListJobGroupsAsyncRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListJobGroupsAsyncResponse
      */
     public function listJobGroupsAsyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobGroupsAsync',
@@ -6195,9 +7201,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobGroupsAsyncRequest $request ListJobGroupsAsyncRequest
+     * @param request - ListJobGroupsAsyncRequest
      *
-     * @return ListJobGroupsAsyncResponse ListJobGroupsAsyncResponse
+     * @returns ListJobGroupsAsyncResponse
+     *
+     * @param ListJobGroupsAsyncRequest $request
+     *
+     * @return ListJobGroupsAsyncResponse
      */
     public function listJobGroupsAsync($request)
     {
@@ -6207,25 +7217,32 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListJobs
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * ListJobs.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobs',
@@ -6243,11 +7260,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ListJobs
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * ListJobs.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -6257,35 +7278,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobsByGroupRequest $request ListJobsByGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListJobsByGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListJobsByGroupResponse ListJobsByGroupResponse
+     * @returns ListJobsByGroupResponse
+     *
+     * @param ListJobsByGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListJobsByGroupResponse
      */
     public function listJobsByGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobFailureReason)) {
-            $query['JobFailureReason'] = $request->jobFailureReason;
+
+        if (null !== $request->jobFailureReason) {
+            @$query['JobFailureReason'] = $request->jobFailureReason;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobStatus)) {
-            $query['JobStatus'] = $request->jobStatus;
+
+        if (null !== $request->jobStatus) {
+            @$query['JobStatus'] = $request->jobStatus;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobsByGroup',
@@ -6303,9 +7335,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListJobsByGroupRequest $request ListJobsByGroupRequest
+     * @param request - ListJobsByGroupRequest
      *
-     * @return ListJobsByGroupResponse ListJobsByGroupResponse
+     * @returns ListJobsByGroupResponse
+     *
+     * @param ListJobsByGroupRequest $request
+     *
+     * @return ListJobsByGroupResponse
      */
     public function listJobsByGroup($request)
     {
@@ -6315,26 +7351,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListOutboundCallNumbersRequest $request ListOutboundCallNumbersRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListOutboundCallNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListOutboundCallNumbersResponse ListOutboundCallNumbersResponse
+     * @returns ListOutboundCallNumbersResponse
+     *
+     * @param ListOutboundCallNumbersRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOutboundCallNumbersResponse
      */
     public function listOutboundCallNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOutboundCallNumbers',
@@ -6352,9 +7396,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListOutboundCallNumbersRequest $request ListOutboundCallNumbersRequest
+     * @param request - ListOutboundCallNumbersRequest
      *
-     * @return ListOutboundCallNumbersResponse ListOutboundCallNumbersResponse
+     * @returns ListOutboundCallNumbersResponse
+     *
+     * @param ListOutboundCallNumbersRequest $request
+     *
+     * @return ListOutboundCallNumbersResponse
      */
     public function listOutboundCallNumbers($request)
     {
@@ -6364,26 +7412,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTagsRequest $request ListResourceTagsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListResourceTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListResourceTagsResponse ListResourceTagsResponse
+     * @returns ListResourceTagsResponse
+     *
+     * @param ListResourceTagsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListResourceTagsResponse
      */
     public function listResourceTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceTags',
@@ -6401,9 +7457,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTagsRequest $request ListResourceTagsRequest
+     * @param request - ListResourceTagsRequest
      *
-     * @return ListResourceTagsResponse ListResourceTagsResponse
+     * @returns ListResourceTagsResponse
+     *
+     * @param ListResourceTagsRequest $request
+     *
+     * @return ListResourceTagsResponse
      */
     public function listResourceTags($request)
     {
@@ -6413,72 +7473,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListSchedulerInstancesRequest $request ListSchedulerInstancesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ListScriptPublishHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListSchedulerInstancesResponse ListSchedulerInstancesResponse
-     */
-    public function listSchedulerInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListSchedulerInstances',
-            'version' => '2019-12-26',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ListSchedulerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListSchedulerInstancesRequest $request ListSchedulerInstancesRequest
+     * @returns ListScriptPublishHistoriesResponse
      *
-     * @return ListSchedulerInstancesResponse ListSchedulerInstancesResponse
-     */
-    public function listSchedulerInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSchedulerInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListScriptPublishHistoriesRequest $request ListScriptPublishHistoriesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param ListScriptPublishHistoriesRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ListScriptPublishHistoriesResponse ListScriptPublishHistoriesResponse
+     * @return ListScriptPublishHistoriesResponse
      */
     public function listScriptPublishHistoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScriptPublishHistories',
@@ -6496,9 +7522,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListScriptPublishHistoriesRequest $request ListScriptPublishHistoriesRequest
+     * @param request - ListScriptPublishHistoriesRequest
      *
-     * @return ListScriptPublishHistoriesResponse ListScriptPublishHistoriesResponse
+     * @returns ListScriptPublishHistoriesResponse
+     *
+     * @param ListScriptPublishHistoriesRequest $request
+     *
+     * @return ListScriptPublishHistoriesResponse
      */
     public function listScriptPublishHistories($request)
     {
@@ -6508,41 +7538,54 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListScriptRecordingRequest $request ListScriptRecordingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListScriptRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListScriptRecordingResponse ListScriptRecordingResponse
+     * @returns ListScriptRecordingResponse
+     *
+     * @param ListScriptRecordingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListScriptRecordingResponse
      */
     public function listScriptRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->refIdsJson)) {
-            $query['RefIdsJson'] = $request->refIdsJson;
+
+        if (null !== $request->refIdsJson) {
+            @$query['RefIdsJson'] = $request->refIdsJson;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['Search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
         }
-        if (!Utils::isUnset($request->statesJson)) {
-            $query['StatesJson'] = $request->statesJson;
+
+        if (null !== $request->statesJson) {
+            @$query['StatesJson'] = $request->statesJson;
         }
-        if (!Utils::isUnset($request->uuidsJson)) {
-            $query['UuidsJson'] = $request->uuidsJson;
+
+        if (null !== $request->uuidsJson) {
+            @$query['UuidsJson'] = $request->uuidsJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScriptRecording',
@@ -6560,9 +7603,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListScriptRecordingRequest $request ListScriptRecordingRequest
+     * @param request - ListScriptRecordingRequest
      *
-     * @return ListScriptRecordingResponse ListScriptRecordingResponse
+     * @returns ListScriptRecordingResponse
+     *
+     * @param ListScriptRecordingRequest $request
+     *
+     * @return ListScriptRecordingResponse
      */
     public function listScriptRecording($request)
     {
@@ -6572,29 +7619,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListScriptVoiceConfigsRequest $request ListScriptVoiceConfigsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ListScriptVoiceConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListScriptVoiceConfigsResponse ListScriptVoiceConfigsResponse
+     * @returns ListScriptVoiceConfigsResponse
+     *
+     * @param ListScriptVoiceConfigsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListScriptVoiceConfigsResponse
      */
     public function listScriptVoiceConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScriptVoiceConfigs',
@@ -6612,9 +7668,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListScriptVoiceConfigsRequest $request ListScriptVoiceConfigsRequest
+     * @param request - ListScriptVoiceConfigsRequest
      *
-     * @return ListScriptVoiceConfigsResponse ListScriptVoiceConfigsResponse
+     * @returns ListScriptVoiceConfigsResponse
+     *
+     * @param ListScriptVoiceConfigsRequest $request
+     *
+     * @return ListScriptVoiceConfigsResponse
      */
     public function listScriptVoiceConfigs($request)
     {
@@ -6624,34 +7684,44 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary -
-     *  *
-     * @param ListScriptsRequest $request ListScriptsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * -.
      *
-     * @return ListScriptsResponse ListScriptsResponse
+     * @param request - ListScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScriptsResponse
+     *
+     * @param ListScriptsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListScriptsResponse
      */
     public function listScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nluEngine)) {
-            $query['NluEngine'] = $request->nluEngine;
+
+        if (null !== $request->nluEngine) {
+            @$query['NluEngine'] = $request->nluEngine;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scriptName)) {
-            $query['ScriptName'] = $request->scriptName;
+
+        if (null !== $request->scriptName) {
+            @$query['ScriptName'] = $request->scriptName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListScripts',
@@ -6669,11 +7739,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary -
-     *  *
-     * @param ListScriptsRequest $request ListScriptsRequest
+     * -.
      *
-     * @return ListScriptsResponse ListScriptsResponse
+     * @param request - ListScriptsRequest
+     *
+     * @returns ListScriptsResponse
+     *
+     * @param ListScriptsRequest $request
+     *
+     * @return ListScriptsResponse
      */
     public function listScripts($request)
     {
@@ -6683,32 +7757,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -6726,9 +7810,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param request - ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -6738,23 +7826,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request ListTagsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListTagsResponse
      */
     public function listTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTags',
@@ -6772,9 +7867,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request ListTagsRequest
+     * @param request - ListTagsRequest
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     *
+     * @return ListTagsResponse
      */
     public function listTags($request)
     {
@@ -6784,61 +7883,80 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyAgentProfileRequest $tmpReq  ModifyAgentProfileRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ModifyAgentProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAgentProfileResponse ModifyAgentProfileResponse
+     * @returns ModifyAgentProfileResponse
+     *
+     * @param ModifyAgentProfileRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyAgentProfileResponse
      */
     public function modifyAgentProfileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyAgentProfileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->faqCategoryIds)) {
-            $request->faqCategoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faqCategoryIds, 'FaqCategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->faqCategoryIds) {
+            $request->faqCategoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->faqCategoryIds, 'FaqCategoryIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->agentProfileId)) {
-            $body['AgentProfileId'] = $request->agentProfileId;
+        if (null !== $request->agentProfileId) {
+            @$body['AgentProfileId'] = $request->agentProfileId;
         }
-        if (!Utils::isUnset($request->apiPluginJson)) {
-            $body['ApiPluginJson'] = $request->apiPluginJson;
+
+        if (null !== $request->apiPluginJson) {
+            @$body['ApiPluginJson'] = $request->apiPluginJson;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->faqCategoryIdsShrink)) {
-            $body['FaqCategoryIds'] = $request->faqCategoryIdsShrink;
+
+        if (null !== $request->faqCategoryIdsShrink) {
+            @$body['FaqCategoryIds'] = $request->faqCategoryIdsShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instructionJson)) {
-            $body['InstructionJson'] = $request->instructionJson;
+
+        if (null !== $request->instructionJson) {
+            @$body['InstructionJson'] = $request->instructionJson;
         }
-        if (!Utils::isUnset($request->labelsJson)) {
-            $body['LabelsJson'] = $request->labelsJson;
+
+        if (null !== $request->labelsJson) {
+            @$body['LabelsJson'] = $request->labelsJson;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->modelConfig)) {
-            $body['ModelConfig'] = $request->modelConfig;
+
+        if (null !== $request->modelConfig) {
+            @$body['ModelConfig'] = $request->modelConfig;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->promptJson)) {
-            $body['PromptJson'] = $request->promptJson;
+
+        if (null !== $request->promptJson) {
+            @$body['PromptJson'] = $request->promptJson;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $body['Scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$body['Scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->variablesJson)) {
-            $body['VariablesJson'] = $request->variablesJson;
+
+        if (null !== $request->variablesJson) {
+            @$body['VariablesJson'] = $request->variablesJson;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyAgentProfile',
@@ -6856,9 +7974,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyAgentProfileRequest $request ModifyAgentProfileRequest
+     * @param request - ModifyAgentProfileRequest
      *
-     * @return ModifyAgentProfileResponse ModifyAgentProfileResponse
+     * @returns ModifyAgentProfileResponse
+     *
+     * @param ModifyAgentProfileRequest $request
+     *
+     * @return ModifyAgentProfileResponse
      */
     public function modifyAgentProfile($request)
     {
@@ -6868,29 +7990,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnnotationMissionRequest $request ModifyAnnotationMissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAnnotationMissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAnnotationMissionResponse ModifyAnnotationMissionResponse
+     * @returns ModifyAnnotationMissionResponse
+     *
+     * @param ModifyAnnotationMissionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyAnnotationMissionResponse
      */
     public function modifyAnnotationMissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionId)) {
-            $query['AnnotationMissionId'] = $request->annotationMissionId;
+        if (null !== $request->annotationMissionId) {
+            @$query['AnnotationMissionId'] = $request->annotationMissionId;
         }
-        if (!Utils::isUnset($request->annotationMissionName)) {
-            $query['AnnotationMissionName'] = $request->annotationMissionName;
+
+        if (null !== $request->annotationMissionName) {
+            @$query['AnnotationMissionName'] = $request->annotationMissionName;
         }
-        if (!Utils::isUnset($request->annotationStatus)) {
-            $query['AnnotationStatus'] = $request->annotationStatus;
+
+        if (null !== $request->annotationStatus) {
+            @$query['AnnotationStatus'] = $request->annotationStatus;
         }
-        if (!Utils::isUnset($request->delete)) {
-            $query['Delete'] = $request->delete;
+
+        if (null !== $request->delete) {
+            @$query['Delete'] = $request->delete;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAnnotationMission',
@@ -6908,9 +8039,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyAnnotationMissionRequest $request ModifyAnnotationMissionRequest
+     * @param request - ModifyAnnotationMissionRequest
      *
-     * @return ModifyAnnotationMissionResponse ModifyAnnotationMissionResponse
+     * @returns ModifyAnnotationMissionResponse
+     *
+     * @param ModifyAnnotationMissionRequest $request
+     *
+     * @return ModifyAnnotationMissionResponse
      */
     public function modifyAnnotationMission($request)
     {
@@ -6920,47 +8055,62 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyBatchJobsRequest $request ModifyBatchJobsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyBatchJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyBatchJobsResponse ModifyBatchJobsResponse
+     * @returns ModifyBatchJobsResponse
+     *
+     * @param ModifyBatchJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyBatchJobsResponse
      */
     public function modifyBatchJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->batchJobName)) {
-            $query['BatchJobName'] = $request->batchJobName;
+        if (null !== $request->batchJobName) {
+            @$query['BatchJobName'] = $request->batchJobName;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobFilePath)) {
-            $query['JobFilePath'] = $request->jobFilePath;
+
+        if (null !== $request->jobFilePath) {
+            @$query['JobFilePath'] = $request->jobFilePath;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
-        if (!Utils::isUnset($request->submitted)) {
-            $query['Submitted'] = $request->submitted;
+
+        if (null !== $request->submitted) {
+            @$query['Submitted'] = $request->submitted;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBatchJobs',
@@ -6978,9 +8128,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyBatchJobsRequest $request ModifyBatchJobsRequest
+     * @param request - ModifyBatchJobsRequest
      *
-     * @return ModifyBatchJobsResponse ModifyBatchJobsResponse
+     * @returns ModifyBatchJobsResponse
+     *
+     * @param ModifyBatchJobsRequest $request
+     *
+     * @return ModifyBatchJobsResponse
      */
     public function modifyBatchJobs($request)
     {
@@ -6990,36 +8144,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntent
-     *  *
-     * @param ModifyBeebotIntentRequest $tmpReq  ModifyBeebotIntentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * ModifyBeebotIntent.
      *
-     * @return ModifyBeebotIntentResponse ModifyBeebotIntentResponse
+     * @param tmpReq - ModifyBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentResponse
+     *
+     * @param ModifyBeebotIntentRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBeebotIntentResponse
      */
     public function modifyBeebotIntentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyBeebotIntentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDefinitionShrink)) {
-            $query['IntentDefinition'] = $request->intentDefinitionShrink;
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBeebotIntent',
@@ -7037,11 +8201,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntent
-     *  *
-     * @param ModifyBeebotIntentRequest $request ModifyBeebotIntentRequest
+     * ModifyBeebotIntent.
      *
-     * @return ModifyBeebotIntentResponse ModifyBeebotIntentResponse
+     * @param request - ModifyBeebotIntentRequest
+     *
+     * @returns ModifyBeebotIntentResponse
+     *
+     * @param ModifyBeebotIntentRequest $request
+     *
+     * @return ModifyBeebotIntentResponse
      */
     public function modifyBeebotIntent($request)
     {
@@ -7051,36 +8219,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntentLgf
-     *  *
-     * @param ModifyBeebotIntentLgfRequest $tmpReq  ModifyBeebotIntentLgfRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * ModifyBeebotIntentLgf.
      *
-     * @return ModifyBeebotIntentLgfResponse ModifyBeebotIntentLgfResponse
+     * @param tmpReq - ModifyBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentLgfResponse
+     *
+     * @param ModifyBeebotIntentLgfRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyBeebotIntentLgfResponse
      */
     public function modifyBeebotIntentLgfWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyBeebotIntentLgfShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lgfDefinition)) {
-            $request->lgfDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lgfDefinitionShrink)) {
-            $query['LgfDefinition'] = $request->lgfDefinitionShrink;
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
         }
-        if (!Utils::isUnset($request->lgfId)) {
-            $query['LgfId'] = $request->lgfId;
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBeebotIntentLgf',
@@ -7098,11 +8276,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntentLgf
-     *  *
-     * @param ModifyBeebotIntentLgfRequest $request ModifyBeebotIntentLgfRequest
+     * ModifyBeebotIntentLgf.
      *
-     * @return ModifyBeebotIntentLgfResponse ModifyBeebotIntentLgfResponse
+     * @param request - ModifyBeebotIntentLgfRequest
+     *
+     * @returns ModifyBeebotIntentLgfResponse
+     *
+     * @param ModifyBeebotIntentLgfRequest $request
+     *
+     * @return ModifyBeebotIntentLgfResponse
      */
     public function modifyBeebotIntentLgf($request)
     {
@@ -7112,36 +8294,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntentUserSay
-     *  *
-     * @param ModifyBeebotIntentUserSayRequest $tmpReq  ModifyBeebotIntentUserSayRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * ModifyBeebotIntentUserSay.
      *
-     * @return ModifyBeebotIntentUserSayResponse ModifyBeebotIntentUserSayResponse
+     * @param tmpReq - ModifyBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentUserSayResponse
+     *
+     * @param ModifyBeebotIntentUserSayRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyBeebotIntentUserSayResponse
      */
     public function modifyBeebotIntentUserSayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyBeebotIntentUserSayShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userSayDefinition)) {
-            $request->userSayDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->userSayDefinitionShrink)) {
-            $query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
         }
-        if (!Utils::isUnset($request->userSayId)) {
-            $query['UserSayId'] = $request->userSayId;
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBeebotIntentUserSay',
@@ -7159,11 +8351,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyBeebotIntentUserSay
-     *  *
-     * @param ModifyBeebotIntentUserSayRequest $request ModifyBeebotIntentUserSayRequest
+     * ModifyBeebotIntentUserSay.
      *
-     * @return ModifyBeebotIntentUserSayResponse ModifyBeebotIntentUserSayResponse
+     * @param request - ModifyBeebotIntentUserSayRequest
+     *
+     * @returns ModifyBeebotIntentUserSayResponse
+     *
+     * @param ModifyBeebotIntentUserSayRequest $request
+     *
+     * @return ModifyBeebotIntentUserSayResponse
      */
     public function modifyBeebotIntentUserSay($request)
     {
@@ -7173,32 +8369,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyDialogueFlowRequest $request ModifyDialogueFlowRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDialogueFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyDialogueFlowResponse ModifyDialogueFlowResponse
+     * @returns ModifyDialogueFlowResponse
+     *
+     * @param ModifyDialogueFlowRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDialogueFlowResponse
      */
     public function modifyDialogueFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dialogueFlowDefinition)) {
-            $query['DialogueFlowDefinition'] = $request->dialogueFlowDefinition;
+        if (null !== $request->dialogueFlowDefinition) {
+            @$query['DialogueFlowDefinition'] = $request->dialogueFlowDefinition;
         }
-        if (!Utils::isUnset($request->dialogueFlowId)) {
-            $query['DialogueFlowId'] = $request->dialogueFlowId;
+
+        if (null !== $request->dialogueFlowId) {
+            @$query['DialogueFlowId'] = $request->dialogueFlowId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isDrafted)) {
-            $query['IsDrafted'] = $request->isDrafted;
+
+        if (null !== $request->isDrafted) {
+            @$query['IsDrafted'] = $request->isDrafted;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDialogueFlow',
@@ -7216,9 +8422,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyDialogueFlowRequest $request ModifyDialogueFlowRequest
+     * @param request - ModifyDialogueFlowRequest
      *
-     * @return ModifyDialogueFlowResponse ModifyDialogueFlowResponse
+     * @returns ModifyDialogueFlowResponse
+     *
+     * @param ModifyDialogueFlowRequest $request
+     *
+     * @return ModifyDialogueFlowResponse
      */
     public function modifyDialogueFlow($request)
     {
@@ -7228,26 +8438,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyEmptyNumberNoMoreCallsInfoRequest $request ModifyEmptyNumberNoMoreCallsInfoRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyEmptyNumberNoMoreCallsInfoResponse ModifyEmptyNumberNoMoreCallsInfoResponse
+     * @returns ModifyEmptyNumberNoMoreCallsInfoResponse
+     *
+     * @param ModifyEmptyNumberNoMoreCallsInfoRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyEmptyNumberNoMoreCallsInfoResponse
      */
     public function modifyEmptyNumberNoMoreCallsInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->emptyNumberNoMoreCalls)) {
-            $query['EmptyNumberNoMoreCalls'] = $request->emptyNumberNoMoreCalls;
+        if (null !== $request->emptyNumberNoMoreCalls) {
+            @$query['EmptyNumberNoMoreCalls'] = $request->emptyNumberNoMoreCalls;
         }
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyEmptyNumberNoMoreCallsInfo',
@@ -7265,9 +8483,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyEmptyNumberNoMoreCallsInfoRequest $request ModifyEmptyNumberNoMoreCallsInfoRequest
+     * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
      *
-     * @return ModifyEmptyNumberNoMoreCallsInfoResponse ModifyEmptyNumberNoMoreCallsInfoResponse
+     * @returns ModifyEmptyNumberNoMoreCallsInfoResponse
+     *
+     * @param ModifyEmptyNumberNoMoreCallsInfoRequest $request
+     *
+     * @return ModifyEmptyNumberNoMoreCallsInfoResponse
      */
     public function modifyEmptyNumberNoMoreCallsInfo($request)
     {
@@ -7277,38 +8499,50 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalQuestionRequest $request ModifyGlobalQuestionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyGlobalQuestionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalQuestionResponse ModifyGlobalQuestionResponse
+     * @returns ModifyGlobalQuestionResponse
+     *
+     * @param ModifyGlobalQuestionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyGlobalQuestionResponse
      */
     public function modifyGlobalQuestionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->answers)) {
-            $query['Answers'] = $request->answers;
+        if (null !== $request->answers) {
+            @$query['Answers'] = $request->answers;
         }
-        if (!Utils::isUnset($request->globalQuestionId)) {
-            $query['GlobalQuestionId'] = $request->globalQuestionId;
+
+        if (null !== $request->globalQuestionId) {
+            @$query['GlobalQuestionId'] = $request->globalQuestionId;
         }
-        if (!Utils::isUnset($request->globalQuestionName)) {
-            $query['GlobalQuestionName'] = $request->globalQuestionName;
+
+        if (null !== $request->globalQuestionName) {
+            @$query['GlobalQuestionName'] = $request->globalQuestionName;
         }
-        if (!Utils::isUnset($request->globalQuestionType)) {
-            $query['GlobalQuestionType'] = $request->globalQuestionType;
+
+        if (null !== $request->globalQuestionType) {
+            @$query['GlobalQuestionType'] = $request->globalQuestionType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->questions)) {
-            $query['Questions'] = $request->questions;
+
+        if (null !== $request->questions) {
+            @$query['Questions'] = $request->questions;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalQuestion',
@@ -7326,9 +8560,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalQuestionRequest $request ModifyGlobalQuestionRequest
+     * @param request - ModifyGlobalQuestionRequest
      *
-     * @return ModifyGlobalQuestionResponse ModifyGlobalQuestionResponse
+     * @returns ModifyGlobalQuestionResponse
+     *
+     * @param ModifyGlobalQuestionRequest $request
+     *
+     * @return ModifyGlobalQuestionResponse
      */
     public function modifyGlobalQuestion($request)
     {
@@ -7338,32 +8576,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceDescription)) {
-            $query['InstanceDescription'] = $request->instanceDescription;
+
+        if (null !== $request->instanceDescription) {
+            @$query['InstanceDescription'] = $request->instanceDescription;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->maxConcurrentConversation)) {
-            $query['MaxConcurrentConversation'] = $request->maxConcurrentConversation;
+
+        if (null !== $request->maxConcurrentConversation) {
+            @$query['MaxConcurrentConversation'] = $request->maxConcurrentConversation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstance',
@@ -7381,9 +8629,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
+     * @param request - ModifyInstanceRequest
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstance($request)
     {
@@ -7393,38 +8645,50 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyIntentRequest $request ModifyIntentRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyIntentResponse ModifyIntentResponse
+     * @returns ModifyIntentResponse
+     *
+     * @param ModifyIntentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyIntentResponse
      */
     public function modifyIntentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentDescription)) {
-            $query['IntentDescription'] = $request->intentDescription;
+
+        if (null !== $request->intentDescription) {
+            @$query['IntentDescription'] = $request->intentDescription;
         }
-        if (!Utils::isUnset($request->intentId)) {
-            $query['IntentId'] = $request->intentId;
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
         }
-        if (!Utils::isUnset($request->intentName)) {
-            $query['IntentName'] = $request->intentName;
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
         }
-        if (!Utils::isUnset($request->keywords)) {
-            $query['Keywords'] = $request->keywords;
+
+        if (null !== $request->keywords) {
+            @$query['Keywords'] = $request->keywords;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->utterances)) {
-            $query['Utterances'] = $request->utterances;
+
+        if (null !== $request->utterances) {
+            @$query['Utterances'] = $request->utterances;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyIntent',
@@ -7442,9 +8706,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyIntentRequest $request ModifyIntentRequest
+     * @param request - ModifyIntentRequest
      *
-     * @return ModifyIntentResponse ModifyIntentResponse
+     * @returns ModifyIntentResponse
+     *
+     * @param ModifyIntentRequest $request
+     *
+     * @return ModifyIntentResponse
      */
     public function modifyIntent($request)
     {
@@ -7454,62 +8722,84 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyJobGroupRequest $request ModifyJobGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 修改任务组.
      *
-     * @return ModifyJobGroupResponse ModifyJobGroupResponse
+     * @param request - ModifyJobGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyJobGroupResponse
+     *
+     * @param ModifyJobGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyJobGroupResponse
      */
     public function modifyJobGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->flashSmsExtras)) {
-            $query['FlashSmsExtras'] = $request->flashSmsExtras;
+
+        if (null !== $request->flashSmsExtras) {
+            @$query['FlashSmsExtras'] = $request->flashSmsExtras;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobGroupStatus)) {
-            $query['JobGroupStatus'] = $request->jobGroupStatus;
+
+        if (null !== $request->jobGroupStatus) {
+            @$query['JobGroupStatus'] = $request->jobGroupStatus;
         }
-        if (!Utils::isUnset($request->minConcurrency)) {
-            $query['MinConcurrency'] = $request->minConcurrency;
+
+        if (null !== $request->minConcurrency) {
+            @$query['MinConcurrency'] = $request->minConcurrency;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->recallCallingNumber)) {
-            $query['RecallCallingNumber'] = $request->recallCallingNumber;
+
+        if (null !== $request->recallCallingNumber) {
+            @$query['RecallCallingNumber'] = $request->recallCallingNumber;
         }
-        if (!Utils::isUnset($request->recallStrategyJson)) {
-            $query['RecallStrategyJson'] = $request->recallStrategyJson;
+
+        if (null !== $request->recallStrategyJson) {
+            @$query['RecallStrategyJson'] = $request->recallStrategyJson;
         }
-        if (!Utils::isUnset($request->ringingDuration)) {
-            $query['RingingDuration'] = $request->ringingDuration;
+
+        if (null !== $request->ringingDuration) {
+            @$query['RingingDuration'] = $request->ringingDuration;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->strategyJson)) {
-            $query['StrategyJson'] = $request->strategyJson;
+
+        if (null !== $request->strategyJson) {
+            @$query['StrategyJson'] = $request->strategyJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyJobGroup',
@@ -7527,9 +8817,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyJobGroupRequest $request ModifyJobGroupRequest
+     * 修改任务组.
      *
-     * @return ModifyJobGroupResponse ModifyJobGroupResponse
+     * @param request - ModifyJobGroupRequest
+     *
+     * @returns ModifyJobGroupResponse
+     *
+     * @param ModifyJobGroupRequest $request
+     *
+     * @return ModifyJobGroupResponse
      */
     public function modifyJobGroup($request)
     {
@@ -7539,34 +8835,44 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyOutboundCallNumber
-     *  *
-     * @param ModifyOutboundCallNumberRequest $request ModifyOutboundCallNumberRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * ModifyOutboundCallNumber.
      *
-     * @return ModifyOutboundCallNumberResponse ModifyOutboundCallNumberResponse
+     * @param request - ModifyOutboundCallNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOutboundCallNumberResponse
+     *
+     * @param ModifyOutboundCallNumberRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyOutboundCallNumberResponse
      */
     public function modifyOutboundCallNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
-        if (!Utils::isUnset($request->outboundCallNumberId)) {
-            $query['OutboundCallNumberId'] = $request->outboundCallNumberId;
+
+        if (null !== $request->outboundCallNumberId) {
+            @$query['OutboundCallNumberId'] = $request->outboundCallNumberId;
         }
-        if (!Utils::isUnset($request->rateLimitCount)) {
-            $query['RateLimitCount'] = $request->rateLimitCount;
+
+        if (null !== $request->rateLimitCount) {
+            @$query['RateLimitCount'] = $request->rateLimitCount;
         }
-        if (!Utils::isUnset($request->rateLimitPeriod)) {
-            $query['RateLimitPeriod'] = $request->rateLimitPeriod;
+
+        if (null !== $request->rateLimitPeriod) {
+            @$query['RateLimitPeriod'] = $request->rateLimitPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyOutboundCallNumber',
@@ -7584,11 +8890,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary ModifyOutboundCallNumber
-     *  *
-     * @param ModifyOutboundCallNumberRequest $request ModifyOutboundCallNumberRequest
+     * ModifyOutboundCallNumber.
      *
-     * @return ModifyOutboundCallNumberResponse ModifyOutboundCallNumberResponse
+     * @param request - ModifyOutboundCallNumberRequest
+     *
+     * @returns ModifyOutboundCallNumberResponse
+     *
+     * @param ModifyOutboundCallNumberRequest $request
+     *
+     * @return ModifyOutboundCallNumberResponse
      */
     public function modifyOutboundCallNumber($request)
     {
@@ -7598,91 +8908,120 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 修改场景
-     *  *
-     * @param ModifyScriptRequest $request ModifyScriptRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 修改场景.
      *
-     * @return ModifyScriptResponse ModifyScriptResponse
+     * @param request - ModifyScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScriptResponse
+     *
+     * @param ModifyScriptRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyScriptResponse
      */
     public function modifyScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->agentLlm)) {
-            $query['AgentLlm'] = $request->agentLlm;
+
+        if (null !== $request->agentLlm) {
+            @$query['AgentLlm'] = $request->agentLlm;
         }
-        if (!Utils::isUnset($request->asrConfig)) {
-            $query['AsrConfig'] = $request->asrConfig;
+
+        if (null !== $request->asrConfig) {
+            @$query['AsrConfig'] = $request->asrConfig;
         }
-        if (!Utils::isUnset($request->chatConfig)) {
-            $query['ChatConfig'] = $request->chatConfig;
+
+        if (null !== $request->chatConfig) {
+            @$query['ChatConfig'] = $request->chatConfig;
         }
-        if (!Utils::isUnset($request->chatbotId)) {
-            $query['ChatbotId'] = $request->chatbotId;
+
+        if (null !== $request->chatbotId) {
+            @$query['ChatbotId'] = $request->chatbotId;
         }
-        if (!Utils::isUnset($request->emotionEnable)) {
-            $query['EmotionEnable'] = $request->emotionEnable;
+
+        if (null !== $request->emotionEnable) {
+            @$query['EmotionEnable'] = $request->emotionEnable;
         }
-        if (!Utils::isUnset($request->industry)) {
-            $query['Industry'] = $request->industry;
+
+        if (null !== $request->industry) {
+            @$query['Industry'] = $request->industry;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->labelConfig)) {
-            $query['LabelConfig'] = $request->labelConfig;
+
+        if (null !== $request->labelConfig) {
+            @$query['LabelConfig'] = $request->labelConfig;
         }
-        if (!Utils::isUnset($request->longWaitEnable)) {
-            $query['LongWaitEnable'] = $request->longWaitEnable;
+
+        if (null !== $request->longWaitEnable) {
+            @$query['LongWaitEnable'] = $request->longWaitEnable;
         }
-        if (!Utils::isUnset($request->miniPlaybackConfigListJsonString)) {
-            $query['MiniPlaybackConfigListJsonString'] = $request->miniPlaybackConfigListJsonString;
+
+        if (null !== $request->miniPlaybackConfigListJsonString) {
+            @$query['MiniPlaybackConfigListJsonString'] = $request->miniPlaybackConfigListJsonString;
         }
-        if (!Utils::isUnset($request->miniPlaybackEnable)) {
-            $query['MiniPlaybackEnable'] = $request->miniPlaybackEnable;
+
+        if (null !== $request->miniPlaybackEnable) {
+            @$query['MiniPlaybackEnable'] = $request->miniPlaybackEnable;
         }
-        if (!Utils::isUnset($request->newBargeInEnable)) {
-            $query['NewBargeInEnable'] = $request->newBargeInEnable;
+
+        if (null !== $request->newBargeInEnable) {
+            @$query['NewBargeInEnable'] = $request->newBargeInEnable;
         }
-        if (!Utils::isUnset($request->nlsConfig)) {
-            $query['NlsConfig'] = $request->nlsConfig;
+
+        if (null !== $request->nlsConfig) {
+            @$query['NlsConfig'] = $request->nlsConfig;
         }
-        if (!Utils::isUnset($request->nluAccessType)) {
-            $query['NluAccessType'] = $request->nluAccessType;
+
+        if (null !== $request->nluAccessType) {
+            @$query['NluAccessType'] = $request->nluAccessType;
         }
-        if (!Utils::isUnset($request->nluEngine)) {
-            $query['NluEngine'] = $request->nluEngine;
+
+        if (null !== $request->nluEngine) {
+            @$query['NluEngine'] = $request->nluEngine;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
+
+        if (null !== $request->scriptContent) {
+            @$query['ScriptContent'] = $request->scriptContent;
         }
-        if (!Utils::isUnset($request->scriptDescription)) {
-            $query['ScriptDescription'] = $request->scriptDescription;
+
+        if (null !== $request->scriptDescription) {
+            @$query['ScriptDescription'] = $request->scriptDescription;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->scriptName)) {
-            $query['ScriptName'] = $request->scriptName;
+
+        if (null !== $request->scriptName) {
+            @$query['ScriptName'] = $request->scriptName;
         }
-        if (!Utils::isUnset($request->scriptWaveform)) {
-            $query['ScriptWaveform'] = $request->scriptWaveform;
+
+        if (null !== $request->scriptWaveform) {
+            @$query['ScriptWaveform'] = $request->scriptWaveform;
         }
-        if (!Utils::isUnset($request->ttsConfig)) {
-            $query['TtsConfig'] = $request->ttsConfig;
+
+        if (null !== $request->ttsConfig) {
+            @$query['TtsConfig'] = $request->ttsConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyScript',
@@ -7700,11 +9039,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 修改场景
-     *  *
-     * @param ModifyScriptRequest $request ModifyScriptRequest
+     * 修改场景.
      *
-     * @return ModifyScriptResponse ModifyScriptResponse
+     * @param request - ModifyScriptRequest
+     *
+     * @returns ModifyScriptResponse
+     *
+     * @param ModifyScriptRequest $request
+     *
+     * @return ModifyScriptResponse
      */
     public function modifyScript($request)
     {
@@ -7714,32 +9057,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyScriptVoiceConfigRequest $request ModifyScriptVoiceConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyScriptVoiceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyScriptVoiceConfigResponse ModifyScriptVoiceConfigResponse
+     * @returns ModifyScriptVoiceConfigResponse
+     *
+     * @param ModifyScriptVoiceConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyScriptVoiceConfigResponse
      */
     public function modifyScriptVoiceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->scriptVoiceConfigId)) {
-            $query['ScriptVoiceConfigId'] = $request->scriptVoiceConfigId;
+
+        if (null !== $request->scriptVoiceConfigId) {
+            @$query['ScriptVoiceConfigId'] = $request->scriptVoiceConfigId;
         }
-        if (!Utils::isUnset($request->scriptWaveformRelation)) {
-            $query['ScriptWaveformRelation'] = $request->scriptWaveformRelation;
+
+        if (null !== $request->scriptWaveformRelation) {
+            @$query['ScriptWaveformRelation'] = $request->scriptWaveformRelation;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyScriptVoiceConfig',
@@ -7757,9 +9110,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyScriptVoiceConfigRequest $request ModifyScriptVoiceConfigRequest
+     * @param request - ModifyScriptVoiceConfigRequest
      *
-     * @return ModifyScriptVoiceConfigResponse ModifyScriptVoiceConfigResponse
+     * @returns ModifyScriptVoiceConfigResponse
+     *
+     * @param ModifyScriptVoiceConfigRequest $request
+     *
+     * @return ModifyScriptVoiceConfigResponse
      */
     public function modifyScriptVoiceConfig($request)
     {
@@ -7769,41 +9126,54 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyTTSConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
+     * @returns ModifyTTSConfigResponse
+     *
+     * @param ModifyTTSConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyTTSConfigResponse
      */
     public function modifyTTSConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nlsServiceType)) {
-            $query['NlsServiceType'] = $request->nlsServiceType;
+
+        if (null !== $request->nlsServiceType) {
+            @$query['NlsServiceType'] = $request->nlsServiceType;
         }
-        if (!Utils::isUnset($request->pitchRate)) {
-            $query['PitchRate'] = $request->pitchRate;
+
+        if (null !== $request->pitchRate) {
+            @$query['PitchRate'] = $request->pitchRate;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->speechRate)) {
-            $query['SpeechRate'] = $request->speechRate;
+
+        if (null !== $request->speechRate) {
+            @$query['SpeechRate'] = $request->speechRate;
         }
-        if (!Utils::isUnset($request->voice)) {
-            $query['Voice'] = $request->voice;
+
+        if (null !== $request->voice) {
+            @$query['Voice'] = $request->voice;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTTSConfig',
@@ -7821,9 +9191,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
+     * @param request - ModifyTTSConfigRequest
      *
-     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
+     * @returns ModifyTTSConfigResponse
+     *
+     * @param ModifyTTSConfigRequest $request
+     *
+     * @return ModifyTTSConfigResponse
      */
     public function modifyTTSConfig($request)
     {
@@ -7833,29 +9207,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagGroupsRequest $request ModifyTagGroupsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyTagGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyTagGroupsResponse ModifyTagGroupsResponse
+     * @returns ModifyTagGroupsResponse
+     *
+     * @param ModifyTagGroupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyTagGroupsResponse
      */
     public function modifyTagGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
-        if (!Utils::isUnset($request->tagGroups)) {
-            $query['TagGroups'] = $request->tagGroups;
+
+        if (null !== $request->tagGroups) {
+            @$query['TagGroups'] = $request->tagGroups;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTagGroups',
@@ -7873,9 +9256,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagGroupsRequest $request ModifyTagGroupsRequest
+     * @param request - ModifyTagGroupsRequest
      *
-     * @return ModifyTagGroupsResponse ModifyTagGroupsResponse
+     * @returns ModifyTagGroupsResponse
+     *
+     * @param ModifyTagGroupsRequest $request
+     *
+     * @return ModifyTagGroupsResponse
      */
     public function modifyTagGroups($request)
     {
@@ -7885,26 +9272,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param PublishScriptRequest $request PublishScriptRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - PublishScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PublishScriptResponse PublishScriptResponse
+     * @returns PublishScriptResponse
+     *
+     * @param PublishScriptRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PublishScriptResponse
      */
     public function publishScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PublishScript',
@@ -7922,9 +9317,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param PublishScriptRequest $request PublishScriptRequest
+     * @param request - PublishScriptRequest
      *
-     * @return PublishScriptResponse PublishScriptResponse
+     * @returns PublishScriptResponse
+     *
+     * @param PublishScriptRequest $request
+     *
+     * @return PublishScriptResponse
      */
     public function publishScript($request)
     {
@@ -7934,23 +9333,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param PublishScriptForDebugRequest $request PublishScriptForDebugRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - PublishScriptForDebugRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PublishScriptForDebugResponse PublishScriptForDebugResponse
+     * @returns PublishScriptForDebugResponse
+     *
+     * @param PublishScriptForDebugRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PublishScriptForDebugResponse
      */
     public function publishScriptForDebugWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PublishScriptForDebug',
@@ -7968,9 +9374,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param PublishScriptForDebugRequest $request PublishScriptForDebugRequest
+     * @param request - PublishScriptForDebugRequest
      *
-     * @return PublishScriptForDebugResponse PublishScriptForDebugResponse
+     * @returns PublishScriptForDebugResponse
+     *
+     * @param PublishScriptForDebugRequest $request
+     *
+     * @return PublishScriptForDebugResponse
      */
     public function publishScriptForDebug($request)
     {
@@ -7980,49 +9390,64 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary QueryJobs
-     *  *
-     * @param QueryJobsRequest $request QueryJobsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * QueryJobs.
      *
-     * @return QueryJobsResponse QueryJobsResponse
+     * @param request - QueryJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryJobsResponse
+     *
+     * @param QueryJobsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return QueryJobsResponse
      */
     public function queryJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeAlignment)) {
-            $query['TimeAlignment'] = $request->timeAlignment;
+
+        if (null !== $request->timeAlignment) {
+            @$query['TimeAlignment'] = $request->timeAlignment;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryJobs',
@@ -8040,11 +9465,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary QueryJobs
-     *  *
-     * @param QueryJobsRequest $request QueryJobsRequest
+     * QueryJobs.
      *
-     * @return QueryJobsResponse QueryJobsResponse
+     * @param request - QueryJobsRequest
+     *
+     * @returns QueryJobsResponse
+     *
+     * @param QueryJobsRequest $request
+     *
+     * @return QueryJobsResponse
      */
     public function queryJobs($request)
     {
@@ -8054,58 +9483,80 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取外呼任务结果信息
-     *  *
-     * @param QueryJobsWithResultRequest $request QueryJobsWithResultRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取外呼任务结果信息.
      *
-     * @return QueryJobsWithResultResponse QueryJobsWithResultResponse
+     * @param request - QueryJobsWithResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryJobsWithResultResponse
+     *
+     * @param QueryJobsWithResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryJobsWithResultResponse
      */
     public function queryJobsWithResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endActualTimeFilter)) {
-            $query['EndActualTimeFilter'] = $request->endActualTimeFilter;
+        if (null !== $request->endActualTimeFilter) {
+            @$query['EndActualTimeFilter'] = $request->endActualTimeFilter;
         }
-        if (!Utils::isUnset($request->hasAnsweredFilter)) {
-            $query['HasAnsweredFilter'] = $request->hasAnsweredFilter;
+
+        if (null !== $request->hasAnsweredFilter) {
+            @$query['HasAnsweredFilter'] = $request->hasAnsweredFilter;
         }
-        if (!Utils::isUnset($request->hasHangUpByRejectionFilter)) {
-            $query['HasHangUpByRejectionFilter'] = $request->hasHangUpByRejectionFilter;
+
+        if (null !== $request->hasHangUpByRejectionFilter) {
+            @$query['HasHangUpByRejectionFilter'] = $request->hasHangUpByRejectionFilter;
         }
-        if (!Utils::isUnset($request->hasReachedEndOfFlowFilter)) {
-            $query['HasReachedEndOfFlowFilter'] = $request->hasReachedEndOfFlowFilter;
+
+        if (null !== $request->hasReachedEndOfFlowFilter) {
+            @$query['HasReachedEndOfFlowFilter'] = $request->hasReachedEndOfFlowFilter;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobFailureReasonsFilter)) {
-            $query['JobFailureReasonsFilter'] = $request->jobFailureReasonsFilter;
+
+        if (null !== $request->jobFailureReasonsFilter) {
+            @$query['JobFailureReasonsFilter'] = $request->jobFailureReasonsFilter;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobStatusFilter)) {
-            $query['JobStatusFilter'] = $request->jobStatusFilter;
+
+        if (null !== $request->jobStatusFilter) {
+            @$query['JobStatusFilter'] = $request->jobStatusFilter;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->labelsJson) {
+            @$query['LabelsJson'] = $request->labelsJson;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->queryText)) {
-            $query['QueryText'] = $request->queryText;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startActualTimeFilter)) {
-            $query['StartActualTimeFilter'] = $request->startActualTimeFilter;
+
+        if (null !== $request->queryText) {
+            @$query['QueryText'] = $request->queryText;
         }
-        if (!Utils::isUnset($request->taskStatusFilter)) {
-            $query['TaskStatusFilter'] = $request->taskStatusFilter;
+
+        if (null !== $request->startActualTimeFilter) {
+            @$query['StartActualTimeFilter'] = $request->startActualTimeFilter;
         }
+
+        if (null !== $request->taskStatusFilter) {
+            @$query['TaskStatusFilter'] = $request->taskStatusFilter;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryJobsWithResult',
@@ -8123,11 +9574,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 获取外呼任务结果信息
-     *  *
-     * @param QueryJobsWithResultRequest $request QueryJobsWithResultRequest
+     * 获取外呼任务结果信息.
      *
-     * @return QueryJobsWithResultResponse QueryJobsWithResultResponse
+     * @param request - QueryJobsWithResultRequest
+     *
+     * @returns QueryJobsWithResultResponse
+     *
+     * @param QueryJobsWithResultRequest $request
+     *
+     * @return QueryJobsWithResultResponse
      */
     public function queryJobsWithResult($request)
     {
@@ -8137,26 +9592,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param QueryScriptWaveformsRequest $request QueryScriptWaveformsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryScriptWaveformsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryScriptWaveformsResponse QueryScriptWaveformsResponse
+     * @returns QueryScriptWaveformsResponse
+     *
+     * @param QueryScriptWaveformsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryScriptWaveformsResponse
      */
     public function queryScriptWaveformsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
+
+        if (null !== $request->scriptContent) {
+            @$query['ScriptContent'] = $request->scriptContent;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryScriptWaveforms',
@@ -8174,9 +9637,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param QueryScriptWaveformsRequest $request QueryScriptWaveformsRequest
+     * @param request - QueryScriptWaveformsRequest
      *
-     * @return QueryScriptWaveformsResponse QueryScriptWaveformsResponse
+     * @returns QueryScriptWaveformsResponse
+     *
+     * @param QueryScriptWaveformsRequest $request
+     *
+     * @return QueryScriptWaveformsResponse
      */
     public function queryScriptWaveforms($request)
     {
@@ -8186,29 +9653,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param QueryScriptsByStatusRequest $request QueryScriptsByStatusRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryScriptsByStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryScriptsByStatusResponse QueryScriptsByStatusResponse
+     * @returns QueryScriptsByStatusResponse
+     *
+     * @param QueryScriptsByStatusRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryScriptsByStatusResponse
      */
     public function queryScriptsByStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryScriptsByStatus',
@@ -8226,9 +9702,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param QueryScriptsByStatusRequest $request QueryScriptsByStatusRequest
+     * @param request - QueryScriptsByStatusRequest
      *
-     * @return QueryScriptsByStatusResponse QueryScriptsByStatusResponse
+     * @returns QueryScriptsByStatusResponse
+     *
+     * @param QueryScriptsByStatusRequest $request
+     *
+     * @return QueryScriptsByStatusResponse
      */
     public function queryScriptsByStatus($request)
     {
@@ -8238,41 +9718,54 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param RecordFailureRequest $request RecordFailureRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - RecordFailureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RecordFailureResponse RecordFailureResponse
+     * @returns RecordFailureResponse
+     *
+     * @param RecordFailureRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RecordFailureResponse
      */
     public function recordFailureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actualTime)) {
-            $query['ActualTime'] = $request->actualTime;
+        if (null !== $request->actualTime) {
+            @$query['ActualTime'] = $request->actualTime;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->dispositionCode)) {
-            $query['DispositionCode'] = $request->dispositionCode;
+
+        if (null !== $request->dispositionCode) {
+            @$query['DispositionCode'] = $request->dispositionCode;
         }
-        if (!Utils::isUnset($request->exceptionCodes)) {
-            $query['ExceptionCodes'] = $request->exceptionCodes;
+
+        if (null !== $request->exceptionCodes) {
+            @$query['ExceptionCodes'] = $request->exceptionCodes;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RecordFailure',
@@ -8290,9 +9783,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param RecordFailureRequest $request RecordFailureRequest
+     * @param request - RecordFailureRequest
      *
-     * @return RecordFailureResponse RecordFailureResponse
+     * @returns RecordFailureResponse
+     *
+     * @param RecordFailureRequest $request
+     *
+     * @return RecordFailureResponse
      */
     public function recordFailure($request)
     {
@@ -8302,35 +9799,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ResumeJobsRequest $request ResumeJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - ResumeJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResumeJobsResponse ResumeJobsResponse
+     * @returns ResumeJobsResponse
+     *
+     * @param ResumeJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ResumeJobsResponse
      */
     public function resumeJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobReferenceId)) {
-            $query['JobReferenceId'] = $request->jobReferenceId;
+
+        if (null !== $request->jobReferenceId) {
+            @$query['JobReferenceId'] = $request->jobReferenceId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ResumeJobs',
@@ -8348,9 +9856,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param ResumeJobsRequest $request ResumeJobsRequest
+     * @param request - ResumeJobsRequest
      *
-     * @return ResumeJobsResponse ResumeJobsResponse
+     * @returns ResumeJobsResponse
+     *
+     * @param ResumeJobsRequest $request
+     *
+     * @return ResumeJobsResponse
      */
     public function resumeJobs($request)
     {
@@ -8360,26 +9872,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param RollbackScriptRequest $request RollbackScriptRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - RollbackScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RollbackScriptResponse RollbackScriptResponse
+     * @returns RollbackScriptResponse
+     *
+     * @param RollbackScriptRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RollbackScriptResponse
      */
     public function rollbackScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->rollbackVersion)) {
-            $query['RollbackVersion'] = $request->rollbackVersion;
+
+        if (null !== $request->rollbackVersion) {
+            @$query['RollbackVersion'] = $request->rollbackVersion;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RollbackScript',
@@ -8397,9 +9917,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param RollbackScriptRequest $request RollbackScriptRequest
+     * @param request - RollbackScriptRequest
      *
-     * @return RollbackScriptResponse RollbackScriptResponse
+     * @returns RollbackScriptResponse
+     *
+     * @param RollbackScriptRequest $request
+     *
+     * @return RollbackScriptResponse
      */
     public function rollbackScript($request)
     {
@@ -8409,26 +9933,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAfterAnswerDelayPlaybackRequest $request SaveAfterAnswerDelayPlaybackRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 保存接听后延迟播报时间.
      *
-     * @return SaveAfterAnswerDelayPlaybackResponse SaveAfterAnswerDelayPlaybackResponse
+     * @param request - SaveAfterAnswerDelayPlaybackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAfterAnswerDelayPlaybackResponse
+     *
+     * @param SaveAfterAnswerDelayPlaybackRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SaveAfterAnswerDelayPlaybackResponse
      */
     public function saveAfterAnswerDelayPlaybackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->afterAnswerDelayPlayback)) {
-            $query['AfterAnswerDelayPlayback'] = $request->afterAnswerDelayPlayback;
+        if (null !== $request->afterAnswerDelayPlayback) {
+            @$query['AfterAnswerDelayPlayback'] = $request->afterAnswerDelayPlayback;
         }
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveAfterAnswerDelayPlayback',
@@ -8446,9 +9980,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAfterAnswerDelayPlaybackRequest $request SaveAfterAnswerDelayPlaybackRequest
+     * 保存接听后延迟播报时间.
      *
-     * @return SaveAfterAnswerDelayPlaybackResponse SaveAfterAnswerDelayPlaybackResponse
+     * @param request - SaveAfterAnswerDelayPlaybackRequest
+     *
+     * @returns SaveAfterAnswerDelayPlaybackResponse
+     *
+     * @param SaveAfterAnswerDelayPlaybackRequest $request
+     *
+     * @return SaveAfterAnswerDelayPlaybackResponse
      */
     public function saveAfterAnswerDelayPlayback($request)
     {
@@ -8458,38 +9998,50 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAnnotationMissionSessionListRequest $request SaveAnnotationMissionSessionListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveAnnotationMissionSessionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveAnnotationMissionSessionListResponse SaveAnnotationMissionSessionListResponse
+     * @returns SaveAnnotationMissionSessionListResponse
+     *
+     * @param SaveAnnotationMissionSessionListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SaveAnnotationMissionSessionListResponse
      */
     public function saveAnnotationMissionSessionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->annotationMissionDataSourceType)) {
-            $query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
+
+        if (null !== $request->annotationMissionDataSourceType) {
+            @$query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
         }
-        if (!Utils::isUnset($request->annotationMissionSessionList)) {
-            $query['AnnotationMissionSessionList'] = $request->annotationMissionSessionList;
+
+        if (null !== $request->annotationMissionSessionList) {
+            @$query['AnnotationMissionSessionList'] = $request->annotationMissionSessionList;
         }
-        if (!Utils::isUnset($request->annotationMissionSessionListJsonString)) {
-            $query['AnnotationMissionSessionListJsonString'] = $request->annotationMissionSessionListJsonString;
+
+        if (null !== $request->annotationMissionSessionListJsonString) {
+            @$query['AnnotationMissionSessionListJsonString'] = $request->annotationMissionSessionListJsonString;
         }
-        if (!Utils::isUnset($request->environment)) {
-            $query['Environment'] = $request->environment;
+
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $query['UserNick'] = $request->userNick;
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveAnnotationMissionSessionList',
@@ -8507,9 +10059,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAnnotationMissionSessionListRequest $request SaveAnnotationMissionSessionListRequest
+     * @param request - SaveAnnotationMissionSessionListRequest
      *
-     * @return SaveAnnotationMissionSessionListResponse SaveAnnotationMissionSessionListResponse
+     * @returns SaveAnnotationMissionSessionListResponse
+     *
+     * @param SaveAnnotationMissionSessionListRequest $request
+     *
+     * @return SaveAnnotationMissionSessionListResponse
      */
     public function saveAnnotationMissionSessionList($request)
     {
@@ -8519,29 +10075,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAnnotationMissionTagInfoListRequest $request SaveAnnotationMissionTagInfoListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveAnnotationMissionTagInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveAnnotationMissionTagInfoListResponse SaveAnnotationMissionTagInfoListResponse
+     * @returns SaveAnnotationMissionTagInfoListResponse
+     *
+     * @param SaveAnnotationMissionTagInfoListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SaveAnnotationMissionTagInfoListResponse
      */
     public function saveAnnotationMissionTagInfoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->annotationMissionTagInfoList)) {
-            $query['AnnotationMissionTagInfoList'] = $request->annotationMissionTagInfoList;
+        if (null !== $request->annotationMissionTagInfoList) {
+            @$query['AnnotationMissionTagInfoList'] = $request->annotationMissionTagInfoList;
         }
-        if (!Utils::isUnset($request->annotationMissionTagInfoListJsonString)) {
-            $query['AnnotationMissionTagInfoListJsonString'] = $request->annotationMissionTagInfoListJsonString;
+
+        if (null !== $request->annotationMissionTagInfoListJsonString) {
+            @$query['AnnotationMissionTagInfoListJsonString'] = $request->annotationMissionTagInfoListJsonString;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->reset)) {
-            $query['Reset'] = $request->reset;
+
+        if (null !== $request->reset) {
+            @$query['Reset'] = $request->reset;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveAnnotationMissionTagInfoList',
@@ -8559,9 +10124,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveAnnotationMissionTagInfoListRequest $request SaveAnnotationMissionTagInfoListRequest
+     * @param request - SaveAnnotationMissionTagInfoListRequest
      *
-     * @return SaveAnnotationMissionTagInfoListResponse SaveAnnotationMissionTagInfoListResponse
+     * @returns SaveAnnotationMissionTagInfoListResponse
+     *
+     * @param SaveAnnotationMissionTagInfoListRequest $request
+     *
+     * @return SaveAnnotationMissionTagInfoListResponse
      */
     public function saveAnnotationMissionTagInfoList($request)
     {
@@ -8571,35 +10140,48 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveBaseStrategyPeriodRequest $request SaveBaseStrategyPeriodRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 编辑基础策略有效时间窗口.
      *
-     * @return SaveBaseStrategyPeriodResponse SaveBaseStrategyPeriodResponse
+     * @param request - SaveBaseStrategyPeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBaseStrategyPeriodResponse
+     *
+     * @param SaveBaseStrategyPeriodRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SaveBaseStrategyPeriodResponse
      */
     public function saveBaseStrategyPeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->onlyWeekdays)) {
-            $query['OnlyWeekdays'] = $request->onlyWeekdays;
+
+        if (null !== $request->onlyWeekdays) {
+            @$query['OnlyWeekdays'] = $request->onlyWeekdays;
         }
-        if (!Utils::isUnset($request->onlyWorkdays)) {
-            $query['OnlyWorkdays'] = $request->onlyWorkdays;
+
+        if (null !== $request->onlyWorkdays) {
+            @$query['OnlyWorkdays'] = $request->onlyWorkdays;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
-        if (!Utils::isUnset($request->workingTime)) {
-            $query['WorkingTime'] = $request->workingTime;
+
+        if (null !== $request->workingTime) {
+            @$query['WorkingTime'] = $request->workingTime;
         }
-        if (!Utils::isUnset($request->workingTimeFramesJson)) {
-            $query['WorkingTimeFramesJson'] = $request->workingTimeFramesJson;
+
+        if (null !== $request->workingTimeFramesJson) {
+            @$query['WorkingTimeFramesJson'] = $request->workingTimeFramesJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveBaseStrategyPeriod',
@@ -8617,9 +10199,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveBaseStrategyPeriodRequest $request SaveBaseStrategyPeriodRequest
+     * 编辑基础策略有效时间窗口.
      *
-     * @return SaveBaseStrategyPeriodResponse SaveBaseStrategyPeriodResponse
+     * @param request - SaveBaseStrategyPeriodRequest
+     *
+     * @returns SaveBaseStrategyPeriodResponse
+     *
+     * @param SaveBaseStrategyPeriodRequest $request
+     *
+     * @return SaveBaseStrategyPeriodResponse
      */
     public function saveBaseStrategyPeriod($request)
     {
@@ -8629,26 +10217,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveContactBlockListRequest $request SaveContactBlockListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 保存外呼黑名单列表.
      *
-     * @return SaveContactBlockListResponse SaveContactBlockListResponse
+     * @param request - SaveContactBlockListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveContactBlockListResponse
+     *
+     * @param SaveContactBlockListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SaveContactBlockListResponse
      */
     public function saveContactBlockListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactBlockListList)) {
-            $query['ContactBlockListList'] = $request->contactBlockListList;
+        if (null !== $request->contactBlockListList) {
+            @$query['ContactBlockListList'] = $request->contactBlockListList;
         }
-        if (!Utils::isUnset($request->contactBlockListsJson)) {
-            $query['ContactBlockListsJson'] = $request->contactBlockListsJson;
+
+        if (null !== $request->contactBlockListsJson) {
+            @$query['ContactBlockListsJson'] = $request->contactBlockListsJson;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveContactBlockList',
@@ -8666,9 +10264,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveContactBlockListRequest $request SaveContactBlockListRequest
+     * 保存外呼黑名单列表.
      *
-     * @return SaveContactBlockListResponse SaveContactBlockListResponse
+     * @param request - SaveContactBlockListRequest
+     *
+     * @returns SaveContactBlockListResponse
+     *
+     * @param SaveContactBlockListRequest $request
+     *
+     * @return SaveContactBlockListResponse
      */
     public function saveContactBlockList($request)
     {
@@ -8678,26 +10282,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveContactWhiteListRequest $request SaveContactWhiteListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 保存外呼白名单.
      *
-     * @return SaveContactWhiteListResponse SaveContactWhiteListResponse
+     * @param request - SaveContactWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveContactWhiteListResponse
+     *
+     * @param SaveContactWhiteListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SaveContactWhiteListResponse
      */
     public function saveContactWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactWhiteListList)) {
-            $query['ContactWhiteListList'] = $request->contactWhiteListList;
+        if (null !== $request->contactWhiteListList) {
+            @$query['ContactWhiteListList'] = $request->contactWhiteListList;
         }
-        if (!Utils::isUnset($request->contactWhiteListsJson)) {
-            $query['ContactWhiteListsJson'] = $request->contactWhiteListsJson;
+
+        if (null !== $request->contactWhiteListsJson) {
+            @$query['ContactWhiteListsJson'] = $request->contactWhiteListsJson;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveContactWhiteList',
@@ -8715,9 +10329,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveContactWhiteListRequest $request SaveContactWhiteListRequest
+     * 保存外呼白名单.
      *
-     * @return SaveContactWhiteListResponse SaveContactWhiteListResponse
+     * @param request - SaveContactWhiteListRequest
+     *
+     * @returns SaveContactWhiteListResponse
+     *
+     * @param SaveContactWhiteListRequest $request
+     *
+     * @return SaveContactWhiteListResponse
      */
     public function saveContactWhiteList($request)
     {
@@ -8727,26 +10347,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveEffectiveDaysRequest $request SaveEffectiveDaysRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveEffectiveDaysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveEffectiveDaysResponse SaveEffectiveDaysResponse
+     * @returns SaveEffectiveDaysResponse
+     *
+     * @param SaveEffectiveDaysRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SaveEffectiveDaysResponse
      */
     public function saveEffectiveDaysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveDays)) {
-            $query['EffectiveDays'] = $request->effectiveDays;
+        if (null !== $request->effectiveDays) {
+            @$query['EffectiveDays'] = $request->effectiveDays;
         }
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveEffectiveDays',
@@ -8764,9 +10392,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveEffectiveDaysRequest $request SaveEffectiveDaysRequest
+     * @param request - SaveEffectiveDaysRequest
      *
-     * @return SaveEffectiveDaysResponse SaveEffectiveDaysResponse
+     * @returns SaveEffectiveDaysResponse
+     *
+     * @param SaveEffectiveDaysRequest $request
+     *
+     * @return SaveEffectiveDaysResponse
      */
     public function saveEffectiveDays($request)
     {
@@ -8776,26 +10408,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveMaxAttemptsPerDayRequest $request SaveMaxAttemptsPerDayRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 保存每日最大外呼量.
      *
-     * @return SaveMaxAttemptsPerDayResponse SaveMaxAttemptsPerDayResponse
+     * @param request - SaveMaxAttemptsPerDayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveMaxAttemptsPerDayResponse
+     *
+     * @param SaveMaxAttemptsPerDayRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SaveMaxAttemptsPerDayResponse
      */
     public function saveMaxAttemptsPerDayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
-        if (!Utils::isUnset($request->maxAttemptsPerDay)) {
-            $query['MaxAttemptsPerDay'] = $request->maxAttemptsPerDay;
+
+        if (null !== $request->maxAttemptsPerDay) {
+            @$query['MaxAttemptsPerDay'] = $request->maxAttemptsPerDay;
         }
-        if (!Utils::isUnset($request->strategyLevel)) {
-            $query['StrategyLevel'] = $request->strategyLevel;
+
+        if (null !== $request->strategyLevel) {
+            @$query['StrategyLevel'] = $request->strategyLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveMaxAttemptsPerDay',
@@ -8813,9 +10455,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SaveMaxAttemptsPerDayRequest $request SaveMaxAttemptsPerDayRequest
+     * 保存每日最大外呼量.
      *
-     * @return SaveMaxAttemptsPerDayResponse SaveMaxAttemptsPerDayResponse
+     * @param request - SaveMaxAttemptsPerDayRequest
+     *
+     * @returns SaveMaxAttemptsPerDayResponse
+     *
+     * @param SaveMaxAttemptsPerDayRequest $request
+     *
+     * @return SaveMaxAttemptsPerDayResponse
      */
     public function saveMaxAttemptsPerDay($request)
     {
@@ -8825,19 +10473,24 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 外呼历史查询
-     *  *
-     * @param SearchTaskRequest $request SearchTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 外呼历史查询.
      *
-     * @return SearchTaskResponse SearchTaskResponse
+     * @param request - SearchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchTaskResponse
+     *
+     * @param SearchTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchTaskResponse
      */
     public function searchTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchTask',
@@ -8855,11 +10508,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary 外呼历史查询
-     *  *
-     * @param SearchTaskRequest $request SearchTaskRequest
+     * 外呼历史查询.
      *
-     * @return SearchTaskResponse SearchTaskResponse
+     * @param request - SearchTaskRequest
+     *
+     * @returns SearchTaskResponse
+     *
+     * @param SearchTaskRequest $request
+     *
+     * @return SearchTaskResponse
      */
     public function searchTask($request)
     {
@@ -8869,35 +10526,48 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param StartJobRequest $request StartJobRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 开启一个任务
      *
-     * @return StartJobResponse StartJobResponse
+     * @param request - StartJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartJobResponse
+     *
+     * @param StartJobRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StartJobResponse
      */
     public function startJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobJson)) {
-            $query['JobJson'] = $request->jobJson;
+
+        if (null !== $request->jobJson) {
+            @$query['JobJson'] = $request->jobJson;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartJob',
@@ -8915,9 +10585,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param StartJobRequest $request StartJobRequest
+     * 开启一个任务
      *
-     * @return StartJobResponse StartJobResponse
+     * @param request - StartJobRequest
+     *
+     * @returns StartJobResponse
+     *
+     * @param StartJobRequest $request
+     *
+     * @return StartJobResponse
      */
     public function startJob($request)
     {
@@ -8927,23 +10603,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitBatchJobsRequest $request SubmitBatchJobsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitBatchJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitBatchJobsResponse SubmitBatchJobsResponse
+     * @returns SubmitBatchJobsResponse
+     *
+     * @param SubmitBatchJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitBatchJobsResponse
      */
     public function submitBatchJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitBatchJobs',
@@ -8961,9 +10644,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitBatchJobsRequest $request SubmitBatchJobsRequest
+     * @param request - SubmitBatchJobsRequest
      *
-     * @return SubmitBatchJobsResponse SubmitBatchJobsResponse
+     * @returns SubmitBatchJobsResponse
+     *
+     * @param SubmitBatchJobsRequest $request
+     *
+     * @return SubmitBatchJobsResponse
      */
     public function submitBatchJobs($request)
     {
@@ -8973,29 +10660,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitRecordingRequest $request SubmitRecordingRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitRecordingResponse SubmitRecordingResponse
+     * @returns SubmitRecordingResponse
+     *
+     * @param SubmitRecordingRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitRecordingResponse
      */
     public function submitRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mergedRecording)) {
-            $query['MergedRecording'] = $request->mergedRecording;
+
+        if (null !== $request->mergedRecording) {
+            @$query['MergedRecording'] = $request->mergedRecording;
         }
-        if (!Utils::isUnset($request->resourceRecording)) {
-            $query['ResourceRecording'] = $request->resourceRecording;
+
+        if (null !== $request->resourceRecording) {
+            @$query['ResourceRecording'] = $request->resourceRecording;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitRecording',
@@ -9013,9 +10709,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitRecordingRequest $request SubmitRecordingRequest
+     * @param request - SubmitRecordingRequest
      *
-     * @return SubmitRecordingResponse SubmitRecordingResponse
+     * @returns SubmitRecordingResponse
+     *
+     * @param SubmitRecordingRequest $request
+     *
+     * @return SubmitRecordingResponse
      */
     public function submitRecording($request)
     {
@@ -9025,29 +10725,38 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitScriptReviewRequest $request SubmitScriptReviewRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitScriptReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitScriptReviewResponse SubmitScriptReviewResponse
+     * @returns SubmitScriptReviewResponse
+     *
+     * @param SubmitScriptReviewRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitScriptReviewResponse
      */
     public function submitScriptReviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitScriptReview',
@@ -9065,9 +10774,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SubmitScriptReviewRequest $request SubmitScriptReviewRequest
+     * @param request - SubmitScriptReviewRequest
      *
-     * @return SubmitScriptReviewResponse SubmitScriptReviewResponse
+     * @returns SubmitScriptReviewResponse
+     *
+     * @param SubmitScriptReviewRequest $request
+     *
+     * @return SubmitScriptReviewResponse
      */
     public function submitScriptReview($request)
     {
@@ -9077,26 +10790,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendCallRequest $request SuspendCallRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 止呼
      *
-     * @return SuspendCallResponse SuspendCallResponse
+     * @param request - SuspendCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendCallResponse
+     *
+     * @param SuspendCallRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SuspendCallResponse
      */
     public function suspendCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumbers)) {
-            $query['CalledNumbers'] = $request->calledNumbers;
+        if (null !== $request->calledNumbers) {
+            @$query['CalledNumbers'] = $request->calledNumbers;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendCall',
@@ -9114,9 +10837,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendCallRequest $request SuspendCallRequest
+     * 止呼
      *
-     * @return SuspendCallResponse SuspendCallResponse
+     * @param request - SuspendCallRequest
+     *
+     * @returns SuspendCallResponse
+     *
+     * @param SuspendCallRequest $request
+     *
+     * @return SuspendCallResponse
      */
     public function suspendCall($request)
     {
@@ -9126,26 +10855,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendCallWithFileRequest $request SuspendCallWithFileRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * SuspendCallWithFile.
      *
-     * @return SuspendCallWithFileResponse SuspendCallWithFileResponse
+     * @param request - SuspendCallWithFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendCallWithFileResponse
+     *
+     * @param SuspendCallWithFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SuspendCallWithFileResponse
      */
     public function suspendCallWithFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendCallWithFile',
@@ -9163,9 +10902,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendCallWithFileRequest $request SuspendCallWithFileRequest
+     * SuspendCallWithFile.
      *
-     * @return SuspendCallWithFileResponse SuspendCallWithFileResponse
+     * @param request - SuspendCallWithFileRequest
+     *
+     * @returns SuspendCallWithFileResponse
+     *
+     * @param SuspendCallWithFileRequest $request
+     *
+     * @return SuspendCallWithFileResponse
      */
     public function suspendCallWithFile($request)
     {
@@ -9175,35 +10920,46 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendJobsRequest $request SuspendJobsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - SuspendJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SuspendJobsResponse SuspendJobsResponse
+     * @returns SuspendJobsResponse
+     *
+     * @param SuspendJobsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SuspendJobsResponse
      */
     public function suspendJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobGroupId)) {
-            $query['JobGroupId'] = $request->jobGroupId;
+
+        if (null !== $request->jobGroupId) {
+            @$query['JobGroupId'] = $request->jobGroupId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobReferenceId)) {
-            $query['JobReferenceId'] = $request->jobReferenceId;
+
+        if (null !== $request->jobReferenceId) {
+            @$query['JobReferenceId'] = $request->jobReferenceId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendJobs',
@@ -9221,9 +10977,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param SuspendJobsRequest $request SuspendJobsRequest
+     * @param request - SuspendJobsRequest
      *
-     * @return SuspendJobsResponse SuspendJobsResponse
+     * @returns SuspendJobsResponse
+     *
+     * @param SuspendJobsRequest $request
+     *
+     * @return SuspendJobsResponse
      */
     public function suspendJobs($request)
     {
@@ -9233,31 +10993,40 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @description **
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @remarks
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -9275,11 +11044,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @description **
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * @remarks
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -9289,28 +11062,36 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary TaskPreparing
-     *  *
-     * @param TaskPreparingRequest $request TaskPreparingRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * TaskPreparing.
      *
-     * @return TaskPreparingResponse TaskPreparingResponse
+     * @param request - TaskPreparingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TaskPreparingResponse
+     *
+     * @param TaskPreparingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TaskPreparingResponse
      */
     public function taskPreparingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TaskPreparing',
@@ -9328,11 +11109,15 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary TaskPreparing
-     *  *
-     * @param TaskPreparingRequest $request TaskPreparingRequest
+     * TaskPreparing.
      *
-     * @return TaskPreparingResponse TaskPreparingResponse
+     * @param request - TaskPreparingRequest
+     *
+     * @returns TaskPreparingResponse
+     *
+     * @param TaskPreparingRequest $request
+     *
+     * @return TaskPreparingResponse
      */
     public function taskPreparing($request)
     {
@@ -9342,23 +11127,30 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param TerminateCallRequest $request TerminateCallRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - TerminateCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TerminateCallResponse TerminateCallResponse
+     * @returns TerminateCallResponse
+     *
+     * @param TerminateCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TerminateCallResponse
      */
     public function terminateCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TerminateCall',
@@ -9376,9 +11168,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param TerminateCallRequest $request TerminateCallRequest
+     * @param request - TerminateCallRequest
      *
-     * @return TerminateCallResponse TerminateCallResponse
+     * @returns TerminateCallResponse
+     *
+     * @param TerminateCallRequest $request
+     *
+     * @return TerminateCallResponse
      */
     public function terminateCall($request)
     {
@@ -9388,32 +11184,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -9431,9 +11237,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param request - UntagResourcesRequest
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9443,32 +11253,42 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param UploadScriptRecordingRequest $request UploadScriptRecordingRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadScriptRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadScriptRecordingResponse UploadScriptRecordingResponse
+     * @returns UploadScriptRecordingResponse
+     *
+     * @param UploadScriptRecordingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UploadScriptRecordingResponse
      */
     public function uploadScriptRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadScriptRecording',
@@ -9486,9 +11306,13 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param UploadScriptRecordingRequest $request UploadScriptRecordingRequest
+     * @param request - UploadScriptRecordingRequest
      *
-     * @return UploadScriptRecordingResponse UploadScriptRecordingResponse
+     * @returns UploadScriptRecordingResponse
+     *
+     * @param UploadScriptRecordingRequest $request
+     *
+     * @return UploadScriptRecordingResponse
      */
     public function uploadScriptRecording($request)
     {
@@ -9498,27 +11322,34 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary WithdrawScriptReview
-     *  *
-     * @description ****
-     *  *
-     * @param WithdrawScriptReviewRequest $request WithdrawScriptReviewRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * WithdrawScriptReview.
      *
-     * @return WithdrawScriptReviewResponse WithdrawScriptReviewResponse
+     * @remarks
+     *
+     * @param request - WithdrawScriptReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WithdrawScriptReviewResponse
+     *
+     * @param WithdrawScriptReviewRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return WithdrawScriptReviewResponse
      */
     public function withdrawScriptReviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->scriptId)) {
-            $query['ScriptId'] = $request->scriptId;
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'WithdrawScriptReview',
@@ -9536,13 +11367,17 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @summary WithdrawScriptReview
-     *  *
-     * @description ****
-     *  *
-     * @param WithdrawScriptReviewRequest $request WithdrawScriptReviewRequest
+     * WithdrawScriptReview.
      *
-     * @return WithdrawScriptReviewResponse WithdrawScriptReviewResponse
+     * @remarks
+     *
+     * @param request - WithdrawScriptReviewRequest
+     *
+     * @returns WithdrawScriptReviewResponse
+     *
+     * @param WithdrawScriptReviewRequest $request
+     *
+     * @return WithdrawScriptReviewResponse
      */
     public function withdrawScriptReview($request)
     {

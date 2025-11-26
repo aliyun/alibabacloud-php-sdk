@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\SaveAnnotationMissionSessionListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SaveAnnotationMissionSessionListResponseBody\data\saveAnnotationMissionSessionListRequest;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -25,8 +25,6 @@ class data extends Model
     public $saveAnnotationMissionSessionListRequest;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -37,20 +35,39 @@ class data extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messageList)) {
+            Model::validateArray($this->messageList);
+        }
+        if (null !== $this->saveAnnotationMissionSessionListRequest) {
+            $this->saveAnnotationMissionSessionListRequest->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->messageList) {
-            $res['MessageList'] = $this->messageList;
+            if (\is_array($this->messageList)) {
+                $res['MessageList'] = [];
+                $n1 = 0;
+                foreach ($this->messageList as $item1) {
+                    $res['MessageList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->saveAnnotationMissionSessionListRequest) {
-            $res['SaveAnnotationMissionSessionListRequest'] = null !== $this->saveAnnotationMissionSessionListRequest ? $this->saveAnnotationMissionSessionListRequest->toMap() : null;
+            $res['SaveAnnotationMissionSessionListRequest'] = null !== $this->saveAnnotationMissionSessionListRequest ? $this->saveAnnotationMissionSessionListRequest->toArray($noStream) : $this->saveAnnotationMissionSessionListRequest;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -58,25 +75,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['MessageList'])) {
             if (!empty($map['MessageList'])) {
-                $model->messageList = $map['MessageList'];
+                $model->messageList = [];
+                $n1 = 0;
+                foreach ($map['MessageList'] as $item1) {
+                    $model->messageList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SaveAnnotationMissionSessionListRequest'])) {
             $model->saveAnnotationMissionSessionListRequest = saveAnnotationMissionSessionListRequest::fromMap($map['SaveAnnotationMissionSessionListRequest']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBatchRepeatJobRequest extends Model
 {
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $callingNumber;
@@ -21,8 +19,6 @@ class CreateBatchRepeatJobRequest extends Model
     public $description;
 
     /**
-     * @example Succeeded,NoInteraction,Failed,Cancelled
-     *
      * @var string
      */
     public $filterStatus;
@@ -33,33 +29,21 @@ class CreateBatchRepeatJobRequest extends Model
     public $flashSmsExtras;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2bfa5ae4-7185-4227-a3b8-328f26f11be1
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $minConcurrency;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 24
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $priority;
@@ -70,38 +54,26 @@ class CreateBatchRepeatJobRequest extends Model
     public $recallCallingNumber;
 
     /**
-     * @example {\\"emptyNumberIgnore\\":false,\\"inArrearsIgnore\\":false,\\"outOfServiceIgnore\\":false}
-     *
      * @var string
      */
     public $recallStrategyJson;
 
     /**
-     * @example 25
-     *
      * @var int
      */
     public $ringingDuration;
 
     /**
-     * @example 0fe7f71c-8771-42ef-9bb1-19aa16ae7120
-     *
      * @var string
      */
     public $scriptId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c4f8a3d3-2e94-4bd4-aef8-e35f663d4847
-     *
      * @var string
      */
     public $sourceGroupId;
 
     /**
-     * @example {\\"maxAttemptsPerDay\\":1,\\"minAttemptInterval\\":1,\\"routingStrategy\\":\\"LocalFirst\\"}
-     *
      * @var string
      */
     public $strategyJson;
@@ -122,50 +94,86 @@ class CreateBatchRepeatJobRequest extends Model
         'strategyJson' => 'StrategyJson',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callingNumber)) {
+            Model::validateArray($this->callingNumber);
+        }
+        if (\is_array($this->recallCallingNumber)) {
+            Model::validateArray($this->recallCallingNumber);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+            if (\is_array($this->callingNumber)) {
+                $res['CallingNumber'] = [];
+                $n1 = 0;
+                foreach ($this->callingNumber as $item1) {
+                    $res['CallingNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->filterStatus) {
             $res['FilterStatus'] = $this->filterStatus;
         }
+
         if (null !== $this->flashSmsExtras) {
             $res['FlashSmsExtras'] = $this->flashSmsExtras;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->minConcurrency) {
             $res['MinConcurrency'] = $this->minConcurrency;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->recallCallingNumber) {
-            $res['RecallCallingNumber'] = $this->recallCallingNumber;
+            if (\is_array($this->recallCallingNumber)) {
+                $res['RecallCallingNumber'] = [];
+                $n1 = 0;
+                foreach ($this->recallCallingNumber as $item1) {
+                    $res['RecallCallingNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->recallStrategyJson) {
             $res['RecallStrategyJson'] = $this->recallStrategyJson;
         }
+
         if (null !== $this->ringingDuration) {
             $res['RingingDuration'] = $this->ringingDuration;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->sourceGroupId) {
             $res['SourceGroupId'] = $this->sourceGroupId;
         }
+
         if (null !== $this->strategyJson) {
             $res['StrategyJson'] = $this->strategyJson;
         }
@@ -173,57 +181,80 @@ class CreateBatchRepeatJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBatchRepeatJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallingNumber'])) {
             if (!empty($map['CallingNumber'])) {
-                $model->callingNumber = $map['CallingNumber'];
+                $model->callingNumber = [];
+                $n1 = 0;
+                foreach ($map['CallingNumber'] as $item1) {
+                    $model->callingNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FilterStatus'])) {
             $model->filterStatus = $map['FilterStatus'];
         }
+
         if (isset($map['FlashSmsExtras'])) {
             $model->flashSmsExtras = $map['FlashSmsExtras'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MinConcurrency'])) {
             $model->minConcurrency = $map['MinConcurrency'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RecallCallingNumber'])) {
             if (!empty($map['RecallCallingNumber'])) {
-                $model->recallCallingNumber = $map['RecallCallingNumber'];
+                $model->recallCallingNumber = [];
+                $n1 = 0;
+                foreach ($map['RecallCallingNumber'] as $item1) {
+                    $model->recallCallingNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RecallStrategyJson'])) {
             $model->recallStrategyJson = $map['RecallStrategyJson'];
         }
+
         if (isset($map['RingingDuration'])) {
             $model->ringingDuration = $map['RingingDuration'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['SourceGroupId'])) {
             $model->sourceGroupId = $map['SourceGroupId'];
         }
+
         if (isset($map['StrategyJson'])) {
             $model->strategyJson = $map['StrategyJson'];
         }

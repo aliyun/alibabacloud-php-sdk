@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateJobGroupExportTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example a4274627-265f-4e14-b2d6-4ee7d4f8593e
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example baf6dfdc-eb79-4c63-ab19-c56388b1fbdd
-     *
      * @var string
      */
     public $jobGroupId;
 
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $option;
@@ -36,41 +28,63 @@ class CreateJobGroupExportTaskRequest extends Model
         'option' => 'Option',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->option)) {
+            Model::validateArray($this->option);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
+
         if (null !== $this->option) {
-            $res['Option'] = $this->option;
+            if (\is_array($this->option)) {
+                $res['Option'] = [];
+                $n1 = 0;
+                foreach ($this->option as $item1) {
+                    $res['Option'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateJobGroupExportTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
+
         if (isset($map['Option'])) {
             if (!empty($map['Option'])) {
-                $model->option = $map['Option'];
+                $model->option = [];
+                $n1 = 0;
+                foreach ($map['Option'] as $item1) {
+                    $model->option[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

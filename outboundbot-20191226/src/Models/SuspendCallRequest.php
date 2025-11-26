@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SuspendCallRequest extends Model
 {
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $calledNumbers;
 
     /**
-     * @example f745881b-343d-43e4-9c51-31b7b063031c
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example a5fc6490-ef1e-4666-870a-07a4e586c414
-     *
      * @var string
      */
     public $instanceId;
@@ -36,17 +28,32 @@ class SuspendCallRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->calledNumbers)) {
+            Model::validateArray($this->calledNumbers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calledNumbers) {
-            $res['CalledNumbers'] = $this->calledNumbers;
+            if (\is_array($this->calledNumbers)) {
+                $res['CalledNumbers'] = [];
+                $n1 = 0;
+                foreach ($this->calledNumbers as $item1) {
+                    $res['CalledNumbers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -54,22 +61,29 @@ class SuspendCallRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SuspendCallRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalledNumbers'])) {
             if (!empty($map['CalledNumbers'])) {
-                $model->calledNumbers = $map['CalledNumbers'];
+                $model->calledNumbers = [];
+                $n1 = 0;
+                foreach ($map['CalledNumbers'] as $item1) {
+                    $model->calledNumbers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

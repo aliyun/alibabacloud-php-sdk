@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDownloadTasksResponseBody\downloadTasks\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class downloadTaskFiles extends Model
 {
     /**
-     * @example UPLOADED/RECORDING/d5c651b3-3c0f-44b8-aafd-40526f2fb43d/dd33377f-abad-471b-84dd-04aed572ce60_2.wav
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example Empty
-     *
      * @var string
      */
     public $status;
@@ -40,20 +34,26 @@ class downloadTaskFiles extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -61,23 +61,26 @@ class downloadTaskFiles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return downloadTaskFiles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

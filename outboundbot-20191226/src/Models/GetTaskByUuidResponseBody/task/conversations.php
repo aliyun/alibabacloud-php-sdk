@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetTaskByUuidResponseBody\task;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conversations extends Model
 {
@@ -40,23 +40,30 @@ class conversations extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
+
         if (null !== $this->sequenceId) {
             $res['SequenceId'] = $this->sequenceId;
         }
+
         if (null !== $this->speaker) {
             $res['Speaker'] = $this->speaker;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -64,26 +71,30 @@ class conversations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conversations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }
+
         if (isset($map['SequenceId'])) {
             $model->sequenceId = $map['SequenceId'];
         }
+
         if (isset($map['Speaker'])) {
             $model->speaker = $map['Speaker'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

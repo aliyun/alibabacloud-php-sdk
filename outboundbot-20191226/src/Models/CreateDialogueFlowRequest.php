@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDialogueFlowRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example MainFlow
-     *
      * @var string
      */
     public $dialogueFlowType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $dialogueName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 174952ab-9825-4cc9-a5e2-de82d7fa4cdd
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example d0bf93dd-1a54-4f00-819e-c75502d38681
-     *
      * @var string
      */
     public $scriptId;
@@ -48,20 +34,26 @@ class CreateDialogueFlowRequest extends Model
         'scriptId' => 'ScriptId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dialogueFlowType) {
             $res['DialogueFlowType'] = $this->dialogueFlowType;
         }
+
         if (null !== $this->dialogueName) {
             $res['DialogueName'] = $this->dialogueName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
@@ -69,23 +61,26 @@ class CreateDialogueFlowRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDialogueFlowRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DialogueFlowType'])) {
             $model->dialogueFlowType = $map['DialogueFlowType'];
         }
+
         if (isset($map['DialogueName'])) {
             $model->dialogueName = $map['DialogueName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }

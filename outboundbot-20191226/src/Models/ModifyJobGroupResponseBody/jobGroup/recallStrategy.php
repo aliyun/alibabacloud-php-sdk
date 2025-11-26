@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyJobGroupResponseBody\jobGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recallStrategy extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $emptyNumberIgnore;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $inArrearsIgnore;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $outOfServiceIgnore;
@@ -34,17 +28,22 @@ class recallStrategy extends Model
         'outOfServiceIgnore' => 'OutOfServiceIgnore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->emptyNumberIgnore) {
             $res['EmptyNumberIgnore'] = $this->emptyNumberIgnore;
         }
+
         if (null !== $this->inArrearsIgnore) {
             $res['InArrearsIgnore'] = $this->inArrearsIgnore;
         }
+
         if (null !== $this->outOfServiceIgnore) {
             $res['OutOfServiceIgnore'] = $this->outOfServiceIgnore;
         }
@@ -52,20 +51,22 @@ class recallStrategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recallStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EmptyNumberIgnore'])) {
             $model->emptyNumberIgnore = $map['EmptyNumberIgnore'];
         }
+
         if (isset($map['InArrearsIgnore'])) {
             $model->inArrearsIgnore = $map['InArrearsIgnore'];
         }
+
         if (isset($map['OutOfServiceIgnore'])) {
             $model->outOfServiceIgnore = $map['OutOfServiceIgnore'];
         }

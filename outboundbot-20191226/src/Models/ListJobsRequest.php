@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example af81a389-91f0-4157-8d82-720edd02b66a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 24fb9a8d-f20e-4ee2-a11c-094dda68c5cc
-     *
      * @var string[]
      */
     public $jobId;
@@ -30,35 +22,55 @@ class ListJobsRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->jobId)) {
+            Model::validateArray($this->jobId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+            if (\is_array($this->jobId)) {
+                $res['JobId'] = [];
+                $n1 = 0;
+                foreach ($this->jobId as $item1) {
+                    $res['JobId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobId'])) {
             if (!empty($map['JobId'])) {
-                $model->jobId = $map['JobId'];
+                $model->jobId = [];
+                $n1 = 0;
+                foreach ($map['JobId'] as $item1) {
+                    $model->jobId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

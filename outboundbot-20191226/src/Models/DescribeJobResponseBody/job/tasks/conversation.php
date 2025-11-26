@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobResponseBody\job\tasks;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobResponseBody\job\tasks\conversation\summary;
-use AlibabaCloud\Tea\Model;
 
 class conversation extends Model
 {
     /**
-     * @example Broadcast
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $actionParams;
@@ -29,29 +25,21 @@ class conversation extends Model
     public $script;
 
     /**
-     * @example fd279983-93b9-b13b-9a34-64e5df473225
-     *
      * @var string
      */
     public $sequenceId;
 
     /**
-     * @example Robot
-     *
      * @var string
      */
     public $speaker;
 
     /**
-     * @example []
-     *
      * @var summary[]
      */
     public $summary;
 
     /**
-     * @example 1579068424883
-     *
      * @var int
      */
     public $timestamp;
@@ -65,35 +53,48 @@ class conversation extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->summary)) {
+            Model::validateArray($this->summary);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->actionParams) {
             $res['ActionParams'] = $this->actionParams;
         }
+
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
+
         if (null !== $this->sequenceId) {
             $res['SequenceId'] = $this->sequenceId;
         }
+
         if (null !== $this->speaker) {
             $res['Speaker'] = $this->speaker;
         }
+
         if (null !== $this->summary) {
-            $res['Summary'] = [];
-            if (null !== $this->summary && \is_array($this->summary)) {
-                $n = 0;
-                foreach ($this->summary as $item) {
-                    $res['Summary'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->summary)) {
+                $res['Summary'] = [];
+                $n1 = 0;
+                foreach ($this->summary as $item1) {
+                    $res['Summary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -101,38 +102,45 @@ class conversation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conversation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ActionParams'])) {
             $model->actionParams = $map['ActionParams'];
         }
+
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }
+
         if (isset($map['SequenceId'])) {
             $model->sequenceId = $map['SequenceId'];
         }
+
         if (isset($map['Speaker'])) {
             $model->speaker = $map['Speaker'];
         }
+
         if (isset($map['Summary'])) {
             if (!empty($map['Summary'])) {
                 $model->summary = [];
-                $n = 0;
-                foreach ($map['Summary'] as $item) {
-                    $model->summary[$n++] = null !== $item ? summary::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Summary'] as $item1) {
+                    $model->summary[$n1] = summary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

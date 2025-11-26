@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeTTSConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TTSConfig extends Model
 {
@@ -14,36 +14,26 @@ class TTSConfig extends Model
     public $appKey;
 
     /**
-     * @example 947e0875-b5d4-4b33-b18c-7b2cf85bcb4f
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example Managed
-     *
      * @var string
      */
     public $nlsServiceType;
 
     /**
-     * @example -150
-     *
      * @var string
      */
     public $speechRate;
 
     /**
-     * @example xiaoyun
-     *
      * @var string
      */
     public $voice;
 
     /**
-     * @example 100
-     *
      * @var string
      */
     public $volume;
@@ -56,26 +46,34 @@ class TTSConfig extends Model
         'volume' => 'Volume',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nlsServiceType) {
             $res['NlsServiceType'] = $this->nlsServiceType;
         }
+
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
         }
+
         if (null !== $this->voice) {
             $res['Voice'] = $this->voice;
         }
+
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
         }
@@ -83,29 +81,34 @@ class TTSConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TTSConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NlsServiceType'])) {
             $model->nlsServiceType = $map['NlsServiceType'];
         }
+
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
         }
+
         if (isset($map['Voice'])) {
             $model->voice = $map['Voice'];
         }
+
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
         }

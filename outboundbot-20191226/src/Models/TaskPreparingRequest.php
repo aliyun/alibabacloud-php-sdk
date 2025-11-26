@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskPreparingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 33040b9a-b04b-452f-b554-cd6f3a15f850
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 1971226538081821
-     *
      * @var int
      */
     public $instanceOwnerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c9e42cd7-ba99-4872-9802-e05719ab051c
-     *
      * @var string
      */
     public $jobId;
@@ -38,17 +28,22 @@ class TaskPreparingRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -56,20 +51,22 @@ class TaskPreparingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskPreparingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

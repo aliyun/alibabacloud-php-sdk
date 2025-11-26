@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobGroupRequest extends Model
 {
@@ -14,19 +14,11 @@ class DescribeJobGroupRequest extends Model
     public $briefTypes;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example af81a389-91f0-4157-8d82-720edd02b66a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 46a9ad0c-3e11-44da-a9a7-2c21bf5ce185
-     *
      * @var string
      */
     public $jobGroupId;
@@ -36,17 +28,32 @@ class DescribeJobGroupRequest extends Model
         'jobGroupId' => 'JobGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->briefTypes)) {
+            Model::validateArray($this->briefTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->briefTypes) {
-            $res['BriefTypes'] = $this->briefTypes;
+            if (\is_array($this->briefTypes)) {
+                $res['BriefTypes'] = [];
+                $n1 = 0;
+                foreach ($this->briefTypes as $item1) {
+                    $res['BriefTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
@@ -54,22 +61,29 @@ class DescribeJobGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BriefTypes'])) {
             if (!empty($map['BriefTypes'])) {
-                $model->briefTypes = $map['BriefTypes'];
+                $model->briefTypes = [];
+                $n1 = 0;
+                foreach ($map['BriefTypes'] as $item1) {
+                    $model->briefTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }

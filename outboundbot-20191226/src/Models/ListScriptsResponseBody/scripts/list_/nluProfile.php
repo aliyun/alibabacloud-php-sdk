@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsResponseBody\scripts\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nluProfile extends Model
 {
@@ -28,17 +28,22 @@ class nluProfile extends Model
         'fcRegion' => 'FcRegion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fcFunction) {
             $res['FcFunction'] = $this->fcFunction;
         }
+
         if (null !== $this->fcHttpTriggerUrl) {
             $res['FcHttpTriggerUrl'] = $this->fcHttpTriggerUrl;
         }
+
         if (null !== $this->fcRegion) {
             $res['FcRegion'] = $this->fcRegion;
         }
@@ -46,20 +51,22 @@ class nluProfile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nluProfile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FcFunction'])) {
             $model->fcFunction = $map['FcFunction'];
         }
+
         if (isset($map['FcHttpTriggerUrl'])) {
             $model->fcHttpTriggerUrl = $map['FcHttpTriggerUrl'];
         }
+
         if (isset($map['FcRegion'])) {
             $model->fcRegion = $map['FcRegion'];
         }
