@@ -19,6 +19,11 @@ class RescaleApplicationVerticallyRequest extends Model
     public $cpu;
 
     /**
+     * @var bool
+     */
+    public $deploy;
+
+    /**
      * @var string
      */
     public $diskSize;
@@ -55,6 +60,7 @@ class RescaleApplicationVerticallyRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'cpu' => 'Cpu',
+        'deploy' => 'Deploy',
         'diskSize' => 'DiskSize',
         'memory' => 'Memory',
         'resourceType' => 'ResourceType',
@@ -78,6 +84,10 @@ class RescaleApplicationVerticallyRequest extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->deploy) {
+            $res['Deploy'] = $this->deploy;
         }
 
         if (null !== $this->diskSize) {
@@ -125,6 +135,10 @@ class RescaleApplicationVerticallyRequest extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['Deploy'])) {
+            $model->deploy = $map['Deploy'];
         }
 
         if (isset($map['DiskSize'])) {

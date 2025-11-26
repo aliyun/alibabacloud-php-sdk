@@ -14,11 +14,17 @@ class UpdateApplicationVswitchesRequest extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $deploy;
+
+    /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
         'appId' => 'AppId',
+        'deploy' => 'Deploy',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -32,6 +38,10 @@ class UpdateApplicationVswitchesRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->deploy) {
+            $res['Deploy'] = $this->deploy;
         }
 
         if (null !== $this->vSwitchId) {
@@ -51,6 +61,10 @@ class UpdateApplicationVswitchesRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['Deploy'])) {
+            $model->deploy = $map['Deploy'];
         }
 
         if (isset($map['VSwitchId'])) {

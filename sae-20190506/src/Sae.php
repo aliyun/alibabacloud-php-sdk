@@ -469,7 +469,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 批量重启应用.
+     * Restarts applications in batches.
      *
      * @param request - BatchRestartApplicationsRequest
      * @param headers - map
@@ -515,7 +515,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 批量重启应用.
+     * Restarts applications in batches.
      *
      * @param request - BatchRestartApplicationsRequest
      *
@@ -4161,6 +4161,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the information of the associated MSE microservice governance application.
+     *
      * @param request - DescribeApplicationMseServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4205,6 +4207,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries the information of the associated MSE microservice governance application.
+     *
      * @param request - DescribeApplicationMseServiceRequest
      *
      * @returns DescribeApplicationMseServiceResponse
@@ -9119,6 +9123,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries whether ARMS monitoring is enabled for a specified application.
+     *
      * @param request - QueryArmsEnableRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9159,6 +9165,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Queries whether ARMS monitoring is enabled for a specified application.
+     *
      * @param request - QueryArmsEnableRequest
      *
      * @returns QueryArmsEnableResponse
@@ -9403,6 +9411,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->cpu) {
             @$query['Cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->deploy) {
+            @$query['Deploy'] = $request->deploy;
         }
 
         if (null !== $request->diskSize) {
@@ -10628,6 +10640,10 @@ class Sae extends OpenApiClient
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->deploy) {
+            @$query['Deploy'] = $request->deploy;
         }
 
         if (null !== $request->vSwitchId) {
