@@ -250,6 +250,11 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
+     * @var string
+     */
+    public $systemDiskSnapshotPolicyId;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -306,6 +311,7 @@ class scalingGroup extends Model
         'systemDiskPerformanceLevel' => 'system_disk_performance_level',
         'systemDiskProvisionedIops' => 'system_disk_provisioned_iops',
         'systemDiskSize' => 'system_disk_size',
+        'systemDiskSnapshotPolicyId' => 'system_disk_snapshot_policy_id',
         'tags' => 'tags',
         'vswitchIds' => 'vswitch_ids',
     ];
@@ -588,6 +594,10 @@ class scalingGroup extends Model
             $res['system_disk_size'] = $this->systemDiskSize;
         }
 
+        if (null !== $this->systemDiskSnapshotPolicyId) {
+            $res['system_disk_snapshot_policy_id'] = $this->systemDiskSnapshotPolicyId;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
@@ -856,6 +866,10 @@ class scalingGroup extends Model
 
         if (isset($map['system_disk_size'])) {
             $model->systemDiskSize = $map['system_disk_size'];
+        }
+
+        if (isset($map['system_disk_snapshot_policy_id'])) {
+            $model->systemDiskSnapshotPolicyId = $map['system_disk_snapshot_policy_id'];
         }
 
         if (isset($map['tags'])) {

@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\status\conditions;
 
 class status extends Model
 {
+    /**
+     * @var conditions[]
+     */
+    public $conditions;
+
     /**
      * @var int
      */
@@ -48,6 +54,7 @@ class status extends Model
      */
     public $totalNodes;
     protected $_name = [
+        'conditions' => 'conditions',
         'failedNodes' => 'failed_nodes',
         'healthyNodes' => 'healthy_nodes',
         'initialNodes' => 'initial_nodes',
@@ -60,12 +67,26 @@ class status extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->conditions) {
+            if (\is_array($this->conditions)) {
+                $res['conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->failedNodes) {
             $res['failed_nodes'] = $this->failedNodes;
         }
@@ -109,6 +130,17 @@ class status extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['conditions'])) {
+            if (!empty($map['conditions'])) {
+                $model->conditions = [];
+                $n1 = 0;
+                foreach ($map['conditions'] as $item1) {
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['failed_nodes'])) {
             $model->failedNodes = $map['failed_nodes'];
         }

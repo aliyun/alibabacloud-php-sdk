@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionResponseBody\plans\stateReason;
 
 class plans extends Model
 {
@@ -39,6 +40,11 @@ class plans extends Model
     public $state;
 
     /**
+     * @var stateReason
+     */
+    public $stateReason;
+
+    /**
      * @var string
      */
     public $targetId;
@@ -64,6 +70,7 @@ class plans extends Model
         'planId' => 'plan_id',
         'startTime' => 'start_time',
         'state' => 'state',
+        'stateReason' => 'state_reason',
         'targetId' => 'target_id',
         'targetType' => 'target_type',
         'taskId' => 'task_id',
@@ -72,6 +79,9 @@ class plans extends Model
 
     public function validate()
     {
+        if (null !== $this->stateReason) {
+            $this->stateReason->validate();
+        }
         parent::validate();
     }
 
@@ -100,6 +110,10 @@ class plans extends Model
 
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+
+        if (null !== $this->stateReason) {
+            $res['state_reason'] = null !== $this->stateReason ? $this->stateReason->toArray($noStream) : $this->stateReason;
         }
 
         if (null !== $this->targetId) {
@@ -151,6 +165,10 @@ class plans extends Model
 
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+
+        if (isset($map['state_reason'])) {
+            $model->stateReason = stateReason::fromMap($map['state_reason']);
         }
 
         if (isset($map['target_id'])) {
