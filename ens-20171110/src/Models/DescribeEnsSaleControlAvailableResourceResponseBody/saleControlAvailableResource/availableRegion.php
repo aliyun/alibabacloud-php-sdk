@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableRegion extends Model
 {
@@ -52,29 +52,38 @@ class availableRegion extends Model
         'province' => 'Province',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
+
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ensRegionName) {
             $res['EnsRegionName'] = $this->ensRegionName;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -82,32 +91,38 @@ class availableRegion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableRegion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
+
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['EnsRegionName'])) {
             $model->ensRegionName = $map['EnsRegionName'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

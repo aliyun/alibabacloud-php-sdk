@@ -4,46 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appStatus extends Model
 {
     /**
-     * @description The status of the application. The value is of the enumeration type. Valid values:
-     *
-     * Three intermediate states:
-     *
-     *   CREATING
-     *   UPDATING
-     *   DELETING
-     *
-     * Four final states:
-     *
-     *   CREATE_FAILED
-     *   UPDATE_FAILED
-     *   DELETE_FAILED
-     *   RUNNING
-     *
-     * @example CREATING
-     *
      * @var string
      */
     public $phase;
 
     /**
-     * @description The description of the application status.
-     *
-     * @example Creating in progress
-     *
      * @var string
      */
     public $statusDescrip;
 
     /**
-     * @description The time when the status was last updated.
-     *
-     * @example 2021-01-26T05:04Z
-     *
      * @var string
      */
     public $updateTime;
@@ -53,17 +28,22 @@ class appStatus extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
+
         if (null !== $this->statusDescrip) {
             $res['StatusDescrip'] = $this->statusDescrip;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -71,20 +51,22 @@ class appStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
+
         if (isset($map['StatusDescrip'])) {
             $model->statusDescrip = $map['StatusDescrip'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

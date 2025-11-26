@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\ensRegionIdsExtends\ensRegionId;
-use AlibabaCloud\Tea\Model;
 
 class ensRegionIdsExtends extends Model
 {
@@ -17,17 +17,24 @@ class ensRegionIdsExtends extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensRegionId)) {
+            Model::validateArray($this->ensRegionId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
-            $res['EnsRegionId'] = [];
-            if (null !== $this->ensRegionId && \is_array($this->ensRegionId)) {
-                $n = 0;
-                foreach ($this->ensRegionId as $item) {
-                    $res['EnsRegionId'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ensRegionId)) {
+                $res['EnsRegionId'] = [];
+                $n1 = 0;
+                foreach ($this->ensRegionId as $item1) {
+                    $res['EnsRegionId'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ensRegionIdsExtends extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ensRegionIdsExtends
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             if (!empty($map['EnsRegionId'])) {
                 $model->ensRegionId = [];
-                $n = 0;
-                foreach ($map['EnsRegionId'] as $item) {
-                    $model->ensRegionId[$n++] = null !== $item ? ensRegionId::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnsRegionId'] as $item1) {
+                    $model->ensRegionId[$n1] = ensRegionId::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

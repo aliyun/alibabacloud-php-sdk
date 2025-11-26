@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDownloadURLResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDataDownloadURLResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The download URLs of data files.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The response message. Success is returned for a successful request.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -49,20 +35,29 @@ class DescribeDataDownloadURLResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,23 +65,26 @@ class DescribeDataDownloadURLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataDownloadURLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

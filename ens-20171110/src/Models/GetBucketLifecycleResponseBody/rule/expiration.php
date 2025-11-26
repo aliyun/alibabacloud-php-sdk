@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketLifecycleResponseBody\rule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expiration extends Model
 {
     /**
-     * @description The expiration date.
-     *
-     * @example yyy-MM-DDThh:mm:ssZ
-     *
      * @var string
      */
     public $createdBeforeDate;
 
     /**
-     * @description The validity period, in days.
-     *
-     * @example 5
-     *
      * @var string
      */
     public $days;
@@ -30,14 +22,18 @@ class expiration extends Model
         'days' => 'Days',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdBeforeDate) {
             $res['CreatedBeforeDate'] = $this->createdBeforeDate;
         }
+
         if (null !== $this->days) {
             $res['Days'] = $this->days;
         }
@@ -45,17 +41,18 @@ class expiration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expiration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedBeforeDate'])) {
             $model->createdBeforeDate = $map['CreatedBeforeDate'];
         }
+
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
         }

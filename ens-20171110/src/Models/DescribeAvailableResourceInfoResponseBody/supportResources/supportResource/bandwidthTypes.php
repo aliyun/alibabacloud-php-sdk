@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bandwidthTypes extends Model
 {
@@ -16,29 +16,47 @@ class bandwidthTypes extends Model
         'bandwidthType' => 'BandwidthType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bandwidthType)) {
+            Model::validateArray($this->bandwidthType);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthType) {
-            $res['BandwidthType'] = $this->bandwidthType;
+            if (\is_array($this->bandwidthType)) {
+                $res['BandwidthType'] = [];
+                $n1 = 0;
+                foreach ($this->bandwidthType as $item1) {
+                    $res['BandwidthType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bandwidthTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthType'])) {
             if (!empty($map['BandwidthType'])) {
-                $model->bandwidthType = $map['BandwidthType'];
+                $model->bandwidthType = [];
+                $n1 = 0;
+                foreach ($map['BandwidthType'] as $item1) {
+                    $model->bandwidthType[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

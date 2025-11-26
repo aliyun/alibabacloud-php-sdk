@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceBootConfigurationRequest extends Model
 {
     /**
-     * @example legacy
-     *
      * @var string
      */
     public $bootSet;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example pxe
-     *
      * @var string
      */
     public $bootType;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $diskSet;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example i-instance****
-     *
      * @var string
      */
     public $instanceId;
@@ -46,20 +34,26 @@ class ModifyInstanceBootConfigurationRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bootSet) {
             $res['BootSet'] = $this->bootSet;
         }
+
         if (null !== $this->bootType) {
             $res['BootType'] = $this->bootType;
         }
+
         if (null !== $this->diskSet) {
             $res['DiskSet'] = $this->diskSet;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -67,23 +61,26 @@ class ModifyInstanceBootConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceBootConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BootSet'])) {
             $model->bootSet = $map['BootSet'];
         }
+
         if (isset($map['BootType'])) {
             $model->bootType = $map['BootType'];
         }
+
         if (isset($map['DiskSet'])) {
             $model->diskSet = $map['DiskSet'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

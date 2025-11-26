@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServerLoadBalancerListenMonitorResponseBody\serverLoadBalancerMonitorData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeServerLoadBalancerListenMonitorResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 125B04C7-3D0D-4245-AF96-14E3758E3F06
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The array of the monitoring data.
-     *
      * @var serverLoadBalancerMonitorData[]
      */
     public $serverLoadBalancerMonitorData;
@@ -29,20 +23,28 @@ class DescribeServerLoadBalancerListenMonitorResponseBody extends Model
         'serverLoadBalancerMonitorData' => 'ServerLoadBalancerMonitorData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->serverLoadBalancerMonitorData)) {
+            Model::validateArray($this->serverLoadBalancerMonitorData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serverLoadBalancerMonitorData) {
-            $res['ServerLoadBalancerMonitorData'] = [];
-            if (null !== $this->serverLoadBalancerMonitorData && \is_array($this->serverLoadBalancerMonitorData)) {
-                $n = 0;
-                foreach ($this->serverLoadBalancerMonitorData as $item) {
-                    $res['ServerLoadBalancerMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serverLoadBalancerMonitorData)) {
+                $res['ServerLoadBalancerMonitorData'] = [];
+                $n1 = 0;
+                foreach ($this->serverLoadBalancerMonitorData as $item1) {
+                    $res['ServerLoadBalancerMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class DescribeServerLoadBalancerListenMonitorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServerLoadBalancerListenMonitorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServerLoadBalancerMonitorData'])) {
             if (!empty($map['ServerLoadBalancerMonitorData'])) {
                 $model->serverLoadBalancerMonitorData = [];
-                $n = 0;
-                foreach ($map['ServerLoadBalancerMonitorData'] as $item) {
-                    $model->serverLoadBalancerMonitorData[$n++] = null !== $item ? serverLoadBalancerMonitorData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServerLoadBalancerMonitorData'] as $item1) {
+                    $model->serverLoadBalancerMonitorData[$n1] = serverLoadBalancerMonitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

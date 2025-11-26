@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listenerPortsAndProtocols extends Model
 {
@@ -14,46 +14,26 @@ class listenerPortsAndProtocols extends Model
     public $backendServerPort;
 
     /**
-     * @description The description of the listener.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The destination listening port to which requests are forwarded.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $forwardPort;
 
     /**
-     * @description Indicates whether the listener is enabled.
-     *
-     * @example off
-     *
      * @var string
      */
     public $listenerForward;
 
     /**
-     * @description The listener port of the instance.
-     *
-     * @example 8080
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The listener protocol of the instance.
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $listenerProtocol;
@@ -66,26 +46,34 @@ class listenerPortsAndProtocols extends Model
         'listenerProtocol' => 'ListenerProtocol',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServerPort) {
             $res['BackendServerPort'] = $this->backendServerPort;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->forwardPort) {
             $res['ForwardPort'] = $this->forwardPort;
         }
+
         if (null !== $this->listenerForward) {
             $res['ListenerForward'] = $this->listenerForward;
         }
+
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
         }
@@ -93,29 +81,34 @@ class listenerPortsAndProtocols extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listenerPortsAndProtocols
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServerPort'])) {
             $model->backendServerPort = $map['BackendServerPort'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ForwardPort'])) {
             $model->forwardPort = $map['ForwardPort'];
         }
+
         if (isset($map['ListenerForward'])) {
             $model->listenerForward = $map['ListenerForward'];
         }
+
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
         }

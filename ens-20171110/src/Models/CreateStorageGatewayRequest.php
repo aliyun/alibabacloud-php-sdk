@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayRequest\orderDetails;
-use AlibabaCloud\Tea\Model;
 
 class CreateStorageGatewayRequest extends Model
 {
     /**
-     * @description The array of orders.
-     *
-     * This parameter is required.
-     *
      * @var orderDetails[]
      */
     public $orderDetails;
@@ -21,17 +17,24 @@ class CreateStorageGatewayRequest extends Model
         'orderDetails' => 'OrderDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->orderDetails)) {
+            Model::validateArray($this->orderDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderDetails) {
-            $res['OrderDetails'] = [];
-            if (null !== $this->orderDetails && \is_array($this->orderDetails)) {
-                $n = 0;
-                foreach ($this->orderDetails as $item) {
-                    $res['OrderDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orderDetails)) {
+                $res['OrderDetails'] = [];
+                $n1 = 0;
+                foreach ($this->orderDetails as $item1) {
+                    $res['OrderDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class CreateStorageGatewayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateStorageGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderDetails'])) {
             if (!empty($map['OrderDetails'])) {
                 $model->orderDetails = [];
-                $n = 0;
-                foreach ($map['OrderDetails'] as $item) {
-                    $model->orderDetails[$n++] = null !== $item ? orderDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OrderDetails'] as $item1) {
+                    $model->orderDetails[$n1] = orderDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

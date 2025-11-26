@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataPushResultResponseBody\pushResults\pushResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataPushResultResponseBody\pushResults\pushResult\statusStatS\statusStat;
-use AlibabaCloud\Tea\Model;
 
 class statusStatS extends Model
 {
@@ -17,17 +17,24 @@ class statusStatS extends Model
         'statusStat' => 'StatusStat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->statusStat)) {
+            Model::validateArray($this->statusStat);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->statusStat) {
-            $res['StatusStat'] = [];
-            if (null !== $this->statusStat && \is_array($this->statusStat)) {
-                $n = 0;
-                foreach ($this->statusStat as $item) {
-                    $res['StatusStat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statusStat)) {
+                $res['StatusStat'] = [];
+                $n1 = 0;
+                foreach ($this->statusStat as $item1) {
+                    $res['StatusStat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class statusStatS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statusStatS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StatusStat'])) {
             if (!empty($map['StatusStat'])) {
                 $model->statusStat = [];
-                $n = 0;
-                foreach ($map['StatusStat'] as $item) {
-                    $model->statusStat[$n++] = null !== $item ? statusStat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StatusStat'] as $item1) {
+                    $model->statusStat[$n1] = statusStat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

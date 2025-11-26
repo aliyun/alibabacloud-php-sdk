@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersResponseBody\backendServers;
-use AlibabaCloud\Tea\Model;
 
 class RemoveBackendServersResponseBody extends Model
 {
     /**
-     * @description The list of backend servers that you want to add to the SLB instance.
-     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class RemoveBackendServersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->backendServers) {
+            $this->backendServers->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toArray($noStream) : $this->backendServers;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class RemoveBackendServersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveBackendServersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServers'])) {
             $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

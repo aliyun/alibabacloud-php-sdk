@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEnsServiceResponseBody extends Model
 {
     /**
-     * @description The service code. 0 is returned for a successful request. An error code is returned for a failed request.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9AF02B43-2D08-49D3-8AAF-65B9C792ED14
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateEnsServiceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateEnsServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEnsServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

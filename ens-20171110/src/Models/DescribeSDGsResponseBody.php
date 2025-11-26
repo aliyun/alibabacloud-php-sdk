@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsResponseBody\SDGs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSDGsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 3703C4AC-9396-458C-8F25-1D701334D309
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the SDGs.
-     *
      * @var SDGs[]
      */
     public $SDGs;
@@ -29,20 +23,28 @@ class DescribeSDGsResponseBody extends Model
         'SDGs' => 'SDGs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->SDGs)) {
+            Model::validateArray($this->SDGs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->SDGs) {
-            $res['SDGs'] = [];
-            if (null !== $this->SDGs && \is_array($this->SDGs)) {
-                $n = 0;
-                foreach ($this->SDGs as $item) {
-                    $res['SDGs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->SDGs)) {
+                $res['SDGs'] = [];
+                $n1 = 0;
+                foreach ($this->SDGs as $item1) {
+                    $res['SDGs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class DescribeSDGsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSDGsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SDGs'])) {
             if (!empty($map['SDGs'])) {
                 $model->SDGs = [];
-                $n = 0;
-                foreach ($map['SDGs'] as $item) {
-                    $model->SDGs[$n++] = null !== $item ? SDGs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SDGs'] as $item1) {
+                    $model->SDGs[$n1] = SDGs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsResponseBody\bucketList;
-use AlibabaCloud\Tea\Model;
 
 class GetOssStorageAndAccByBucketsResponseBody extends Model
 {
     /**
-     * @description The information about the bucket.
-     *
      * @var bucketList[]
      */
     public $bucketList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 112F4860-F1B2-58DD-8FC0-75F19DA1C4BF
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class GetOssStorageAndAccByBucketsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bucketList)) {
+            Model::validateArray($this->bucketList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketList) {
-            $res['BucketList'] = [];
-            if (null !== $this->bucketList && \is_array($this->bucketList)) {
-                $n = 0;
-                foreach ($this->bucketList as $item) {
-                    $res['BucketList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bucketList)) {
+                $res['BucketList'] = [];
+                $n1 = 0;
+                foreach ($this->bucketList as $item1) {
+                    $res['BucketList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class GetOssStorageAndAccByBucketsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssStorageAndAccByBucketsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketList'])) {
             if (!empty($map['BucketList'])) {
                 $model->bucketList = [];
-                $n = 0;
-                foreach ($map['BucketList'] as $item) {
-                    $model->bucketList[$n++] = null !== $item ? bucketList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BucketList'] as $item1) {
+                    $model->bucketList[$n1] = bucketList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

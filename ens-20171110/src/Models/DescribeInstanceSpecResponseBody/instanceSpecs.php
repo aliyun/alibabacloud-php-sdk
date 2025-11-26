@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSpecResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSpecResponseBody\instanceSpecs\instanceSpec;
-use AlibabaCloud\Tea\Model;
 
 class instanceSpecs extends Model
 {
@@ -17,17 +17,24 @@ class instanceSpecs extends Model
         'instanceSpec' => 'InstanceSpec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceSpec)) {
+            Model::validateArray($this->instanceSpec);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceSpec) {
-            $res['InstanceSpec'] = [];
-            if (null !== $this->instanceSpec && \is_array($this->instanceSpec)) {
-                $n = 0;
-                foreach ($this->instanceSpec as $item) {
-                    $res['InstanceSpec'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceSpec)) {
+                $res['InstanceSpec'] = [];
+                $n1 = 0;
+                foreach ($this->instanceSpec as $item1) {
+                    $res['InstanceSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class instanceSpecs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceSpecs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSpec'])) {
             if (!empty($map['InstanceSpec'])) {
                 $model->instanceSpec = [];
-                $n = 0;
-                foreach ($map['InstanceSpec'] as $item) {
-                    $model->instanceSpec[$n++] = null !== $item ? instanceSpec::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceSpec'] as $item1) {
+                    $model->instanceSpec[$n1] = instanceSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

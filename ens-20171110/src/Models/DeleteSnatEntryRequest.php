@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSnatEntryRequest extends Model
 {
     /**
-     * @description The ID of the SNAT entry that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example snat-5tfi6f8gds82mjmlofeym****
-     *
      * @var string
      */
     public $snatEntryId;
@@ -22,9 +16,12 @@ class DeleteSnatEntryRequest extends Model
         'snatEntryId' => 'SnatEntryId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snatEntryId) {
@@ -34,11 +31,11 @@ class DeleteSnatEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSnatEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

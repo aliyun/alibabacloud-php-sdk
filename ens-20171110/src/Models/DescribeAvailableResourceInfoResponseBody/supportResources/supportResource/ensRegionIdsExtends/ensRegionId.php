@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\ensRegionIdsExtends;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ensRegionId extends Model
 {
     /**
-     * @description The region.
-     *
-     * @example EastChina
-     *
      * @var string
      */
     public $area;
 
     /**
-     * @description The name. This parameter is empty by default.
-     *
-     * @example EnName
-     *
      * @var string
      */
     public $enName;
 
     /**
-     * @description The ID of the edge node.
-     *
-     * @example cn-chengdu-telecom-4
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The information about the Internet service provider (ISP).
-     *
-     * @example unicom
-     *
      * @var string
      */
     public $isp;
 
     /**
-     * @description The name of the edge node.
-     *
-     * @example Taizhou Telecom, China Unicom, and China Mobile
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The province.
-     *
-     * @example Zhejiang Province
-     *
      * @var string
      */
     public $province;
@@ -70,26 +46,34 @@ class ensRegionId extends Model
         'province' => 'Province',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->enName) {
             $res['EnName'] = $this->enName;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -97,29 +81,34 @@ class ensRegionId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ensRegionId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['EnName'])) {
             $model->enName = $map['EnName'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

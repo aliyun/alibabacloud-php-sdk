@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class natGatewayIds extends Model
 {
@@ -16,29 +16,47 @@ class natGatewayIds extends Model
         'natGatewayId' => 'NatGatewayId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->natGatewayId)) {
+            Model::validateArray($this->natGatewayId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
+            if (\is_array($this->natGatewayId)) {
+                $res['NatGatewayId'] = [];
+                $n1 = 0;
+                foreach ($this->natGatewayId as $item1) {
+                    $res['NatGatewayId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return natGatewayIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatGatewayId'])) {
             if (!empty($map['NatGatewayId'])) {
-                $model->natGatewayId = $map['NatGatewayId'];
+                $model->natGatewayId = [];
+                $n1 = 0;
+                foreach ($map['NatGatewayId'] as $item1) {
+                    $model->natGatewayId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

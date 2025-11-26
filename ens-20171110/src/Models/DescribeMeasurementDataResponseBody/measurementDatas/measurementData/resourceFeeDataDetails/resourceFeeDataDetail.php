@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataResponseBody\measurementDatas\measurementData\resourceFeeDataDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceFeeDataDetail extends Model
 {
     /**
-     * @description The code of the resource.
-     *
-     * @example vCPU
-     *
      * @var string
      */
     public $costCode;
 
     /**
-     * @description The name of the resource.
-     *
-     * @example vCPU
-     *
      * @var string
      */
     public $costName;
 
     /**
-     * @description The consumption of the resource.
-     *
-     *   Memory unit: GB.
-     *   CPU unit: vCPU.
-     *   Storage unit: GB.
-     *
-     * @example 55
-     *
      * @var int
      */
     public $costVal;
 
     /**
-     * @description The type of the resource.
-     *
-     * @example vCPU
-     *
      * @var string
      */
     public $resourceType;
@@ -54,20 +34,26 @@ class resourceFeeDataDetail extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCode) {
             $res['CostCode'] = $this->costCode;
         }
+
         if (null !== $this->costName) {
             $res['CostName'] = $this->costName;
         }
+
         if (null !== $this->costVal) {
             $res['CostVal'] = $this->costVal;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -75,23 +61,26 @@ class resourceFeeDataDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceFeeDataDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCode'])) {
             $model->costCode = $map['CostCode'];
         }
+
         if (isset($map['CostName'])) {
             $model->costName = $map['CostName'];
         }
+
         if (isset($map['CostVal'])) {
             $model->costVal = $map['CostVal'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

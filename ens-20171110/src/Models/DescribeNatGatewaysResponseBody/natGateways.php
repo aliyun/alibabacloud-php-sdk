@@ -4,25 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponseBody\natGateways\ipLists;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponseBody\natGateways\tags;
 
 class natGateways extends Model
 {
     /**
-     * @description The time when the NAT gateway was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2021-11-22T07:03:32Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The ID of the ENS node.
-     *
-     * @example cn-xiangyang-5
-     *
      * @var string
      */
     public $ensRegionId;
@@ -33,37 +26,21 @@ class natGateways extends Model
     public $ipLists;
 
     /**
-     * @description The name of the NAT gateway.
-     *
-     * @example test0
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * @example nat-5t7nh1cfm6kxiszlttr38****
-     *
      * @var string
      */
     public $natGatewayId;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-5s2ml1olj0kzaws9n1yrj****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The type of the NAT gateway.
-     *
-     * @example enat.default
-     *
      * @var string
      */
     public $spec;
@@ -74,10 +51,11 @@ class natGateways extends Model
     public $status;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-5szpp1os9m55myirbflfw****
-     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -90,44 +68,74 @@ class natGateways extends Model
         'networkId' => 'NetworkId',
         'spec' => 'Spec',
         'status' => 'Status',
+        'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipLists)) {
+            Model::validateArray($this->ipLists);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ipLists) {
-            $res['IpLists'] = [];
-            if (null !== $this->ipLists && \is_array($this->ipLists)) {
-                $n = 0;
-                foreach ($this->ipLists as $item) {
-                    $res['IpLists'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipLists)) {
+                $res['IpLists'] = [];
+                $n1 = 0;
+                foreach ($this->ipLists as $item1) {
+                    $res['IpLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -135,44 +143,64 @@ class natGateways extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return natGateways
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['IpLists'])) {
             if (!empty($map['IpLists'])) {
                 $model->ipLists = [];
-                $n = 0;
-                foreach ($map['IpLists'] as $item) {
-                    $model->ipLists[$n++] = null !== $item ? ipLists::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpLists'] as $item1) {
+                    $model->ipLists[$n1] = ipLists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

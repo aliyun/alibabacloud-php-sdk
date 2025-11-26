@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponseBody\servers\AICInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sdgDeployInfo extends Model
 {
     /**
-     * @description The ID of the SDG.
-     *
-     * @example sdg-xxxxx
-     *
      * @var string
      */
     public $SDGId;
 
     /**
-     * @description The deployment status of the SDG. Valid values:
-     *
-     *   **sdg_deploying**
-     *   **failed**
-     *   **success**
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -34,14 +22,18 @@ class sdgDeployInfo extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -49,17 +41,18 @@ class sdgDeployInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sdgDeployInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

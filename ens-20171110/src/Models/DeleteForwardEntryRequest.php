@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteForwardEntryRequest extends Model
 {
     /**
-     * @description The ID of the DNAT entry that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example fwd-5tfk8qgepr9ijjkqxt8do****
-     *
      * @var string
      */
     public $forwardEntryId;
@@ -22,9 +16,12 @@ class DeleteForwardEntryRequest extends Model
         'forwardEntryId' => 'ForwardEntryId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forwardEntryId) {
@@ -34,11 +31,11 @@ class DeleteForwardEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteForwardEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

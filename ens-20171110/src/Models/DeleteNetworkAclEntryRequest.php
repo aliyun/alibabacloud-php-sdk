@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkAclEntryRequest extends Model
 {
     /**
-     * @description The ID of the network ACL for which you want to delete a rule.
-     *
-     * @example nae-5****
-     *
      * @var string
      */
     public $networkAclEntryId;
@@ -20,9 +16,12 @@ class DeleteNetworkAclEntryRequest extends Model
         'networkAclEntryId' => 'NetworkAclEntryId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkAclEntryId) {
@@ -32,11 +31,11 @@ class DeleteNetworkAclEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkAclEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

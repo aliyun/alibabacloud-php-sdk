@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resource extends Model
 {
     /**
-     * @description The ID of the resource that you want to disassociate.
-     *
-     * This parameter is required.
-     *
-     * @example n-5***
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource that you want to disassociate. Valid values:
-     *
-     *   Network
-     *
-     * This parameter is required.
-     *
-     * @example Network
-     *
      * @var string
      */
     public $resourceType;
@@ -36,14 +22,18 @@ class resource extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -51,17 +41,18 @@ class resource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

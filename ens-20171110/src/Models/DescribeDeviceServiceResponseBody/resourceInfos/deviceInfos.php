@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\resourceInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\resourceInfos\deviceInfos\network;
-use AlibabaCloud\Tea\Model;
 
 class deviceInfos extends Model
 {
     /**
-     * @description The name of the device.
-     *
-     * @example test-api
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The network information.
-     *
      * @var network[]
      */
     public $network;
 
     /**
-     * @description The status.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
@@ -39,23 +29,32 @@ class deviceInfos extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->network)) {
+            Model::validateArray($this->network);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->network) {
-            $res['Network'] = [];
-            if (null !== $this->network && \is_array($this->network)) {
-                $n = 0;
-                foreach ($this->network as $item) {
-                    $res['Network'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->network)) {
+                $res['Network'] = [];
+                $n1 = 0;
+                foreach ($this->network as $item1) {
+                    $res['Network'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,26 +62,29 @@ class deviceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Network'])) {
             if (!empty($map['Network'])) {
                 $model->network = [];
-                $n = 0;
-                foreach ($map['Network'] as $item) {
-                    $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Network'] as $item1) {
+                    $model->network[$n1] = network::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

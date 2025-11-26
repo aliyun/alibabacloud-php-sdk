@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySnapshotAttributeRequest extends Model
 {
     /**
-     * @description The description of the snapshot. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the snapshot.
-     *
-     * This parameter is required.
-     *
-     * @example sp-bp199lyny9bb47pa****
-     *
      * @var string
      */
     public $snapshotId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-     *
-     * The name cannot start with **auto** because snapshots whose names start with auto are recognized as automatic snapshots.
-     *
-     * @example testSnapshotName
-     *
      * @var string
      */
     public $snapshotName;
@@ -44,17 +28,22 @@ class ModifySnapshotAttributeRequest extends Model
         'snapshotName' => 'SnapshotName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
+
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
         }
@@ -62,20 +51,22 @@ class ModifySnapshotAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySnapshotAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
+
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
         }

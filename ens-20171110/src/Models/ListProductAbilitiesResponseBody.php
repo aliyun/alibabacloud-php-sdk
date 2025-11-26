@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProductAbilitiesResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class ListProductAbilitiesResponseBody extends Model
     public $productAbilities;
 
     /**
-     * @example xxxxx-75ED-422E-A022-7121FA18C968
-     *
      * @var string
      */
     public $requestId;
@@ -24,14 +22,28 @@ class ListProductAbilitiesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->productAbilities)) {
+            Model::validateArray($this->productAbilities);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productAbilities) {
-            $res['ProductAbilities'] = $this->productAbilities;
+            if (\is_array($this->productAbilities)) {
+                $res['ProductAbilities'] = [];
+                $n1 = 0;
+                foreach ($this->productAbilities as $item1) {
+                    $res['ProductAbilities'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,19 +51,25 @@ class ListProductAbilitiesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProductAbilitiesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductAbilities'])) {
             if (!empty($map['ProductAbilities'])) {
-                $model->productAbilities = $map['ProductAbilities'];
+                $model->productAbilities = [];
+                $n1 = 0;
+                foreach ($map['ProductAbilities'] as $item1) {
+                    $model->productAbilities[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

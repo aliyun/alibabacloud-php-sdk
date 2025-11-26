@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeImageInfosRequest extends Model
 {
     /**
-     * @description The operating system (OS). You can specify only one OS in a request. If you do not specify a value for this parameter, images for all supported OSs are queried. Valid values:
-     *
-     *   linux
-     *   windows
-     *
-     * @example linux
-     *
      * @var string
      */
     public $osType;
@@ -23,9 +16,12 @@ class DescribeImageInfosRequest extends Model
         'osType' => 'OsType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->osType) {
@@ -35,11 +31,11 @@ class DescribeImageInfosRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageInfosRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

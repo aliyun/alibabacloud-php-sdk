@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSecurityGroupAttributeRequest extends Model
 {
     /**
-     * @description The ID of the security group.
-     *
-     * This parameter is required.
-     *
-     * @example sg-bp67acfmxazb4ph***
-     *
      * @var string
      */
     public $securityGroupId;
@@ -22,9 +16,12 @@ class DescribeSecurityGroupAttributeRequest extends Model
         'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroupId) {
@@ -34,11 +31,11 @@ class DescribeSecurityGroupAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityGroupAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

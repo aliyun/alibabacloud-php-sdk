@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionIdIpv6InfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportIpv6Info extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * @example cn-chengdu-xxxx-4
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description Specifies whether IPv6 is supported. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportIpv6;
@@ -33,14 +22,18 @@ class supportIpv6Info extends Model
         'supportIpv6' => 'SupportIpv6',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->supportIpv6) {
             $res['SupportIpv6'] = $this->supportIpv6;
         }
@@ -48,17 +41,18 @@ class supportIpv6Info extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportIpv6Info
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['SupportIpv6'])) {
             $model->supportIpv6 = $map['SupportIpv6'];
         }

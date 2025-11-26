@@ -4,108 +4,63 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeHaVipsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeHaVipsResponseBody\haVips\associatedEipAddresses;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeHaVipsResponseBody\haVips\associatedInstances;
-use AlibabaCloud\Tea\Model;
 
 class haVips extends Model
 {
     /**
-     * @description The elastic IP addresses (EIPs) that are associated with the HAVIP.
-     *
      * @var associatedEipAddresses[]
      */
     public $associatedEipAddresses;
 
     /**
-     * @description The information about instances that are associated with the HAVIP.
-     *
      * @var associatedInstances[]
      */
     public $associatedInstances;
 
     /**
-     * @description The time when the HAVIP was created.
-     *
-     * @example 2023-03-29T11:17:38Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the HAVIP.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-guiyang-14
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The ID of the HAVIP.
-     *
-     * @example havip-52y28****
-     *
      * @var string
      */
     public $haVipId;
 
     /**
-     * @description The IP address of the HAVIP.
-     *
-     * @example 192.XX.XX.5
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description The name of the HAVIP.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-5wtkyrk****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The status of the HAVIP. Valid values:
-     *
-     *   Creating
-     *   Available
-     *   InUse
-     *   Deleting
-     *
-     * @example Available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-5yc8d****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -123,53 +78,74 @@ class haVips extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->associatedEipAddresses)) {
+            Model::validateArray($this->associatedEipAddresses);
+        }
+        if (\is_array($this->associatedInstances)) {
+            Model::validateArray($this->associatedInstances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedEipAddresses) {
-            $res['AssociatedEipAddresses'] = [];
-            if (null !== $this->associatedEipAddresses && \is_array($this->associatedEipAddresses)) {
-                $n = 0;
-                foreach ($this->associatedEipAddresses as $item) {
-                    $res['AssociatedEipAddresses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associatedEipAddresses)) {
+                $res['AssociatedEipAddresses'] = [];
+                $n1 = 0;
+                foreach ($this->associatedEipAddresses as $item1) {
+                    $res['AssociatedEipAddresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->associatedInstances) {
-            $res['AssociatedInstances'] = [];
-            if (null !== $this->associatedInstances && \is_array($this->associatedInstances)) {
-                $n = 0;
-                foreach ($this->associatedInstances as $item) {
-                    $res['AssociatedInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associatedInstances)) {
+                $res['AssociatedInstances'] = [];
+                $n1 = 0;
+                foreach ($this->associatedInstances as $item1) {
+                    $res['AssociatedInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->haVipId) {
             $res['HaVipId'] = $this->haVipId;
         }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -177,56 +153,68 @@ class haVips extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return haVips
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociatedEipAddresses'])) {
             if (!empty($map['AssociatedEipAddresses'])) {
                 $model->associatedEipAddresses = [];
-                $n = 0;
-                foreach ($map['AssociatedEipAddresses'] as $item) {
-                    $model->associatedEipAddresses[$n++] = null !== $item ? associatedEipAddresses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssociatedEipAddresses'] as $item1) {
+                    $model->associatedEipAddresses[$n1] = associatedEipAddresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AssociatedInstances'])) {
             if (!empty($map['AssociatedInstances'])) {
                 $model->associatedInstances = [];
-                $n = 0;
-                foreach ($map['AssociatedInstances'] as $item) {
-                    $model->associatedInstances[$n++] = null !== $item ? associatedInstances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssociatedInstances'] as $item1) {
+                    $model->associatedInstances[$n1] = associatedInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['HaVipId'])) {
             $model->haVipId = $map['HaVipId'];
         }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

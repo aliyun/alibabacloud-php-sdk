@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHaVipAttributeRequest extends Model
 {
     /**
-     * @description The ID of the HAVIP that you want to modify.
-     *
-     * This parameter is required.
-     *
-     * @example havip-52y28****
-     *
      * @var string
      */
     public $haVipId;
 
     /**
-     * @description The name of the HAVIP. The name must be 1 to 128 characters in length and cannot start with http:// or https://.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -32,14 +22,18 @@ class ModifyHaVipAttributeRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->haVipId) {
             $res['HaVipId'] = $this->haVipId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +41,18 @@ class ModifyHaVipAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHaVipAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaVipId'])) {
             $model->haVipId = $map['HaVipId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

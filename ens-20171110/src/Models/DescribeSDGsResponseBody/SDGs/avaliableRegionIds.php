@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsResponseBody\SDGs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class avaliableRegionIds extends Model
 {
     /**
-     * @description The time when the SDG was created on the node.
-     *
-     * @example 2023-02-27 15:13:26
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The ID of the edge node.
-     *
-     * @example cn-hangzhou-26
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the snapshot.
-     *
-     * @example mock-clone_snapshot_id
-     *
      * @var string
      */
     public $snapshotId;
 
     /**
-     * @description The status of the SDG on the node. Valid values:
-     *
-     *   **sdg_making**
-     *   **sdg_saving**
-     *   **sdg_copying**
-     *   **failed**
-     *   **success**
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -56,20 +34,26 @@ class avaliableRegionIds extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -77,23 +61,26 @@ class avaliableRegionIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return avaliableRegionIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,202 +4,117 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstancesRequest extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * @example cn-beijing-cmcc
-     *
+     * @var string[]
+     */
+    public $eipAddresses;
+
+    /**
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The IDs of the regions. The value is a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
-     *
-     * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
-     *
      * @var string
      */
     public $ensRegionIds;
 
     /**
-     * @description The ID of the edge service. You can use the ID to query information about the instances that are created in the edge service.
-     *
-     * @example ens-20190730202316s****
-     *
      * @var string
      */
     public $ensServiceId;
 
     /**
-     * @description The ID of the image.
-     *
-     * @example centos_6_08_64_20G_alibase_****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-5iqczfxps7csjrxeca****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs. Separate IDs with commas (,).
-     *
-     * @example ["i-5iqczfxps7csjrxeca07****", "i-5iqczfxps7csjrxeca07****"]]
-     *
      * @var string
      */
     public $instanceIds;
 
     /**
-     * @description The name of the instance.
-     *
-     * @example TestName
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The condition that you want to use to filter instances by category. Valid values:
-     *
-     *   EnsInstance: ENS instances that you purchase.
-     *   EnsService: ENS instances that belong to edge services.
-     *   BuildMachine: ENS instances that are configured with image builders.
-     *   EnsPostPaidInstance: Pay-as-you-go ENS instances that you purchase.
-     *
-     * @example EnsService
-     *
      * @var string
      */
     public $instanceResourceType;
 
     /**
-     * @description The instance type.
-     *
-     * @example ens.se1.tiny
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The internal IP address of the instance.
-     *
-     * @example 47.100.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-2zeuphj08tt7q3brd****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The method that you want to use to sort instances. The value of this parameter is in the JSON format.
-     *
-     * You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
-     *
-     * @example {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
-     *
      * @var string
      */
     public $orderByParams;
 
     /**
-     * @description The page number. Pages start from page **1**.
-     *
-     * Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. The maximum value is **100**.
-     *
-     * Default value: **10**.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description The keyword that you use to query the logs of the service. You can specify the values of parameters such as **ip**, **InstanceName**, and **InstanceId** as the keyword.
-     *
-     * @example Joshua
-     *
      * @var string
      */
     public $searchKey;
 
     /**
-     * @description The ID of the security group.
-     *
-     * @example sg-5kyicq2kfcapxrdds6tar7jqb
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The status of the service. Valid values.
-     *
      * @var string[]
      */
     public $serviceStatus;
 
     /**
-     * @description The status of the instance. Valid values:
-     *
-     *   Running
-     *   Stopped
-     *   Expired
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tags that are added to the resource. This operation does not return tag information. You can call this operation in combination with the tag-related operations.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-2zeh0r1pabwtg6wcs****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
+        'eipAddresses' => 'EipAddresses',
         'ensRegionId' => 'EnsRegionId',
         'ensRegionIds' => 'EnsRegionIds',
         'ensServiceId' => 'EnsServiceId',
@@ -222,74 +137,124 @@ class DescribeInstancesRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eipAddresses)) {
+            Model::validateArray($this->eipAddresses);
+        }
+        if (\is_array($this->serviceStatus)) {
+            Model::validateArray($this->serviceStatus);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ensRegionId) {
-            $res['EnsRegionId'] = $this->ensRegionId;
-        }
-        if (null !== $this->ensRegionIds) {
-            $res['EnsRegionIds'] = $this->ensRegionIds;
-        }
-        if (null !== $this->ensServiceId) {
-            $res['EnsServiceId'] = $this->ensServiceId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->instanceResourceType) {
-            $res['InstanceResourceType'] = $this->instanceResourceType;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
-        }
-        if (null !== $this->networkId) {
-            $res['NetworkId'] = $this->networkId;
-        }
-        if (null !== $this->orderByParams) {
-            $res['OrderByParams'] = $this->orderByParams;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->searchKey) {
-            $res['SearchKey'] = $this->searchKey;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->serviceStatus) {
-            $res['ServiceStatus'] = $this->serviceStatus;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->eipAddresses) {
+            if (\is_array($this->eipAddresses)) {
+                $res['EipAddresses'] = [];
+                $n1 = 0;
+                foreach ($this->eipAddresses as $item1) {
+                    $res['EipAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->ensRegionId) {
+            $res['EnsRegionId'] = $this->ensRegionId;
+        }
+
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
+        }
+
+        if (null !== $this->ensServiceId) {
+            $res['EnsServiceId'] = $this->ensServiceId;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->instanceResourceType) {
+            $res['InstanceResourceType'] = $this->instanceResourceType;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
+
+        if (null !== $this->networkId) {
+            $res['NetworkId'] = $this->networkId;
+        }
+
+        if (null !== $this->orderByParams) {
+            $res['OrderByParams'] = $this->orderByParams;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->serviceStatus) {
+            if (\is_array($this->serviceStatus)) {
+                $res['ServiceStatus'] = [];
+                $n1 = 0;
+                foreach ($this->serviceStatus as $item1) {
+                    $res['ServiceStatus'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -297,79 +262,115 @@ class DescribeInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnsRegionId'])) {
-            $model->ensRegionId = $map['EnsRegionId'];
-        }
-        if (isset($map['EnsRegionIds'])) {
-            $model->ensRegionIds = $map['EnsRegionIds'];
-        }
-        if (isset($map['EnsServiceId'])) {
-            $model->ensServiceId = $map['EnsServiceId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['InstanceResourceType'])) {
-            $model->instanceResourceType = $map['InstanceResourceType'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
-        }
-        if (isset($map['NetworkId'])) {
-            $model->networkId = $map['NetworkId'];
-        }
-        if (isset($map['OrderByParams'])) {
-            $model->orderByParams = $map['OrderByParams'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SearchKey'])) {
-            $model->searchKey = $map['SearchKey'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['ServiceStatus'])) {
-            if (!empty($map['ServiceStatus'])) {
-                $model->serviceStatus = $map['ServiceStatus'];
-            }
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+        if (isset($map['EipAddresses'])) {
+            if (!empty($map['EipAddresses'])) {
+                $model->eipAddresses = [];
+                $n1 = 0;
+                foreach ($map['EipAddresses'] as $item1) {
+                    $model->eipAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['EnsRegionId'])) {
+            $model->ensRegionId = $map['EnsRegionId'];
+        }
+
+        if (isset($map['EnsRegionIds'])) {
+            $model->ensRegionIds = $map['EnsRegionIds'];
+        }
+
+        if (isset($map['EnsServiceId'])) {
+            $model->ensServiceId = $map['EnsServiceId'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['InstanceResourceType'])) {
+            $model->instanceResourceType = $map['InstanceResourceType'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
+
+        if (isset($map['NetworkId'])) {
+            $model->networkId = $map['NetworkId'];
+        }
+
+        if (isset($map['OrderByParams'])) {
+            $model->orderByParams = $map['OrderByParams'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['ServiceStatus'])) {
+            if (!empty($map['ServiceStatus'])) {
+                $model->serviceStatus = [];
+                $n1 = 0;
+                foreach ($map['ServiceStatus'] as $item1) {
+                    $model->serviceStatus[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

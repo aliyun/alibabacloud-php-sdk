@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchAttributesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkInterfaceIds extends Model
 {
@@ -16,29 +16,47 @@ class networkInterfaceIds extends Model
         'networkInterfaceId' => 'NetworkInterfaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->networkInterfaceId)) {
+            Model::validateArray($this->networkInterfaceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+            if (\is_array($this->networkInterfaceId)) {
+                $res['NetworkInterfaceId'] = [];
+                $n1 = 0;
+                foreach ($this->networkInterfaceId as $item1) {
+                    $res['NetworkInterfaceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkInterfaceIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfaceId'])) {
             if (!empty($map['NetworkInterfaceId'])) {
-                $model->networkInterfaceId = $map['NetworkInterfaceId'];
+                $model->networkInterfaceId = [];
+                $n1 = 0;
+                foreach ($map['NetworkInterfaceId'] as $item1) {
+                    $model->networkInterfaceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

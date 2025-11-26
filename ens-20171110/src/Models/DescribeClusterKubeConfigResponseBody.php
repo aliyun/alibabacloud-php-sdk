@@ -4,49 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterKubeConfigResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c8f0377146d104687ac562eef9403****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The cluster certificate.
-     *
-     * @example apiVersion: v1
-     * clusters:
-     * - cluster:
-     * certificate-authority-data:***
-     * server: https://****:6443
-     * name: kubernetes
-     * contexts:
-     * - context:
-     * cluster: kubernetes
-     * user: "2580306074811*****"
-     * name: 258*******
-     * kind: Config
-     * users:
-     * - name: "2580306074811*****"
-     * user:
-     * client-certificate-data:***
-     * client-key-data: ***
-     *
      * @var string
      */
     public $kubeconfig;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -56,17 +28,22 @@ class DescribeClusterKubeConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->kubeconfig) {
             $res['Kubeconfig'] = $this->kubeconfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -74,20 +51,22 @@ class DescribeClusterKubeConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterKubeConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Kubeconfig'])) {
             $model->kubeconfig = $map['Kubeconfig'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

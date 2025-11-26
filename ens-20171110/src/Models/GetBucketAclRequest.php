@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetBucketAclRequest extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $bucketName;
@@ -22,9 +16,12 @@ class GetBucketAclRequest extends Model
         'bucketName' => 'BucketName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
@@ -34,11 +31,11 @@ class GetBucketAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBucketAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

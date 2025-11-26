@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReinitInstanceRequest extends Model
 {
     /**
-     * @description The ID of the image file that is used to reset the instance.
-     *
-     * This parameter is required.
-     *
-     * @example m-5wn1dhz5syoo9b48f440ntvad
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example i-5vn4n3y4laeb2ii9zxxltlvzi
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The password of the instance.
-     *
-     * It must be 8 to 30 characters in length. It must include at least three of the following characters types: uppercase letters, lowercase letters, digits, and special characters. The following special character are supported: `()\\"~! @#$%^&*-_+={}[]:;\\"<>,.?/`
-     *
-     * @example ***
-     *
      * @var string
      */
     public $password;
@@ -46,17 +28,22 @@ class ReinitInstanceRequest extends Model
         'password' => 'Password',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -64,20 +51,22 @@ class ReinitInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReinitInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

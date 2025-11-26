@@ -4,70 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayRequest extends Model
 {
     /**
-     * @description The ID of the Edge Node Service (ENS) node.
-     *
-     * This parameter is required.
-     *
-     * @example cn-suzhou-telecom
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The instance type of the NAT gateway. Set the value to **enat.default**.
-     *
-     * @example enat.default
-     *
+     * @var string
+     */
+    public $instanceBillingCycle;
+
+    /**
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The name of the NAT gateway. The name must be 1 to 128 characters in length. The name cannot start with `http://` or `https://`.
-     *
-     * @example name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the network.
-     *
-     * This parameter is required.
-     *
-     * @example n-5qj7ykuxmjn7k96l090sp****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * This parameter is required.
-     *
-     * @example vsw-5savh5ngxh8sbj14bu7n****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
+        'instanceBillingCycle' => 'InstanceBillingCycle',
         'instanceType' => 'InstanceType',
         'name' => 'Name',
         'networkId' => 'NetworkId',
@@ -75,32 +53,48 @@ class CreateNatGatewayRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
+        if (null !== $this->instanceBillingCycle) {
+            $res['InstanceBillingCycle'] = $this->instanceBillingCycle;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -108,35 +102,45 @@ class CreateNatGatewayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNatGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
+        if (isset($map['InstanceBillingCycle'])) {
+            $model->instanceBillingCycle = $map['InstanceBillingCycle'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

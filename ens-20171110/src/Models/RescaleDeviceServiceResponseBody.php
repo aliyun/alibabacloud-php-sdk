@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceResponseBody\resourceDetailInfos;
-use AlibabaCloud\Tea\Model;
 
 class RescaleDeviceServiceResponseBody extends Model
 {
     /**
-     * @description The IDs of the devices.
-     *
      * @var string[]
      */
     public $deviceIds;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example b3b5bb9a-4e0b-4cac-8ebf-e5e015726723
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3F3F3570-E721-53F6-853F-37B7725AC6CB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The key properties of the device.
-     *
      * @var resourceDetailInfos[]
      */
     public $resourceDetailInfos;
@@ -47,26 +35,46 @@ class RescaleDeviceServiceResponseBody extends Model
         'resourceDetailInfos' => 'ResourceDetailInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deviceIds)) {
+            Model::validateArray($this->deviceIds);
+        }
+        if (\is_array($this->resourceDetailInfos)) {
+            Model::validateArray($this->resourceDetailInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceIds) {
-            $res['DeviceIds'] = $this->deviceIds;
+            if (\is_array($this->deviceIds)) {
+                $res['DeviceIds'] = [];
+                $n1 = 0;
+                foreach ($this->deviceIds as $item1) {
+                    $res['DeviceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceDetailInfos) {
-            $res['ResourceDetailInfos'] = [];
-            if (null !== $this->resourceDetailInfos && \is_array($this->resourceDetailInfos)) {
-                $n = 0;
-                foreach ($this->resourceDetailInfos as $item) {
-                    $res['ResourceDetailInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceDetailInfos)) {
+                $res['ResourceDetailInfos'] = [];
+                $n1 = 0;
+                foreach ($this->resourceDetailInfos as $item1) {
+                    $res['ResourceDetailInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,31 +82,40 @@ class RescaleDeviceServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RescaleDeviceServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceIds'])) {
             if (!empty($map['DeviceIds'])) {
-                $model->deviceIds = $map['DeviceIds'];
+                $model->deviceIds = [];
+                $n1 = 0;
+                foreach ($map['DeviceIds'] as $item1) {
+                    $model->deviceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceDetailInfos'])) {
             if (!empty($map['ResourceDetailInfos'])) {
                 $model->resourceDetailInfos = [];
-                $n = 0;
-                foreach ($map['ResourceDetailInfos'] as $item) {
-                    $model->resourceDetailInfos[$n++] = null !== $item ? resourceDetailInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceDetailInfos'] as $item1) {
+                    $model->resourceDetailInfos[$n1] = resourceDetailInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGResponseBody\data\result\failedItems;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The number of failed tasks.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $failedCount;
 
     /**
-     * @description Details about the failed tasks.
-     *
      * @var failedItems[]
      */
     public $failedItems;
 
     /**
-     * @description The number of successful tasks.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $successCount;
@@ -39,23 +29,32 @@ class result extends Model
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedItems)) {
+            Model::validateArray($this->failedItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
+
         if (null !== $this->failedItems) {
-            $res['FailedItems'] = [];
-            if (null !== $this->failedItems && \is_array($this->failedItems)) {
-                $n = 0;
-                foreach ($this->failedItems as $item) {
-                    $res['FailedItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedItems)) {
+                $res['FailedItems'] = [];
+                $n1 = 0;
+                foreach ($this->failedItems as $item1) {
+                    $res['FailedItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
@@ -63,26 +62,29 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
+
         if (isset($map['FailedItems'])) {
             if (!empty($map['FailedItems'])) {
                 $model->failedItems = [];
-                $n = 0;
-                foreach ($map['FailedItems'] as $item) {
-                    $model->failedItems[$n++] = null !== $item ? failedItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailedItems'] as $item1) {
+                    $model->failedItems[$n1] = failedItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }

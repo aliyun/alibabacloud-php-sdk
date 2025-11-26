@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponseBody\podAbstractInfo\containerStatuses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class containerStatus extends Model
 {
     /**
-     * @description The ID of the container.
-     *
-     * @example container_e79_1638372147094_158091_02_000001
-     *
      * @var string
      */
     public $containerId;
 
     /**
-     * @description The name of the container.
-     *
-     * @example nginx
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class containerStatus extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class containerStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return containerStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

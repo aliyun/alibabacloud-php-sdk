@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleControlRequest\saleControls;
-use AlibabaCloud\Tea\Model;
 
 class DeleteEnsSaleControlRequest extends Model
 {
@@ -15,8 +15,6 @@ class DeleteEnsSaleControlRequest extends Model
     public $aliUidAccount;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $commodityCode;
@@ -27,8 +25,6 @@ class DeleteEnsSaleControlRequest extends Model
     public $customAccount;
 
     /**
-     * @description This parameter is required.
-     *
      * @var saleControls[]
      */
     public $saleControls;
@@ -39,26 +35,36 @@ class DeleteEnsSaleControlRequest extends Model
         'saleControls' => 'SaleControls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->saleControls)) {
+            Model::validateArray($this->saleControls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUidAccount) {
             $res['AliUidAccount'] = $this->aliUidAccount;
         }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->customAccount) {
             $res['CustomAccount'] = $this->customAccount;
         }
+
         if (null !== $this->saleControls) {
-            $res['SaleControls'] = [];
-            if (null !== $this->saleControls && \is_array($this->saleControls)) {
-                $n = 0;
-                foreach ($this->saleControls as $item) {
-                    $res['SaleControls'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->saleControls)) {
+                $res['SaleControls'] = [];
+                $n1 = 0;
+                foreach ($this->saleControls as $item1) {
+                    $res['SaleControls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,29 +72,33 @@ class DeleteEnsSaleControlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEnsSaleControlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUidAccount'])) {
             $model->aliUidAccount = $map['AliUidAccount'];
         }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['CustomAccount'])) {
             $model->customAccount = $map['CustomAccount'];
         }
+
         if (isset($map['SaleControls'])) {
             if (!empty($map['SaleControls'])) {
                 $model->saleControls = [];
-                $n = 0;
-                foreach ($map['SaleControls'] as $item) {
-                    $model->saleControls[$n++] = null !== $item ? saleControls::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SaleControls'] as $item1) {
+                    $model->saleControls[$n1] = saleControls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

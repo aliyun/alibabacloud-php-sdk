@@ -4,70 +4,44 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnInstanceAttributeResponseBody\confVersions;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnInstanceAttributeResponseBody\instances;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnInstanceAttributeResponseBody\vSwitches;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEpnInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The information about the EPN configurations.
-     *
      * @var confVersions[]
      */
     public $confVersions;
 
     /**
-     * @description The ID of the EPN instance.
-     *
-     * @example epn-xxxx
-     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
-     * @description The name of the EPN instance.
-     *
-     * @example epn-test
-     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
-     * @description The information about the instance.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The networking mode. Valid values:
-     *
-     *   SpeedUp: intelligent acceleration network (Internet)
-     *   Connection: internal network
-     *   SpeedUpAndConnection: intelligent acceleration network and internal network
-     *
-     * @example SpeedUp
-     *
      * @var string
      */
     public $networkingModel;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Details of the vSwitch.
-     *
      * @var vSwitches[]
      */
     public $vSwitches;
@@ -81,47 +55,68 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
         'vSwitches' => 'VSwitches',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->confVersions)) {
+            Model::validateArray($this->confVersions);
+        }
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        if (\is_array($this->vSwitches)) {
+            Model::validateArray($this->vSwitches);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confVersions) {
-            $res['ConfVersions'] = [];
-            if (null !== $this->confVersions && \is_array($this->confVersions)) {
-                $n = 0;
-                foreach ($this->confVersions as $item) {
-                    $res['ConfVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->confVersions)) {
+                $res['ConfVersions'] = [];
+                $n1 = 0;
+                foreach ($this->confVersions as $item1) {
+                    $res['ConfVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->EPNInstanceId) {
             $res['EPNInstanceId'] = $this->EPNInstanceId;
         }
+
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
         }
+
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->networkingModel) {
             $res['NetworkingModel'] = $this->networkingModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = [];
-            if (null !== $this->vSwitches && \is_array($this->vSwitches)) {
-                $n = 0;
-                foreach ($this->vSwitches as $item) {
-                    $res['VSwitches'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vSwitches)) {
+                $res['VSwitches'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitches as $item1) {
+                    $res['VSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,50 +124,59 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEpnInstanceAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfVersions'])) {
             if (!empty($map['ConfVersions'])) {
                 $model->confVersions = [];
-                $n = 0;
-                foreach ($map['ConfVersions'] as $item) {
-                    $model->confVersions[$n++] = null !== $item ? confVersions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfVersions'] as $item1) {
+                    $model->confVersions[$n1] = confVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EPNInstanceId'])) {
             $model->EPNInstanceId = $map['EPNInstanceId'];
         }
+
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
         }
+
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NetworkingModel'])) {
             $model->networkingModel = $map['NetworkingModel'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
-                $n = 0;
-                foreach ($map['VSwitches'] as $item) {
-                    $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VSwitches'] as $item1) {
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

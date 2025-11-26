@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponseBody\images;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponseBody\supportResources;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReservedResourceResponseBody extends Model
 {
     /**
-     * @description The returned service code. 0 indicates that the request was successful.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The information about the image.
-     *
      * @var images
      */
     public $images;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6666C5A5-75ED-422E-A022-7121FA18C968
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The resources.
-     *
      * @var supportResources
      */
     public $supportResources;
@@ -48,44 +36,59 @@ class DescribeReservedResourceResponseBody extends Model
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->images) {
+            $this->images->validate();
+        }
+        if (null !== $this->supportResources) {
+            $this->supportResources->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->images) {
-            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
+            $res['Images'] = null !== $this->images ? $this->images->toArray($noStream) : $this->images;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportResources) {
-            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toMap() : null;
+            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toArray($noStream) : $this->supportResources;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReservedResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Images'])) {
             $model->images = images::fromMap($map['Images']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportResources'])) {
             $model->supportResources = supportResources::fromMap($map['SupportResources']);
         }

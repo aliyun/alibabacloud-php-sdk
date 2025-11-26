@@ -4,55 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDisk extends Model
 {
     /**
-     * @description The category of the disk. Examples:
-     *
-     *   **cloud_efficiency**: ultra disk.
-     *   **cloud_ssd**: all-flash disk.
-     *   **local_hdd**: local HDD.
-     *   **local_ssd**: local SSD.
-     *
-     * @example cloud_efficiency
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description Specifies whether to encrypt the disk. Valid values:
-     *
-     *   true.
-     *   false (default).
-     *
-     * @example false
-     *
      * @var bool
      */
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used for the disk. Valid values:
-     *
-     *   true.
-     *   false (default).
-     *
-     * >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
-     *
-     * @example false
-     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
-     * @description The size of a data disk. Unit: GiB.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -63,20 +34,26 @@ class dataDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
+
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -84,23 +61,26 @@ class dataDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
+
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

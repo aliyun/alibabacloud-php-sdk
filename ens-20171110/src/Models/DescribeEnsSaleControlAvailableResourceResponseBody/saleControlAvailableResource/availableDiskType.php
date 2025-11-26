@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableDiskType extends Model
 {
@@ -22,14 +22,18 @@ class availableDiskType extends Model
         'diskType' => 'DiskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
+
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
@@ -37,17 +41,18 @@ class availableDiskType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableDiskType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
+
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }

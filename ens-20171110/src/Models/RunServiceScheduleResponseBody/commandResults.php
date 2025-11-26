@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponseBody\commandResults\commandResult;
-use AlibabaCloud\Tea\Model;
 
 class commandResults extends Model
 {
@@ -17,17 +17,24 @@ class commandResults extends Model
         'commandResult' => 'CommandResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commandResult)) {
+            Model::validateArray($this->commandResult);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandResult) {
-            $res['CommandResult'] = [];
-            if (null !== $this->commandResult && \is_array($this->commandResult)) {
-                $n = 0;
-                foreach ($this->commandResult as $item) {
-                    $res['CommandResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->commandResult)) {
+                $res['CommandResult'] = [];
+                $n1 = 0;
+                foreach ($this->commandResult as $item1) {
+                    $res['CommandResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class commandResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commandResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandResult'])) {
             if (!empty($map['CommandResult'])) {
                 $model->commandResult = [];
-                $n = 0;
-                foreach ($map['CommandResult'] as $item) {
-                    $model->commandResult[$n++] = null !== $item ? commandResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CommandResult'] as $item1) {
+                    $model->commandResult[$n1] = commandResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

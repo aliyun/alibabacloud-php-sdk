@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReinitInstancesShrinkRequest extends Model
 {
@@ -28,17 +28,22 @@ class ReinitInstancesShrinkRequest extends Model
         'password' => 'Password',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -46,20 +51,22 @@ class ReinitInstancesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReinitInstancesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

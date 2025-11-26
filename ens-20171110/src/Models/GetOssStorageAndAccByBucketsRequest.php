@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssStorageAndAccByBucketsRequest extends Model
 {
     /**
-     * @description The information about the bucket.
-     *
-     * @example my-bucket
-     *
      * @var string
      */
     public $bucketList;
@@ -20,9 +16,12 @@ class GetOssStorageAndAccByBucketsRequest extends Model
         'bucketList' => 'BucketList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketList) {
@@ -32,11 +31,11 @@ class GetOssStorageAndAccByBucketsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssStorageAndAccByBucketsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

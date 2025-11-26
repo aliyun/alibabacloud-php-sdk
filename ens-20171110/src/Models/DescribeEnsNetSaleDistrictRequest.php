@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsNetSaleDistrictRequest extends Model
 {
     /**
-     * @description The region code.
-     *
-     *   If you do not specify this parameter, only nodes under the area level that is specified by NetLevelCode are queried.
-     *   If you specify this parameter, only child nodes in the area that is specified by NetDistrictCode are queried.
-     *
-     * @example 100105
-     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
-     * @description The network level. Valid values:
-     *
-     *   **Big**: area
-     *   **Middle**: province
-     *   **Small**: city
-     *
-     * This parameter is required.
-     *
-     * @example Big
-     *
      * @var string
      */
     public $netLevelCode;
@@ -39,14 +22,18 @@ class DescribeEnsNetSaleDistrictRequest extends Model
         'netLevelCode' => 'NetLevelCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->netDistrictCode) {
             $res['NetDistrictCode'] = $this->netDistrictCode;
         }
+
         if (null !== $this->netLevelCode) {
             $res['NetLevelCode'] = $this->netLevelCode;
         }
@@ -54,17 +41,18 @@ class DescribeEnsNetSaleDistrictRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsNetSaleDistrictRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetDistrictCode'])) {
             $model->netDistrictCode = $map['NetDistrictCode'];
         }
+
         if (isset($map['NetLevelCode'])) {
             $model->netLevelCode = $map['NetLevelCode'];
         }

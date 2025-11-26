@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource\availableStorageType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableSpecialStorageType extends Model
 {
@@ -28,17 +28,22 @@ class availableSpecialStorageType extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+
         if (null !== $this->storageName) {
             $res['StorageName'] = $this->storageName;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
@@ -46,20 +51,22 @@ class availableSpecialStorageType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableSpecialStorageType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }
+
         if (isset($map['StorageName'])) {
             $model->storageName = $map['StorageName'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }

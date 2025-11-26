@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetBucketLifecycleRequest extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * This parameter is required.
-     *
-     * @example tese
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @description The ID of the rule that you want to query. If this parameter is not specified, all rules are returned.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $ruleId;
@@ -32,14 +22,18 @@ class GetBucketLifecycleRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -47,17 +41,18 @@ class GetBucketLifecycleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBucketLifecycleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

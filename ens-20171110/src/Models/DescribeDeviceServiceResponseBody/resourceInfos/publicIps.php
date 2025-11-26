@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\resourceInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class publicIps extends Model
 {
     /**
-     * @description The public IP address.
-     *
-     * @example 122.13.173.137
-     *
      * @var string
      */
     public $ip;
@@ -20,9 +16,12 @@ class publicIps extends Model
         'ip' => 'Ip',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
@@ -32,11 +31,11 @@ class publicIps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return publicIps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

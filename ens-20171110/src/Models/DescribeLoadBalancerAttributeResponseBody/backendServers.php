@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backendServers extends Model
 {
     /**
-     * @description The IP address of the backend server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The port that is used by the backend server.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The ID of the backend server.
-     *
-     * @example i-5vb5h5njxiuhn48a****
-     *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description The type of backend server.
-     *
-     * @example ens
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The weight of the backend server.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -60,23 +40,30 @@ class backendServers extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -84,26 +71,30 @@ class backendServers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendServers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

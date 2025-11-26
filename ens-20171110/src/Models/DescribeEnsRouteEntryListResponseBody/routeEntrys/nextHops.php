@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponseBody\routeEntrys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nextHops extends Model
 {
     /**
-     * @description The ID of the next hop.
-     *
-     * @example i-bp1111yup9991890woxq
-     *
      * @var string
      */
     public $nextHopId;
 
     /**
-     * @description The instance ID of the next hop.
-     *
-     * @example testInstance
-     *
      * @var string
      */
     public $nextHopName;
 
     /**
-     * @description The type of the next hop. Valid values:
-     *
-     * @example Instance
-     *
      * @var string
      */
     public $nextHopType;
@@ -40,17 +28,22 @@ class nextHops extends Model
         'nextHopType' => 'NextHopType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+
         if (null !== $this->nextHopName) {
             $res['NextHopName'] = $this->nextHopName;
         }
+
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
@@ -58,20 +51,22 @@ class nextHops extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nextHops
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
+
         if (isset($map['NextHopName'])) {
             $model->nextHopName = $map['NextHopName'];
         }
+
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }

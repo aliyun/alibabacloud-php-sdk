@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSDGRequest extends Model
 {
     /**
-     * @description The IDs of the SDGs that you want to delete.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $SDGId;
@@ -20,29 +16,47 @@ class DeleteSDGRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->SDGId)) {
+            Model::validateArray($this->SDGId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SDGId) {
-            $res['SDGId'] = $this->SDGId;
+            if (\is_array($this->SDGId)) {
+                $res['SDGId'] = [];
+                $n1 = 0;
+                foreach ($this->SDGId as $item1) {
+                    $res['SDGId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SDGId'])) {
             if (!empty($map['SDGId'])) {
-                $model->SDGId = $map['SDGId'];
+                $model->SDGId = [];
+                $n1 = 0;
+                foreach ($map['SDGId'] as $item1) {
+                    $model->SDGId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

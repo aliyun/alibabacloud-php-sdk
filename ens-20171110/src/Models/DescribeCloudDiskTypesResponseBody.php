@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesResponseBody\supportResources;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudDiskTypesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 77990CEE-B714-5702-BDE6-943F702277DD
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The specifications of resources that you can purchase.
-     *
      * @var supportResources
      */
     public $supportResources;
@@ -29,32 +23,40 @@ class DescribeCloudDiskTypesResponseBody extends Model
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->supportResources) {
+            $this->supportResources->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportResources) {
-            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toMap() : null;
+            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toArray($noStream) : $this->supportResources;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudDiskTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportResources'])) {
             $model->supportResources = supportResources::fromMap($map['SupportResources']);
         }

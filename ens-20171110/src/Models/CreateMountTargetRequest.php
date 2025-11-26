@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMountTargetRequest extends Model
 {
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing-cmcc
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The ID of the file system.
-     *
-     * This parameter is required.
-     *
-     * @example c50f8*****
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @description The name of the mount target.
-     *
-     * This parameter is required.
-     *
-     * @example TestMountPath
-     *
      * @var string
      */
     public $mountTargetName;
 
     /**
-     * @description The ID of the network.
-     *
-     * This parameter is required.
-     *
-     * @example n-*****
-     *
      * @var string
      */
     public $netWorkId;
@@ -58,20 +34,26 @@ class CreateMountTargetRequest extends Model
         'netWorkId' => 'NetWorkId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->mountTargetName) {
             $res['MountTargetName'] = $this->mountTargetName;
         }
+
         if (null !== $this->netWorkId) {
             $res['NetWorkId'] = $this->netWorkId;
         }
@@ -79,23 +61,26 @@ class CreateMountTargetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMountTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['MountTargetName'])) {
             $model->mountTargetName = $map['MountTargetName'];
         }
+
         if (isset($map['NetWorkId'])) {
             $model->netWorkId = $map['NetWorkId'];
         }

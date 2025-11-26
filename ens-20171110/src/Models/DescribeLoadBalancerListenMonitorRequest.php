@@ -4,59 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLoadBalancerListenMonitorRequest extends Model
 {
     /**
-     * @description The end of the time range to query.
-     *
-     * This parameter is required.
-     *
-     * @example 2024-01-30 08:00:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the ELB instance.
-     *
-     * This parameter is required.
-     *
-     * @example lb-5q73cv04zeyh43lh74lp4****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The network protocol, such as tcp or udp.
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $proto;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * This parameter is required.
-     *
-     * @example 2024-01-15 16:00:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The virtual IP address (VIP) port of the ELB instance.
-     *
-     * This parameter is required.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $VPort;
@@ -68,23 +40,30 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
         'VPort' => 'VPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->VPort) {
             $res['VPort'] = $this->VPort;
         }
@@ -92,26 +71,30 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoadBalancerListenMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['VPort'])) {
             $model->VPort = $map['VPort'];
         }

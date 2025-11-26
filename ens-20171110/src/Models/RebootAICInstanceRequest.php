@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebootAICInstanceRequest extends Model
 {
     /**
-     * @description The ID of the AIC instance.
-     *
-     * @example aic-instance****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The IDs of the AIC instance groups.
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example cas-instance****
-     *
      * @var string
      */
     public $serverId;
@@ -38,17 +28,32 @@ class RebootAICInstanceRequest extends Model
         'serverId' => 'ServerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
@@ -56,22 +61,29 @@ class RebootAICInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebootAICInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }

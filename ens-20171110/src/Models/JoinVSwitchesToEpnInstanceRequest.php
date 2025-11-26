@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JoinVSwitchesToEpnInstanceRequest extends Model
 {
     /**
-     * @description The ID of the edge network instance.
-     *
-     * This parameter is required.
-     *
-     * @example epn-xxxx
-     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
-     * @description The information about the internal networking to which you want to add the edge network instance.
-     *
-     * This parameter is required.
-     *
-     * @example [{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
-     *
      * @var string
      */
     public $vSwitchesInfo;
@@ -34,14 +22,18 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
         'vSwitchesInfo' => 'VSwitchesInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EPNInstanceId) {
             $res['EPNInstanceId'] = $this->EPNInstanceId;
         }
+
         if (null !== $this->vSwitchesInfo) {
             $res['VSwitchesInfo'] = $this->vSwitchesInfo;
         }
@@ -49,17 +41,18 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JoinVSwitchesToEpnInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EPNInstanceId'])) {
             $model->EPNInstanceId = $map['EPNInstanceId'];
         }
+
         if (isset($map['VSwitchesInfo'])) {
             $model->vSwitchesInfo = $map['VSwitchesInfo'];
         }

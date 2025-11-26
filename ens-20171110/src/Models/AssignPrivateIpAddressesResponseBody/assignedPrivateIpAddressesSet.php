@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
-     * @description The ID of the ENI.
-     *
-     * @example eni-uf620pb4d19ljnu4a64m
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description The assigned private IP addresses.
-     *
      * @var string[]
      */
     public $privateIpSet;
@@ -28,35 +22,55 @@ class assignedPrivateIpAddressesSet extends Model
         'privateIpSet' => 'PrivateIpSet',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->privateIpSet)) {
+            Model::validateArray($this->privateIpSet);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->privateIpSet) {
-            $res['PrivateIpSet'] = $this->privateIpSet;
+            if (\is_array($this->privateIpSet)) {
+                $res['PrivateIpSet'] = [];
+                $n1 = 0;
+                foreach ($this->privateIpSet as $item1) {
+                    $res['PrivateIpSet'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assignedPrivateIpAddressesSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['PrivateIpSet'])) {
             if (!empty($map['PrivateIpSet'])) {
-                $model->privateIpSet = $map['PrivateIpSet'];
+                $model->privateIpSet = [];
+                $n1 = 0;
+                foreach ($map['PrivateIpSet'] as $item1) {
+                    $model->privateIpSet[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

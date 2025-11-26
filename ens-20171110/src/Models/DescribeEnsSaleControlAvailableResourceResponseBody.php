@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEnsSaleControlAvailableResourceResponseBody extends Model
 {
@@ -23,20 +23,28 @@ class DescribeEnsSaleControlAvailableResourceResponseBody extends Model
         'saleControlAvailableResource' => 'SaleControlAvailableResource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->saleControlAvailableResource)) {
+            Model::validateArray($this->saleControlAvailableResource);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->saleControlAvailableResource) {
-            $res['SaleControlAvailableResource'] = [];
-            if (null !== $this->saleControlAvailableResource && \is_array($this->saleControlAvailableResource)) {
-                $n = 0;
-                foreach ($this->saleControlAvailableResource as $item) {
-                    $res['SaleControlAvailableResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->saleControlAvailableResource)) {
+                $res['SaleControlAvailableResource'] = [];
+                $n1 = 0;
+                foreach ($this->saleControlAvailableResource as $item1) {
+                    $res['SaleControlAvailableResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -44,23 +52,25 @@ class DescribeEnsSaleControlAvailableResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsSaleControlAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SaleControlAvailableResource'])) {
             if (!empty($map['SaleControlAvailableResource'])) {
                 $model->saleControlAvailableResource = [];
-                $n = 0;
-                foreach ($map['SaleControlAvailableResource'] as $item) {
-                    $model->saleControlAvailableResource[$n++] = null !== $item ? saleControlAvailableResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SaleControlAvailableResource'] as $item1) {
+                    $model->saleControlAvailableResource[$n1] = saleControlAvailableResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

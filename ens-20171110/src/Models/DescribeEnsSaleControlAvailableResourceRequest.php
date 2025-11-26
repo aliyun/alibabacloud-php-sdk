@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsSaleControlAvailableResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $commodityCode;
@@ -30,17 +28,22 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
         'orderType' => 'OrderType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->customAccount) {
             $res['CustomAccount'] = $this->customAccount;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -48,20 +51,22 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsSaleControlAvailableResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['CustomAccount'])) {
             $model->customAccount = $map['CustomAccount'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

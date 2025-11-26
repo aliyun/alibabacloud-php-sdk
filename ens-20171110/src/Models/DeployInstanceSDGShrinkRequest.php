@@ -4,55 +4,66 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeployInstanceSDGShrinkRequest extends Model
 {
     /**
-     * @description The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
-     *
-     * @example shared
-     *
      * @var string
      */
     public $deploymentType;
 
     /**
-     * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
-     *
-     * This parameter is required.
-     *
+     * @var string
+     */
+    public $diskAccessProtocol;
+
+    /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string
      */
     public $instanceIdsShrink;
 
     /**
-     * @description The ID of the SDG.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxx
-     *
      * @var string
      */
     public $SDGId;
     protected $_name = [
         'deploymentType' => 'DeploymentType',
+        'diskAccessProtocol' => 'DiskAccessProtocol',
+        'diskType' => 'DiskType',
         'instanceIdsShrink' => 'InstanceIds',
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentType) {
             $res['DeploymentType'] = $this->deploymentType;
         }
+
+        if (null !== $this->diskAccessProtocol) {
+            $res['DiskAccessProtocol'] = $this->diskAccessProtocol;
+        }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -60,20 +71,30 @@ class DeployInstanceSDGShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeployInstanceSDGShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentType'])) {
             $model->deploymentType = $map['DeploymentType'];
         }
+
+        if (isset($map['DiskAccessProtocol'])) {
+            $model->diskAccessProtocol = $map['DiskAccessProtocol'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

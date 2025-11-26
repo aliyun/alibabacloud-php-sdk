@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceResponseBody\images;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceResponseBody\supportResources;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
-     * @description The returned service code. 0 indicates that the request was successful.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The details of the images.
-     *
      * @var images
      */
     public $images;
 
     /**
-     * @description The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The specifications of resources that you can purchase.
-     *
      * @var supportResources
      */
     public $supportResources;
@@ -48,44 +36,59 @@ class DescribeAvailableResourceResponseBody extends Model
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->images) {
+            $this->images->validate();
+        }
+        if (null !== $this->supportResources) {
+            $this->supportResources->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->images) {
-            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
+            $res['Images'] = null !== $this->images ? $this->images->toArray($noStream) : $this->images;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportResources) {
-            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toMap() : null;
+            $res['SupportResources'] = null !== $this->supportResources ? $this->supportResources->toArray($noStream) : $this->supportResources;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Images'])) {
             $model->images = images::fromMap($map['Images']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportResources'])) {
             $model->supportResources = supportResources::fromMap($map['SupportResources']);
         }

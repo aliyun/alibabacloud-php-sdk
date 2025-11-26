@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssUsageDataResponseBody\usageList;
-use AlibabaCloud\Tea\Model;
 
 class GetOssUsageDataResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2A8CCD48-14F9-0309-B957-7B1D74A8119D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The array of usage data.
-     *
      * @var usageList[]
      */
     public $usageList;
@@ -29,20 +23,28 @@ class GetOssUsageDataResponseBody extends Model
         'usageList' => 'UsageList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->usageList)) {
+            Model::validateArray($this->usageList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->usageList) {
-            $res['UsageList'] = [];
-            if (null !== $this->usageList && \is_array($this->usageList)) {
-                $n = 0;
-                foreach ($this->usageList as $item) {
-                    $res['UsageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->usageList)) {
+                $res['UsageList'] = [];
+                $n1 = 0;
+                foreach ($this->usageList as $item1) {
+                    $res['UsageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class GetOssUsageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssUsageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UsageList'])) {
             if (!empty($map['UsageList'])) {
                 $model->usageList = [];
-                $n = 0;
-                foreach ($map['UsageList'] as $item) {
-                    $model->usageList[$n++] = null !== $item ? usageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UsageList'] as $item1) {
+                    $model->usageList[$n1] = usageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

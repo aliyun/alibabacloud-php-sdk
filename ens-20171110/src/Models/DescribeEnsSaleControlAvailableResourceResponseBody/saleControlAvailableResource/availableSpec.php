@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableSpec extends Model
 {
@@ -34,20 +34,26 @@ class availableSpec extends Model
         'specValue' => 'SpecValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
+
         if (null !== $this->specValue) {
             $res['SpecValue'] = $this->specValue;
         }
@@ -55,23 +61,26 @@ class availableSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
         }
+
         if (isset($map['SpecValue'])) {
             $model->specValue = $map['SpecValue'];
         }

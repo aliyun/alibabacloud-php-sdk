@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerListenMonitorResponseBody\loadBalancerMonitorListenData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLoadBalancerListenMonitorResponseBody extends Model
 {
     /**
-     * @description The TCP/UDP monitoring data of the ELB instance.
-     *
      * @var loadBalancerMonitorListenData[]
      */
     public $loadBalancerMonitorListenData;
 
     /**
-     * @description Id of the request.
-     *
-     * @example C0003E8B-B930-4F59-ADC0-0E209A9012A8
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeLoadBalancerListenMonitorResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->loadBalancerMonitorListenData)) {
+            Model::validateArray($this->loadBalancerMonitorListenData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerMonitorListenData) {
-            $res['LoadBalancerMonitorListenData'] = [];
-            if (null !== $this->loadBalancerMonitorListenData && \is_array($this->loadBalancerMonitorListenData)) {
-                $n = 0;
-                foreach ($this->loadBalancerMonitorListenData as $item) {
-                    $res['LoadBalancerMonitorListenData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->loadBalancerMonitorListenData)) {
+                $res['LoadBalancerMonitorListenData'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancerMonitorListenData as $item1) {
+                    $res['LoadBalancerMonitorListenData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeLoadBalancerListenMonitorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoadBalancerListenMonitorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerMonitorListenData'])) {
             if (!empty($map['LoadBalancerMonitorListenData'])) {
                 $model->loadBalancerMonitorListenData = [];
-                $n = 0;
-                foreach ($map['LoadBalancerMonitorListenData'] as $item) {
-                    $model->loadBalancerMonitorListenData[$n++] = null !== $item ? loadBalancerMonitorListenData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LoadBalancerMonitorListenData'] as $item1) {
+                    $model->loadBalancerMonitorListenData[$n1] = loadBalancerMonitorListenData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

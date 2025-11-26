@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsResourceUsageRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
-     *
-     * @example 2018-06-15T09:07:23Z
-     *
      * @var string
      */
     public $expiredEndTime;
 
     /**
-     * @description The beginning of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
-     *
-     * @example 2018-06-15T09:07:23Z
-     *
      * @var string
      */
     public $expiredStartTime;
@@ -30,14 +22,18 @@ class DescribeEnsResourceUsageRequest extends Model
         'expiredStartTime' => 'ExpiredStartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiredEndTime) {
             $res['ExpiredEndTime'] = $this->expiredEndTime;
         }
+
         if (null !== $this->expiredStartTime) {
             $res['ExpiredStartTime'] = $this->expiredStartTime;
         }
@@ -45,17 +41,18 @@ class DescribeEnsResourceUsageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsResourceUsageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpiredEndTime'])) {
             $model->expiredEndTime = $map['ExpiredEndTime'];
         }
+
         if (isset($map['ExpiredStartTime'])) {
             $model->expiredStartTime = $map['ExpiredStartTime'];
         }

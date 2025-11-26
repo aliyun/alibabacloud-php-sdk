@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopySDGRequest extends Model
 {
     /**
-     * @description The destination nodes.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $destinationRegionIds;
 
     /**
-     * @description The ID of the SDG that you want to copy.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxx
-     *
      * @var string
      */
     public $SDGId;
@@ -32,14 +22,28 @@ class CopySDGRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->destinationRegionIds)) {
+            Model::validateArray($this->destinationRegionIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionIds) {
-            $res['DestinationRegionIds'] = $this->destinationRegionIds;
+            if (\is_array($this->destinationRegionIds)) {
+                $res['DestinationRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->destinationRegionIds as $item1) {
+                    $res['DestinationRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -47,19 +51,25 @@ class CopySDGRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopySDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionIds'])) {
             if (!empty($map['DestinationRegionIds'])) {
-                $model->destinationRegionIds = $map['DestinationRegionIds'];
+                $model->destinationRegionIds = [];
+                $n1 = 0;
+                foreach ($map['DestinationRegionIds'] as $item1) {
+                    $model->destinationRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

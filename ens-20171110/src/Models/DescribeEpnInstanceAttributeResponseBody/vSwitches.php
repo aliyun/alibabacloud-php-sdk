@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnInstanceAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitches extends Model
 {
     /**
-     * @description The CIDR block.
-     *
-     * @example 10.0.0.1/24
-     *
      * @var string
      */
     public $cidrBlock;
 
     /**
-     * @description The ID of the node.
-     *
-     * @example cn-chengdu-telecom-4
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vs-xxxx
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The name of the vSwitch.
-     *
-     * @example vs-test
-     *
      * @var string
      */
     public $vSwitchName;
@@ -50,20 +34,26 @@ class vSwitches extends Model
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
         }
@@ -71,23 +61,26 @@ class vSwitches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
         }

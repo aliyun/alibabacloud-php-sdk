@@ -4,44 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopySnapshotRequest extends Model
 {
     /**
-     * @description The IDs of destination nodes.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $destinationRegionIds;
 
     /**
-     * @description The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $destinationSnapshotDescription;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-     *
-     * @example testSnapshotName
-     *
      * @var string
      */
     public $destinationSnapshotName;
 
     /**
-     * @description The ID of the source snapshot.
-     *
-     * This parameter is required.
-     *
-     * @example sp-bp1c0doj0taqyzzl****
-     *
+     * @var string
+     */
+    public $instanceBillingCycle;
+
+    /**
      * @var string
      */
     public $snapshotId;
@@ -49,23 +36,44 @@ class CopySnapshotRequest extends Model
         'destinationRegionIds' => 'DestinationRegionIds',
         'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
         'destinationSnapshotName' => 'DestinationSnapshotName',
+        'instanceBillingCycle' => 'InstanceBillingCycle',
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->destinationRegionIds)) {
+            Model::validateArray($this->destinationRegionIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionIds) {
-            $res['DestinationRegionIds'] = $this->destinationRegionIds;
+            if (\is_array($this->destinationRegionIds)) {
+                $res['DestinationRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->destinationRegionIds as $item1) {
+                    $res['DestinationRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->destinationSnapshotDescription) {
             $res['DestinationSnapshotDescription'] = $this->destinationSnapshotDescription;
         }
+
         if (null !== $this->destinationSnapshotName) {
             $res['DestinationSnapshotName'] = $this->destinationSnapshotName;
         }
+
+        if (null !== $this->instanceBillingCycle) {
+            $res['InstanceBillingCycle'] = $this->instanceBillingCycle;
+        }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -73,25 +81,37 @@ class CopySnapshotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopySnapshotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionIds'])) {
             if (!empty($map['DestinationRegionIds'])) {
-                $model->destinationRegionIds = $map['DestinationRegionIds'];
+                $model->destinationRegionIds = [];
+                $n1 = 0;
+                foreach ($map['DestinationRegionIds'] as $item1) {
+                    $model->destinationRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DestinationSnapshotDescription'])) {
             $model->destinationSnapshotDescription = $map['DestinationSnapshotDescription'];
         }
+
         if (isset($map['DestinationSnapshotName'])) {
             $model->destinationSnapshotName = $map['DestinationSnapshotName'];
         }
+
+        if (isset($map['InstanceBillingCycle'])) {
+            $model->instanceBillingCycle = $map['InstanceBillingCycle'];
+        }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }

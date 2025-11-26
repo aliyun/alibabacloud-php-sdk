@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNatGatewaysRequest extends Model
 {
     /**
-     * @description The ID of the Edge Node Service (ENS) node.
-     *
-     * @example cn-wuxi-9
-     *
      * @var string
      */
     public $ensRegionId;
@@ -23,19 +19,11 @@ class DescribeNatGatewaysRequest extends Model
     public $ensRegionIds;
 
     /**
-     * @description The name of the NAT gateway.
-     *
-     * @example test0
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * @example nat-5t7nh1cfm6kxiszlttr38****
-     *
      * @var string
      */
     public $natGatewayId;
@@ -46,41 +34,21 @@ class DescribeNatGatewaysRequest extends Model
     public $natGatewayIds;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-2zeuphj08tt7q3brd****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The page number. Pages start from page **1**.
-     *
-     * Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. The maximum value is **100**.
-     *
-     * Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-5rllcjb3ol6duzjdnbm1o****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -96,35 +64,66 @@ class DescribeNatGatewaysRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensRegionIds)) {
+            Model::validateArray($this->ensRegionIds);
+        }
+        if (\is_array($this->natGatewayIds)) {
+            Model::validateArray($this->natGatewayIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ensRegionIds) {
-            $res['EnsRegionIds'] = $this->ensRegionIds;
+            if (\is_array($this->ensRegionIds)) {
+                $res['EnsRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->ensRegionIds as $item1) {
+                    $res['EnsRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->natGatewayIds) {
-            $res['NatGatewayIds'] = $this->natGatewayIds;
+            if (\is_array($this->natGatewayIds)) {
+                $res['NatGatewayIds'] = [];
+                $n1 = 0;
+                foreach ($this->natGatewayIds as $item1) {
+                    $res['NatGatewayIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -132,42 +131,60 @@ class DescribeNatGatewaysRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNatGatewaysRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['EnsRegionIds'])) {
             if (!empty($map['EnsRegionIds'])) {
-                $model->ensRegionIds = $map['EnsRegionIds'];
+                $model->ensRegionIds = [];
+                $n1 = 0;
+                foreach ($map['EnsRegionIds'] as $item1) {
+                    $model->ensRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['NatGatewayIds'])) {
             if (!empty($map['NatGatewayIds'])) {
-                $model->natGatewayIds = $map['NatGatewayIds'];
+                $model->natGatewayIds = [];
+                $n1 = 0;
+                foreach ($map['NatGatewayIds'] as $item1) {
+                    $model->natGatewayIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

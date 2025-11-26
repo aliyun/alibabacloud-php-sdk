@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutBucketRequest extends Model
 {
@@ -14,8 +14,6 @@ class PutBucketRequest extends Model
     public $bucketAcl;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $bucketName;
@@ -48,26 +46,34 @@ class PutBucketRequest extends Model
         'logicalBucketType' => 'LogicalBucketType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketAcl) {
             $res['BucketAcl'] = $this->bucketAcl;
         }
+
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->dispatchScope) {
             $res['DispatchScope'] = $this->dispatchScope;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->logicalBucketType) {
             $res['LogicalBucketType'] = $this->logicalBucketType;
         }
@@ -75,29 +81,34 @@ class PutBucketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutBucketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketAcl'])) {
             $model->bucketAcl = $map['BucketAcl'];
         }
+
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['DispatchScope'])) {
             $model->dispatchScope = $map['DispatchScope'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['LogicalBucketType'])) {
             $model->logicalBucketType = $map['LogicalBucketType'];
         }

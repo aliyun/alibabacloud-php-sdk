@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeAICInstanceImageShrinkRequest extends Model
 {
     /**
-     * @description The ID of the AIC image.
-     *
-     * This parameter is required.
-     *
-     * @example m-****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The IDs of the servers.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $serverIdsShrink;
 
     /**
-     * @description The timeout period of the update. Unit: seconds.
-     *
-     * @example 1800
-     *
      * @var int
      */
     public $timeout;
@@ -42,17 +28,22 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
         'timeout' => 'Timeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->serverIdsShrink) {
             $res['ServerIds'] = $this->serverIdsShrink;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -60,20 +51,22 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeAICInstanceImageShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ServerIds'])) {
             $model->serverIdsShrink = $map['ServerIds'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

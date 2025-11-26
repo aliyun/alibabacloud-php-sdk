@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterKubeConfigRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c8f0377146d104687ac562eef9403****
-     *
      * @var string
      */
     public $clusterId;
@@ -20,9 +16,12 @@ class DescribeClusterKubeConfigRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -32,11 +31,11 @@ class DescribeClusterKubeConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterKubeConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCreatePrePaidInstanceResultRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the CreateIntance operation to create an instance.
-     *
-     * This parameter is required.
-     *
-     * @example i-6ecpqvkicnchxccozrp****
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +16,12 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCreatePrePaidInstanceResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

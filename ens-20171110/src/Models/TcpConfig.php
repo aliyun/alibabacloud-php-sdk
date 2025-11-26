@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TcpConfig extends Model
 {
@@ -28,17 +28,22 @@ class TcpConfig extends Model
         'scheduler' => 'Scheduler',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->establishedTimeout) {
             $res['EstablishedTimeout'] = $this->establishedTimeout;
         }
+
         if (null !== $this->persistenceTimeout) {
             $res['PersistenceTimeout'] = $this->persistenceTimeout;
         }
+
         if (null !== $this->scheduler) {
             $res['Scheduler'] = $this->scheduler;
         }
@@ -46,20 +51,22 @@ class TcpConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TcpConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EstablishedTimeout'])) {
             $model->establishedTimeout = $map['EstablishedTimeout'];
         }
+
         if (isset($map['PersistenceTimeout'])) {
             $model->persistenceTimeout = $map['PersistenceTimeout'];
         }
+
         if (isset($map['Scheduler'])) {
             $model->scheduler = $map['Scheduler'];
         }

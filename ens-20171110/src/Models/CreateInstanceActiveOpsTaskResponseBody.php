@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceActiveOpsTaskResponseBody extends Model
 {
@@ -22,14 +22,21 @@ class CreateInstanceActiveOpsTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceActiveOpsTask) {
+            $this->instanceActiveOpsTask->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceActiveOpsTask) {
-            $res['InstanceActiveOpsTask'] = null !== $this->instanceActiveOpsTask ? $this->instanceActiveOpsTask->toMap() : null;
+            $res['InstanceActiveOpsTask'] = null !== $this->instanceActiveOpsTask ? $this->instanceActiveOpsTask->toArray($noStream) : $this->instanceActiveOpsTask;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,17 +44,18 @@ class CreateInstanceActiveOpsTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceActiveOpsTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceActiveOpsTask'])) {
             $model->instanceActiveOpsTask = InstanceActiveOpsTask::fromMap($map['InstanceActiveOpsTask']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

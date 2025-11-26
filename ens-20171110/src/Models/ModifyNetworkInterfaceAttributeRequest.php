@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description The description. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the ENI.
-     *
-     * This parameter is required.
-     *
-     * @example eni-5f6533jbifugr5fo***
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http:// or https://.
-     *
-     * @example test-01
-     *
      * @var string
      */
     public $networkInterfaceName;
@@ -42,17 +28,22 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         'networkInterfaceName' => 'NetworkInterfaceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
         }
@@ -60,20 +51,22 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNetworkInterfaceAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
         }

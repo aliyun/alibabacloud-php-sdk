@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteApplicationRequest extends Model
 {
     /**
-     * @description The ID of the application. To obtain the application ID, call the ListApplication operation.
-     *
-     * This parameter is required.
-     *
-     * @example d0639abf-789a-4527-b420-031d2cd9ad9b
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The timeout period for the asynchronous release. Unit: seconds. Default value: 300.
-     *
-     * @example 1800
-     *
      * @var int
      */
     public $timeout;
@@ -32,14 +22,18 @@ class DeleteApplicationRequest extends Model
         'timeout' => 'Timeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -47,17 +41,18 @@ class DeleteApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

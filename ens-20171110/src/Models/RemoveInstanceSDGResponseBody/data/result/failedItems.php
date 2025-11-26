@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RemoveInstanceSDGResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failedItems extends Model
 {
     /**
-     * @description The error message that is returned.
-     *
-     * @example sdg not found
-     *
      * @var string
      */
     public $errMessage;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example aic-xxxxx-0
-     *
      * @var string
      */
     public $instanceId;
@@ -30,14 +22,18 @@ class failedItems extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -45,17 +41,18 @@ class failedItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

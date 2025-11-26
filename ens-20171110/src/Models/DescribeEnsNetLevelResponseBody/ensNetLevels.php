@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsNetLevelResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsNetLevelResponseBody\ensNetLevels\ensNetLevel;
-use AlibabaCloud\Tea\Model;
 
 class ensNetLevels extends Model
 {
@@ -17,17 +17,24 @@ class ensNetLevels extends Model
         'ensNetLevel' => 'EnsNetLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensNetLevel)) {
+            Model::validateArray($this->ensNetLevel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensNetLevel) {
-            $res['EnsNetLevel'] = [];
-            if (null !== $this->ensNetLevel && \is_array($this->ensNetLevel)) {
-                $n = 0;
-                foreach ($this->ensNetLevel as $item) {
-                    $res['EnsNetLevel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ensNetLevel)) {
+                $res['EnsNetLevel'] = [];
+                $n1 = 0;
+                foreach ($this->ensNetLevel as $item1) {
+                    $res['EnsNetLevel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ensNetLevels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ensNetLevels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsNetLevel'])) {
             if (!empty($map['EnsNetLevel'])) {
                 $model->ensNetLevel = [];
-                $n = 0;
-                foreach ($map['EnsNetLevel'] as $item) {
-                    $model->ensNetLevel[$n++] = null !== $item ? ensNetLevel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnsNetLevel'] as $item1) {
+                    $model->ensNetLevel[$n1] = ensNetLevel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

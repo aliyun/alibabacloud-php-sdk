@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEpnInstancesRequest extends Model
 {
     /**
-     * @description The version number.
-     *
-     * @example 2017-11-10
-     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
-     * @description The name of the EPN instance.
-     *
-     * @example testEPNInstanceName
-     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -50,20 +34,26 @@ class DescribeEpnInstancesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EPNInstanceId) {
             $res['EPNInstanceId'] = $this->EPNInstanceId;
         }
+
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -71,23 +61,26 @@ class DescribeEpnInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEpnInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EPNInstanceId'])) {
             $model->EPNInstanceId = $map['EPNInstanceId'];
         }
+
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

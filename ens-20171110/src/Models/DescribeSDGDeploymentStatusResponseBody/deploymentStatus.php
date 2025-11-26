@@ -4,75 +4,64 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deploymentStatus extends Model
 {
     /**
-     * @description The ID of the AIC instance.
-     *
-     * @example aic-xxxx
-     *
+     * @var int
+     */
+    public $blockRwSplitSize;
+
+    /**
+     * @var int
+     */
+    public $cacheSize;
+
+    /**
+     * @var string
+     */
+    public $diskAccessProtocol;
+
+    /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The deployment type.
-     *
-     * Valid values:
-     *
-     *   overlay: read/write splitting.
-     *   common: common deployment.
-     *
-     * @example overlay
-     *
      * @var string
      */
     public $mountType;
 
     /**
-     * @description The deployment phase of the SDG.
-     *
-     * @example attach
-     *
      * @var string
      */
     public $phase;
 
     /**
-     * @description The ID of the edge node.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The deployment status of the SDG.
-     *
-     * Valid values:
-     *
-     *   sdg_deploying
-     *   success
-     *   failed
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The time when the status was last updated.
-     *
-     * @example 2023-02-17T02:44:31Z
-     *
      * @var string
      */
     public $updateTime;
     protected $_name = [
+        'blockRwSplitSize' => 'BlockRwSplitSize',
+        'cacheSize' => 'CacheSize',
+        'diskAccessProtocol' => 'DiskAccessProtocol',
+        'diskType' => 'DiskType',
         'instanceId' => 'InstanceId',
         'mountType' => 'MountType',
         'phase' => 'Phase',
@@ -81,26 +70,50 @@ class deploymentStatus extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->blockRwSplitSize) {
+            $res['BlockRwSplitSize'] = $this->blockRwSplitSize;
+        }
+
+        if (null !== $this->cacheSize) {
+            $res['CacheSize'] = $this->cacheSize;
+        }
+
+        if (null !== $this->diskAccessProtocol) {
+            $res['DiskAccessProtocol'] = $this->diskAccessProtocol;
+        }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mountType) {
             $res['MountType'] = $this->mountType;
         }
+
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -108,29 +121,50 @@ class deploymentStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deploymentStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlockRwSplitSize'])) {
+            $model->blockRwSplitSize = $map['BlockRwSplitSize'];
+        }
+
+        if (isset($map['CacheSize'])) {
+            $model->cacheSize = $map['CacheSize'];
+        }
+
+        if (isset($map['DiskAccessProtocol'])) {
+            $model->diskAccessProtocol = $map['DiskAccessProtocol'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MountType'])) {
             $model->mountType = $map['MountType'];
         }
+
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

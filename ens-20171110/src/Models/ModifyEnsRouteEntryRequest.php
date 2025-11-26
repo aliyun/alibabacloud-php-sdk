@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyEnsRouteEntryRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example rte-5****
-     *
      * @var string
      */
     public $routeEntryId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $routeEntryName;
@@ -36,17 +28,22 @@ class ModifyEnsRouteEntryRequest extends Model
         'routeEntryName' => 'RouteEntryName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->routeEntryId) {
             $res['RouteEntryId'] = $this->routeEntryId;
         }
+
         if (null !== $this->routeEntryName) {
             $res['RouteEntryName'] = $this->routeEntryName;
         }
@@ -54,20 +51,22 @@ class ModifyEnsRouteEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyEnsRouteEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RouteEntryId'])) {
             $model->routeEntryId = $map['RouteEntryId'];
         }
+
         if (isset($map['RouteEntryName'])) {
             $model->routeEntryName = $map['RouteEntryName'];
         }

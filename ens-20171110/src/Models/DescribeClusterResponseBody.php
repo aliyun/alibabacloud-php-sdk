@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterResponseBody\clusters;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about clusters.
-     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['Clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusters)) {
+                $res['Clusters'] = [];
+                $n1 = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['Clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n = 0;
-                foreach ($map['Clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Clusters'] as $item1) {
+                    $model->clusters[$n1] = clusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

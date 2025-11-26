@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNetworkInterfaceResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $networkInterfaceIds;
 
     /**
-     * @example F3B261DD-3858-4D3C-877D-303ADF374600
-     *
      * @var string
      */
     public $requestId;
@@ -24,14 +22,28 @@ class CreateNetworkInterfaceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->networkInterfaceIds)) {
+            Model::validateArray($this->networkInterfaceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceIds) {
-            $res['NetworkInterfaceIds'] = $this->networkInterfaceIds;
+            if (\is_array($this->networkInterfaceIds)) {
+                $res['NetworkInterfaceIds'] = [];
+                $n1 = 0;
+                foreach ($this->networkInterfaceIds as $item1) {
+                    $res['NetworkInterfaceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,19 +51,25 @@ class CreateNetworkInterfaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkInterfaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
-                $model->networkInterfaceIds = $map['NetworkInterfaceIds'];
+                $model->networkInterfaceIds = [];
+                $n1 = 0;
+                foreach ($map['NetworkInterfaceIds'] as $item1) {
+                    $model->networkInterfaceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

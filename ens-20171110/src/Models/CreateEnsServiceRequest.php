@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEnsServiceRequest extends Model
 {
     /**
-     * @description The ID of the resource that you want to obtain. You can specify only one ID in a request.
-     *
-     * This parameter is required.
-     *
-     * @example ens-20190806****
-     *
      * @var string
      */
     public $ensServiceId;
 
     /**
-     * @description The operation to perform after you preview the created edge service. Valid values:
-     *
-     *   **Buy**: create
-     *   **Upgrade**: change
-     *
-     * This parameter is required.
-     *
-     * @example Buy
-     *
      * @var string
      */
     public $orderType;
@@ -37,14 +22,18 @@ class CreateEnsServiceRequest extends Model
         'orderType' => 'OrderType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensServiceId) {
             $res['EnsServiceId'] = $this->ensServiceId;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -52,17 +41,18 @@ class CreateEnsServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEnsServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsServiceId'])) {
             $model->ensServiceId = $map['EnsServiceId'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

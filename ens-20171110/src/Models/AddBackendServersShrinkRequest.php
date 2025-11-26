@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddBackendServersShrinkRequest extends Model
 {
     /**
-     * @description The list of backend servers that you want to add to the Edge Load Balancer (ELB) instance. You can add up to 20 backend servers at a time.
-     *
-     * >  Only Edge Node Service (ENS) instances that are in the running state can be added to the ELB instance as backend servers.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $backendServersShrink;
 
     /**
-     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
-     *
-     * This parameter is required.
-     *
-     * @example lb-5qzdmxefgrpxd7oz2mefonvtx
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,14 +22,18 @@ class AddBackendServersShrinkRequest extends Model
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServersShrink) {
             $res['BackendServers'] = $this->backendServersShrink;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
@@ -49,17 +41,18 @@ class AddBackendServersShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddBackendServersShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServers'])) {
             $model->backendServersShrink = $map['BackendServers'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }

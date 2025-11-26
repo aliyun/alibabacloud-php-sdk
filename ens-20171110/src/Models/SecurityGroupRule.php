@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SecurityGroupRule extends Model
 {
@@ -64,35 +64,46 @@ class SecurityGroupRule extends Model
         'priority' => 'priority',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destCidrIp) {
             $res['DestCidrIp'] = $this->destCidrIp;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->portRange) {
             $res['PortRange'] = $this->portRange;
         }
+
         if (null !== $this->sourceCidrIp) {
             $res['SourceCidrIp'] = $this->sourceCidrIp;
         }
+
         if (null !== $this->sourcePortRange) {
             $res['SourcePortRange'] = $this->sourcePortRange;
         }
+
         if (null !== $this->priority) {
             $res['priority'] = $this->priority;
         }
@@ -100,38 +111,46 @@ class SecurityGroupRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SecurityGroupRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DestCidrIp'])) {
             $model->destCidrIp = $map['DestCidrIp'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['PortRange'])) {
             $model->portRange = $map['PortRange'];
         }
+
         if (isset($map['SourceCidrIp'])) {
             $model->sourceCidrIp = $map['SourceCidrIp'];
         }
+
         if (isset($map['SourcePortRange'])) {
             $model->sourcePortRange = $map['SourcePortRange'];
         }
+
         if (isset($map['priority'])) {
             $model->priority = $map['priority'];
         }

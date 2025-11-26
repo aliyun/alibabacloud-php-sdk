@@ -4,50 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsNetDistrictRequest extends Model
 {
     /**
-     * @description The code of the region.
-     *
-     * If you do not specify this parameter, only nodes in the regions of the level that is specified by the NetLevelCode parameter are queried.
-     *
-     * If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
-     *
-     * @example 100106
-     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
-     * @description The level of the region.
-     *
-     *   **Big**: area
-     *   **Middle**: province
-     *   **Small**: city
-     *
-     * This parameter is required.
-     *
-     * @example Big
-     *
+     * @var bool
+     */
+    public $netDistrictCodeNode;
+
+    /**
      * @var string
      */
     public $netLevelCode;
     protected $_name = [
         'netDistrictCode' => 'NetDistrictCode',
+        'netDistrictCodeNode' => 'NetDistrictCodeNode',
         'netLevelCode' => 'NetLevelCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->netDistrictCode) {
             $res['NetDistrictCode'] = $this->netDistrictCode;
         }
+
+        if (null !== $this->netDistrictCodeNode) {
+            $res['NetDistrictCodeNode'] = $this->netDistrictCodeNode;
+        }
+
         if (null !== $this->netLevelCode) {
             $res['NetLevelCode'] = $this->netLevelCode;
         }
@@ -55,17 +51,22 @@ class DescribeEnsNetDistrictRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsNetDistrictRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetDistrictCode'])) {
             $model->netDistrictCode = $map['NetDistrictCode'];
         }
+
+        if (isset($map['NetDistrictCodeNode'])) {
+            $model->netDistrictCodeNode = $map['NetDistrictCodeNode'];
+        }
+
         if (isset($map['NetLevelCode'])) {
             $model->netLevelCode = $map['NetLevelCode'];
         }

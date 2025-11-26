@@ -4,91 +4,52 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponseBody\images;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponseBody\images\image\diskDeviceMappings;
-use AlibabaCloud\Tea\Model;
 
 class image extends Model
 {
     /**
-     * @description The computing type of the image. Valid values:
-     *
-     *   ens_vm: x86 computing.
-     *   arm_vm: ARM computing.
-     *   bare_metal: x86 bare machine.
-     *   pcfarm: heterogeneous computing.
-     *
-     * @example ens_vm
-     *
      * @var string
      */
     public $computeType;
 
     /**
-     * @description The description of the image.
-     *
-     * @example centos_6_08_64_20G_alibase_2017****
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The mappings between disks and snapshots in the image.
-     *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
 
     /**
-     * @description The ID of the image.
-     *
-     * @example centos_6_08_64_20G_alibase_2017****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The size of the image. Unit: GiB.
-     *
-     * @example 20
-     *
      * @var string
      */
     public $imageSize;
 
     /**
-     * @description The version of the image.
-     *
-     * @example 6.8
-     *
      * @var string
      */
     public $imageVersion;
 
     /**
-     * @description The type of the image. Valid values: **centos**, **debian**, **ubuntu**, and **windows**.
-     *
-     * @example centos
-     *
      * @var string
      */
     public $OSName;
 
     /**
-     * @description The type of the operating system.
-     *
-     * @example linux
-     *
      * @var string
      */
     public $OSType;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionId;
@@ -104,35 +65,49 @@ class image extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->diskDeviceMappings) {
+            $this->diskDeviceMappings->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeType) {
             $res['ComputeType'] = $this->computeType;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->diskDeviceMappings) {
-            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toArray($noStream) : $this->diskDeviceMappings;
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageSize) {
             $res['ImageSize'] = $this->imageSize;
         }
+
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
         }
+
         if (null !== $this->OSName) {
             $res['OSName'] = $this->OSName;
         }
+
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -140,38 +115,46 @@ class image extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return image
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComputeType'])) {
             $model->computeType = $map['ComputeType'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DiskDeviceMappings'])) {
             $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageSize'])) {
             $model->imageSize = $map['ImageSize'];
         }
+
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];
         }
+
         if (isset($map['OSName'])) {
             $model->OSName = $map['OSName'];
         }
+
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

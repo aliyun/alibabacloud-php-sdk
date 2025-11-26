@@ -4,65 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNetworksRequest extends Model
 {
     /**
-     * @description The ID of the edge node.
-     *
-     * @example cn-beijing-telecom
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The node information.
-     *
      * @var string[]
      */
     public $ensRegionIds;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-5***
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The ID of Network.
-     *
      * @var string[]
      */
     public $networkIds;
 
     /**
-     * @description The name of the network.
-     *
-     * @example example
-     *
      * @var string
      */
     public $networkName;
 
     /**
-     * @description The page number of the returned page. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -76,29 +52,58 @@ class DescribeNetworksRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensRegionIds)) {
+            Model::validateArray($this->ensRegionIds);
+        }
+        if (\is_array($this->networkIds)) {
+            Model::validateArray($this->networkIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ensRegionIds) {
-            $res['EnsRegionIds'] = $this->ensRegionIds;
+            if (\is_array($this->ensRegionIds)) {
+                $res['EnsRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->ensRegionIds as $item1) {
+                    $res['EnsRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->networkIds) {
-            $res['NetworkIds'] = $this->networkIds;
+            if (\is_array($this->networkIds)) {
+                $res['NetworkIds'] = [];
+                $n1 = 0;
+                foreach ($this->networkIds as $item1) {
+                    $res['NetworkIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->networkName) {
             $res['NetworkName'] = $this->networkName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -106,36 +111,52 @@ class DescribeNetworksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['EnsRegionIds'])) {
             if (!empty($map['EnsRegionIds'])) {
-                $model->ensRegionIds = $map['EnsRegionIds'];
+                $model->ensRegionIds = [];
+                $n1 = 0;
+                foreach ($map['EnsRegionIds'] as $item1) {
+                    $model->ensRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['NetworkIds'])) {
             if (!empty($map['NetworkIds'])) {
-                $model->networkIds = $map['NetworkIds'];
+                $model->networkIds = [];
+                $n1 = 0;
+                foreach ($map['NetworkIds'] as $item1) {
+                    $model->networkIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NetworkName'])) {
             $model->networkName = $map['NetworkName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyImageAttributeRequest extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * This parameter is required.
-     *
-     * @example m-5t4xwkfkbs0uxv0kymdb6uip7
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The name of the image.
-     *
-     * This parameter is required.
-     *
-     * @example Image Name
-     *
      * @var string
      */
     public $imageName;
@@ -34,14 +22,18 @@ class ModifyImageAttributeRequest extends Model
         'imageName' => 'ImageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
@@ -49,17 +41,18 @@ class ModifyImageAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyImageAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }

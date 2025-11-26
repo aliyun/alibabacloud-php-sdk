@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failedItems extends Model
 {
     /**
-     * @description The ID of the destination node.
-     *
-     * @example cn-hangzhou-xxx
-     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
-     * @description The error message that is returned.
-     *
-     * @example region not found
-     *
      * @var string
      */
     public $errorMessage;
@@ -30,14 +22,18 @@ class failedItems extends Model
         'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionId) {
             $res['DestinationRegionId'] = $this->destinationRegionId;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
@@ -45,17 +41,18 @@ class failedItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionId'])) {
             $model->destinationRegionId = $map['DestinationRegionId'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }

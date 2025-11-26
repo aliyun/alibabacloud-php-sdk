@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionIdIpv6InfoResponseBody\supportIpv6Info;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEnsRegionIdIpv6InfoResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 3703C4AC-9396-458C-8F25-1D701334D309
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description IPv6 support information.
-     *
      * @var supportIpv6Info
      */
     public $supportIpv6Info;
@@ -29,32 +23,40 @@ class DescribeEnsRegionIdIpv6InfoResponseBody extends Model
         'supportIpv6Info' => 'SupportIpv6Info',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->supportIpv6Info) {
+            $this->supportIpv6Info->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportIpv6Info) {
-            $res['SupportIpv6Info'] = null !== $this->supportIpv6Info ? $this->supportIpv6Info->toMap() : null;
+            $res['SupportIpv6Info'] = null !== $this->supportIpv6Info ? $this->supportIpv6Info->toArray($noStream) : $this->supportIpv6Info;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsRegionIdIpv6InfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportIpv6Info'])) {
             $model->supportIpv6Info = supportIpv6Info::fromMap($map['SupportIpv6Info']);
         }

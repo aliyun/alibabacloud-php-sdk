@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHaVipsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $haVipIds;
@@ -18,29 +16,47 @@ class DeleteHaVipsRequest extends Model
         'haVipIds' => 'HaVipIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->haVipIds)) {
+            Model::validateArray($this->haVipIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->haVipIds) {
-            $res['HaVipIds'] = $this->haVipIds;
+            if (\is_array($this->haVipIds)) {
+                $res['HaVipIds'] = [];
+                $n1 = 0;
+                foreach ($this->haVipIds as $item1) {
+                    $res['HaVipIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHaVipsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaVipIds'])) {
             if (!empty($map['HaVipIds'])) {
-                $model->haVipIds = $map['HaVipIds'];
+                $model->haVipIds = [];
+                $n1 = 0;
+                foreach ($map['HaVipIds'] as $item1) {
+                    $model->haVipIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

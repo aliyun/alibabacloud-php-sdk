@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityModuleCodeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityModuleCodeResponseBody\commodityCodesInfo\moduleCodesInfo;
-use AlibabaCloud\Tea\Model;
 
 class commodityCodesInfo extends Model
 {
@@ -23,20 +23,28 @@ class commodityCodesInfo extends Model
         'moduleCodesInfo' => 'ModuleCodesInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->moduleCodesInfo)) {
+            Model::validateArray($this->moduleCodesInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->moduleCodesInfo) {
-            $res['ModuleCodesInfo'] = [];
-            if (null !== $this->moduleCodesInfo && \is_array($this->moduleCodesInfo)) {
-                $n = 0;
-                foreach ($this->moduleCodesInfo as $item) {
-                    $res['ModuleCodesInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->moduleCodesInfo)) {
+                $res['ModuleCodesInfo'] = [];
+                $n1 = 0;
+                foreach ($this->moduleCodesInfo as $item1) {
+                    $res['ModuleCodesInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -44,23 +52,25 @@ class commodityCodesInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commodityCodesInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['ModuleCodesInfo'])) {
             if (!empty($map['ModuleCodesInfo'])) {
                 $model->moduleCodesInfo = [];
-                $n = 0;
-                foreach ($map['ModuleCodesInfo'] as $item) {
-                    $model->moduleCodesInfo[$n++] = null !== $item ? moduleCodesInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ModuleCodesInfo'] as $item1) {
+                    $model->moduleCodesInfo[$n1] = moduleCodesInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PrepareUploadRequest extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @description The specified IP address. This parameter is applicable to scenarios where the user IP address is inconsistent with the operation calling IP address, such as the scenario where the server obtains authorization and sends the authorization to the client.
-     *
-     * @example 180.166.XX.XXX
-     *
      * @var string
      */
     public $clientIp;
@@ -32,14 +22,18 @@ class PrepareUploadRequest extends Model
         'clientIp' => 'ClientIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
@@ -47,17 +41,18 @@ class PrepareUploadRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrepareUploadRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachNetworkInterfaceRequest extends Model
 {
     /**
-     * @description The ID of the ENI.
-     *
-     * This parameter is required.
-     *
-     * @example eni-58z57orgmt6d1****
-     *
      * @var string
      */
     public $networkInterfaceId;
@@ -22,9 +16,12 @@ class DetachNetworkInterfaceRequest extends Model
         'networkInterfaceId' => 'NetworkInterfaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceId) {
@@ -34,11 +31,11 @@ class DetachNetworkInterfaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachNetworkInterfaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

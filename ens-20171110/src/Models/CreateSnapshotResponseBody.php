@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSnapshotResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 21969183547****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The IDs of the snapshots.
-     *
-     * @example s-bp17441ohwka0yuh****
-     *
      * @var string[]
      */
     public $snapShotId;
@@ -40,41 +28,63 @@ class CreateSnapshotResponseBody extends Model
         'snapShotId' => 'SnapShotId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapShotId)) {
+            Model::validateArray($this->snapShotId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapShotId) {
-            $res['SnapShotId'] = $this->snapShotId;
+            if (\is_array($this->snapShotId)) {
+                $res['SnapShotId'] = [];
+                $n1 = 0;
+                foreach ($this->snapShotId as $item1) {
+                    $res['SnapShotId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSnapshotResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SnapShotId'])) {
             if (!empty($map['SnapShotId'])) {
-                $model->snapShotId = $map['SnapShotId'];
+                $model->snapShotId = [];
+                $n1 = 0;
+                foreach ($map['SnapShotId'] as $item1) {
+                    $model->snapShotId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

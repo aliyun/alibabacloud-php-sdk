@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair. The name must conform to the following naming conventions:
-     *
-     *   The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-     *   It must start with a letter but cannot start with `http://` or `https://`.
-     *
-     * This parameter is required.
-     *
-     * @example TestKeyPairName
-     *
      * @var string
      */
     public $keyPairName;
@@ -25,9 +16,12 @@ class CreateKeyPairRequest extends Model
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyPairName) {
@@ -37,11 +31,11 @@ class CreateKeyPairRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateKeyPairRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

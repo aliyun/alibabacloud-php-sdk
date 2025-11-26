@@ -4,68 +4,66 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PreloadRegionSDGShrinkRequest extends Model
 {
     /**
-     * @description The IDs of the destination nodes.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $destinationRegionIdsShrink;
 
     /**
-     * @description The namespaces.
-     *
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string
      */
     public $namespacesShrink;
 
     /**
-     * @description The number of redundant replicas to support rapid deployment.
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $redundantNum;
 
     /**
-     * @description The ID of the SDG for which data is preloaded.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxx
-     *
      * @var string
      */
     public $SDGId;
     protected $_name = [
         'destinationRegionIdsShrink' => 'DestinationRegionIds',
+        'diskType' => 'DiskType',
         'namespacesShrink' => 'Namespaces',
         'redundantNum' => 'RedundantNum',
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionIdsShrink) {
             $res['DestinationRegionIds'] = $this->destinationRegionIdsShrink;
         }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
         if (null !== $this->namespacesShrink) {
             $res['Namespaces'] = $this->namespacesShrink;
         }
+
         if (null !== $this->redundantNum) {
             $res['RedundantNum'] = $this->redundantNum;
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -73,23 +71,30 @@ class PreloadRegionSDGShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PreloadRegionSDGShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionIds'])) {
             $model->destinationRegionIdsShrink = $map['DestinationRegionIds'];
         }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['Namespaces'])) {
             $model->namespacesShrink = $map['Namespaces'];
         }
+
         if (isset($map['RedundantNum'])) {
             $model->redundantNum = $map['RedundantNum'];
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

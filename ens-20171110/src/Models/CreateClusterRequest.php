@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The version of the cluster.
-     *
-     * @example 1.18.8
-     *
      * @var string
      */
     public $clusterVersion;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example mycluster-1
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class CreateClusterRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterVersion) {
             $res['ClusterVersion'] = $this->clusterVersion;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class CreateClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterVersion'])) {
             $model->clusterVersion = $map['ClusterVersion'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

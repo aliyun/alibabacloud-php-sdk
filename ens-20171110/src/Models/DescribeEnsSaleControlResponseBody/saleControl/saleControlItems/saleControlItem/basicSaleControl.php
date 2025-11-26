@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem\basicSaleControl\moduleValue;
-use AlibabaCloud\Tea\Model;
 
 class basicSaleControl extends Model
 {
@@ -29,17 +29,25 @@ class basicSaleControl extends Model
         'operator' => 'Operator',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->moduleValue) {
+            $this->moduleValue->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->moduleValue) {
-            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toMap() : null;
+            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toArray($noStream) : $this->moduleValue;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -47,20 +55,22 @@ class basicSaleControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return basicSaleControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModuleValue'])) {
             $model->moduleValue = moduleValue::fromMap($map['ModuleValue']);
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

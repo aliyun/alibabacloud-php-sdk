@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebootInstanceRequest extends Model
 {
     /**
-     * @description Indicates whether to stop the instance forcibly before you reboot it. Default value: false. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var string
      */
     public $forceStop;
 
     /**
-     * @description The ID of the instance that you want to reboot. You can specify only one instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example i-instanceid****
-     *
      * @var string
      */
     public $instanceId;
@@ -35,14 +22,18 @@ class RebootInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forceStop) {
             $res['ForceStop'] = $this->forceStop;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,17 +41,18 @@ class RebootInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebootInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForceStop'])) {
             $model->forceStop = $map['ForceStop'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

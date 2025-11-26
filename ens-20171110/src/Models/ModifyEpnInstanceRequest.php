@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyEpnInstanceRequest extends Model
 {
     /**
-     * @description The ID of the EPN instance.
-     *
-     * This parameter is required.
-     *
-     * @example epn-****
-     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
-     * @description The name of the EPN instance.
-     *
-     * @example ens_test_epn
-     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
-     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 Mbit/s to 100 Mbit/s.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The networking mode. Valid values:
-     *
-     *   **SpeedUp**: Intelligent acceleration network (Internet).
-     *   **Connection**: Internal network.
-     *   **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
-     *
-     * >  The internal network supports only **Connection** and **SpeedUpAndConnection**.
-     *
-     * @example SpeedUp
-     *
      * @var string
      */
     public $networkingModel;
@@ -58,20 +34,26 @@ class ModifyEpnInstanceRequest extends Model
         'networkingModel' => 'NetworkingModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EPNInstanceId) {
             $res['EPNInstanceId'] = $this->EPNInstanceId;
         }
+
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
         }
+
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
         }
+
         if (null !== $this->networkingModel) {
             $res['NetworkingModel'] = $this->networkingModel;
         }
@@ -79,23 +61,26 @@ class ModifyEpnInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyEpnInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EPNInstanceId'])) {
             $model->EPNInstanceId = $map['EPNInstanceId'];
         }
+
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
         }
+
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
         }
+
         if (isset($map['NetworkingModel'])) {
             $model->networkingModel = $map['NetworkingModel'];
         }

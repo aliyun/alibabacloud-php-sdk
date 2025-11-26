@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\AddBackendServersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddBackendServersResponseBody\backendServers\backendServer;
-use AlibabaCloud\Tea\Model;
 
 class backendServers extends Model
 {
@@ -17,17 +17,24 @@ class backendServers extends Model
         'backendServer' => 'BackendServer',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backendServer)) {
+            Model::validateArray($this->backendServer);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServer) {
-            $res['BackendServer'] = [];
-            if (null !== $this->backendServer && \is_array($this->backendServer)) {
-                $n = 0;
-                foreach ($this->backendServer as $item) {
-                    $res['BackendServer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backendServer)) {
+                $res['BackendServer'] = [];
+                $n1 = 0;
+                foreach ($this->backendServer as $item1) {
+                    $res['BackendServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class backendServers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendServers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServer'])) {
             if (!empty($map['BackendServer'])) {
                 $model->backendServer = [];
-                $n = 0;
-                foreach ($map['BackendServer'] as $item) {
-                    $model->backendServer[$n++] = null !== $item ? backendServer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackendServer'] as $item1) {
+                    $model->backendServer[$n1] = backendServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

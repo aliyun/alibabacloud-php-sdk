@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponseBody\instanceCreateResult;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCreatePrePaidInstanceResultResponseBody extends Model
 {
     /**
-     * @description Returned results of creating an instance.
-     *
      * @var instanceCreateResult
      */
     public $instanceCreateResult;
 
     /**
-     * @description The request ID.
-     *
-     * @example AAE90880-4970-4D81-A534-A6C0F3631F74
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeCreatePrePaidInstanceResultResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceCreateResult) {
+            $this->instanceCreateResult->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceCreateResult) {
-            $res['InstanceCreateResult'] = null !== $this->instanceCreateResult ? $this->instanceCreateResult->toMap() : null;
+            $res['InstanceCreateResult'] = null !== $this->instanceCreateResult ? $this->instanceCreateResult->toArray($noStream) : $this->instanceCreateResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeCreatePrePaidInstanceResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCreatePrePaidInstanceResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceCreateResult'])) {
             $model->instanceCreateResult = instanceCreateResult::fromMap($map['InstanceCreateResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

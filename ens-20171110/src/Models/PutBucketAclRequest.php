@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutBucketAclRequest extends Model
 {
     /**
-     * @description The access control list (ACL) of the bucket.
-     *
-     *   **public-read-write**
-     *   **public-read**
-     *   **private** (default)
-     *
-     * This parameter is required.
-     *
-     * @example private
-     *
      * @var string
      */
     public $bucketAcl;
 
     /**
-     * @description The name of the bucket.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $bucketName;
@@ -38,14 +22,18 @@ class PutBucketAclRequest extends Model
         'bucketName' => 'BucketName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketAcl) {
             $res['BucketAcl'] = $this->bucketAcl;
         }
+
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
@@ -53,17 +41,18 @@ class PutBucketAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutBucketAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketAcl'])) {
             $model->bucketAcl = $map['BucketAcl'];
         }
+
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }

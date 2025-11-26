@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\CopySnapshotResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class unAllocationId extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * @example cn-chengdu-26
-     *
      * @var string
      */
     public $ensRegionId;
@@ -20,9 +16,12 @@ class unAllocationId extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
@@ -32,11 +31,11 @@ class unAllocationId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return unAllocationId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

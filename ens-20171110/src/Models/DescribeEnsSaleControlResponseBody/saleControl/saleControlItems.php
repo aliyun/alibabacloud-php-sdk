@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem;
-use AlibabaCloud\Tea\Model;
 
 class saleControlItems extends Model
 {
@@ -23,32 +23,40 @@ class saleControlItems extends Model
         'saleControlItem' => 'SaleControlItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->saleControlItem) {
+            $this->saleControlItem->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->saleControlItem) {
-            $res['SaleControlItem'] = null !== $this->saleControlItem ? $this->saleControlItem->toMap() : null;
+            $res['SaleControlItem'] = null !== $this->saleControlItem ? $this->saleControlItem->toArray($noStream) : $this->saleControlItem;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saleControlItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['SaleControlItem'])) {
             $model->saleControlItem = saleControlItem::fromMap($map['SaleControlItem']);
         }

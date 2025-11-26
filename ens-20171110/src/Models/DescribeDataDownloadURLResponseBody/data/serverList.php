@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDownloadURLResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serverList extends Model
 {
     /**
-     * @description The host address of the file server.
-     *
-     * @example 1.1.1.1:8080
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The ID of the Edge Node Service (ENS) node.
-     *
-     * @example cn-chenzhou-5
-     *
      * @var string
      */
     public $regionId;
@@ -30,14 +22,18 @@ class serverList extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -45,17 +41,18 @@ class serverList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serverList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

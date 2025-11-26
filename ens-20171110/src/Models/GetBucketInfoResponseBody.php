@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketInfoResponseBody\bucketInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetBucketInfoResponseBody extends Model
 {
     /**
-     * @description The list of bucket information.
-     *
      * @var bucketInfo
      */
     public $bucketInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C5831388-2D4B-46F4-A96B-D4E6BD06E7521
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetBucketInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->bucketInfo) {
+            $this->bucketInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketInfo) {
-            $res['BucketInfo'] = null !== $this->bucketInfo ? $this->bucketInfo->toMap() : null;
+            $res['BucketInfo'] = null !== $this->bucketInfo ? $this->bucketInfo->toArray($noStream) : $this->bucketInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetBucketInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBucketInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketInfo'])) {
             $model->bucketInfo = bucketInfo::fromMap($map['BucketInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\CopySnapshotResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class allocationId extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * @example cn-chengdu-telecom-4
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The IDs of the instances.
-     *
      * @var string[]
      */
     public $instanceId;
@@ -28,35 +22,55 @@ class allocationId extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceId)) {
+            Model::validateArray($this->instanceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+            if (\is_array($this->instanceId)) {
+                $res['InstanceId'] = [];
+                $n1 = 0;
+                foreach ($this->instanceId as $item1) {
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return allocationId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
+                $model->instanceId = [];
+                $n1 = 0;
+                foreach ($map['InstanceId'] as $item1) {
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

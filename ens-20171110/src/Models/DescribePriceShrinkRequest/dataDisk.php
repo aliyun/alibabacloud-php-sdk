@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDisk extends Model
 {
     /**
-     * @description The size of the data disk. Unit: GB. If you specify this parameter, this parameter takes precedence over the Size property in DataDisks.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $size;
@@ -20,9 +16,12 @@ class dataDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->size) {
@@ -32,11 +31,11 @@ class dataDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

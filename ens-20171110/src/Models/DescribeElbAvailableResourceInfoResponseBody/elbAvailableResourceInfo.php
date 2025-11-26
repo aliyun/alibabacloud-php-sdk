@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeElbAvailableResourceInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elbAvailableResourceInfo extends Model
 {
@@ -14,62 +14,36 @@ class elbAvailableResourceInfo extends Model
     public $ability;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example SouthEast
-     *
      * @var string
      */
     public $area;
 
     /**
-     * @description The number of resources that you can purchase.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $canBuyCount;
 
     /**
-     * @description The name of the node.
-     *
-     * @example cn-guangdong-10
-     *
      * @var string
      */
     public $enName;
 
     /**
-     * @description The ID of the Edge Node Service (ENS) node.
-     *
-     * @example cn-guangdong-10
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The specifications of the ELB instances.
-     *
      * @var string[]
      */
     public $loadBalancerSpec;
 
     /**
-     * @description The Chinese name of the node.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The province where the node is deployed.
-     *
-     * @example Shanghai
-     *
      * @var string
      */
     public $province;
@@ -84,32 +58,62 @@ class elbAvailableResourceInfo extends Model
         'province' => 'Province',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ability)) {
+            Model::validateArray($this->ability);
+        }
+        if (\is_array($this->loadBalancerSpec)) {
+            Model::validateArray($this->loadBalancerSpec);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ability) {
-            $res['Ability'] = $this->ability;
+            if (\is_array($this->ability)) {
+                $res['Ability'] = [];
+                $n1 = 0;
+                foreach ($this->ability as $item1) {
+                    $res['Ability'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->canBuyCount) {
             $res['CanBuyCount'] = $this->canBuyCount;
         }
+
         if (null !== $this->enName) {
             $res['EnName'] = $this->enName;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->loadBalancerSpec) {
-            $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
+            if (\is_array($this->loadBalancerSpec)) {
+                $res['LoadBalancerSpec'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancerSpec as $item1) {
+                    $res['LoadBalancerSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -117,39 +121,56 @@ class elbAvailableResourceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elbAvailableResourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ability'])) {
             if (!empty($map['Ability'])) {
-                $model->ability = $map['Ability'];
+                $model->ability = [];
+                $n1 = 0;
+                foreach ($map['Ability'] as $item1) {
+                    $model->ability[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['CanBuyCount'])) {
             $model->canBuyCount = $map['CanBuyCount'];
         }
+
         if (isset($map['EnName'])) {
             $model->enName = $map['EnName'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['LoadBalancerSpec'])) {
             if (!empty($map['LoadBalancerSpec'])) {
-                $model->loadBalancerSpec = $map['LoadBalancerSpec'];
+                $model->loadBalancerSpec = [];
+                $n1 = 0;
+                foreach ($map['LoadBalancerSpec'] as $item1) {
+                    $model->loadBalancerSpec[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

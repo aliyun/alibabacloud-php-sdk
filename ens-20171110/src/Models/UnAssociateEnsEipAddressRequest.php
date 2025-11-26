@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnAssociateEnsEipAddressRequest extends Model
 {
     /**
-     * @description The ID of the EIP.
-     *
-     * This parameter is required.
-     *
-     * @example eip-5sqa431nx3vee8heqxfxp****
-     *
      * @var string
      */
     public $allocationId;
@@ -28,14 +22,18 @@ class UnAssociateEnsEipAddressRequest extends Model
         'force' => 'Force',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
+
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -43,17 +41,18 @@ class UnAssociateEnsEipAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnAssociateEnsEipAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
+
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

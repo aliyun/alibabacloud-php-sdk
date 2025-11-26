@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveSDGShrinkRequest extends Model
 {
     /**
-     * @description IDs of Android in Container (AIC) instances.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -20,9 +16,12 @@ class RemoveSDGShrinkRequest extends Model
         'instanceIdsShrink' => 'InstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIdsShrink) {
@@ -32,11 +31,11 @@ class RemoveSDGShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveSDGShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

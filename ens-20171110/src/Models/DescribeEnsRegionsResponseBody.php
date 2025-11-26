@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionsResponseBody\ensRegions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEnsRegionsResponseBody extends Model
 {
     /**
-     * @description The service code. 0 is returned for a successful request. An error code is returned for a failed request.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The information about the regions.
-     *
      * @var ensRegions
      */
     public $ensRegions;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class DescribeEnsRegionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ensRegions) {
+            $this->ensRegions->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->ensRegions) {
-            $res['EnsRegions'] = null !== $this->ensRegions ? $this->ensRegions->toMap() : null;
+            $res['EnsRegions'] = null !== $this->ensRegions ? $this->ensRegions->toArray($noStream) : $this->ensRegions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class DescribeEnsRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['EnsRegions'])) {
             $model->ensRegions = ensRegions::fromMap($map['EnsRegions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

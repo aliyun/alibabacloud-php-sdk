@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponseBody\routeEntrys\nextHops;
-use AlibabaCloud\Tea\Model;
 
 class routeEntrys extends Model
 {
@@ -15,53 +15,31 @@ class routeEntrys extends Model
     public $creationTime;
 
     /**
-     * @description Enter a description for the route.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The destination CIDR block of the route.
-     *
-     * @example 101.0.45.0/24
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description The information about the next hop.
-     *
      * @var nextHops[]
      */
     public $nextHops;
 
     /**
-     * @description The ID of the route.
-     *
-     * @example rte-2zeksx7h436f5unk349m1
-     *
      * @var string
      */
     public $routeEntryId;
 
     /**
-     * @description The name of the route.
-     *
-     * @example test0
-     *
      * @var string
      */
     public $routeEntryName;
 
     /**
-     * @description The ID of the route table.
-     *
-     * @example vtb-uf62p9o5cn35fi8xgurnm
-     *
      * @var string
      */
     public $routeTableId;
@@ -72,19 +50,11 @@ class routeEntrys extends Model
     public $sourceCidrBlock;
 
     /**
-     * @description The status of the route entry. Valid values:
-     *
-     * @example Available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The type of the route entry.
-     *
-     * @example Custom
-     *
      * @var string
      */
     public $type;
@@ -101,44 +71,60 @@ class routeEntrys extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nextHops)) {
+            Model::validateArray($this->nextHops);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->nextHops) {
-            $res['NextHops'] = [];
-            if (null !== $this->nextHops && \is_array($this->nextHops)) {
-                $n = 0;
-                foreach ($this->nextHops as $item) {
-                    $res['NextHops'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nextHops)) {
+                $res['NextHops'] = [];
+                $n1 = 0;
+                foreach ($this->nextHops as $item1) {
+                    $res['NextHops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->routeEntryId) {
             $res['RouteEntryId'] = $this->routeEntryId;
         }
+
         if (null !== $this->routeEntryName) {
             $res['RouteEntryName'] = $this->routeEntryName;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+
         if (null !== $this->sourceCidrBlock) {
             $res['SourceCidrBlock'] = $this->sourceCidrBlock;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -146,47 +132,57 @@ class routeEntrys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeEntrys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['NextHops'])) {
             if (!empty($map['NextHops'])) {
                 $model->nextHops = [];
-                $n = 0;
-                foreach ($map['NextHops'] as $item) {
-                    $model->nextHops[$n++] = null !== $item ? nextHops::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NextHops'] as $item1) {
+                    $model->nextHops[$n1] = nextHops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RouteEntryId'])) {
             $model->routeEntryId = $map['RouteEntryId'];
         }
+
         if (isset($map['RouteEntryName'])) {
             $model->routeEntryName = $map['RouteEntryName'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }
+
         if (isset($map['SourceCidrBlock'])) {
             $model->sourceCidrBlock = $map['SourceCidrBlock'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,45 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceResponseBody\priceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class price extends Model
 {
     /**
-     * @description The type of currency.
-     *
-     *   USD: US dollar
-     *   JPY: Japanese Yen
-     *
-     * @example USD
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description The discount.
-     *
-     * @example 1
-     *
      * @var float
      */
     public $discountPrice;
 
     /**
-     * @description The original price.
-     *
-     * @example 16125.00
-     *
      * @var float
      */
     public $originalPrice;
 
     /**
-     * @description The final price.
-     *
-     * @example 126.75
-     *
      * @var float
      */
     public $tradePrice;
@@ -53,20 +34,26 @@ class price extends Model
         'tradePrice' => 'TradePrice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
@@ -74,23 +61,26 @@ class price extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return price
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultResponseBody\distResults;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultResponseBody\distResults\distResult\statusStats;
-use AlibabaCloud\Tea\Model;
 
 class distResult extends Model
 {
     /**
-     * @description The name of the data file.
-     *
-     * @example gcs-prod-websocket-eip-unicom
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The distribution status statistics.
-     *
      * @var statusStats
      */
     public $statusStats;
 
     /**
-     * @description The version number of the data file.
-     *
-     * @example standard
-     *
      * @var string
      */
     public $version;
@@ -39,17 +29,25 @@ class distResult extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->statusStats) {
+            $this->statusStats->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->statusStats) {
-            $res['StatusStats'] = null !== $this->statusStats ? $this->statusStats->toMap() : null;
+            $res['StatusStats'] = null !== $this->statusStats ? $this->statusStats->toArray($noStream) : $this->statusStats;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -57,20 +55,22 @@ class distResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return distResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['StatusStats'])) {
             $model->statusStats = statusStats::fromMap($map['StatusStats']);
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

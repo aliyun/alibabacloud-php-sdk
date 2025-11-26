@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssUsageDataRequest extends Model
 {
     /**
-     * @description The name of the logical Object Storage Service (OSS) bucket.
-     *
-     * @example ens-sink-bucketzyp1656903494
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description The end of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
-     *
-     * This parameter is required.
-     *
-     * @example 2022-01-12T00:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The aggregation granularity. Unit: minutes.
-     *
-     * Default value: 5. Valid values: 5 to 1440.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $period;
 
     /**
-     * @description The beginning of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
-     *
-     * This parameter is required.
-     *
-     * @example 2022-01-11T00:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -56,20 +34,26 @@ class GetOssUsageDataRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -77,23 +61,26 @@ class GetOssUsageDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssUsageDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

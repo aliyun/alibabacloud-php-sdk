@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopLoadBalancerListenerRequest extends Model
 {
     /**
-     * @description The listener port that you want to disable. Valid values: **1** to **65535**.
-     *
-     * This parameter is required.
-     *
-     * @example 8080
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The frontend protocol that is used by the ELB instance.
-     *
-     * >  This parameter is required if the same port is used by listeners that use different protocols.
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description The ID of the ELB instance.
-     *
-     * This parameter is required.
-     *
-     * @example lb-5sc1s9zrui8lpb8u7cl4f****
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -46,17 +28,22 @@ class StopLoadBalancerListenerRequest extends Model
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
@@ -64,20 +51,22 @@ class StopLoadBalancerListenerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopLoadBalancerListenerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }

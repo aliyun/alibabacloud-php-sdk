@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\armCard;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\bandwidth;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\blockStorage;
@@ -18,7 +19,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\dat
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\pangu;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\pcfarmNum;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceResponseBody\data\ssd;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -204,110 +204,206 @@ class data extends Model
         'virtual' => 'Virtual',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->armCard) {
+            $this->armCard->validate();
+        }
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        if (null !== $this->bandwidth) {
+            $this->bandwidth->validate();
+        }
+        if (null !== $this->blockStorage) {
+            $this->blockStorage->validate();
+        }
+        if (null !== $this->cpu) {
+            $this->cpu->validate();
+        }
+        if (null !== $this->gpu) {
+            $this->gpu->validate();
+        }
+        if (null !== $this->hdd) {
+            $this->hdd->validate();
+        }
+        if (\is_array($this->ipv4s)) {
+            Model::validateArray($this->ipv4s);
+        }
+        if (\is_array($this->ipv6s)) {
+            Model::validateArray($this->ipv6s);
+        }
+        if (\is_array($this->ispTypes)) {
+            Model::validateArray($this->ispTypes);
+        }
+        if (null !== $this->memory) {
+            $this->memory->validate();
+        }
+        if (null !== $this->nvme) {
+            $this->nvme->validate();
+        }
+        if (null !== $this->ossStorage) {
+            $this->ossStorage->validate();
+        }
+        if (null !== $this->pangu) {
+            $this->pangu->validate();
+        }
+        if (null !== $this->pcfarmNum) {
+            $this->pcfarmNum->validate();
+        }
+        if (null !== $this->ssd) {
+            $this->ssd->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->areaCode) {
             $res['AreaCode'] = $this->areaCode;
         }
+
         if (null !== $this->areaName) {
             $res['AreaName'] = $this->areaName;
         }
+
         if (null !== $this->armCard) {
-            $res['ArmCard'] = null !== $this->armCard ? $this->armCard->toMap() : null;
+            $res['ArmCard'] = null !== $this->armCard ? $this->armCard->toArray($noStream) : $this->armCard;
         }
+
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                $n1 = 0;
+                foreach ($this->attributes as $item1) {
+                    $res['Attributes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = null !== $this->bandwidth ? $this->bandwidth->toMap() : null;
+            $res['Bandwidth'] = null !== $this->bandwidth ? $this->bandwidth->toArray($noStream) : $this->bandwidth;
         }
+
         if (null !== $this->blockStorage) {
-            $res['BlockStorage'] = null !== $this->blockStorage ? $this->blockStorage->toMap() : null;
+            $res['BlockStorage'] = null !== $this->blockStorage ? $this->blockStorage->toArray($noStream) : $this->blockStorage;
         }
+
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
         }
+
         if (null !== $this->countryName) {
             $res['CountryName'] = $this->countryName;
         }
+
         if (null !== $this->cpu) {
-            $res['Cpu'] = null !== $this->cpu ? $this->cpu->toMap() : null;
+            $res['Cpu'] = null !== $this->cpu ? $this->cpu->toArray($noStream) : $this->cpu;
         }
+
         if (null !== $this->gpu) {
-            $res['Gpu'] = null !== $this->gpu ? $this->gpu->toMap() : null;
+            $res['Gpu'] = null !== $this->gpu ? $this->gpu->toArray($noStream) : $this->gpu;
         }
+
         if (null !== $this->hdd) {
-            $res['Hdd'] = null !== $this->hdd ? $this->hdd->toMap() : null;
+            $res['Hdd'] = null !== $this->hdd ? $this->hdd->toArray($noStream) : $this->hdd;
         }
+
         if (null !== $this->houseId) {
             $res['HouseId'] = $this->houseId;
         }
+
         if (null !== $this->ipv4s) {
-            $res['Ipv4s'] = [];
-            if (null !== $this->ipv4s && \is_array($this->ipv4s)) {
-                $n = 0;
-                foreach ($this->ipv4s as $item) {
-                    $res['Ipv4s'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipv4s)) {
+                $res['Ipv4s'] = [];
+                $n1 = 0;
+                foreach ($this->ipv4s as $item1) {
+                    $res['Ipv4s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ipv6s) {
-            $res['Ipv6s'] = [];
-            if (null !== $this->ipv6s && \is_array($this->ipv6s)) {
-                $n = 0;
-                foreach ($this->ipv6s as $item) {
-                    $res['Ipv6s'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipv6s)) {
+                $res['Ipv6s'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6s as $item1) {
+                    $res['Ipv6s'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ispTypes) {
-            $res['IspTypes'] = $this->ispTypes;
+            if (\is_array($this->ispTypes)) {
+                $res['IspTypes'] = [];
+                $n1 = 0;
+                foreach ($this->ispTypes as $item1) {
+                    $res['IspTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->memory) {
-            $res['Memory'] = null !== $this->memory ? $this->memory->toMap() : null;
+            $res['Memory'] = null !== $this->memory ? $this->memory->toArray($noStream) : $this->memory;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nvme) {
-            $res['Nvme'] = null !== $this->nvme ? $this->nvme->toMap() : null;
+            $res['Nvme'] = null !== $this->nvme ? $this->nvme->toArray($noStream) : $this->nvme;
         }
+
         if (null !== $this->ossStorage) {
-            $res['OssStorage'] = null !== $this->ossStorage ? $this->ossStorage->toMap() : null;
+            $res['OssStorage'] = null !== $this->ossStorage ? $this->ossStorage->toArray($noStream) : $this->ossStorage;
         }
+
         if (null !== $this->pangu) {
-            $res['Pangu'] = null !== $this->pangu ? $this->pangu->toMap() : null;
+            $res['Pangu'] = null !== $this->pangu ? $this->pangu->toArray($noStream) : $this->pangu;
         }
+
         if (null !== $this->pcfarmNum) {
-            $res['PcfarmNum'] = null !== $this->pcfarmNum ? $this->pcfarmNum->toMap() : null;
+            $res['PcfarmNum'] = null !== $this->pcfarmNum ? $this->pcfarmNum->toArray($noStream) : $this->pcfarmNum;
         }
+
         if (null !== $this->poc) {
             $res['Poc'] = $this->poc;
         }
+
         if (null !== $this->provinceCode) {
             $res['ProvinceCode'] = $this->provinceCode;
         }
+
         if (null !== $this->provinceName) {
             $res['ProvinceName'] = $this->provinceName;
         }
+
         if (null !== $this->reserveDisable) {
             $res['ReserveDisable'] = $this->reserveDisable;
         }
+
         if (null !== $this->ssd) {
-            $res['Ssd'] = null !== $this->ssd ? $this->ssd->toMap() : null;
+            $res['Ssd'] = null !== $this->ssd ? $this->ssd->toArray($noStream) : $this->ssd;
         }
+
         if (null !== $this->statusDisable) {
             $res['StatusDisable'] = $this->statusDisable;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
+
         if (null !== $this->virtual) {
             $res['Virtual'] = $this->virtual;
         }
@@ -315,117 +411,158 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AreaCode'])) {
             $model->areaCode = $map['AreaCode'];
         }
+
         if (isset($map['AreaName'])) {
             $model->areaName = $map['AreaName'];
         }
+
         if (isset($map['ArmCard'])) {
             $model->armCard = armCard::fromMap($map['ArmCard']);
         }
+
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
-                $model->attributes = $map['Attributes'];
+                $model->attributes = [];
+                $n1 = 0;
+                foreach ($map['Attributes'] as $item1) {
+                    $model->attributes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = bandwidth::fromMap($map['Bandwidth']);
         }
+
         if (isset($map['BlockStorage'])) {
             $model->blockStorage = blockStorage::fromMap($map['BlockStorage']);
         }
+
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
         }
+
         if (isset($map['CountryName'])) {
             $model->countryName = $map['CountryName'];
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = cpu::fromMap($map['Cpu']);
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = gpu::fromMap($map['Gpu']);
         }
+
         if (isset($map['Hdd'])) {
             $model->hdd = hdd::fromMap($map['Hdd']);
         }
+
         if (isset($map['HouseId'])) {
             $model->houseId = $map['HouseId'];
         }
+
         if (isset($map['Ipv4s'])) {
             if (!empty($map['Ipv4s'])) {
                 $model->ipv4s = [];
-                $n = 0;
-                foreach ($map['Ipv4s'] as $item) {
-                    $model->ipv4s[$n++] = null !== $item ? ipv4s::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ipv4s'] as $item1) {
+                    $model->ipv4s[$n1] = ipv4s::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Ipv6s'])) {
             if (!empty($map['Ipv6s'])) {
                 $model->ipv6s = [];
-                $n = 0;
-                foreach ($map['Ipv6s'] as $item) {
-                    $model->ipv6s[$n++] = null !== $item ? ipv6s::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ipv6s'] as $item1) {
+                    $model->ipv6s[$n1] = ipv6s::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IspTypes'])) {
             if (!empty($map['IspTypes'])) {
-                $model->ispTypes = $map['IspTypes'];
+                $model->ispTypes = [];
+                $n1 = 0;
+                foreach ($map['IspTypes'] as $item1) {
+                    $model->ispTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Memory'])) {
             $model->memory = memory::fromMap($map['Memory']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Nvme'])) {
             $model->nvme = nvme::fromMap($map['Nvme']);
         }
+
         if (isset($map['OssStorage'])) {
             $model->ossStorage = ossStorage::fromMap($map['OssStorage']);
         }
+
         if (isset($map['Pangu'])) {
             $model->pangu = pangu::fromMap($map['Pangu']);
         }
+
         if (isset($map['PcfarmNum'])) {
             $model->pcfarmNum = pcfarmNum::fromMap($map['PcfarmNum']);
         }
+
         if (isset($map['Poc'])) {
             $model->poc = $map['Poc'];
         }
+
         if (isset($map['ProvinceCode'])) {
             $model->provinceCode = $map['ProvinceCode'];
         }
+
         if (isset($map['ProvinceName'])) {
             $model->provinceName = $map['ProvinceName'];
         }
+
         if (isset($map['ReserveDisable'])) {
             $model->reserveDisable = $map['ReserveDisable'];
         }
+
         if (isset($map['Ssd'])) {
             $model->ssd = ssd::fromMap($map['Ssd']);
         }
+
         if (isset($map['StatusDisable'])) {
             $model->statusDisable = $map['StatusDisable'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
+
         if (isset($map['Virtual'])) {
             $model->virtual = $map['Virtual'];
         }

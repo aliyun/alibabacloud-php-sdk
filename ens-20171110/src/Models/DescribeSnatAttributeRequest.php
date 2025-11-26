@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSnatAttributeRequest extends Model
 {
     /**
-     * @description The ID of the SNAT entry.
-     *
-     * This parameter is required.
-     *
-     * @example snat-5tc08qfj5ecblfdn2rqr9****
-     *
      * @var string
      */
     public $snatEntryId;
@@ -22,9 +16,12 @@ class DescribeSnatAttributeRequest extends Model
         'snatEntryId' => 'SnatEntryId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snatEntryId) {
@@ -34,11 +31,11 @@ class DescribeSnatAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSnatAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,66 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSnatTableEntriesRequest extends Model
 {
     /**
-     * @description The ID of the Network Address Translation (NAT) gateway.
-     *
-     * This parameter is required.
-     *
-     * @example nat-5tawjw5j7sgd2deujxuk0****
-     *
      * @var string
      */
     public $natGatewayId;
 
     /**
-     * @description The page number. Pages start from page **1**.
-     *
-     * Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. The maximum value is **100**.
-     *
-     * Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the SNAT entry.
-     *
-     * @example snat-5tfjp36fsrb36zs36faj0****
-     *
      * @var string
      */
     public $snatEntryId;
 
     /**
-     * @description The name of the SNAT entry.
-     *
-     * @example test0
-     *
      * @var string
      */
     public $snatEntryName;
 
     /**
-     * @description The elastic IP address (EIP) specified in the SNAT entry.
-     *
-     * @example 58.XXXX.XXX.29
-     *
      * @var string
      */
     public $snatIp;
@@ -74,10 +44,6 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatIps;
 
     /**
-     * @description The source CIDR block specified in the SNAT entry.
-     *
-     * @example 10.1.0.50/32
-     *
      * @var string
      */
     public $sourceCIDR;
@@ -92,32 +58,52 @@ class DescribeSnatTableEntriesRequest extends Model
         'sourceCIDR' => 'SourceCIDR',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snatIps)) {
+            Model::validateArray($this->snatIps);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
         }
+
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
+
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
         }
+
         if (null !== $this->snatIps) {
-            $res['SnatIps'] = $this->snatIps;
+            if (\is_array($this->snatIps)) {
+                $res['SnatIps'] = [];
+                $n1 = 0;
+                foreach ($this->snatIps as $item1) {
+                    $res['SnatIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
         }
@@ -125,37 +111,49 @@ class DescribeSnatTableEntriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSnatTableEntriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
         }
+
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
+
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
         }
+
         if (isset($map['SnatIps'])) {
             if (!empty($map['SnatIps'])) {
-                $model->snatIps = $map['SnatIps'];
+                $model->snatIps = [];
+                $n1 = 0;
+                foreach ($map['SnatIps'] as $item1) {
+                    $model->snatIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];
         }

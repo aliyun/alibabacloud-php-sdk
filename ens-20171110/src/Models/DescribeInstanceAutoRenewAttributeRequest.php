@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description The ID of an instance. Separate multiple IDs with semicolons (;).
-     *
-     * This parameter is required.
-     *
-     * @example i-5ci7l7k1m9m2zmhp4iw3o****
-     *
      * @var string
      */
     public $instanceIds;
@@ -28,14 +22,18 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -43,17 +41,18 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceAutoRenewAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

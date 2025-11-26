@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssignPrivateIpAddressesRequest extends Model
 {
     /**
-     * @description The ID of the ENI.
-     *
-     * This parameter is required.
-     *
-     * @example eni-uf6533jbifugr5fo2j1w
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-5rllcjb3ol6duzjdnbm1ombn7
-     *
      * @var string
      */
     public $vSwitchId;
@@ -32,14 +22,18 @@ class AssignPrivateIpAddressesRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -47,17 +41,18 @@ class AssignPrivateIpAddressesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssignPrivateIpAddressesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStorageGatewayRequest extends Model
 {
     /**
-     * @description The ID of the gateway.
-     *
-     * This parameter is required.
-     *
-     * @example sgw-****
-     *
      * @var string
      */
     public $gatewayId;
@@ -22,9 +16,12 @@ class DeleteStorageGatewayRequest extends Model
         'gatewayId' => 'GatewayId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
@@ -34,11 +31,11 @@ class DeleteStorageGatewayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStorageGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

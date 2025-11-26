@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\dataDisk\dataDisk;
 
 class dataDisk extends Model
 {
     /**
-     * @var dataDisk\dataDisk[]
+     * @var dataDisk[]
      */
     public $dataDisk;
     protected $_name = [
         'dataDisk' => 'DataDisk',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataDisk)) {
+            Model::validateArray($this->dataDisk);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataDisk)) {
+                $res['DataDisk'] = [];
+                $n1 = 0;
+                foreach ($this->dataDisk as $item1) {
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class dataDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk\dataDisk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataDisk'] as $item1) {
+                    $model->dataDisk[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

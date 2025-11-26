@@ -1,3 +1,108 @@
+2025-11-26 Version: 8.0.0
+- Support API BatchEventMigrateInstance.
+- Support API BatchEventRebootInstance.
+- Support API BatchEventRedeployInstance.
+- Support API CreateSecurityGroupPermissions.
+- Support API DeleteAICPublicKey.
+- Support API DeleteSecurityGroupPermissions.
+- Support API DescribeForwardEntryAttribute.
+- Support API DescribeHistoryEvents.
+- Support API DescribeInstanceBootConfiguration.
+- Support API DescribeNASAvailableResourceInfo.
+- Support API DescribeSDGSharedDisks.
+- Support API EventMigrateInstance.
+- Support API EventRebootInstance.
+- Support API EventRedeployInstance.
+- Support API ImportImage.
+- Support API ListAICPublicKeyDeliveries.
+- Support API ListAICPublicKeys.
+- Support API ManageAICLogin.
+- Support API ModifyInstanceNetworkAttribute.
+- Support API RemoveSDGs.
+- Support API ShareAICImage.
+- Support API UploadAICPublicKey.
+- Delete API AddDeviceInternetPort.
+- Delete API DeleteDeviceInternetPort.
+- Delete API GetDeviceInternetPort.
+- Delete API ResetDeviceInstance.
+- Delete API RestartDeviceInstance.
+- Update API AttachInstanceSDG: add request parameters DiskAccessProtocol.
+- Update API AttachInstanceSDG: add request parameters DiskType.
+- Update API AttachInstanceSDG: add request parameters LoadOpt.
+- Update API CopySnapshot: add request parameters InstanceBillingCycle.
+- Update API CreateARMServerInstances: add request parameters Cidr.
+- Update API CreateARMServerInstances: add request parameters InstanceBillingCycle.
+- Update API CreateARMServerInstances: add request parameters Tag.
+- Update API CreateDisk: add request parameters InstanceBillingCycle.
+- Update API CreateFileSystem: add response parameters Body.AllocationIds.
+- Update API CreateImage: add request parameters WithDataDisks.
+- Update API CreateLoadBalancer: add request parameters BillingCycle.
+- Update API CreateLoadBalancer: add request parameters LoadBalancerType.
+- Update API CreateNatGateway: add request parameters InstanceBillingCycle.
+- Update API CreateNetworkAclEntry: add request parameters DestinationCidrBlock.
+- Update API CreateSDG: add request parameters BillingCycle.
+- Update API CreateSDG: add request parameters DiskType.
+- Update API CreateSDG: add request parameters PerformanceLevel.
+- Update API CreateSecurityGroup: add request parameters Permissions.$.Ipv6DestCidrIp.
+- Update API CreateSecurityGroup: add request parameters Permissions.$.Ipv6SourceCidrIp.
+- Update API CreateSnapshot: add request parameters InstanceBillingCycle.
+- Update API DeployInstanceSDG: add request parameters DiskAccessProtocol.
+- Update API DeployInstanceSDG: add request parameters DiskType.
+- Update API DescribeAICImages: add response parameters Body.Images.$.AndroidVersion.
+- Update API DescribeARMServerInstances: add request parameters Tags.
+- Update API DescribeARMServerInstances: add response parameters Body.Servers.$.Tags.
+- Update API DescribeDisks: add response parameters Body.Disks.$.Tags.
+- Update API DescribeEnsEipAddresses: add request parameters EnsRegionIds.
+- Update API DescribeEnsEipAddresses: add request parameters IcmpReplyEnabled.
+- Update API DescribeEnsEipAddresses: add response parameters Body.EipAddresses.$.IcmpReplyEnabled.
+- Update API DescribeEnsEipAddresses: add response parameters Body.EipAddresses.$.Tags.
+- Update API DescribeEnsNetDistrict: add request parameters NetDistrictCodeNode.
+- Update API DescribeFileSystems: add response parameters Body.FileSystems.$.Description.
+- Update API DescribeHaVips: add request parameters EnsRegionIds.
+- Update API DescribeInstanceSDGStatus: add response parameters Body.DeploymentStatus.$.BlockRwSplitSize.
+- Update API DescribeInstanceSDGStatus: add response parameters Body.DeploymentStatus.$.CacheSize.
+- Update API DescribeInstanceSDGStatus: add response parameters Body.DeploymentStatus.$.DiskAccessProtocol.
+- Update API DescribeInstanceSDGStatus: add response parameters Body.DeploymentStatus.$.DiskType.
+- Update API DescribeInstances: add request parameters EipAddresses.
+- Update API DescribeInstances: add response parameters Body.Instances.$.DeletionProtection.
+- Update API DescribeLoadBalancerAttribute: add response parameters Body.AddressType.
+- Update API DescribeLoadBalancerAttribute: add response parameters Body.LoadBalancerType.
+- Update API DescribeLoadBalancers: add request parameters LoadBalancerType.
+- Update API DescribeLoadBalancers: add response parameters Body.LoadBalancers.$.AddressType.
+- Update API DescribeLoadBalancers: add response parameters Body.LoadBalancers.$.LoadBalancerType.
+- Update API DescribeNatGateways: add response parameters Body.NatGateways.$.Tags.
+- Update API DescribeNetworkAcls: add response parameters Body.NetworkAcls.$.IngressAclEntries.$.DestinationCidrBlock.
+- Update API DescribeNetworkAttribute: add response parameters Body.SecondaryCidrBlocks.
+- Update API DescribeNetworks: add response parameters Body.Networks.$.SecondaryCidrBlocks.
+- Update API DescribeNetworks: add response parameters Body.Networks.$.Tags.
+- Update API DescribeSDG: add response parameters Body.SDGs.$.BillingCycle.
+- Update API DescribeSDG: add response parameters Body.SDGs.$.BillingType.
+- Update API DescribeSDG: add response parameters Body.SDGs.$.CreationDiskType.
+- Update API DescribeSDG: add response parameters Body.SDGs.$.PerformanceLevel.
+- Update API DescribeSDG: add response parameters Body.SDGs.$.PreloadInfos.$.DiskType.
+- Update API DescribeSDGDeploymentStatus: add request parameters DiskIds.
+- Update API DescribeSDGDeploymentStatus: add response parameters Body.DeploymentStatus.$.BlockRwSplitSize.
+- Update API DescribeSDGDeploymentStatus: add response parameters Body.DeploymentStatus.$.CacheSize.
+- Update API DescribeSDGDeploymentStatus: add response parameters Body.DeploymentStatus.$.DiskAccessProtocol.
+- Update API DescribeSDGDeploymentStatus: add response parameters Body.DeploymentStatus.$.DiskType.
+- Update API DescribeSDGs: add response parameters Body.SDGs.$.BillingCycle.
+- Update API DescribeSDGs: add response parameters Body.SDGs.$.BillingType.
+- Update API DescribeSDGs: add response parameters Body.SDGs.$.CreationDiskType.
+- Update API DescribeSDGs: add response parameters Body.SDGs.$.PerformanceLevel.
+- Update API DescribeSecondaryPublicIpAddresses: add request parameters EnsRegionIds.
+- Update API DescribeSecurityGroupAttribute: add response parameters Body.Permissions.$.Ipv6DestCidrIp.
+- Update API DescribeSecurityGroupAttribute: add response parameters Body.Permissions.$.Ipv6SourceCidrIp.
+- Update API DescribeVSwitches: add response parameters Body.VSwitches.$.Tags.
+- Update API ModifyInstanceAttribute: add request parameters DeletionProtection.
+- Update API ModifyInstanceChargeType: add request parameters BillingCycle.
+- Update API PreloadRegionSDG: add request parameters DiskType.
+- Update API RunInstances: add request parameters DeletionProtection.
+- Update API RunInstances: add request parameters Ipv6AddressCount.
+- Update API RunInstances: add request parameters LaunchTemplateId.
+- Update API RunInstances: add request parameters LaunchTemplateName.
+- Update API RunInstances: add request parameters LaunchTemplateVersion.
+
+
 2025-03-18 Version: 7.0.0
 - Support API DescribeVSwitchAttributes.
 - Support API ListProductAbilities.

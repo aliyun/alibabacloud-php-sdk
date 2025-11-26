@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDisk extends Model
 {
     /**
-     * @description The category of the system disk.
-     *
-     * @example local_ssd
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The size of the system disk. Unit: GiB.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $size;
@@ -30,14 +22,18 @@ class systemDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -45,17 +41,18 @@ class systemDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

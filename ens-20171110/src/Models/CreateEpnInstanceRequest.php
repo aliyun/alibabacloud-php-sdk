@@ -4,70 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEpnInstanceRequest extends Model
 {
     /**
-     * @description The name of the EPN instance.
-     *
-     * @example test EPNInstanceName
-     *
      * @var string
      */
     public $EPNInstanceName;
 
     /**
-     * @description The type of the EPN instance. Set the value to **EdgeToEdge**.
-     *
-     * This parameter is required.
-     *
-     * @example EdgeToEdge
-     *
      * @var string
      */
     public $EPNInstanceType;
 
     /**
-     * @description The billing method for network usage. Valid values:
-     *
-     *   **BandwidthByDay**: Pay by daily peak bandwidth.
-     *   **95BandwidthByMonth**: Pay by monthly 95th percentile bandwidth.
-     *   **PayByBandwidth4thMonth**: Pay by monthly fourth peak bandwidth.
-     *   **PayByBandwidth**: Pay by fixed bandwidth.
-     *
-     * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
-     *
-     * This parameter is required.
-     *
-     * @example BandwidthByDay
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 100.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The networking mode. Valid values:
-     *
-     *   **SpeedUp**: intelligent acceleration network (Internet)
-     *   **Connection**: internal network
-     *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
-     *
-     * This parameter is required.
-     *
-     * @example SpeedUp
-     *
      * @var string
      */
     public $networkingModel;
@@ -79,23 +40,30 @@ class CreateEpnInstanceRequest extends Model
         'networkingModel' => 'NetworkingModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EPNInstanceName) {
             $res['EPNInstanceName'] = $this->EPNInstanceName;
         }
+
         if (null !== $this->EPNInstanceType) {
             $res['EPNInstanceType'] = $this->EPNInstanceType;
         }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
         }
+
         if (null !== $this->networkingModel) {
             $res['NetworkingModel'] = $this->networkingModel;
         }
@@ -103,26 +71,30 @@ class CreateEpnInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEpnInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EPNInstanceName'])) {
             $model->EPNInstanceName = $map['EPNInstanceName'];
         }
+
         if (isset($map['EPNInstanceType'])) {
             $model->EPNInstanceType = $map['EPNInstanceType'];
         }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
+
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
         }
+
         if (isset($map['NetworkingModel'])) {
             $model->networkingModel = $map['NetworkingModel'];
         }

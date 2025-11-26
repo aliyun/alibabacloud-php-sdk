@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetBackendServersShrinkRequest extends Model
 {
     /**
-     * @description The list of backend servers that you want to add. You can modify at most 20 backend servers.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $backendServersShrink;
 
     /**
-     * @description The ID of the Edge Load Balancer (ELB) instance.
-     *
-     * This parameter is required.
-     *
-     * @example lb-5s7crik3yo3bp03gqrbp5****
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -32,14 +22,18 @@ class SetBackendServersShrinkRequest extends Model
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServersShrink) {
             $res['BackendServers'] = $this->backendServersShrink;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
@@ -47,17 +41,18 @@ class SetBackendServersShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetBackendServersShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServers'])) {
             $model->backendServersShrink = $map['BackendServers'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }

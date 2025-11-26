@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
 {
     /**
-     * @description The listening port that you want to query. Valid values: **1** to **65535**.
-     *
-     * This parameter is required.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The ID of the ELB instance.
-     *
-     * This parameter is required.
-     *
-     * @example lb-5qoxu2rsr0ytanpn4r3i****
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -34,14 +22,18 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
@@ -49,17 +41,18 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoadBalancerHTTPSListenerAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }

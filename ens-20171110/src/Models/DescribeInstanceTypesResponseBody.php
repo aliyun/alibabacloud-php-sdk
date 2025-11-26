@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceTypesResponseBody\instanceTypes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceTypesResponseBody extends Model
 {
     /**
-     * @description The status code. If the request is successful, 0 is returned. If the request fails, a non-zero error code is returned.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description Details about the instance types.
-     *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
-     * @description The request ID.
-     *
-     * @example D452D190-BADF-5D09-910D-599B96D42AAA
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class DescribeInstanceTypesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceTypes) {
+            $this->instanceTypes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
+            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toArray($noStream) : $this->instanceTypes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class DescribeInstanceTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['InstanceTypes'])) {
             $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

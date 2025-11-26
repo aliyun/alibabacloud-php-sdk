@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDisk extends Model
 {
     /**
-     * @description The size of the system disk. Unit: GB.
-     *
-     * This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -22,9 +16,12 @@ class systemDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->size) {
@@ -34,11 +31,11 @@ class systemDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

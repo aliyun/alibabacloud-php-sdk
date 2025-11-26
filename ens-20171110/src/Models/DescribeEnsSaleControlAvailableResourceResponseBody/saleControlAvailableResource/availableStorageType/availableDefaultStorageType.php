@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponseBody\saleControlAvailableResource\availableStorageType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableDefaultStorageType extends Model
 {
@@ -22,14 +22,18 @@ class availableDefaultStorageType extends Model
         'storageType' => 'StorageType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageName) {
             $res['StorageName'] = $this->storageName;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -37,17 +41,18 @@ class availableDefaultStorageType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableDefaultStorageType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageName'])) {
             $model->storageName = $map['StorageName'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

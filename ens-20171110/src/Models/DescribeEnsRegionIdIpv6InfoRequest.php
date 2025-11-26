@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsRegionIdIpv6InfoRequest extends Model
 {
     /**
-     * @description The ID of the node. You can specify only one node ID in a call.
-     *
-     * This parameter is required.
-     *
-     * @example cn-chengdu-xxxx-4
-     *
      * @var string
      */
     public $ensRegionId;
@@ -22,9 +16,12 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
@@ -34,11 +31,11 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsRegionIdIpv6InfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

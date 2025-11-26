@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketLifecycleResponseBody\rule;
-use AlibabaCloud\Tea\Model;
 
 class GetBucketLifecycleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A2583E8B-B930-4F59-ADC0-0E209A90C46E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The detailed information about the rule.
-     *
      * @var rule[]
      */
     public $rule;
@@ -29,20 +23,28 @@ class GetBucketLifecycleResponseBody extends Model
         'rule' => 'Rule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->rule)) {
+            Model::validateArray($this->rule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rule) {
-            $res['Rule'] = [];
-            if (null !== $this->rule && \is_array($this->rule)) {
-                $n = 0;
-                foreach ($this->rule as $item) {
-                    $res['Rule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rule)) {
+                $res['Rule'] = [];
+                $n1 = 0;
+                foreach ($this->rule as $item1) {
+                    $res['Rule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class GetBucketLifecycleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBucketLifecycleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Rule'])) {
             if (!empty($map['Rule'])) {
                 $model->rule = [];
-                $n = 0;
-                foreach ($map['Rule'] as $item) {
-                    $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Rule'] as $item1) {
+                    $model->rule[$n1] = rule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

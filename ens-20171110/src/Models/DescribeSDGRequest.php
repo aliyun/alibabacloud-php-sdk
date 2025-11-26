@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSDGRequest extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The IDs of SDGs that you want to query. By default, all SDGs are queried.
-     *
      * @var string[]
      */
     public $SDGIds;
@@ -40,41 +28,63 @@ class DescribeSDGRequest extends Model
         'SDGIds' => 'SDGIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->SDGIds)) {
+            Model::validateArray($this->SDGIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->SDGIds) {
-            $res['SDGIds'] = $this->SDGIds;
+            if (\is_array($this->SDGIds)) {
+                $res['SDGIds'] = [];
+                $n1 = 0;
+                foreach ($this->SDGIds as $item1) {
+                    $res['SDGIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SDGIds'])) {
             if (!empty($map['SDGIds'])) {
-                $model->SDGIds = $map['SDGIds'];
+                $model->SDGIds = [];
+                $n1 = 0;
+                foreach ($map['SDGIds'] as $item1) {
+                    $model->SDGIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,94 +4,150 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemResponseBody\allocationIds;
 
 class CreateFileSystemResponseBody extends Model
 {
     /**
-     * @description The information about the file system that was created.
-     *
      * @var string[]
      */
     public $allocationId;
 
     /**
-     * @description The status code for successful operations. Valid values:
-     *
-     *   PartSuccess: The operation is partially successful.
-     *   AllSuccess: The operation is successful.
-     *
-     * @example PartSuccess
-     *
+     * @var allocationIds[]
+     */
+    public $allocationIds;
+
+    /**
      * @var string
      */
     public $bizStatusCode;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the file system that failed to be created.
-     *
      * @var string[]
      */
     public $unAllocationId;
     protected $_name = [
         'allocationId' => 'AllocationId',
+        'allocationIds' => 'AllocationIds',
         'bizStatusCode' => 'BizStatusCode',
         'requestId' => 'RequestId',
         'unAllocationId' => 'UnAllocationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->allocationId)) {
+            Model::validateArray($this->allocationId);
+        }
+        if (\is_array($this->allocationIds)) {
+            Model::validateArray($this->allocationIds);
+        }
+        if (\is_array($this->unAllocationId)) {
+            Model::validateArray($this->unAllocationId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
-            $res['AllocationId'] = $this->allocationId;
+            if (\is_array($this->allocationId)) {
+                $res['AllocationId'] = [];
+                $n1 = 0;
+                foreach ($this->allocationId as $item1) {
+                    $res['AllocationId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->allocationIds) {
+            if (\is_array($this->allocationIds)) {
+                $res['AllocationIds'] = [];
+                $n1 = 0;
+                foreach ($this->allocationIds as $item1) {
+                    $res['AllocationIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->bizStatusCode) {
             $res['BizStatusCode'] = $this->bizStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->unAllocationId) {
-            $res['UnAllocationId'] = $this->unAllocationId;
+            if (\is_array($this->unAllocationId)) {
+                $res['UnAllocationId'] = [];
+                $n1 = 0;
+                foreach ($this->unAllocationId as $item1) {
+                    $res['UnAllocationId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFileSystemResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             if (!empty($map['AllocationId'])) {
-                $model->allocationId = $map['AllocationId'];
+                $model->allocationId = [];
+                $n1 = 0;
+                foreach ($map['AllocationId'] as $item1) {
+                    $model->allocationId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['AllocationIds'])) {
+            if (!empty($map['AllocationIds'])) {
+                $model->allocationIds = [];
+                $n1 = 0;
+                foreach ($map['AllocationIds'] as $item1) {
+                    $model->allocationIds[$n1] = allocationIds::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BizStatusCode'])) {
             $model->bizStatusCode = $map['BizStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UnAllocationId'])) {
             if (!empty($map['UnAllocationId'])) {
-                $model->unAllocationId = $map['UnAllocationId'];
+                $model->unAllocationId = [];
+                $n1 = 0;
+                foreach ($map['UnAllocationId'] as $item1) {
+                    $model->unAllocationId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

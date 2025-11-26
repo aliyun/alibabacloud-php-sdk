@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsResponseBody\applications;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsResponseBody\applications\application\appList;
-use AlibabaCloud\Tea\Model;
 
 class application extends Model
 {
     /**
-     * @description Details about the application.
-     *
      * @var appList
      */
     public $appList;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example ay-ads-hz-h
-     *
      * @var string
      */
     public $clusterName;
@@ -29,14 +23,21 @@ class application extends Model
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appList) {
+            $this->appList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appList) {
-            $res['AppList'] = null !== $this->appList ? $this->appList->toMap() : null;
+            $res['AppList'] = null !== $this->appList ? $this->appList->toArray($noStream) : $this->appList;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -44,17 +45,18 @@ class application extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return application
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppList'])) {
             $model->appList = appList::fromMap($map['AppList']);
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

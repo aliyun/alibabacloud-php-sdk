@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponseBody\podAbstractInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponseBody\podAbstractInfo\containerStatuses\containerStatus;
-use AlibabaCloud\Tea\Model;
 
 class containerStatuses extends Model
 {
@@ -17,17 +17,24 @@ class containerStatuses extends Model
         'containerStatus' => 'ContainerStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->containerStatus)) {
+            Model::validateArray($this->containerStatus);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerStatus) {
-            $res['ContainerStatus'] = [];
-            if (null !== $this->containerStatus && \is_array($this->containerStatus)) {
-                $n = 0;
-                foreach ($this->containerStatus as $item) {
-                    $res['ContainerStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containerStatus)) {
+                $res['ContainerStatus'] = [];
+                $n1 = 0;
+                foreach ($this->containerStatus as $item1) {
+                    $res['ContainerStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class containerStatuses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return containerStatuses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerStatus'])) {
             if (!empty($map['ContainerStatus'])) {
                 $model->containerStatus = [];
-                $n = 0;
-                foreach ($map['ContainerStatus'] as $item) {
-                    $model->containerStatus[$n++] = null !== $item ? containerStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContainerStatus'] as $item1) {
+                    $model->containerStatus[$n1] = containerStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

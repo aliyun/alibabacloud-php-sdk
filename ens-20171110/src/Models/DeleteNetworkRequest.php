@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkRequest extends Model
 {
     /**
-     * @description The ID of the network.
-     *
-     * This parameter is required.
-     *
-     * @example n-5***
-     *
      * @var string
      */
     public $networkId;
@@ -22,9 +16,12 @@ class DeleteNetworkRequest extends Model
         'networkId' => 'NetworkId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkId) {
@@ -34,11 +31,11 @@ class DeleteNetworkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

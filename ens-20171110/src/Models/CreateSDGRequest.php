@@ -4,86 +4,86 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSDGRequest extends Model
 {
     /**
-     * @description The description of the SDG.
-     *
-     * >  We recommend that you specify this parameter in details for subsequent queries.
-     *
-     * @example Testing SDGs
-     *
+     * @var string
+     */
+    public $billingCycle;
+
+    /**
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the SDG from which you want to create an SDG.
-     *
-     * >
-     *
-     *   The first time you create an SDG, the **FromSDGId** parameter is empty.
-     *
-     *   If the value of the **FromSDGId** parameter is invalid or does not correspond to an original disk, an error is reported.
-     *
-     *   If the value of the **FromSDGId** parameter is not empty, you have created an SDG, and the operation is performed on the existing SDG.
-     *
-     * @example sdg-xxxxx
-     *
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string
      */
     public $fromSDGId;
 
     /**
-     * @description The ID of the AIC instance. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example aic-xxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The maximum capacity of the SDG. Unit: GB.
-     *
-     * >
-     *
-     *   To save costs, we recommend that you specify this parameter based on your business requirements.
-     *
-     *   The first time that you create an SDG, the **Size** parameter is required.
-     *
-     *   When the amount of data increases, you can pass a new **Size** parameter for resizing. If the value of the new **Size** parameter is greater than the value of the old **Size** parameter, the disk size of the SDG is increased to the size that is specified by the new **Size** parameter. If the value of the new **Size** parameter is empty or smaller than that of the old **Size** parameter, no operation is performed.
-     *
-     * @example 20
-     *
+     * @var int
+     */
+    public $performanceLevel;
+
+    /**
      * @var string
      */
     public $size;
     protected $_name = [
+        'billingCycle' => 'BillingCycle',
         'description' => 'Description',
+        'diskType' => 'DiskType',
         'fromSDGId' => 'FromSDGId',
         'instanceId' => 'InstanceId',
+        'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
         if (null !== $this->fromSDGId) {
             $res['FromSDGId'] = $this->fromSDGId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -91,23 +91,38 @@ class CreateSDGRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['FromSDGId'])) {
             $model->fromSDGId = $map['FromSDGId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
+        }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

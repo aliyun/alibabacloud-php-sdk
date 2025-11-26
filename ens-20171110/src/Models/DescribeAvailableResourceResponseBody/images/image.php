@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceResponseBody\images;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class image extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * @example centos_6_08_64_20G_alibase_20171208
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The name of the image.
-     *
-     * @example centos_6_08_64_20G_alibase_****
-     *
      * @var string
      */
     public $imageName;
@@ -30,14 +22,18 @@ class image extends Model
         'imageName' => 'ImageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
@@ -45,17 +41,18 @@ class image extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return image
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }

@@ -4,68 +4,86 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PreloadRegionSDGRequest extends Model
 {
     /**
-     * @description The IDs of the destination nodes.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $destinationRegionIds;
 
     /**
-     * @description The namespaces.
-     *
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description The number of redundant replicas to support rapid deployment.
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $redundantNum;
 
     /**
-     * @description The ID of the SDG for which data is preloaded.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxx
-     *
      * @var string
      */
     public $SDGId;
     protected $_name = [
         'destinationRegionIds' => 'DestinationRegionIds',
+        'diskType' => 'DiskType',
         'namespaces' => 'Namespaces',
         'redundantNum' => 'RedundantNum',
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->destinationRegionIds)) {
+            Model::validateArray($this->destinationRegionIds);
+        }
+        if (\is_array($this->namespaces)) {
+            Model::validateArray($this->namespaces);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionIds) {
-            $res['DestinationRegionIds'] = $this->destinationRegionIds;
+            if (\is_array($this->destinationRegionIds)) {
+                $res['DestinationRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->destinationRegionIds as $item1) {
+                    $res['DestinationRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
         if (null !== $this->namespaces) {
-            $res['Namespaces'] = $this->namespaces;
+            if (\is_array($this->namespaces)) {
+                $res['Namespaces'] = [];
+                $n1 = 0;
+                foreach ($this->namespaces as $item1) {
+                    $res['Namespaces'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->redundantNum) {
             $res['RedundantNum'] = $this->redundantNum;
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -73,27 +91,44 @@ class PreloadRegionSDGRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PreloadRegionSDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionIds'])) {
             if (!empty($map['DestinationRegionIds'])) {
-                $model->destinationRegionIds = $map['DestinationRegionIds'];
+                $model->destinationRegionIds = [];
+                $n1 = 0;
+                foreach ($map['DestinationRegionIds'] as $item1) {
+                    $model->destinationRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
-                $model->namespaces = $map['Namespaces'];
+                $model->namespaces = [];
+                $n1 = 0;
+                foreach ($map['Namespaces'] as $item1) {
+                    $model->namespaces[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RedundantNum'])) {
             $model->redundantNum = $map['RedundantNum'];
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

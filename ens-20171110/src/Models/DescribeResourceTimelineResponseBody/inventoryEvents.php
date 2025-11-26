@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inventoryEvents extends Model
 {
@@ -34,20 +34,26 @@ class inventoryEvents extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->occurrenceTime) {
             $res['OccurrenceTime'] = $this->occurrenceTime;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,23 +61,26 @@ class inventoryEvents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inventoryEvents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OccurrenceTime'])) {
             $model->occurrenceTime = $map['OccurrenceTime'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

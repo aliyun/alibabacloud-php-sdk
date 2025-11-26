@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsNetDistrictResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsNetDistrictResponseBody\ensNetDistricts\ensNetDistrict;
-use AlibabaCloud\Tea\Model;
 
 class ensNetDistricts extends Model
 {
@@ -17,17 +17,24 @@ class ensNetDistricts extends Model
         'ensNetDistrict' => 'EnsNetDistrict',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensNetDistrict)) {
+            Model::validateArray($this->ensNetDistrict);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensNetDistrict) {
-            $res['EnsNetDistrict'] = [];
-            if (null !== $this->ensNetDistrict && \is_array($this->ensNetDistrict)) {
-                $n = 0;
-                foreach ($this->ensNetDistrict as $item) {
-                    $res['EnsNetDistrict'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ensNetDistrict)) {
+                $res['EnsNetDistrict'] = [];
+                $n1 = 0;
+                foreach ($this->ensNetDistrict as $item1) {
+                    $res['EnsNetDistrict'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ensNetDistricts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ensNetDistricts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsNetDistrict'])) {
             if (!empty($map['EnsNetDistrict'])) {
                 $model->ensNetDistrict = [];
-                $n = 0;
-                foreach ($map['EnsNetDistrict'] as $item) {
-                    $model->ensNetDistrict[$n++] = null !== $item ? ensNetDistrict::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnsNetDistrict'] as $item1) {
+                    $model->ensNetDistrict[$n1] = ensNetDistrict::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,100 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderDetails extends Model
 {
     /**
-     * @description The billing method of the NAS file system. Valid values:
-     *
-     *   PrePaid: subscription. This billing method is not supported.
-     *   PostPaid: pay-as-you-go.
-     *
-     * This parameter is required.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The ID of the edge node.
-     *
-     * This parameter is required.
-     *
-     * @example cn-suzhou-telecom
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The name of the file system. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-     *
-     * This parameter is required.
-     *
-     * @example nasFile
-     *
      * @var string
      */
     public $fileSystemName;
 
     /**
-     * @description The name of the mount target. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-     *
-     * This parameter is required.
-     *
-     * @example nasMount
-     *
      * @var string
      */
     public $mountTargetDomain;
 
     /**
-     * @description The ID of the VPC.
-     *
-     * This parameter is required.
-     *
-     * @example vpc-xxx
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The type of the order. Set the value to BUY.
-     *
-     * This parameter is required.
-     *
-     * @example BUY
-     *
      * @var string
      */
     public $orderType;
 
     /**
-     * @description The storage protocol. Set the value to nfs.
-     *
-     * This parameter is required.
-     *
-     * @example nfs
-     *
      * @var string
      */
     public $protocolType;
 
     /**
-     * @description The storage type. Valid values:
-     *
-     *   Capacity.
-     *   Performance.
-     *
-     * This parameter is required.
-     *
-     * @example capacity
-     *
      * @var string
      */
     public $storgeType;
@@ -112,32 +58,42 @@ class orderDetails extends Model
         'storgeType' => 'StorgeType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->fileSystemName) {
             $res['FileSystemName'] = $this->fileSystemName;
         }
+
         if (null !== $this->mountTargetDomain) {
             $res['MountTargetDomain'] = $this->mountTargetDomain;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+
         if (null !== $this->storgeType) {
             $res['StorgeType'] = $this->storgeType;
         }
@@ -145,35 +101,42 @@ class orderDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['FileSystemName'])) {
             $model->fileSystemName = $map['FileSystemName'];
         }
+
         if (isset($map['MountTargetDomain'])) {
             $model->mountTargetDomain = $map['MountTargetDomain'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+
         if (isset($map['StorgeType'])) {
             $model->storgeType = $map['StorgeType'];
         }

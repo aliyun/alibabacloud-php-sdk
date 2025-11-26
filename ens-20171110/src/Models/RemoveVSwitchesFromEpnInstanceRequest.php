@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveVSwitchesFromEpnInstanceRequest extends Model
 {
     /**
-     * @description The ID of theEPN instance.
-     *
-     * This parameter is required.
-     *
-     * @example epn-****
-     *
      * @var string
      */
     public $EPNInstanceId;
 
     /**
-     * @description The internal networking information that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example VSwitchesInfo=[{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
-     *
      * @var string
      */
     public $vSwitchesInfo;
@@ -34,14 +22,18 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
         'vSwitchesInfo' => 'VSwitchesInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EPNInstanceId) {
             $res['EPNInstanceId'] = $this->EPNInstanceId;
         }
+
         if (null !== $this->vSwitchesInfo) {
             $res['VSwitchesInfo'] = $this->vSwitchesInfo;
         }
@@ -49,17 +41,18 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveVSwitchesFromEpnInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EPNInstanceId'])) {
             $model->EPNInstanceId = $map['EPNInstanceId'];
         }
+
         if (isset($map['VSwitchesInfo'])) {
             $model->vSwitchesInfo = $map['VSwitchesInfo'];
         }

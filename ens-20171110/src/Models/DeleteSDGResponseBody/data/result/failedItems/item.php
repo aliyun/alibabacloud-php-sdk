@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSDGResponseBody\data\result\failedItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class item extends Model
 {
     /**
-     * @description The ID of the shared data group (SDG).
-     *
-     * @example sdg-dfet5vvvgy
-     *
      * @var string
      */
     public $sdgId;
@@ -20,9 +16,12 @@ class item extends Model
         'sdgId' => 'SdgId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sdgId) {
@@ -32,11 +31,11 @@ class item extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return item
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResizeDiskRequest extends Model
 {
     /**
-     * @description The ID of the disk that you want to resize.
-     *
-     * This parameter is required.
-     *
-     * @example d-5tzm9wnhzlhjzcbtxo465****
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @description The size of the disk that you want to resize. Unit: GiB.
-     *
-     * This parameter is required.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $newSize;
@@ -34,14 +22,18 @@ class ResizeDiskRequest extends Model
         'newSize' => 'NewSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
+
         if (null !== $this->newSize) {
             $res['NewSize'] = $this->newSize;
         }
@@ -49,17 +41,18 @@ class ResizeDiskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResizeDiskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
+
         if (isset($map['NewSize'])) {
             $model->newSize = $map['NewSize'];
         }

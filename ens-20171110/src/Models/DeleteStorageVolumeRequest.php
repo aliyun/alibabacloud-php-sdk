@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStorageVolumeRequest extends Model
 {
     /**
-     * @description The ID of the volume.
-     *
-     * This parameter is required.
-     *
-     * @example sv-***
-     *
      * @var string
      */
     public $volumeId;
@@ -22,9 +16,12 @@ class DeleteStorageVolumeRequest extends Model
         'volumeId' => 'VolumeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->volumeId) {
@@ -34,11 +31,11 @@ class DeleteStorageVolumeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStorageVolumeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

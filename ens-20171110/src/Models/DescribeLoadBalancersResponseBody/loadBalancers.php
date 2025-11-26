@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancersResponseBody\loadBalancers\loadBalancer;
-use AlibabaCloud\Tea\Model;
 
 class loadBalancers extends Model
 {
@@ -17,17 +17,24 @@ class loadBalancers extends Model
         'loadBalancer' => 'LoadBalancer',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->loadBalancer)) {
+            Model::validateArray($this->loadBalancer);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancer) {
-            $res['LoadBalancer'] = [];
-            if (null !== $this->loadBalancer && \is_array($this->loadBalancer)) {
-                $n = 0;
-                foreach ($this->loadBalancer as $item) {
-                    $res['LoadBalancer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->loadBalancer)) {
+                $res['LoadBalancer'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancer as $item1) {
+                    $res['LoadBalancer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class loadBalancers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loadBalancers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancer'])) {
             if (!empty($map['LoadBalancer'])) {
                 $model->loadBalancer = [];
-                $n = 0;
-                foreach ($map['LoadBalancer'] as $item) {
-                    $model->loadBalancer[$n++] = null !== $item ? loadBalancer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LoadBalancer'] as $item1) {
+                    $model->loadBalancer[$n1] = loadBalancer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

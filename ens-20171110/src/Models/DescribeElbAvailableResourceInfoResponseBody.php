@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeElbAvailableResourceInfoResponseBody\elbAvailableResourceInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElbAvailableResourceInfoResponseBody extends Model
 {
     /**
-     * @description The information about resources.
-     *
      * @var elbAvailableResourceInfo[]
      */
     public $elbAvailableResourceInfo;
 
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-     *
-     * @example 25AAD194-4A37-51CF-B1CA-1E86FDAC23A6
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeElbAvailableResourceInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->elbAvailableResourceInfo)) {
+            Model::validateArray($this->elbAvailableResourceInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elbAvailableResourceInfo) {
-            $res['ElbAvailableResourceInfo'] = [];
-            if (null !== $this->elbAvailableResourceInfo && \is_array($this->elbAvailableResourceInfo)) {
-                $n = 0;
-                foreach ($this->elbAvailableResourceInfo as $item) {
-                    $res['ElbAvailableResourceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elbAvailableResourceInfo)) {
+                $res['ElbAvailableResourceInfo'] = [];
+                $n1 = 0;
+                foreach ($this->elbAvailableResourceInfo as $item1) {
+                    $res['ElbAvailableResourceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeElbAvailableResourceInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElbAvailableResourceInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElbAvailableResourceInfo'])) {
             if (!empty($map['ElbAvailableResourceInfo'])) {
                 $model->elbAvailableResourceInfo = [];
-                $n = 0;
-                foreach ($map['ElbAvailableResourceInfo'] as $item) {
-                    $model->elbAvailableResourceInfo[$n++] = null !== $item ? elbAvailableResourceInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ElbAvailableResourceInfo'] as $item1) {
+                    $model->elbAvailableResourceInfo[$n1] = elbAvailableResourceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

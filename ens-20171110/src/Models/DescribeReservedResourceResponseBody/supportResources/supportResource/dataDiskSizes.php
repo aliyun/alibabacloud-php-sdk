@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponseBody\supportResources\supportResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDiskSizes extends Model
 {
@@ -16,29 +16,47 @@ class dataDiskSizes extends Model
         'dataDiskSize' => 'DataDiskSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataDiskSize)) {
+            Model::validateArray($this->dataDiskSize);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataDiskSize) {
-            $res['DataDiskSize'] = $this->dataDiskSize;
+            if (\is_array($this->dataDiskSize)) {
+                $res['DataDiskSize'] = [];
+                $n1 = 0;
+                foreach ($this->dataDiskSize as $item1) {
+                    $res['DataDiskSize'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDiskSizes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataDiskSize'])) {
             if (!empty($map['DataDiskSize'])) {
-                $model->dataDiskSize = $map['DataDiskSize'];
+                $model->dataDiskSize = [];
+                $n1 = 0;
+                foreach ($map['DataDiskSize'] as $item1) {
+                    $model->dataDiskSize[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

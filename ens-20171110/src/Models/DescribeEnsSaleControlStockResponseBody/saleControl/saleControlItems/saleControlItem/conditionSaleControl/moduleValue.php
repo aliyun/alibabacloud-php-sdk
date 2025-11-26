@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlStockResponseBody\saleControl\saleControlItems\saleControlItem\conditionSaleControl;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class moduleValue extends Model
 {
@@ -22,14 +22,18 @@ class moduleValue extends Model
         'moduleMinValue' => 'ModuleMinValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleMaxValue) {
             $res['ModuleMaxValue'] = $this->moduleMaxValue;
         }
+
         if (null !== $this->moduleMinValue) {
             $res['ModuleMinValue'] = $this->moduleMinValue;
         }
@@ -37,17 +41,18 @@ class moduleValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moduleValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleMaxValue'])) {
             $model->moduleMaxValue = $map['ModuleMaxValue'];
         }
+
         if (isset($map['ModuleMinValue'])) {
             $model->moduleMinValue = $map['ModuleMinValue'];
         }

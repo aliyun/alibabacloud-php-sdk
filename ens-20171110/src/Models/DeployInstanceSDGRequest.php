@@ -4,55 +4,76 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeployInstanceSDGRequest extends Model
 {
     /**
-     * @description The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
-     *
-     * @example shared
-     *
      * @var string
      */
     public $deploymentType;
 
     /**
-     * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
-     *
-     * This parameter is required.
-     *
+     * @var string
+     */
+    public $diskAccessProtocol;
+
+    /**
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the SDG.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxx
-     *
      * @var string
      */
     public $SDGId;
     protected $_name = [
         'deploymentType' => 'DeploymentType',
+        'diskAccessProtocol' => 'DiskAccessProtocol',
+        'diskType' => 'DiskType',
         'instanceIds' => 'InstanceIds',
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentType) {
             $res['DeploymentType'] = $this->deploymentType;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+
+        if (null !== $this->diskAccessProtocol) {
+            $res['DiskAccessProtocol'] = $this->diskAccessProtocol;
         }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -60,22 +81,37 @@ class DeployInstanceSDGRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeployInstanceSDGRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentType'])) {
             $model->deploymentType = $map['DeploymentType'];
         }
+
+        if (isset($map['DiskAccessProtocol'])) {
+            $model->diskAccessProtocol = $map['DiskAccessProtocol'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
+        }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

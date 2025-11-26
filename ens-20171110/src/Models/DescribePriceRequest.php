@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\dataDisk;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\dataDisks;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest\systemDisk;
-use AlibabaCloud\Tea\Model;
 
 class DescribePriceRequest extends Model
 {
@@ -22,84 +22,36 @@ class DescribePriceRequest extends Model
     public $systemDisk;
 
     /**
-     * @description If you leave DataDisk.1.Size empty, the value that you specified for this parameter is used.
-     *
      * @var dataDisks[]
      */
     public $dataDisks;
 
     /**
-     * @description The ID of the ENS node.
-     *
-     * This parameter is required.
-     *
-     * @example cn-shanghai-unicom
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The specifications of instances.
-     *
-     * This parameter is required.
-     *
-     * @example ens.sn1.tiny
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The bandwidth metering method of the instance. Valid values:
-     *
-     *   BandwidthByDay: Pay by daily peak bandwidth
-     *   95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
-     *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
-     *   PayByBandwidth: Pay by fixed bandwidth
-     *
-     * This parameter is required.
-     *
-     * @example 95BandwidthByMonth
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description The subscription duration of the instance.
-     *
-     *   If you leave the PeriodUnit parameter empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
-     *   If you set PeriodUnit to Day, you can set Period only to 3.
-     *   If you set PeriodUnit to Month, you can set Period to a number from 1 to 9, or set Period to 12.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The billing cycle of the ENS instance. Valid values:
-     *
-     *   Month (default):
-     *   Day
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The number of instances.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $quantity;
@@ -115,47 +67,69 @@ class DescribePriceRequest extends Model
         'quantity' => 'Quantity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataDisk)) {
+            Model::validateArray($this->dataDisk);
+        }
+        if (null !== $this->systemDisk) {
+            $this->systemDisk->validate();
+        }
+        if (\is_array($this->dataDisks)) {
+            Model::validateArray($this->dataDisks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataDisk)) {
+                $res['DataDisk'] = [];
+                $n1 = 0;
+                foreach ($this->dataDisk as $item1) {
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
         }
+
         if (null !== $this->dataDisks) {
-            $res['DataDisks'] = [];
-            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
-                $n = 0;
-                foreach ($this->dataDisks as $item) {
-                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataDisks)) {
+                $res['DataDisks'] = [];
+                $n1 = 0;
+                foreach ($this->dataDisks as $item1) {
+                    $res['DataDisks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
@@ -163,50 +137,60 @@ class DescribePriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataDisk'] as $item1) {
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
+
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
                 $model->dataDisks = [];
-                $n = 0;
-                foreach ($map['DataDisks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataDisks'] as $item1) {
+                    $model->dataDisks[$n1] = dataDisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }

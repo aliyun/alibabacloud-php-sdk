@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeServcieScheduleRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     *
-     * @example 474bdef0-d149-4695-abfb-52912d91****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter does not take effect.
-     *
-     * @example android
-     *
      * @var string
      */
     public $podConfigName;
 
     /**
-     * @description The unique ID of the device.
-     *
-     * This parameter is required.
-     *
-     * @example hdm_f022bf160dc69e2d8eb421e508eb****
-     *
      * @var string
      */
     public $uuid;
@@ -44,17 +28,22 @@ class DescribeServcieScheduleRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->podConfigName) {
             $res['PodConfigName'] = $this->podConfigName;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -62,20 +51,22 @@ class DescribeServcieScheduleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServcieScheduleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['PodConfigName'])) {
             $model->podConfigName = $map['PodConfigName'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

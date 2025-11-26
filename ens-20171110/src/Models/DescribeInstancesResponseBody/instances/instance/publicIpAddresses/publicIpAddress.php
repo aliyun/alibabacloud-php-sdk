@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class publicIpAddress extends Model
 {
     /**
-     * @description The gateway.
-     *
-     * @example 119.147.xx.xx
-     *
      * @var string
      */
     public $gateWay;
 
     /**
-     * @description The IP address.
-     *
-     * @example 119.147.xx.xx
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The Internet service provider (ISP).
-     *
-     * @example unicom
-     *
      * @var string
      */
     public $isp;
@@ -40,17 +28,22 @@ class publicIpAddress extends Model
         'isp' => 'Isp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gateWay) {
             $res['GateWay'] = $this->gateWay;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
@@ -58,20 +51,22 @@ class publicIpAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return publicIpAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GateWay'])) {
             $model->gateWay = $map['GateWay'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }

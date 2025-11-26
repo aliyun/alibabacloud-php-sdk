@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachInstanceSDGShrinkRequest extends Model
 {
     /**
-     * @description The IDs of the instances.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $instanceIdsShrink;
 
     /**
-     * @description The ID of the SDG.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxxx
-     *
      * @var string
      */
     public $SDGId;
@@ -32,14 +22,18 @@ class DetachInstanceSDGShrinkRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -47,17 +41,18 @@ class DetachInstanceSDGShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachInstanceSDGShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

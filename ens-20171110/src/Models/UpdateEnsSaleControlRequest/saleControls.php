@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest\saleControls\conditionControls;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest\saleControls\moduleValue;
-use AlibabaCloud\Tea\Model;
 
 class saleControls extends Model
 {
@@ -21,29 +21,21 @@ class saleControls extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $moduleCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var moduleValue
      */
     public $moduleValue;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $orderType;
@@ -56,32 +48,47 @@ class saleControls extends Model
         'orderType' => 'OrderType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditionControls)) {
+            Model::validateArray($this->conditionControls);
+        }
+        if (null !== $this->moduleValue) {
+            $this->moduleValue->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionControls) {
-            $res['ConditionControls'] = [];
-            if (null !== $this->conditionControls && \is_array($this->conditionControls)) {
-                $n = 0;
-                foreach ($this->conditionControls as $item) {
-                    $res['ConditionControls'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditionControls)) {
+                $res['ConditionControls'] = [];
+                $n1 = 0;
+                foreach ($this->conditionControls as $item1) {
+                    $res['ConditionControls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->moduleValue) {
-            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toMap() : null;
+            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toArray($noStream) : $this->moduleValue;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -89,35 +96,41 @@ class saleControls extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saleControls
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionControls'])) {
             if (!empty($map['ConditionControls'])) {
                 $model->conditionControls = [];
-                $n = 0;
-                foreach ($map['ConditionControls'] as $item) {
-                    $model->conditionControls[$n++] = null !== $item ? conditionControls::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConditionControls'] as $item1) {
+                    $model->conditionControls[$n1] = conditionControls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['ModuleValue'])) {
             $model->moduleValue = moduleValue::fromMap($map['ModuleValue']);
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

@@ -4,47 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\appMetaData;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\appStatus;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\resourceDetailInfos;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponseBody\resourceInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDeviceServiceResponseBody extends Model
 {
     /**
-     * @description The basic properties of the application.
-     *
      * @var appMetaData
      */
     public $appMetaData;
 
     /**
-     * @description The status information of the application.
-     *
      * @var appStatus
      */
     public $appStatus;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3A535110-3EE3-5EC5-B1ED-10B7067A1FC8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the devices.
-     *
      * @var resourceDetailInfos[]
      */
     public $resourceDetailInfos;
 
     /**
-     * @description The information about the instances.
-     *
      * @var resourceInfos[]
      */
     public $resourceInfos;
@@ -56,35 +44,56 @@ class DescribeDeviceServiceResponseBody extends Model
         'resourceInfos' => 'ResourceInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appMetaData) {
+            $this->appMetaData->validate();
+        }
+        if (null !== $this->appStatus) {
+            $this->appStatus->validate();
+        }
+        if (\is_array($this->resourceDetailInfos)) {
+            Model::validateArray($this->resourceDetailInfos);
+        }
+        if (\is_array($this->resourceInfos)) {
+            Model::validateArray($this->resourceInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appMetaData) {
-            $res['AppMetaData'] = null !== $this->appMetaData ? $this->appMetaData->toMap() : null;
+            $res['AppMetaData'] = null !== $this->appMetaData ? $this->appMetaData->toArray($noStream) : $this->appMetaData;
         }
+
         if (null !== $this->appStatus) {
-            $res['AppStatus'] = null !== $this->appStatus ? $this->appStatus->toMap() : null;
+            $res['AppStatus'] = null !== $this->appStatus ? $this->appStatus->toArray($noStream) : $this->appStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceDetailInfos) {
-            $res['ResourceDetailInfos'] = [];
-            if (null !== $this->resourceDetailInfos && \is_array($this->resourceDetailInfos)) {
-                $n = 0;
-                foreach ($this->resourceDetailInfos as $item) {
-                    $res['ResourceDetailInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceDetailInfos)) {
+                $res['ResourceDetailInfos'] = [];
+                $n1 = 0;
+                foreach ($this->resourceDetailInfos as $item1) {
+                    $res['ResourceDetailInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->resourceInfos) {
-            $res['ResourceInfos'] = [];
-            if (null !== $this->resourceInfos && \is_array($this->resourceInfos)) {
-                $n = 0;
-                foreach ($this->resourceInfos as $item) {
-                    $res['ResourceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceInfos)) {
+                $res['ResourceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->resourceInfos as $item1) {
+                    $res['ResourceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,38 +101,44 @@ class DescribeDeviceServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeviceServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppMetaData'])) {
             $model->appMetaData = appMetaData::fromMap($map['AppMetaData']);
         }
+
         if (isset($map['AppStatus'])) {
             $model->appStatus = appStatus::fromMap($map['AppStatus']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceDetailInfos'])) {
             if (!empty($map['ResourceDetailInfos'])) {
                 $model->resourceDetailInfos = [];
-                $n = 0;
-                foreach ($map['ResourceDetailInfos'] as $item) {
-                    $model->resourceDetailInfos[$n++] = null !== $item ? resourceDetailInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceDetailInfos'] as $item1) {
+                    $model->resourceDetailInfos[$n1] = resourceDetailInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n = 0;
-                foreach ($map['ResourceInfos'] as $item) {
-                    $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceInfos'] as $item1) {
+                    $model->resourceInfos[$n1] = resourceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

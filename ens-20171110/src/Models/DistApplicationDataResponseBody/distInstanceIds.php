@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class distInstanceIds extends Model
 {
@@ -16,29 +16,47 @@ class distInstanceIds extends Model
         'distInstanceId' => 'DistInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->distInstanceId)) {
+            Model::validateArray($this->distInstanceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->distInstanceId) {
-            $res['DistInstanceId'] = $this->distInstanceId;
+            if (\is_array($this->distInstanceId)) {
+                $res['DistInstanceId'] = [];
+                $n1 = 0;
+                foreach ($this->distInstanceId as $item1) {
+                    $res['DistInstanceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return distInstanceIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DistInstanceId'])) {
             if (!empty($map['DistInstanceId'])) {
-                $model->distInstanceId = $map['DistInstanceId'];
+                $model->distInstanceId = [];
+                $n1 = 0;
+                foreach ($map['DistInstanceId'] as $item1) {
+                    $model->distInstanceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

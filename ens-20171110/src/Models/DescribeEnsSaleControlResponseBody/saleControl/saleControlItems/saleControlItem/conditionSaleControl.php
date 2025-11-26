@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem\conditionSaleControl\conditionControl;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponseBody\saleControl\saleControlItems\saleControlItem\conditionSaleControl\moduleValue;
-use AlibabaCloud\Tea\Model;
 
 class conditionSaleControl extends Model
 {
@@ -36,20 +36,32 @@ class conditionSaleControl extends Model
         'operator' => 'Operator',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->conditionControl) {
+            $this->conditionControl->validate();
+        }
+        if (null !== $this->moduleValue) {
+            $this->moduleValue->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionControl) {
-            $res['ConditionControl'] = null !== $this->conditionControl ? $this->conditionControl->toMap() : null;
+            $res['ConditionControl'] = null !== $this->conditionControl ? $this->conditionControl->toArray($noStream) : $this->conditionControl;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->moduleValue) {
-            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toMap() : null;
+            $res['ModuleValue'] = null !== $this->moduleValue ? $this->moduleValue->toArray($noStream) : $this->moduleValue;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -57,23 +69,26 @@ class conditionSaleControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditionSaleControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionControl'])) {
             $model->conditionControl = conditionControl::fromMap($map['ConditionControl']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModuleValue'])) {
             $model->moduleValue = moduleValue::fromMap($map['ModuleValue']);
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

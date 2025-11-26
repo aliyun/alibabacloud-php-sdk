@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopInstancesResponseBody extends Model
 {
@@ -22,20 +22,28 @@ class StopInstancesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceResponses)) {
+            Model::validateArray($this->instanceResponses);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceResponses) {
-            $res['InstanceResponses'] = [];
-            if (null !== $this->instanceResponses && \is_array($this->instanceResponses)) {
-                $n = 0;
-                foreach ($this->instanceResponses as $item) {
-                    $res['InstanceResponses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceResponses)) {
+                $res['InstanceResponses'] = [];
+                $n1 = 0;
+                foreach ($this->instanceResponses as $item1) {
+                    $res['InstanceResponses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,23 +51,25 @@ class StopInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceResponses'])) {
             if (!empty($map['InstanceResponses'])) {
                 $model->instanceResponses = [];
-                $n = 0;
-                foreach ($map['InstanceResponses'] as $item) {
-                    $model->instanceResponses[$n++] = null !== $item ? InstanceOperateResponse::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceResponses'] as $item1) {
+                    $model->instanceResponses[$n1] = InstanceOperateResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

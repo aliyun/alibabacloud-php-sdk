@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFileSystemRequest extends Model
 {
     /**
-     * @description The ID of the edge node.
-     *
-     * This parameter is required.
-     *
-     * @example cn-chengdu-telecom-4
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The ID of the file system that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example e42640****
-     *
      * @var string
      */
     public $fileSystemId;
@@ -34,14 +22,18 @@ class DeleteFileSystemRequest extends Model
         'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -49,17 +41,18 @@ class DeleteFileSystemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFileSystemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }

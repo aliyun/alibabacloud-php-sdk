@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ensRegionIds extends Model
 {
@@ -16,29 +16,47 @@ class ensRegionIds extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensRegionId)) {
+            Model::validateArray($this->ensRegionId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
-            $res['EnsRegionId'] = $this->ensRegionId;
+            if (\is_array($this->ensRegionId)) {
+                $res['EnsRegionId'] = [];
+                $n1 = 0;
+                foreach ($this->ensRegionId as $item1) {
+                    $res['EnsRegionId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ensRegionIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             if (!empty($map['EnsRegionId'])) {
-                $model->ensRegionId = $map['EnsRegionId'];
+                $model->ensRegionId = [];
+                $n1 = 0;
+                foreach ($map['EnsRegionId'] as $item1) {
+                    $model->ensRegionId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

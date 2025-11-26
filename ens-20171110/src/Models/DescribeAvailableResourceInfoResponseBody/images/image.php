@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\images;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class image extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * @example centos_6_08_64_20G_a****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The name of the image.
-     *
-     * @example centos_6_08_64_20G_a****
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description The size of the image. Unit: GB.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $imageSize;
@@ -40,17 +28,22 @@ class image extends Model
         'imageSize' => 'ImageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
+
         if (null !== $this->imageSize) {
             $res['ImageSize'] = $this->imageSize;
         }
@@ -58,20 +51,22 @@ class image extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return image
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
+
         if (isset($map['ImageSize'])) {
             $model->imageSize = $map['ImageSize'];
         }

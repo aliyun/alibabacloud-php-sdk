@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddSnatIpForSnatEntryRequest extends Model
 {
     /**
-     * @description The ID of the SNAT entry.
-     *
-     * This parameter is required.
-     *
-     * @example snat-5xkzf89dndkzh8yg9stzqz9m4
-     *
      * @var string
      */
     public $snatEntryId;
 
     /**
-     * @description The EIP specified in the SNAT entry.
-     *
-     * This parameter is required.
-     *
-     * @example 219.152.82.144
-     *
      * @var string
      */
     public $snatIp;
@@ -34,14 +22,18 @@ class AddSnatIpForSnatEntryRequest extends Model
         'snatIp' => 'SnatIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
         }
+
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
         }
@@ -49,17 +41,18 @@ class AddSnatIpForSnatEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSnatIpForSnatEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
         }
+
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
         }

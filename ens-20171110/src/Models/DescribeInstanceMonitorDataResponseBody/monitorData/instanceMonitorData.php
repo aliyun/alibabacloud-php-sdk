@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceMonitorDataResponseBody\monitorData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceMonitorData extends Model
 {
     /**
-     * @description The vCPU usage of the instance, which is raw data. For example, a value of 0.02 indicates that the usage is 2%.
-     *
-     * @example 0.02
-     *
      * @var string
      */
     public $CPU;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example yourInstance ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is not yet supported.
-     *
-     * @example Not currently supported
-     *
      * @var string
      */
     public $memory;
@@ -40,17 +28,22 @@ class instanceMonitorData extends Model
         'memory' => 'Memory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -58,20 +51,22 @@ class instanceMonitorData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceMonitorData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

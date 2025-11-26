@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponseBody\commandResults;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commandResult extends Model
 {
     /**
-     * @description The command.
-     *
-     * @example ls -l /data
-     *
      * @var string
      */
     public $command;
 
     /**
-     * @description The name of the container.
-     *
-     * @example android
-     *
      * @var string
      */
     public $containerName;
 
     /**
-     * @description The execution result of the command.
-     *
-     * @example success
-     *
      * @var string
      */
     public $resultMsg;
@@ -40,17 +28,22 @@ class commandResult extends Model
         'resultMsg' => 'ResultMsg',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
@@ -58,20 +51,22 @@ class commandResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commandResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }

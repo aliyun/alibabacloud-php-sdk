@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnMeasurementDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnMeasurementDataResponseBody\measurementDatas\measurementData;
-use AlibabaCloud\Tea\Model;
 
 class measurementDatas extends Model
 {
@@ -17,17 +17,24 @@ class measurementDatas extends Model
         'measurementData' => 'MeasurementData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->measurementData)) {
+            Model::validateArray($this->measurementData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->measurementData) {
-            $res['MeasurementData'] = [];
-            if (null !== $this->measurementData && \is_array($this->measurementData)) {
-                $n = 0;
-                foreach ($this->measurementData as $item) {
-                    $res['MeasurementData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->measurementData)) {
+                $res['MeasurementData'] = [];
+                $n1 = 0;
+                foreach ($this->measurementData as $item1) {
+                    $res['MeasurementData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class measurementDatas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return measurementDatas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MeasurementData'])) {
             if (!empty($map['MeasurementData'])) {
                 $model->measurementData = [];
-                $n = 0;
-                foreach ($map['MeasurementData'] as $item) {
-                    $model->measurementData[$n++] = null !== $item ? measurementData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MeasurementData'] as $item1) {
+                    $model->measurementData[$n1] = measurementData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

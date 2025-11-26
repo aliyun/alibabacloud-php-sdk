@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteImageRequest extends Model
 {
     /**
-     * @description The ID of the image. You can specify only one image ID.
-     *
-     * You can delete only custom images that you created.
-     *
-     * This parameter is required.
-     *
-     * @example m-5taesrgwpo9zqj9cjqu792****
-     *
      * @var string
      */
     public $imageId;
@@ -24,9 +16,12 @@ class DeleteImageRequest extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
@@ -36,11 +31,11 @@ class DeleteImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

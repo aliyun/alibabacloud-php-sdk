@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataResponseBody\measurementDatas\measurementData\bandWidthFeeDatas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bandWidthFeeData extends Model
 {
     /**
-     * @description The code of the bandwidth plan.
-     *
-     * @example cn-cmcc-1
-     *
      * @var string
      */
     public $costCode;
 
     /**
-     * @description The name of the bandwidth plan.
-     *
-     * @example Beijing, Shanghai, and Guangzhou Mobile
-     *
      * @var string
      */
     public $costName;
 
     /**
-     * @description The bandwidth consumption. Unit: bit/second.
-     *
-     * @example 16486
-     *
      * @var int
      */
     public $costVal;
@@ -40,17 +28,22 @@ class bandWidthFeeData extends Model
         'costVal' => 'CostVal',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->costCode) {
             $res['CostCode'] = $this->costCode;
         }
+
         if (null !== $this->costName) {
             $res['CostName'] = $this->costName;
         }
+
         if (null !== $this->costVal) {
             $res['CostVal'] = $this->costVal;
         }
@@ -58,20 +51,22 @@ class bandWidthFeeData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bandWidthFeeData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CostCode'])) {
             $model->costCode = $map['CostCode'];
         }
+
         if (isset($map['CostName'])) {
             $model->costName = $map['CostName'];
         }
+
         if (isset($map['CostVal'])) {
             $model->costVal = $map['CostVal'];
         }

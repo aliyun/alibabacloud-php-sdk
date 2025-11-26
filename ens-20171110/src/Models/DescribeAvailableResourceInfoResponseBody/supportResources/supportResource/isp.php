@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class isp extends Model
 {
@@ -16,29 +16,47 @@ class isp extends Model
         'isp' => 'Isp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->isp)) {
+            Model::validateArray($this->isp);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
+            if (\is_array($this->isp)) {
+                $res['Isp'] = [];
+                $n1 = 0;
+                foreach ($this->isp as $item1) {
+                    $res['Isp'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return isp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Isp'])) {
             if (!empty($map['Isp'])) {
-                $model->isp = $map['Isp'];
+                $model->isp = [];
+                $n1 = 0;
+                foreach ($map['Isp'] as $item1) {
+                    $model->isp[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

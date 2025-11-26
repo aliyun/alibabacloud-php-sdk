@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponseBody\pushResults;
-use AlibabaCloud\Tea\Model;
 
 class PushApplicationDataResponseBody extends Model
 {
     /**
-     * @description The push results of data files.
-     *
      * @var pushResults
      */
     public $pushResults;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class PushApplicationDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pushResults) {
+            $this->pushResults->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pushResults) {
-            $res['PushResults'] = null !== $this->pushResults ? $this->pushResults->toMap() : null;
+            $res['PushResults'] = null !== $this->pushResults ? $this->pushResults->toArray($noStream) : $this->pushResults;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class PushApplicationDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushApplicationDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PushResults'])) {
             $model->pushResults = pushResults::fromMap($map['PushResults']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

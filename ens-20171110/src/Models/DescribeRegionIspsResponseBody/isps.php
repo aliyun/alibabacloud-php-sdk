@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class isps extends Model
 {
     /**
-     * @description The code of the ISP.
-     *
-     * @example cmcc
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The name of the ISP.
-     *
-     * @example move
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class isps extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class isps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return isps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

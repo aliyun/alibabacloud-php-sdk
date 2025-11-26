@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponseBody\servers\AICInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkAttributes extends Model
 {
     /**
-     * @description The IP address of the AIC instance.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description The network ID of the AIC instance.
-     *
-     * @example n-*****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The vSwitch ID of the AIC instance.
-     *
-     * @example vsw-****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -40,17 +28,22 @@ class networkAttributes extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -58,20 +51,22 @@ class networkAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

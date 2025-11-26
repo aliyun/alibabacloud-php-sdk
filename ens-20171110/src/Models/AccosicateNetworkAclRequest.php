@@ -4,27 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AccosicateNetworkAclRequest\resource;
-use AlibabaCloud\Tea\Model;
 
 class AccosicateNetworkAclRequest extends Model
 {
     /**
-     * @description The ID of the network ACL.
-     *
-     * This parameter is required.
-     *
-     * @example nacl-a2do9e413e0sp****
-     *
      * @var string
      */
     public $networkAclId;
 
     /**
-     * @description The type of resource with which you want to associate the network ACL.
-     *
-     * This parameter is required.
-     *
      * @var resource[]
      */
     public $resource;
@@ -33,20 +23,28 @@ class AccosicateNetworkAclRequest extends Model
         'resource' => 'Resource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resource)) {
+            Model::validateArray($this->resource);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
+
         if (null !== $this->resource) {
-            $res['Resource'] = [];
-            if (null !== $this->resource && \is_array($this->resource)) {
-                $n = 0;
-                foreach ($this->resource as $item) {
-                    $res['Resource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resource)) {
+                $res['Resource'] = [];
+                $n1 = 0;
+                foreach ($this->resource as $item1) {
+                    $res['Resource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,23 +52,25 @@ class AccosicateNetworkAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AccosicateNetworkAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
+
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n = 0;
-                foreach ($map['Resource'] as $item) {
-                    $model->resource[$n++] = null !== $item ? resource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Resource'] as $item1) {
+                    $model->resource[$n1] = resource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

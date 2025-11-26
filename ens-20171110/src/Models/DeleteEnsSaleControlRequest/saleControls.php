@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleControlRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saleControls extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $moduleCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $orderType;
@@ -26,14 +22,18 @@ class saleControls extends Model
         'orderType' => 'OrderType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -41,17 +41,18 @@ class saleControls extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saleControls
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

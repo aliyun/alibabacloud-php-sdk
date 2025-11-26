@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEnsRouteTablesRequest extends Model
 {
@@ -14,53 +14,31 @@ class DescribeEnsRouteTablesRequest extends Model
     public $associateType;
 
     /**
-     * @description The ID of the ENS node.
-     *
-     * @example cn-xian-unicom
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The IDs of the Edge Node Service (ENS) nodes.
-     *
      * @var string[]
      */
     public $ensRegionIds;
 
     /**
-     * @description The ID of the network.
-     *
-     * @example n-257gqcdfvx6n****
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the route table.
-     *
-     * @example vtb-5p1cifr72di****
-     *
      * @var string
      */
     public $routeTableId;
@@ -86,35 +64,56 @@ class DescribeEnsRouteTablesRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ensRegionIds)) {
+            Model::validateArray($this->ensRegionIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associateType) {
             $res['AssociateType'] = $this->associateType;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ensRegionIds) {
-            $res['EnsRegionIds'] = $this->ensRegionIds;
+            if (\is_array($this->ensRegionIds)) {
+                $res['EnsRegionIds'] = [];
+                $n1 = 0;
+                foreach ($this->ensRegionIds as $item1) {
+                    $res['EnsRegionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+
         if (null !== $this->routeTableName) {
             $res['RouteTableName'] = $this->routeTableName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -122,40 +121,53 @@ class DescribeEnsRouteTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnsRouteTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociateType'])) {
             $model->associateType = $map['AssociateType'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['EnsRegionIds'])) {
             if (!empty($map['EnsRegionIds'])) {
-                $model->ensRegionIds = $map['EnsRegionIds'];
+                $model->ensRegionIds = [];
+                $n1 = 0;
+                foreach ($map['EnsRegionIds'] as $item1) {
+                    $model->ensRegionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }
+
         if (isset($map['RouteTableName'])) {
             $model->routeTableName = $map['RouteTableName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

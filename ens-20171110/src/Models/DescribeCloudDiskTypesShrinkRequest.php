@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudDiskTypesShrinkRequest extends Model
 {
     /**
-     * @description The ID of the edge node.
-     *
-     * @example cn-chongqing-cmcc
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The edge nodes.
-     *
      * @var string
      */
     public $ensRegionIdsShrink;
@@ -28,14 +22,18 @@ class DescribeCloudDiskTypesShrinkRequest extends Model
         'ensRegionIdsShrink' => 'EnsRegionIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->ensRegionIdsShrink) {
             $res['EnsRegionIds'] = $this->ensRegionIdsShrink;
         }
@@ -43,17 +41,18 @@ class DescribeCloudDiskTypesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudDiskTypesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['EnsRegionIds'])) {
             $model->ensRegionIdsShrink = $map['EnsRegionIds'];
         }

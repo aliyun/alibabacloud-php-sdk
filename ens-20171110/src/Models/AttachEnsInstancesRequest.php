@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachEnsInstancesRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can specify only one instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example testInstacneId
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The command that you want to execute on the instance. The command must be encoded in Base64 or UTF-8.
-     *
-     * This parameter is required.
-     *
-     * @example wget d2dldCBodHRwOi8vYWxpYWNzLWs4cy1jbxxxx
-     *
      * @var string
      */
     public $scripts;
@@ -34,14 +22,18 @@ class AttachEnsInstancesRequest extends Model
         'scripts' => 'Scripts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->scripts) {
             $res['Scripts'] = $this->scripts;
         }
@@ -49,17 +41,18 @@ class AttachEnsInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachEnsInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Scripts'])) {
             $model->scripts = $map['Scripts'];
         }

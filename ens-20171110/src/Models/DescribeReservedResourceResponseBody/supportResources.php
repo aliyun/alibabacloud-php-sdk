@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeReservedResourceResponseBody\supportResources\supportResource;
-use AlibabaCloud\Tea\Model;
 
 class supportResources extends Model
 {
@@ -17,17 +17,24 @@ class supportResources extends Model
         'supportResource' => 'SupportResource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportResource)) {
+            Model::validateArray($this->supportResource);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportResource) {
-            $res['SupportResource'] = [];
-            if (null !== $this->supportResource && \is_array($this->supportResource)) {
-                $n = 0;
-                foreach ($this->supportResource as $item) {
-                    $res['SupportResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportResource)) {
+                $res['SupportResource'] = [];
+                $n1 = 0;
+                foreach ($this->supportResource as $item1) {
+                    $res['SupportResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class supportResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportResource'])) {
             if (!empty($map['SupportResource'])) {
                 $model->supportResource = [];
-                $n = 0;
-                foreach ($map['SupportResource'] as $item) {
-                    $model->supportResource[$n++] = null !== $item ? supportResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportResource'] as $item1) {
+                    $model->supportResource[$n1] = supportResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

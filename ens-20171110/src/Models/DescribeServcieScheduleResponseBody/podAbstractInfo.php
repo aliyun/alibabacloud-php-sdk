@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponseBody\podAbstractInfo\containerStatuses;
-use AlibabaCloud\Tea\Model;
 
 class podAbstractInfo extends Model
 {
     /**
-     * @description The name of the container service.
-     *
-     * @example android
-     *
      * @var bool
      */
     public $containerService;
 
     /**
-     * @description The information about the container.
-     *
      * @var containerStatuses
      */
     public $containerStatuses;
 
     /**
-     * @description The name of the pod.
-     *
-     * @example gcs-prod-websocket-eip-telecom
-     *
      * @var bool
      */
     public $name;
 
     /**
-     * @description The name of the namespace.
-     *
-     * @example default-aliyun
-     *
      * @var bool
      */
     public $namespace;
 
     /**
-     * @description The pod scope.
-     *
-     * @example FDN
-     *
      * @var bool
      */
     public $resourceScope;
 
     /**
-     * @description The status of the pod.
-     *
-     * @example RUNNING
-     *
      * @var bool
      */
     public $status;
@@ -69,26 +47,37 @@ class podAbstractInfo extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->containerStatuses) {
+            $this->containerStatuses->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerService) {
             $res['ContainerService'] = $this->containerService;
         }
+
         if (null !== $this->containerStatuses) {
-            $res['ContainerStatuses'] = null !== $this->containerStatuses ? $this->containerStatuses->toMap() : null;
+            $res['ContainerStatuses'] = null !== $this->containerStatuses ? $this->containerStatuses->toArray($noStream) : $this->containerStatuses;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceScope) {
             $res['ResourceScope'] = $this->resourceScope;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -96,29 +85,34 @@ class podAbstractInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return podAbstractInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerService'])) {
             $model->containerService = $map['ContainerService'];
         }
+
         if (isset($map['ContainerStatuses'])) {
             $model->containerStatuses = containerStatuses::fromMap($map['ContainerStatuses']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['ResourceScope'])) {
             $model->resourceScope = $map['ResourceScope'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

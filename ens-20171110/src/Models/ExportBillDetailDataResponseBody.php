@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportBillDetailDataResponseBody extends Model
 {
     /**
-     * @description The download path of the exported file.
-     *
-     * @example http://test-oss.com/image_01.jpeg
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-     *
-     * @example BEA05990-B90D-594F-8C8E-650AEEB94C5D
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class ExportBillDetailDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class ExportBillDetailDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportBillDetailDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

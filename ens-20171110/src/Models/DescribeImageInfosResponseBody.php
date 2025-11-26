@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponseBody\images;
-use AlibabaCloud\Tea\Model;
 
 class DescribeImageInfosResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The information about images.
-     *
      * @var images
      */
     public $images;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5568A08C-10A9-47F3-902F-647298B463FB
-     *
      * @var string
      */
     public $requestId;
@@ -39,17 +29,25 @@ class DescribeImageInfosResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->images) {
+            $this->images->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->images) {
-            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
+            $res['Images'] = null !== $this->images ? $this->images->toArray($noStream) : $this->images;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,20 +55,22 @@ class DescribeImageInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Images'])) {
             $model->images = images::fromMap($map['Images']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateStorageVolumeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7030AB96-57CF-1C68-9FEE-D60E547FD79C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array of volume IDs.
-     *
      * @var string[]
      */
     public $volumeId;
@@ -28,35 +22,55 @@ class CreateStorageVolumeResponseBody extends Model
         'volumeId' => 'VolumeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->volumeId)) {
+            Model::validateArray($this->volumeId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->volumeId) {
-            $res['VolumeId'] = $this->volumeId;
+            if (\is_array($this->volumeId)) {
+                $res['VolumeId'] = [];
+                $n1 = 0;
+                foreach ($this->volumeId as $item1) {
+                    $res['VolumeId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateStorageVolumeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VolumeId'])) {
             if (!empty($map['VolumeId'])) {
-                $model->volumeId = $map['VolumeId'];
+                $model->volumeId = [];
+                $n1 = 0;
+                foreach ($map['VolumeId'] as $item1) {
+                    $model->volumeId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

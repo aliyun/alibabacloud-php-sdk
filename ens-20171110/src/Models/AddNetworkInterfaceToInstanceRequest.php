@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddNetworkInterfaceToInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to specify the instance.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoStart;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example yourInstance ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The network. The value is a JSON string. Only IPv6 is supported. Sample code of an IPv6 network: [{ "ipType": "public", "ipAddressType": "ipv6" }]
-     *
-     * This parameter is required.
-     *
-     * @example [{"ipType": "public", "ipAddressType": "ipv6" }]
-     *
      * @var string
      */
     public $networks;
@@ -44,17 +28,22 @@ class AddNetworkInterfaceToInstanceRequest extends Model
         'networks' => 'Networks',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoStart) {
             $res['AutoStart'] = $this->autoStart;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->networks) {
             $res['Networks'] = $this->networks;
         }
@@ -62,20 +51,22 @@ class AddNetworkInterfaceToInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddNetworkInterfaceToInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoStart'])) {
             $model->autoStart = $map['AutoStart'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Networks'])) {
             $model->networks = $map['Networks'];
         }

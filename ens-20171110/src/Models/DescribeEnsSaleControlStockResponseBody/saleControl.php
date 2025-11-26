@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlStockResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlStockResponseBody\saleControl\saleControlItems;
-use AlibabaCloud\Tea\Model;
 
 class saleControl extends Model
 {
@@ -29,23 +29,32 @@ class saleControl extends Model
         'saleControlItems' => 'SaleControlItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->saleControlItems)) {
+            Model::validateArray($this->saleControlItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->saleControlItems) {
-            $res['SaleControlItems'] = [];
-            if (null !== $this->saleControlItems && \is_array($this->saleControlItems)) {
-                $n = 0;
-                foreach ($this->saleControlItems as $item) {
-                    $res['SaleControlItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->saleControlItems)) {
+                $res['SaleControlItems'] = [];
+                $n1 = 0;
+                foreach ($this->saleControlItems as $item1) {
+                    $res['SaleControlItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,26 +62,29 @@ class saleControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saleControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['SaleControlItems'])) {
             if (!empty($map['SaleControlItems'])) {
                 $model->saleControlItems = [];
-                $n = 0;
-                foreach ($map['SaleControlItems'] as $item) {
-                    $model->saleControlItems[$n++] = null !== $item ? saleControlItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SaleControlItems'] as $item1) {
+                    $model->saleControlItems[$n1] = saleControlItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

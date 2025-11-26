@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNatGatewayRequest extends Model
 {
@@ -14,12 +14,6 @@ class DeleteNatGatewayRequest extends Model
     public $forceDelete;
 
     /**
-     * @description The ID of the NAT gateway that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example nat-5t7nh1cfm6kxiszlttr38****
-     *
      * @var string
      */
     public $natGatewayId;
@@ -28,14 +22,18 @@ class DeleteNatGatewayRequest extends Model
         'natGatewayId' => 'NatGatewayId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forceDelete) {
             $res['ForceDelete'] = $this->forceDelete;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -43,17 +41,18 @@ class DeleteNatGatewayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNatGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForceDelete'])) {
             $model->forceDelete = $map['ForceDelete'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

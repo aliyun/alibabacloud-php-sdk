@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponseBody\monitorData\bandWidthMonitorData;
-use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
     /**
-     * @description The bandwidth data.
-     *
      * @var bandWidthMonitorData[]
      */
     public $bandWidthMonitorData;
 
     /**
-     * @description The maximum outbound bandwidth within the queried time range. Unit: bit/s.
-     *
-     * @example 16817468
-     *
      * @var string
      */
     public $maxDownBandWidth;
 
     /**
-     * @description The maximum inbound bandwidth within the queried time range. Unit: bit/s.
-     *
-     * @example 231008
-     *
      * @var string
      */
     public $maxUpBandWidth;
@@ -39,23 +29,32 @@ class monitorData extends Model
         'maxUpBandWidth' => 'MaxUpBandWidth',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bandWidthMonitorData)) {
+            Model::validateArray($this->bandWidthMonitorData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandWidthMonitorData) {
-            $res['BandWidthMonitorData'] = [];
-            if (null !== $this->bandWidthMonitorData && \is_array($this->bandWidthMonitorData)) {
-                $n = 0;
-                foreach ($this->bandWidthMonitorData as $item) {
-                    $res['BandWidthMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bandWidthMonitorData)) {
+                $res['BandWidthMonitorData'] = [];
+                $n1 = 0;
+                foreach ($this->bandWidthMonitorData as $item1) {
+                    $res['BandWidthMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxDownBandWidth) {
             $res['MaxDownBandWidth'] = $this->maxDownBandWidth;
         }
+
         if (null !== $this->maxUpBandWidth) {
             $res['MaxUpBandWidth'] = $this->maxUpBandWidth;
         }
@@ -63,26 +62,29 @@ class monitorData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitorData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandWidthMonitorData'])) {
             if (!empty($map['BandWidthMonitorData'])) {
                 $model->bandWidthMonitorData = [];
-                $n = 0;
-                foreach ($map['BandWidthMonitorData'] as $item) {
-                    $model->bandWidthMonitorData[$n++] = null !== $item ? bandWidthMonitorData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BandWidthMonitorData'] as $item1) {
+                    $model->bandWidthMonitorData[$n1] = bandWidthMonitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxDownBandWidth'])) {
             $model->maxDownBandWidth = $map['MaxDownBandWidth'];
         }
+
         if (isset($map['MaxUpBandWidth'])) {
             $model->maxUpBandWidth = $map['MaxUpBandWidth'];
         }

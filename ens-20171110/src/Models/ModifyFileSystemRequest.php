@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyFileSystemRequest extends Model
 {
     /**
-     * @description The description of the file system.
-     *
-     * This parameter is required.
-     *
-     * @example fileSystemTest
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the edge node.
-     *
-     * This parameter is required.
-     *
-     * @example cn-beijing-cmcc
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description The ID of the file system.
-     *
-     * This parameter is required.
-     *
-     * @example c50f8*****
-     *
      * @var string
      */
     public $fileSystemId;
@@ -46,17 +28,22 @@ class ModifyFileSystemRequest extends Model
         'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -64,20 +51,22 @@ class ModifyFileSystemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyFileSystemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }

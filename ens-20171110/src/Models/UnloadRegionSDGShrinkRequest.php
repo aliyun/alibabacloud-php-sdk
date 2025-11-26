@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnloadRegionSDGShrinkRequest extends Model
 {
     /**
-     * @description The destination nodes.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $destinationRegionIdsShrink;
 
     /**
-     * @description The namespaces.
-     *
      * @var string
      */
     public $namespacesShrink;
 
     /**
-     * @description Deletes the shared data group (SDG) ID of the preloaded data.
-     *
-     * This parameter is required.
-     *
-     * @example sdg-xxxx
-     *
      * @var string
      */
     public $SDGId;
@@ -40,17 +28,22 @@ class UnloadRegionSDGShrinkRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationRegionIdsShrink) {
             $res['DestinationRegionIds'] = $this->destinationRegionIdsShrink;
         }
+
         if (null !== $this->namespacesShrink) {
             $res['Namespaces'] = $this->namespacesShrink;
         }
+
         if (null !== $this->SDGId) {
             $res['SDGId'] = $this->SDGId;
         }
@@ -58,20 +51,22 @@ class UnloadRegionSDGShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnloadRegionSDGShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationRegionIds'])) {
             $model->destinationRegionIdsShrink = $map['DestinationRegionIds'];
         }
+
         if (isset($map['Namespaces'])) {
             $model->namespacesShrink = $map['Namespaces'];
         }
+
         if (isset($map['SDGId'])) {
             $model->SDGId = $map['SDGId'];
         }

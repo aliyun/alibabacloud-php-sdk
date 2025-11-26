@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageSharePermissionResponseBody\accounts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class account extends Model
 {
@@ -16,9 +16,12 @@ class account extends Model
         'aliyunUid' => 'AliyunUid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunUid) {
@@ -28,11 +31,11 @@ class account extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return account
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
