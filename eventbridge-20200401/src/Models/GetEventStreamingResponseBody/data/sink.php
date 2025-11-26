@@ -25,6 +25,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkDataWorksTriggerParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkOSSParameters;
 
 class sink extends Model
 {
@@ -104,6 +105,11 @@ class sink extends Model
     public $sinkMNSParameters;
 
     /**
+     * @var SinkOSSParameters
+     */
+    public $sinkOSSParameters;
+
+    /**
      * @var sinkOpenSourceRabbitMQParameters
      */
     public $sinkOpenSourceRabbitMQParameters;
@@ -143,6 +149,7 @@ class sink extends Model
         'sinkHttpsParameters' => 'SinkHttpsParameters',
         'sinkKafkaParameters' => 'SinkKafkaParameters',
         'sinkMNSParameters' => 'SinkMNSParameters',
+        'sinkOSSParameters' => 'SinkOSSParameters',
         'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
         'sinkRabbitMQParameters' => 'SinkRabbitMQParameters',
         'sinkRocketMQCheckpointParameters' => 'SinkRocketMQCheckpointParameters',
@@ -196,6 +203,9 @@ class sink extends Model
         }
         if (null !== $this->sinkMNSParameters) {
             $this->sinkMNSParameters->validate();
+        }
+        if (null !== $this->sinkOSSParameters) {
+            $this->sinkOSSParameters->validate();
         }
         if (null !== $this->sinkOpenSourceRabbitMQParameters) {
             $this->sinkOpenSourceRabbitMQParameters->validate();
@@ -276,6 +286,10 @@ class sink extends Model
 
         if (null !== $this->sinkMNSParameters) {
             $res['SinkMNSParameters'] = null !== $this->sinkMNSParameters ? $this->sinkMNSParameters->toArray($noStream) : $this->sinkMNSParameters;
+        }
+
+        if (null !== $this->sinkOSSParameters) {
+            $res['SinkOSSParameters'] = null !== $this->sinkOSSParameters ? $this->sinkOSSParameters->toArray($noStream) : $this->sinkOSSParameters;
         }
 
         if (null !== $this->sinkOpenSourceRabbitMQParameters) {
@@ -367,6 +381,10 @@ class sink extends Model
 
         if (isset($map['SinkMNSParameters'])) {
             $model->sinkMNSParameters = sinkMNSParameters::fromMap($map['SinkMNSParameters']);
+        }
+
+        if (isset($map['SinkOSSParameters'])) {
+            $model->sinkOSSParameters = SinkOSSParameters::fromMap($map['SinkOSSParameters']);
         }
 
         if (isset($map['SinkOpenSourceRabbitMQParameters'])) {

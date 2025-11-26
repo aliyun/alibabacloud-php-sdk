@@ -21,6 +21,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\source\sourceSLSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceMySQLParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourcePostgreSQLParameters;
 
 class source extends Model
 {
@@ -80,6 +81,11 @@ class source extends Model
     public $sourceOpenSourceRabbitMQParameters;
 
     /**
+     * @var SourcePostgreSQLParameters
+     */
+    public $sourcePostgreSQLParameters;
+
+    /**
      * @var sourcePrometheusParameters
      */
     public $sourcePrometheusParameters;
@@ -115,6 +121,7 @@ class source extends Model
         'sourceMySQLParameters' => 'SourceMySQLParameters',
         'sourceOSSParameters' => 'SourceOSSParameters',
         'sourceOpenSourceRabbitMQParameters' => 'SourceOpenSourceRabbitMQParameters',
+        'sourcePostgreSQLParameters' => 'SourcePostgreSQLParameters',
         'sourcePrometheusParameters' => 'SourcePrometheusParameters',
         'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
         'sourceRocketMQCheckpointParameters' => 'SourceRocketMQCheckpointParameters',
@@ -156,6 +163,9 @@ class source extends Model
         }
         if (null !== $this->sourceOpenSourceRabbitMQParameters) {
             $this->sourceOpenSourceRabbitMQParameters->validate();
+        }
+        if (null !== $this->sourcePostgreSQLParameters) {
+            $this->sourcePostgreSQLParameters->validate();
         }
         if (null !== $this->sourcePrometheusParameters) {
             $this->sourcePrometheusParameters->validate();
@@ -220,6 +230,10 @@ class source extends Model
 
         if (null !== $this->sourceOpenSourceRabbitMQParameters) {
             $res['SourceOpenSourceRabbitMQParameters'] = null !== $this->sourceOpenSourceRabbitMQParameters ? $this->sourceOpenSourceRabbitMQParameters->toArray($noStream) : $this->sourceOpenSourceRabbitMQParameters;
+        }
+
+        if (null !== $this->sourcePostgreSQLParameters) {
+            $res['SourcePostgreSQLParameters'] = null !== $this->sourcePostgreSQLParameters ? $this->sourcePostgreSQLParameters->toArray($noStream) : $this->sourcePostgreSQLParameters;
         }
 
         if (null !== $this->sourcePrometheusParameters) {
@@ -295,6 +309,10 @@ class source extends Model
 
         if (isset($map['SourceOpenSourceRabbitMQParameters'])) {
             $model->sourceOpenSourceRabbitMQParameters = sourceOpenSourceRabbitMQParameters::fromMap($map['SourceOpenSourceRabbitMQParameters']);
+        }
+
+        if (isset($map['SourcePostgreSQLParameters'])) {
+            $model->sourcePostgreSQLParameters = SourcePostgreSQLParameters::fromMap($map['SourcePostgreSQLParameters']);
         }
 
         if (isset($map['SourcePrometheusParameters'])) {
