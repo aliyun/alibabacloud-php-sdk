@@ -52,6 +52,11 @@ class certificate extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $commonName;
 
     /**
@@ -88,6 +93,11 @@ class certificate extends Model
      * @var string
      */
     public $issuerType;
+
+    /**
+     * @var int
+     */
+    public $keyIndex;
 
     /**
      * @var int
@@ -182,6 +192,7 @@ class certificate extends Model
         'certRemainingCount' => 'CertRemainingCount',
         'certTotalCount' => 'CertTotalCount',
         'certificateType' => 'CertificateType',
+        'clusterId' => 'ClusterId',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
         'crlDay' => 'CrlDay',
@@ -190,6 +201,7 @@ class certificate extends Model
         'fullAlgorithm' => 'FullAlgorithm',
         'identifier' => 'Identifier',
         'issuerType' => 'IssuerType',
+        'keyIndex' => 'KeyIndex',
         'keySize' => 'KeySize',
         'locality' => 'Locality',
         'md5' => 'Md5',
@@ -252,6 +264,10 @@ class certificate extends Model
             $res['CertificateType'] = $this->certificateType;
         }
 
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
@@ -282,6 +298,10 @@ class certificate extends Model
 
         if (null !== $this->issuerType) {
             $res['IssuerType'] = $this->issuerType;
+        }
+
+        if (null !== $this->keyIndex) {
+            $res['KeyIndex'] = $this->keyIndex;
         }
 
         if (null !== $this->keySize) {
@@ -402,6 +422,10 @@ class certificate extends Model
             $model->certificateType = $map['CertificateType'];
         }
 
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
@@ -432,6 +456,10 @@ class certificate extends Model
 
         if (isset($map['IssuerType'])) {
             $model->issuerType = $map['IssuerType'];
+        }
+
+        if (isset($map['KeyIndex'])) {
+            $model->keyIndex = $map['KeyIndex'];
         }
 
         if (isset($map['KeySize'])) {
