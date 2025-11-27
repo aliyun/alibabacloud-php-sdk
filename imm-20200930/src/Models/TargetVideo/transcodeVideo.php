@@ -92,6 +92,11 @@ class transcodeVideo extends Model
      * @var string
      */
     public $scaleType;
+
+    /**
+     * @var int
+     */
+    public $videoSlim;
     protected $_name = [
         'adaptiveResolutionDirection' => 'AdaptiveResolutionDirection',
         'BFrames' => 'BFrames',
@@ -110,6 +115,7 @@ class transcodeVideo extends Model
         'resolutionOption' => 'ResolutionOption',
         'rotation' => 'Rotation',
         'scaleType' => 'ScaleType',
+        'videoSlim' => 'VideoSlim',
     ];
 
     public function validate()
@@ -186,6 +192,10 @@ class transcodeVideo extends Model
 
         if (null !== $this->scaleType) {
             $res['ScaleType'] = $this->scaleType;
+        }
+
+        if (null !== $this->videoSlim) {
+            $res['VideoSlim'] = $this->videoSlim;
         }
 
         return $res;
@@ -265,6 +275,10 @@ class transcodeVideo extends Model
 
         if (isset($map['ScaleType'])) {
             $model->scaleType = $map['ScaleType'];
+        }
+
+        if (isset($map['VideoSlim'])) {
+            $model->videoSlim = $map['VideoSlim'];
         }
 
         return $model;
