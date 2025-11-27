@@ -468,6 +468,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['SubPayType'] = $request->subPayType;
         }
 
+        if (null !== $request->userGroupIds) {
+            @$body['UserGroupIds'] = $request->userGroupIds;
+        }
+
         if (null !== $request->userInfoShrink) {
             @$body['UserInfo'] = $request->userInfoShrink;
         }
@@ -1682,8 +1686,16 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->excludedUserGroupIds) {
+            @$body['ExcludedUserGroupIds'] = $request->excludedUserGroupIds;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->userGroupIds) {
+            @$body['UserGroupIds'] = $request->userGroupIds;
         }
 
         $req = new OpenApiRequest([
@@ -1969,7 +1981,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 列表显示镜像.
+     * Queries the image information about an ECS instance.
      *
      * @param request - ListImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2090,7 +2102,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 列表显示镜像.
+     * Queries the image information about an ECS instance.
      *
      * @param request - ListImageRequest
      *
@@ -2971,7 +2983,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 修改浏览器交付组.
+     * Modifies the properties of the cloud browser.
+     *
+     * @remarks
+     * Modifies the properties of the cloud browser.
      *
      * @param tmpReq - ModifyBrowserInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3050,7 +3065,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 修改浏览器交付组.
+     * Modifies the properties of the cloud browser.
+     *
+     * @remarks
+     * Modifies the properties of the cloud browser.
      *
      * @param request - ModifyBrowserInstanceGroupRequest
      *

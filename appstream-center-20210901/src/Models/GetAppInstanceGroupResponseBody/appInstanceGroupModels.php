@@ -188,9 +188,19 @@ class appInstanceGroupModels extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $supportUserGroupMixedAuth;
+
+    /**
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $userGroupAuthMode;
     protected $_name = [
         'accessType' => 'AccessType',
         'amount' => 'Amount',
@@ -227,7 +237,9 @@ class appInstanceGroupModels extends Model
         'skipUserAuthCheck' => 'SkipUserAuthCheck',
         'specId' => 'SpecId',
         'status' => 'Status',
+        'supportUserGroupMixedAuth' => 'SupportUserGroupMixedAuth',
         'tags' => 'Tags',
+        'userGroupAuthMode' => 'UserGroupAuthMode',
     ];
 
     public function validate()
@@ -404,6 +416,10 @@ class appInstanceGroupModels extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->supportUserGroupMixedAuth) {
+            $res['SupportUserGroupMixedAuth'] = $this->supportUserGroupMixedAuth;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
@@ -413,6 +429,10 @@ class appInstanceGroupModels extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->userGroupAuthMode) {
+            $res['UserGroupAuthMode'] = $this->userGroupAuthMode;
         }
 
         return $res;
@@ -580,6 +600,10 @@ class appInstanceGroupModels extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['SupportUserGroupMixedAuth'])) {
+            $model->supportUserGroupMixedAuth = $map['SupportUserGroupMixedAuth'];
+        }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -589,6 +613,10 @@ class appInstanceGroupModels extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UserGroupAuthMode'])) {
+            $model->userGroupAuthMode = $map['UserGroupAuthMode'];
         }
 
         return $model;

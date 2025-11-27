@@ -137,6 +137,11 @@ class CreateAppInstanceGroupRequest extends Model
     public $userDefinePolicy;
 
     /**
+     * @var string[]
+     */
+    public $userGroupIds;
+
+    /**
      * @var userInfo
      */
     public $userInfo;
@@ -175,6 +180,7 @@ class CreateAppInstanceGroupRequest extends Model
         'storagePolicy' => 'StoragePolicy',
         'subPayType' => 'SubPayType',
         'userDefinePolicy' => 'UserDefinePolicy',
+        'userGroupIds' => 'UserGroupIds',
         'userInfo' => 'UserInfo',
         'users' => 'Users',
         'videoPolicy' => 'VideoPolicy',
@@ -199,6 +205,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (null !== $this->userDefinePolicy) {
             $this->userDefinePolicy->validate();
+        }
+        if (\is_array($this->userGroupIds)) {
+            Model::validateArray($this->userGroupIds);
         }
         if (null !== $this->userInfo) {
             $this->userInfo->validate();
@@ -309,6 +318,17 @@ class CreateAppInstanceGroupRequest extends Model
 
         if (null !== $this->userDefinePolicy) {
             $res['UserDefinePolicy'] = null !== $this->userDefinePolicy ? $this->userDefinePolicy->toArray($noStream) : $this->userDefinePolicy;
+        }
+
+        if (null !== $this->userGroupIds) {
+            if (\is_array($this->userGroupIds)) {
+                $res['UserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIds as $item1) {
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->userInfo) {
@@ -435,6 +455,17 @@ class CreateAppInstanceGroupRequest extends Model
 
         if (isset($map['UserDefinePolicy'])) {
             $model->userDefinePolicy = userDefinePolicy::fromMap($map['UserDefinePolicy']);
+        }
+
+        if (isset($map['UserGroupIds'])) {
+            if (!empty($map['UserGroupIds'])) {
+                $model->userGroupIds = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIds'] as $item1) {
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserInfo'])) {

@@ -30,6 +30,11 @@ class ListAppInstanceGroupRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var string[]
+     */
+    public $excludedUserGroupIds;
+
+    /**
      * @var string
      */
     public $nodeInstanceType;
@@ -68,11 +73,17 @@ class ListAppInstanceGroupRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $userGroupIds;
     protected $_name = [
         'appCenterImageId' => 'AppCenterImageId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'bizRegionId' => 'BizRegionId',
+        'excludedUserGroupIds' => 'ExcludedUserGroupIds',
         'nodeInstanceType' => 'NodeInstanceType',
         'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
@@ -81,15 +92,22 @@ class ListAppInstanceGroupRequest extends Model
         'regionId' => 'RegionId',
         'status' => 'Status',
         'tag' => 'Tag',
+        'userGroupIds' => 'UserGroupIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->excludedUserGroupIds)) {
+            Model::validateArray($this->excludedUserGroupIds);
+        }
         if (\is_array($this->status)) {
             Model::validateArray($this->status);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (\is_array($this->userGroupIds)) {
+            Model::validateArray($this->userGroupIds);
         }
         parent::validate();
     }
@@ -111,6 +129,17 @@ class ListAppInstanceGroupRequest extends Model
 
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->excludedUserGroupIds) {
+            if (\is_array($this->excludedUserGroupIds)) {
+                $res['ExcludedUserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->excludedUserGroupIds as $item1) {
+                    $res['ExcludedUserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->nodeInstanceType) {
@@ -159,6 +188,17 @@ class ListAppInstanceGroupRequest extends Model
             }
         }
 
+        if (null !== $this->userGroupIds) {
+            if (\is_array($this->userGroupIds)) {
+                $res['UserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIds as $item1) {
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -184,6 +224,17 @@ class ListAppInstanceGroupRequest extends Model
 
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ExcludedUserGroupIds'])) {
+            if (!empty($map['ExcludedUserGroupIds'])) {
+                $model->excludedUserGroupIds = [];
+                $n1 = 0;
+                foreach ($map['ExcludedUserGroupIds'] as $item1) {
+                    $model->excludedUserGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['NodeInstanceType'])) {
@@ -227,6 +278,17 @@ class ListAppInstanceGroupRequest extends Model
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UserGroupIds'])) {
+            if (!empty($map['UserGroupIds'])) {
+                $model->userGroupIds = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIds'] as $item1) {
+                    $model->userGroupIds[$n1] = $item1;
                     ++$n1;
                 }
             }

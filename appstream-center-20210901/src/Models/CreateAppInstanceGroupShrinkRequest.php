@@ -129,6 +129,11 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $userDefinePolicyShrink;
 
     /**
+     * @var string[]
+     */
+    public $userGroupIds;
+
+    /**
      * @var string
      */
     public $userInfoShrink;
@@ -167,6 +172,7 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         'storagePolicyShrink' => 'StoragePolicy',
         'subPayType' => 'SubPayType',
         'userDefinePolicyShrink' => 'UserDefinePolicy',
+        'userGroupIds' => 'UserGroupIds',
         'userInfoShrink' => 'UserInfo',
         'users' => 'Users',
         'videoPolicyShrink' => 'VideoPolicy',
@@ -174,6 +180,9 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->userGroupIds)) {
+            Model::validateArray($this->userGroupIds);
+        }
         if (\is_array($this->users)) {
             Model::validateArray($this->users);
         }
@@ -277,6 +286,17 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
         if (null !== $this->userDefinePolicyShrink) {
             $res['UserDefinePolicy'] = $this->userDefinePolicyShrink;
+        }
+
+        if (null !== $this->userGroupIds) {
+            if (\is_array($this->userGroupIds)) {
+                $res['UserGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->userGroupIds as $item1) {
+                    $res['UserGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->userInfoShrink) {
@@ -403,6 +423,17 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
         if (isset($map['UserDefinePolicy'])) {
             $model->userDefinePolicyShrink = $map['UserDefinePolicy'];
+        }
+
+        if (isset($map['UserGroupIds'])) {
+            if (!empty($map['UserGroupIds'])) {
+                $model->userGroupIds = [];
+                $n1 = 0;
+                foreach ($map['UserGroupIds'] as $item1) {
+                    $model->userGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserInfo'])) {
