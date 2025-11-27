@@ -56,6 +56,10 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackGroupDriftResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackGroupDriftShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackResourceDriftRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackResourceDriftResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\EnableServiceAccessResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\EnableServicesRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\EnableServicesResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\EnableServicesShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ExecuteChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ExecuteChangeSetResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchRequest;
@@ -74,6 +78,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceAccessResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackDriftDetectionStatusRequest;
@@ -138,6 +143,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackResourcesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackResourcesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListSummariesRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListSummariesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagResourcesRequest;
@@ -2362,6 +2369,117 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * 开启可信服务访问.
+     *
+     * @param request - EnableServiceAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableServiceAccessResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableServiceAccessResponse
+     */
+    public function enableServiceAccessWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'EnableServiceAccess',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableServiceAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启可信服务访问.
+     *
+     * @returns EnableServiceAccessResponse
+     *
+     * @return EnableServiceAccessResponse
+     */
+    public function enableServiceAccess()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableServiceAccessWithOptions($runtime);
+    }
+
+    /**
+     * 批量开通.
+     *
+     * @param tmpReq - EnableServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableServicesResponse
+     *
+     * @param EnableServicesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableServicesResponse
+     */
+    public function enableServicesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableServicesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serviceNames) {
+            $request->serviceNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceNames, 'ServiceNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceNamesShrink) {
+            @$query['ServiceNames'] = $request->serviceNamesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableServices',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量开通.
+     *
+     * @param request - EnableServicesRequest
+     *
+     * @returns EnableServicesResponse
+     *
+     * @param EnableServicesRequest $request
+     *
+     * @return EnableServicesResponse
+     */
+    public function enableServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * Executes change sets.
      *
      * @remarks
@@ -2976,6 +3094,50 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceTypeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询可信服务
+     *
+     * @param request - GetServiceAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceAccessResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceAccessResponse
+     */
+    public function getServiceAccessWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetServiceAccess',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询可信服务
+     *
+     * @returns GetServiceAccessResponse
+     *
+     * @return GetServiceAccessResponse
+     */
+    public function getServiceAccess()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceAccessWithOptions($runtime);
     }
 
     /**
@@ -5589,6 +5751,63 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listStacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询总览.
+     *
+     * @param request - ListSummariesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSummariesResponse
+     *
+     * @param ListSummariesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSummariesResponse
+     */
+    public function listSummariesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->option) {
+            @$query['Option'] = $request->option;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSummaries',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询总览.
+     *
+     * @param request - ListSummariesRequest
+     *
+     * @returns ListSummariesResponse
+     *
+     * @param ListSummariesRequest $request
+     *
+     * @return ListSummariesResponse
+     */
+    public function listSummaries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSummariesWithOptions($request, $runtime);
     }
 
     /**
