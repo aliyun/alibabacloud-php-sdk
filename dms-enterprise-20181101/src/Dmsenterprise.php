@@ -50,6 +50,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeSSERequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeSSEResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeSSEShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionShrinkRequest;
@@ -2445,6 +2448,363 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->chatWithDesensitizeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 带有DMS脱敏能力的聊天SSE API接口.
+     *
+     * @remarks
+     * 带有DMS脱敏能力的聊天SSE API接口
+     *
+     * @param tmpReq - ChatWithDesensitizeSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatWithDesensitizeSSEResponse
+     *
+     * @param ChatWithDesensitizeSSERequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ChatWithDesensitizeSSEResponse
+     */
+    public function chatWithDesensitizeSSEWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatWithDesensitizeSSEShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        if (null !== $tmpReq->modalitiesList) {
+            $request->modalitiesListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modalitiesList, 'ModalitiesList', 'json');
+        }
+
+        if (null !== $tmpReq->searchOptions) {
+            $request->searchOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchOptions, 'SearchOptions', 'json');
+        }
+
+        if (null !== $tmpReq->stop) {
+            $request->stopShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stop, 'Stop', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->audioJson) {
+            @$query['AudioJson'] = $request->audioJson;
+        }
+
+        if (null !== $request->desensitizationRule) {
+            @$query['DesensitizationRule'] = $request->desensitizationRule;
+        }
+
+        if (null !== $request->enableCodeInterpreter) {
+            @$query['EnableCodeInterpreter'] = $request->enableCodeInterpreter;
+        }
+
+        if (null !== $request->enableSearch) {
+            @$query['EnableSearch'] = $request->enableSearch;
+        }
+
+        if (null !== $request->enableThinking) {
+            @$query['EnableThinking'] = $request->enableThinking;
+        }
+
+        if (null !== $request->includeUsage) {
+            @$query['IncludeUsage'] = $request->includeUsage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logprobs) {
+            @$query['Logprobs'] = $request->logprobs;
+        }
+
+        if (null !== $request->maxTokens) {
+            @$query['MaxTokens'] = $request->maxTokens;
+        }
+
+        if (null !== $request->modalitiesListShrink) {
+            @$query['ModalitiesList'] = $request->modalitiesListShrink;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->needDesensitization) {
+            @$query['NeedDesensitization'] = $request->needDesensitization;
+        }
+
+        if (null !== $request->presencePenalty) {
+            @$query['PresencePenalty'] = $request->presencePenalty;
+        }
+
+        if (null !== $request->responseFormat) {
+            @$query['ResponseFormat'] = $request->responseFormat;
+        }
+
+        if (null !== $request->searchOptionsShrink) {
+            @$query['SearchOptions'] = $request->searchOptionsShrink;
+        }
+
+        if (null !== $request->seed) {
+            @$query['Seed'] = $request->seed;
+        }
+
+        if (null !== $request->stopShrink) {
+            @$query['Stop'] = $request->stopShrink;
+        }
+
+        if (null !== $request->stream) {
+            @$query['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->temperature) {
+            @$query['Temperature'] = $request->temperature;
+        }
+
+        if (null !== $request->thinkingBudget) {
+            @$query['ThinkingBudget'] = $request->thinkingBudget;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->topLogprobs) {
+            @$query['TopLogprobs'] = $request->topLogprobs;
+        }
+
+        if (null !== $request->topP) {
+            @$query['TopP'] = $request->topP;
+        }
+
+        if (null !== $request->vlHighResolutionImages) {
+            @$query['VlHighResolutionImages'] = $request->vlHighResolutionImages;
+        }
+
+        if (null !== $request->XDashScopeDataInspection) {
+            @$query['XDashScopeDataInspection'] = $request->XDashScopeDataInspection;
+        }
+
+        $body = [];
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatWithDesensitizeSSE',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield ChatWithDesensitizeSSEResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 带有DMS脱敏能力的聊天SSE API接口.
+     *
+     * @remarks
+     * 带有DMS脱敏能力的聊天SSE API接口
+     *
+     * @param tmpReq - ChatWithDesensitizeSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatWithDesensitizeSSEResponse
+     *
+     * @param ChatWithDesensitizeSSERequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ChatWithDesensitizeSSEResponse
+     */
+    public function chatWithDesensitizeSSEWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatWithDesensitizeSSEShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        if (null !== $tmpReq->modalitiesList) {
+            $request->modalitiesListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modalitiesList, 'ModalitiesList', 'json');
+        }
+
+        if (null !== $tmpReq->searchOptions) {
+            $request->searchOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchOptions, 'SearchOptions', 'json');
+        }
+
+        if (null !== $tmpReq->stop) {
+            $request->stopShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stop, 'Stop', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->audioJson) {
+            @$query['AudioJson'] = $request->audioJson;
+        }
+
+        if (null !== $request->desensitizationRule) {
+            @$query['DesensitizationRule'] = $request->desensitizationRule;
+        }
+
+        if (null !== $request->enableCodeInterpreter) {
+            @$query['EnableCodeInterpreter'] = $request->enableCodeInterpreter;
+        }
+
+        if (null !== $request->enableSearch) {
+            @$query['EnableSearch'] = $request->enableSearch;
+        }
+
+        if (null !== $request->enableThinking) {
+            @$query['EnableThinking'] = $request->enableThinking;
+        }
+
+        if (null !== $request->includeUsage) {
+            @$query['IncludeUsage'] = $request->includeUsage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logprobs) {
+            @$query['Logprobs'] = $request->logprobs;
+        }
+
+        if (null !== $request->maxTokens) {
+            @$query['MaxTokens'] = $request->maxTokens;
+        }
+
+        if (null !== $request->modalitiesListShrink) {
+            @$query['ModalitiesList'] = $request->modalitiesListShrink;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->needDesensitization) {
+            @$query['NeedDesensitization'] = $request->needDesensitization;
+        }
+
+        if (null !== $request->presencePenalty) {
+            @$query['PresencePenalty'] = $request->presencePenalty;
+        }
+
+        if (null !== $request->responseFormat) {
+            @$query['ResponseFormat'] = $request->responseFormat;
+        }
+
+        if (null !== $request->searchOptionsShrink) {
+            @$query['SearchOptions'] = $request->searchOptionsShrink;
+        }
+
+        if (null !== $request->seed) {
+            @$query['Seed'] = $request->seed;
+        }
+
+        if (null !== $request->stopShrink) {
+            @$query['Stop'] = $request->stopShrink;
+        }
+
+        if (null !== $request->stream) {
+            @$query['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->temperature) {
+            @$query['Temperature'] = $request->temperature;
+        }
+
+        if (null !== $request->thinkingBudget) {
+            @$query['ThinkingBudget'] = $request->thinkingBudget;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->topLogprobs) {
+            @$query['TopLogprobs'] = $request->topLogprobs;
+        }
+
+        if (null !== $request->topP) {
+            @$query['TopP'] = $request->topP;
+        }
+
+        if (null !== $request->vlHighResolutionImages) {
+            @$query['VlHighResolutionImages'] = $request->vlHighResolutionImages;
+        }
+
+        if (null !== $request->XDashScopeDataInspection) {
+            @$query['XDashScopeDataInspection'] = $request->XDashScopeDataInspection;
+        }
+
+        $body = [];
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatWithDesensitizeSSE',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatWithDesensitizeSSEResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 带有DMS脱敏能力的聊天SSE API接口.
+     *
+     * @remarks
+     * 带有DMS脱敏能力的聊天SSE API接口
+     *
+     * @param request - ChatWithDesensitizeSSERequest
+     *
+     * @returns ChatWithDesensitizeSSEResponse
+     *
+     * @param ChatWithDesensitizeSSERequest $request
+     *
+     * @return ChatWithDesensitizeSSEResponse
+     */
+    public function chatWithDesensitizeSSE($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatWithDesensitizeSSEWithOptions($request, $runtime);
     }
 
     /**
