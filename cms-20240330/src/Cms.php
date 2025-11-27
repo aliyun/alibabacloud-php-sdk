@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
@@ -29,6 +31,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
@@ -44,8 +47,15 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonReleaseResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
@@ -56,6 +66,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
@@ -71,15 +83,22 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonReleasesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonReleasesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyAddonsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCollectorsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCollectorsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCustomScrapeJobRulesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCustomScrapeJobRulesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyDashboardsRequest;
@@ -113,6 +132,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
@@ -404,6 +425,83 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createAggTaskGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建业务链路.
+     *
+     * @param request - CreateBizTraceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizTraceResponse
+     *
+     * @param CreateBizTraceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateBizTraceResponse
+     */
+    public function createBizTraceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->advancedConfig) {
+            @$body['advancedConfig'] = $request->advancedConfig;
+        }
+
+        if (null !== $request->bizTraceCode) {
+            @$body['bizTraceCode'] = $request->bizTraceCode;
+        }
+
+        if (null !== $request->bizTraceName) {
+            @$body['bizTraceName'] = $request->bizTraceName;
+        }
+
+        if (null !== $request->ruleConfig) {
+            @$body['ruleConfig'] = $request->ruleConfig;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBizTrace',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bizTrace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBizTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建业务链路.
+     *
+     * @param request - CreateBizTraceRequest
+     *
+     * @returns CreateBizTraceResponse
+     *
+     * @param CreateBizTraceRequest $request
+     *
+     * @return CreateBizTraceResponse
+     */
+    public function createBizTrace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBizTraceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1213,6 +1311,57 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除业务链路.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizTraceResponse
+     *
+     * @param string         $bizTraceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteBizTraceResponse
+     */
+    public function deleteBizTraceWithOptions($bizTraceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBizTrace',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bizTrace/' . Url::percentEncode($bizTraceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBizTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除业务链路.
+     *
+     * @returns DeleteBizTraceResponse
+     *
+     * @param string $bizTraceId
+     *
+     * @return DeleteBizTraceResponse
+     */
+    public function deleteBizTrace($bizTraceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteBizTraceWithOptions($bizTraceId, $headers, $runtime);
+    }
+
+    /**
      * 删除云资源中心.
      *
      * @param headers - map
@@ -1851,6 +2000,144 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 插件详情(Addon).
+     *
+     * @param request - GetAddonRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAddonResponse
+     *
+     * @param string          $addonName
+     * @param GetAddonRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAddonResponse
+     */
+    public function getAddonWithOptions($addonName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAddon',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/addons/' . Url::percentEncode($addonName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 插件详情(Addon).
+     *
+     * @param request - GetAddonRequest
+     *
+     * @returns GetAddonResponse
+     *
+     * @param string          $addonName
+     * @param GetAddonRequest $request
+     *
+     * @return GetAddonResponse
+     */
+    public function getAddon($addonName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAddonWithOptions($addonName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 插件schema详情(Addon).
+     *
+     * @param request - GetAddonCodeTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAddonCodeTemplateResponse
+     *
+     * @param string                      $addonName
+     * @param GetAddonCodeTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAddonCodeTemplateResponse
+     */
+    public function getAddonCodeTemplateWithOptions($addonName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->environmentType) {
+            @$query['environmentType'] = $request->environmentType;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAddonCodeTemplate',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/addons/' . Url::percentEncode($addonName) . '/alert-code-template',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAddonCodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 插件schema详情(Addon).
+     *
+     * @param request - GetAddonCodeTemplateRequest
+     *
+     * @returns GetAddonCodeTemplateResponse
+     *
+     * @param string                      $addonName
+     * @param GetAddonCodeTemplateRequest $request
+     *
+     * @return GetAddonCodeTemplateResponse
+     */
+    public function getAddonCodeTemplate($addonName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAddonCodeTemplateWithOptions($addonName, $request, $headers, $runtime);
+    }
+
+    /**
      * Check addon release (view connection status).
      *
      * @param headers - map
@@ -1904,6 +2191,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 插件schema详情(Addon).
+     *
+     * @param request - GetAddonSchemaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAddonSchemaResponse
+     *
+     * @param string                $addonName
+     * @param GetAddonSchemaRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAddonSchemaResponse
+     */
+    public function getAddonSchemaWithOptions($addonName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->environmentType) {
+            @$query['environmentType'] = $request->environmentType;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAddonSchema',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/addons/' . Url::percentEncode($addonName) . '/schema',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAddonSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 插件schema详情(Addon).
+     *
+     * @param request - GetAddonSchemaRequest
+     *
+     * @returns GetAddonSchemaResponse
+     *
+     * @param string                $addonName
+     * @param GetAddonSchemaRequest $request
+     *
+     * @return GetAddonSchemaResponse
+     */
+    public function getAddonSchema($addonName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAddonSchemaWithOptions($addonName, $request, $headers, $runtime);
+    }
+
+    /**
      * Describes the aggregation task group.
      *
      * @param headers - map
@@ -1954,6 +2312,57 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * 查询业务链路.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizTraceResponse
+     *
+     * @param string         $bizTraceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetBizTraceResponse
+     */
+    public function getBizTraceWithOptions($bizTraceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetBizTrace',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bizTrace/' . Url::percentEncode($bizTraceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBizTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询业务链路.
+     *
+     * @returns GetBizTraceResponse
+     *
+     * @param string $bizTraceId
+     *
+     * @return GetBizTraceResponse
+     */
+    public function getBizTrace($bizTraceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBizTraceWithOptions($bizTraceId, $headers, $runtime);
     }
 
     /**
@@ -2318,6 +2727,71 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getIntegrationPolicyWithOptions($policyId, $headers, $runtime);
+    }
+
+    /**
+     * 查询接入中心在CS的版本.
+     *
+     * @param request - GetIntegrationVersionForCSRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIntegrationVersionForCSResponse
+     *
+     * @param GetIntegrationVersionForCSRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetIntegrationVersionForCSResponse
+     */
+    public function getIntegrationVersionForCSWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['clusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->clusterType) {
+            @$query['clusterType'] = $request->clusterType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIntegrationVersionForCS',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-version/cs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIntegrationVersionForCSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入中心在CS的版本.
+     *
+     * @param request - GetIntegrationVersionForCSRequest
+     *
+     * @returns GetIntegrationVersionForCSResponse
+     *
+     * @param GetIntegrationVersionForCSRequest $request
+     *
+     * @return GetIntegrationVersionForCSResponse
+     */
+    public function getIntegrationVersionForCS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIntegrationVersionForCSWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2941,6 +3415,79 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 新版接入中心产品列表(分组).
+     *
+     * @param request - ListAddonsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddonsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
+        }
+
+        if (null !== $request->regexp) {
+            @$query['regexp'] = $request->regexp;
+        }
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAddons',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/addons',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新版接入中心产品列表(分组).
+     *
+     * @param request - ListAddonsRequest
+     *
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $request
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAddonsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * List Aggregation Task Groups.
      *
      * @param tmpReq - ListAggTaskGroupsRequest
@@ -3121,6 +3668,75 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 业务链路列表.
+     *
+     * @param request - ListBizTracesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBizTracesResponse
+     *
+     * @param ListBizTracesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListBizTracesResponse
+     */
+    public function listBizTracesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBizTraces',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bizTraces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBizTracesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 业务链路列表.
+     *
+     * @param request - ListBizTracesRequest
+     *
+     * @returns ListBizTracesResponse
+     *
+     * @param ListBizTracesRequest $request
+     *
+     * @return ListBizTracesResponse
+     */
+    public function listBizTraces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBizTracesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Query Access Center Policy List Information.
      *
      * @remarks
@@ -3243,6 +3859,128 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listIntegrationPoliciesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 策略addon列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntegrationPolicyAddonsResponse
+     *
+     * @param string         $policyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListIntegrationPolicyAddonsResponse
+     */
+    public function listIntegrationPolicyAddonsWithOptions($policyId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListIntegrationPolicyAddons',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-policies/' . Url::percentEncode($policyId) . '/addons',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntegrationPolicyAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 策略addon列表.
+     *
+     * @returns ListIntegrationPolicyAddonsResponse
+     *
+     * @param string $policyId
+     *
+     * @return ListIntegrationPolicyAddonsResponse
+     */
+    public function listIntegrationPolicyAddons($policyId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIntegrationPolicyAddonsWithOptions($policyId, $headers, $runtime);
+    }
+
+    /**
+     * 获取接入中心策略的存储要求信息.
+     *
+     * @param request - ListIntegrationPolicyCollectorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntegrationPolicyCollectorsResponse
+     *
+     * @param string                                 $policyId
+     * @param ListIntegrationPolicyCollectorsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListIntegrationPolicyCollectorsResponse
+     */
+    public function listIntegrationPolicyCollectorsWithOptions($policyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addonReleaseName) {
+            @$query['addonReleaseName'] = $request->addonReleaseName;
+        }
+
+        if (null !== $request->collectorType) {
+            @$query['collectorType'] = $request->collectorType;
+        }
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIntegrationPolicyCollectors',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-policies/' . Url::percentEncode($policyId) . '/collectors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntegrationPolicyCollectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取接入中心策略的存储要求信息.
+     *
+     * @param request - ListIntegrationPolicyCollectorsRequest
+     *
+     * @returns ListIntegrationPolicyCollectorsResponse
+     *
+     * @param string                                 $policyId
+     * @param ListIntegrationPolicyCollectorsRequest $request
+     *
+     * @return ListIntegrationPolicyCollectorsResponse
+     */
+    public function listIntegrationPolicyCollectors($policyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIntegrationPolicyCollectorsWithOptions($policyId, $request, $headers, $runtime);
     }
 
     /**
@@ -4466,6 +5204,81 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateAggTaskGroupStatusWithOptions($instanceId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改业务链路.
+     *
+     * @param request - UpdateBizTraceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizTraceResponse
+     *
+     * @param string                $bizTraceId
+     * @param UpdateBizTraceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateBizTraceResponse
+     */
+    public function updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->advancedConfig) {
+            @$body['advancedConfig'] = $request->advancedConfig;
+        }
+
+        if (null !== $request->bizTraceName) {
+            @$body['bizTraceName'] = $request->bizTraceName;
+        }
+
+        if (null !== $request->ruleConfig) {
+            @$body['ruleConfig'] = $request->ruleConfig;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBizTrace',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bizTrace/' . Url::percentEncode($bizTraceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBizTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改业务链路.
+     *
+     * @param request - UpdateBizTraceRequest
+     *
+     * @returns UpdateBizTraceResponse
+     *
+     * @param string                $bizTraceId
+     * @param UpdateBizTraceRequest $request
+     *
+     * @return UpdateBizTraceResponse
+     */
+    public function updateBizTrace($bizTraceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
     }
 
     /**

@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\entityFields;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\entityFilter;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\labelFilters;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
 
 class AlertRuleQuery extends Model
@@ -29,6 +31,11 @@ class AlertRuleQuery extends Model
      * @var int
      */
     public $duration;
+
+    /**
+     * @var entityFields[]
+     */
+    public $entityFields;
 
     /**
      * @var entityFilter
@@ -59,6 +66,11 @@ class AlertRuleQuery extends Model
      * @var string
      */
     public $groupType;
+
+    /**
+     * @var labelFilters[]
+     */
+    public $labelFilters;
 
     /**
      * @var string
@@ -104,12 +116,14 @@ class AlertRuleQuery extends Model
         'dimensions' => 'dimensions',
         'domain' => 'domain',
         'duration' => 'duration',
+        'entityFields' => 'entityFields',
         'entityFilter' => 'entityFilter',
         'expr' => 'expr',
         'firstJoin' => 'firstJoin',
         'groupFieldList' => 'groupFieldList',
         'groupId' => 'groupId',
         'groupType' => 'groupType',
+        'labelFilters' => 'labelFilters',
         'metric' => 'metric',
         'metricSet' => 'metricSet',
         'namespace' => 'namespace',
@@ -125,6 +139,9 @@ class AlertRuleQuery extends Model
         if (\is_array($this->dimensions)) {
             Model::validateArray($this->dimensions);
         }
+        if (\is_array($this->entityFields)) {
+            Model::validateArray($this->entityFields);
+        }
         if (null !== $this->entityFilter) {
             $this->entityFilter->validate();
         }
@@ -133,6 +150,9 @@ class AlertRuleQuery extends Model
         }
         if (\is_array($this->groupFieldList)) {
             Model::validateArray($this->groupFieldList);
+        }
+        if (\is_array($this->labelFilters)) {
+            Model::validateArray($this->labelFilters);
         }
         if (\is_array($this->queries)) {
             Model::validateArray($this->queries);
@@ -177,6 +197,17 @@ class AlertRuleQuery extends Model
             $res['duration'] = $this->duration;
         }
 
+        if (null !== $this->entityFields) {
+            if (\is_array($this->entityFields)) {
+                $res['entityFields'] = [];
+                $n1 = 0;
+                foreach ($this->entityFields as $item1) {
+                    $res['entityFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->entityFilter) {
             $res['entityFilter'] = null !== $this->entityFilter ? $this->entityFilter->toArray($noStream) : $this->entityFilter;
         }
@@ -206,6 +237,17 @@ class AlertRuleQuery extends Model
 
         if (null !== $this->groupType) {
             $res['groupType'] = $this->groupType;
+        }
+
+        if (null !== $this->labelFilters) {
+            if (\is_array($this->labelFilters)) {
+                $res['labelFilters'] = [];
+                $n1 = 0;
+                foreach ($this->labelFilters as $item1) {
+                    $res['labelFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->metric) {
@@ -293,6 +335,17 @@ class AlertRuleQuery extends Model
             $model->duration = $map['duration'];
         }
 
+        if (isset($map['entityFields'])) {
+            if (!empty($map['entityFields'])) {
+                $model->entityFields = [];
+                $n1 = 0;
+                foreach ($map['entityFields'] as $item1) {
+                    $model->entityFields[$n1] = entityFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['entityFilter'])) {
             $model->entityFilter = entityFilter::fromMap($map['entityFilter']);
         }
@@ -322,6 +375,17 @@ class AlertRuleQuery extends Model
 
         if (isset($map['groupType'])) {
             $model->groupType = $map['groupType'];
+        }
+
+        if (isset($map['labelFilters'])) {
+            if (!empty($map['labelFilters'])) {
+                $model->labelFilters = [];
+                $n1 = 0;
+                foreach ($map['labelFilters'] as $item1) {
+                    $model->labelFilters[$n1] = labelFilters::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['metric'])) {
