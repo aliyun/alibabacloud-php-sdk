@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SubmitConvertImageToPdfJobShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $imageNameExtension;
@@ -33,6 +38,7 @@ class SubmitConvertImageToPdfJobShrinkRequest extends Model
      */
     public $ossEndpoint;
     protected $_name = [
+        'enableEventCallback' => 'EnableEventCallback',
         'imageNameExtension' => 'ImageNameExtension',
         'imageNamesShrink' => 'ImageNames',
         'imageUrlsShrink' => 'ImageUrls',
@@ -48,6 +54,10 @@ class SubmitConvertImageToPdfJobShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
+        }
+
         if (null !== $this->imageNameExtension) {
             $res['ImageNameExtension'] = $this->imageNameExtension;
         }
@@ -79,6 +89,10 @@ class SubmitConvertImageToPdfJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
+        }
+
         if (isset($map['ImageNameExtension'])) {
             $model->imageNameExtension = $map['ImageNameExtension'];
         }

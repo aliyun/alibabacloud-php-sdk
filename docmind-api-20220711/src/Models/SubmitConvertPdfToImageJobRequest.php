@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SubmitConvertPdfToImageJobRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -28,6 +33,7 @@ class SubmitConvertPdfToImageJobRequest extends Model
      */
     public $ossEndpoint;
     protected $_name = [
+        'enableEventCallback' => 'EnableEventCallback',
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
         'ossBucket' => 'OssBucket',
@@ -42,6 +48,10 @@ class SubmitConvertPdfToImageJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -69,6 +79,10 @@ class SubmitConvertPdfToImageJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

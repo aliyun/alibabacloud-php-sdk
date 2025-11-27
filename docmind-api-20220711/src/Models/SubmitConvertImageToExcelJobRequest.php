@@ -11,6 +11,11 @@ class SubmitConvertImageToExcelJobRequest extends Model
     /**
      * @var bool
      */
+    public $enableEventCallback;
+
+    /**
+     * @var bool
+     */
     public $forceMergeExcel;
 
     /**
@@ -38,6 +43,7 @@ class SubmitConvertImageToExcelJobRequest extends Model
      */
     public $ossEndpoint;
     protected $_name = [
+        'enableEventCallback' => 'EnableEventCallback',
         'forceMergeExcel' => 'ForceMergeExcel',
         'imageNameExtension' => 'ImageNameExtension',
         'imageNames' => 'ImageNames',
@@ -60,6 +66,10 @@ class SubmitConvertImageToExcelJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
+        }
+
         if (null !== $this->forceMergeExcel) {
             $res['ForceMergeExcel'] = $this->forceMergeExcel;
         }
@@ -109,6 +119,10 @@ class SubmitConvertImageToExcelJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
+        }
+
         if (isset($map['ForceMergeExcel'])) {
             $model->forceMergeExcel = $map['ForceMergeExcel'];
         }

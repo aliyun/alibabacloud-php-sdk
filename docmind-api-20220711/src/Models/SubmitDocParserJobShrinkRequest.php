@@ -14,6 +14,11 @@ class SubmitDocParserJobShrinkRequest extends Model
     public $customOssConfigShrink;
 
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $enhancementMode;
@@ -84,6 +89,7 @@ class SubmitDocParserJobShrinkRequest extends Model
     public $pageIndex;
     protected $_name = [
         'customOssConfigShrink' => 'CustomOssConfig',
+        'enableEventCallback' => 'EnableEventCallback',
         'enhancementMode' => 'EnhancementMode',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
@@ -110,6 +116,10 @@ class SubmitDocParserJobShrinkRequest extends Model
         $res = [];
         if (null !== $this->customOssConfigShrink) {
             $res['CustomOssConfig'] = $this->customOssConfigShrink;
+        }
+
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
         }
 
         if (null !== $this->enhancementMode) {
@@ -181,6 +191,10 @@ class SubmitDocParserJobShrinkRequest extends Model
         $model = new self();
         if (isset($map['CustomOssConfig'])) {
             $model->customOssConfigShrink = $map['CustomOssConfig'];
+        }
+
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
         }
 
         if (isset($map['EnhancementMode'])) {

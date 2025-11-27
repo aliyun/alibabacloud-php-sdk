@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class SubmitConvertPdfToExcelJobAdvanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -39,6 +44,7 @@ class SubmitConvertPdfToExcelJobAdvanceRequest extends Model
      */
     public $ossEndpoint;
     protected $_name = [
+        'enableEventCallback' => 'EnableEventCallback',
         'fileName' => 'FileName',
         'fileUrlObject' => 'FileUrl',
         'forceExportInnerImage' => 'ForceExportInnerImage',
@@ -55,6 +61,10 @@ class SubmitConvertPdfToExcelJobAdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -90,6 +100,10 @@ class SubmitConvertPdfToExcelJobAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

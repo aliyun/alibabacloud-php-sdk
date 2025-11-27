@@ -18,6 +18,11 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public $customOssConfig;
 
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $enhancementMode;
@@ -88,6 +93,7 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public $pageIndex;
     protected $_name = [
         'customOssConfig' => 'CustomOssConfig',
+        'enableEventCallback' => 'EnableEventCallback',
         'enhancementMode' => 'EnhancementMode',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
@@ -123,6 +129,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
         $res = [];
         if (null !== $this->customOssConfig) {
             $res['CustomOssConfig'] = null !== $this->customOssConfig ? $this->customOssConfig->toArray($noStream) : $this->customOssConfig;
+        }
+
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
         }
 
         if (null !== $this->enhancementMode) {
@@ -194,6 +204,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
         $model = new self();
         if (isset($map['CustomOssConfig'])) {
             $model->customOssConfig = customOssConfig::fromMap($map['CustomOssConfig']);
+        }
+
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
         }
 
         if (isset($map['EnhancementMode'])) {

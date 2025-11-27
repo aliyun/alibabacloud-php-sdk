@@ -14,6 +14,11 @@ class SubmitDocStructureJobRequest extends Model
     public $allowPptFormat;
 
     /**
+     * @var bool
+     */
+    public $enableEventCallback;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -54,6 +59,7 @@ class SubmitDocStructureJobRequest extends Model
     public $structureType;
     protected $_name = [
         'allowPptFormat' => 'AllowPptFormat',
+        'enableEventCallback' => 'EnableEventCallback',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl' => 'FileUrl',
@@ -74,6 +80,10 @@ class SubmitDocStructureJobRequest extends Model
         $res = [];
         if (null !== $this->allowPptFormat) {
             $res['AllowPptFormat'] = $this->allowPptFormat;
+        }
+
+        if (null !== $this->enableEventCallback) {
+            $res['EnableEventCallback'] = $this->enableEventCallback;
         }
 
         if (null !== $this->fileName) {
@@ -121,6 +131,10 @@ class SubmitDocStructureJobRequest extends Model
         $model = new self();
         if (isset($map['AllowPptFormat'])) {
             $model->allowPptFormat = $map['AllowPptFormat'];
+        }
+
+        if (isset($map['EnableEventCallback'])) {
+            $model->enableEventCallback = $map['EnableEventCallback'];
         }
 
         if (isset($map['FileName'])) {
