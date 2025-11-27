@@ -15,16 +15,25 @@ class choices extends Model
     public $finishReason;
 
     /**
+     * @var mixed[]
+     */
+    public $logprobs;
+
+    /**
      * @var message
      */
     public $message;
     protected $_name = [
         'finishReason' => 'FinishReason',
+        'logprobs' => 'Logprobs',
         'message' => 'Message',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logprobs)) {
+            Model::validateArray($this->logprobs);
+        }
         if (null !== $this->message) {
             $this->message->validate();
         }
@@ -36,6 +45,15 @@ class choices extends Model
         $res = [];
         if (null !== $this->finishReason) {
             $res['FinishReason'] = $this->finishReason;
+        }
+
+        if (null !== $this->logprobs) {
+            if (\is_array($this->logprobs)) {
+                $res['Logprobs'] = [];
+                foreach ($this->logprobs as $key1 => $value1) {
+                    $res['Logprobs'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->message) {
@@ -55,6 +73,15 @@ class choices extends Model
         $model = new self();
         if (isset($map['FinishReason'])) {
             $model->finishReason = $map['FinishReason'];
+        }
+
+        if (isset($map['Logprobs'])) {
+            if (!empty($map['Logprobs'])) {
+                $model->logprobs = [];
+                foreach ($map['Logprobs'] as $key1 => $value1) {
+                    $model->logprobs[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Message'])) {

@@ -11,7 +11,22 @@ class ChatWithDesensitizeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $audioJson;
+
+    /**
+     * @var string
+     */
     public $desensitizationRule;
+
+    /**
+     * @var bool
+     */
+    public $enableCodeInterpreter;
+
+    /**
+     * @var bool
+     */
+    public $enableSearch;
 
     /**
      * @var bool
@@ -22,6 +37,11 @@ class ChatWithDesensitizeShrinkRequest extends Model
      * @var int
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $logprobs;
 
     /**
      * @var int
@@ -36,6 +56,11 @@ class ChatWithDesensitizeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modalitiesListShrink;
+
+    /**
+     * @var string
+     */
     public $model;
 
     /**
@@ -44,7 +69,7 @@ class ChatWithDesensitizeShrinkRequest extends Model
     public $needDesensitization;
 
     /**
-     * @var float
+     * @var string
      */
     public $presencePenalty;
 
@@ -52,6 +77,11 @@ class ChatWithDesensitizeShrinkRequest extends Model
      * @var string
      */
     public $responseFormat;
+
+    /**
+     * @var string
+     */
+    public $searchOptionsShrink;
 
     /**
      * @var int
@@ -64,7 +94,7 @@ class ChatWithDesensitizeShrinkRequest extends Model
     public $stopShrink;
 
     /**
-     * @var float
+     * @var string
      */
     public $temperature;
 
@@ -84,19 +114,35 @@ class ChatWithDesensitizeShrinkRequest extends Model
     public $topLogprobs;
 
     /**
-     * @var float
+     * @var string
      */
     public $topP;
+
+    /**
+     * @var bool
+     */
+    public $vlHighResolutionImages;
+
+    /**
+     * @var string
+     */
+    public $XDashScopeDataInspection;
     protected $_name = [
+        'audioJson' => 'AudioJson',
         'desensitizationRule' => 'DesensitizationRule',
+        'enableCodeInterpreter' => 'EnableCodeInterpreter',
+        'enableSearch' => 'EnableSearch',
         'enableThinking' => 'EnableThinking',
         'instanceId' => 'InstanceId',
+        'logprobs' => 'Logprobs',
         'maxTokens' => 'MaxTokens',
         'messagesShrink' => 'Messages',
+        'modalitiesListShrink' => 'ModalitiesList',
         'model' => 'Model',
         'needDesensitization' => 'NeedDesensitization',
         'presencePenalty' => 'PresencePenalty',
         'responseFormat' => 'ResponseFormat',
+        'searchOptionsShrink' => 'SearchOptions',
         'seed' => 'Seed',
         'stopShrink' => 'Stop',
         'temperature' => 'Temperature',
@@ -104,6 +150,8 @@ class ChatWithDesensitizeShrinkRequest extends Model
         'topK' => 'TopK',
         'topLogprobs' => 'TopLogprobs',
         'topP' => 'TopP',
+        'vlHighResolutionImages' => 'VlHighResolutionImages',
+        'XDashScopeDataInspection' => 'XDashScopeDataInspection',
     ];
 
     public function validate()
@@ -114,8 +162,20 @@ class ChatWithDesensitizeShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioJson) {
+            $res['AudioJson'] = $this->audioJson;
+        }
+
         if (null !== $this->desensitizationRule) {
             $res['DesensitizationRule'] = $this->desensitizationRule;
+        }
+
+        if (null !== $this->enableCodeInterpreter) {
+            $res['EnableCodeInterpreter'] = $this->enableCodeInterpreter;
+        }
+
+        if (null !== $this->enableSearch) {
+            $res['EnableSearch'] = $this->enableSearch;
         }
 
         if (null !== $this->enableThinking) {
@@ -126,12 +186,20 @@ class ChatWithDesensitizeShrinkRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->logprobs) {
+            $res['Logprobs'] = $this->logprobs;
+        }
+
         if (null !== $this->maxTokens) {
             $res['MaxTokens'] = $this->maxTokens;
         }
 
         if (null !== $this->messagesShrink) {
             $res['Messages'] = $this->messagesShrink;
+        }
+
+        if (null !== $this->modalitiesListShrink) {
+            $res['ModalitiesList'] = $this->modalitiesListShrink;
         }
 
         if (null !== $this->model) {
@@ -148,6 +216,10 @@ class ChatWithDesensitizeShrinkRequest extends Model
 
         if (null !== $this->responseFormat) {
             $res['ResponseFormat'] = $this->responseFormat;
+        }
+
+        if (null !== $this->searchOptionsShrink) {
+            $res['SearchOptions'] = $this->searchOptionsShrink;
         }
 
         if (null !== $this->seed) {
@@ -178,6 +250,14 @@ class ChatWithDesensitizeShrinkRequest extends Model
             $res['TopP'] = $this->topP;
         }
 
+        if (null !== $this->vlHighResolutionImages) {
+            $res['VlHighResolutionImages'] = $this->vlHighResolutionImages;
+        }
+
+        if (null !== $this->XDashScopeDataInspection) {
+            $res['XDashScopeDataInspection'] = $this->XDashScopeDataInspection;
+        }
+
         return $res;
     }
 
@@ -189,8 +269,20 @@ class ChatWithDesensitizeShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioJson'])) {
+            $model->audioJson = $map['AudioJson'];
+        }
+
         if (isset($map['DesensitizationRule'])) {
             $model->desensitizationRule = $map['DesensitizationRule'];
+        }
+
+        if (isset($map['EnableCodeInterpreter'])) {
+            $model->enableCodeInterpreter = $map['EnableCodeInterpreter'];
+        }
+
+        if (isset($map['EnableSearch'])) {
+            $model->enableSearch = $map['EnableSearch'];
         }
 
         if (isset($map['EnableThinking'])) {
@@ -201,12 +293,20 @@ class ChatWithDesensitizeShrinkRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['Logprobs'])) {
+            $model->logprobs = $map['Logprobs'];
+        }
+
         if (isset($map['MaxTokens'])) {
             $model->maxTokens = $map['MaxTokens'];
         }
 
         if (isset($map['Messages'])) {
             $model->messagesShrink = $map['Messages'];
+        }
+
+        if (isset($map['ModalitiesList'])) {
+            $model->modalitiesListShrink = $map['ModalitiesList'];
         }
 
         if (isset($map['Model'])) {
@@ -223,6 +323,10 @@ class ChatWithDesensitizeShrinkRequest extends Model
 
         if (isset($map['ResponseFormat'])) {
             $model->responseFormat = $map['ResponseFormat'];
+        }
+
+        if (isset($map['SearchOptions'])) {
+            $model->searchOptionsShrink = $map['SearchOptions'];
         }
 
         if (isset($map['Seed'])) {
@@ -251,6 +355,14 @@ class ChatWithDesensitizeShrinkRequest extends Model
 
         if (isset($map['TopP'])) {
             $model->topP = $map['TopP'];
+        }
+
+        if (isset($map['VlHighResolutionImages'])) {
+            $model->vlHighResolutionImages = $map['VlHighResolutionImages'];
+        }
+
+        if (isset($map['XDashScopeDataInspection'])) {
+            $model->XDashScopeDataInspection = $map['XDashScopeDataInspection'];
         }
 
         return $model;

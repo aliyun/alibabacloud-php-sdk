@@ -50,6 +50,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacAuthorizationRequest;
@@ -2294,13 +2297,33 @@ class Dmsenterprise extends OpenApiClient
             $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
         }
 
+        if (null !== $tmpReq->modalitiesList) {
+            $request->modalitiesListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modalitiesList, 'ModalitiesList', 'json');
+        }
+
+        if (null !== $tmpReq->searchOptions) {
+            $request->searchOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchOptions, 'SearchOptions', 'json');
+        }
+
         if (null !== $tmpReq->stop) {
             $request->stopShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stop, 'Stop', 'json');
         }
 
         $query = [];
+        if (null !== $request->audioJson) {
+            @$query['AudioJson'] = $request->audioJson;
+        }
+
         if (null !== $request->desensitizationRule) {
             @$query['DesensitizationRule'] = $request->desensitizationRule;
+        }
+
+        if (null !== $request->enableCodeInterpreter) {
+            @$query['EnableCodeInterpreter'] = $request->enableCodeInterpreter;
+        }
+
+        if (null !== $request->enableSearch) {
+            @$query['EnableSearch'] = $request->enableSearch;
         }
 
         if (null !== $request->enableThinking) {
@@ -2311,8 +2334,16 @@ class Dmsenterprise extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->logprobs) {
+            @$query['Logprobs'] = $request->logprobs;
+        }
+
         if (null !== $request->maxTokens) {
             @$query['MaxTokens'] = $request->maxTokens;
+        }
+
+        if (null !== $request->modalitiesListShrink) {
+            @$query['ModalitiesList'] = $request->modalitiesListShrink;
         }
 
         if (null !== $request->model) {
@@ -2329,6 +2360,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->responseFormat) {
             @$query['ResponseFormat'] = $request->responseFormat;
+        }
+
+        if (null !== $request->searchOptionsShrink) {
+            @$query['SearchOptions'] = $request->searchOptionsShrink;
         }
 
         if (null !== $request->seed) {
@@ -2357,6 +2392,14 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->topP) {
             @$query['TopP'] = $request->topP;
+        }
+
+        if (null !== $request->vlHighResolutionImages) {
+            @$query['VlHighResolutionImages'] = $request->vlHighResolutionImages;
+        }
+
+        if (null !== $request->XDashScopeDataInspection) {
+            @$query['XDashScopeDataInspection'] = $request->XDashScopeDataInspection;
         }
 
         $body = [];
@@ -2402,6 +2445,85 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->chatWithDesensitizeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量校验是否有表访问权限.
+     *
+     * @param tmpReq - CheckBatchTableAccessPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckBatchTableAccessPermissionResponse
+     *
+     * @param CheckBatchTableAccessPermissionRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CheckBatchTableAccessPermissionResponse
+     */
+    public function checkBatchTableAccessPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CheckBatchTableAccessPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableNameList) {
+            $request->tableNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableNameList, 'TableNameList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
+        }
+
+        if (null !== $request->permissionType) {
+            @$query['PermissionType'] = $request->permissionType;
+        }
+
+        if (null !== $request->tableNameListShrink) {
+            @$query['TableNameList'] = $request->tableNameListShrink;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckBatchTableAccessPermission',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckBatchTableAccessPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量校验是否有表访问权限.
+     *
+     * @param request - CheckBatchTableAccessPermissionRequest
+     *
+     * @returns CheckBatchTableAccessPermissionResponse
+     *
+     * @param CheckBatchTableAccessPermissionRequest $request
+     *
+     * @return CheckBatchTableAccessPermissionResponse
+     */
+    public function checkBatchTableAccessPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkBatchTableAccessPermissionWithOptions($request, $runtime);
     }
 
     /**

@@ -11,7 +11,22 @@ class ChatWithDesensitizeRequest extends Model
     /**
      * @var string
      */
+    public $audioJson;
+
+    /**
+     * @var string
+     */
     public $desensitizationRule;
+
+    /**
+     * @var bool
+     */
+    public $enableCodeInterpreter;
+
+    /**
+     * @var bool
+     */
+    public $enableSearch;
 
     /**
      * @var bool
@@ -24,14 +39,24 @@ class ChatWithDesensitizeRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $logprobs;
+
+    /**
      * @var int
      */
     public $maxTokens;
 
     /**
-     * @var mixed[][]
+     * @var mixed[]
      */
     public $messages;
+
+    /**
+     * @var string[]
+     */
+    public $modalitiesList;
 
     /**
      * @var string
@@ -44,7 +69,7 @@ class ChatWithDesensitizeRequest extends Model
     public $needDesensitization;
 
     /**
-     * @var float
+     * @var string
      */
     public $presencePenalty;
 
@@ -52,6 +77,11 @@ class ChatWithDesensitizeRequest extends Model
      * @var string
      */
     public $responseFormat;
+
+    /**
+     * @var string[]
+     */
+    public $searchOptions;
 
     /**
      * @var int
@@ -64,7 +94,7 @@ class ChatWithDesensitizeRequest extends Model
     public $stop;
 
     /**
-     * @var float
+     * @var string
      */
     public $temperature;
 
@@ -84,19 +114,35 @@ class ChatWithDesensitizeRequest extends Model
     public $topLogprobs;
 
     /**
-     * @var float
+     * @var string
      */
     public $topP;
+
+    /**
+     * @var bool
+     */
+    public $vlHighResolutionImages;
+
+    /**
+     * @var string
+     */
+    public $XDashScopeDataInspection;
     protected $_name = [
+        'audioJson' => 'AudioJson',
         'desensitizationRule' => 'DesensitizationRule',
+        'enableCodeInterpreter' => 'EnableCodeInterpreter',
+        'enableSearch' => 'EnableSearch',
         'enableThinking' => 'EnableThinking',
         'instanceId' => 'InstanceId',
+        'logprobs' => 'Logprobs',
         'maxTokens' => 'MaxTokens',
         'messages' => 'Messages',
+        'modalitiesList' => 'ModalitiesList',
         'model' => 'Model',
         'needDesensitization' => 'NeedDesensitization',
         'presencePenalty' => 'PresencePenalty',
         'responseFormat' => 'ResponseFormat',
+        'searchOptions' => 'SearchOptions',
         'seed' => 'Seed',
         'stop' => 'Stop',
         'temperature' => 'Temperature',
@@ -104,12 +150,20 @@ class ChatWithDesensitizeRequest extends Model
         'topK' => 'TopK',
         'topLogprobs' => 'TopLogprobs',
         'topP' => 'TopP',
+        'vlHighResolutionImages' => 'VlHighResolutionImages',
+        'XDashScopeDataInspection' => 'XDashScopeDataInspection',
     ];
 
     public function validate()
     {
         if (\is_array($this->messages)) {
             Model::validateArray($this->messages);
+        }
+        if (\is_array($this->modalitiesList)) {
+            Model::validateArray($this->modalitiesList);
+        }
+        if (\is_array($this->searchOptions)) {
+            Model::validateArray($this->searchOptions);
         }
         if (\is_array($this->stop)) {
             Model::validateArray($this->stop);
@@ -120,8 +174,20 @@ class ChatWithDesensitizeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioJson) {
+            $res['AudioJson'] = $this->audioJson;
+        }
+
         if (null !== $this->desensitizationRule) {
             $res['DesensitizationRule'] = $this->desensitizationRule;
+        }
+
+        if (null !== $this->enableCodeInterpreter) {
+            $res['EnableCodeInterpreter'] = $this->enableCodeInterpreter;
+        }
+
+        if (null !== $this->enableSearch) {
+            $res['EnableSearch'] = $this->enableSearch;
         }
 
         if (null !== $this->enableThinking) {
@@ -130,6 +196,10 @@ class ChatWithDesensitizeRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->logprobs) {
+            $res['Logprobs'] = $this->logprobs;
         }
 
         if (null !== $this->maxTokens) {
@@ -141,12 +211,18 @@ class ChatWithDesensitizeRequest extends Model
                 $res['Messages'] = [];
                 $n1 = 0;
                 foreach ($this->messages as $item1) {
-                    if (\is_array($item1)) {
-                        $res['Messages'][$n1] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $res['Messages'][$n1][$key2] = $value2;
-                        }
-                    }
+                    $res['Messages'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->modalitiesList) {
+            if (\is_array($this->modalitiesList)) {
+                $res['ModalitiesList'] = [];
+                $n1 = 0;
+                foreach ($this->modalitiesList as $item1) {
+                    $res['ModalitiesList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -166,6 +242,15 @@ class ChatWithDesensitizeRequest extends Model
 
         if (null !== $this->responseFormat) {
             $res['ResponseFormat'] = $this->responseFormat;
+        }
+
+        if (null !== $this->searchOptions) {
+            if (\is_array($this->searchOptions)) {
+                $res['SearchOptions'] = [];
+                foreach ($this->searchOptions as $key1 => $value1) {
+                    $res['SearchOptions'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->seed) {
@@ -203,6 +288,14 @@ class ChatWithDesensitizeRequest extends Model
             $res['TopP'] = $this->topP;
         }
 
+        if (null !== $this->vlHighResolutionImages) {
+            $res['VlHighResolutionImages'] = $this->vlHighResolutionImages;
+        }
+
+        if (null !== $this->XDashScopeDataInspection) {
+            $res['XDashScopeDataInspection'] = $this->XDashScopeDataInspection;
+        }
+
         return $res;
     }
 
@@ -214,8 +307,20 @@ class ChatWithDesensitizeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioJson'])) {
+            $model->audioJson = $map['AudioJson'];
+        }
+
         if (isset($map['DesensitizationRule'])) {
             $model->desensitizationRule = $map['DesensitizationRule'];
+        }
+
+        if (isset($map['EnableCodeInterpreter'])) {
+            $model->enableCodeInterpreter = $map['EnableCodeInterpreter'];
+        }
+
+        if (isset($map['EnableSearch'])) {
+            $model->enableSearch = $map['EnableSearch'];
         }
 
         if (isset($map['EnableThinking'])) {
@@ -224,6 +329,10 @@ class ChatWithDesensitizeRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Logprobs'])) {
+            $model->logprobs = $map['Logprobs'];
         }
 
         if (isset($map['MaxTokens'])) {
@@ -235,12 +344,18 @@ class ChatWithDesensitizeRequest extends Model
                 $model->messages = [];
                 $n1 = 0;
                 foreach ($map['Messages'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->messages[$n1] = [];
-                        foreach ($item1 as $key2 => $value2) {
-                            $model->messages[$n1][$key2] = $value2;
-                        }
-                    }
+                    $model->messages[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ModalitiesList'])) {
+            if (!empty($map['ModalitiesList'])) {
+                $model->modalitiesList = [];
+                $n1 = 0;
+                foreach ($map['ModalitiesList'] as $item1) {
+                    $model->modalitiesList[$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -260,6 +375,15 @@ class ChatWithDesensitizeRequest extends Model
 
         if (isset($map['ResponseFormat'])) {
             $model->responseFormat = $map['ResponseFormat'];
+        }
+
+        if (isset($map['SearchOptions'])) {
+            if (!empty($map['SearchOptions'])) {
+                $model->searchOptions = [];
+                foreach ($map['SearchOptions'] as $key1 => $value1) {
+                    $model->searchOptions[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Seed'])) {
@@ -295,6 +419,14 @@ class ChatWithDesensitizeRequest extends Model
 
         if (isset($map['TopP'])) {
             $model->topP = $map['TopP'];
+        }
+
+        if (isset($map['VlHighResolutionImages'])) {
+            $model->vlHighResolutionImages = $map['VlHighResolutionImages'];
+        }
+
+        if (isset($map['XDashScopeDataInspection'])) {
+            $model->XDashScopeDataInspection = $map['XDashScopeDataInspection'];
         }
 
         return $model;

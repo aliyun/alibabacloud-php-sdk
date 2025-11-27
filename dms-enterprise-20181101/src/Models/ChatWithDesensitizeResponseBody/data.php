@@ -23,7 +23,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $model;
+
+    /**
+     * @var string
+     */
+    public $statusCode;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var usage
@@ -32,7 +47,10 @@ class data extends Model
     protected $_name = [
         'choices' => 'Choices',
         'created' => 'Created',
+        'message' => 'Message',
         'model' => 'Model',
+        'statusCode' => 'StatusCode',
+        'type' => 'Type',
         'usage' => 'Usage',
     ];
 
@@ -65,8 +83,20 @@ class data extends Model
             $res['Created'] = $this->created;
         }
 
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->usage) {
@@ -99,8 +129,20 @@ class data extends Model
             $model->created = $map['Created'];
         }
 
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['Usage'])) {
