@@ -51,6 +51,10 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetInviteStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetInviteStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetMonthlyBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetMonthlyBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetPurchaseControlRecordRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetPurchaseControlRecordResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetShutdownPolicyRecordRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetShutdownPolicyRecordResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
@@ -1634,6 +1638,144 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * 下单控制记录查询.
+     *
+     * @param request - GetPurchaseControlRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPurchaseControlRecordResponse
+     *
+     * @param GetPurchaseControlRecordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPurchaseControlRecordResponse
+     */
+    public function getPurchaseControlRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customerUID) {
+            @$query['CustomerUID'] = $request->customerUID;
+        }
+
+        if (null !== $request->operationTime) {
+            @$query['OperationTime'] = $request->operationTime;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPurchaseControlRecord',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPurchaseControlRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下单控制记录查询.
+     *
+     * @param request - GetPurchaseControlRecordRequest
+     *
+     * @returns GetPurchaseControlRecordResponse
+     *
+     * @param GetPurchaseControlRecordRequest $request
+     *
+     * @return GetPurchaseControlRecordResponse
+     */
+    public function getPurchaseControlRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPurchaseControlRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询延停策略修改记录.
+     *
+     * @param request - GetShutdownPolicyRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetShutdownPolicyRecordResponse
+     *
+     * @param GetShutdownPolicyRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetShutdownPolicyRecordResponse
+     */
+    public function getShutdownPolicyRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customerUID) {
+            @$query['CustomerUID'] = $request->customerUID;
+        }
+
+        if (null !== $request->operationTime) {
+            @$query['OperationTime'] = $request->operationTime;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetShutdownPolicyRecord',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetShutdownPolicyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询延停策略修改记录.
+     *
+     * @param request - GetShutdownPolicyRecordRequest
+     *
+     * @returns GetShutdownPolicyRecordResponse
+     *
+     * @param GetShutdownPolicyRecordRequest $request
+     *
+     * @return GetShutdownPolicyRecordResponse
+     */
+    public function getShutdownPolicyRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getShutdownPolicyRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * Query all the Unassociated Customer.
      *
      * @param request - GetUnassociatedCustomerRequest
@@ -1962,6 +2104,10 @@ class Agency extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
         }

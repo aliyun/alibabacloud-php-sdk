@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListExportTasksRequest extends Model
+class GetPurchaseControlRecordRequest extends Model
 {
     /**
      * @var int
      */
-    public $id;
+    public $customerUID;
 
     /**
      * @var string
      */
-    public $language;
+    public $operationTime;
 
     /**
      * @var int
@@ -27,17 +27,11 @@ class ListExportTasksRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $sceneCode;
     protected $_name = [
-        'id' => 'Id',
-        'language' => 'Language',
+        'customerUID' => 'CustomerUID',
+        'operationTime' => 'OperationTime',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'sceneCode' => 'SceneCode',
     ];
 
     public function validate()
@@ -48,12 +42,12 @@ class ListExportTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->customerUID) {
+            $res['CustomerUID'] = $this->customerUID;
         }
 
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->operationTime) {
+            $res['OperationTime'] = $this->operationTime;
         }
 
         if (null !== $this->pageNo) {
@@ -62,10 +56,6 @@ class ListExportTasksRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-
-        if (null !== $this->sceneCode) {
-            $res['SceneCode'] = $this->sceneCode;
         }
 
         return $res;
@@ -79,12 +69,12 @@ class ListExportTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['CustomerUID'])) {
+            $model->customerUID = $map['CustomerUID'];
         }
 
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['OperationTime'])) {
+            $model->operationTime = $map['OperationTime'];
         }
 
         if (isset($map['PageNo'])) {
@@ -93,10 +83,6 @@ class ListExportTasksRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-
-        if (isset($map['SceneCode'])) {
-            $model->sceneCode = $map['SceneCode'];
         }
 
         return $model;
