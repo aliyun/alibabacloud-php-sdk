@@ -169,6 +169,11 @@ class instanceVO extends Model
     public $saslEndPoint;
 
     /**
+     * @var bool
+     */
+    public $scheduledRetirement;
+
+    /**
      * @var string
      */
     public $securityGroup;
@@ -299,6 +304,7 @@ class instanceVO extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'saslDomainEndpoint' => 'SaslDomainEndpoint',
         'saslEndPoint' => 'SaslEndPoint',
+        'scheduledRetirement' => 'ScheduledRetirement',
         'securityGroup' => 'SecurityGroup',
         'series' => 'Series',
         'serviceStatus' => 'ServiceStatus',
@@ -466,6 +472,10 @@ class instanceVO extends Model
 
         if (null !== $this->saslEndPoint) {
             $res['SaslEndPoint'] = $this->saslEndPoint;
+        }
+
+        if (null !== $this->scheduledRetirement) {
+            $res['ScheduledRetirement'] = $this->scheduledRetirement;
         }
 
         if (null !== $this->securityGroup) {
@@ -681,6 +691,10 @@ class instanceVO extends Model
 
         if (isset($map['SaslEndPoint'])) {
             $model->saslEndPoint = $map['SaslEndPoint'];
+        }
+
+        if (isset($map['ScheduledRetirement'])) {
+            $model->scheduledRetirement = $map['ScheduledRetirement'];
         }
 
         if (isset($map['SecurityGroup'])) {

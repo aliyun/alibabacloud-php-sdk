@@ -50,6 +50,12 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePostPayOrderRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePostPayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePostPayOrderShrinkRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePrePayOrderRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePrePayOrderResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DowngradePrePayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoGroupCreationResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\EnableAutoTopicCreationRequest;
@@ -1868,6 +1874,216 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSaslUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 降配后付费实例.
+     *
+     * @param tmpReq - DowngradePostPayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DowngradePostPayOrderResponse
+     *
+     * @param DowngradePostPayOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DowngradePostPayOrderResponse
+     */
+    public function downgradePostPayOrderWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DowngradePostPayOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serverlessConfig) {
+            $request->serverlessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
+        }
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
+        }
+
+        if (null !== $request->eipModel) {
+            @$query['EipModel'] = $request->eipModel;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
+        }
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serverlessConfigShrink) {
+            @$query['ServerlessConfig'] = $request->serverlessConfigShrink;
+        }
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
+        }
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DowngradePostPayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DowngradePostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 降配后付费实例.
+     *
+     * @param request - DowngradePostPayOrderRequest
+     *
+     * @returns DowngradePostPayOrderResponse
+     *
+     * @param DowngradePostPayOrderRequest $request
+     *
+     * @return DowngradePostPayOrderResponse
+     */
+    public function downgradePostPayOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downgradePostPayOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 降配预付费实例.
+     *
+     * @param tmpReq - DowngradePrePayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DowngradePrePayOrderResponse
+     *
+     * @param DowngradePrePayOrderRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DowngradePrePayOrderResponse
+     */
+    public function downgradePrePayOrderWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DowngradePrePayOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->confluentConfig) {
+            $request->confluentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->confluentConfigShrink) {
+            @$query['ConfluentConfig'] = $request->confluentConfigShrink;
+        }
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
+        }
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
+        }
+
+        if (null !== $request->eipModel) {
+            @$query['EipModel'] = $request->eipModel;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
+        }
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
+        }
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
+        }
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DowngradePrePayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DowngradePrePayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 降配预付费实例.
+     *
+     * @param request - DowngradePrePayOrderRequest
+     *
+     * @returns DowngradePrePayOrderResponse
+     *
+     * @param DowngradePrePayOrderRequest $request
+     *
+     * @return DowngradePrePayOrderResponse
+     */
+    public function downgradePrePayOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downgradePrePayOrderWithOptions($request, $runtime);
     }
 
     /**
