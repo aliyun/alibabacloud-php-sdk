@@ -32,7 +32,8 @@ class readDBInstanceNames extends Model
                 $res['ReadDBInstanceName'] = [];
                 $n1 = 0;
                 foreach ($this->readDBInstanceName as $item1) {
-                    $res['ReadDBInstanceName'][$n1++] = $item1;
+                    $res['ReadDBInstanceName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class readDBInstanceNames extends Model
                 $model->readDBInstanceName = [];
                 $n1 = 0;
                 foreach ($map['ReadDBInstanceName'] as $item1) {
-                    $model->readDBInstanceName[$n1++] = $item1;
+                    $model->readDBInstanceName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

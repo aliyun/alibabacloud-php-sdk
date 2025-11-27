@@ -45,7 +45,8 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
                 $res['AssociateDBInstances'] = [];
                 $n1 = 0;
                 foreach ($this->associateDBInstances as $item1) {
-                    $res['AssociateDBInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AssociateDBInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
                 $model->associateDBInstances = [];
                 $n1 = 0;
                 foreach ($map['AssociateDBInstances'] as $item1) {
-                    $model->associateDBInstances[$n1++] = associateDBInstances::fromMap($item1);
+                    $model->associateDBInstances[$n1] = associateDBInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

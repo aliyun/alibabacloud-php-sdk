@@ -50,7 +50,8 @@ class ruleConfig extends Model
                 $res['Columns'] = [];
                 $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = $item1;
+                    $res['Columns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,7 +61,8 @@ class ruleConfig extends Model
                 $res['Databases'] = [];
                 $n1 = 0;
                 foreach ($this->databases as $item1) {
-                    $res['Databases'][$n1++] = $item1;
+                    $res['Databases'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,7 +72,8 @@ class ruleConfig extends Model
                 $res['Tables'] = [];
                 $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = $item1;
+                    $res['Tables'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +94,8 @@ class ruleConfig extends Model
                 $model->columns = [];
                 $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = $item1;
+                    $model->columns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +105,8 @@ class ruleConfig extends Model
                 $model->databases = [];
                 $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
-                    $model->databases[$n1++] = $item1;
+                    $model->databases[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +116,8 @@ class ruleConfig extends Model
                 $model->tables = [];
                 $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = $item1;
+                    $model->tables[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

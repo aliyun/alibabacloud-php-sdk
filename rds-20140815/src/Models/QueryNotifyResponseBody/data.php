@@ -51,7 +51,8 @@ class data extends Model
                 $res['NotifyItemList'] = [];
                 $n1 = 0;
                 foreach ($this->notifyItemList as $item1) {
-                    $res['NotifyItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NotifyItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->notifyItemList = [];
                 $n1 = 0;
                 foreach ($map['NotifyItemList'] as $item1) {
-                    $model->notifyItemList[$n1++] = notifyItemList::fromMap($item1);
+                    $model->notifyItemList[$n1] = notifyItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

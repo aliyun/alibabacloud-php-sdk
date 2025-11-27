@@ -155,7 +155,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $res['EventId'] = [];
                 $n1 = 0;
                 foreach ($this->eventId as $item1) {
-                    $res['EventId'][$n1++] = $item1;
+                    $res['EventId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +174,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $res['InstanceEventCycleStatus'] = [];
                 $n1 = 0;
                 foreach ($this->instanceEventCycleStatus as $item1) {
-                    $res['InstanceEventCycleStatus'][$n1++] = $item1;
+                    $res['InstanceEventCycleStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +185,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $res['InstanceEventType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceEventType as $item1) {
-                    $res['InstanceEventType'][$n1++] = $item1;
+                    $res['InstanceEventType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +220,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $res['ResourceId'] = [];
                 $n1 = 0;
                 foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1++] = $item1;
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +231,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +265,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $model->eventId = [];
                 $n1 = 0;
                 foreach ($map['EventId'] as $item1) {
-                    $model->eventId[$n1++] = $item1;
+                    $model->eventId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +284,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $model->instanceEventCycleStatus = [];
                 $n1 = 0;
                 foreach ($map['InstanceEventCycleStatus'] as $item1) {
-                    $model->instanceEventCycleStatus[$n1++] = $item1;
+                    $model->instanceEventCycleStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +295,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $model->instanceEventType = [];
                 $n1 = 0;
                 foreach ($map['InstanceEventType'] as $item1) {
-                    $model->instanceEventType[$n1++] = $item1;
+                    $model->instanceEventType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -322,7 +330,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $model->resourceId = [];
                 $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1++] = $item1;
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +341,8 @@ class DescribeRCInstanceHistoryEventsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

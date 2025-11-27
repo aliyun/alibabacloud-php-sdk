@@ -62,6 +62,16 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var bool
+     */
+    public $retainVip;
+
+    /**
+     * @var string
+     */
+    public $targetDBInstanceId;
     protected $_name = [
         'babelfishPort' => 'BabelfishPort',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
@@ -74,6 +84,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         'port' => 'Port',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'retainVip' => 'RetainVip',
+        'targetDBInstanceId' => 'TargetDBInstanceId',
     ];
 
     public function validate()
@@ -126,6 +138,14 @@ class ModifyDBInstanceConnectionStringRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->retainVip) {
+            $res['RetainVip'] = $this->retainVip;
+        }
+
+        if (null !== $this->targetDBInstanceId) {
+            $res['TargetDBInstanceId'] = $this->targetDBInstanceId;
         }
 
         return $res;
@@ -181,6 +201,14 @@ class ModifyDBInstanceConnectionStringRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['RetainVip'])) {
+            $model->retainVip = $map['RetainVip'];
+        }
+
+        if (isset($map['TargetDBInstanceId'])) {
+            $model->targetDBInstanceId = $map['TargetDBInstanceId'];
         }
 
         return $model;

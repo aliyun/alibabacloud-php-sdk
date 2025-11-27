@@ -33,7 +33,8 @@ class rdsInstanceResourceSettings extends Model
                 $res['RdsInstanceResourceSetting'] = [];
                 $n1 = 0;
                 foreach ($this->rdsInstanceResourceSetting as $item1) {
-                    $res['RdsInstanceResourceSetting'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RdsInstanceResourceSetting'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class rdsInstanceResourceSettings extends Model
                 $model->rdsInstanceResourceSetting = [];
                 $n1 = 0;
                 foreach ($map['RdsInstanceResourceSetting'] as $item1) {
-                    $model->rdsInstanceResourceSetting[$n1++] = rdsInstanceResourceSetting::fromMap($item1);
+                    $model->rdsInstanceResourceSetting[$n1] = rdsInstanceResourceSetting::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

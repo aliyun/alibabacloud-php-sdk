@@ -33,7 +33,8 @@ class slaveZones extends Model
                 $res['SlaveZone'] = [];
                 $n1 = 0;
                 foreach ($this->slaveZone as $item1) {
-                    $res['SlaveZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlaveZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class slaveZones extends Model
                 $model->slaveZone = [];
                 $n1 = 0;
                 foreach ($map['SlaveZone'] as $item1) {
-                    $model->slaveZone[$n1++] = slaveZone::fromMap($item1);
+                    $model->slaveZone[$n1] = slaveZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

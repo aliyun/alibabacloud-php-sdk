@@ -33,7 +33,8 @@ class configParameters extends Model
                 $res['DBInstanceParameter'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceParameter as $item1) {
-                    $res['DBInstanceParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceParameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class configParameters extends Model
                 $model->DBInstanceParameter = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceParameter'] as $item1) {
-                    $model->DBInstanceParameter[$n1++] = DBInstanceParameter::fromMap($item1);
+                    $model->DBInstanceParameter[$n1] = DBInstanceParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

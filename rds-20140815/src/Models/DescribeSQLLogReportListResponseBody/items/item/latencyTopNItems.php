@@ -33,7 +33,8 @@ class latencyTopNItems extends Model
                 $res['LatencyTopNItem'] = [];
                 $n1 = 0;
                 foreach ($this->latencyTopNItem as $item1) {
-                    $res['LatencyTopNItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LatencyTopNItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class latencyTopNItems extends Model
                 $model->latencyTopNItem = [];
                 $n1 = 0;
                 foreach ($map['LatencyTopNItem'] as $item1) {
-                    $model->latencyTopNItem[$n1++] = latencyTopNItem::fromMap($item1);
+                    $model->latencyTopNItem[$n1] = latencyTopNItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

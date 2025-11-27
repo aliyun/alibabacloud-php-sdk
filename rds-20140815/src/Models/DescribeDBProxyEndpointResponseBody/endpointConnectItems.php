@@ -33,7 +33,8 @@ class endpointConnectItems extends Model
                 $res['EndpointConnectItems'] = [];
                 $n1 = 0;
                 foreach ($this->endpointConnectItems as $item1) {
-                    $res['EndpointConnectItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EndpointConnectItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class endpointConnectItems extends Model
                 $model->endpointConnectItems = [];
                 $n1 = 0;
                 foreach ($map['EndpointConnectItems'] as $item1) {
-                    $model->endpointConnectItems[$n1++] = self::fromMap($item1);
+                    $model->endpointConnectItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

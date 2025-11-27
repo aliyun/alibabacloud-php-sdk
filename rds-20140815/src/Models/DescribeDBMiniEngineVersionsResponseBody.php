@@ -71,7 +71,8 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
                 $res['MinorVersionItems'] = [];
                 $n1 = 0;
                 foreach ($this->minorVersionItems as $item1) {
-                    $res['MinorVersionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MinorVersionItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
                 $model->minorVersionItems = [];
                 $n1 = 0;
                 foreach ($map['MinorVersionItems'] as $item1) {
-                    $model->minorVersionItems[$n1++] = minorVersionItems::fromMap($item1);
+                    $model->minorVersionItems[$n1] = minorVersionItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

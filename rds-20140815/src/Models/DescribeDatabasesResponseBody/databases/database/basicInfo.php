@@ -33,11 +33,12 @@ class basicInfo extends Model
                 $n1 = 0;
                 foreach ($this->basicDbProperty as $item1) {
                     if (\is_array($item1)) {
-                        $res['BasicDbProperty'][$n1++] = [];
+                        $res['BasicDbProperty'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['BasicDbProperty'][$n1++][$key2] = $value2;
+                            $res['BasicDbProperty'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -59,11 +60,12 @@ class basicInfo extends Model
                 $n1 = 0;
                 foreach ($map['BasicDbProperty'] as $item1) {
                     if (!empty($item1)) {
-                        $model->basicDbProperty[$n1++] = [];
+                        $model->basicDbProperty[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->basicDbProperty[$n1++][$key2] = $value2;
+                            $model->basicDbProperty[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

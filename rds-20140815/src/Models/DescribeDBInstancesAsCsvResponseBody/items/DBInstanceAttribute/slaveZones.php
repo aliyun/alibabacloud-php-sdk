@@ -32,7 +32,8 @@ class slaveZones extends Model
                 $res['slaveRegion'] = [];
                 $n1 = 0;
                 foreach ($this->slaveRegion as $item1) {
-                    $res['slaveRegion'][$n1++] = $item1;
+                    $res['slaveRegion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class slaveZones extends Model
                 $model->slaveRegion = [];
                 $n1 = 0;
                 foreach ($map['slaveRegion'] as $item1) {
-                    $model->slaveRegion[$n1++] = $item1;
+                    $model->slaveRegion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class items extends Model
                 $res['OssDownload'] = [];
                 $n1 = 0;
                 foreach ($this->ossDownload as $item1) {
-                    $res['OssDownload'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OssDownload'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->ossDownload = [];
                 $n1 = 0;
                 foreach ($map['OssDownload'] as $item1) {
-                    $model->ossDownload[$n1++] = ossDownload::fromMap($item1);
+                    $model->ossDownload[$n1] = ossDownload::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

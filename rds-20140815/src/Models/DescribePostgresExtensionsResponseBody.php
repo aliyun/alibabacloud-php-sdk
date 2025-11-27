@@ -58,7 +58,8 @@ class DescribePostgresExtensionsResponseBody extends Model
                 $res['InstalledExtensions'] = [];
                 $n1 = 0;
                 foreach ($this->installedExtensions as $item1) {
-                    $res['InstalledExtensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstalledExtensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class DescribePostgresExtensionsResponseBody extends Model
                 $res['UninstalledExtensions'] = [];
                 $n1 = 0;
                 foreach ($this->uninstalledExtensions as $item1) {
-                    $res['UninstalledExtensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UninstalledExtensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class DescribePostgresExtensionsResponseBody extends Model
                 $model->installedExtensions = [];
                 $n1 = 0;
                 foreach ($map['InstalledExtensions'] as $item1) {
-                    $model->installedExtensions[$n1++] = installedExtensions::fromMap($item1);
+                    $model->installedExtensions[$n1] = installedExtensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -125,7 +128,8 @@ class DescribePostgresExtensionsResponseBody extends Model
                 $model->uninstalledExtensions = [];
                 $n1 = 0;
                 foreach ($map['UninstalledExtensions'] as $item1) {
-                    $model->uninstalledExtensions[$n1++] = uninstalledExtensions::fromMap($item1);
+                    $model->uninstalledExtensions[$n1] = uninstalledExtensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

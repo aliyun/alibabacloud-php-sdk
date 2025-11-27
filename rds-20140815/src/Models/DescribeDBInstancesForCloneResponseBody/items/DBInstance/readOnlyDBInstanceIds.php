@@ -33,7 +33,8 @@ class readOnlyDBInstanceIds extends Model
                 $res['ReadOnlyDBInstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->readOnlyDBInstanceId as $item1) {
-                    $res['ReadOnlyDBInstanceId'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReadOnlyDBInstanceId'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class readOnlyDBInstanceIds extends Model
                 $model->readOnlyDBInstanceId = [];
                 $n1 = 0;
                 foreach ($map['ReadOnlyDBInstanceId'] as $item1) {
-                    $model->readOnlyDBInstanceId[$n1++] = readOnlyDBInstanceId::fromMap($item1);
+                    $model->readOnlyDBInstanceId[$n1] = readOnlyDBInstanceId::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

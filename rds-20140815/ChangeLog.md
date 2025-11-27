@@ -1,3 +1,95 @@
+2025-11-27 Version: 11.0.0
+- Support API CheckRdsCustomInit.
+- Support API DeleteRCVCluster.
+- Support API DescribeComputeBurstConfig.
+- Support API DescribeRCAvailableResource.
+- Support API DescribeRCCloudAssistantStatus.
+- Support API DescribeRCElasticScaling.
+- Support API DescribeRCInvocationResults.
+- Support API DescribeRCResourcesModification.
+- Support API DescribeRCVCluster.
+- Support API DescribeVSwitchList.
+- Support API InstallRCCloudAssistant.
+- Support API ListRCVClusters.
+- Support API ModifyBackupSetExpireTime.
+- Support API ModifyComputeBurstConfig.
+- Support API ModifyRCElasticScaling.
+- Support API ModifyRCInstanceVpcAttribute.
+- Support API ModifyRCVCluster.
+- Support API PrecheckDuckDBDependency.
+- Support API RdsCustomInit.
+- Support API RedeployRCInstance.
+- Support API RunRCCommand.
+- Update API AcceptRCInquiredSystemEvent: delete response parameters Body.OrderId.
+- Update API CloneDBInstance: add request parameters CustomExtraInfo.
+- Update API CreateBackup: add request parameters BackupRetentionPeriod.
+- Update API CreateDBInstance: add request parameters CustomExtraInfo.
+- Update API CreateDBInstance: add request parameters ExternalReplication.
+- Update API CreateRCSnapshot: add request parameters ResourceGroupId.
+- Update API CreateRCSnapshot: add request parameters Tag.
+- Update API CreateReadOnlyDBInstance: add request parameters CustomExtraInfo.
+- Update API CreateReadOnlyDBInstance: add request parameters IsAnalyticReadOnlyIns.
+- Update API DescribeBackups: add response parameters Body.Items.$.ExpectExpireTime.
+- Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.IsAnalyticIns.
+- Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.IsAnalyticReadOnlyIns.
+- Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.VectorSupportStatus.
+- Update API DescribeDBInstanceAttribute: add response parameters Body.Items.$.DBClusterNodes.$.DisasterRecoveryNode.
+- Update API DescribeDBInstanceReplication: add response parameters Body.ReplicationIp.
+- Update API DescribeDBInstanceReplication: add response parameters Body.ReplicationPort.
+- Update API DescribeDBInstances: add request parameters QueryAutoRenewal.
+- Update API DescribeDBInstances: add response parameters Body.Items.$.AutoRenewal.
+- Update API DescribeDBInstances: add response parameters Body.Items.$.IsAnalyticIns.
+- Update API DescribeDBInstances: add response parameters Body.Items.$.IsAnalyticReadOnlyIns.
+- Update API DescribeDBInstancesAsCsv: add response parameters Body.Items.$.DBInstanceStorageType.
+- Update API DescribeDBProxy: add response parameters Body.DBProxyInstanceMinorVersions.
+- Update API DescribeDBProxyPerformance: add response parameters Body.PerformanceKeys.$.Server.
+- Update API DescribeDatabases: add response parameters Body.Databases.$.DuckDBEnabled.
+- Update API DescribeErrorLogs: add response parameters Body.Items.$.Database.
+- Update API DescribeErrorLogs: add response parameters Body.Items.$.User.
+- Update API DescribeErrorLogs: add response parameters Body.Items.$.UserIp.
+- Update API DescribeRCInstanceAttribute: add request parameters InstanceName.
+- Update API DescribeRCInstanceAttribute: add request parameters MaxDisksResults.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.DeletionProtection.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.Gpu.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.GpuTypes.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.NodeType.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.UserData.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.DataDisks.$.Device.
+- Update API DescribeRCInstanceAttribute: add response parameters Body.DataDisks.$.SnapshotId.
+- Update API DescribeRCInstanceTypes: add response parameters Body.InstanceTypes.InstanceType.$.DiskQuantity.
+- Update API DescribeRCInstances: add request parameters Description.
+- Update API DescribeRCInstances: add request parameters ImageId.
+- Update API DescribeRCInstances: add request parameters InstanceName.
+- Update API DescribeRCInstances: add response parameters Body.RCInstances.$.InstanceName.
+- Update API DescribeRCInstances: add response parameters Body.RCInstances.$.NodeType.
+- Update API DescribeRCSnapshots: add request parameters Tag.
+- Update API DescribeRCSnapshots: add response parameters Body.Snapshots.$.ResourceGroupId.
+- Update API DescribeRCSnapshots: add response parameters Body.Snapshots.$.Tag.
+- Update API ImportUserBackupFile: add request parameters BuildReplication.
+- Update API ImportUserBackupFile: add request parameters MasterInfo.
+- Update API ImportUserBackupFile: add request parameters Mode.
+- Update API ImportUserBackupFile: add request parameters SourceInfo.
+- Update API MigrateToOtherZone: add request parameters CustomExtraInfo.
+- Update API ModifyDBInstanceConnectionString: add request parameters RetainVip.
+- Update API ModifyDBInstanceConnectionString: add request parameters TargetDBInstanceId.
+- Update API ModifyRCInstanceAttribute: add request parameters DeletionProtection.
+- Update API ModifyRCInstanceAttribute: add request parameters InstanceIds.
+- Update API ModifyRCInstanceAttribute: add request parameters InstanceName.
+- Update API ModifyRCInstanceAttribute: add request parameters SecurityGroupIds.
+- Update API RunRCInstances: add request parameters AcuType.
+- Update API RunRCInstances: add request parameters DeletionProtection.
+- Update API RunRCInstances: add request parameters PasswordInherit.
+- Update API RunRCInstances: add request parameters ScheduledRule.
+- Update API SwitchOverMajorVersionUpgrade: add request parameters ClientToken.
+- Update API SwitchOverMajorVersionUpgrade: add request parameters OwnerAccount.
+- Update API SwitchOverMajorVersionUpgrade: add request parameters ResourceGroupId.
+- Update API SwitchOverMajorVersionUpgrade: add request parameters ResourceOwnerAccount.
+- Update API SwitchOverMajorVersionUpgrade: add request parameters ResourceOwnerId.
+- Update API UpgradeDBInstanceMajorVersion: add request parameters AllowDDL.
+- Update API UpgradeDBInstanceMajorVersion: add request parameters CustomExtraInfo.
+- Update API UpgradeDBProxyInstanceKernelVersion: add request parameters TargetMinorVersion.
+
+
 2025-05-19 Version: 10.3.2
 - Update API CreateRCDisk: add request parameters ResourceGroupId.
 - Update API CreateRCDisk: add request parameters Tag.

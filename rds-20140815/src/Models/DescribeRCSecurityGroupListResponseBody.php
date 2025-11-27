@@ -39,7 +39,8 @@ class DescribeRCSecurityGroupListResponseBody extends Model
                 $res['RCSecurityGroups'] = [];
                 $n1 = 0;
                 foreach ($this->RCSecurityGroups as $item1) {
-                    $res['RCSecurityGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RCSecurityGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeRCSecurityGroupListResponseBody extends Model
                 $model->RCSecurityGroups = [];
                 $n1 = 0;
                 foreach ($map['RCSecurityGroups'] as $item1) {
-                    $model->RCSecurityGroups[$n1++] = RCSecurityGroups::fromMap($item1);
+                    $model->RCSecurityGroups[$n1] = RCSecurityGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

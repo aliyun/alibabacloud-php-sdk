@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesResponseBody\items\
 class DBInstance extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenewal;
+
+    /**
      * @var string
      */
     public $blueGreenDeploymentName;
@@ -207,6 +212,16 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $isAnalyticIns;
+
+    /**
+     * @var bool
+     */
+    public $isAnalyticReadOnlyIns;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
@@ -289,6 +304,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoRenewal' => 'AutoRenewal',
         'blueGreenDeploymentName' => 'BlueGreenDeploymentName',
         'blueInstanceName' => 'BlueInstanceName',
         'bpeEnabled' => 'BpeEnabled',
@@ -328,6 +344,8 @@ class DBInstance extends Model
         'guardDBInstanceId' => 'GuardDBInstanceId',
         'instanceNetworkType' => 'InstanceNetworkType',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'isAnalyticIns' => 'IsAnalyticIns',
+        'isAnalyticReadOnlyIns' => 'IsAnalyticReadOnlyIns',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'masterInstanceId' => 'MasterInstanceId',
@@ -358,6 +376,10 @@ class DBInstance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
+        }
+
         if (null !== $this->blueGreenDeploymentName) {
             $res['BlueGreenDeploymentName'] = $this->blueGreenDeploymentName;
         }
@@ -514,6 +536,14 @@ class DBInstance extends Model
             $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
 
+        if (null !== $this->isAnalyticIns) {
+            $res['IsAnalyticIns'] = $this->isAnalyticIns;
+        }
+
+        if (null !== $this->isAnalyticReadOnlyIns) {
+            $res['IsAnalyticReadOnlyIns'] = $this->isAnalyticReadOnlyIns;
+        }
+
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -593,6 +623,10 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
+        }
+
         if (isset($map['BlueGreenDeploymentName'])) {
             $model->blueGreenDeploymentName = $map['BlueGreenDeploymentName'];
         }
@@ -747,6 +781,14 @@ class DBInstance extends Model
 
         if (isset($map['IoAccelerationEnabled'])) {
             $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
+        }
+
+        if (isset($map['IsAnalyticIns'])) {
+            $model->isAnalyticIns = $map['IsAnalyticIns'];
+        }
+
+        if (isset($map['IsAnalyticReadOnlyIns'])) {
+            $model->isAnalyticReadOnlyIns = $map['IsAnalyticReadOnlyIns'];
         }
 
         if (isset($map['LockMode'])) {

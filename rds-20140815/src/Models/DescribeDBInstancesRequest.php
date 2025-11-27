@@ -124,6 +124,11 @@ class DescribeDBInstancesRequest extends Model
     public $payType;
 
     /**
+     * @var bool
+     */
+    public $queryAutoRenewal;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -196,6 +201,7 @@ class DescribeDBInstancesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'payType' => 'PayType',
+        'queryAutoRenewal' => 'QueryAutoRenewal',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -306,6 +312,10 @@ class DescribeDBInstancesRequest extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->queryAutoRenewal) {
+            $res['QueryAutoRenewal'] = $this->queryAutoRenewal;
         }
 
         if (null !== $this->regionId) {
@@ -449,6 +459,10 @@ class DescribeDBInstancesRequest extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['QueryAutoRenewal'])) {
+            $model->queryAutoRenewal = $map['QueryAutoRenewal'];
         }
 
         if (isset($map['RegionId'])) {

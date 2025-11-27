@@ -33,7 +33,8 @@ class dbProxyEndpointItems extends Model
                 $res['DbProxyEndpointItems'] = [];
                 $n1 = 0;
                 foreach ($this->dbProxyEndpointItems as $item1) {
-                    $res['DbProxyEndpointItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DbProxyEndpointItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class dbProxyEndpointItems extends Model
                 $model->dbProxyEndpointItems = [];
                 $n1 = 0;
                 foreach ($map['DbProxyEndpointItems'] as $item1) {
-                    $model->dbProxyEndpointItems[$n1++] = self::fromMap($item1);
+                    $model->dbProxyEndpointItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

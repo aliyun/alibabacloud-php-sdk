@@ -79,6 +79,11 @@ class RCInstances extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -90,6 +95,11 @@ class RCInstances extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
 
     /**
      * @var string
@@ -154,9 +164,11 @@ class RCInstances extends Model
         'imageId' => 'ImageId',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'memory' => 'Memory',
+        'nodeType' => 'NodeType',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
@@ -238,6 +250,10 @@ class RCInstances extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -248,6 +264,10 @@ class RCInstances extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->publicIp) {
@@ -275,7 +295,8 @@ class RCInstances extends Model
                 $res['TagResources'] = [];
                 $n1 = 0;
                 foreach ($this->tagResources as $item1) {
-                    $res['TagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -285,7 +306,8 @@ class RCInstances extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -365,6 +387,10 @@ class RCInstances extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -375,6 +401,10 @@ class RCInstances extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['PublicIp'])) {
@@ -402,7 +432,8 @@ class RCInstances extends Model
                 $model->tagResources = [];
                 $n1 = 0;
                 foreach ($map['TagResources'] as $item1) {
-                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
+                    $model->tagResources[$n1] = tagResources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -412,7 +443,8 @@ class RCInstances extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

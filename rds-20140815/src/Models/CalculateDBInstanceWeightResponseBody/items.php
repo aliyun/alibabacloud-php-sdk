@@ -33,7 +33,8 @@ class items extends Model
                 $res['DBInstanceWeight'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceWeight as $item1) {
-                    $res['DBInstanceWeight'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceWeight'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->DBInstanceWeight = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceWeight'] as $item1) {
-                    $model->DBInstanceWeight[$n1++] = DBInstanceWeight::fromMap($item1);
+                    $model->DBInstanceWeight[$n1] = DBInstanceWeight::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCSnapshotRequest\tag;
 
 class CreateRCSnapshotRequest extends Model
 {
@@ -34,9 +35,19 @@ class CreateRCSnapshotRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $retentionDays;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -48,12 +59,17 @@ class CreateRCSnapshotRequest extends Model
         'instantAccess' => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'retentionDays' => 'RetentionDays',
+        'tag' => 'Tag',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -80,8 +96,23 @@ class CreateRCSnapshotRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->zoneId) {
@@ -119,8 +150,23 @@ class CreateRCSnapshotRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ZoneId'])) {

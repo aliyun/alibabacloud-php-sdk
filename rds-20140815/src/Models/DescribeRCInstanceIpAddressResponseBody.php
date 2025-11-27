@@ -45,7 +45,8 @@ class DescribeRCInstanceIpAddressResponseBody extends Model
                 $res['RCInstanceList'] = [];
                 $n1 = 0;
                 foreach ($this->RCInstanceList as $item1) {
-                    $res['RCInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RCInstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeRCInstanceIpAddressResponseBody extends Model
                 $model->RCInstanceList = [];
                 $n1 = 0;
                 foreach ($map['RCInstanceList'] as $item1) {
-                    $model->RCInstanceList[$n1++] = RCInstanceList::fromMap($item1);
+                    $model->RCInstanceList[$n1] = RCInstanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

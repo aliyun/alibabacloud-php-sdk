@@ -69,7 +69,8 @@ class DescribeRCSnapshotsResponseBody extends Model
                 $res['Snapshots'] = [];
                 $n1 = 0;
                 foreach ($this->snapshots as $item1) {
-                    $res['Snapshots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Snapshots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class DescribeRCSnapshotsResponseBody extends Model
                 $model->snapshots = [];
                 $n1 = 0;
                 foreach ($map['Snapshots'] as $item1) {
-                    $model->snapshots[$n1++] = snapshots::fromMap($item1);
+                    $model->snapshots[$n1] = snapshots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

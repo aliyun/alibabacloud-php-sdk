@@ -16,6 +16,16 @@ class DescribeRCInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $maxDisksResults;
+
+    /**
+     * @var string
+     */
     public $privateIpAddress;
 
     /**
@@ -24,6 +34,8 @@ class DescribeRCInstanceAttributeRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'maxDisksResults' => 'MaxDisksResults',
         'privateIpAddress' => 'PrivateIpAddress',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +50,14 @@ class DescribeRCInstanceAttributeRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->maxDisksResults) {
+            $res['MaxDisksResults'] = $this->maxDisksResults;
         }
 
         if (null !== $this->privateIpAddress) {
@@ -61,6 +81,14 @@ class DescribeRCInstanceAttributeRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['MaxDisksResults'])) {
+            $model->maxDisksResults = $map['MaxDisksResults'];
         }
 
         if (isset($map['PrivateIpAddress'])) {

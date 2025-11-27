@@ -11,7 +11,17 @@ class DescribeRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $hostIp;
+
+    /**
+     * @var string
+     */
+    public $imageId;
 
     /**
      * @var string
@@ -22,6 +32,11 @@ class DescribeRCInstancesRequest extends Model
      * @var string
      */
     public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var int
@@ -58,9 +73,12 @@ class DescribeRCInstancesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'description' => 'Description',
         'hostIp' => 'HostIp',
+        'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
         'instanceIds' => 'InstanceIds',
+        'instanceName' => 'InstanceName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'publicIp' => 'PublicIp',
@@ -78,8 +96,16 @@ class DescribeRCInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->hostIp) {
             $res['HostIp'] = $this->hostIp;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->instanceId) {
@@ -88,6 +114,10 @@ class DescribeRCInstancesRequest extends Model
 
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->pageNumber) {
@@ -129,8 +159,16 @@ class DescribeRCInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['HostIp'])) {
             $model->hostIp = $map['HostIp'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InstanceId'])) {
@@ -139,6 +177,10 @@ class DescribeRCInstancesRequest extends Model
 
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['PageNumber'])) {

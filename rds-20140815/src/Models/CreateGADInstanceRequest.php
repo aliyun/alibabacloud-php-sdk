@@ -113,7 +113,8 @@ class CreateGADInstanceRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class CreateGADInstanceRequest extends Model
                 $res['UnitNode'] = [];
                 $n1 = 0;
                 foreach ($this->unitNode as $item1) {
-                    $res['UnitNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UnitNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -172,7 +174,8 @@ class CreateGADInstanceRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +185,8 @@ class CreateGADInstanceRequest extends Model
                 $model->unitNode = [];
                 $n1 = 0;
                 foreach ($map['UnitNode'] as $item1) {
-                    $model->unitNode[$n1++] = unitNode::fromMap($item1);
+                    $model->unitNode[$n1] = unitNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

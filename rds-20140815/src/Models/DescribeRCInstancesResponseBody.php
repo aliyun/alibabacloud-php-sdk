@@ -65,7 +65,8 @@ class DescribeRCInstancesResponseBody extends Model
                 $res['RCInstances'] = [];
                 $n1 = 0;
                 foreach ($this->RCInstances as $item1) {
-                    $res['RCInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RCInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeRCInstancesResponseBody extends Model
                 $model->RCInstances = [];
                 $n1 = 0;
                 foreach ($map['RCInstances'] as $item1) {
-                    $model->RCInstances[$n1++] = RCInstances::fromMap($item1);
+                    $model->RCInstances[$n1] = RCInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

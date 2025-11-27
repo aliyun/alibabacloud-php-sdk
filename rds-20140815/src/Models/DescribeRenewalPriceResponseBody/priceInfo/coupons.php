@@ -33,7 +33,8 @@ class coupons extends Model
                 $res['Coupon'] = [];
                 $n1 = 0;
                 foreach ($this->coupon as $item1) {
-                    $res['Coupon'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Coupon'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class coupons extends Model
                 $model->coupon = [];
                 $n1 = 0;
                 foreach ($map['Coupon'] as $item1) {
-                    $model->coupon[$n1++] = coupon::fromMap($item1);
+                    $model->coupon[$n1] = coupon::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

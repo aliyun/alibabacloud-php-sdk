@@ -32,7 +32,8 @@ class DBProxyAVZones extends Model
                 $res['DBProxyAVZones'] = [];
                 $n1 = 0;
                 foreach ($this->DBProxyAVZones as $item1) {
-                    $res['DBProxyAVZones'][$n1++] = $item1;
+                    $res['DBProxyAVZones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DBProxyAVZones extends Model
                 $model->DBProxyAVZones = [];
                 $n1 = 0;
                 foreach ($map['DBProxyAVZones'] as $item1) {
-                    $model->DBProxyAVZones[$n1++] = $item1;
+                    $model->DBProxyAVZones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -39,7 +39,8 @@ class DescribeGadInstancesResponseBody extends Model
                 $res['GadInstances'] = [];
                 $n1 = 0;
                 foreach ($this->gadInstances as $item1) {
-                    $res['GadInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GadInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeGadInstancesResponseBody extends Model
                 $model->gadInstances = [];
                 $n1 = 0;
                 foreach ($map['GadInstances'] as $item1) {
-                    $model->gadInstances[$n1++] = gadInstances::fromMap($item1);
+                    $model->gadInstances[$n1] = gadInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

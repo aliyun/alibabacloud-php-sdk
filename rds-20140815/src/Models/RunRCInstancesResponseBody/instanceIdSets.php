@@ -32,7 +32,8 @@ class instanceIdSets extends Model
                 $res['InstanceIdSet'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIdSet as $item1) {
-                    $res['InstanceIdSet'][$n1++] = $item1;
+                    $res['InstanceIdSet'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class instanceIdSets extends Model
                 $model->instanceIdSet = [];
                 $n1 = 0;
                 foreach ($map['InstanceIdSet'] as $item1) {
-                    $model->instanceIdSet[$n1++] = $item1;
+                    $model->instanceIdSet[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

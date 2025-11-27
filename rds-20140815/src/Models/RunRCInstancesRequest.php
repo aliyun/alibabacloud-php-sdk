@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\tag;
 class RunRCInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acuType;
+
+    /**
      * @var int
      */
     public $amount;
@@ -56,6 +61,11 @@ class RunRCInstancesRequest extends Model
      * @var dataDisk[]
      */
     public $dataDisk;
+
+    /**
+     * @var bool
+     */
+    public $deletionProtection;
 
     /**
      * @var string
@@ -123,6 +133,11 @@ class RunRCInstancesRequest extends Model
     public $password;
 
     /**
+     * @var bool
+     */
+    public $passwordInherit;
+
+    /**
      * @var int
      */
     public $period;
@@ -146,6 +161,11 @@ class RunRCInstancesRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $scheduledRule;
 
     /**
      * @var string
@@ -197,6 +217,7 @@ class RunRCInstancesRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'acuType' => 'AcuType',
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -206,6 +227,7 @@ class RunRCInstancesRequest extends Model
         'createExtraParam' => 'CreateExtraParam',
         'createMode' => 'CreateMode',
         'dataDisk' => 'DataDisk',
+        'deletionProtection' => 'DeletionProtection',
         'deploymentSetId' => 'DeploymentSetId',
         'description' => 'Description',
         'dryRun' => 'DryRun',
@@ -219,11 +241,13 @@ class RunRCInstancesRequest extends Model
         'ioOptimized' => 'IoOptimized',
         'keyPairName' => 'KeyPairName',
         'password' => 'Password',
+        'passwordInherit' => 'PasswordInherit',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'scheduledRule' => 'ScheduledRule',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'spotStrategy' => 'SpotStrategy',
@@ -256,6 +280,10 @@ class RunRCInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->acuType) {
+            $res['AcuType'] = $this->acuType;
+        }
+
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
@@ -293,9 +321,14 @@ class RunRCInstancesRequest extends Model
                 $res['DataDisk'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisk as $item1) {
-                    $res['DataDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
 
         if (null !== $this->deploymentSetId) {
@@ -350,6 +383,10 @@ class RunRCInstancesRequest extends Model
             $res['Password'] = $this->password;
         }
 
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
+        }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -368,6 +405,10 @@ class RunRCInstancesRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->scheduledRule) {
+            $res['ScheduledRule'] = $this->scheduledRule;
         }
 
         if (null !== $this->securityEnhancementStrategy) {
@@ -395,7 +436,8 @@ class RunRCInstancesRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -427,6 +469,10 @@ class RunRCInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcuType'])) {
+            $model->acuType = $map['AcuType'];
+        }
+
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
@@ -464,9 +510,14 @@ class RunRCInstancesRequest extends Model
                 $model->dataDisk = [];
                 $n1 = 0;
                 foreach ($map['DataDisk'] as $item1) {
-                    $model->dataDisk[$n1++] = dataDisk::fromMap($item1);
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
 
         if (isset($map['DeploymentSetId'])) {
@@ -521,6 +572,10 @@ class RunRCInstancesRequest extends Model
             $model->password = $map['Password'];
         }
 
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
+        }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -539,6 +594,10 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ScheduledRule'])) {
+            $model->scheduledRule = $map['ScheduledRule'];
         }
 
         if (isset($map['SecurityEnhancementStrategy'])) {
@@ -566,7 +625,8 @@ class RunRCInstancesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

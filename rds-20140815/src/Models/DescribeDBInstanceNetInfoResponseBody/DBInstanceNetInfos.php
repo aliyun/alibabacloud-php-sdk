@@ -33,7 +33,8 @@ class DBInstanceNetInfos extends Model
                 $res['DBInstanceNetInfo'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceNetInfo as $item1) {
-                    $res['DBInstanceNetInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceNetInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBInstanceNetInfos extends Model
                 $model->DBInstanceNetInfo = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceNetInfo'] as $item1) {
-                    $model->DBInstanceNetInfo[$n1++] = DBInstanceNetInfo::fromMap($item1);
+                    $model->DBInstanceNetInfo[$n1] = DBInstanceNetInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

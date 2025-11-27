@@ -79,7 +79,8 @@ class ModifyDBInstanceEndpointRequest extends Model
                 $res['NodeItems'] = [];
                 $n1 = 0;
                 foreach ($this->nodeItems as $item1) {
-                    $res['NodeItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodeItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class ModifyDBInstanceEndpointRequest extends Model
                 $model->nodeItems = [];
                 $n1 = 0;
                 foreach ($map['NodeItems'] as $item1) {
-                    $model->nodeItems[$n1++] = nodeItems::fromMap($item1);
+                    $model->nodeItems[$n1] = nodeItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

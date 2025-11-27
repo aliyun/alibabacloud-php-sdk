@@ -63,7 +63,8 @@ class DescribeRCInstanceHistoryEventsResponseBody extends Model
                 $res['InstanceSystemEventSet'] = [];
                 $n1 = 0;
                 foreach ($this->instanceSystemEventSet as $item1) {
-                    $res['InstanceSystemEventSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceSystemEventSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class DescribeRCInstanceHistoryEventsResponseBody extends Model
                 $model->instanceSystemEventSet = [];
                 $n1 = 0;
                 foreach ($map['InstanceSystemEventSet'] as $item1) {
-                    $model->instanceSystemEventSet[$n1++] = instanceSystemEventSet::fromMap($item1);
+                    $model->instanceSystemEventSet[$n1] = instanceSystemEventSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

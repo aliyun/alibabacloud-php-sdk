@@ -32,7 +32,8 @@ class characterSetNameItems extends Model
                 $res['CharacterSetName'] = [];
                 $n1 = 0;
                 foreach ($this->characterSetName as $item1) {
-                    $res['CharacterSetName'][$n1++] = $item1;
+                    $res['CharacterSetName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class characterSetNameItems extends Model
                 $model->characterSetName = [];
                 $n1 = 0;
                 foreach ($map['CharacterSetName'] as $item1) {
-                    $model->characterSetName[$n1++] = $item1;
+                    $model->characterSetName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

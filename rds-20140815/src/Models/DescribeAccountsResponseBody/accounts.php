@@ -33,7 +33,8 @@ class accounts extends Model
                 $res['DBInstanceAccount'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceAccount as $item1) {
-                    $res['DBInstanceAccount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceAccount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accounts extends Model
                 $model->DBInstanceAccount = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceAccount'] as $item1) {
-                    $model->DBInstanceAccount[$n1++] = DBInstanceAccount::fromMap($item1);
+                    $model->DBInstanceAccount[$n1] = DBInstanceAccount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

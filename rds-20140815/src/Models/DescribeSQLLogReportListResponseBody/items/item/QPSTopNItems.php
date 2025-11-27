@@ -33,7 +33,8 @@ class QPSTopNItems extends Model
                 $res['QPSTopNItem'] = [];
                 $n1 = 0;
                 foreach ($this->QPSTopNItem as $item1) {
-                    $res['QPSTopNItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QPSTopNItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class QPSTopNItems extends Model
                 $model->QPSTopNItem = [];
                 $n1 = 0;
                 foreach ($map['QPSTopNItem'] as $item1) {
-                    $model->QPSTopNItem[$n1++] = QPSTopNItem::fromMap($item1);
+                    $model->QPSTopNItem[$n1] = QPSTopNItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

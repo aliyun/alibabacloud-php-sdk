@@ -33,7 +33,8 @@ class DBProxyConnectStringItems extends Model
                 $res['DBProxyConnectStringItems'] = [];
                 $n1 = 0;
                 foreach ($this->DBProxyConnectStringItems as $item1) {
-                    $res['DBProxyConnectStringItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBProxyConnectStringItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBProxyConnectStringItems extends Model
                 $model->DBProxyConnectStringItems = [];
                 $n1 = 0;
                 foreach ($map['DBProxyConnectStringItems'] as $item1) {
-                    $model->DBProxyConnectStringItems[$n1++] = self::fromMap($item1);
+                    $model->DBProxyConnectStringItems[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

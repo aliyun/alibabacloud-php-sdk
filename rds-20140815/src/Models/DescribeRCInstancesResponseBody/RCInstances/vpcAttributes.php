@@ -54,7 +54,8 @@ class vpcAttributes extends Model
                 $res['PrivateIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddress as $item1) {
-                    $res['PrivateIpAddress'][$n1++] = $item1;
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class vpcAttributes extends Model
                 $model->privateIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddress'] as $item1) {
-                    $model->privateIpAddress[$n1++] = $item1;
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

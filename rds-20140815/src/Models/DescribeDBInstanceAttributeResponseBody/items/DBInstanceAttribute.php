@@ -270,6 +270,16 @@ class DBInstanceAttribute extends Model
     public $ioAccelerationEnabled;
 
     /**
+     * @var bool
+     */
+    public $isAnalyticIns;
+
+    /**
+     * @var bool
+     */
+    public $isAnalyticReadOnlyIns;
+
+    /**
      * @var string
      */
     public $latestKernelVersion;
@@ -437,6 +447,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $vectorSupportStatus;
+
+    /**
+     * @var string
+     */
     public $vpcCloudInstanceId;
 
     /**
@@ -505,6 +520,8 @@ class DBInstanceAttribute extends Model
         'instanceNetworkType' => 'InstanceNetworkType',
         'instructionSetArch' => 'InstructionSetArch',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'isAnalyticIns' => 'IsAnalyticIns',
+        'isAnalyticReadOnlyIns' => 'IsAnalyticReadOnlyIns',
         'latestKernelVersion' => 'LatestKernelVersion',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
@@ -538,6 +555,7 @@ class DBInstanceAttribute extends Model
         'tips' => 'Tips',
         'tipsLevel' => 'TipsLevel',
         'vSwitchId' => 'VSwitchId',
+        'vectorSupportStatus' => 'VectorSupportStatus',
         'vpcCloudInstanceId' => 'VpcCloudInstanceId',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
@@ -774,6 +792,14 @@ class DBInstanceAttribute extends Model
             $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
 
+        if (null !== $this->isAnalyticIns) {
+            $res['IsAnalyticIns'] = $this->isAnalyticIns;
+        }
+
+        if (null !== $this->isAnalyticReadOnlyIns) {
+            $res['IsAnalyticReadOnlyIns'] = $this->isAnalyticReadOnlyIns;
+        }
+
         if (null !== $this->latestKernelVersion) {
             $res['LatestKernelVersion'] = $this->latestKernelVersion;
         }
@@ -904,6 +930,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vectorSupportStatus) {
+            $res['VectorSupportStatus'] = $this->vectorSupportStatus;
         }
 
         if (null !== $this->vpcCloudInstanceId) {
@@ -1137,6 +1167,14 @@ class DBInstanceAttribute extends Model
             $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
 
+        if (isset($map['IsAnalyticIns'])) {
+            $model->isAnalyticIns = $map['IsAnalyticIns'];
+        }
+
+        if (isset($map['IsAnalyticReadOnlyIns'])) {
+            $model->isAnalyticReadOnlyIns = $map['IsAnalyticReadOnlyIns'];
+        }
+
         if (isset($map['LatestKernelVersion'])) {
             $model->latestKernelVersion = $map['LatestKernelVersion'];
         }
@@ -1267,6 +1305,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VectorSupportStatus'])) {
+            $model->vectorSupportStatus = $map['VectorSupportStatus'];
         }
 
         if (isset($map['VpcCloudInstanceId'])) {

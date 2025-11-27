@@ -39,7 +39,8 @@ class DescribeCurrentModifyOrderResponseBody extends Model
                 $res['ModifyOrder'] = [];
                 $n1 = 0;
                 foreach ($this->modifyOrder as $item1) {
-                    $res['ModifyOrder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ModifyOrder'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeCurrentModifyOrderResponseBody extends Model
                 $model->modifyOrder = [];
                 $n1 = 0;
                 foreach ($map['ModifyOrder'] as $item1) {
-                    $model->modifyOrder[$n1++] = modifyOrder::fromMap($item1);
+                    $model->modifyOrder[$n1] = modifyOrder::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

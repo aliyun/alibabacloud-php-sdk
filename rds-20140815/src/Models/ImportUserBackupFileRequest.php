@@ -19,6 +19,11 @@ class ImportUserBackupFileRequest extends Model
     public $bucketRegion;
 
     /**
+     * @var bool
+     */
+    public $buildReplication;
+
+    /**
      * @var string
      */
     public $comment;
@@ -32,6 +37,16 @@ class ImportUserBackupFileRequest extends Model
      * @var string
      */
     public $engineVersion;
+
+    /**
+     * @var string
+     */
+    public $masterInfo;
+
+    /**
+     * @var string
+     */
+    public $mode;
 
     /**
      * @var int
@@ -71,13 +86,21 @@ class ImportUserBackupFileRequest extends Model
     /**
      * @var string
      */
+    public $sourceInfo;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'backupFile' => 'BackupFile',
         'bucketRegion' => 'BucketRegion',
+        'buildReplication' => 'BuildReplication',
         'comment' => 'Comment',
         'DBInstanceId' => 'DBInstanceId',
         'engineVersion' => 'EngineVersion',
+        'masterInfo' => 'MasterInfo',
+        'mode' => 'Mode',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -85,6 +108,7 @@ class ImportUserBackupFileRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'restoreSize' => 'RestoreSize',
         'retention' => 'Retention',
+        'sourceInfo' => 'SourceInfo',
         'zoneId' => 'ZoneId',
     ];
 
@@ -104,6 +128,10 @@ class ImportUserBackupFileRequest extends Model
             $res['BucketRegion'] = $this->bucketRegion;
         }
 
+        if (null !== $this->buildReplication) {
+            $res['BuildReplication'] = $this->buildReplication;
+        }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
@@ -114,6 +142,14 @@ class ImportUserBackupFileRequest extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->masterInfo) {
+            $res['MasterInfo'] = $this->masterInfo;
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         if (null !== $this->ownerId) {
@@ -144,6 +180,10 @@ class ImportUserBackupFileRequest extends Model
             $res['Retention'] = $this->retention;
         }
 
+        if (null !== $this->sourceInfo) {
+            $res['SourceInfo'] = $this->sourceInfo;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -167,6 +207,10 @@ class ImportUserBackupFileRequest extends Model
             $model->bucketRegion = $map['BucketRegion'];
         }
 
+        if (isset($map['BuildReplication'])) {
+            $model->buildReplication = $map['BuildReplication'];
+        }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
@@ -177,6 +221,14 @@ class ImportUserBackupFileRequest extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['MasterInfo'])) {
+            $model->masterInfo = $map['MasterInfo'];
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         if (isset($map['OwnerId'])) {
@@ -205,6 +257,10 @@ class ImportUserBackupFileRequest extends Model
 
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
+        }
+
+        if (isset($map['SourceInfo'])) {
+            $model->sourceInfo = $map['SourceInfo'];
         }
 
         if (isset($map['ZoneId'])) {

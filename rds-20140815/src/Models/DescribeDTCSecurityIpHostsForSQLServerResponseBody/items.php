@@ -33,7 +33,8 @@ class items extends Model
                 $res['WhiteListGroups'] = [];
                 $n1 = 0;
                 foreach ($this->whiteListGroups as $item1) {
-                    $res['WhiteListGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WhiteListGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->whiteListGroups = [];
                 $n1 = 0;
                 foreach ($map['WhiteListGroups'] as $item1) {
-                    $model->whiteListGroups[$n1++] = whiteListGroups::fromMap($item1);
+                    $model->whiteListGroups[$n1] = whiteListGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

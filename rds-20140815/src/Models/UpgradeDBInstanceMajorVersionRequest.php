@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class UpgradeDBInstanceMajorVersionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowDDL;
+
+    /**
      * @var string
      */
     public $collectStatMode;
+
+    /**
+     * @var string
+     */
+    public $customExtraInfo;
 
     /**
      * @var string
@@ -113,7 +123,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
      */
     public $zoneIdSlave2;
     protected $_name = [
+        'allowDDL' => 'AllowDDL',
         'collectStatMode' => 'CollectStatMode',
+        'customExtraInfo' => 'CustomExtraInfo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceId' => 'DBInstanceId',
         'DBInstanceStorage' => 'DBInstanceStorage',
@@ -144,8 +156,16 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowDDL) {
+            $res['AllowDDL'] = $this->allowDDL;
+        }
+
         if (null !== $this->collectStatMode) {
             $res['CollectStatMode'] = $this->collectStatMode;
+        }
+
+        if (null !== $this->customExtraInfo) {
+            $res['CustomExtraInfo'] = $this->customExtraInfo;
         }
 
         if (null !== $this->DBInstanceClass) {
@@ -239,8 +259,16 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowDDL'])) {
+            $model->allowDDL = $map['AllowDDL'];
+        }
+
         if (isset($map['CollectStatMode'])) {
             $model->collectStatMode = $map['CollectStatMode'];
+        }
+
+        if (isset($map['CustomExtraInfo'])) {
+            $model->customExtraInfo = $map['CustomExtraInfo'];
         }
 
         if (isset($map['DBInstanceClass'])) {

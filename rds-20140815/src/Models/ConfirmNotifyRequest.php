@@ -42,7 +42,8 @@ class ConfirmNotifyRequest extends Model
                 $res['NotifyIdList'] = [];
                 $n1 = 0;
                 foreach ($this->notifyIdList as $item1) {
-                    $res['NotifyIdList'][$n1++] = $item1;
+                    $res['NotifyIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ConfirmNotifyRequest extends Model
                 $model->notifyIdList = [];
                 $n1 = 0;
                 foreach ($map['NotifyIdList'] as $item1) {
-                    $model->notifyIdList[$n1++] = $item1;
+                    $model->notifyIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

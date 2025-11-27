@@ -33,7 +33,8 @@ class DBClusterNodes extends Model
                 $res['DBClusterNode'] = [];
                 $n1 = 0;
                 foreach ($this->DBClusterNode as $item1) {
-                    $res['DBClusterNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBClusterNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DBClusterNodes extends Model
                 $model->DBClusterNode = [];
                 $n1 = 0;
                 foreach ($map['DBClusterNode'] as $item1) {
-                    $model->DBClusterNode[$n1++] = DBClusterNode::fromMap($item1);
+                    $model->DBClusterNode[$n1] = DBClusterNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

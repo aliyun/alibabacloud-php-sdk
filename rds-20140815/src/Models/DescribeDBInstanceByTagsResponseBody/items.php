@@ -33,7 +33,8 @@ class items extends Model
                 $res['DBInstanceTag'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceTag as $item1) {
-                    $res['DBInstanceTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->DBInstanceTag = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceTag'] as $item1) {
-                    $model->DBInstanceTag[$n1++] = DBInstanceTag::fromMap($item1);
+                    $model->DBInstanceTag[$n1] = DBInstanceTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

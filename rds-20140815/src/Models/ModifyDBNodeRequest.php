@@ -125,7 +125,8 @@ class ModifyDBNodeRequest extends Model
                 $res['DBNode'] = [];
                 $n1 = 0;
                 foreach ($this->DBNode as $item1) {
-                    $res['DBNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +195,8 @@ class ModifyDBNodeRequest extends Model
                 $model->DBNode = [];
                 $n1 = 0;
                 foreach ($map['DBNode'] as $item1) {
-                    $model->DBNode[$n1++] = DBNode::fromMap($item1);
+                    $model->DBNode[$n1] = DBNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

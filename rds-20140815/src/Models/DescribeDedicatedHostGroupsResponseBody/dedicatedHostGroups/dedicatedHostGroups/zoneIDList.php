@@ -32,7 +32,8 @@ class zoneIDList extends Model
                 $res['ZoneIDList'] = [];
                 $n1 = 0;
                 foreach ($this->zoneIDList as $item1) {
-                    $res['ZoneIDList'][$n1++] = $item1;
+                    $res['ZoneIDList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class zoneIDList extends Model
                 $model->zoneIDList = [];
                 $n1 = 0;
                 foreach ($map['ZoneIDList'] as $item1) {
-                    $model->zoneIDList[$n1++] = $item1;
+                    $model->zoneIDList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class items extends Model
                 $res['EcsSecurityGroupRelation'] = [];
                 $n1 = 0;
                 foreach ($this->ecsSecurityGroupRelation as $item1) {
-                    $res['EcsSecurityGroupRelation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EcsSecurityGroupRelation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->ecsSecurityGroupRelation = [];
                 $n1 = 0;
                 foreach ($map['EcsSecurityGroupRelation'] as $item1) {
-                    $model->ecsSecurityGroupRelation[$n1++] = ecsSecurityGroupRelation::fromMap($item1);
+                    $model->ecsSecurityGroupRelation[$n1] = ecsSecurityGroupRelation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

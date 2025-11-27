@@ -138,7 +138,8 @@ class extendedAttribute extends Model
                 $res['InactiveDisks'] = [];
                 $n1 = 0;
                 foreach ($this->inactiveDisks as $item1) {
-                    $res['InactiveDisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InactiveDisks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class extendedAttribute extends Model
                 $res['MigrationOptions'] = [];
                 $n1 = 0;
                 foreach ($this->migrationOptions as $item1) {
-                    $res['MigrationOptions'][$n1++] = $item1;
+                    $res['MigrationOptions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,7 +219,8 @@ class extendedAttribute extends Model
                 $model->inactiveDisks = [];
                 $n1 = 0;
                 foreach ($map['InactiveDisks'] as $item1) {
-                    $model->inactiveDisks[$n1++] = inactiveDisks::fromMap($item1);
+                    $model->inactiveDisks[$n1] = inactiveDisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +230,8 @@ class extendedAttribute extends Model
                 $model->migrationOptions = [];
                 $n1 = 0;
                 foreach ($map['MigrationOptions'] as $item1) {
-                    $model->migrationOptions[$n1++] = $item1;
+                    $model->migrationOptions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

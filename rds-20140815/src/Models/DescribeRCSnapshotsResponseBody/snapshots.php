@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCSnapshotsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCSnapshotsResponseBody\snapshots\tag;
 
 class snapshots extends Model
 {
@@ -51,6 +52,11 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $snapshotId;
 
     /**
@@ -89,6 +95,11 @@ class snapshots extends Model
     public $status;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $usage;
@@ -101,6 +112,7 @@ class snapshots extends Model
         'instantAccess' => 'InstantAccess',
         'progress' => 'Progress',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'snapshotId' => 'SnapshotId',
         'snapshotName' => 'SnapshotName',
         'snapshotType' => 'SnapshotType',
@@ -109,11 +121,15 @@ class snapshots extends Model
         'sourceDiskType' => 'SourceDiskType',
         'sourceStorageType' => 'SourceStorageType',
         'status' => 'Status',
+        'tag' => 'Tag',
         'usage' => 'Usage',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -152,6 +168,10 @@ class snapshots extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -182,6 +202,17 @@ class snapshots extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->usage) {
@@ -231,6 +262,10 @@ class snapshots extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
@@ -261,6 +296,17 @@ class snapshots extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Usage'])) {

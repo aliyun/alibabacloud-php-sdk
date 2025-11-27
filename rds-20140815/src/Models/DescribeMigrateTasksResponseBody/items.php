@@ -33,7 +33,8 @@ class items extends Model
                 $res['MigrateTask'] = [];
                 $n1 = 0;
                 foreach ($this->migrateTask as $item1) {
-                    $res['MigrateTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MigrateTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->migrateTask = [];
                 $n1 = 0;
                 foreach ($map['MigrateTask'] as $item1) {
-                    $model->migrateTask[$n1++] = migrateTask::fromMap($item1);
+                    $model->migrateTask[$n1] = migrateTask::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

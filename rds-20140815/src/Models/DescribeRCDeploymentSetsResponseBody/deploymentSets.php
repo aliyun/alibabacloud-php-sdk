@@ -33,7 +33,8 @@ class deploymentSets extends Model
                 $res['DeploymentSet'] = [];
                 $n1 = 0;
                 foreach ($this->deploymentSet as $item1) {
-                    $res['DeploymentSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeploymentSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class deploymentSets extends Model
                 $model->deploymentSet = [];
                 $n1 = 0;
                 foreach ($map['DeploymentSet'] as $item1) {
-                    $model->deploymentSet[$n1++] = deploymentSet::fromMap($item1);
+                    $model->deploymentSet[$n1] = deploymentSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

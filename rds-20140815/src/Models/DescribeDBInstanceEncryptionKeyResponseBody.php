@@ -103,7 +103,8 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
                 $res['EncryptionKeyList'] = [];
                 $n1 = 0;
                 foreach ($this->encryptionKeyList as $item1) {
-                    $res['EncryptionKeyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EncryptionKeyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -160,7 +161,8 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
                 $model->encryptionKeyList = [];
                 $n1 = 0;
                 foreach ($map['EncryptionKeyList'] as $item1) {
-                    $model->encryptionKeyList[$n1++] = encryptionKeyList::fromMap($item1);
+                    $model->encryptionKeyList[$n1] = encryptionKeyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

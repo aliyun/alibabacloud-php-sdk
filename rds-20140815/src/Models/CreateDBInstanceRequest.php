@@ -88,6 +88,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $customExtraInfo;
+
+    /**
+     * @var string
+     */
     public $DBInstanceClass;
 
     /**
@@ -154,6 +159,11 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $engineVersion;
+
+    /**
+     * @var bool
+     */
+    public $externalReplication;
 
     /**
      * @var string
@@ -325,6 +335,7 @@ class CreateDBInstanceRequest extends Model
         'connectionMode' => 'ConnectionMode',
         'connectionString' => 'ConnectionString',
         'createStrategy' => 'CreateStrategy',
+        'customExtraInfo' => 'CustomExtraInfo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceNetType' => 'DBInstanceNetType',
@@ -339,6 +350,7 @@ class CreateDBInstanceRequest extends Model
         'encryptionKey' => 'EncryptionKey',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'externalReplication' => 'ExternalReplication',
         'instanceNetworkType' => 'InstanceNetworkType',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
         'optimizedWrites' => 'OptimizedWrites',
@@ -446,6 +458,10 @@ class CreateDBInstanceRequest extends Model
             $res['CreateStrategy'] = $this->createStrategy;
         }
 
+        if (null !== $this->customExtraInfo) {
+            $res['CustomExtraInfo'] = $this->customExtraInfo;
+        }
+
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
@@ -500,6 +516,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->externalReplication) {
+            $res['ExternalReplication'] = $this->externalReplication;
         }
 
         if (null !== $this->instanceNetworkType) {
@@ -579,7 +599,8 @@ class CreateDBInstanceRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -703,6 +724,10 @@ class CreateDBInstanceRequest extends Model
             $model->createStrategy = $map['CreateStrategy'];
         }
 
+        if (isset($map['CustomExtraInfo'])) {
+            $model->customExtraInfo = $map['CustomExtraInfo'];
+        }
+
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
@@ -757,6 +782,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['ExternalReplication'])) {
+            $model->externalReplication = $map['ExternalReplication'];
         }
 
         if (isset($map['InstanceNetworkType'])) {
@@ -836,7 +865,8 @@ class CreateDBInstanceRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

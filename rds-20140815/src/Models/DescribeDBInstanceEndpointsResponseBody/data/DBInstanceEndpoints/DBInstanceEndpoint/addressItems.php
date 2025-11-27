@@ -33,7 +33,8 @@ class addressItems extends Model
                 $res['AddressItem'] = [];
                 $n1 = 0;
                 foreach ($this->addressItem as $item1) {
-                    $res['AddressItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AddressItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class addressItems extends Model
                 $model->addressItem = [];
                 $n1 = 0;
                 foreach ($map['AddressItem'] as $item1) {
-                    $model->addressItem[$n1++] = addressItem::fromMap($item1);
+                    $model->addressItem[$n1] = addressItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

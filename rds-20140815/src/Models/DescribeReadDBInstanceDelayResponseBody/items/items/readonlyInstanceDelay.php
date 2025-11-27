@@ -33,7 +33,8 @@ class readonlyInstanceDelay extends Model
                 $res['ReadonlyInstanceDelay'] = [];
                 $n1 = 0;
                 foreach ($this->readonlyInstanceDelay as $item1) {
-                    $res['ReadonlyInstanceDelay'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReadonlyInstanceDelay'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class readonlyInstanceDelay extends Model
                 $model->readonlyInstanceDelay = [];
                 $n1 = 0;
                 foreach ($map['ReadonlyInstanceDelay'] as $item1) {
-                    $model->readonlyInstanceDelay[$n1++] = self::fromMap($item1);
+                    $model->readonlyInstanceDelay[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

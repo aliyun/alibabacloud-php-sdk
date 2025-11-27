@@ -16,6 +16,11 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @var string
      */
+    public $customExtraInfo;
+
+    /**
+     * @var string
+     */
     public $DBInstanceClass;
 
     /**
@@ -99,6 +104,7 @@ class MigrateToOtherZoneRequest extends Model
     public $zoneIdSlave2;
     protected $_name = [
         'category' => 'Category',
+        'customExtraInfo' => 'CustomExtraInfo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceId' => 'DBInstanceId',
         'DBInstanceStorage' => 'DBInstanceStorage',
@@ -128,6 +134,10 @@ class MigrateToOtherZoneRequest extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->customExtraInfo) {
+            $res['CustomExtraInfo'] = $this->customExtraInfo;
         }
 
         if (null !== $this->DBInstanceClass) {
@@ -211,6 +221,10 @@ class MigrateToOtherZoneRequest extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['CustomExtraInfo'])) {
+            $model->customExtraInfo = $map['CustomExtraInfo'];
         }
 
         if (isset($map['DBInstanceClass'])) {

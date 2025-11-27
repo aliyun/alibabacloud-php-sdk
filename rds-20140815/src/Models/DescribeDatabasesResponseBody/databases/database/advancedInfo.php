@@ -33,11 +33,12 @@ class advancedInfo extends Model
                 $n1 = 0;
                 foreach ($this->advancedDbProperty as $item1) {
                     if (\is_array($item1)) {
-                        $res['AdvancedDbProperty'][$n1++] = [];
+                        $res['AdvancedDbProperty'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['AdvancedDbProperty'][$n1++][$key2] = $value2;
+                            $res['AdvancedDbProperty'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -59,11 +60,12 @@ class advancedInfo extends Model
                 $n1 = 0;
                 foreach ($map['AdvancedDbProperty'] as $item1) {
                     if (!empty($item1)) {
-                        $model->advancedDbProperty[$n1++] = [];
+                        $model->advancedDbProperty[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->advancedDbProperty[$n1++][$key2] = $value2;
+                            $model->advancedDbProperty[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

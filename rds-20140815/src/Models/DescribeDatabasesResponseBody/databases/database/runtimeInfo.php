@@ -33,11 +33,12 @@ class runtimeInfo extends Model
                 $n1 = 0;
                 foreach ($this->runtimeDbProperty as $item1) {
                     if (\is_array($item1)) {
-                        $res['RuntimeDbProperty'][$n1++] = [];
+                        $res['RuntimeDbProperty'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['RuntimeDbProperty'][$n1++][$key2] = $value2;
+                            $res['RuntimeDbProperty'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -59,11 +60,12 @@ class runtimeInfo extends Model
                 $n1 = 0;
                 foreach ($map['RuntimeDbProperty'] as $item1) {
                     if (!empty($item1)) {
-                        $model->runtimeDbProperty[$n1++] = [];
+                        $model->runtimeDbProperty[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->runtimeDbProperty[$n1++][$key2] = $value2;
+                            $model->runtimeDbProperty[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

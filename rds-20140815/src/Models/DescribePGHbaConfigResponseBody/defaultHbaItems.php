@@ -33,7 +33,8 @@ class defaultHbaItems extends Model
                 $res['HbaItem'] = [];
                 $n1 = 0;
                 foreach ($this->hbaItem as $item1) {
-                    $res['HbaItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HbaItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class defaultHbaItems extends Model
                 $model->hbaItem = [];
                 $n1 = 0;
                 foreach ($map['HbaItem'] as $item1) {
-                    $model->hbaItem[$n1++] = hbaItem::fromMap($item1);
+                    $model->hbaItem[$n1] = hbaItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

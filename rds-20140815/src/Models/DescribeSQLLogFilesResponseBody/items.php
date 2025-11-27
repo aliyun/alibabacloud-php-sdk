@@ -33,7 +33,8 @@ class items extends Model
                 $res['LogFile'] = [];
                 $n1 = 0;
                 foreach ($this->logFile as $item1) {
-                    $res['LogFile'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogFile'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->logFile = [];
                 $n1 = 0;
                 foreach ($map['LogFile'] as $item1) {
-                    $model->logFile[$n1++] = logFile::fromMap($item1);
+                    $model->logFile[$n1] = logFile::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

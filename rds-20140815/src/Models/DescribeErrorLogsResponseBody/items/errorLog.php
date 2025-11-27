@@ -16,10 +16,28 @@ class errorLog extends Model
     /**
      * @var string
      */
+    public $database;
+
+    /**
+     * @var string
+     */
     public $errorInfo;
+
+    /**
+     * @var string
+     */
+    public $user;
+
+    /**
+     * @var string
+     */
+    public $userIp;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'database' => 'Database',
         'errorInfo' => 'ErrorInfo',
+        'user' => 'User',
+        'userIp' => 'UserIp',
     ];
 
     public function validate()
@@ -34,8 +52,20 @@ class errorLog extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->database) {
+            $res['Database'] = $this->database;
+        }
+
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
+        }
+
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
+
+        if (null !== $this->userIp) {
+            $res['UserIp'] = $this->userIp;
         }
 
         return $res;
@@ -53,8 +83,20 @@ class errorLog extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['Database'])) {
+            $model->database = $map['Database'];
+        }
+
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
+        }
+
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
+        }
+
+        if (isset($map['UserIp'])) {
+            $model->userIp = $map['UserIp'];
         }
 
         return $model;

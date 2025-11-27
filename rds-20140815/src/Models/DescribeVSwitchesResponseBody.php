@@ -73,7 +73,8 @@ class DescribeVSwitchesResponseBody extends Model
                 $res['VSwitchs'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchs as $item1) {
-                    $res['VSwitchs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VSwitchs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class DescribeVSwitchesResponseBody extends Model
                 $model->vSwitchs = [];
                 $n1 = 0;
                 foreach ($map['VSwitchs'] as $item1) {
-                    $model->vSwitchs[$n1++] = vSwitchs::fromMap($item1);
+                    $model->vSwitchs[$n1] = vSwitchs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

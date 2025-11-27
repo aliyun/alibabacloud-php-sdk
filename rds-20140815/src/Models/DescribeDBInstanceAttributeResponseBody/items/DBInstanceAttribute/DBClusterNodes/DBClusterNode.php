@@ -24,6 +24,11 @@ class DBClusterNode extends Model
     public $cpu;
 
     /**
+     * @var bool
+     */
+    public $disasterRecoveryNode;
+
+    /**
      * @var string
      */
     public $memory;
@@ -56,6 +61,7 @@ class DBClusterNode extends Model
         'classCode' => 'ClassCode',
         'classType' => 'ClassType',
         'cpu' => 'Cpu',
+        'disasterRecoveryNode' => 'DisasterRecoveryNode',
         'memory' => 'Memory',
         'nodeId' => 'NodeId',
         'nodeRegionId' => 'NodeRegionId',
@@ -82,6 +88,10 @@ class DBClusterNode extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->disasterRecoveryNode) {
+            $res['DisasterRecoveryNode'] = $this->disasterRecoveryNode;
         }
 
         if (null !== $this->memory) {
@@ -129,6 +139,10 @@ class DBClusterNode extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['DisasterRecoveryNode'])) {
+            $model->disasterRecoveryNode = $map['DisasterRecoveryNode'];
         }
 
         if (isset($map['Memory'])) {

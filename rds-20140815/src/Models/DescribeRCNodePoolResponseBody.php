@@ -39,7 +39,8 @@ class DescribeRCNodePoolResponseBody extends Model
                 $res['NodePoolList'] = [];
                 $n1 = 0;
                 foreach ($this->nodePoolList as $item1) {
-                    $res['NodePoolList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NodePoolList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeRCNodePoolResponseBody extends Model
                 $model->nodePoolList = [];
                 $n1 = 0;
                 foreach ($map['NodePoolList'] as $item1) {
-                    $model->nodePoolList[$n1++] = nodePoolList::fromMap($item1);
+                    $model->nodePoolList[$n1] = nodePoolList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

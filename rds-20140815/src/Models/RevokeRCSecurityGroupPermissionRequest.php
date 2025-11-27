@@ -62,7 +62,8 @@ class RevokeRCSecurityGroupPermissionRequest extends Model
                 $res['SecurityGroupRuleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupRuleIdList as $item1) {
-                    $res['SecurityGroupRuleIdList'][$n1++] = $item1;
+                    $res['SecurityGroupRuleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class RevokeRCSecurityGroupPermissionRequest extends Model
                 $model->securityGroupRuleIdList = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupRuleIdList'] as $item1) {
-                    $model->securityGroupRuleIdList[$n1++] = $item1;
+                    $model->securityGroupRuleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

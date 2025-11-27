@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCSnapshotsRequest\tag;
 
 class DescribeRCSnapshotsRequest extends Model
 {
@@ -32,16 +33,25 @@ class DescribeRCSnapshotsRequest extends Model
      * @var string
      */
     public $snapshotIds;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'diskId' => 'DiskId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'snapshotIds' => 'SnapshotIds',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -66,6 +76,17 @@ class DescribeRCSnapshotsRequest extends Model
 
         if (null !== $this->snapshotIds) {
             $res['SnapshotIds'] = $this->snapshotIds;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -97,6 +118,17 @@ class DescribeRCSnapshotsRequest extends Model
 
         if (isset($map['SnapshotIds'])) {
             $model->snapshotIds = $map['SnapshotIds'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

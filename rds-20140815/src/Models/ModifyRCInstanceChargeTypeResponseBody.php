@@ -73,7 +73,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $res['ExpiredTime'] = [];
                 $n1 = 0;
                 foreach ($this->expiredTime as $item1) {
-                    $res['ExpiredTime'][$n1++] = $item1;
+                    $res['ExpiredTime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $res['FeeOfInstances'] = [];
                 $n1 = 0;
                 foreach ($this->feeOfInstances as $item1) {
-                    $res['FeeOfInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FeeOfInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $res['InstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +129,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $model->expiredTime = [];
                 $n1 = 0;
                 foreach ($map['ExpiredTime'] as $item1) {
-                    $model->expiredTime[$n1++] = $item1;
+                    $model->expiredTime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +140,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $model->feeOfInstances = [];
                 $n1 = 0;
                 foreach ($map['FeeOfInstances'] as $item1) {
-                    $model->feeOfInstances[$n1++] = feeOfInstances::fromMap($item1);
+                    $model->feeOfInstances[$n1] = feeOfInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +151,8 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
                 $model->instanceIds = [];
                 $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

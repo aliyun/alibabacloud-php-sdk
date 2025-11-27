@@ -63,7 +63,8 @@ class AuthorizeRCSecurityGroupPermissionRequest extends Model
                 $res['SecurityGroupPermissions'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupPermissions as $item1) {
-                    $res['SecurityGroupPermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityGroupPermissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class AuthorizeRCSecurityGroupPermissionRequest extends Model
                 $model->securityGroupPermissions = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupPermissions'] as $item1) {
-                    $model->securityGroupPermissions[$n1++] = securityGroupPermissions::fromMap($item1);
+                    $model->securityGroupPermissions[$n1] = securityGroupPermissions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

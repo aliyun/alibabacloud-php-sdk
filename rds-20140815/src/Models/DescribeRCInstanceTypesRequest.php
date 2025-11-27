@@ -64,7 +64,8 @@ class DescribeRCInstanceTypesRequest extends Model
                 $res['InstanceType'] = [];
                 $n1 = 0;
                 foreach ($this->instanceType as $item1) {
-                    $res['InstanceType'][$n1++] = $item1;
+                    $res['InstanceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class DescribeRCInstanceTypesRequest extends Model
                 $model->instanceType = [];
                 $n1 = 0;
                 foreach ($map['InstanceType'] as $item1) {
-                    $model->instanceType[$n1++] = $item1;
+                    $model->instanceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

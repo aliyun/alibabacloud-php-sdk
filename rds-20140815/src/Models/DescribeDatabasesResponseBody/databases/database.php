@@ -68,6 +68,11 @@ class database extends Model
     public $DBStatus;
 
     /**
+     * @var bool
+     */
+    public $duckDBEnabled;
+
+    /**
      * @var string
      */
     public $engine;
@@ -108,6 +113,7 @@ class database extends Model
         'DBInstanceId' => 'DBInstanceId',
         'DBName' => 'DBName',
         'DBStatus' => 'DBStatus',
+        'duckDBEnabled' => 'DuckDBEnabled',
         'engine' => 'Engine',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -178,6 +184,10 @@ class database extends Model
 
         if (null !== $this->DBStatus) {
             $res['DBStatus'] = $this->DBStatus;
+        }
+
+        if (null !== $this->duckDBEnabled) {
+            $res['DuckDBEnabled'] = $this->duckDBEnabled;
         }
 
         if (null !== $this->engine) {
@@ -257,6 +267,10 @@ class database extends Model
 
         if (isset($map['DBStatus'])) {
             $model->DBStatus = $map['DBStatus'];
+        }
+
+        if (isset($map['DuckDBEnabled'])) {
+            $model->duckDBEnabled = $map['DuckDBEnabled'];
         }
 
         if (isset($map['Engine'])) {

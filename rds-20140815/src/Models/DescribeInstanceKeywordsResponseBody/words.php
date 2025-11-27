@@ -32,7 +32,8 @@ class words extends Model
                 $res['word'] = [];
                 $n1 = 0;
                 foreach ($this->word as $item1) {
-                    $res['word'][$n1++] = $item1;
+                    $res['word'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class words extends Model
                 $model->word = [];
                 $n1 = 0;
                 foreach ($map['word'] as $item1) {
-                    $model->word[$n1++] = $item1;
+                    $model->word[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

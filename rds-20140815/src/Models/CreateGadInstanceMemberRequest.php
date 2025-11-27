@@ -93,7 +93,8 @@ class CreateGadInstanceMemberRequest extends Model
                 $res['UnitNode'] = [];
                 $n1 = 0;
                 foreach ($this->unitNode as $item1) {
-                    $res['UnitNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UnitNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +139,8 @@ class CreateGadInstanceMemberRequest extends Model
                 $model->unitNode = [];
                 $n1 = 0;
                 foreach ($map['UnitNode'] as $item1) {
-                    $model->unitNode[$n1++] = unitNode::fromMap($item1);
+                    $model->unitNode[$n1] = unitNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

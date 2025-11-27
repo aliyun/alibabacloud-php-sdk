@@ -43,7 +43,8 @@ class supportedCategorys extends Model
                 $res['SupportedStorageTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportedStorageTypes as $item1) {
-                    $res['SupportedStorageTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportedStorageTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class supportedCategorys extends Model
                 $model->supportedStorageTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportedStorageTypes'] as $item1) {
-                    $model->supportedStorageTypes[$n1++] = supportedStorageTypes::fromMap($item1);
+                    $model->supportedStorageTypes[$n1] = supportedStorageTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

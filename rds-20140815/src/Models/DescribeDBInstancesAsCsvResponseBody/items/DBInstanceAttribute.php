@@ -92,6 +92,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $DBInstanceStorageType;
+
+    /**
+     * @var string
+     */
     public $DBInstanceType;
 
     /**
@@ -240,6 +245,7 @@ class DBInstanceAttribute extends Model
         'DBInstanceNetType' => 'DBInstanceNetType',
         'DBInstanceStatus' => 'DBInstanceStatus',
         'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
         'DBInstanceType' => 'DBInstanceType',
         'DBMaxQuantity' => 'DBMaxQuantity',
         'engine' => 'Engine',
@@ -342,6 +348,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
+        }
+
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
 
         if (null !== $this->DBInstanceType) {
@@ -525,6 +535,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
+        }
+
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
 
         if (isset($map['DBInstanceType'])) {

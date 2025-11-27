@@ -139,7 +139,8 @@ class DescribeResourceDetailsResponseBody extends Model
                 $res['RdsEcsSecurityGroupRel'] = [];
                 $n1 = 0;
                 foreach ($this->rdsEcsSecurityGroupRel as $item1) {
-                    $res['RdsEcsSecurityGroupRel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RdsEcsSecurityGroupRel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -212,7 +213,8 @@ class DescribeResourceDetailsResponseBody extends Model
                 $model->rdsEcsSecurityGroupRel = [];
                 $n1 = 0;
                 foreach ($map['RdsEcsSecurityGroupRel'] as $item1) {
-                    $model->rdsEcsSecurityGroupRel[$n1++] = rdsEcsSecurityGroupRel::fromMap($item1);
+                    $model->rdsEcsSecurityGroupRel[$n1] = rdsEcsSecurityGroupRel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

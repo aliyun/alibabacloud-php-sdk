@@ -14,6 +14,11 @@ class instanceType extends Model
     public $cpuCoreCount;
 
     /**
+     * @var int
+     */
+    public $diskQuantity;
+
+    /**
      * @var string
      */
     public $instanceTypeFamily;
@@ -29,6 +34,7 @@ class instanceType extends Model
     public $memorySize;
     protected $_name = [
         'cpuCoreCount' => 'CpuCoreCount',
+        'diskQuantity' => 'DiskQuantity',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'instanceTypeId' => 'InstanceTypeId',
         'memorySize' => 'MemorySize',
@@ -44,6 +50,10 @@ class instanceType extends Model
         $res = [];
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
+        }
+
+        if (null !== $this->diskQuantity) {
+            $res['DiskQuantity'] = $this->diskQuantity;
         }
 
         if (null !== $this->instanceTypeFamily) {
@@ -71,6 +81,10 @@ class instanceType extends Model
         $model = new self();
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
+        }
+
+        if (isset($map['DiskQuantity'])) {
+            $model->diskQuantity = $map['DiskQuantity'];
         }
 
         if (isset($map['InstanceTypeFamily'])) {

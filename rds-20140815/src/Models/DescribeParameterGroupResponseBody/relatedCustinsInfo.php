@@ -33,7 +33,8 @@ class relatedCustinsInfo extends Model
                 $res['RelatedCustinsInfo'] = [];
                 $n1 = 0;
                 foreach ($this->relatedCustinsInfo as $item1) {
-                    $res['RelatedCustinsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RelatedCustinsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class relatedCustinsInfo extends Model
                 $model->relatedCustinsInfo = [];
                 $n1 = 0;
                 foreach ($map['RelatedCustinsInfo'] as $item1) {
-                    $model->relatedCustinsInfo[$n1++] = self::fromMap($item1);
+                    $model->relatedCustinsInfo[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

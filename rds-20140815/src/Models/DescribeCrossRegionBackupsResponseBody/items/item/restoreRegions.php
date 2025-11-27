@@ -32,7 +32,8 @@ class restoreRegions extends Model
                 $res['RestoreRegion'] = [];
                 $n1 = 0;
                 foreach ($this->restoreRegion as $item1) {
-                    $res['RestoreRegion'][$n1++] = $item1;
+                    $res['RestoreRegion'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class restoreRegions extends Model
                 $model->restoreRegion = [];
                 $n1 = 0;
                 foreach ($map['RestoreRegion'] as $item1) {
-                    $model->restoreRegion[$n1++] = $item1;
+                    $model->restoreRegion[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

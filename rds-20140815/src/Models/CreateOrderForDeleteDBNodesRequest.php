@@ -142,7 +142,8 @@ class CreateOrderForDeleteDBNodesRequest extends Model
                 $res['DBNodeId'] = [];
                 $n1 = 0;
                 foreach ($this->DBNodeId as $item1) {
-                    $res['DBNodeId'][$n1++] = $item1;
+                    $res['DBNodeId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +224,8 @@ class CreateOrderForDeleteDBNodesRequest extends Model
                 $model->DBNodeId = [];
                 $n1 = 0;
                 foreach ($map['DBNodeId'] as $item1) {
-                    $model->DBNodeId[$n1++] = $item1;
+                    $model->DBNodeId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

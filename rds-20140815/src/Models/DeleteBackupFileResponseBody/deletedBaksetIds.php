@@ -32,7 +32,8 @@ class deletedBaksetIds extends Model
                 $res['DeletedBaksetIds'] = [];
                 $n1 = 0;
                 foreach ($this->deletedBaksetIds as $item1) {
-                    $res['DeletedBaksetIds'][$n1++] = $item1;
+                    $res['DeletedBaksetIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class deletedBaksetIds extends Model
                 $model->deletedBaksetIds = [];
                 $n1 = 0;
                 foreach ($map['DeletedBaksetIds'] as $item1) {
-                    $model->deletedBaksetIds[$n1++] = $item1;
+                    $model->deletedBaksetIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

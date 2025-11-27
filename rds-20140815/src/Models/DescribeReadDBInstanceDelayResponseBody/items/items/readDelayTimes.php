@@ -32,7 +32,8 @@ class readDelayTimes extends Model
                 $res['ReadDelayTime'] = [];
                 $n1 = 0;
                 foreach ($this->readDelayTime as $item1) {
-                    $res['ReadDelayTime'][$n1++] = $item1;
+                    $res['ReadDelayTime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class readDelayTimes extends Model
                 $model->readDelayTime = [];
                 $n1 = 0;
                 foreach ($map['ReadDelayTime'] as $item1) {
-                    $model->readDelayTime[$n1++] = $item1;
+                    $model->readDelayTime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

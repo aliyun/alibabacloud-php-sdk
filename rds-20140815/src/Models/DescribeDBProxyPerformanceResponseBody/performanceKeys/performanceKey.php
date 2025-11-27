@@ -22,6 +22,11 @@ class performanceKey extends Model
     /**
      * @var string
      */
+    public $server;
+
+    /**
+     * @var string
+     */
     public $service;
 
     /**
@@ -36,6 +41,7 @@ class performanceKey extends Model
     protected $_name = [
         'key' => 'Key',
         'node' => 'Node',
+        'server' => 'Server',
         'service' => 'Service',
         'valueFormat' => 'ValueFormat',
         'values' => 'Values',
@@ -58,6 +64,10 @@ class performanceKey extends Model
 
         if (null !== $this->node) {
             $res['Node'] = $this->node;
+        }
+
+        if (null !== $this->server) {
+            $res['Server'] = $this->server;
         }
 
         if (null !== $this->service) {
@@ -89,6 +99,10 @@ class performanceKey extends Model
 
         if (isset($map['Node'])) {
             $model->node = $map['Node'];
+        }
+
+        if (isset($map['Server'])) {
+            $model->server = $map['Server'];
         }
 
         if (isset($map['Service'])) {

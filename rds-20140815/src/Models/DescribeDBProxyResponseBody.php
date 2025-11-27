@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyAVZones;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyInstanceMinorVersions;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyNodes;
 
 class DescribeDBProxyResponseBody extends Model
@@ -36,6 +37,11 @@ class DescribeDBProxyResponseBody extends Model
      * @var string
      */
     public $DBProxyInstanceLatestMinorVersion;
+
+    /**
+     * @var DBProxyInstanceMinorVersions
+     */
+    public $DBProxyInstanceMinorVersions;
 
     /**
      * @var string
@@ -102,6 +108,7 @@ class DescribeDBProxyResponseBody extends Model
         'DBProxyEngineType' => 'DBProxyEngineType',
         'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
         'DBProxyInstanceLatestMinorVersion' => 'DBProxyInstanceLatestMinorVersion',
+        'DBProxyInstanceMinorVersions' => 'DBProxyInstanceMinorVersions',
         'DBProxyInstanceName' => 'DBProxyInstanceName',
         'DBProxyInstanceNum' => 'DBProxyInstanceNum',
         'DBProxyInstanceSize' => 'DBProxyInstanceSize',
@@ -123,6 +130,9 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (null !== $this->DBProxyConnectStringItems) {
             $this->DBProxyConnectStringItems->validate();
+        }
+        if (null !== $this->DBProxyInstanceMinorVersions) {
+            $this->DBProxyInstanceMinorVersions->validate();
         }
         if (null !== $this->DBProxyNodes) {
             $this->DBProxyNodes->validate();
@@ -154,6 +164,10 @@ class DescribeDBProxyResponseBody extends Model
 
         if (null !== $this->DBProxyInstanceLatestMinorVersion) {
             $res['DBProxyInstanceLatestMinorVersion'] = $this->DBProxyInstanceLatestMinorVersion;
+        }
+
+        if (null !== $this->DBProxyInstanceMinorVersions) {
+            $res['DBProxyInstanceMinorVersions'] = null !== $this->DBProxyInstanceMinorVersions ? $this->DBProxyInstanceMinorVersions->toArray($noStream) : $this->DBProxyInstanceMinorVersions;
         }
 
         if (null !== $this->DBProxyInstanceName) {
@@ -233,6 +247,10 @@ class DescribeDBProxyResponseBody extends Model
 
         if (isset($map['DBProxyInstanceLatestMinorVersion'])) {
             $model->DBProxyInstanceLatestMinorVersion = $map['DBProxyInstanceLatestMinorVersion'];
+        }
+
+        if (isset($map['DBProxyInstanceMinorVersions'])) {
+            $model->DBProxyInstanceMinorVersions = DBProxyInstanceMinorVersions::fromMap($map['DBProxyInstanceMinorVersions']);
         }
 
         if (isset($map['DBProxyInstanceName'])) {

@@ -118,7 +118,8 @@ class nodes extends Model
                 $res['IpAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
-                    $res['IpAddresses'][$n1++] = $item1;
+                    $res['IpAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -183,7 +184,8 @@ class nodes extends Model
                 $model->ipAddresses = [];
                 $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
-                    $model->ipAddresses[$n1++] = $item1;
+                    $model->ipAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

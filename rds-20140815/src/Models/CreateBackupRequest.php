@@ -14,6 +14,11 @@ class CreateBackupRequest extends Model
     public $backupMethod;
 
     /**
+     * @var int
+     */
+    public $backupRetentionPeriod;
+
+    /**
      * @var string
      */
     public $backupStrategy;
@@ -39,6 +44,7 @@ class CreateBackupRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'backupMethod' => 'BackupMethod',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'backupStrategy' => 'BackupStrategy',
         'backupType' => 'BackupType',
         'DBInstanceId' => 'DBInstanceId',
@@ -56,6 +62,10 @@ class CreateBackupRequest extends Model
         $res = [];
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
+        }
+
+        if (null !== $this->backupRetentionPeriod) {
+            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
 
         if (null !== $this->backupStrategy) {
@@ -91,6 +101,10 @@ class CreateBackupRequest extends Model
         $model = new self();
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
+        }
+
+        if (isset($map['BackupRetentionPeriod'])) {
+            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
 
         if (isset($map['BackupStrategy'])) {

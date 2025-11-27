@@ -51,6 +51,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $customExtraInfo;
+
+    /**
+     * @var string
+     */
     public $DBInstanceClass;
 
     /**
@@ -107,6 +112,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @var string
      */
     public $ioAccelerationEnabled;
+
+    /**
+     * @var bool
+     */
+    public $isAnalyticReadOnlyIns;
 
     /**
      * @var string
@@ -206,6 +216,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'clientToken' => 'ClientToken',
+        'customExtraInfo' => 'CustomExtraInfo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId' => 'DBInstanceId',
@@ -218,6 +229,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'instanceNetworkType' => 'InstanceNetworkType',
         'instructionSetArch' => 'InstructionSetArch',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'isAnalyticReadOnlyIns' => 'IsAnalyticReadOnlyIns',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'payType' => 'PayType',
@@ -278,6 +290,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->customExtraInfo) {
+            $res['CustomExtraInfo'] = $this->customExtraInfo;
+        }
+
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
@@ -324,6 +340,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
 
         if (null !== $this->ioAccelerationEnabled) {
             $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
+        }
+
+        if (null !== $this->isAnalyticReadOnlyIns) {
+            $res['IsAnalyticReadOnlyIns'] = $this->isAnalyticReadOnlyIns;
         }
 
         if (null !== $this->ownerAccount) {
@@ -441,6 +461,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['CustomExtraInfo'])) {
+            $model->customExtraInfo = $map['CustomExtraInfo'];
+        }
+
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
@@ -487,6 +511,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
 
         if (isset($map['IoAccelerationEnabled'])) {
             $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
+        }
+
+        if (isset($map['IsAnalyticReadOnlyIns'])) {
+            $model->isAnalyticReadOnlyIns = $map['IsAnalyticReadOnlyIns'];
         }
 
         if (isset($map['OwnerAccount'])) {

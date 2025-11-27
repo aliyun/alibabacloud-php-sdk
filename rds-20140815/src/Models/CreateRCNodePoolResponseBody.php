@@ -50,7 +50,8 @@ class CreateRCNodePoolResponseBody extends Model
                 $res['InstanceIdSets'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIdSets as $item1) {
-                    $res['InstanceIdSets'][$n1++] = $item1;
+                    $res['InstanceIdSets'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class CreateRCNodePoolResponseBody extends Model
                 $model->instanceIdSets = [];
                 $n1 = 0;
                 foreach ($map['InstanceIdSets'] as $item1) {
-                    $model->instanceIdSets[$n1++] = $item1;
+                    $model->instanceIdSets[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

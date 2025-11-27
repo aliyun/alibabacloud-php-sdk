@@ -41,6 +41,11 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     /**
      * @var string
      */
+    public $targetMinorVersion;
+
+    /**
+     * @var string
+     */
     public $upgradeTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
@@ -49,6 +54,7 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'switchTime' => 'SwitchTime',
+        'targetMinorVersion' => 'TargetMinorVersion',
         'upgradeTime' => 'UpgradeTime',
     ];
 
@@ -82,6 +88,10 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
 
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
+        }
+
+        if (null !== $this->targetMinorVersion) {
+            $res['TargetMinorVersion'] = $this->targetMinorVersion;
         }
 
         if (null !== $this->upgradeTime) {
@@ -121,6 +131,10 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
 
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
+        }
+
+        if (isset($map['TargetMinorVersion'])) {
+            $model->targetMinorVersion = $map['TargetMinorVersion'];
         }
 
         if (isset($map['UpgradeTime'])) {

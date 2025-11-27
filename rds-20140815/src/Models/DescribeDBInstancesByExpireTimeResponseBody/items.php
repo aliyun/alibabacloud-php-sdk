@@ -33,7 +33,8 @@ class items extends Model
                 $res['DBInstanceExpireTime'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceExpireTime as $item1) {
-                    $res['DBInstanceExpireTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBInstanceExpireTime'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class items extends Model
                 $model->DBInstanceExpireTime = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceExpireTime'] as $item1) {
-                    $model->DBInstanceExpireTime[$n1++] = DBInstanceExpireTime::fromMap($item1);
+                    $model->DBInstanceExpireTime[$n1] = DBInstanceExpireTime::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

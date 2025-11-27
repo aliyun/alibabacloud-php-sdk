@@ -46,6 +46,11 @@ class CloneDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $customExtraInfo;
+
+    /**
+     * @var string
+     */
     public $DBInstanceClass;
 
     /**
@@ -175,6 +180,7 @@ class CloneDBInstanceShrinkRequest extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'clientToken' => 'ClientToken',
+        'customExtraInfo' => 'CustomExtraInfo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId' => 'DBInstanceId',
@@ -236,6 +242,10 @@ class CloneDBInstanceShrinkRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->customExtraInfo) {
+            $res['CustomExtraInfo'] = $this->customExtraInfo;
         }
 
         if (null !== $this->DBInstanceClass) {
@@ -375,6 +385,10 @@ class CloneDBInstanceShrinkRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CustomExtraInfo'])) {
+            $model->customExtraInfo = $map['CustomExtraInfo'];
         }
 
         if (isset($map['DBInstanceClass'])) {

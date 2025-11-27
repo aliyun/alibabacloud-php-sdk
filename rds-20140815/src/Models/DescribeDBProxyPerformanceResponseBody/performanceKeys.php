@@ -33,7 +33,8 @@ class performanceKeys extends Model
                 $res['PerformanceKey'] = [];
                 $n1 = 0;
                 foreach ($this->performanceKey as $item1) {
-                    $res['PerformanceKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PerformanceKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class performanceKeys extends Model
                 $model->performanceKey = [];
                 $n1 = 0;
                 foreach ($map['PerformanceKey'] as $item1) {
-                    $model->performanceKey[$n1++] = performanceKey::fromMap($item1);
+                    $model->performanceKey[$n1] = performanceKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

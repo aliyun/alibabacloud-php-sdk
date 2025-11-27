@@ -64,6 +64,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $dedicatedHostAttribute;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @var string
      */
     public $deploymentSetId;
@@ -97,6 +102,16 @@ class DescribeRCInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $expiredTime;
+
+    /**
+     * @var int
+     */
+    public $gpu;
+
+    /**
+     * @var string
+     */
+    public $gpuTypes;
 
     /**
      * @var string
@@ -174,6 +189,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $memory;
 
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @var operationLocks
      */
     public $operationLocks;
@@ -236,6 +256,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $userData;
+
+    /**
+     * @var string
+     */
     public $vlanId;
 
     /**
@@ -257,6 +282,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'dataDisks' => 'DataDisks',
         'dbType' => 'DbType',
         'dedicatedHostAttribute' => 'DedicatedHostAttribute',
+        'deletionProtection' => 'DeletionProtection',
         'deploymentSetId' => 'DeploymentSetId',
         'description' => 'Description',
         'diskType' => 'DiskType',
@@ -264,6 +290,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'eipAddress' => 'EipAddress',
         'enableJumboFrame' => 'EnableJumboFrame',
         'expiredTime' => 'ExpiredTime',
+        'gpu' => 'Gpu',
+        'gpuTypes' => 'GpuTypes',
         'hostName' => 'HostName',
         'hostType' => 'HostType',
         'imageId' => 'ImageId',
@@ -279,6 +307,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'ioOptimized' => 'IoOptimized',
         'keyPairName' => 'KeyPairName',
         'memory' => 'Memory',
+        'nodeType' => 'NodeType',
         'operationLocks' => 'OperationLocks',
         'publicIpAddress' => 'PublicIpAddress',
         'regionId' => 'RegionId',
@@ -291,6 +320,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'stoppedMode' => 'StoppedMode',
         'systemDisk' => 'SystemDisk',
         'tags' => 'Tags',
+        'userData' => 'UserData',
         'vlanId' => 'VlanId',
         'vpcAttributes' => 'VpcAttributes',
         'zoneId' => 'ZoneId',
@@ -370,6 +400,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
             $res['DedicatedHostAttribute'] = null !== $this->dedicatedHostAttribute ? $this->dedicatedHostAttribute->toArray($noStream) : $this->dedicatedHostAttribute;
         }
 
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
         }
@@ -396,6 +430,14 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
+        }
+
+        if (null !== $this->gpuTypes) {
+            $res['GpuTypes'] = $this->gpuTypes;
         }
 
         if (null !== $this->hostName) {
@@ -458,6 +500,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
             $res['Memory'] = $this->memory;
         }
 
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
+        }
+
         if (null !== $this->operationLocks) {
             $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toArray($noStream) : $this->operationLocks;
         }
@@ -504,6 +550,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
+        }
+
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         if (null !== $this->vlanId) {
@@ -565,6 +615,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
             $model->dedicatedHostAttribute = dedicatedHostAttribute::fromMap($map['DedicatedHostAttribute']);
         }
 
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
+        }
+
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];
         }
@@ -591,6 +645,14 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
+        }
+
+        if (isset($map['GpuTypes'])) {
+            $model->gpuTypes = $map['GpuTypes'];
         }
 
         if (isset($map['HostName'])) {
@@ -653,6 +715,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
             $model->memory = $map['Memory'];
         }
 
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
+        }
+
         if (isset($map['OperationLocks'])) {
             $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
@@ -699,6 +765,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         if (isset($map['VlanId'])) {

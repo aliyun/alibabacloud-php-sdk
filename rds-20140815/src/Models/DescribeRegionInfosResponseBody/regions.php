@@ -33,7 +33,8 @@ class regions extends Model
                 $res['RDSRegion'] = [];
                 $n1 = 0;
                 foreach ($this->RDSRegion as $item1) {
-                    $res['RDSRegion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RDSRegion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class regions extends Model
                 $model->RDSRegion = [];
                 $n1 = 0;
                 foreach ($map['RDSRegion'] as $item1) {
-                    $model->RDSRegion[$n1++] = RDSRegion::fromMap($item1);
+                    $model->RDSRegion[$n1] = RDSRegion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

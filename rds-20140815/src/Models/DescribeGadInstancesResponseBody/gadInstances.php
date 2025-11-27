@@ -77,7 +77,8 @@ class gadInstances extends Model
                 $res['GadInstanceMembers'] = [];
                 $n1 = 0;
                 foreach ($this->gadInstanceMembers as $item1) {
-                    $res['GadInstanceMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GadInstanceMembers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class gadInstances extends Model
                 $model->gadInstanceMembers = [];
                 $n1 = 0;
                 foreach ($map['GadInstanceMembers'] as $item1) {
-                    $model->gadInstanceMembers[$n1++] = gadInstanceMembers::fromMap($item1);
+                    $model->gadInstanceMembers[$n1] = gadInstanceMembers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

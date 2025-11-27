@@ -32,7 +32,8 @@ class DBInstanceIds extends Model
                 $res['DBInstanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->DBInstanceIds as $item1) {
-                    $res['DBInstanceIds'][$n1++] = $item1;
+                    $res['DBInstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DBInstanceIds extends Model
                 $model->DBInstanceIds = [];
                 $n1 = 0;
                 foreach ($map['DBInstanceIds'] as $item1) {
-                    $model->DBInstanceIds[$n1++] = $item1;
+                    $model->DBInstanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -26,6 +26,16 @@ class DescribeDBInstanceReplicationResponseBody extends Model
     /**
      * @var string
      */
+    public $replicationIp;
+
+    /**
+     * @var string
+     */
+    public $replicationPort;
+
+    /**
+     * @var string
+     */
     public $replicationSource;
 
     /**
@@ -41,6 +51,8 @@ class DescribeDBInstanceReplicationResponseBody extends Model
         'externalReplication' => 'ExternalReplication',
         'replicationDelay' => 'ReplicationDelay',
         'replicationErrorMessage' => 'ReplicationErrorMessage',
+        'replicationIp' => 'ReplicationIp',
+        'replicationPort' => 'ReplicationPort',
         'replicationSource' => 'ReplicationSource',
         'replicationState' => 'ReplicationState',
         'requestId' => 'RequestId',
@@ -64,6 +76,14 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (null !== $this->replicationErrorMessage) {
             $res['ReplicationErrorMessage'] = $this->replicationErrorMessage;
+        }
+
+        if (null !== $this->replicationIp) {
+            $res['ReplicationIp'] = $this->replicationIp;
+        }
+
+        if (null !== $this->replicationPort) {
+            $res['ReplicationPort'] = $this->replicationPort;
         }
 
         if (null !== $this->replicationSource) {
@@ -99,6 +119,14 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (isset($map['ReplicationErrorMessage'])) {
             $model->replicationErrorMessage = $map['ReplicationErrorMessage'];
+        }
+
+        if (isset($map['ReplicationIp'])) {
+            $model->replicationIp = $map['ReplicationIp'];
+        }
+
+        if (isset($map['ReplicationPort'])) {
+            $model->replicationPort = $map['ReplicationPort'];
         }
 
         if (isset($map['ReplicationSource'])) {

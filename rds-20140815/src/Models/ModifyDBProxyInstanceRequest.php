@@ -125,7 +125,8 @@ class ModifyDBProxyInstanceRequest extends Model
                 $res['DBProxyNodes'] = [];
                 $n1 = 0;
                 foreach ($this->DBProxyNodes as $item1) {
-                    $res['DBProxyNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DBProxyNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class ModifyDBProxyInstanceRequest extends Model
                 $res['MigrateAZ'] = [];
                 $n1 = 0;
                 foreach ($this->migrateAZ as $item1) {
-                    $res['MigrateAZ'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MigrateAZ'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +202,8 @@ class ModifyDBProxyInstanceRequest extends Model
                 $model->DBProxyNodes = [];
                 $n1 = 0;
                 foreach ($map['DBProxyNodes'] as $item1) {
-                    $model->DBProxyNodes[$n1++] = DBProxyNodes::fromMap($item1);
+                    $model->DBProxyNodes[$n1] = DBProxyNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +221,8 @@ class ModifyDBProxyInstanceRequest extends Model
                 $model->migrateAZ = [];
                 $n1 = 0;
                 foreach ($map['MigrateAZ'] as $item1) {
-                    $model->migrateAZ[$n1++] = migrateAZ::fromMap($item1);
+                    $model->migrateAZ[$n1] = migrateAZ::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
