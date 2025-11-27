@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\a
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\configInfo;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\portMappings;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\renderingStatus;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\resourceAttributes;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\systemInfo;
 
 class DescribeRenderingInstanceResponseBody extends Model
@@ -74,6 +75,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @var resourceAttributes
+     */
+    public $resourceAttributes;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -95,6 +101,7 @@ class DescribeRenderingInstanceResponseBody extends Model
         'renderingSpec' => 'RenderingSpec',
         'renderingStatus' => 'RenderingStatus',
         'requestId' => 'RequestId',
+        'resourceAttributes' => 'ResourceAttributes',
         'storageSize' => 'StorageSize',
         'systemInfo' => 'SystemInfo',
     ];
@@ -112,6 +119,9 @@ class DescribeRenderingInstanceResponseBody extends Model
         }
         if (null !== $this->renderingStatus) {
             $this->renderingStatus->validate();
+        }
+        if (null !== $this->resourceAttributes) {
+            $this->resourceAttributes->validate();
         }
         if (null !== $this->systemInfo) {
             $this->systemInfo->validate();
@@ -182,6 +192,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceAttributes) {
+            $res['ResourceAttributes'] = null !== $this->resourceAttributes ? $this->resourceAttributes->toArray($noStream) : $this->resourceAttributes;
         }
 
         if (null !== $this->storageSize) {
@@ -263,6 +277,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceAttributes'])) {
+            $model->resourceAttributes = resourceAttributes::fromMap($map['ResourceAttributes']);
         }
 
         if (isset($map['StorageSize'])) {
