@@ -27,6 +27,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -77,6 +82,7 @@ class applications extends Model
         'applicationId' => 'ApplicationId',
         'applicationType' => 'ApplicationType',
         'creationTime' => 'CreationTime',
+        'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
         'endpoints' => 'Endpoints',
         'engineVersion' => 'EngineVersion',
@@ -110,6 +116,10 @@ class applications extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
         if (null !== $this->description) {
@@ -173,6 +183,10 @@ class applications extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
         if (isset($map['Description'])) {
