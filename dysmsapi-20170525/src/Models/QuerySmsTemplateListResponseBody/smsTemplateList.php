@@ -58,6 +58,11 @@ class smsTemplateList extends Model
      * @var int
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $trafficDriving;
     protected $_name = [
         'auditStatus' => 'AuditStatus',
         'createDate' => 'CreateDate',
@@ -69,6 +74,7 @@ class smsTemplateList extends Model
         'templateContent' => 'TemplateContent',
         'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
+        'trafficDriving' => 'TrafficDriving',
     ];
 
     public function validate()
@@ -122,6 +128,10 @@ class smsTemplateList extends Model
             $res['TemplateType'] = $this->templateType;
         }
 
+        if (null !== $this->trafficDriving) {
+            $res['TrafficDriving'] = $this->trafficDriving;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class smsTemplateList extends Model
 
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+
+        if (isset($map['TrafficDriving'])) {
+            $model->trafficDriving = $map['TrafficDriving'];
         }
 
         return $model;

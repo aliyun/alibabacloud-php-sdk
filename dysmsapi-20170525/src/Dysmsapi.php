@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetQualificationOssInfoRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetQualificationOssInfoResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsOcrOssInfoRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsOcrOssInfoResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateRequest;
@@ -2150,6 +2152,75 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getQualificationOssInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取OCR的OSS信息.
+     *
+     * @param request - GetSmsOcrOssInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmsOcrOssInfoResponse
+     *
+     * @param GetSmsOcrOssInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSmsOcrOssInfoResponse
+     */
+    public function getSmsOcrOssInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSmsOcrOssInfo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSmsOcrOssInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取OCR的OSS信息.
+     *
+     * @param request - GetSmsOcrOssInfoRequest
+     *
+     * @returns GetSmsOcrOssInfoResponse
+     *
+     * @param GetSmsOcrOssInfoRequest $request
+     *
+     * @return GetSmsOcrOssInfoResponse
+     */
+    public function getSmsOcrOssInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsOcrOssInfoWithOptions($request, $runtime);
     }
 
     /**
