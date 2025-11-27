@@ -88,6 +88,16 @@ class users extends Model
     public $ownerType;
 
     /**
+     * @var int
+     */
+    public $passwordExpireDays;
+
+    /**
+     * @var int
+     */
+    public $passwordExpireRestDays;
+
+    /**
      * @var string
      */
     public $phone;
@@ -132,6 +142,8 @@ class users extends Model
         'orgId' => 'OrgId',
         'orgs' => 'Orgs',
         'ownerType' => 'OwnerType',
+        'passwordExpireDays' => 'PasswordExpireDays',
+        'passwordExpireRestDays' => 'PasswordExpireRestDays',
         'phone' => 'Phone',
         'properties' => 'Properties',
         'realNickName' => 'RealNickName',
@@ -232,6 +244,14 @@ class users extends Model
 
         if (null !== $this->ownerType) {
             $res['OwnerType'] = $this->ownerType;
+        }
+
+        if (null !== $this->passwordExpireDays) {
+            $res['PasswordExpireDays'] = $this->passwordExpireDays;
+        }
+
+        if (null !== $this->passwordExpireRestDays) {
+            $res['PasswordExpireRestDays'] = $this->passwordExpireRestDays;
         }
 
         if (null !== $this->phone) {
@@ -348,6 +368,14 @@ class users extends Model
 
         if (isset($map['OwnerType'])) {
             $model->ownerType = $map['OwnerType'];
+        }
+
+        if (isset($map['PasswordExpireDays'])) {
+            $model->passwordExpireDays = $map['PasswordExpireDays'];
+        }
+
+        if (isset($map['PasswordExpireRestDays'])) {
+            $model->passwordExpireRestDays = $map['PasswordExpireRestDays'];
         }
 
         if (isset($map['Phone'])) {

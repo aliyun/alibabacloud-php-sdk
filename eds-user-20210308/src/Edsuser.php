@@ -132,7 +132,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 批量设置桌面管理员.
+     * Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+     *
+     * @remarks
+     * Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
      *
      * @param request - BatchSetDesktopManagerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -175,7 +178,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 批量设置桌面管理员.
+     * Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+     *
+     * @remarks
+     * Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
      *
      * @param request - BatchSetDesktopManagerRequest
      *
@@ -378,7 +384,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * Creates a user group.
      *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -433,7 +439,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * Creates a user group.
      *
      * @param request - CreateGroupRequest
      *
@@ -451,7 +457,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建组织.
+     * Creates an organization.
      *
      * @param request - CreateOrgRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -494,7 +500,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建组织.
+     * Creates an organization.
      *
      * @param request - CreateOrgRequest
      *
@@ -573,7 +579,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建资源组.
+     * Creates a resource group.
      *
      * @param request - CreateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -620,7 +626,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 创建资源组.
+     * Creates a resource group.
      *
      * @param request - CreateResourceGroupRequest
      *
@@ -851,7 +857,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 全量同步初始化.
+     * Queries the members of a user group.
      *
      * @param request - DescribeGroupUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -910,7 +916,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 全量同步初始化.
+     * Queries the members of a user group.
      *
      * @param request - DescribeGroupUserRequest
      *
@@ -928,7 +934,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 全量同步初始化.
+     * Queries user groups.
      *
      * @param request - DescribeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -958,6 +964,10 @@ class Edsuser extends OpenApiClient
 
         if (null !== $request->groupName) {
             @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->idpId) {
+            @$query['IdpId'] = $request->idpId;
         }
 
         if (null !== $request->loginPolicyId) {
@@ -999,7 +1009,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 全量同步初始化.
+     * Queries user groups.
      *
      * @param request - DescribeGroupsRequest
      *
@@ -1017,7 +1027,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
      *
      * @param request - DescribeMfaDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1076,7 +1086,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
      *
      * @param request - DescribeMfaDevicesRequest
      *
@@ -1094,7 +1104,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查找下级组织.
+     * Queries subordinate organizations.
      *
      * @param request - DescribeOrgByLayerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1137,7 +1147,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查找下级组织.
+     * Queries subordinate organizations.
      *
      * @param request - DescribeOrgByLayerRequest
      *
@@ -1240,7 +1250,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查看资源组.
+     * Queries resource groups.
      *
      * @param request - DescribeResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1299,7 +1309,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查看资源组.
+     * Queries resource groups.
      *
      * @param request - DescribeResourceGroupsRequest
      *
@@ -1622,7 +1632,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 初始化TenantAlias.
+     * Initializes an organization ID.
      *
      * @param request - InitTenantAliasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +1662,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 初始化TenantAlias.
+     * Initializes an organization ID.
      *
      * @returns InitTenantAliasResponse
      *
@@ -1897,7 +1907,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 修改角色.
+     * Modifies the name and description of a user group.
      *
      * @param request - ModifyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1944,7 +1954,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 修改角色.
+     * Modifies the name and description of a user group.
      *
      * @param request - ModifyGroupRequest
      *
@@ -1962,7 +1972,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 修改组织.
+     * Modifies an organization.
      *
      * @param request - ModifyOrgRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2005,7 +2015,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 修改组织.
+     * Modifies an organization.
      *
      * @param request - ModifyOrgRequest
      *
@@ -2088,7 +2098,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移动组织.
+     * Moves an organization.
      *
      * @param request - MoveOrgRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2131,7 +2141,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移动组织.
+     * Moves an organization.
      *
      * @param request - MoveOrgRequest
      *
@@ -2149,7 +2159,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移动用户组织.
+     * Moves users to a specific organization.
      *
      * @param request - MoveUserOrgRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2192,7 +2202,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移动用户组织.
+     * Moves users to a specific organization.
      *
      * @param request - MoveUserOrgRequest
      *
@@ -2254,7 +2264,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a single user group or multiple user groups at a time.
      *
      * @param request - RemoveGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2297,7 +2307,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a single user group or multiple user groups at a time.
      *
      * @param request - RemoveGroupRequest
      *
@@ -2315,10 +2325,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
      *
      * @remarks
-     * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     * If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
      *
      * @param request - RemoveMfaDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2361,10 +2371,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
      *
      * @remarks
-     * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     * If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
      *
      * @param request - RemoveMfaDeviceRequest
      *
@@ -2382,7 +2392,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移除组织.
+     * Removes an organization.
      *
      * @param request - RemoveOrgRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2421,7 +2431,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 移除组织.
+     * Removes an organization.
      *
      * @param request - RemoveOrgRequest
      *
@@ -2916,7 +2926,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 用户批量分配角色.
+     * Add multiple users to a user group at a time.
      *
      * @param request - UserBatchJoinGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2959,7 +2969,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 用户批量分配角色.
+     * Add multiple users to a user group at a time.
      *
      * @param request - UserBatchJoinGroupRequest
      *
@@ -2977,7 +2987,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 用户批量移出角色.
+     * Removes multiple users from a user group at a time.
      *
      * @param request - UserBatchQuitGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3020,7 +3030,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 用户批量移出角色.
+     * Removes multiple users from a user group at a time.
      *
      * @param request - UserBatchQuitGroupRequest
      *

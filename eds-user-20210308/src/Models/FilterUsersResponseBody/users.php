@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\externalInfo;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\groups;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\orgList;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\supportLoginIdps;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\userSetPropertiesModels;
@@ -46,6 +47,11 @@ class users extends Model
      * @var externalInfo
      */
     public $externalInfo;
+
+    /**
+     * @var groups[]
+     */
+    public $groups;
 
     /**
      * @var int
@@ -114,6 +120,7 @@ class users extends Model
         'enableAdminAccess' => 'EnableAdminAccess',
         'endUserId' => 'EndUserId',
         'externalInfo' => 'ExternalInfo',
+        'groups' => 'Groups',
         'id' => 'Id',
         'isTenantManager' => 'IsTenantManager',
         'orgList' => 'OrgList',
@@ -132,6 +139,9 @@ class users extends Model
     {
         if (null !== $this->externalInfo) {
             $this->externalInfo->validate();
+        }
+        if (\is_array($this->groups)) {
+            Model::validateArray($this->groups);
         }
         if (\is_array($this->orgList)) {
             Model::validateArray($this->orgList);
@@ -174,6 +184,17 @@ class users extends Model
 
         if (null !== $this->externalInfo) {
             $res['ExternalInfo'] = null !== $this->externalInfo ? $this->externalInfo->toArray($noStream) : $this->externalInfo;
+        }
+
+        if (null !== $this->groups) {
+            if (\is_array($this->groups)) {
+                $res['Groups'] = [];
+                $n1 = 0;
+                foreach ($this->groups as $item1) {
+                    $res['Groups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->id) {
@@ -282,6 +303,17 @@ class users extends Model
 
         if (isset($map['ExternalInfo'])) {
             $model->externalInfo = externalInfo::fromMap($map['ExternalInfo']);
+        }
+
+        if (isset($map['Groups'])) {
+            if (!empty($map['Groups'])) {
+                $model->groups = [];
+                $n1 = 0;
+                foreach ($map['Groups'] as $item1) {
+                    $model->groups[$n1] = groups::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Id'])) {

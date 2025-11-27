@@ -31,6 +31,11 @@ class DescribeGroupsRequest extends Model
     /**
      * @var string
      */
+    public $idpId;
+
+    /**
+     * @var string
+     */
     public $loginPolicyId;
 
     /**
@@ -57,6 +62,7 @@ class DescribeGroupsRequest extends Model
         'excludeAttachedLoginPolicyGroups' => 'ExcludeAttachedLoginPolicyGroups',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
+        'idpId' => 'IdpId',
         'loginPolicyId' => 'LoginPolicyId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -86,6 +92,10 @@ class DescribeGroupsRequest extends Model
 
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+
+        if (null !== $this->idpId) {
+            $res['IdpId'] = $this->idpId;
         }
 
         if (null !== $this->loginPolicyId) {
@@ -133,6 +143,10 @@ class DescribeGroupsRequest extends Model
 
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+
+        if (isset($map['IdpId'])) {
+            $model->idpId = $map['IdpId'];
         }
 
         if (isset($map['LoginPolicyId'])) {

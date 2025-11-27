@@ -19,6 +19,11 @@ class users extends Model
     public $endUserId;
 
     /**
+     * @var string[]
+     */
+    public $groupIdList;
+
+    /**
      * @var string
      */
     public $orgId;
@@ -50,6 +55,7 @@ class users extends Model
     protected $_name = [
         'email' => 'Email',
         'endUserId' => 'EndUserId',
+        'groupIdList' => 'GroupIdList',
         'orgId' => 'OrgId',
         'ownerType' => 'OwnerType',
         'password' => 'Password',
@@ -60,6 +66,9 @@ class users extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupIdList)) {
+            Model::validateArray($this->groupIdList);
+        }
         parent::validate();
     }
 
@@ -72,6 +81,17 @@ class users extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->groupIdList) {
+            if (\is_array($this->groupIdList)) {
+                $res['GroupIdList'] = [];
+                $n1 = 0;
+                foreach ($this->groupIdList as $item1) {
+                    $res['GroupIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->orgId) {
@@ -115,6 +135,17 @@ class users extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['GroupIdList'])) {
+            if (!empty($map['GroupIdList'])) {
+                $model->groupIdList = [];
+                $n1 = 0;
+                foreach ($map['GroupIdList'] as $item1) {
+                    $model->groupIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OrgId'])) {
