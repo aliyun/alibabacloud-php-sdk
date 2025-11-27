@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteActionPlanRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteActionPlanResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobRecordsRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobRecordsResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobRecordsShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsShrinkRequest;
@@ -116,7 +119,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 添加托管侧用户自定义镜像.
+     * Add a custom image.
      *
      * @param tmpReq - AddImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -185,7 +188,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 添加托管侧用户自定义镜像.
+     * Add a custom image.
      *
      * @param request - AddImageRequest
      *
@@ -203,7 +206,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 创建执行计划创建执行计划.
+     * Create a E-HPC execution plan.
+     *
+     * @remarks
+     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
      *
      * @param tmpReq - CreateActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -288,7 +294,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 创建执行计划创建执行计划.
+     * Create a E-HPC execution plan.
+     *
+     * @remarks
+     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
      *
      * @param request - CreateActionPlanRequest
      *
@@ -306,7 +315,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 提交任务
+     * Create a E-HPC Instant job.
      *
      * @param tmpReq - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -387,7 +396,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 提交任务
+     * Create a E-HPC Instant job.
      *
      * @param request - CreateJobRequest
      *
@@ -405,7 +414,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 创建资源池.
+     * Creates a resource pool.
      *
      * @param tmpReq - CreatePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -458,7 +467,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 创建资源池.
+     * Creates a resource pool.
      *
      * @param request - CreatePoolRequest
      *
@@ -476,7 +485,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除执行计划.
+     * Delete an execution plan.
+     *
+     * @remarks
+     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+     * This operation stops all Instant jobs that are managed by ActionPlanId.
      *
      * @param request - DeleteActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -515,7 +528,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除执行计划.
+     * Delete an execution plan.
+     *
+     * @remarks
+     * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+     * This operation stops all Instant jobs that are managed by ActionPlanId.
      *
      * @param request - DeleteActionPlanRequest
      *
@@ -533,7 +550,70 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除作业.
+     * Deletes one or more job records that are in the final state from a specified cluster.
+     *
+     * @param tmpReq - DeleteJobRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobRecordsResponse
+     *
+     * @param DeleteJobRecordsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteJobRecordsResponse
+     */
+    public function deleteJobRecordsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteJobRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->jobIdsShrink) {
+            @$query['JobIds'] = $request->jobIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteJobRecords',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteJobRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes one or more job records that are in the final state from a specified cluster.
+     *
+     * @param request - DeleteJobRecordsRequest
+     *
+     * @returns DeleteJobRecordsResponse
+     *
+     * @param DeleteJobRecordsRequest $request
+     *
+     * @return DeleteJobRecordsResponse
+     */
+    public function deleteJobRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteJobRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes one or more jobs from a specified cluster.
      *
      * @param tmpReq - DeleteJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -590,7 +670,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除作业.
+     * Deletes one or more jobs from a specified cluster.
      *
      * @param request - DeleteJobsRequest
      *
@@ -608,7 +688,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除资源池.
+     * You can execute this statement to delete a resource pool.
      *
      * @param request - DeletePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -647,7 +727,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 删除资源池.
+     * You can execute this statement to delete a resource pool.
      *
      * @param request - DeletePoolRequest
      *
@@ -665,7 +745,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业性能数据.
+     * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
      *
      * @param tmpReq - DescribeJobMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -722,7 +802,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业性能数据.
+     * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
      *
      * @param request - DescribeJobMetricDataRequest
      *
@@ -740,7 +820,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业即时监控项.
+     * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
      *
      * @param tmpReq - DescribeJobMetricLastRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -793,7 +873,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业即时监控项.
+     * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
      *
      * @param request - DescribeJobMetricLastRequest
      *
@@ -811,7 +891,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划详情.
+     * Querying Execution Plan Details.
      *
      * @param request - GetActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -850,7 +930,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划详情.
+     * Querying Execution Plan Details.
      *
      * @param request - GetActionPlanRequest
      *
@@ -868,7 +948,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查看应用版本列表.
+     * Obtains the application version list.
      *
      * @param request - GetAppVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -923,7 +1003,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查看应用版本列表.
+     * Obtains the application version list.
      *
      * @param request - GetAppVersionsRequest
      *
@@ -941,7 +1021,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询托管侧镜像详情。
+     * Obtains the information about an image.
      *
      * @param tmpReq - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -998,7 +1078,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询托管侧镜像详情。
+     * Obtains the information about an image.
      *
      * @param request - GetImageRequest
      *
@@ -1016,7 +1096,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业详情.
+     * Obtains the details of an execution job.
      *
      * @param request - GetJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1055,7 +1135,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业详情.
+     * Obtains the details of an execution job.
      *
      * @param request - GetJobRequest
      *
@@ -1073,7 +1153,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询队列详细信息.
+     * Obtains the details of a resource pool.
      *
      * @param request - GetPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1112,7 +1192,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询队列详细信息.
+     * Obtains the details of a resource pool.
      *
      * @param request - GetPoolRequest
      *
@@ -1130,7 +1210,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划的执行情况。
+     * Queries the execution status of an execution plan.
      *
      * @param request - ListActionPlanActivitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1177,7 +1257,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划的执行情况。
+     * Queries the execution status of an execution plan.
      *
      * @param request - ListActionPlanActivitiesRequest
      *
@@ -1195,7 +1275,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划列表.
+     * Queries the list of execution plans.
      *
      * @param tmpReq - ListActionPlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1248,7 +1328,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询执行计划列表.
+     * Queries the list of execution plans.
      *
      * @param request - ListActionPlansRequest
      *
@@ -1266,7 +1346,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询全局Executor信息.
+     * Querying Global Executor Information.
      *
      * @param tmpReq - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1319,7 +1399,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询全局Executor信息.
+     * Querying Global Executor Information.
      *
      * @param request - ListExecutorsRequest
      *
@@ -1337,7 +1417,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查看托管侧镜像列表.
+     * Queries the image list.
      *
      * @param tmpReq - ListImagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1410,7 +1490,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查看托管侧镜像列表.
+     * Queries the image list.
      *
      * @param request - ListImagesRequest
      *
@@ -1428,7 +1508,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业Executor信息.
+     * Queries job executor information.
+     *
+     * @remarks
+     * Queries job executor information.
      *
      * @param request - ListJobExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1479,7 +1562,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业Executor信息.
+     * Queries job executor information.
+     *
+     * @remarks
+     * Queries job executor information.
      *
      * @param request - ListJobExecutorsRequest
      *
@@ -1497,7 +1583,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业列表.
+     * Queries the jobs in a cluster.
      *
      * @param tmpReq - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1558,7 +1644,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业列表.
+     * Queries the jobs in a cluster.
      *
      * @param request - ListJobsRequest
      *
@@ -1576,7 +1662,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询资源池列表.
+     * Queries the resource pool list.
      *
      * @param tmpReq - ListPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1629,7 +1715,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询资源池列表.
+     * Queries the resource pool list.
      *
      * @param request - ListPoolsRequest
      *
@@ -1647,7 +1733,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询一个或多个资源已经绑定的标签列表.
+     * Queries the tags that are bound to one or more Instant resources.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1702,7 +1788,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询一个或多个资源已经绑定的标签列表.
+     * Queries the tags that are bound to one or more Instant resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -1720,7 +1806,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 移除托管侧镜像信息。
+     * Remove a custom image.
      *
      * @param request - RemoveImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1763,7 +1849,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 移除托管侧镜像信息。
+     * Remove a custom image.
      *
      * @param request - RemoveImageRequest
      *
@@ -1781,7 +1867,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 应用跨地域同步.
+     * Application cross-region synchronization.
      *
      * @param tmpReq - SynchronizeAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1830,7 +1916,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 应用跨地域同步.
+     * Application cross-region synchronization.
      *
      * @param request - SynchronizeAppRequest
      *
@@ -1848,7 +1934,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 为指定的资源列表统一创建并绑定标签.
+     * Create and bind tags to Instant resource list.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1895,7 +1981,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 为指定的资源列表统一创建并绑定标签.
+     * Create and bind tags to Instant resource list.
      *
      * @param request - TagResourcesRequest
      *
@@ -1913,7 +1999,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 为指定的ECS资源列表统一解绑标签.
+     * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,7 +2050,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 为指定的ECS资源列表统一解绑标签.
+     * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -1982,7 +2068,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新执行计划.
+     * Adjust the resource scale of the execution plan or modify the execution status.
      *
      * @param request - UpdateActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2115,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新执行计划.
+     * Adjust the resource scale of the execution plan or modify the execution status.
      *
      * @param request - UpdateActionPlanRequest
      *
@@ -2047,7 +2133,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新资源池.
+     * Update the resource pool configuration.
      *
      * @param tmpReq - UpdatePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2100,7 +2186,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 更新资源池.
+     * Update the resource pool configuration.
      *
      * @param request - UpdatePoolRequest
      *

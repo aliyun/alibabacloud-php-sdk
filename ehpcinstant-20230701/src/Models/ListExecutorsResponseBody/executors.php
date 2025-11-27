@@ -128,6 +128,11 @@ class executors extends Model
     /**
      * @var string
      */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
     public $vswitchId;
     protected $_name = [
         'allocationSpec' => 'AllocationSpec',
@@ -153,6 +158,7 @@ class executors extends Model
         'tags' => 'Tags',
         'taskName' => 'TaskName',
         'taskSustainable' => 'TaskSustainable',
+        'vpcId' => 'VpcId',
         'vswitchId' => 'VswitchId',
     ];
 
@@ -299,6 +305,10 @@ class executors extends Model
             $res['TaskSustainable'] = $this->taskSustainable;
         }
 
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
@@ -432,6 +442,10 @@ class executors extends Model
 
         if (isset($map['TaskSustainable'])) {
             $model->taskSustainable = $map['TaskSustainable'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['VswitchId'])) {

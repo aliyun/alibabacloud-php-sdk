@@ -46,6 +46,11 @@ class filter extends Model
     /**
      * @var string
      */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
     public $vswitchId;
     protected $_name = [
         'executorIds' => 'ExecutorIds',
@@ -55,6 +60,7 @@ class filter extends Model
         'status' => 'Status',
         'timeCreatedAfter' => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
+        'vpcId' => 'VpcId',
         'vswitchId' => 'VswitchId',
     ];
 
@@ -124,6 +130,10 @@ class filter extends Model
             $res['TimeCreatedBefore'] = $this->timeCreatedBefore;
         }
 
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
@@ -186,6 +196,10 @@ class filter extends Model
 
         if (isset($map['TimeCreatedBefore'])) {
             $model->timeCreatedBefore = $map['TimeCreatedBefore'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['VswitchId'])) {
