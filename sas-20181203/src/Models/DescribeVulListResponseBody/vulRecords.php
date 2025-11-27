@@ -25,6 +25,11 @@ class vulRecords extends Model
     public $bind;
 
     /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
      * @var extendContentJson
      */
     public $extendContentJson;
@@ -207,6 +212,7 @@ class vulRecords extends Model
         'aliasName' => 'AliasName',
         'authVersion' => 'AuthVersion',
         'bind' => 'Bind',
+        'containerId' => 'ContainerId',
         'extendContentJson' => 'ExtendContentJson',
         'firstTs' => 'FirstTs',
         'groupId' => 'GroupId',
@@ -266,6 +272,10 @@ class vulRecords extends Model
 
         if (null !== $this->bind) {
             $res['Bind'] = $this->bind;
+        }
+
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
         }
 
         if (null !== $this->extendContentJson) {
@@ -433,6 +443,10 @@ class vulRecords extends Model
 
         if (isset($map['Bind'])) {
             $model->bind = $map['Bind'];
+        }
+
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
         }
 
         if (isset($map['ExtendContentJson'])) {
