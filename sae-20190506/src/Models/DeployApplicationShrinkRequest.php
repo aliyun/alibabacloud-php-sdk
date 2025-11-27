@@ -376,6 +376,11 @@ class DeployApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $slsLogEnvTags;
+
+    /**
+     * @var string
+     */
     public $startupProbe;
 
     /**
@@ -491,6 +496,7 @@ class DeployApplicationShrinkRequest extends Model
         'serviceTags' => 'ServiceTags',
         'sidecarContainersConfigShrink' => 'SidecarContainersConfig',
         'slsConfigs' => 'SlsConfigs',
+        'slsLogEnvTags' => 'SlsLogEnvTags',
         'startupProbe' => 'StartupProbe',
         'swimlanePvtzDiscoverySvc' => 'SwimlanePvtzDiscoverySvc',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
@@ -800,6 +806,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->slsLogEnvTags) {
+            $res['SlsLogEnvTags'] = $this->slsLogEnvTags;
         }
 
         if (null !== $this->startupProbe) {
@@ -1139,6 +1149,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['SlsLogEnvTags'])) {
+            $model->slsLogEnvTags = $map['SlsLogEnvTags'];
         }
 
         if (isset($map['StartupProbe'])) {

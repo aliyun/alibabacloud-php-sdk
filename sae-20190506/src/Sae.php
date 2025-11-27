@@ -1167,6 +1167,10 @@ class Sae extends OpenApiClient
             @$query['SlsConfigs'] = $request->slsConfigs;
         }
 
+        if (null !== $request->slsLogEnvTags) {
+            @$query['SlsLogEnvTags'] = $request->slsLogEnvTags;
+        }
+
         if (null !== $request->startupProbe) {
             @$query['StartupProbe'] = $request->startupProbe;
         }
@@ -3657,6 +3661,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->slsConfigs) {
             @$query['SlsConfigs'] = $request->slsConfigs;
+        }
+
+        if (null !== $request->slsLogEnvTags) {
+            @$query['SlsLogEnvTags'] = $request->slsLogEnvTags;
         }
 
         if (null !== $request->startupProbe) {
