@@ -2384,6 +2384,10 @@ class AgentRun extends OpenApiClient
             @$query['searchMode'] = $request->searchMode;
         }
 
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

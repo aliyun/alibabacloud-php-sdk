@@ -31,6 +31,11 @@ class Template extends Model
     public $credentialConfiguration;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $diskSize;
@@ -139,6 +144,7 @@ class Template extends Model
         'cpu' => 'cpu',
         'createdAt' => 'createdAt',
         'credentialConfiguration' => 'credentialConfiguration',
+        'description' => 'description',
         'diskSize' => 'diskSize',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
@@ -205,6 +211,10 @@ class Template extends Model
 
         if (null !== $this->credentialConfiguration) {
             $res['credentialConfiguration'] = null !== $this->credentialConfiguration ? $this->credentialConfiguration->toArray($noStream) : $this->credentialConfiguration;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->diskSize) {
@@ -323,6 +333,10 @@ class Template extends Model
 
         if (isset($map['credentialConfiguration'])) {
             $model->credentialConfiguration = CredentialConfiguration::fromMap($map['credentialConfiguration']);
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['diskSize'])) {

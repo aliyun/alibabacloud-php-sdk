@@ -27,11 +27,17 @@ class OssConfiguration extends Model
      * @var string
      */
     public $prefix;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
         'bucketName' => 'bucketName',
         'mountPoint' => 'mountPoint',
         'permission' => 'permission',
         'prefix' => 'prefix',
+        'region' => 'region',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class OssConfiguration extends Model
 
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class OssConfiguration extends Model
 
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
 
         return $model;

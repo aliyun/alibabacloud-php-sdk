@@ -27,11 +27,17 @@ class ListAgentRuntimesRequest extends Model
      * @var string
      */
     public $searchMode;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'searchMode' => 'searchMode',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (null !== $this->searchMode) {
             $res['searchMode'] = $this->searchMode;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (isset($map['searchMode'])) {
             $model->searchMode = $map['searchMode'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;
