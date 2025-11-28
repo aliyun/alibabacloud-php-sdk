@@ -143,6 +143,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListTenantAddonsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListVirtualResourceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListVirtualResourceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\MigrateResourceInstanceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\MigrateResourceInstanceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReinstallTenantAddonResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
@@ -3033,8 +3035,16 @@ class Eas extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->instanceTypesShrink) {
             @$query['InstanceTypes'] = $request->instanceTypesShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
 
         $req = new OpenApiRequest([
@@ -5695,6 +5705,79 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listVirtualResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Migrates resource group instances.
+     *
+     * @param request - MigrateResourceInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateResourceInstanceResponse
+     *
+     * @param string                         $ClusterId
+     * @param string                         $ResourceId
+     * @param MigrateResourceInstanceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return MigrateResourceInstanceResponse
+     */
+    public function migrateResourceInstanceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->destResourceId) {
+            @$body['DestResourceId'] = $request->destResourceId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->migrateToHybrid) {
+            @$body['MigrateToHybrid'] = $request->migrateToHybrid;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MigrateResourceInstance',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances/migrate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MigrateResourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Migrates resource group instances.
+     *
+     * @param request - MigrateResourceInstanceRequest
+     *
+     * @returns MigrateResourceInstanceResponse
+     *
+     * @param string                         $ClusterId
+     * @param string                         $ResourceId
+     * @param MigrateResourceInstanceRequest $request
+     *
+     * @return MigrateResourceInstanceResponse
+     */
+    public function migrateResourceInstance($ClusterId, $ResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->migrateResourceInstanceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**

@@ -11,9 +11,21 @@ class DescribeMachineSpecShrinkRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $instanceTypesShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'instanceTypesShrink' => 'InstanceTypes',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -24,8 +36,16 @@ class DescribeMachineSpecShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->instanceTypesShrink) {
             $res['InstanceTypes'] = $this->instanceTypesShrink;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -39,8 +59,16 @@ class DescribeMachineSpecShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['InstanceTypes'])) {
             $model->instanceTypesShrink = $map['InstanceTypes'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

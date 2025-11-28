@@ -9,11 +9,23 @@ use AlibabaCloud\Dara\Model;
 class DescribeMachineSpecRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var string[]
      */
     public $instanceTypes;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'instanceTypes' => 'InstanceTypes',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -27,6 +39,10 @@ class DescribeMachineSpecRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->instanceTypes) {
             if (\is_array($this->instanceTypes)) {
                 $res['InstanceTypes'] = [];
@@ -36,6 +52,10 @@ class DescribeMachineSpecRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -49,6 +69,10 @@ class DescribeMachineSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
@@ -58,6 +82,10 @@ class DescribeMachineSpecRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
