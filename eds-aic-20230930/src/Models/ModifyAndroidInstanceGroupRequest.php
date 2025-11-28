@@ -22,10 +22,16 @@ class ModifyAndroidInstanceGroupRequest extends Model
      * @var string
      */
     public $policyGroupId;
+
+    /**
+     * @var int
+     */
+    public $streamMode;
     protected $_name = [
         'instanceGroupId' => 'InstanceGroupId',
         'newInstanceGroupName' => 'NewInstanceGroupName',
         'policyGroupId' => 'PolicyGroupId',
+        'streamMode' => 'StreamMode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ModifyAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+
+        if (null !== $this->streamMode) {
+            $res['StreamMode'] = $this->streamMode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ModifyAndroidInstanceGroupRequest extends Model
 
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+
+        if (isset($map['StreamMode'])) {
+            $model->streamMode = $map['StreamMode'];
         }
 
         return $model;

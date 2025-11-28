@@ -827,6 +827,10 @@ class Edsaic extends OpenApiClient
             @$query['PromotionId'] = $request->promotionId;
         }
 
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }
@@ -4807,6 +4811,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->policyGroupId) {
             @$query['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
         }
 
         $req = new OpenApiRequest([
