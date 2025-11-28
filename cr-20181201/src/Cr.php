@@ -57,6 +57,12 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTagScanTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateScanRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateScanRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateScanRuleShrinkRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateStorageDomainRoutingRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateStorageDomainRoutingRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateStorageDomainRoutingRuleShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactSubscriptionRuleRequest;
@@ -87,6 +93,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteScanRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteScanRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteStorageDomainRoutingRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteStorageDomainRoutingRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskRequest;
@@ -134,6 +144,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetScanRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetScanRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetStorageDomainRoutingRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetStorageDomainRoutingRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleRequest;
@@ -186,6 +200,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanBaselineByTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanBaselineByTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanMaliciousFileByTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanMaliciousFileByTaskResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListScanRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ResetLoginPasswordRequest;
@@ -220,6 +236,12 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateScanRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateScanRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateScanRuleShrinkRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateStorageDomainRoutingRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateStorageDomainRoutingRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateStorageDomainRoutingRuleShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2175,6 +2197,168 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * 创建扫描规则.
+     *
+     * @param tmpReq - CreateScanRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScanRuleResponse
+     *
+     * @param CreateScanRuleRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateScanRuleResponse
+     */
+    public function createScanRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateScanRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->namespaces) {
+            $request->namespacesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        }
+
+        if (null !== $tmpReq->repoNames) {
+            $request->repoNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repoNames, 'RepoNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespacesShrink) {
+            @$query['Namespaces'] = $request->namespacesShrink;
+        }
+
+        if (null !== $request->repoNamesShrink) {
+            @$query['RepoNames'] = $request->repoNamesShrink;
+        }
+
+        if (null !== $request->repoTagFilterPattern) {
+            @$query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->scanScope) {
+            @$query['ScanScope'] = $request->scanScope;
+        }
+
+        if (null !== $request->scanType) {
+            @$query['ScanType'] = $request->scanType;
+        }
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateScanRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateScanRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建扫描规则.
+     *
+     * @param request - CreateScanRuleRequest
+     *
+     * @returns CreateScanRuleResponse
+     *
+     * @param CreateScanRuleRequest $request
+     *
+     * @return CreateScanRuleResponse
+     */
+    public function createScanRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScanRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建实例域名路由规则.
+     *
+     * @param tmpReq - CreateStorageDomainRoutingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStorageDomainRoutingRuleResponse
+     *
+     * @param CreateStorageDomainRoutingRuleRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateStorageDomainRoutingRuleResponse
+     */
+    public function createStorageDomainRoutingRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStorageDomainRoutingRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->routes) {
+            $request->routesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->routes, 'Routes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->routesShrink) {
+            @$query['Routes'] = $request->routesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStorageDomainRoutingRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStorageDomainRoutingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例域名路由规则.
+     *
+     * @param request - CreateStorageDomainRoutingRuleRequest
+     *
+     * @returns CreateStorageDomainRoutingRuleResponse
+     *
+     * @param CreateStorageDomainRoutingRuleRequest $request
+     *
+     * @return CreateStorageDomainRoutingRuleResponse
+     */
+    public function createStorageDomainRoutingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStorageDomainRoutingRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an artifact lifecycle management rule.
      *
      * @param request - DeleteArtifactLifecycleRuleRequest
@@ -3157,6 +3341,128 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除扫描规则.
+     *
+     * @param request - DeleteScanRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScanRuleResponse
+     *
+     * @param DeleteScanRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteScanRuleResponse
+     */
+    public function deleteScanRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scanRuleId) {
+            @$query['ScanRuleId'] = $request->scanRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteScanRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteScanRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除扫描规则.
+     *
+     * @param request - DeleteScanRuleRequest
+     *
+     * @returns DeleteScanRuleResponse
+     *
+     * @param DeleteScanRuleRequest $request
+     *
+     * @return DeleteScanRuleResponse
+     */
+    public function deleteScanRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScanRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除实例存储域名映射规则.
+     *
+     * @param request - DeleteStorageDomainRoutingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStorageDomainRoutingRuleResponse
+     *
+     * @param DeleteStorageDomainRoutingRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteStorageDomainRoutingRuleResponse
+     */
+    public function deleteStorageDomainRoutingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStorageDomainRoutingRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStorageDomainRoutingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例存储域名映射规则.
+     *
+     * @param request - DeleteStorageDomainRoutingRuleRequest
+     *
+     * @returns DeleteStorageDomainRoutingRuleResponse
+     *
+     * @param DeleteStorageDomainRoutingRuleRequest $request
+     *
+     * @return DeleteStorageDomainRoutingRuleResponse
+     */
+    public function deleteStorageDomainRoutingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStorageDomainRoutingRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -4590,6 +4896,128 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询扫描规则.
+     *
+     * @param request - GetScanRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScanRuleResponse
+     *
+     * @param GetScanRuleRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetScanRuleResponse
+     */
+    public function getScanRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scanRuleId) {
+            @$query['ScanRuleId'] = $request->scanRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetScanRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScanRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询扫描规则.
+     *
+     * @param request - GetScanRuleRequest
+     *
+     * @returns GetScanRuleResponse
+     *
+     * @param GetScanRuleRequest $request
+     *
+     * @return GetScanRuleResponse
+     */
+    public function getScanRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScanRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例存储域名路由规则.
+     *
+     * @param request - GetStorageDomainRoutingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStorageDomainRoutingRuleResponse
+     *
+     * @param GetStorageDomainRoutingRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetStorageDomainRoutingRuleResponse
+     */
+    public function getStorageDomainRoutingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStorageDomainRoutingRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStorageDomainRoutingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例存储域名路由规则.
+     *
+     * @param request - GetStorageDomainRoutingRuleRequest
+     *
+     * @returns GetStorageDomainRoutingRuleResponse
+     *
+     * @param GetStorageDomainRoutingRuleRequest $request
+     *
+     * @return GetStorageDomainRoutingRuleResponse
+     */
+    public function getStorageDomainRoutingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStorageDomainRoutingRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -6343,6 +6771,59 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * 查询扫描规则.
+     *
+     * @param request - ListScanRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScanRuleResponse
+     *
+     * @param ListScanRuleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListScanRuleResponse
+     */
+    public function listScanRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListScanRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScanRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询扫描规则.
+     *
+     * @param request - ListScanRuleRequest
+     *
+     * @returns ListScanRuleResponse
+     *
+     * @param ListScanRuleRequest $request
+     *
+     * @return ListScanRuleResponse
+     */
+    public function listScanRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScanRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tags that are added to cloud resources. Instance resources are supported.
      *
      * @param request - ListTagResourcesRequest
@@ -7628,5 +8109,171 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新扫描规则.
+     *
+     * @param tmpReq - UpdateScanRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScanRuleResponse
+     *
+     * @param UpdateScanRuleRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateScanRuleResponse
+     */
+    public function updateScanRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateScanRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->namespaces) {
+            $request->namespacesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        }
+
+        if (null !== $tmpReq->repoNames) {
+            $request->repoNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repoNames, 'RepoNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespacesShrink) {
+            @$query['Namespaces'] = $request->namespacesShrink;
+        }
+
+        if (null !== $request->repoNamesShrink) {
+            @$query['RepoNames'] = $request->repoNamesShrink;
+        }
+
+        if (null !== $request->repoTagFilterPattern) {
+            @$query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->scanRuleId) {
+            @$query['ScanRuleId'] = $request->scanRuleId;
+        }
+
+        if (null !== $request->scanScope) {
+            @$query['ScanScope'] = $request->scanScope;
+        }
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateScanRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateScanRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新扫描规则.
+     *
+     * @param request - UpdateScanRuleRequest
+     *
+     * @returns UpdateScanRuleResponse
+     *
+     * @param UpdateScanRuleRequest $request
+     *
+     * @return UpdateScanRuleResponse
+     */
+    public function updateScanRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateScanRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例域名路由规则.
+     *
+     * @param tmpReq - UpdateStorageDomainRoutingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStorageDomainRoutingRuleResponse
+     *
+     * @param UpdateStorageDomainRoutingRuleRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateStorageDomainRoutingRuleResponse
+     */
+    public function updateStorageDomainRoutingRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStorageDomainRoutingRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->routes) {
+            $request->routesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->routes, 'Routes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->routesShrink) {
+            @$query['Routes'] = $request->routesShrink;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStorageDomainRoutingRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStorageDomainRoutingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例域名路由规则.
+     *
+     * @param request - UpdateStorageDomainRoutingRuleRequest
+     *
+     * @returns UpdateStorageDomainRoutingRuleResponse
+     *
+     * @param UpdateStorageDomainRoutingRuleRequest $request
+     *
+     * @return UpdateStorageDomainRoutingRuleResponse
+     */
+    public function updateStorageDomainRoutingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStorageDomainRoutingRuleWithOptions($request, $runtime);
     }
 }
