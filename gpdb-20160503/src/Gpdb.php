@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503;
 
 use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
 use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
@@ -47,6 +50,11 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDatabaseRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDatabaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceIPArrayRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceIPArrayResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceIPArrayShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
@@ -100,6 +108,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceIPArrayRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceIPArrayResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceRequest;
@@ -124,6 +136,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeletePrivateRAGServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeletePrivateRAGServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteRemoteADBDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteRemoteADBDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretRequest;
@@ -138,6 +152,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeployPrivateRAGServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeployPrivateRAGServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsRequest;
@@ -154,6 +170,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCreateIndexJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCreateIndexJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDatabaseRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataReDistributeInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataReDistributeInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesRequest;
@@ -211,6 +229,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExtensionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExtensionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExternalDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExternalDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopClustersInSameNetRequest;
@@ -237,10 +257,14 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribePrivateRAGServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribePrivateRAGServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRebalanceStatusRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRebalanceStatusResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRolesRequest;
@@ -271,10 +295,14 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeZonesPrivateRAGServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeZonesPrivateRAGServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DisableDBResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DisableDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSlowSQLRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSlowSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableCollectionGraphRAGRequest;
@@ -315,6 +343,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabaseExtensionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabaseExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsRequest;
@@ -327,6 +357,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceDatabasesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceDatabasesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelServicesRequest;
@@ -339,6 +371,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSlowSQLRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSlowSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesRequest;
@@ -516,48 +550,99 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param string  $bucketName
-     * @param mixed[] $form
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
      *
      * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $form, $runtime)
     {
-        $_request = new Request();
-        $boundary = FormUtil::getBoundary();
-        $_request->protocol = 'HTTPS';
-        $_request->method = 'POST';
-        $_request->pathname = '/';
-        $_request->headers = [
-            'host' => '' . @$form['host'],
-            'date' => Utils::getDateUTCString(),
-            'user-agent' => Utils::getUserAgent(''),
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request, ['stream' => true]);
 
-        $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
-                'data' => [
-                    'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
-                ],
-            ]);
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_runtime['stream'] = true;
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
         }
 
-        $respMap = XML::parseXml($bodyStr, null);
-
-        return Dara::merge([
-        ], $respMap);
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -585,7 +670,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 添加AI节点.
+     * Adds AI nodes to the cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This operation is used to add an AINode node.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
      *
      * @param Request - AddAINodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -632,7 +723,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 添加AI节点.
+     * Adds AI nodes to the cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This operation is used to add an AINode node.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
      *
      * @param Request - AddAINodeRequest
      *
@@ -816,7 +913,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 取消创建索引任务
+     * Cancels an index creation job.
      *
      * @param Request - CancelCreateIndexJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +980,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 取消创建索引任务
+     * Cancels an index creation job.
      *
      * @param Request - CancelCreateIndexJobRequest
      *
@@ -1087,10 +1184,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
      *
      * @remarks
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+     * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+     * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+     * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+     * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1163,10 +1264,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
      *
      * @remarks
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+     * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+     * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+     * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+     * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseRequest
      *
@@ -1184,10 +1289,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+     * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+     * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+     * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+     * *   PromptTemplate: optional. It is used to customize a system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1272,10 +1381,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+     * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+     * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+     * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+     * *   PromptTemplate: optional. It is used to customize a system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1348,10 +1461,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * 通过结合知识库和大模型，提供智能问答服务。
+     * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+     * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+     * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+     * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+     * *   PromptTemplate: optional. It is used to customize a system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseStreamRequest
      *
@@ -1633,7 +1750,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 恢复数据至指定实例.
+     * Restores data to a new AnalyticDB for PostgreSQL instance.
      *
      * @param Request - CloneDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1680,7 +1797,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 恢复数据至指定实例.
+     * Restores data to a new AnalyticDB for PostgreSQL instance.
      *
      * @param Request - CloneDBInstanceRequest
      *
@@ -1791,7 +1908,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建备份.
+     * Creates a backup set.
      *
      * @param Request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1830,7 +1947,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建备份.
+     * Creates a backup set.
      *
      * @param Request - CreateBackupRequest
      *
@@ -2230,6 +2347,81 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Adds an IP whitelist group.
+     *
+     * @param tmpReq - CreateDBInstanceIPArrayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDBInstanceIPArrayResponse
+     *
+     * @param CreateDBInstanceIPArrayRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDBInstanceIPArrayResponse
+     */
+    public function createDBInstanceIPArrayWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDBInstanceIPArrayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->securityIPList) {
+            $request->securityIPListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityIPList, 'SecurityIPList', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->IPArrayAttribute) {
+            @$query['IPArrayAttribute'] = $request->IPArrayAttribute;
+        }
+
+        if (null !== $request->IPArrayName) {
+            @$query['IPArrayName'] = $request->IPArrayName;
+        }
+
+        if (null !== $request->securityIPListShrink) {
+            @$query['SecurityIPList'] = $request->securityIPListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDBInstanceIPArray',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDBInstanceIPArrayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds an IP whitelist group.
+     *
+     * @param Request - CreateDBInstanceIPArrayRequest
+     *
+     * @returns CreateDBInstanceIPArrayResponse
+     *
+     * @param CreateDBInstanceIPArrayRequest $request
+     *
+     * @return CreateDBInstanceIPArrayResponse
+     */
+    public function createDBInstanceIPArray($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBInstanceIPArrayWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a plan for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
@@ -2395,6 +2587,87 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a database.
+     *
+     * @param Request - CreateDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatabaseResponse
+     *
+     * @param CreateDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->characterSetName) {
+            @$query['CharacterSetName'] = $request->characterSetName;
+        }
+
+        if (null !== $request->collate) {
+            @$query['Collate'] = $request->collate;
+        }
+
+        if (null !== $request->ctype) {
+            @$query['Ctype'] = $request->ctype;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatabase',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a database.
+     *
+     * @param Request - CreateDatabaseRequest
+     *
+     * @returns CreateDatabaseResponse
+     *
+     * @param CreateDatabaseRequest $request
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatabaseWithOptions($request, $runtime);
     }
 
     /**
@@ -2800,7 +3073,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建索引.
+     * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
      *
      * @param Request - CreateIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2875,7 +3148,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建索引.
+     * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
      *
      * @param Request - CreateIndexRequest
      *
@@ -2978,7 +3251,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param tmpReq - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3069,7 +3345,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateModelServiceRequest
      *
@@ -3799,7 +4078,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建supabase project.
+     * Creates a Supabase project.
+     *
+     * @remarks
+     *   You can call this operation to create a Supabase project.
      *
      * @param Request - CreateSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3878,7 +4160,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建supabase project.
+     * Creates a Supabase project.
+     *
+     * @remarks
+     *   You can call this operation to create a Supabase project.
      *
      * @param Request - CreateSupabaseProjectRequest
      *
@@ -4005,7 +4290,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除AI节点.
+     * Delete AI Node.
+     *
+     * @remarks
+     *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
      *
      * @param Request - DeleteAINodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4056,7 +4345,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除AI节点.
+     * Delete AI Node.
+     *
+     * @remarks
+     *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
      *
      * @param Request - DeleteAINodeRequest
      *
@@ -4135,7 +4428,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
      *
      * @param Request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4178,7 +4471,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除备份.
+     * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
      *
      * @param Request - DeleteBackupRequest
      *
@@ -4447,6 +4740,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除IP分组.
+     *
+     * @param Request - DeleteDBInstanceIPArrayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBInstanceIPArrayResponse
+     *
+     * @param DeleteDBInstanceIPArrayRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDBInstanceIPArrayResponse
+     */
+    public function deleteDBInstanceIPArrayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->IPArrayName) {
+            @$query['IPArrayName'] = $request->IPArrayName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDBInstanceIPArray',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDBInstanceIPArrayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除IP分组.
+     *
+     * @param Request - DeleteDBInstanceIPArrayRequest
+     *
+     * @returns DeleteDBInstanceIPArrayResponse
+     *
+     * @param DeleteDBInstanceIPArrayRequest $request
+     *
+     * @return DeleteDBInstanceIPArrayResponse
+     */
+    public function deleteDBInstanceIPArray($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBInstanceIPArrayWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a plan from an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
@@ -4584,6 +4938,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据库.
+     *
+     * @param Request - DeleteDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatabaseResponse
+     *
+     * @param DeleteDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDatabaseResponse
+     */
+    public function deleteDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDatabase',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据库.
+     *
+     * @param Request - DeleteDatabaseRequest
+     *
+     * @returns DeleteDatabaseResponse
+     *
+     * @param DeleteDatabaseRequest $request
+     *
+     * @return DeleteDatabaseResponse
+     */
+    public function deleteDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatabaseWithOptions($request, $runtime);
     }
 
     /**
@@ -4944,7 +5359,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除索引.
+     * Deletes an index.
      *
      * @param Request - DeleteIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5011,7 +5426,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除索引.
+     * Deletes an index.
      *
      * @param Request - DeleteIndexRequest
      *
@@ -5094,7 +5509,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除模型服务
+     * Delete Model Service.
+     *
+     * @remarks
+     * Deletes a model service.
      *
      * @param Request - DeleteModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5137,7 +5555,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除模型服务
+     * Delete Model Service.
+     *
+     * @remarks
+     * Deletes a model service.
      *
      * @param Request - DeleteModelServiceRequest
      *
@@ -5233,6 +5654,63 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关闭私有RAG服务
+     *
+     * @param Request - DeletePrivateRAGServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePrivateRAGServiceResponse
+     *
+     * @param DeletePrivateRAGServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeletePrivateRAGServiceResponse
+     */
+    public function deletePrivateRAGServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrivateRAGService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePrivateRAGServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭私有RAG服务
+     *
+     * @param Request - DeletePrivateRAGServiceRequest
+     *
+     * @returns DeletePrivateRAGServiceResponse
+     *
+     * @param DeletePrivateRAGServiceRequest $request
+     *
+     * @return DeletePrivateRAGServiceResponse
+     */
+    public function deletePrivateRAGService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrivateRAGServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -5573,7 +6051,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除Supabase实例.
+     * Deletes a Supabase project.
+     *
+     * @remarks
+     *   You can call this operation to delete a Supabase project.
      *
      * @param Request - DeleteSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5616,7 +6097,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除Supabase实例.
+     * Deletes a Supabase project.
+     *
+     * @remarks
+     *   You can call this operation to delete a Supabase project.
      *
      * @param Request - DeleteSupabaseProjectRequest
      *
@@ -5716,6 +6200,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVectorIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * 部署私有RAG服务
+     *
+     * @param Request - DeployPrivateRAGServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployPrivateRAGServiceResponse
+     *
+     * @param DeployPrivateRAGServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeployPrivateRAGServiceResponse
+     */
+    public function deployPrivateRAGServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeployPrivateRAGService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeployPrivateRAGServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 部署私有RAG服务
+     *
+     * @param Request - DeployPrivateRAGServiceRequest
+     *
+     * @returns DeployPrivateRAGServiceResponse
+     *
+     * @param DeployPrivateRAGServiceRequest $request
+     *
+     * @return DeployPrivateRAGServiceResponse
+     */
+    public function deployPrivateRAGService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployPrivateRAGServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -5954,7 +6503,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务详情.
+     * Queries the information about a backup job.
      *
      * @param Request - DescribeBackupJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5997,7 +6546,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务详情.
+     * Queries the information about a backup job.
      *
      * @param Request - DescribeBackupJobRequest
      *
@@ -6163,7 +6712,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取创建索引任务
+     * Queries the information about an index creation job.
      *
      * @param Request - DescribeCreateIndexJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6230,7 +6779,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取创建索引任务
+     * Queries the information about an index creation job.
      *
      * @param Request - DescribeCreateIndexJobRequest
      *
@@ -7998,6 +8547,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 描述数据库.
+     *
+     * @param Request - DescribeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDatabaseResponse
+     *
+     * @param DescribeDatabaseRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDatabaseResponse
+     */
+    public function describeDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDatabase',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 描述数据库.
+     *
+     * @param Request - DescribeDatabaseRequest
+     *
+     * @returns DescribeDatabaseResponse
+     *
+     * @param DescribeDatabaseRequest $request
+     *
+     * @return DescribeDatabaseResponse
+     */
+    public function describeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
@@ -8328,7 +8938,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Document Details.
+     * Queries the information about a document.
      *
      * @param Request - DescribeDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8391,7 +9001,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Document Details.
+     * Queries the information about a document.
      *
      * @param Request - DescribeDocumentRequest
      *
@@ -8532,6 +9142,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDownloadSQLLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安装在某个数据库上的插件信息.
+     *
+     * @param Request - DescribeExtensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExtensionResponse
+     *
+     * @param DescribeExtensionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeExtensionResponse
+     */
+    public function describeExtensionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->extensionName) {
+            @$query['ExtensionName'] = $request->extensionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeExtension',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安装在某个数据库上的插件信息.
+     *
+     * @param Request - DescribeExtensionRequest
+     *
+     * @returns DescribeExtensionResponse
+     *
+     * @param DescribeExtensionRequest $request
+     *
+     * @return DescribeExtensionResponse
+     */
+    public function describeExtension($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExtensionWithOptions($request, $runtime);
     }
 
     /**
@@ -8931,7 +9606,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引详情.
+     * Retrieves the information about an index.
      *
      * @param Request - DescribeIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8998,7 +9673,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引详情.
+     * Retrieves the information about an index.
      *
      * @param Request - DescribeIndexRequest
      *
@@ -9150,7 +9825,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务
+     * Queries the information about a model service.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This interface is used to view the details of a model service.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
      *
      * @param Request - DescribeModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9193,7 +9874,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务
+     * Queries the information about a model service.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This interface is used to view the details of a model service.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
      *
      * @param Request - DescribeModelServiceRequest
      *
@@ -9424,6 +10111,63 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 获取私有RAG服务详情.
+     *
+     * @param Request - DescribePrivateRAGServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrivateRAGServiceResponse
+     *
+     * @param DescribePrivateRAGServiceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePrivateRAGServiceResponse
+     */
+    public function describePrivateRAGServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrivateRAGService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrivateRAGServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取私有RAG服务详情.
+     *
+     * @param Request - DescribePrivateRAGServiceRequest
+     *
+     * @returns DescribePrivateRAGServiceResponse
+     *
+     * @param DescribePrivateRAGServiceRequest $request
+     *
+     * @return DescribePrivateRAGServiceResponse
+     */
+    public function describePrivateRAGService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrivateRAGServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of vSwitches.
      *
      * @remarks
@@ -9615,6 +10359,63 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRdsVpcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 描述一个实例是否处于平衡状态
+     *
+     * @param Request - DescribeRebalanceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRebalanceStatusResponse
+     *
+     * @param DescribeRebalanceStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRebalanceStatusResponse
+     */
+    public function describeRebalanceStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRebalanceStatus',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRebalanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 描述一个实例是否处于平衡状态
+     *
+     * @param Request - DescribeRebalanceStatusRequest
+     *
+     * @returns DescribeRebalanceStatusResponse
+     *
+     * @param DescribeRebalanceStatusRequest $request
+     *
+     * @return DescribeRebalanceStatusResponse
+     */
+    public function describeRebalanceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRebalanceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -10839,6 +11640,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 获取私有RAG服务可部署可用区.
+     *
+     * @param Request - DescribeZonesPrivateRAGServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZonesPrivateRAGServiceResponse
+     *
+     * @param DescribeZonesPrivateRAGServiceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeZonesPrivateRAGServiceResponse
+     */
+    public function describeZonesPrivateRAGServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeZonesPrivateRAGService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeZonesPrivateRAGServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取私有RAG服务可部署可用区.
+     *
+     * @param Request - DescribeZonesPrivateRAGServiceRequest
+     *
+     * @returns DescribeZonesPrivateRAGServiceResponse
+     *
+     * @param DescribeZonesPrivateRAGServiceRequest $request
+     *
+     * @return DescribeZonesPrivateRAGServiceResponse
+     */
+    public function describeZonesPrivateRAGService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesPrivateRAGServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
      *
      * @remarks
@@ -11124,7 +11986,100 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 知识库开启构建知识图谱.
+     * Downloads slow SQL records.
+     *
+     * @param Request - DownloadSlowSQLRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadSlowSQLRecordsResponse
+     *
+     * @param DownloadSlowSQLRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DownloadSlowSQLRecordsResponse
+     */
+    public function downloadSlowSQLRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxDuration) {
+            @$query['MaxDuration'] = $request->maxDuration;
+        }
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadSlowSQLRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadSlowSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Downloads slow SQL records.
+     *
+     * @param Request - DownloadSlowSQLRecordsRequest
+     *
+     * @returns DownloadSlowSQLRecordsResponse
+     *
+     * @param DownloadSlowSQLRecordsRequest $request
+     *
+     * @return DownloadSlowSQLRecordsResponse
+     */
+    public function downloadSlowSQLRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadSlowSQLRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables knowledge graph construction for the knowledge base.
      *
      * @param tmpReq - EnableCollectionGraphRAGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11217,7 +12172,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 知识库开启构建知识图谱.
+     * Enables knowledge graph construction for the knowledge base.
      *
      * @param Request - EnableCollectionGraphRAGRequest
      *
@@ -11484,7 +12439,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取构建知识图谱任务
+     * Retrieves a task to build a knowledge graph.
      *
      * @param Request - GetGraphRAGJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11547,7 +12502,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取构建知识图谱任务
+     * Retrieves a task to build a knowledge graph.
      *
      * @param Request - GetGraphRAGJobRequest
      *
@@ -11719,7 +12674,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例详情.
+     * Retrieves the detailed configuration and status information for a specific Supabase instance.
+     *
+     * @remarks
+     * This interface is used to query the details of a Supabase instance.
      *
      * @param Request - GetSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11762,7 +12720,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例详情.
+     * Retrieves the detailed configuration and status information for a specific Supabase instance.
+     *
+     * @remarks
+     * This interface is used to query the details of a Supabase instance.
      *
      * @param Request - GetSupabaseProjectRequest
      *
@@ -11780,7 +12741,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例 API Keys.
+     * Queries a list of API keys for a Supabase project.
+     *
+     * @remarks
+     * You can call this operation to query a list of API keys for a Supabase project.
      *
      * @param Request - GetSupabaseProjectApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11823,7 +12787,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例 API Keys.
+     * Queries a list of API keys for a Supabase project.
+     *
+     * @remarks
+     * You can call this operation to query a list of API keys for a Supabase project.
      *
      * @param Request - GetSupabaseProjectApiKeysRequest
      *
@@ -11841,7 +12808,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase项目dashboard账号信息.
+     * Retrieves the username and password for the dashboard of a specific Supabase project.
+     *
+     * @remarks
+     * Query Supabase Project Dashboard Account Information
      *
      * @param Request - GetSupabaseProjectDashboardAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11884,7 +12854,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase项目dashboard账号信息.
+     * Retrieves the username and password for the dashboard of a specific Supabase project.
+     *
+     * @remarks
+     * Query Supabase Project Dashboard Account Information
      *
      * @param Request - GetSupabaseProjectDashboardAccountRequest
      *
@@ -11905,9 +12878,9 @@ class Gpdb extends OpenApiClient
      * Queries the progress and result of an asynchronous document upload job based on the job ID.
      *
      * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-     * >  Suggestions:
-     * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+     * > Suggestions
+     * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
      *
      * @param Request - GetUploadDocumentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11975,9 +12948,9 @@ class Gpdb extends OpenApiClient
      * Queries the progress and result of an asynchronous document upload job based on the job ID.
      *
      * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-     * >  Suggestions:
-     * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+     * > Suggestions
+     * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
      *
      * @param Request - GetUploadDocumentJobRequest
      *
@@ -12321,7 +13294,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 列举AI节点池.
+     * Queries a list of AI nodes.
+     *
+     * @remarks
+     *   This operation queries a list of AI nodes.
      *
      * @param Request - ListAINodePoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12364,7 +13340,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 列举AI节点池.
+     * Queries a list of AI nodes.
+     *
+     * @remarks
+     *   This operation queries a list of AI nodes.
      *
      * @param Request - ListAINodePoolsRequest
      *
@@ -12382,7 +13361,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务列表.
+     * Queries a list of backup jobs.
      *
      * @param Request - ListBackupJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12425,7 +13404,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取备份任务列表.
+     * Queries a list of backup jobs.
      *
      * @param Request - ListBackupJobsRequest
      *
@@ -12517,6 +13496,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安装在某个数据库上的所有插件信息.
+     *
+     * @param Request - ListDatabaseExtensionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatabaseExtensionsResponse
+     *
+     * @param ListDatabaseExtensionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDatabaseExtensionsResponse
+     */
+    public function listDatabaseExtensionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatabaseExtensions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatabaseExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安装在某个数据库上的所有插件信息.
+     *
+     * @param Request - ListDatabaseExtensionsRequest
+     *
+     * @returns ListDatabaseExtensionsResponse
+     *
+     * @param ListDatabaseExtensionsRequest $request
+     *
+     * @return ListDatabaseExtensionsResponse
+     */
+    public function listDatabaseExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabaseExtensionsWithOptions($request, $runtime);
     }
 
     /**
@@ -12897,7 +13937,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引列表.
+     * Queries a list of indexes.
      *
      * @param Request - ListIndicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12960,7 +14000,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取索引列表.
+     * Queries a list of indexes.
      *
      * @param Request - ListIndicesRequest
      *
@@ -12975,6 +14015,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIndicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举数据库.
+     *
+     * @param Request - ListInstanceDatabasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceDatabasesResponse
+     *
+     * @param ListInstanceDatabasesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListInstanceDatabasesResponse
+     */
+    public function listInstanceDatabasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceDatabases',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举数据库.
+     *
+     * @param Request - ListInstanceDatabasesRequest
+     *
+     * @returns ListInstanceDatabasesResponse
+     *
+     * @param ListInstanceDatabasesRequest $request
+     *
+     * @return ListInstanceDatabasesResponse
+     */
+    public function listInstanceDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceDatabasesWithOptions($request, $runtime);
     }
 
     /**
@@ -13055,7 +14160,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务
+     * Queries all model services.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This interface is used to view all model service information.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
      *
      * @param Request - ListModelServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13106,7 +14217,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务
+     * Queries all model services.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This interface is used to view all model service information.
+     * ## [](#qps-)QPS limit
+     * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
      *
      * @param Request - ListModelServicesRequest
      *
@@ -13420,6 +14537,107 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Queries slow SQL queries.
+     *
+     * @param Request - ListSlowSQLRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSlowSQLRecordsResponse
+     *
+     * @param ListSlowSQLRecordsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListSlowSQLRecordsResponse
+     */
+    public function listSlowSQLRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxDuration) {
+            @$query['MaxDuration'] = $request->maxDuration;
+        }
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSlowSQLRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSlowSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries slow SQL queries.
+     *
+     * @param Request - ListSlowSQLRecordsRequest
+     *
+     * @returns ListSlowSQLRecordsResponse
+     *
+     * @param ListSlowSQLRecordsRequest $request
+     *
+     * @return ListSlowSQLRecordsResponse
+     */
+    public function listSlowSQLRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSlowSQLRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * Create External Data Source Configuration.
      *
      * @param Request - ListStreamingDataServicesRequest
@@ -13627,7 +14845,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例列表.
+     * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+     *
+     * @remarks
+     *   You can call this operation to query Supabase instances.
      *
      * @param Request - ListSupabaseProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13674,7 +14895,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询Supabase实例列表.
+     * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+     *
+     * @remarks
+     *   You can call this operation to query Supabase instances.
      *
      * @param Request - ListSupabaseProjectsRequest
      *
@@ -13692,7 +14916,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取支持的模型列表.
+     * Get the list of supported models.
+     *
+     * @remarks
+     *   This API is used to query the list of supported models.
      *
      * @param Request - ListSupportModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13731,7 +14958,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取支持的模型列表.
+     * Get the list of supported models.
+     *
+     * @remarks
+     *   This API is used to query the list of supported models.
      *
      * @param Request - ListSupportModelsRequest
      *
@@ -14073,7 +15303,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 更新Collection.
+     * Updates a collection.
      *
      * @param Request - ModifyCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14140,7 +15370,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 更新Collection.
+     * Updates a collection.
      *
      * @param Request - ModifyCollectionRequest
      *
@@ -14304,7 +15534,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改实例部署模式.
+     * Changes the development mode of an instance.
      *
      * @param Request - ModifyDBInstanceDeploymentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14355,7 +15585,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改实例部署模式.
+     * Changes the development mode of an instance.
      *
      * @param Request - ModifyDBInstanceDeploymentModeRequest
      *
@@ -15853,7 +17083,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改supabase项目白名单.
+     * Sets or replaces the IP address whitelist for a specified Supabase project.
+     *
+     * @remarks
+     * Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
      *
      * @param Request - ModifySupabaseProjectSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15900,7 +17133,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改supabase项目白名单.
+     * Sets or replaces the IP address whitelist for a specified Supabase project.
+     *
+     * @remarks
+     * Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
      *
      * @param Request - ModifySupabaseProjectSecurityIpsRequest
      *
@@ -16529,7 +17765,7 @@ class Gpdb extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $queryContentReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -16537,7 +17773,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 多知识库查询.
+     * Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
      *
      * @param tmpReq - QueryKnowledgeBasesContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16618,7 +17854,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 多知识库查询.
+     * Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
      *
      * @param Request - QueryKnowledgeBasesContentRequest
      *
@@ -16985,7 +18221,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 重置supabase数据库密码
+     * Reset the password of a Supabase database.
+     *
+     * @remarks
+     * Call this API to reset the password of the Supabase database.
      *
      * @param Request - ResetSupabaseProjectPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17032,7 +18271,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 重置supabase数据库密码
+     * Reset the password of a Supabase database.
+     *
+     * @remarks
+     * Call this API to reset the password of the Supabase database.
      *
      * @param Request - ResetSupabaseProjectPasswordRequest
      *
@@ -17577,7 +18819,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过模型对文本文档进行向量化.
+     * Generates text embeddings using an embedding model.
      *
      * @param tmpReq - TextEmbeddingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17644,7 +18886,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 通过模型对文本文档进行向量化.
+     * Generates text embeddings using an embedding model.
      *
      * @param Request - TextEmbeddingRequest
      *
@@ -18611,7 +19853,7 @@ class Gpdb extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $uploadDocumentAsyncReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -18619,10 +19861,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upload split text.
+     * Splits a document into chunks and uploads the vectorized chunks to a document collection.
      *
      * @remarks
-     * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+     * The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
      *
      * @param tmpReq - UpsertChunksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18705,10 +19947,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Upload split text.
+     * Splits a document into chunks and uploads the vectorized chunks to a document collection.
      *
      * @remarks
-     * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+     * The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
      *
      * @param Request - UpsertChunksRequest
      *
@@ -19004,7 +20246,7 @@ class Gpdb extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $upsertCollectionDataAsyncReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
