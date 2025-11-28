@@ -13,6 +13,10 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastStickerRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastStickerResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastVideoFromTemplateRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastVideoFromTemplateResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatConfigRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatConfigResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionRequest;
@@ -23,10 +27,17 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastTemplatesRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastTemplatesResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdShrinkRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListTemplateMaterialRequest;
@@ -270,6 +281,144 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->createBackgroundPicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建播报贴图.
+     *
+     * @param request - CreateBroadcastStickerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBroadcastStickerResponse
+     *
+     * @param CreateBroadcastStickerRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateBroadcastStickerResponse
+     */
+    public function createBroadcastStickerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->ossKey) {
+            @$body['ossKey'] = $request->ossKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBroadcastSticker',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/material/sticker/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBroadcastStickerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建播报贴图.
+     *
+     * @param request - CreateBroadcastStickerRequest
+     *
+     * @returns CreateBroadcastStickerResponse
+     *
+     * @param CreateBroadcastStickerRequest $request
+     *
+     * @return CreateBroadcastStickerResponse
+     */
+    public function createBroadcastSticker($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBroadcastStickerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 基于模板创建播报视频.
+     *
+     * @param request - CreateBroadcastVideoFromTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBroadcastVideoFromTemplateResponse
+     *
+     * @param CreateBroadcastVideoFromTemplateRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateBroadcastVideoFromTemplateResponse
+     */
+    public function createBroadcastVideoFromTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        if (null !== $request->videoOptions) {
+            @$body['videoOptions'] = $request->videoOptions;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBroadcastVideoFromTemplate',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/amp/customer/broadcast/video/createFromTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBroadcastVideoFromTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 基于模板创建播报视频.
+     *
+     * @param request - CreateBroadcastVideoFromTemplateRequest
+     *
+     * @returns CreateBroadcastVideoFromTemplateResponse
+     *
+     * @param CreateBroadcastVideoFromTemplateRequest $request
+     *
+     * @return CreateBroadcastVideoFromTemplateResponse
+     */
+    public function createBroadcastVideoFromTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBroadcastVideoFromTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -648,6 +797,67 @@ class LingMou extends OpenApiClient
     }
 
     /**
+     * 查询播报模板详情.
+     *
+     * @param request - GetBroadcastTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBroadcastTemplateResponse
+     *
+     * @param GetBroadcastTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetBroadcastTemplateResponse
+     */
+    public function getBroadcastTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->templateId) {
+            @$query['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBroadcastTemplate',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/template/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBroadcastTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询播报模板详情.
+     *
+     * @param request - GetBroadcastTemplateRequest
+     *
+     * @returns GetBroadcastTemplateResponse
+     *
+     * @param GetBroadcastTemplateRequest $request
+     *
+     * @return GetBroadcastTemplateResponse
+     */
+    public function getBroadcastTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBroadcastTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询图片训练数字人的状态
      *
      * @param request - GetTrainPicAvatarStatusRequest
@@ -771,6 +981,146 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->getUploadPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列举播报模板
+     *
+     * @param request - ListBroadcastTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBroadcastTemplatesResponse
+     *
+     * @param ListBroadcastTemplatesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListBroadcastTemplatesResponse
+     */
+    public function listBroadcastTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBroadcastTemplates',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/template/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBroadcastTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举播报模板
+     *
+     * @param request - ListBroadcastTemplatesRequest
+     *
+     * @returns ListBroadcastTemplatesResponse
+     *
+     * @param ListBroadcastTemplatesRequest $request
+     *
+     * @return ListBroadcastTemplatesResponse
+     */
+    public function listBroadcastTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBroadcastTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据视频id批量查询播报视频（最多查询100个）.
+     *
+     * @param tmpReq - ListBroadcastVideosByIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBroadcastVideosByIdResponse
+     *
+     * @param ListBroadcastVideosByIdRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListBroadcastVideosByIdResponse
+     */
+    public function listBroadcastVideosByIdWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListBroadcastVideosByIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->videoIds) {
+            $request->videoIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoIds, 'videoIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->videoIdsShrink) {
+            @$query['videoIds'] = $request->videoIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBroadcastVideosById',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/amp/customer/broadcast/video/batchQuery',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBroadcastVideosByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据视频id批量查询播报视频（最多查询100个）.
+     *
+     * @param request - ListBroadcastVideosByIdRequest
+     *
+     * @returns ListBroadcastVideosByIdResponse
+     *
+     * @param ListBroadcastVideosByIdRequest $request
+     *
+     * @return ListBroadcastVideosByIdResponse
+     */
+    public function listBroadcastVideosById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBroadcastVideosByIdWithOptions($request, $headers, $runtime);
     }
 
     /**
