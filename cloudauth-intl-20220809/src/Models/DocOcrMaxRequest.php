@@ -11,6 +11,11 @@ class DocOcrMaxRequest extends Model
     /**
      * @var string
      */
+    public $authorize;
+
+    /**
+     * @var string
+     */
     public $docPage;
 
     /**
@@ -78,6 +83,7 @@ class DocOcrMaxRequest extends Model
      */
     public $spoof;
     protected $_name = [
+        'authorize' => 'Authorize',
         'docPage' => 'DocPage',
         'docType' => 'DocType',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
@@ -102,6 +108,10 @@ class DocOcrMaxRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authorize) {
+            $res['Authorize'] = $this->authorize;
+        }
+
         if (null !== $this->docPage) {
             $res['DocPage'] = $this->docPage;
         }
@@ -169,6 +179,10 @@ class DocOcrMaxRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Authorize'])) {
+            $model->authorize = $map['Authorize'];
+        }
+
         if (isset($map['DocPage'])) {
             $model->docPage = $map['DocPage'];
         }
