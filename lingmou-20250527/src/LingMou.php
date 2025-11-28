@@ -9,6 +9,8 @@ use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsShrinkRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatConfigRequest;
@@ -17,8 +19,18 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateNoTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateNoTrainPicAvatarResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListTemplateMaterialRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListTemplateMaterialResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsShrinkRequest;
@@ -128,6 +140,71 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->closeChatInstanceSessionsWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 用户确认.
+     *
+     * @param request - ConfirmTrainPicAvatarRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmTrainPicAvatarResponse
+     *
+     * @param ConfirmTrainPicAvatarRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfirmTrainPicAvatarResponse
+     */
+    public function confirmTrainPicAvatarWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->avatarId) {
+            @$query['avatarId'] = $request->avatarId;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmTrainPicAvatar',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/train/confirmTrainPicAvatar',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmTrainPicAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户确认.
+     *
+     * @param request - ConfirmTrainPicAvatarRequest
+     *
+     * @returns ConfirmTrainPicAvatarResponse
+     *
+     * @param ConfirmTrainPicAvatarRequest $request
+     *
+     * @return ConfirmTrainPicAvatarResponse
+     */
+    public function confirmTrainPicAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->confirmTrainPicAvatarWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -417,6 +494,221 @@ class LingMou extends OpenApiClient
     }
 
     /**
+     * 创建TTS音色.
+     *
+     * @param request - CreateTTSVoiceCustomRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTTSVoiceCustomResponse
+     *
+     * @param CreateTTSVoiceCustomRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateTTSVoiceCustomResponse
+     */
+    public function createTTSVoiceCustomWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->gender) {
+            @$query['gender'] = $request->gender;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->ossKey) {
+            @$query['ossKey'] = $request->ossKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTTSVoiceCustom',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/voice/createTTSVoiceCustom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTTSVoiceCustomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建TTS音色.
+     *
+     * @param request - CreateTTSVoiceCustomRequest
+     *
+     * @returns CreateTTSVoiceCustomResponse
+     *
+     * @param CreateTTSVoiceCustomRequest $request
+     *
+     * @return CreateTTSVoiceCustomResponse
+     */
+    public function createTTSVoiceCustom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTTSVoiceCustomWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建图片训练数字人.
+     *
+     * @param request - CreateTrainPicAvatarRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTrainPicAvatarResponse
+     *
+     * @param CreateTrainPicAvatarRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateTrainPicAvatarResponse
+     */
+    public function createTrainPicAvatarWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gender) {
+            @$query['gender'] = $request->gender;
+        }
+
+        if (null !== $request->generateAssets) {
+            @$query['generateAssets'] = $request->generateAssets;
+        }
+
+        if (null !== $request->imageOssPath) {
+            @$query['imageOssPath'] = $request->imageOssPath;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->transparent) {
+            @$query['transparent'] = $request->transparent;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTrainPicAvatar',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/train/createTrainPicAvatar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTrainPicAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建图片训练数字人.
+     *
+     * @param request - CreateTrainPicAvatarRequest
+     *
+     * @returns CreateTrainPicAvatarResponse
+     *
+     * @param CreateTrainPicAvatarRequest $request
+     *
+     * @return CreateTrainPicAvatarResponse
+     */
+    public function createTrainPicAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTrainPicAvatarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询图片训练数字人的状态
+     *
+     * @param request - GetTrainPicAvatarStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrainPicAvatarStatusResponse
+     *
+     * @param GetTrainPicAvatarStatusRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTrainPicAvatarStatusResponse
+     */
+    public function getTrainPicAvatarStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->avatarId) {
+            @$query['avatarId'] = $request->avatarId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTrainPicAvatarStatus',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/train/getTrainPicAvatarStatus',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTrainPicAvatarStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询图片训练数字人的状态
+     *
+     * @param request - GetTrainPicAvatarStatusRequest
+     *
+     * @returns GetTrainPicAvatarStatusResponse
+     *
+     * @param GetTrainPicAvatarStatusRequest $request
+     *
+     * @return GetTrainPicAvatarStatusResponse
+     */
+    public function getTrainPicAvatarStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTrainPicAvatarStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取对话免训图片素材上传凭证
      *
      * @param request - GetUploadPolicyRequest
@@ -479,6 +771,160 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->getUploadPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列举私有TTS音色.
+     *
+     * @param request - ListPrivateTTSVoicesCustomRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrivateTTSVoicesCustomResponse
+     *
+     * @param ListPrivateTTSVoicesCustomRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListPrivateTTSVoicesCustomResponse
+     */
+    public function listPrivateTTSVoicesCustomWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPrivateTTSVoicesCustom',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/voice/listPrivateTTSVoicesCustom',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPrivateTTSVoicesCustomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举私有TTS音色.
+     *
+     * @param request - ListPrivateTTSVoicesCustomRequest
+     *
+     * @returns ListPrivateTTSVoicesCustomResponse
+     *
+     * @param ListPrivateTTSVoicesCustomRequest $request
+     *
+     * @return ListPrivateTTSVoicesCustomResponse
+     */
+    public function listPrivateTTSVoicesCustom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPrivateTTSVoicesCustomWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询底板素材.
+     *
+     * @param request - ListTemplateMaterialRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplateMaterialResponse
+     *
+     * @param ListTemplateMaterialRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTemplateMaterialResponse
+     */
+    public function listTemplateMaterialWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->templateIds) {
+            @$query['templateIds'] = $request->templateIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplateMaterial',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/train/listTemplateMaterial',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplateMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询底板素材.
+     *
+     * @param request - ListTemplateMaterialRequest
+     *
+     * @returns ListTemplateMaterialResponse
+     *
+     * @param ListTemplateMaterialRequest $request
+     *
+     * @return ListTemplateMaterialResponse
+     */
+    public function listTemplateMaterial($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTemplateMaterialWithOptions($request, $headers, $runtime);
     }
 
     /**
