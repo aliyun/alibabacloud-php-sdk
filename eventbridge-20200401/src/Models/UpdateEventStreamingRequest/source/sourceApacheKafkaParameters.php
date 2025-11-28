@@ -56,6 +56,11 @@ class sourceApacheKafkaParameters extends Model
     /**
      * @var string
      */
+    public $sslTruststoreCertificates;
+
+    /**
+     * @var string
+     */
     public $topic;
 
     /**
@@ -82,6 +87,7 @@ class sourceApacheKafkaParameters extends Model
         'saslUser' => 'SaslUser',
         'securityGroupId' => 'SecurityGroupId',
         'securityProtocol' => 'SecurityProtocol',
+        'sslTruststoreCertificates' => 'SslTruststoreCertificates',
         'topic' => 'Topic',
         'vSwitchIds' => 'VSwitchIds',
         'valueDataType' => 'ValueDataType',
@@ -130,6 +136,10 @@ class sourceApacheKafkaParameters extends Model
 
         if (null !== $this->securityProtocol) {
             $res['SecurityProtocol'] = $this->securityProtocol;
+        }
+
+        if (null !== $this->sslTruststoreCertificates) {
+            $res['SslTruststoreCertificates'] = $this->sslTruststoreCertificates;
         }
 
         if (null !== $this->topic) {
@@ -193,6 +203,10 @@ class sourceApacheKafkaParameters extends Model
 
         if (isset($map['SecurityProtocol'])) {
             $model->securityProtocol = $map['SecurityProtocol'];
+        }
+
+        if (isset($map['SslTruststoreCertificates'])) {
+            $model->sslTruststoreCertificates = $map['SslTruststoreCertificates'];
         }
 
         if (isset($map['Topic'])) {

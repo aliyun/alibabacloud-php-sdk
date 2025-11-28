@@ -20,6 +20,11 @@ class sinkKafkaParameters extends Model
     public $acks;
 
     /**
+     * @var string
+     */
+    public $compressionType;
+
+    /**
      * @var headers
      */
     public $headers;
@@ -45,6 +50,7 @@ class sinkKafkaParameters extends Model
     public $value;
     protected $_name = [
         'acks' => 'Acks',
+        'compressionType' => 'CompressionType',
         'headers' => 'Headers',
         'instanceId' => 'InstanceId',
         'key' => 'Key',
@@ -82,6 +88,10 @@ class sinkKafkaParameters extends Model
             $res['Acks'] = null !== $this->acks ? $this->acks->toArray($noStream) : $this->acks;
         }
 
+        if (null !== $this->compressionType) {
+            $res['CompressionType'] = $this->compressionType;
+        }
+
         if (null !== $this->headers) {
             $res['Headers'] = null !== $this->headers ? $this->headers->toArray($noStream) : $this->headers;
         }
@@ -115,6 +125,10 @@ class sinkKafkaParameters extends Model
         $model = new self();
         if (isset($map['Acks'])) {
             $model->acks = acks::fromMap($map['Acks']);
+        }
+
+        if (isset($map['CompressionType'])) {
+            $model->compressionType = $map['CompressionType'];
         }
 
         if (isset($map['Headers'])) {

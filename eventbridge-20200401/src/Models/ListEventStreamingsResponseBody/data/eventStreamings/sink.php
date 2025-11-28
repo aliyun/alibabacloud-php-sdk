@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkOSSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkRabbitMQMetaParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkRabbitMQMsgSyncParameters;
 
 class sink extends Model
 {
@@ -103,6 +105,16 @@ class sink extends Model
     public $sinkOpenSourceRabbitMQParameters;
 
     /**
+     * @var SinkRabbitMQMetaParameters
+     */
+    public $sinkRabbitMQMetaParameters;
+
+    /**
+     * @var SinkRabbitMQMsgSyncParameters
+     */
+    public $sinkRabbitMQMsgSyncParameters;
+
+    /**
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;
@@ -137,6 +149,8 @@ class sink extends Model
         'sinkMNSParameters' => 'SinkMNSParameters',
         'sinkOSSParameters' => 'SinkOSSParameters',
         'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
+        'sinkRabbitMQMetaParameters' => 'SinkRabbitMQMetaParameters',
+        'sinkRabbitMQMsgSyncParameters' => 'SinkRabbitMQMsgSyncParameters',
         'sinkRabbitMQParameters' => 'SinkRabbitMQParameters',
         'sinkRocketMQCheckpointParameters' => 'SinkRocketMQCheckpointParameters',
         'sinkRocketMQParameters' => 'SinkRocketMQParameters',
@@ -189,6 +203,12 @@ class sink extends Model
         }
         if (null !== $this->sinkOpenSourceRabbitMQParameters) {
             $this->sinkOpenSourceRabbitMQParameters->validate();
+        }
+        if (null !== $this->sinkRabbitMQMetaParameters) {
+            $this->sinkRabbitMQMetaParameters->validate();
+        }
+        if (null !== $this->sinkRabbitMQMsgSyncParameters) {
+            $this->sinkRabbitMQMsgSyncParameters->validate();
         }
         if (null !== $this->sinkRabbitMQParameters) {
             $this->sinkRabbitMQParameters->validate();
@@ -266,6 +286,14 @@ class sink extends Model
 
         if (null !== $this->sinkOpenSourceRabbitMQParameters) {
             $res['SinkOpenSourceRabbitMQParameters'] = null !== $this->sinkOpenSourceRabbitMQParameters ? $this->sinkOpenSourceRabbitMQParameters->toArray($noStream) : $this->sinkOpenSourceRabbitMQParameters;
+        }
+
+        if (null !== $this->sinkRabbitMQMetaParameters) {
+            $res['SinkRabbitMQMetaParameters'] = null !== $this->sinkRabbitMQMetaParameters ? $this->sinkRabbitMQMetaParameters->toArray($noStream) : $this->sinkRabbitMQMetaParameters;
+        }
+
+        if (null !== $this->sinkRabbitMQMsgSyncParameters) {
+            $res['SinkRabbitMQMsgSyncParameters'] = null !== $this->sinkRabbitMQMsgSyncParameters ? $this->sinkRabbitMQMsgSyncParameters->toArray($noStream) : $this->sinkRabbitMQMsgSyncParameters;
         }
 
         if (null !== $this->sinkRabbitMQParameters) {
@@ -353,6 +381,14 @@ class sink extends Model
 
         if (isset($map['SinkOpenSourceRabbitMQParameters'])) {
             $model->sinkOpenSourceRabbitMQParameters = sinkOpenSourceRabbitMQParameters::fromMap($map['SinkOpenSourceRabbitMQParameters']);
+        }
+
+        if (isset($map['SinkRabbitMQMetaParameters'])) {
+            $model->sinkRabbitMQMetaParameters = SinkRabbitMQMetaParameters::fromMap($map['SinkRabbitMQMetaParameters']);
+        }
+
+        if (isset($map['SinkRabbitMQMsgSyncParameters'])) {
+            $model->sinkRabbitMQMsgSyncParameters = SinkRabbitMQMsgSyncParameters::fromMap($map['SinkRabbitMQMsgSyncParameters']);
         }
 
         if (isset($map['SinkRabbitMQParameters'])) {

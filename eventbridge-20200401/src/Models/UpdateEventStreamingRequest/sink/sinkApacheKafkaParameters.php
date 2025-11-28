@@ -26,6 +26,11 @@ class sinkApacheKafkaParameters extends Model
     public $bootstraps;
 
     /**
+     * @var string
+     */
+    public $compressionType;
+
+    /**
      * @var headers
      */
     public $headers;
@@ -68,6 +73,11 @@ class sinkApacheKafkaParameters extends Model
     /**
      * @var string
      */
+    public $sslTruststoreCertificates;
+
+    /**
+     * @var string
+     */
     public $topic;
 
     /**
@@ -87,6 +97,7 @@ class sinkApacheKafkaParameters extends Model
     protected $_name = [
         'acks' => 'Acks',
         'bootstraps' => 'Bootstraps',
+        'compressionType' => 'CompressionType',
         'headers' => 'Headers',
         'key' => 'Key',
         'networkType' => 'NetworkType',
@@ -95,6 +106,7 @@ class sinkApacheKafkaParameters extends Model
         'saslUser' => 'SaslUser',
         'securityGroupId' => 'SecurityGroupId',
         'securityProtocol' => 'SecurityProtocol',
+        'sslTruststoreCertificates' => 'SslTruststoreCertificates',
         'topic' => 'Topic',
         'vSwitchIds' => 'VSwitchIds',
         'value' => 'Value',
@@ -138,6 +150,10 @@ class sinkApacheKafkaParameters extends Model
             $res['Bootstraps'] = $this->bootstraps;
         }
 
+        if (null !== $this->compressionType) {
+            $res['CompressionType'] = $this->compressionType;
+        }
+
         if (null !== $this->headers) {
             $res['Headers'] = null !== $this->headers ? $this->headers->toArray($noStream) : $this->headers;
         }
@@ -168,6 +184,10 @@ class sinkApacheKafkaParameters extends Model
 
         if (null !== $this->securityProtocol) {
             $res['SecurityProtocol'] = $this->securityProtocol;
+        }
+
+        if (null !== $this->sslTruststoreCertificates) {
+            $res['SslTruststoreCertificates'] = $this->sslTruststoreCertificates;
         }
 
         if (null !== $this->topic) {
@@ -205,6 +225,10 @@ class sinkApacheKafkaParameters extends Model
             $model->bootstraps = $map['Bootstraps'];
         }
 
+        if (isset($map['CompressionType'])) {
+            $model->compressionType = $map['CompressionType'];
+        }
+
         if (isset($map['Headers'])) {
             $model->headers = headers::fromMap($map['Headers']);
         }
@@ -235,6 +259,10 @@ class sinkApacheKafkaParameters extends Model
 
         if (isset($map['SecurityProtocol'])) {
             $model->securityProtocol = $map['SecurityProtocol'];
+        }
+
+        if (isset($map['SslTruststoreCertificates'])) {
+            $model->sslTruststoreCertificates = $map['SslTruststoreCertificates'];
         }
 
         if (isset($map['Topic'])) {

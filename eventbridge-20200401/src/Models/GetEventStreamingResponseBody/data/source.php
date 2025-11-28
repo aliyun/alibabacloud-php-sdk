@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceSLSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceMySQLParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourcePostgreSQLParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceRabbitMQMetaParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceRabbitMQMsgSyncParameters;
 
 class source extends Model
 {
@@ -97,6 +99,16 @@ class source extends Model
     public $sourcePrometheusParameters;
 
     /**
+     * @var SourceRabbitMQMetaParameters
+     */
+    public $sourceRabbitMQMetaParameters;
+
+    /**
+     * @var SourceRabbitMQMsgSyncParameters
+     */
+    public $sourceRabbitMQMsgSyncParameters;
+
+    /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
@@ -130,6 +142,8 @@ class source extends Model
         'sourceOpenSourceRabbitMQParameters' => 'SourceOpenSourceRabbitMQParameters',
         'sourcePostgreSQLParameters' => 'SourcePostgreSQLParameters',
         'sourcePrometheusParameters' => 'SourcePrometheusParameters',
+        'sourceRabbitMQMetaParameters' => 'SourceRabbitMQMetaParameters',
+        'sourceRabbitMQMsgSyncParameters' => 'SourceRabbitMQMsgSyncParameters',
         'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
         'sourceRocketMQCheckpointParameters' => 'SourceRocketMQCheckpointParameters',
         'sourceRocketMQParameters' => 'SourceRocketMQParameters',
@@ -179,6 +193,12 @@ class source extends Model
         }
         if (null !== $this->sourcePrometheusParameters) {
             $this->sourcePrometheusParameters->validate();
+        }
+        if (null !== $this->sourceRabbitMQMetaParameters) {
+            $this->sourceRabbitMQMetaParameters->validate();
+        }
+        if (null !== $this->sourceRabbitMQMsgSyncParameters) {
+            $this->sourceRabbitMQMsgSyncParameters->validate();
         }
         if (null !== $this->sourceRabbitMQParameters) {
             $this->sourceRabbitMQParameters->validate();
@@ -252,6 +272,14 @@ class source extends Model
 
         if (null !== $this->sourcePrometheusParameters) {
             $res['SourcePrometheusParameters'] = null !== $this->sourcePrometheusParameters ? $this->sourcePrometheusParameters->toArray($noStream) : $this->sourcePrometheusParameters;
+        }
+
+        if (null !== $this->sourceRabbitMQMetaParameters) {
+            $res['SourceRabbitMQMetaParameters'] = null !== $this->sourceRabbitMQMetaParameters ? $this->sourceRabbitMQMetaParameters->toArray($noStream) : $this->sourceRabbitMQMetaParameters;
+        }
+
+        if (null !== $this->sourceRabbitMQMsgSyncParameters) {
+            $res['SourceRabbitMQMsgSyncParameters'] = null !== $this->sourceRabbitMQMsgSyncParameters ? $this->sourceRabbitMQMsgSyncParameters->toArray($noStream) : $this->sourceRabbitMQMsgSyncParameters;
         }
 
         if (null !== $this->sourceRabbitMQParameters) {
@@ -335,6 +363,14 @@ class source extends Model
 
         if (isset($map['SourcePrometheusParameters'])) {
             $model->sourcePrometheusParameters = sourcePrometheusParameters::fromMap($map['SourcePrometheusParameters']);
+        }
+
+        if (isset($map['SourceRabbitMQMetaParameters'])) {
+            $model->sourceRabbitMQMetaParameters = SourceRabbitMQMetaParameters::fromMap($map['SourceRabbitMQMetaParameters']);
+        }
+
+        if (isset($map['SourceRabbitMQMsgSyncParameters'])) {
+            $model->sourceRabbitMQMsgSyncParameters = SourceRabbitMQMsgSyncParameters::fromMap($map['SourceRabbitMQMsgSyncParameters']);
         }
 
         if (isset($map['SourceRabbitMQParameters'])) {
