@@ -1,3 +1,8 @@
+2025-11-30 Version: 6.8.2
+- Update API BatchGetMediaInfos: add response parameters Body.IgnoredList.
+- Update API BatchGetMediaInfos: add response parameters Body.MediaInfos.$.MediaDynamicInfo.
+
+
 2025-11-18 Version: 6.8.1
 - Update API ListRecognitionLibs: add request parameters LibId.
 - Update API ListRecognitionSamples: add request parameters EntityName.

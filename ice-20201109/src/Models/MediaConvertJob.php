@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJob\config;
 
 class MediaConvertJob extends Model
 {
@@ -20,7 +19,7 @@ class MediaConvertJob extends Model
     public $code;
 
     /**
-     * @var config
+     * @var MediaConvertJobConfig
      */
     public $config;
 
@@ -202,7 +201,7 @@ class MediaConvertJob extends Model
         }
 
         if (isset($map['Config'])) {
-            $model->config = config::fromMap($map['Config']);
+            $model->config = MediaConvertJobConfig::fromMap($map['Config']);
         }
 
         if (isset($map['CreateTime'])) {

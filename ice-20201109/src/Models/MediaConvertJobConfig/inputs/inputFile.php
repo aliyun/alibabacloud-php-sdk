@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJobConfig\inputs;
 
 use AlibabaCloud\Dara\Model;
 
-class MediaObject extends Model
+class inputFile extends Model
 {
     /**
      * @var string

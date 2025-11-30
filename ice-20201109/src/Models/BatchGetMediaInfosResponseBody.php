@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaIn
 class BatchGetMediaInfosResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $ignoredList;
+
+    /**
      * @var mediaInfos[]
      */
     public $mediaInfos;
@@ -19,12 +24,16 @@ class BatchGetMediaInfosResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'ignoredList' => 'IgnoredList',
         'mediaInfos' => 'MediaInfos',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ignoredList)) {
+            Model::validateArray($this->ignoredList);
+        }
         if (\is_array($this->mediaInfos)) {
             Model::validateArray($this->mediaInfos);
         }
@@ -34,6 +43,17 @@ class BatchGetMediaInfosResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ignoredList) {
+            if (\is_array($this->ignoredList)) {
+                $res['IgnoredList'] = [];
+                $n1 = 0;
+                foreach ($this->ignoredList as $item1) {
+                    $res['IgnoredList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->mediaInfos) {
             if (\is_array($this->mediaInfos)) {
                 $res['MediaInfos'] = [];
@@ -60,6 +80,17 @@ class BatchGetMediaInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IgnoredList'])) {
+            if (!empty($map['IgnoredList'])) {
+                $model->ignoredList = [];
+                $n1 = 0;
+                foreach ($map['IgnoredList'] as $item1) {
+                    $model->ignoredList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];

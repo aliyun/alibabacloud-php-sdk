@@ -2,24 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJobConfig\outputGroups\groupConfig\manifestExtend;
 
 use AlibabaCloud\Dara\Model;
 
-class MediaObject extends Model
+class excludes extends Model
 {
     /**
      * @var string
      */
-    public $media;
+    public $name;
 
     /**
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $language;
     protected $_name = [
-        'media' => 'Media',
+        'name' => 'Name',
         'type' => 'Type',
+        'language' => 'language',
     ];
 
     public function validate()
@@ -30,12 +36,16 @@ class MediaObject extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->media) {
-            $res['Media'] = $this->media;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->language) {
+            $res['language'] = $this->language;
         }
 
         return $res;
@@ -49,12 +59,16 @@ class MediaObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Media'])) {
-            $model->media = $map['Media'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['language'])) {
+            $model->language = $map['language'];
         }
 
         return $model;

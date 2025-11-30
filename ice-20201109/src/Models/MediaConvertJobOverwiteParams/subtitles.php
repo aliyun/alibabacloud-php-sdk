@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJobOverwiteParams;
 
 use AlibabaCloud\Dara\Model;
 
-class MediaObject extends Model
+class subtitles extends Model
 {
     /**
      * @var string
      */
-    public $media;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $codec;
     protected $_name = [
-        'media' => 'Media',
-        'type' => 'Type',
+        'codec' => 'Codec',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class MediaObject extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->media) {
-            $res['Media'] = $this->media;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->codec) {
+            $res['Codec'] = $this->codec;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class MediaObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Media'])) {
-            $model->media = $map['Media'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Codec'])) {
+            $model->codec = $map['Codec'];
         }
 
         return $model;

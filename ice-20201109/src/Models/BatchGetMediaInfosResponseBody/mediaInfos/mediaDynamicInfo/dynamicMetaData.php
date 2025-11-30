@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaInfos\mediaDynamicInfo;
 
 use AlibabaCloud\Dara\Model;
 
-class MediaObject extends Model
+class dynamicMetaData extends Model
 {
     /**
      * @var string
      */
-    public $media;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $data;
     protected $_name = [
-        'media' => 'Media',
-        'type' => 'Type',
+        'data' => 'Data',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class MediaObject extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->media) {
-            $res['Media'] = $this->media;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class MediaObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Media'])) {
-            $model->media = $map['Media'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
 
         return $model;

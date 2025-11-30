@@ -2,17 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJob;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertInput;
-use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertOutput;
-use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertOutputGroup;
+use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJobConfig\inputs;
+use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertJobConfig\outputGroups;
 
-class config extends Model
+class MediaConvertJobConfig extends Model
 {
     /**
-     * @var MediaConvertInput[]
+     * @var inputs[]
      */
     public $inputs;
 
@@ -22,19 +21,13 @@ class config extends Model
     public $jobName;
 
     /**
-     * @var MediaConvertOutputGroup[]
+     * @var outputGroups[]
      */
     public $outputGroups;
-
-    /**
-     * @var MediaConvertOutput[]
-     */
-    public $outputs;
     protected $_name = [
         'inputs' => 'Inputs',
         'jobName' => 'JobName',
         'outputGroups' => 'OutputGroups',
-        'outputs' => 'Outputs',
     ];
 
     public function validate()
@@ -44,9 +37,6 @@ class config extends Model
         }
         if (\is_array($this->outputGroups)) {
             Model::validateArray($this->outputGroups);
-        }
-        if (\is_array($this->outputs)) {
-            Model::validateArray($this->outputs);
         }
         parent::validate();
     }
@@ -80,17 +70,6 @@ class config extends Model
             }
         }
 
-        if (null !== $this->outputs) {
-            if (\is_array($this->outputs)) {
-                $res['Outputs'] = [];
-                $n1 = 0;
-                foreach ($this->outputs as $item1) {
-                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         return $res;
     }
 
@@ -107,7 +86,7 @@ class config extends Model
                 $model->inputs = [];
                 $n1 = 0;
                 foreach ($map['Inputs'] as $item1) {
-                    $model->inputs[$n1] = MediaConvertInput::fromMap($item1);
+                    $model->inputs[$n1] = inputs::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -122,18 +101,7 @@ class config extends Model
                 $model->outputGroups = [];
                 $n1 = 0;
                 foreach ($map['OutputGroups'] as $item1) {
-                    $model->outputGroups[$n1] = MediaConvertOutputGroup::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['Outputs'])) {
-            if (!empty($map['Outputs'])) {
-                $model->outputs = [];
-                $n1 = 0;
-                foreach ($map['Outputs'] as $item1) {
-                    $model->outputs[$n1] = MediaConvertOutput::fromMap($item1);
+                    $model->outputGroups[$n1] = outputGroups::fromMap($item1);
                     ++$n1;
                 }
             }

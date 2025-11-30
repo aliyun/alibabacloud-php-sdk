@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaInfos\fileInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaInfos\mediaBasicInfo;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaInfos\mediaDynamicInfo;
 
 class mediaInfos extends Model
 {
@@ -21,12 +22,18 @@ class mediaInfos extends Model
     public $mediaBasicInfo;
 
     /**
+     * @var mediaDynamicInfo
+     */
+    public $mediaDynamicInfo;
+
+    /**
      * @var string
      */
     public $mediaId;
     protected $_name = [
         'fileInfoList' => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
+        'mediaDynamicInfo' => 'MediaDynamicInfo',
         'mediaId' => 'MediaId',
     ];
 
@@ -37,6 +44,9 @@ class mediaInfos extends Model
         }
         if (null !== $this->mediaBasicInfo) {
             $this->mediaBasicInfo->validate();
+        }
+        if (null !== $this->mediaDynamicInfo) {
+            $this->mediaDynamicInfo->validate();
         }
         parent::validate();
     }
@@ -57,6 +67,10 @@ class mediaInfos extends Model
 
         if (null !== $this->mediaBasicInfo) {
             $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toArray($noStream) : $this->mediaBasicInfo;
+        }
+
+        if (null !== $this->mediaDynamicInfo) {
+            $res['MediaDynamicInfo'] = null !== $this->mediaDynamicInfo ? $this->mediaDynamicInfo->toArray($noStream) : $this->mediaDynamicInfo;
         }
 
         if (null !== $this->mediaId) {
@@ -87,6 +101,10 @@ class mediaInfos extends Model
 
         if (isset($map['MediaBasicInfo'])) {
             $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
+        }
+
+        if (isset($map['MediaDynamicInfo'])) {
+            $model->mediaDynamicInfo = mediaDynamicInfo::fromMap($map['MediaDynamicInfo']);
         }
 
         if (isset($map['MediaId'])) {
