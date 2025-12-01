@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\BeginSessionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\BeginSessionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CancelChatRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CancelChatResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CancelInstancePublishTaskRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CancelInstancePublishTaskResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CancelPublishTaskRequest;
@@ -462,6 +464,83 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->beginSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消对应对话.
+     *
+     * @param request - CancelChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelChatResponse
+     *
+     * @param CancelChatRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelChatResponse
+     */
+    public function cancelChatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentKey) {
+            @$body['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->answer) {
+            @$body['Answer'] = $request->answer;
+        }
+
+        if (null !== $request->chatId) {
+            @$body['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelChat',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消对应对话.
+     *
+     * @param request - CancelChatRequest
+     *
+     * @returns CancelChatResponse
+     *
+     * @param CancelChatRequest $request
+     *
+     * @return CancelChatResponse
+     */
+    public function cancelChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelChatWithOptions($request, $runtime);
     }
 
     /**
