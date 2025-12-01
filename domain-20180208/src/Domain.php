@@ -53,6 +53,9 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRecordRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRecordResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateRequest;
@@ -1505,6 +1508,129 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryBrokerDemandRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询买家交易记录列表.
+     *
+     * @param tmpReq - QueryBuyerDomainTradeRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBuyerDomainTradeRecordsResponse
+     *
+     * @param QueryBuyerDomainTradeRecordsRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryBuyerDomainTradeRecordsResponse
+     */
+    public function queryBuyerDomainTradeRecordsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryBuyerDomainTradeRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizIdList) {
+            $request->bizIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizIdList, 'BizIdList', 'json');
+        }
+
+        if (null !== $tmpReq->domainNameList) {
+            $request->domainNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->domainNameList, 'DomainNameList', 'json');
+        }
+
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        if (null !== $tmpReq->suffixList) {
+            $request->suffixListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->suffixList, 'SuffixList', 'json');
+        }
+
+        if (null !== $tmpReq->tradeTypeList) {
+            $request->tradeTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tradeTypeList, 'TradeTypeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizIdListShrink) {
+            @$query['BizIdList'] = $request->bizIdListShrink;
+        }
+
+        if (null !== $request->domainNameListShrink) {
+            @$query['DomainNameList'] = $request->domainNameListShrink;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->endPrice) {
+            @$query['EndPrice'] = $request->endPrice;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sorter) {
+            @$query['Sorter'] = $request->sorter;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->startPrice) {
+            @$query['StartPrice'] = $request->startPrice;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->suffixListShrink) {
+            @$query['SuffixList'] = $request->suffixListShrink;
+        }
+
+        if (null !== $request->tradeTypeListShrink) {
+            @$query['TradeTypeList'] = $request->tradeTypeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryBuyerDomainTradeRecords',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryBuyerDomainTradeRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询买家交易记录列表.
+     *
+     * @param request - QueryBuyerDomainTradeRecordsRequest
+     *
+     * @returns QueryBuyerDomainTradeRecordsResponse
+     *
+     * @param QueryBuyerDomainTradeRecordsRequest $request
+     *
+     * @return QueryBuyerDomainTradeRecordsResponse
+     */
+    public function queryBuyerDomainTradeRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBuyerDomainTradeRecordsWithOptions($request, $runtime);
     }
 
     /**

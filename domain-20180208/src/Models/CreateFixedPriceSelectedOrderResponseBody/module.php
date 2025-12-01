@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class module extends Model
 {
     /**
+     * @var string[]
+     */
+    public $bizIds;
+
+    /**
      * @var string
      */
     public $domain;
@@ -28,6 +33,7 @@ class module extends Model
      */
     public $price;
     protected $_name = [
+        'bizIds' => 'BizIds',
         'domain' => 'Domain',
         'domainBlockTrade' => 'DomainBlockTrade',
         'orderNo' => 'OrderNo',
@@ -36,6 +42,9 @@ class module extends Model
 
     public function validate()
     {
+        if (\is_array($this->bizIds)) {
+            Model::validateArray($this->bizIds);
+        }
         if (\is_array($this->domainBlockTrade)) {
             Model::validateArray($this->domainBlockTrade);
         }
@@ -45,6 +54,15 @@ class module extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizIds) {
+            if (\is_array($this->bizIds)) {
+                $res['BizIds'] = [];
+                foreach ($this->bizIds as $key1 => $value1) {
+                    $res['BizIds'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -79,6 +97,15 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizIds'])) {
+            if (!empty($map['BizIds'])) {
+                $model->bizIds = [];
+                foreach ($map['BizIds'] as $key1 => $value1) {
+                    $model->bizIds[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
