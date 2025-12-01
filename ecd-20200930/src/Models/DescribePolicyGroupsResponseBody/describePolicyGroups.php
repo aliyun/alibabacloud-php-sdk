@@ -53,6 +53,11 @@ class describePolicyGroups extends Model
     public $clientControlMenu;
 
     /**
+     * @var string
+     */
+    public $clientCreateSnapshot;
+
+    /**
      * @var clientTypes[]
      */
     public $clientTypes;
@@ -590,6 +595,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $watermarkShadow;
+
+    /**
+     * @var string
+     */
     public $watermarkTransparency;
 
     /**
@@ -619,6 +629,7 @@ class describePolicyGroups extends Model
         'autoReconnect' => 'AutoReconnect',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
+        'clientCreateSnapshot' => 'ClientCreateSnapshot',
         'clientTypes' => 'ClientTypes',
         'clipboard' => 'Clipboard',
         'colorEnhancement' => 'ColorEnhancement',
@@ -726,6 +737,7 @@ class describePolicyGroups extends Model
         'watermarkPower' => 'WatermarkPower',
         'watermarkRowAmount' => 'WatermarkRowAmount',
         'watermarkSecurity' => 'WatermarkSecurity',
+        'watermarkShadow' => 'WatermarkShadow',
         'watermarkTransparency' => 'WatermarkTransparency',
         'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
         'watermarkType' => 'WatermarkType',
@@ -829,6 +841,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->clientControlMenu) {
             $res['ClientControlMenu'] = $this->clientControlMenu;
+        }
+
+        if (null !== $this->clientCreateSnapshot) {
+            $res['ClientCreateSnapshot'] = $this->clientCreateSnapshot;
         }
 
         if (null !== $this->clientTypes) {
@@ -1357,6 +1373,10 @@ class describePolicyGroups extends Model
             $res['WatermarkSecurity'] = $this->watermarkSecurity;
         }
 
+        if (null !== $this->watermarkShadow) {
+            $res['WatermarkShadow'] = $this->watermarkShadow;
+        }
+
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
         }
@@ -1428,6 +1448,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ClientControlMenu'])) {
             $model->clientControlMenu = $map['ClientControlMenu'];
+        }
+
+        if (isset($map['ClientCreateSnapshot'])) {
+            $model->clientCreateSnapshot = $map['ClientCreateSnapshot'];
         }
 
         if (isset($map['ClientTypes'])) {
@@ -1954,6 +1978,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['WatermarkSecurity'])) {
             $model->watermarkSecurity = $map['WatermarkSecurity'];
+        }
+
+        if (isset($map['WatermarkShadow'])) {
+            $model->watermarkShadow = $map['WatermarkShadow'];
         }
 
         if (isset($map['WatermarkTransparency'])) {

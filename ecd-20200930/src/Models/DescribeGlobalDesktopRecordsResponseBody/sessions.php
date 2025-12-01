@@ -82,6 +82,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $officeSiteType;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
@@ -148,6 +153,7 @@ class sessions extends Model
         'memory' => 'Memory',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
+        'officeSiteType' => 'OfficeSiteType',
         'osType' => 'OsType',
         'platform' => 'Platform',
         'protocolType' => 'ProtocolType',
@@ -239,6 +245,10 @@ class sessions extends Model
 
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
+        }
+
+        if (null !== $this->officeSiteType) {
+            $res['OfficeSiteType'] = $this->officeSiteType;
         }
 
         if (null !== $this->osType) {
@@ -371,6 +381,10 @@ class sessions extends Model
 
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
+        }
+
+        if (isset($map['OfficeSiteType'])) {
+            $model->officeSiteType = $map['OfficeSiteType'];
         }
 
         if (isset($map['OsType'])) {

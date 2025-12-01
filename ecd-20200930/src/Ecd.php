@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachCenResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachEndUserRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AttachEndUserResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\BatchModifyEntitlementRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\BatchModifyEntitlementResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\BindConfigGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\BindConfigGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CancelAutoSnapshotPolicyRequest;
@@ -1770,6 +1772,83 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param request - BatchModifyEntitlementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchModifyEntitlementResponse
+     *
+     * @param BatchModifyEntitlementRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchModifyEntitlementResponse
+     */
+    public function batchModifyEntitlementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->maxDesktopPerUser) {
+            @$query['MaxDesktopPerUser'] = $request->maxDesktopPerUser;
+        }
+
+        if (null !== $request->maxUserPerDesktop) {
+            @$query['MaxUserPerDesktop'] = $request->maxUserPerDesktop;
+        }
+
+        if (null !== $request->preview) {
+            @$query['Preview'] = $request->preview;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->strategy) {
+            @$query['Strategy'] = $request->strategy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchModifyEntitlement',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchModifyEntitlementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - BatchModifyEntitlementRequest
+     *
+     * @returns BatchModifyEntitlementResponse
+     *
+     * @param BatchModifyEntitlementRequest $request
+     *
+     * @return BatchModifyEntitlementResponse
+     */
+    public function batchModifyEntitlement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchModifyEntitlementWithOptions($request, $runtime);
+    }
+
+    /**
      * Binds a configuration group to resources.
      *
      * @param request - BindConfigGroupRequest
@@ -3480,6 +3559,10 @@ class Ecd extends OpenApiClient
             @$query['ClientControlMenu'] = $request->clientControlMenu;
         }
 
+        if (null !== $request->clientCreateSnapshot) {
+            @$query['ClientCreateSnapshot'] = $request->clientCreateSnapshot;
+        }
+
         if (null !== $request->clientType) {
             @$query['ClientType'] = $request->clientType;
         }
@@ -3898,6 +3981,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->watermarkSecurity) {
             @$query['WatermarkSecurity'] = $request->watermarkSecurity;
+        }
+
+        if (null !== $request->watermarkShadow) {
+            @$query['WatermarkShadow'] = $request->watermarkShadow;
         }
 
         if (null !== $request->watermarkTransparencyValue) {
@@ -6524,6 +6611,11 @@ class Ecd extends OpenApiClient
     /**
      * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
      *
+     * @remarks
+     * When you call this operation, take note of the following item:
+     * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+     * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+     *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6649,6 +6741,11 @@ class Ecd extends OpenApiClient
 
     /**
      * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+     *
+     * @remarks
+     * When you call this operation, take note of the following item:
+     * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+     * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
      *
      * @param request - CreateTemplateRequest
      *
@@ -16147,7 +16244,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询桌面内安装的应用.
+     * Queries applications installed on a cloud computer.
      *
      * @param request - ListInstalledAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16194,7 +16291,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询桌面内安装的应用.
+     * Queries applications installed on a cloud computer.
      *
      * @param request - ListInstalledAppsRequest
      *
@@ -17507,6 +17604,10 @@ class Ecd extends OpenApiClient
             @$query['ClientControlMenu'] = $request->clientControlMenu;
         }
 
+        if (null !== $request->clientCreateSnapshot) {
+            @$query['ClientCreateSnapshot'] = $request->clientCreateSnapshot;
+        }
+
         if (null !== $request->clientType) {
             @$query['ClientType'] = $request->clientType;
         }
@@ -17937,6 +18038,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->watermarkSecurity) {
             @$query['WatermarkSecurity'] = $request->watermarkSecurity;
+        }
+
+        if (null !== $request->watermarkShadow) {
+            @$query['WatermarkShadow'] = $request->watermarkShadow;
         }
 
         if (null !== $request->watermarkTransparencyValue) {

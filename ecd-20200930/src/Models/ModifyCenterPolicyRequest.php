@@ -61,6 +61,11 @@ class ModifyCenterPolicyRequest extends Model
     public $clientControlMenu;
 
     /**
+     * @var string
+     */
+    public $clientCreateSnapshot;
+
+    /**
      * @var clientType[]
      */
     public $clientType;
@@ -601,6 +606,11 @@ class ModifyCenterPolicyRequest extends Model
     public $watermarkSecurity;
 
     /**
+     * @var string
+     */
+    public $watermarkShadow;
+
+    /**
      * @var int
      */
     public $watermarkTransparencyValue;
@@ -628,6 +638,7 @@ class ModifyCenterPolicyRequest extends Model
         'businessType' => 'BusinessType',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
+        'clientCreateSnapshot' => 'ClientCreateSnapshot',
         'clientType' => 'ClientType',
         'clipboard' => 'Clipboard',
         'clipboardGraineds' => 'ClipboardGraineds',
@@ -736,6 +747,7 @@ class ModifyCenterPolicyRequest extends Model
         'watermarkPower' => 'WatermarkPower',
         'watermarkRowAmount' => 'WatermarkRowAmount',
         'watermarkSecurity' => 'WatermarkSecurity',
+        'watermarkShadow' => 'WatermarkShadow',
         'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
         'watermarkType' => 'WatermarkType',
         'wuyingKeeper' => 'WuyingKeeper',
@@ -851,6 +863,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->clientControlMenu) {
             $res['ClientControlMenu'] = $this->clientControlMenu;
+        }
+
+        if (null !== $this->clientCreateSnapshot) {
+            $res['ClientCreateSnapshot'] = $this->clientCreateSnapshot;
         }
 
         if (null !== $this->clientType) {
@@ -1404,6 +1420,10 @@ class ModifyCenterPolicyRequest extends Model
             $res['WatermarkSecurity'] = $this->watermarkSecurity;
         }
 
+        if (null !== $this->watermarkShadow) {
+            $res['WatermarkShadow'] = $this->watermarkShadow;
+        }
+
         if (null !== $this->watermarkTransparencyValue) {
             $res['WatermarkTransparencyValue'] = $this->watermarkTransparencyValue;
         }
@@ -1475,6 +1495,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['ClientControlMenu'])) {
             $model->clientControlMenu = $map['ClientControlMenu'];
+        }
+
+        if (isset($map['ClientCreateSnapshot'])) {
+            $model->clientCreateSnapshot = $map['ClientCreateSnapshot'];
         }
 
         if (isset($map['ClientType'])) {
@@ -2026,6 +2050,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['WatermarkSecurity'])) {
             $model->watermarkSecurity = $map['WatermarkSecurity'];
+        }
+
+        if (isset($map['WatermarkShadow'])) {
+            $model->watermarkShadow = $map['WatermarkShadow'];
         }
 
         if (isset($map['WatermarkTransparencyValue'])) {
