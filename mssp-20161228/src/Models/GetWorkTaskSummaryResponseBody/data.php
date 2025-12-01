@@ -12,43 +12,50 @@ class data extends Model
      * @var int
      */
     public $dealAverageDuration;
+
     /**
      * @var string
      */
     public $dealAverageDurationGrowthRate;
+
     /**
      * @var int
      */
     public $dealWorkTaskCount;
+
     /**
      * @var string
      */
     public $dealWorkTaskCountRate;
+
     /**
      * @var int
      */
     public $workTaskCount;
+
     /**
      * @var string
      */
     public $workTaskDealRate;
+
     /**
      * @var string
      */
     public $workTaskDealRateGrowthRate;
+
     /**
      * @var string
      */
     public $workTaskGrowthRate;
     protected $_name = [
-        'dealAverageDuration'           => 'DealAverageDuration',
+        'dealAverageDuration' => 'DealAverageDuration',
         'dealAverageDurationGrowthRate' => 'DealAverageDurationGrowthRate',
-        'dealWorkTaskCount'             => 'DealWorkTaskCount',
-        'dealWorkTaskCountRate'         => 'DealWorkTaskCountRate',
-        'workTaskCount'                 => 'WorkTaskCount',
-        'workTaskDealRate'              => 'WorkTaskDealRate',
-        'workTaskDealRateGrowthRate'    => 'WorkTaskDealRateGrowthRate',
-        'workTaskGrowthRate'            => 'WorkTaskGrowthRate',
+        'dealWorkTaskCount' => 'DealWorkTaskCount',
+        'dealWorkTaskCountRate' => 'DealWorkTaskCountRate',
+        'workTaskCount' => 'WorkTaskCount',
+        'workTaskDealRate' => 'WorkTaskDealRate',
+        'workTaskDealRateGrowthRate' => 'WorkTaskDealRateGrowthRate',
+        'workTaskGrowthRate' => 'WorkTaskGrowthRate',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ecsProtection extends Model
      * @var int
      */
     public $noProtectionCount;
+
     /**
      * @var int
      */
     public $protectionCount;
+
     /**
      * @var string
      */
     public $protectionGrowthRate;
+
     /**
      * @var string
      */
     public $protectionRate;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'noProtectionCount'    => 'NoProtectionCount',
-        'protectionCount'      => 'ProtectionCount',
+        'noProtectionCount' => 'NoProtectionCount',
+        'protectionCount' => 'ProtectionCount',
         'protectionGrowthRate' => 'ProtectionGrowthRate',
-        'protectionRate'       => 'ProtectionRate',
-        'totalCount'           => 'TotalCount',
+        'protectionRate' => 'ProtectionRate',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

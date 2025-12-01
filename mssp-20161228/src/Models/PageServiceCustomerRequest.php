@@ -12,38 +12,44 @@ class PageServiceCustomerRequest extends Model
      * @var int
      */
     public $authStatus;
+
     /**
      * @var int
      */
     public $cmAuthStatus;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $monitorAuthStatus;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'authStatus'        => 'AuthStatus',
-        'cmAuthStatus'      => 'CmAuthStatus',
-        'currentPage'       => 'CurrentPage',
-        'endTime'           => 'EndTime',
+        'authStatus' => 'AuthStatus',
+        'cmAuthStatus' => 'CmAuthStatus',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
         'monitorAuthStatus' => 'MonitorAuthStatus',
-        'pageSize'          => 'PageSize',
-        'startTime'         => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class GetDocumentPageRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $deliveredBy;
+
     /**
      * @var string
      */
     public $documentName;
+
     /**
      * @var string
      */
     public $documentType;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $reportType;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'deliveredBy'  => 'DeliveredBy',
+        'currentPage' => 'CurrentPage',
+        'deliveredBy' => 'DeliveredBy',
         'documentName' => 'DocumentName',
         'documentType' => 'DocumentType',
-        'pageSize'     => 'PageSize',
-        'reportType'   => 'ReportType',
+        'pageSize' => 'PageSize',
+        'reportType' => 'ReportType',
     ];
 
     public function validate()

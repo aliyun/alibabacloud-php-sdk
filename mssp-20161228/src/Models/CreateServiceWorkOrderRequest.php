@@ -12,93 +12,116 @@ class CreateServiceWorkOrderRequest extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $durationDay;
+
     /**
      * @var string
      */
     public $isAttachment;
+
     /**
      * @var string
      */
     public $isMilestone;
+
     /**
      * @var string
      */
     public $isWorkOrderNotify;
+
     /**
      * @var string
      */
     public $notifyDay;
+
     /**
      * @var int
      */
     public $notifyId;
+
     /**
      * @var string
      */
     public $operateRemark;
+
     /**
      * @var string
      */
     public $operateType;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $workOrderDetail;
+
     /**
      * @var string
      */
     public $workOrderName;
+
     /**
      * @var string
      */
     public $workOrderSource;
+
     /**
      * @var string
      */
     public $workOrderStatus;
+
     /**
      * @var string
      */
     public $workOrderType;
     protected $_name = [
-        'creator'           => 'Creator',
-        'customerId'        => 'CustomerId',
-        'durationDay'       => 'DurationDay',
-        'isAttachment'      => 'IsAttachment',
-        'isMilestone'       => 'IsMilestone',
+        'creator' => 'Creator',
+        'customerId' => 'CustomerId',
+        'durationDay' => 'DurationDay',
+        'isAttachment' => 'IsAttachment',
+        'isMilestone' => 'IsMilestone',
         'isWorkOrderNotify' => 'IsWorkOrderNotify',
-        'notifyDay'         => 'NotifyDay',
-        'notifyId'          => 'NotifyId',
-        'operateRemark'     => 'OperateRemark',
-        'operateType'       => 'OperateType',
-        'operator'          => 'Operator',
-        'ownerId'           => 'OwnerId',
-        'startTime'         => 'StartTime',
-        'workOrderDetail'   => 'WorkOrderDetail',
-        'workOrderName'     => 'WorkOrderName',
-        'workOrderSource'   => 'WorkOrderSource',
-        'workOrderStatus'   => 'WorkOrderStatus',
-        'workOrderType'     => 'WorkOrderType',
+        'notifyDay' => 'NotifyDay',
+        'notifyId' => 'NotifyId',
+        'operateRemark' => 'OperateRemark',
+        'operateType' => 'OperateType',
+        'operator' => 'Operator',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'startTime' => 'StartTime',
+        'workOrderDetail' => 'WorkOrderDetail',
+        'workOrderName' => 'WorkOrderName',
+        'workOrderSource' => 'WorkOrderSource',
+        'workOrderStatus' => 'WorkOrderStatus',
+        'workOrderType' => 'WorkOrderType',
     ];
 
     public function validate()
@@ -155,6 +178,10 @@ class CreateServiceWorkOrderRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->startTime) {
@@ -238,6 +265,10 @@ class CreateServiceWorkOrderRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['StartTime'])) {

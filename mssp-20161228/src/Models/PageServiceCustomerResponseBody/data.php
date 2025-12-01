@@ -12,58 +12,68 @@ class data extends Model
      * @var string
      */
     public $aliuid;
+
     /**
      * @var int
      */
     public $authStatus;
+
     /**
      * @var int
      */
     public $cmAuthStatus;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
     public $monitorAuthStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'aliuid'            => 'Aliuid',
-        'authStatus'        => 'AuthStatus',
-        'cmAuthStatus'      => 'CmAuthStatus',
-        'endTime'           => 'EndTime',
-        'level'             => 'Level',
+        'aliuid' => 'Aliuid',
+        'authStatus' => 'AuthStatus',
+        'cmAuthStatus' => 'CmAuthStatus',
+        'endTime' => 'EndTime',
+        'level' => 'Level',
         'monitorAuthStatus' => 'MonitorAuthStatus',
-        'name'              => 'Name',
-        'ownId'             => 'OwnId',
-        'startTime'         => 'StartTime',
-        'userId'            => 'UserId',
-        'version'           => 'Version',
+        'name' => 'Name',
+        'ownId' => 'OwnId',
+        'startTime' => 'StartTime',
+        'userId' => 'UserId',
+        'version' => 'Version',
     ];
 
     public function validate()

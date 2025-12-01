@@ -12,23 +12,26 @@ class vulDetails extends Model
      * @var string
      */
     public $cveId;
+
     /**
      * @var string
      */
     public $cvssScore;
+
     /**
      * @var string
      */
     public $fixSuggestion;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'cveId'         => 'CveId',
-        'cvssScore'     => 'CvssScore',
+        'cveId' => 'CveId',
+        'cvssScore' => 'CvssScore',
         'fixSuggestion' => 'FixSuggestion',
-        'title'         => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

@@ -31,9 +31,10 @@ class data extends Model
         if (null !== $this->ecsTrendList) {
             if (\is_array($this->ecsTrendList)) {
                 $res['EcsTrendList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ecsTrendList as $item1) {
-                    $res['EcsTrendList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EcsTrendList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class data extends Model
         if (isset($map['EcsTrendList'])) {
             if (!empty($map['EcsTrendList'])) {
                 $model->ecsTrendList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['EcsTrendList'] as $item1) {
-                    $model->ecsTrendList[$n1++] = ecsTrendList::fromMap($item1);
+                    $model->ecsTrendList[$n1] = ecsTrendList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

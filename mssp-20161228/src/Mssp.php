@@ -19,6 +19,7 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskShrinkRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAlarmDetailByIdRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAlarmDetailByIdResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealRequest;
@@ -104,6 +105,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - ConfirmDjbhReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfirmDjbhReportResponse
      *
      * @param ConfirmDjbhReportRequest $request
@@ -123,27 +125,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfirmDjbhReport',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfirmDjbhReport',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfirmDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfirmDjbhReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfirmDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Confirm Receipt of Security Assessment Report.
      *
      * @param request - ConfirmDjbhReportRequest
+     *
      * @returns ConfirmDjbhReportResponse
      *
      * @param ConfirmDjbhReportRequest $request
@@ -162,6 +162,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -185,27 +186,25 @@ class Mssp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Create Service-Linked Role.
      *
      * @param request - CreateServiceLinkedRoleRequest
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -224,6 +223,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - CreateServiceWorkOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceWorkOrderResponse
      *
      * @param CreateServiceWorkOrderRequest $request
@@ -283,6 +283,10 @@ class Mssp extends OpenApiClient
             @$body['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
+        }
+
         if (null !== $request->startTime) {
             @$body['StartTime'] = $request->startTime;
         }
@@ -311,27 +315,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceWorkOrder',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceWorkOrder',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceWorkOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Create Service Work Order.
      *
      * @param request - CreateServiceWorkOrderRequest
+     *
      * @returns CreateServiceWorkOrderResponse
      *
      * @param CreateServiceWorkOrderRequest $request
@@ -350,6 +352,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - DeleteDjbhReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDjbhReportResponse
      *
      * @param DeleteDjbhReportRequest $request
@@ -369,27 +372,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDjbhReport',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDjbhReport',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDjbhReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Delete Security Assessment Report.
      *
      * @param request - DeleteDjbhReportRequest
+     *
      * @returns DeleteDjbhReportResponse
      *
      * @param DeleteDjbhReportRequest $request
@@ -408,6 +409,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - DescribeServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceLinkedRoleResponse
      *
      * @param DescribeServiceLinkedRoleRequest $request
@@ -431,27 +433,25 @@ class Mssp extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceLinkedRole',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServiceLinkedRole',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query Service-Linked Role.
      *
      * @param request - DescribeServiceLinkedRoleRequest
+     *
      * @returns DescribeServiceLinkedRoleResponse
      *
      * @param DescribeServiceLinkedRoleRequest $request
@@ -470,6 +470,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - DisposeServiceWorkOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisposeServiceWorkOrderResponse
      *
      * @param DisposeServiceWorkOrderRequest $request
@@ -545,27 +546,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisposeServiceWorkOrder',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisposeServiceWorkOrder',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisposeServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisposeServiceWorkOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisposeServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Process Service Work Order.
      *
      * @param request - DisposeServiceWorkOrderRequest
+     *
      * @returns DisposeServiceWorkOrderResponse
      *
      * @param DisposeServiceWorkOrderRequest $request
@@ -582,18 +581,25 @@ class Mssp extends OpenApiClient
     /**
      * Handle Alert Work Order.
      *
-     * @param request - DisposeWorkTaskRequest
+     * @param tmpReq - DisposeWorkTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisposeWorkTaskResponse
      *
-     * @param DisposeWorkTaskRequest $request
+     * @param DisposeWorkTaskRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return DisposeWorkTaskResponse
      */
-    public function disposeWorkTaskWithOptions($request, $runtime)
+    public function disposeWorkTaskWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DisposeWorkTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->workTaskAnalysisResults) {
+            $request->workTaskAnalysisResultsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workTaskAnalysisResults, 'WorkTaskAnalysisResults', 'json');
+        }
+
         $body = [];
         if (null !== $request->operator) {
             @$body['Operator'] = $request->operator;
@@ -611,31 +617,33 @@ class Mssp extends OpenApiClient
             @$body['TaskIds'] = $request->taskIds;
         }
 
+        if (null !== $request->workTaskAnalysisResultsShrink) {
+            @$body['WorkTaskAnalysisResults'] = $request->workTaskAnalysisResultsShrink;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisposeWorkTask',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisposeWorkTask',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisposeWorkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisposeWorkTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisposeWorkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Handle Alert Work Order.
      *
      * @param request - DisposeWorkTaskRequest
+     *
      * @returns DisposeWorkTaskResponse
      *
      * @param DisposeWorkTaskRequest $request
@@ -654,6 +662,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetAlarmDetailByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAlarmDetailByIdResponse
      *
      * @param GetAlarmDetailByIdRequest $request
@@ -673,27 +682,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAlarmDetailById',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAlarmDetailById',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAlarmDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAlarmDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAlarmDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query Alarm Details.
      *
      * @param request - GetAlarmDetailByIdRequest
+     *
      * @returns GetAlarmDetailByIdResponse
      *
      * @param GetAlarmDetailByIdRequest $request
@@ -712,6 +719,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetAttackedAssetDealRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAttackedAssetDealResponse
      *
      * @param GetAttackedAssetDealRequest $request
@@ -743,27 +751,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAttackedAssetDeal',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAttackedAssetDeal',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAttackedAssetDealResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAttackedAssetDealResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAttackedAssetDealResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Trend of Attacked Asset Convergence.
      *
      * @param request - GetAttackedAssetDealRequest
+     *
      * @returns GetAttackedAssetDealResponse
      *
      * @param GetAttackedAssetDealRequest $request
@@ -782,6 +788,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetBaselineSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBaselineSummaryResponse
      *
      * @param GetBaselineSummaryRequest $request
@@ -813,27 +820,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBaselineSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBaselineSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetBaselineSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetBaselineSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetBaselineSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Compliance Risk Convergence Trend.
      *
      * @param request - GetBaselineSummaryRequest
+     *
      * @returns GetBaselineSummaryResponse
      *
      * @param GetBaselineSummaryRequest $request
@@ -852,6 +857,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetConsoleScoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsoleScoreResponse
      *
      * @param GetConsoleScoreRequest $request
@@ -883,27 +889,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetConsoleScore',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConsoleScore',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConsoleScoreResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConsoleScoreResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConsoleScoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get Console Score.
      *
      * @param request - GetConsoleScoreRequest
+     *
      * @returns GetConsoleScoreResponse
      *
      * @param GetConsoleScoreRequest $request
@@ -922,6 +926,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetDetailByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDetailByIdResponse
      *
      * @param GetDetailByIdRequest $request
@@ -941,27 +946,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDetailById',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDetailById',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query Risk Details.
      *
      * @param request - GetDetailByIdRequest
+     *
      * @returns GetDetailByIdResponse
      *
      * @param GetDetailByIdRequest $request
@@ -980,6 +983,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetDocumentDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocumentDownloadUrlResponse
      *
      * @param GetDocumentDownloadUrlRequest $request
@@ -991,6 +995,10 @@ class Mssp extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
+        }
+
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
         }
@@ -1003,27 +1011,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentDownloadUrl',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDocumentDownloadUrl',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Single Service Report Download.
      *
      * @param request - GetDocumentDownloadUrlRequest
+     *
      * @returns GetDocumentDownloadUrlResponse
      *
      * @param GetDocumentDownloadUrlRequest $request
@@ -1042,6 +1048,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetDocumentPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocumentPageResponse
      *
      * @param GetDocumentPageRequest $request
@@ -1081,27 +1088,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentPage',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDocumentPage',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Service Report Query.
      *
      * @param request - GetDocumentPageRequest
+     *
      * @returns GetDocumentPageResponse
      *
      * @param GetDocumentPageRequest $request
@@ -1120,6 +1125,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetDocumentSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocumentSummaryResponse
      *
      * @param GetDocumentSummaryRequest $request
@@ -1139,27 +1145,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDocumentSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocumentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Service Report Home Page Statistics Acquisition.
      *
      * @param request - GetDocumentSummaryRequest
+     *
      * @returns GetDocumentSummaryResponse
      *
      * @param GetDocumentSummaryRequest $request
@@ -1178,6 +1182,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetRecentDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRecentDocumentResponse
      *
      * @param GetRecentDocumentRequest $request
@@ -1209,27 +1214,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRecentDocument',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRecentDocument',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRecentDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRecentDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRecentDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get Recently Uploaded Service Reports.
      *
      * @param request - GetRecentDocumentRequest
+     *
      * @returns GetRecentDocumentResponse
      *
      * @param GetRecentDocumentRequest $request
@@ -1248,6 +1251,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetSafetyCoverRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSafetyCoverResponse
      *
      * @param GetSafetyCoverRequest $request
@@ -1279,27 +1283,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSafetyCover',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSafetyCover',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSafetyCoverResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSafetyCoverResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSafetyCoverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get Safety Coverage.
      *
      * @param request - GetSafetyCoverRequest
+     *
      * @returns GetSafetyCoverResponse
      *
      * @param GetSafetyCoverRequest $request
@@ -1318,6 +1320,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetSowListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSowListResponse
      *
      * @param GetSowListRequest $request
@@ -1349,27 +1352,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSowList',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSowList',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSowListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSowListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSowListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get SOW List.
      *
      * @param request - GetSowListRequest
+     *
      * @returns GetSowListResponse
      *
      * @param GetSowListRequest $request
@@ -1388,6 +1389,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetSuspEventPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSuspEventPageResponse
      *
      * @param GetSuspEventPageRequest $request
@@ -1427,27 +1429,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSuspEventPage',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSuspEventPage',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSuspEventPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSuspEventPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSuspEventPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Alarm Disposal Query.
      *
      * @param request - GetSuspEventPageRequest
+     *
      * @returns GetSuspEventPageResponse
      *
      * @param GetSuspEventPageRequest $request
@@ -1466,6 +1466,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetSuspEventSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSuspEventSummaryResponse
      *
      * @param GetSuspEventSummaryRequest $request
@@ -1497,27 +1498,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSuspEventSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSuspEventSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSuspEventSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSuspEventSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSuspEventSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get Alert Statistics.
      *
      * @param request - GetSuspEventSummaryRequest
+     *
      * @returns GetSuspEventSummaryResponse
      *
      * @param GetSuspEventSummaryRequest $request
@@ -1536,6 +1535,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetSuspPageSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSuspPageSummaryResponse
      *
      * @param RuntimeOptions $runtime
@@ -1544,23 +1544,20 @@ class Mssp extends OpenApiClient
      */
     public function getSuspPageSummaryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetSuspPageSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSuspPageSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSuspPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSuspPageSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSuspPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1582,6 +1579,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -1590,23 +1588,20 @@ class Mssp extends OpenApiClient
      */
     public function getUserStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetUserStatus',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserStatus',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,6 +1623,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetVulItemPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVulItemPageResponse
      *
      * @param GetVulItemPageRequest $request
@@ -1671,27 +1667,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVulItemPage',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVulItemPage',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVulItemPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVulItemPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVulItemPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Risk Query.
      *
      * @param request - GetVulItemPageRequest
+     *
      * @returns GetVulItemPageResponse
      *
      * @param GetVulItemPageRequest $request
@@ -1710,6 +1704,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetVulListByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVulListByIdResponse
      *
      * @param GetVulListByIdRequest $request
@@ -1753,27 +1748,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVulListById',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVulListById',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVulListByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVulListByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVulListByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Query processed details.
      *
      * @param request - GetVulListByIdRequest
+     *
      * @returns GetVulListByIdResponse
      *
      * @param GetVulListByIdRequest $request
@@ -1792,6 +1785,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetVulPageSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVulPageSummaryResponse
      *
      * @param RuntimeOptions $runtime
@@ -1800,23 +1794,20 @@ class Mssp extends OpenApiClient
      */
     public function getVulPageSummaryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetVulPageSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVulPageSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVulPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVulPageSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVulPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1838,6 +1829,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetVulSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVulSummaryResponse
      *
      * @param GetVulSummaryRequest $request
@@ -1869,27 +1861,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVulSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVulSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVulSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVulSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVulSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get Risk Statistics.
      *
      * @param request - GetVulSummaryRequest
+     *
      * @returns GetVulSummaryResponse
      *
      * @param GetVulSummaryRequest $request
@@ -1908,6 +1898,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - GetWorkTaskSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWorkTaskSummaryResponse
      *
      * @param GetWorkTaskSummaryRequest $request
@@ -1939,27 +1930,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetWorkTaskSummary',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWorkTaskSummary',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkTaskSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkTaskSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkTaskSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Get the First Line Work Order Statistics.
      *
      * @param request - GetWorkTaskSummaryRequest
+     *
      * @returns GetWorkTaskSummaryResponse
      *
      * @param GetWorkTaskSummaryRequest $request
@@ -1978,6 +1967,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - PageServiceCustomerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PageServiceCustomerResponse
      *
      * @param PageServiceCustomerRequest $request
@@ -2021,27 +2011,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PageServiceCustomer',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PageServiceCustomer',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PageServiceCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PageServiceCustomerResponse::fromMap($this->execute($params, $req, $runtime));
+        return PageServiceCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Service Customer Information Query.
      *
      * @param request - PageServiceCustomerRequest
+     *
      * @returns PageServiceCustomerResponse
      *
      * @param PageServiceCustomerRequest $request
@@ -2060,6 +2048,7 @@ class Mssp extends OpenApiClient
      *
      * @param request - SendCustomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendCustomEventResponse
      *
      * @param SendCustomEventRequest $request
@@ -2143,27 +2132,25 @@ class Mssp extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendCustomEvent',
-            'version'     => '2016-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendCustomEvent',
+            'version' => '2016-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendCustomEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Send Custom Alert Event.
      *
      * @param request - SendCustomEventRequest
+     *
      * @returns SendCustomEventResponse
      *
      * @param SendCustomEventRequest $request

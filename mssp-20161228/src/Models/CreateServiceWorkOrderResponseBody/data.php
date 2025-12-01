@@ -12,68 +12,80 @@ class data extends Model
      * @var int
      */
     public $completeTime;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $workOrderDetail;
+
     /**
      * @var string
      */
     public $workOrderName;
+
     /**
      * @var string
      */
     public $workOrderSource;
+
     /**
      * @var string
      */
     public $workOrderStatus;
+
     /**
      * @var string
      */
     public $workOrderType;
     protected $_name = [
-        'completeTime'    => 'CompleteTime',
-        'createTime'      => 'CreateTime',
-        'creator'         => 'Creator',
-        'customerId'      => 'CustomerId',
-        'endTime'         => 'EndTime',
-        'id'              => 'Id',
-        'ownerId'         => 'OwnerId',
-        'startTime'       => 'StartTime',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
+        'customerId' => 'CustomerId',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
         'workOrderDetail' => 'WorkOrderDetail',
-        'workOrderName'   => 'WorkOrderName',
+        'workOrderName' => 'WorkOrderName',
         'workOrderSource' => 'WorkOrderSource',
         'workOrderStatus' => 'WorkOrderStatus',
-        'workOrderType'   => 'WorkOrderType',
+        'workOrderType' => 'WorkOrderType',
     ];
 
     public function validate()

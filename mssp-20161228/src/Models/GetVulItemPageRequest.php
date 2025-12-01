@@ -12,38 +12,44 @@ class GetVulItemPageRequest extends Model
      * @var string
      */
     public $aliasName;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dealed;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $scanType;
     protected $_name = [
-        'aliasName'   => 'AliasName',
+        'aliasName' => 'AliasName',
         'currentPage' => 'CurrentPage',
-        'dealed'      => 'Dealed',
-        'level'       => 'Level',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'scanType'    => 'ScanType',
+        'dealed' => 'Dealed',
+        'level' => 'Level',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'scanType' => 'ScanType',
     ];
 
     public function validate()

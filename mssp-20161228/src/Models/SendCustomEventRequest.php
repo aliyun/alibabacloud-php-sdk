@@ -12,88 +12,104 @@ class SendCustomEventRequest extends Model
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $dataSource;
+
     /**
      * @var string
      */
     public $eventDescription;
+
     /**
      * @var string
      */
     public $eventDetails;
+
     /**
      * @var string
      */
     public $eventMarkdown;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var int
      */
     public $findTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $isSend;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
     public $occurrenceTime;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $uniqueId;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'customerId'       => 'CustomerId',
-        'dataSource'       => 'DataSource',
+        'customerId' => 'CustomerId',
+        'dataSource' => 'DataSource',
         'eventDescription' => 'EventDescription',
-        'eventDetails'     => 'EventDetails',
-        'eventMarkdown'    => 'EventMarkdown',
-        'eventName'        => 'EventName',
-        'eventType'        => 'EventType',
-        'findTime'         => 'FindTime',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
-        'isSend'           => 'IsSend',
-        'level'            => 'Level',
-        'occurrenceTime'   => 'OccurrenceTime',
-        'ownerId'          => 'OwnerId',
-        'product'          => 'Product',
-        'uniqueId'         => 'UniqueId',
-        'uuid'             => 'Uuid',
+        'eventDetails' => 'EventDetails',
+        'eventMarkdown' => 'EventMarkdown',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'findTime' => 'FindTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isSend' => 'IsSend',
+        'level' => 'Level',
+        'occurrenceTime' => 'OccurrenceTime',
+        'ownerId' => 'OwnerId',
+        'product' => 'Product',
+        'uniqueId' => 'UniqueId',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()

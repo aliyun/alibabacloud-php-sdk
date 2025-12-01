@@ -31,9 +31,10 @@ class suspEventTopDTO extends Model
         if (null !== $this->suspEventList) {
             if (\is_array($this->suspEventList)) {
                 $res['SuspEventList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->suspEventList as $item1) {
-                    $res['SuspEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SuspEventList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class suspEventTopDTO extends Model
         if (isset($map['SuspEventList'])) {
             if (!empty($map['SuspEventList'])) {
                 $model->suspEventList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SuspEventList'] as $item1) {
-                    $model->suspEventList[$n1++] = suspEventList::fromMap($item1);
+                    $model->suspEventList[$n1] = suspEventList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

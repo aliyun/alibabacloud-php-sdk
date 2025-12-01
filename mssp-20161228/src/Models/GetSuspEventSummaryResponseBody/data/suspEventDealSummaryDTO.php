@@ -12,31 +12,36 @@ class suspEventDealSummaryDTO extends Model
      * @var int
      */
     public $completedCount;
+
     /**
      * @var int
      */
     public $handingCount;
+
     /**
      * @var string
      */
     public $handingRate;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $totalGrowthRate;
+
     /**
      * @var int
      */
     public $waitHandleCount;
     protected $_name = [
-        'completedCount'  => 'CompletedCount',
-        'handingCount'    => 'HandingCount',
-        'handingRate'     => 'HandingRate',
-        'totalCount'      => 'TotalCount',
+        'completedCount' => 'CompletedCount',
+        'handingCount' => 'HandingCount',
+        'handingRate' => 'HandingRate',
+        'totalCount' => 'TotalCount',
         'totalGrowthRate' => 'TotalGrowthRate',
         'waitHandleCount' => 'WaitHandleCount',
     ];

@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventSummaryResponseBody\data\suspEventTopDTO;
+namespace AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class suspEventList extends Model
+class workTaskAnalysisResults extends Model
 {
     /**
      * @var string
      */
-    public $eventName;
+    public $analysisResult;
 
     /**
      * @var int
      */
-    public $taskCount;
+    public $taskId;
     protected $_name = [
-        'eventName' => 'EventName',
-        'taskCount' => 'TaskCount',
+        'analysisResult' => 'AnalysisResult',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class suspEventList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->eventName) {
-            $res['EventName'] = $this->eventName;
+        if (null !== $this->analysisResult) {
+            $res['AnalysisResult'] = $this->analysisResult;
         }
 
-        if (null !== $this->taskCount) {
-            $res['TaskCount'] = $this->taskCount;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class suspEventList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventName'])) {
-            $model->eventName = $map['EventName'];
+        if (isset($map['AnalysisResult'])) {
+            $model->analysisResult = $map['AnalysisResult'];
         }
 
-        if (isset($map['TaskCount'])) {
-            $model->taskCount = $map['TaskCount'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

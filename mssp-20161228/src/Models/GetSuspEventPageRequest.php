@@ -12,33 +12,38 @@ class GetSuspEventPageRequest extends Model
      * @var int
      */
     public $alarmEndTime;
+
     /**
      * @var int
      */
     public $alarmStartTime;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'alarmEndTime'   => 'AlarmEndTime',
+        'alarmEndTime' => 'AlarmEndTime',
         'alarmStartTime' => 'AlarmStartTime',
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
-        'source'         => 'Source',
-        'status'         => 'Status',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
+        'status' => 'Status',
     ];
 
     public function validate()

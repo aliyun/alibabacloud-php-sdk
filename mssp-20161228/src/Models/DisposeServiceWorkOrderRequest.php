@@ -12,78 +12,92 @@ class DisposeServiceWorkOrderRequest extends Model
      * @var string
      */
     public $attachmentName;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $forwardOwnerId;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $isAttachment;
+
     /**
      * @var string
      */
     public $isWorkOrderNotify;
+
     /**
      * @var int
      */
     public $notifyId;
+
     /**
      * @var string
      */
     public $operateRemark;
+
     /**
      * @var string
      */
     public $operateType;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $upgradeOwnerId;
+
     /**
      * @var string
      */
     public $workOrderDetail;
+
     /**
      * @var string
      */
     public $workOrderName;
+
     /**
      * @var string
      */
     public $workOrderStatus;
     protected $_name = [
-        'attachmentName'    => 'AttachmentName',
-        'endTime'           => 'EndTime',
-        'forwardOwnerId'    => 'ForwardOwnerId',
-        'id'                => 'Id',
-        'isAttachment'      => 'IsAttachment',
+        'attachmentName' => 'AttachmentName',
+        'endTime' => 'EndTime',
+        'forwardOwnerId' => 'ForwardOwnerId',
+        'id' => 'Id',
+        'isAttachment' => 'IsAttachment',
         'isWorkOrderNotify' => 'IsWorkOrderNotify',
-        'notifyId'          => 'NotifyId',
-        'operateRemark'     => 'OperateRemark',
-        'operateType'       => 'OperateType',
-        'operator'          => 'Operator',
-        'startTime'         => 'StartTime',
-        'upgradeOwnerId'    => 'UpgradeOwnerId',
-        'workOrderDetail'   => 'WorkOrderDetail',
-        'workOrderName'     => 'WorkOrderName',
-        'workOrderStatus'   => 'WorkOrderStatus',
+        'notifyId' => 'NotifyId',
+        'operateRemark' => 'OperateRemark',
+        'operateType' => 'OperateType',
+        'operator' => 'Operator',
+        'startTime' => 'StartTime',
+        'upgradeOwnerId' => 'UpgradeOwnerId',
+        'workOrderDetail' => 'WorkOrderDetail',
+        'workOrderName' => 'WorkOrderName',
+        'workOrderStatus' => 'WorkOrderStatus',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class GetVulListByIdRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dealed;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $necessity;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $uuids;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'dealed'      => 'Dealed',
-        'id'          => 'Id',
-        'necessity'   => 'Necessity',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'uuids'       => 'Uuids',
+        'dealed' => 'Dealed',
+        'id' => 'Id',
+        'necessity' => 'Necessity',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'uuids' => 'Uuids',
     ];
 
     public function validate()

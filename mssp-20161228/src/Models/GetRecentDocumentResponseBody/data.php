@@ -12,17 +12,19 @@ class data extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $uploadTime;
     protected $_name = [
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'uploadTime' => 'UploadTime',
     ];
 

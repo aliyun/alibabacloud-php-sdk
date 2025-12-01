@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $customerType;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'customerType' => 'CustomerType',
-        'endDate'      => 'EndDate',
-        'instanceId'   => 'InstanceId',
-        'startDate'    => 'StartDate',
-        'status'       => 'Status',
-        'version'      => 'Version',
+        'endDate' => 'EndDate',
+        'instanceId' => 'InstanceId',
+        'startDate' => 'StartDate',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

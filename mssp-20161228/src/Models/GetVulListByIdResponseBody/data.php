@@ -13,78 +13,92 @@ class data extends Model
      * @var string
      */
     public $aliasName;
+
     /**
      * @var effectMsgDTOS[]
      */
     public $effectMsgDTOS;
+
     /**
      * @var string
      */
     public $firstTs;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $intranetIp;
+
     /**
      * @var string
      */
     public $lastTs;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $necessity;
+
     /**
      * @var string
      */
     public $related;
+
     /**
      * @var string
      */
     public $repairCmd;
+
     /**
      * @var string
      */
     public $repairTs;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'aliasName'     => 'AliasName',
+        'aliasName' => 'AliasName',
         'effectMsgDTOS' => 'EffectMsgDTOS',
-        'firstTs'       => 'FirstTs',
-        'instanceName'  => 'InstanceName',
-        'internetIp'    => 'InternetIp',
-        'intranetIp'    => 'IntranetIp',
-        'lastTs'        => 'LastTs',
-        'name'          => 'Name',
-        'necessity'     => 'Necessity',
-        'related'       => 'Related',
-        'repairCmd'     => 'RepairCmd',
-        'repairTs'      => 'RepairTs',
-        'status'        => 'Status',
-        'tag'           => 'Tag',
-        'uuid'          => 'Uuid',
+        'firstTs' => 'FirstTs',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lastTs' => 'LastTs',
+        'name' => 'Name',
+        'necessity' => 'Necessity',
+        'related' => 'Related',
+        'repairCmd' => 'RepairCmd',
+        'repairTs' => 'RepairTs',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
@@ -105,9 +119,10 @@ class data extends Model
         if (null !== $this->effectMsgDTOS) {
             if (\is_array($this->effectMsgDTOS)) {
                 $res['EffectMsgDTOS'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->effectMsgDTOS as $item1) {
-                    $res['EffectMsgDTOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EffectMsgDTOS'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,9 +197,10 @@ class data extends Model
         if (isset($map['EffectMsgDTOS'])) {
             if (!empty($map['EffectMsgDTOS'])) {
                 $model->effectMsgDTOS = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EffectMsgDTOS'] as $item1) {
-                    $model->effectMsgDTOS[$n1++] = effectMsgDTOS::fromMap($item1);
+                    $model->effectMsgDTOS[$n1] = effectMsgDTOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

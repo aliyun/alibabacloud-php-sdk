@@ -12,88 +12,104 @@ class data extends Model
      * @var string
      */
     public $aliasName;
+
     /**
      * @var int
      */
     public $asapCount;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $cveUrlPrefix;
+
     /**
      * @var string
      */
     public $dealed;
+
     /**
      * @var string
      */
     public $findTime;
+
     /**
      * @var int
      */
     public $handledCount;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $laterCount;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $nntfCount;
+
     /**
      * @var string
      */
     public $related;
+
     /**
      * @var int
      */
     public $relatedCveCount;
+
     /**
      * @var string
      */
     public $scanType;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $totalFixCount;
     protected $_name = [
-        'aliasName'       => 'AliasName',
-        'asapCount'       => 'AsapCount',
-        'customerId'      => 'CustomerId',
-        'cveUrlPrefix'    => 'CveUrlPrefix',
-        'dealed'          => 'Dealed',
-        'findTime'        => 'FindTime',
-        'handledCount'    => 'HandledCount',
-        'id'              => 'Id',
-        'laterCount'      => 'LaterCount',
-        'level'           => 'Level',
-        'name'            => 'Name',
-        'nntfCount'       => 'NntfCount',
-        'related'         => 'Related',
+        'aliasName' => 'AliasName',
+        'asapCount' => 'AsapCount',
+        'customerId' => 'CustomerId',
+        'cveUrlPrefix' => 'CveUrlPrefix',
+        'dealed' => 'Dealed',
+        'findTime' => 'FindTime',
+        'handledCount' => 'HandledCount',
+        'id' => 'Id',
+        'laterCount' => 'LaterCount',
+        'level' => 'Level',
+        'name' => 'Name',
+        'nntfCount' => 'NntfCount',
+        'related' => 'Related',
         'relatedCveCount' => 'RelatedCveCount',
-        'scanType'        => 'ScanType',
-        'tags'            => 'Tags',
-        'totalFixCount'   => 'TotalFixCount',
+        'scanType' => 'ScanType',
+        'tags' => 'Tags',
+        'totalFixCount' => 'TotalFixCount',
     ];
 
     public function validate()

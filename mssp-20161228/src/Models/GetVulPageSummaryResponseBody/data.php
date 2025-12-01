@@ -12,37 +12,43 @@ class data extends Model
      * @var int
      */
     public $completedCount;
+
     /**
      * @var int
      */
     public $handingCount;
+
     /**
      * @var int
      */
     public $highCount;
+
     /**
      * @var int
      */
     public $lowCount;
+
     /**
      * @var int
      */
     public $mediumCount;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $waitHandleCount;
     protected $_name = [
-        'completedCount'  => 'CompletedCount',
-        'handingCount'    => 'HandingCount',
-        'highCount'       => 'HighCount',
-        'lowCount'        => 'LowCount',
-        'mediumCount'     => 'MediumCount',
-        'totalCount'      => 'TotalCount',
+        'completedCount' => 'CompletedCount',
+        'handingCount' => 'HandingCount',
+        'highCount' => 'HighCount',
+        'lowCount' => 'LowCount',
+        'mediumCount' => 'MediumCount',
+        'totalCount' => 'TotalCount',
         'waitHandleCount' => 'WaitHandleCount',
     ];
 

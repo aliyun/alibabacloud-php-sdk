@@ -12,22 +12,25 @@ class eventDetails extends Model
      * @var string
      */
     public $nameDisplay;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var string
      */
     public $valueDisplay;
     protected $_name = [
-        'nameDisplay'  => 'NameDisplay',
-        'type'         => 'Type',
-        'value'        => 'Value',
+        'nameDisplay' => 'NameDisplay',
+        'type' => 'Type',
+        'value' => 'Value',
         'valueDisplay' => 'ValueDisplay',
     ];
 

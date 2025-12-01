@@ -12,13 +12,14 @@ class DescribeServiceLinkedRoleResponseBody extends Model
      * @var bool
      */
     public $entityRoleGrant;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'entityRoleGrant' => 'EntityRoleGrant',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

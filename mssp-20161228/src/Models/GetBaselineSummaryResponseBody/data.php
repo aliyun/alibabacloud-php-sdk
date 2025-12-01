@@ -31,9 +31,10 @@ class data extends Model
         if (null !== $this->trendDTOList) {
             if (\is_array($this->trendDTOList)) {
                 $res['TrendDTOList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->trendDTOList as $item1) {
-                    $res['TrendDTOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrendDTOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class data extends Model
         if (isset($map['TrendDTOList'])) {
             if (!empty($map['TrendDTOList'])) {
                 $model->trendDTOList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TrendDTOList'] as $item1) {
-                    $model->trendDTOList[$n1++] = trendDTOList::fromMap($item1);
+                    $model->trendDTOList[$n1] = trendDTOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

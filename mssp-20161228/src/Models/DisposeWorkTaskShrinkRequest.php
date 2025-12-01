@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskRequest\workTaskAnalysisResults;
 
-class DisposeWorkTaskRequest extends Model
+class DisposeWorkTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -30,22 +29,19 @@ class DisposeWorkTaskRequest extends Model
     public $taskIds;
 
     /**
-     * @var workTaskAnalysisResults[]
+     * @var string
      */
-    public $workTaskAnalysisResults;
+    public $workTaskAnalysisResultsShrink;
     protected $_name = [
         'operator' => 'Operator',
         'optRemark' => 'OptRemark',
         'status' => 'Status',
         'taskIds' => 'TaskIds',
-        'workTaskAnalysisResults' => 'WorkTaskAnalysisResults',
+        'workTaskAnalysisResultsShrink' => 'WorkTaskAnalysisResults',
     ];
 
     public function validate()
     {
-        if (\is_array($this->workTaskAnalysisResults)) {
-            Model::validateArray($this->workTaskAnalysisResults);
-        }
         parent::validate();
     }
 
@@ -68,15 +64,8 @@ class DisposeWorkTaskRequest extends Model
             $res['TaskIds'] = $this->taskIds;
         }
 
-        if (null !== $this->workTaskAnalysisResults) {
-            if (\is_array($this->workTaskAnalysisResults)) {
-                $res['WorkTaskAnalysisResults'] = [];
-                $n1 = 0;
-                foreach ($this->workTaskAnalysisResults as $item1) {
-                    $res['WorkTaskAnalysisResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->workTaskAnalysisResultsShrink) {
+            $res['WorkTaskAnalysisResults'] = $this->workTaskAnalysisResultsShrink;
         }
 
         return $res;
@@ -107,14 +96,7 @@ class DisposeWorkTaskRequest extends Model
         }
 
         if (isset($map['WorkTaskAnalysisResults'])) {
-            if (!empty($map['WorkTaskAnalysisResults'])) {
-                $model->workTaskAnalysisResults = [];
-                $n1 = 0;
-                foreach ($map['WorkTaskAnalysisResults'] as $item1) {
-                    $model->workTaskAnalysisResults[$n1] = workTaskAnalysisResults::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->workTaskAnalysisResultsShrink = $map['WorkTaskAnalysisResults'];
         }
 
         return $model;

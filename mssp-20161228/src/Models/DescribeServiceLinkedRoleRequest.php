@@ -12,12 +12,13 @@ class DescribeServiceLinkedRoleRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'regionId' => 'RegionId',
     ];
 

@@ -12,16 +12,18 @@ class trendList extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var int
      */
     public $dealCount;
+
     /**
      * @var int
      */
     public $findCount;
     protected $_name = [
-        'date'      => 'Date',
+        'date' => 'Date',
         'dealCount' => 'DealCount',
         'findCount' => 'FindCount',
     ];

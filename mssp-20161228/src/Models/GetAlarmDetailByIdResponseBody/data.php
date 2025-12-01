@@ -13,108 +13,128 @@ class data extends Model
      * @var string
      */
     public $alarmEventType;
+
     /**
      * @var string
      */
     public $alarmEventTypeDisplay;
+
     /**
      * @var int
      */
     public $alarmId;
+
     /**
      * @var string
      */
     public $alarmName;
+
     /**
      * @var string
      */
     public $alarmSource;
+
     /**
      * @var string
      */
     public $alarmTime;
+
     /**
      * @var string
      */
     public $analysisResult;
+
     /**
      * @var bool
      */
     public $containHwMode;
+
     /**
      * @var string
      */
     public $dealTime;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var eventDetails[]
      */
     public $eventDetails;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $intranetIp;
+
     /**
      * @var string
      */
     public $occurrenceTime;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tacticDisplayName;
     protected $_name = [
-        'alarmEventType'        => 'AlarmEventType',
+        'alarmEventType' => 'AlarmEventType',
         'alarmEventTypeDisplay' => 'AlarmEventTypeDisplay',
-        'alarmId'               => 'AlarmId',
-        'alarmName'             => 'AlarmName',
-        'alarmSource'           => 'AlarmSource',
-        'alarmTime'             => 'AlarmTime',
-        'analysisResult'        => 'AnalysisResult',
-        'containHwMode'         => 'ContainHwMode',
-        'dealTime'              => 'DealTime',
-        'desc'                  => 'Desc',
-        'eventDetails'          => 'EventDetails',
-        'eventLevel'            => 'EventLevel',
-        'id'                    => 'Id',
-        'instanceName'          => 'InstanceName',
-        'internetIp'            => 'InternetIp',
-        'intranetIp'            => 'IntranetIp',
-        'occurrenceTime'        => 'OccurrenceTime',
-        'ownerId'               => 'OwnerId',
-        'remark'                => 'Remark',
-        'status'                => 'Status',
-        'tacticDisplayName'     => 'TacticDisplayName',
+        'alarmId' => 'AlarmId',
+        'alarmName' => 'AlarmName',
+        'alarmSource' => 'AlarmSource',
+        'alarmTime' => 'AlarmTime',
+        'analysisResult' => 'AnalysisResult',
+        'containHwMode' => 'ContainHwMode',
+        'dealTime' => 'DealTime',
+        'desc' => 'Desc',
+        'eventDetails' => 'EventDetails',
+        'eventLevel' => 'EventLevel',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'occurrenceTime' => 'OccurrenceTime',
+        'ownerId' => 'OwnerId',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'tacticDisplayName' => 'TacticDisplayName',
     ];
 
     public function validate()
@@ -171,9 +191,10 @@ class data extends Model
         if (null !== $this->eventDetails) {
             if (\is_array($this->eventDetails)) {
                 $res['EventDetails'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->eventDetails as $item1) {
-                    $res['EventDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EventDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -272,9 +293,10 @@ class data extends Model
         if (isset($map['EventDetails'])) {
             if (!empty($map['EventDetails'])) {
                 $model->eventDetails = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['EventDetails'] as $item1) {
-                    $model->eventDetails[$n1++] = eventDetails::fromMap($item1);
+                    $model->eventDetails[$n1] = eventDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

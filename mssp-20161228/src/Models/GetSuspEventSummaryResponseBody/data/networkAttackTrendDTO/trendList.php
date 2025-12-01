@@ -12,23 +12,26 @@ class trendList extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var int
      */
     public $ddosCount;
+
     /**
      * @var int
      */
     public $eipCount;
+
     /**
      * @var int
      */
     public $wafCount;
     protected $_name = [
-        'date'      => 'Date',
+        'date' => 'Date',
         'ddosCount' => 'DdosCount',
-        'eipCount'  => 'EipCount',
-        'wafCount'  => 'WafCount',
+        'eipCount' => 'EipCount',
+        'wafCount' => 'WafCount',
     ];
 
     public function validate()

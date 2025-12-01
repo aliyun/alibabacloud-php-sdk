@@ -12,18 +12,20 @@ class pageInfo extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

@@ -12,83 +12,98 @@ class data extends Model
      * @var string
      */
     public $alarmEventType;
+
     /**
      * @var int
      */
     public $alarmId;
+
     /**
      * @var string
      */
     public $alarmName;
+
     /**
      * @var string
      */
     public $alarmSource;
+
     /**
      * @var string
      */
     public $alarmTime;
+
     /**
      * @var string
      */
     public $analysisResult;
+
     /**
      * @var string
      */
     public $dealTime;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $intranetIp;
+
     /**
      * @var string
      */
     public $occurrenceTime;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'alarmEventType' => 'AlarmEventType',
-        'alarmId'        => 'AlarmId',
-        'alarmName'      => 'AlarmName',
-        'alarmSource'    => 'AlarmSource',
-        'alarmTime'      => 'AlarmTime',
+        'alarmId' => 'AlarmId',
+        'alarmName' => 'AlarmName',
+        'alarmSource' => 'AlarmSource',
+        'alarmTime' => 'AlarmTime',
         'analysisResult' => 'AnalysisResult',
-        'dealTime'       => 'DealTime',
-        'eventLevel'     => 'EventLevel',
-        'id'             => 'Id',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
+        'dealTime' => 'DealTime',
+        'eventLevel' => 'EventLevel',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'occurrenceTime' => 'OccurrenceTime',
-        'ownerId'        => 'OwnerId',
-        'remark'         => 'Remark',
-        'status'         => 'Status',
+        'ownerId' => 'OwnerId',
+        'remark' => 'Remark',
+        'status' => 'Status',
     ];
 
     public function validate()

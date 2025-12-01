@@ -16,23 +16,26 @@ class data extends Model
      * @var networkAttackTrendDTO
      */
     public $networkAttackTrendDTO;
+
     /**
      * @var suspEventDealSummaryDTO
      */
     public $suspEventDealSummaryDTO;
+
     /**
      * @var suspEventTopDTO
      */
     public $suspEventTopDTO;
+
     /**
      * @var suspEventTrendDTO
      */
     public $suspEventTrendDTO;
     protected $_name = [
-        'networkAttackTrendDTO'   => 'NetworkAttackTrendDTO',
+        'networkAttackTrendDTO' => 'NetworkAttackTrendDTO',
         'suspEventDealSummaryDTO' => 'SuspEventDealSummaryDTO',
-        'suspEventTopDTO'         => 'SuspEventTopDTO',
-        'suspEventTrendDTO'       => 'SuspEventTrendDTO',
+        'suspEventTopDTO' => 'SuspEventTopDTO',
+        'suspEventTrendDTO' => 'SuspEventTrendDTO',
     ];
 
     public function validate()

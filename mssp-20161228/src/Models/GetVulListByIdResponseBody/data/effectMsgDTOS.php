@@ -12,18 +12,20 @@ class effectMsgDTOS extends Model
      * @var string
      */
     public $matchList;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $softName;
     protected $_name = [
         'matchList' => 'MatchList',
-        'path'      => 'Path',
-        'softName'  => 'SoftName',
+        'path' => 'Path',
+        'softName' => 'SoftName',
     ];
 
     public function validate()

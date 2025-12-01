@@ -12,37 +12,43 @@ class data extends Model
      * @var string
      */
     public $completeTime;
+
     /**
      * @var string
      */
     public $operateRemark;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var int
      */
     public $recordCount;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $taskTypeName;
+
     /**
      * @var string
      */
     public $workOrderName;
     protected $_name = [
-        'completeTime'  => 'CompleteTime',
+        'completeTime' => 'CompleteTime',
         'operateRemark' => 'OperateRemark',
-        'progress'      => 'Progress',
-        'recordCount'   => 'RecordCount',
-        'startTime'     => 'StartTime',
-        'taskTypeName'  => 'TaskTypeName',
+        'progress' => 'Progress',
+        'recordCount' => 'RecordCount',
+        'startTime' => 'StartTime',
+        'taskTypeName' => 'TaskTypeName',
         'workOrderName' => 'WorkOrderName',
     ];
 

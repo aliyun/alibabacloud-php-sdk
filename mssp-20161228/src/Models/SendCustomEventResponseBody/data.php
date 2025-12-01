@@ -12,42 +12,49 @@ class data extends Model
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $customerName;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $ownerName;
+
     /**
      * @var string
      */
     public $workTaskName;
     protected $_name = [
-        'customerId'   => 'CustomerId',
+        'customerId' => 'CustomerId',
         'customerName' => 'CustomerName',
-        'eventId'      => 'EventId',
-        'eventType'    => 'EventType',
-        'id'           => 'Id',
-        'ownerId'      => 'OwnerId',
-        'ownerName'    => 'OwnerName',
+        'eventId' => 'EventId',
+        'eventType' => 'EventType',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'ownerName' => 'OwnerName',
         'workTaskName' => 'WorkTaskName',
     ];
 

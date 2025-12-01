@@ -9,15 +9,22 @@ use AlibabaCloud\Dara\Model;
 class GetDocumentDownloadUrlRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fileKey;
+
+    /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $reportType;
     protected $_name = [
-        'id'         => 'Id',
+        'fileKey' => 'FileKey',
+        'id' => 'Id',
         'reportType' => 'ReportType',
     ];
 
@@ -29,6 +36,10 @@ class GetDocumentDownloadUrlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileKey) {
+            $res['FileKey'] = $this->fileKey;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -48,6 +59,10 @@ class GetDocumentDownloadUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileKey'])) {
+            $model->fileKey = $map['FileKey'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

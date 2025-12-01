@@ -12,13 +12,14 @@ class data extends Model
      * @var int
      */
     public $documentCount;
+
     /**
      * @var int
      */
     public $frequency;
     protected $_name = [
         'documentCount' => 'DocumentCount',
-        'frequency'     => 'Frequency',
+        'frequency' => 'Frequency',
     ];
 
     public function validate()

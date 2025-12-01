@@ -13,22 +13,25 @@ class data extends Model
      * @var int
      */
     public $completedCount;
+
     /**
      * @var string
      */
     public $dealRate;
+
     /**
      * @var trendList[]
      */
     public $trendList;
+
     /**
      * @var int
      */
     public $waitHandleCount;
     protected $_name = [
-        'completedCount'  => 'CompletedCount',
-        'dealRate'        => 'DealRate',
-        'trendList'       => 'TrendList',
+        'completedCount' => 'CompletedCount',
+        'dealRate' => 'DealRate',
+        'trendList' => 'TrendList',
         'waitHandleCount' => 'WaitHandleCount',
     ];
 
@@ -54,9 +57,10 @@ class data extends Model
         if (null !== $this->trendList) {
             if (\is_array($this->trendList)) {
                 $res['TrendList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->trendList as $item1) {
-                    $res['TrendList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TrendList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +91,10 @@ class data extends Model
         if (isset($map['TrendList'])) {
             if (!empty($map['TrendList'])) {
                 $model->trendList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TrendList'] as $item1) {
-                    $model->trendList[$n1++] = trendList::fromMap($item1);
+                    $model->trendList[$n1] = trendList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

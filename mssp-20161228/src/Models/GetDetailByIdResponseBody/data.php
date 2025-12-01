@@ -31,9 +31,10 @@ class data extends Model
         if (null !== $this->vulDetails) {
             if (\is_array($this->vulDetails)) {
                 $res['VulDetails'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vulDetails as $item1) {
-                    $res['VulDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VulDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class data extends Model
         if (isset($map['VulDetails'])) {
             if (!empty($map['VulDetails'])) {
                 $model->vulDetails = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VulDetails'] as $item1) {
-                    $model->vulDetails[$n1++] = vulDetails::fromMap($item1);
+                    $model->vulDetails[$n1] = vulDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

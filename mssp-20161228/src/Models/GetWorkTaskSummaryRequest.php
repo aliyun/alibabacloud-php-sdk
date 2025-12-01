@@ -12,22 +12,25 @@ class GetWorkTaskSummaryRequest extends Model
      * @var string
      */
     public $dateType;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $suspEventSource;
     protected $_name = [
-        'dateType'        => 'DateType',
-        'endDate'         => 'EndDate',
-        'startDate'       => 'StartDate',
+        'dateType' => 'DateType',
+        'endDate' => 'EndDate',
+        'startDate' => 'StartDate',
         'suspEventSource' => 'SuspEventSource',
     ];
 

@@ -15,10 +15,12 @@ class data extends Model
      * @var cfwProtection
      */
     public $cfwProtection;
+
     /**
      * @var ecsProtection
      */
     public $ecsProtection;
+
     /**
      * @var wafProtection
      */
