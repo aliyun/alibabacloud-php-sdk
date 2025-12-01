@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeBackupGatewayListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeBackupGatewayListResponseBody\items\backupGateway;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,22 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->backupGateway)) {
+            Model::validateArray($this->backupGateway);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupGateway) {
-            $res['BackupGateway'] = [];
-            if (null !== $this->backupGateway && \is_array($this->backupGateway)) {
-                $n = 0;
-                foreach ($this->backupGateway as $item) {
-                    $res['BackupGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupGateway)) {
+                $res['BackupGateway'] = [];
+                $n1 = 0;
+                foreach ($this->backupGateway as $item1) {
+                    $res['BackupGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupGateway'])) {
             if (!empty($map['BackupGateway'])) {
                 $model->backupGateway = [];
-                $n                    = 0;
-                foreach ($map['BackupGateway'] as $item) {
-                    $model->backupGateway[$n++] = null !== $item ? backupGateway::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupGateway'] as $item1) {
+                    $model->backupGateway[$n1] = backupGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

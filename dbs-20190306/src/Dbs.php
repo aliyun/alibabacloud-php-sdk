@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\ConfigureBackupPlanRequest;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\ConfigureBackupPlanResponse;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\CreateAndStartBackupPlanRequest;
@@ -77,11 +76,10 @@ use AlibabaCloud\SDK\Dbs\V20190306\Models\StopBackupPlanRequest;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\StopBackupPlanResponse;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\UpgradeBackupPlanRequest;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\UpgradeBackupPlanResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dbs extends OpenApiClient
 {
@@ -89,30 +87,30 @@ class Dbs extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'            => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-beijing'            => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-chengdu'            => 'dbs-api.cn-chengdu.aliyuncs.com',
-            'cn-zhangjiakou'        => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-huhehaote'          => 'dbs-api.cn-huhehaote.aliyuncs.com',
-            'cn-hangzhou'           => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai'           => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-shenzhen'           => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong'           => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-1'        => 'dbs-api.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'dbs-api.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-3'        => 'dbs-api.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5'        => 'dbs-api.ap-southeast-5.aliyuncs.com',
-            'ap-northeast-1'        => 'dbs-api.ap-northeast-1.aliyuncs.com',
-            'us-west-1'             => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'us-east-1'             => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'eu-central-1'          => 'dbs-api.eu-central-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'dbs-api.cn-hangzhou.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'dbs-api.cn-chengdu.aliyuncs.com',
+            'cn-zhangjiakou' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-huhehaote' => 'dbs-api.cn-huhehaote.aliyuncs.com',
+            'cn-hangzhou' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-shenzhen' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'dbs-api.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'dbs-api.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3' => 'dbs-api.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'dbs-api.ap-southeast-5.aliyuncs.com',
+            'ap-northeast-1' => 'dbs-api.ap-northeast-1.aliyuncs.com',
+            'us-west-1' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'us-east-1' => 'dbs-api.cn-hangzhou.aliyuncs.com',
+            'eu-central-1' => 'dbs-api.eu-central-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dbs-api.cn-hangzhou.aliyuncs.com',
             'cn-shanghai-finance-1' => 'dbs-api.cn-hangzhou.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'dbs-api.cn-hangzhou.aliyuncs.com',
-            'ap-south-1'            => 'dbs-api.ap-south-1.aliyuncs.com',
-            'eu-west-1'             => 'dbs-api.eu-west-1.aliyuncs.com',
-            'me-east-1'             => 'dbs-api.me-east-1.aliyuncs.com',
+            'ap-south-1' => 'dbs-api.ap-south-1.aliyuncs.com',
+            'eu-west-1' => 'dbs-api.eu-west-1.aliyuncs.com',
+            'me-east-1' => 'dbs-api.me-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dbs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -131,17 +129,25 @@ class Dbs extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Configures a DBS backup schedule.
+     *
+     * @param request - ConfigureBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigureBackupPlanResponse
+     *
      * @param ConfigureBackupPlanRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -149,120 +155,157 @@ class Dbs extends OpenApiClient
      */
     public function configureBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoStartBackup)) {
-            $query['AutoStartBackup'] = $request->autoStartBackup;
+        if (null !== $request->autoStartBackup) {
+            @$query['AutoStartBackup'] = $request->autoStartBackup;
         }
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->backupLogIntervalSeconds)) {
-            $query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
+
+        if (null !== $request->backupLogIntervalSeconds) {
+            @$query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
         }
-        if (!Utils::isUnset($request->backupObjects)) {
-            $query['BackupObjects'] = $request->backupObjects;
+
+        if (null !== $request->backupObjects) {
+            @$query['BackupObjects'] = $request->backupObjects;
         }
-        if (!Utils::isUnset($request->backupPeriod)) {
-            $query['BackupPeriod'] = $request->backupPeriod;
+
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupPlanName)) {
-            $query['BackupPlanName'] = $request->backupPlanName;
+
+        if (null !== $request->backupPlanName) {
+            @$query['BackupPlanName'] = $request->backupPlanName;
         }
-        if (!Utils::isUnset($request->backupRateLimit)) {
-            $query['BackupRateLimit'] = $request->backupRateLimit;
+
+        if (null !== $request->backupRateLimit) {
+            @$query['BackupRateLimit'] = $request->backupRateLimit;
         }
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->backupSpeedLimit)) {
-            $query['BackupSpeedLimit'] = $request->backupSpeedLimit;
+
+        if (null !== $request->backupSpeedLimit) {
+            @$query['BackupSpeedLimit'] = $request->backupSpeedLimit;
         }
-        if (!Utils::isUnset($request->backupStartTime)) {
-            $query['BackupStartTime'] = $request->backupStartTime;
+
+        if (null !== $request->backupStartTime) {
+            @$query['BackupStartTime'] = $request->backupStartTime;
         }
-        if (!Utils::isUnset($request->backupStorageType)) {
-            $query['BackupStorageType'] = $request->backupStorageType;
+
+        if (null !== $request->backupStorageType) {
+            @$query['BackupStorageType'] = $request->backupStorageType;
         }
-        if (!Utils::isUnset($request->backupStrategyType)) {
-            $query['BackupStrategyType'] = $request->backupStrategyType;
+
+        if (null !== $request->backupStrategyType) {
+            @$query['BackupStrategyType'] = $request->backupStrategyType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossAliyunId)) {
-            $query['CrossAliyunId'] = $request->crossAliyunId;
+
+        if (null !== $request->crossAliyunId) {
+            @$query['CrossAliyunId'] = $request->crossAliyunId;
         }
-        if (!Utils::isUnset($request->crossRoleName)) {
-            $query['CrossRoleName'] = $request->crossRoleName;
+
+        if (null !== $request->crossRoleName) {
+            @$query['CrossRoleName'] = $request->crossRoleName;
         }
-        if (!Utils::isUnset($request->duplicationArchivePeriod)) {
-            $query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
+
+        if (null !== $request->duplicationArchivePeriod) {
+            @$query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
         }
-        if (!Utils::isUnset($request->duplicationInfrequentAccessPeriod)) {
-            $query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
+
+        if (null !== $request->duplicationInfrequentAccessPeriod) {
+            @$query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
         }
-        if (!Utils::isUnset($request->enableBackupLog)) {
-            $query['EnableBackupLog'] = $request->enableBackupLog;
+
+        if (null !== $request->enableBackupLog) {
+            @$query['EnableBackupLog'] = $request->enableBackupLog;
         }
-        if (!Utils::isUnset($request->OSSBucketName)) {
-            $query['OSSBucketName'] = $request->OSSBucketName;
+
+        if (null !== $request->OSSBucketName) {
+            @$query['OSSBucketName'] = $request->OSSBucketName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
-            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+
+        if (null !== $request->sourceEndpointDatabaseName) {
+            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-        if (!Utils::isUnset($request->sourceEndpointIP)) {
-            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
+
+        if (null !== $request->sourceEndpointIP) {
+            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
-            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+
+        if (null !== $request->sourceEndpointInstanceID) {
+            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
-            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+
+        if (null !== $request->sourceEndpointInstanceType) {
+            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
-            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+
+        if (null !== $request->sourceEndpointOracleSID) {
+            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-        if (!Utils::isUnset($request->sourceEndpointPassword)) {
-            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+
+        if (null !== $request->sourceEndpointPassword) {
+            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-        if (!Utils::isUnset($request->sourceEndpointPort)) {
-            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
+
+        if (null !== $request->sourceEndpointPort) {
+            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-        if (!Utils::isUnset($request->sourceEndpointRegion)) {
-            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+
+        if (null !== $request->sourceEndpointRegion) {
+            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-        if (!Utils::isUnset($request->sourceEndpointUserName)) {
-            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+
+        if (null !== $request->sourceEndpointUserName) {
+            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigureBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Configures a DBS backup schedule.
+     *
+     * @param request - ConfigureBackupPlanRequest
+     *
+     * @returns ConfigureBackupPlanResponse
+     *
      * @param ConfigureBackupPlanRequest $request
      *
      * @return ConfigureBackupPlanResponse
@@ -275,6 +318,16 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates, configures, and starts a backup schedule.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+     *
+     * @param request - CreateAndStartBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndStartBackupPlanResponse
+     *
      * @param CreateAndStartBackupPlanRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -282,153 +335,204 @@ class Dbs extends OpenApiClient
      */
     public function createAndStartBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->backupLogIntervalSeconds)) {
-            $query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
+
+        if (null !== $request->backupLogIntervalSeconds) {
+            @$query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
         }
-        if (!Utils::isUnset($request->backupMethod)) {
-            $query['BackupMethod'] = $request->backupMethod;
+
+        if (null !== $request->backupMethod) {
+            @$query['BackupMethod'] = $request->backupMethod;
         }
-        if (!Utils::isUnset($request->backupObjects)) {
-            $query['BackupObjects'] = $request->backupObjects;
+
+        if (null !== $request->backupObjects) {
+            @$query['BackupObjects'] = $request->backupObjects;
         }
-        if (!Utils::isUnset($request->backupPeriod)) {
-            $query['BackupPeriod'] = $request->backupPeriod;
+
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupPlanName)) {
-            $query['BackupPlanName'] = $request->backupPlanName;
+
+        if (null !== $request->backupPlanName) {
+            @$query['BackupPlanName'] = $request->backupPlanName;
         }
-        if (!Utils::isUnset($request->backupRateLimit)) {
-            $query['BackupRateLimit'] = $request->backupRateLimit;
+
+        if (null !== $request->backupRateLimit) {
+            @$query['BackupRateLimit'] = $request->backupRateLimit;
         }
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->backupSpeedLimit)) {
-            $query['BackupSpeedLimit'] = $request->backupSpeedLimit;
+
+        if (null !== $request->backupSpeedLimit) {
+            @$query['BackupSpeedLimit'] = $request->backupSpeedLimit;
         }
-        if (!Utils::isUnset($request->backupStartTime)) {
-            $query['BackupStartTime'] = $request->backupStartTime;
+
+        if (null !== $request->backupStartTime) {
+            @$query['BackupStartTime'] = $request->backupStartTime;
         }
-        if (!Utils::isUnset($request->backupStorageType)) {
-            $query['BackupStorageType'] = $request->backupStorageType;
+
+        if (null !== $request->backupStorageType) {
+            @$query['BackupStorageType'] = $request->backupStorageType;
         }
-        if (!Utils::isUnset($request->backupStrategyType)) {
-            $query['BackupStrategyType'] = $request->backupStrategyType;
+
+        if (null !== $request->backupStrategyType) {
+            @$query['BackupStrategyType'] = $request->backupStrategyType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossAliyunId)) {
-            $query['CrossAliyunId'] = $request->crossAliyunId;
+
+        if (null !== $request->crossAliyunId) {
+            @$query['CrossAliyunId'] = $request->crossAliyunId;
         }
-        if (!Utils::isUnset($request->crossRoleName)) {
-            $query['CrossRoleName'] = $request->crossRoleName;
+
+        if (null !== $request->crossRoleName) {
+            @$query['CrossRoleName'] = $request->crossRoleName;
         }
-        if (!Utils::isUnset($request->databaseRegion)) {
-            $query['DatabaseRegion'] = $request->databaseRegion;
+
+        if (null !== $request->databaseRegion) {
+            @$query['DatabaseRegion'] = $request->databaseRegion;
         }
-        if (!Utils::isUnset($request->databaseType)) {
-            $query['DatabaseType'] = $request->databaseType;
+
+        if (null !== $request->databaseType) {
+            @$query['DatabaseType'] = $request->databaseType;
         }
-        if (!Utils::isUnset($request->duplicationArchivePeriod)) {
-            $query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
+
+        if (null !== $request->duplicationArchivePeriod) {
+            @$query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
         }
-        if (!Utils::isUnset($request->duplicationInfrequentAccessPeriod)) {
-            $query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
+
+        if (null !== $request->duplicationInfrequentAccessPeriod) {
+            @$query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
         }
-        if (!Utils::isUnset($request->enableBackupLog)) {
-            $query['EnableBackupLog'] = $request->enableBackupLog;
+
+        if (null !== $request->enableBackupLog) {
+            @$query['EnableBackupLog'] = $request->enableBackupLog;
         }
-        if (!Utils::isUnset($request->fromApp)) {
-            $query['FromApp'] = $request->fromApp;
+
+        if (null !== $request->fromApp) {
+            @$query['FromApp'] = $request->fromApp;
         }
-        if (!Utils::isUnset($request->instanceClass)) {
-            $query['InstanceClass'] = $request->instanceClass;
+
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->OSSBucketName)) {
-            $query['OSSBucketName'] = $request->OSSBucketName;
+
+        if (null !== $request->OSSBucketName) {
+            @$query['OSSBucketName'] = $request->OSSBucketName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
-            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+
+        if (null !== $request->sourceEndpointDatabaseName) {
+            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-        if (!Utils::isUnset($request->sourceEndpointIP)) {
-            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
+
+        if (null !== $request->sourceEndpointIP) {
+            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
-            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+
+        if (null !== $request->sourceEndpointInstanceID) {
+            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
-            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+
+        if (null !== $request->sourceEndpointInstanceType) {
+            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
-            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+
+        if (null !== $request->sourceEndpointOracleSID) {
+            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-        if (!Utils::isUnset($request->sourceEndpointPassword)) {
-            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+
+        if (null !== $request->sourceEndpointPassword) {
+            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-        if (!Utils::isUnset($request->sourceEndpointPort)) {
-            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
+
+        if (null !== $request->sourceEndpointPort) {
+            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-        if (!Utils::isUnset($request->sourceEndpointRegion)) {
-            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+
+        if (null !== $request->sourceEndpointRegion) {
+            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-        if (!Utils::isUnset($request->sourceEndpointUserName)) {
-            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+
+        if (null !== $request->sourceEndpointUserName) {
+            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
-        if (!Utils::isUnset($request->storageRegion)) {
-            $query['StorageRegion'] = $request->storageRegion;
+
+        if (null !== $request->storageRegion) {
+            @$query['StorageRegion'] = $request->storageRegion;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAndStartBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAndStartBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAndStartBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates, configures, and starts a backup schedule.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+     *
+     * @param request - CreateAndStartBackupPlanRequest
+     *
+     * @returns CreateAndStartBackupPlanResponse
+     *
      * @param CreateAndStartBackupPlanRequest $request
      *
      * @return CreateAndStartBackupPlanResponse
@@ -441,6 +545,16 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates a backup schedule.
+     *
+     * @remarks
+     * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+     *
+     * @param request - CreateBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBackupPlanResponse
+     *
      * @param CreateBackupPlanRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -448,72 +562,96 @@ class Dbs extends OpenApiClient
      */
     public function createBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupMethod)) {
-            $query['BackupMethod'] = $request->backupMethod;
+        if (null !== $request->backupMethod) {
+            @$query['BackupMethod'] = $request->backupMethod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseRegion)) {
-            $query['DatabaseRegion'] = $request->databaseRegion;
+
+        if (null !== $request->databaseRegion) {
+            @$query['DatabaseRegion'] = $request->databaseRegion;
         }
-        if (!Utils::isUnset($request->databaseType)) {
-            $query['DatabaseType'] = $request->databaseType;
+
+        if (null !== $request->databaseType) {
+            @$query['DatabaseType'] = $request->databaseType;
         }
-        if (!Utils::isUnset($request->fromApp)) {
-            $query['FromApp'] = $request->fromApp;
+
+        if (null !== $request->fromApp) {
+            @$query['FromApp'] = $request->fromApp;
         }
-        if (!Utils::isUnset($request->instanceClass)) {
-            $query['InstanceClass'] = $request->instanceClass;
+
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->storageRegion)) {
-            $query['StorageRegion'] = $request->storageRegion;
+
+        if (null !== $request->storageRegion) {
+            @$query['StorageRegion'] = $request->storageRegion;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a backup schedule.
+     *
+     * @remarks
+     * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+     *
+     * @param request - CreateBackupPlanRequest
+     *
+     * @returns CreateBackupPlanResponse
+     *
      * @param CreateBackupPlanRequest $request
      *
      * @return CreateBackupPlanResponse
@@ -526,6 +664,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates and starts a full backup set download task.
+     *
+     * @param request - CreateFullBackupSetDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFullBackupSetDownloadResponse
+     *
      * @param CreateFullBackupSetDownloadRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -533,39 +678,49 @@ class Dbs extends OpenApiClient
      */
     public function createFullBackupSetDownloadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupSetDataFormat)) {
-            $query['BackupSetDataFormat'] = $request->backupSetDataFormat;
+        if (null !== $request->backupSetDataFormat) {
+            @$query['BackupSetDataFormat'] = $request->backupSetDataFormat;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFullBackupSetDownload',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFullBackupSetDownload',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFullBackupSetDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates and starts a full backup set download task.
+     *
+     * @param request - CreateFullBackupSetDownloadRequest
+     *
+     * @returns CreateFullBackupSetDownloadResponse
+     *
      * @param CreateFullBackupSetDownloadRequest $request
      *
      * @return CreateFullBackupSetDownloadResponse
@@ -578,6 +733,16 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates a task to obtain a database list by using a backup gateway.
+     *
+     * @remarks
+     * This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+     *
+     * @param request - CreateGetDBListFromAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGetDBListFromAgentTaskResponse
+     *
      * @param CreateGetDBListFromAgentTaskRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -585,48 +750,64 @@ class Dbs extends OpenApiClient
      */
     public function createGetDBListFromAgentTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseType)) {
-            $query['DatabaseType'] = $request->databaseType;
+
+        if (null !== $request->databaseType) {
+            @$query['DatabaseType'] = $request->databaseType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->sourceEndpointIP)) {
-            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
+
+        if (null !== $request->sourceEndpointIP) {
+            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-        if (!Utils::isUnset($request->sourceEndpointPort)) {
-            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
+
+        if (null !== $request->sourceEndpointPort) {
+            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-        if (!Utils::isUnset($request->sourceEndpointRegion)) {
-            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+
+        if (null !== $request->sourceEndpointRegion) {
+            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGetDBListFromAgentTask',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGetDBListFromAgentTask',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGetDBListFromAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a task to obtain a database list by using a backup gateway.
+     *
+     * @remarks
+     * This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+     *
+     * @param request - CreateGetDBListFromAgentTaskRequest
+     *
+     * @returns CreateGetDBListFromAgentTaskResponse
+     *
      * @param CreateGetDBListFromAgentTaskRequest $request
      *
      * @return CreateGetDBListFromAgentTaskResponse
@@ -639,6 +820,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates and starts an incremental backup set download task.
+     *
+     * @param request - CreateIncrementBackupSetDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIncrementBackupSetDownloadResponse
+     *
      * @param CreateIncrementBackupSetDownloadRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -646,42 +834,53 @@ class Dbs extends OpenApiClient
      */
     public function createIncrementBackupSetDownloadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupSetDataFormat)) {
-            $query['BackupSetDataFormat'] = $request->backupSetDataFormat;
+        if (null !== $request->backupSetDataFormat) {
+            @$query['BackupSetDataFormat'] = $request->backupSetDataFormat;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->backupSetName)) {
-            $query['BackupSetName'] = $request->backupSetName;
+
+        if (null !== $request->backupSetName) {
+            @$query['BackupSetName'] = $request->backupSetName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIncrementBackupSetDownload',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIncrementBackupSetDownload',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateIncrementBackupSetDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates and starts an incremental backup set download task.
+     *
+     * @param request - CreateIncrementBackupSetDownloadRequest
+     *
+     * @returns CreateIncrementBackupSetDownloadResponse
+     *
      * @param CreateIncrementBackupSetDownloadRequest $request
      *
      * @return CreateIncrementBackupSetDownloadResponse
@@ -694,6 +893,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Creates a restoration task.
+     *
+     * @param request - CreateRestoreTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRestoreTaskResponse
+     *
      * @param CreateRestoreTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -701,93 +907,121 @@ class Dbs extends OpenApiClient
      */
     public function createRestoreTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossAliyunId)) {
-            $query['CrossAliyunId'] = $request->crossAliyunId;
+
+        if (null !== $request->crossAliyunId) {
+            @$query['CrossAliyunId'] = $request->crossAliyunId;
         }
-        if (!Utils::isUnset($request->crossRoleName)) {
-            $query['CrossRoleName'] = $request->crossRoleName;
+
+        if (null !== $request->crossRoleName) {
+            @$query['CrossRoleName'] = $request->crossRoleName;
         }
-        if (!Utils::isUnset($request->destinationEndpointDatabaseName)) {
-            $query['DestinationEndpointDatabaseName'] = $request->destinationEndpointDatabaseName;
+
+        if (null !== $request->destinationEndpointDatabaseName) {
+            @$query['DestinationEndpointDatabaseName'] = $request->destinationEndpointDatabaseName;
         }
-        if (!Utils::isUnset($request->destinationEndpointIP)) {
-            $query['DestinationEndpointIP'] = $request->destinationEndpointIP;
+
+        if (null !== $request->destinationEndpointIP) {
+            @$query['DestinationEndpointIP'] = $request->destinationEndpointIP;
         }
-        if (!Utils::isUnset($request->destinationEndpointInstanceID)) {
-            $query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
+
+        if (null !== $request->destinationEndpointInstanceID) {
+            @$query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
         }
-        if (!Utils::isUnset($request->destinationEndpointInstanceType)) {
-            $query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
+
+        if (null !== $request->destinationEndpointInstanceType) {
+            @$query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
         }
-        if (!Utils::isUnset($request->destinationEndpointOracleSID)) {
-            $query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
+
+        if (null !== $request->destinationEndpointOracleSID) {
+            @$query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
         }
-        if (!Utils::isUnset($request->destinationEndpointPassword)) {
-            $query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
+
+        if (null !== $request->destinationEndpointPassword) {
+            @$query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
         }
-        if (!Utils::isUnset($request->destinationEndpointPort)) {
-            $query['DestinationEndpointPort'] = $request->destinationEndpointPort;
+
+        if (null !== $request->destinationEndpointPort) {
+            @$query['DestinationEndpointPort'] = $request->destinationEndpointPort;
         }
-        if (!Utils::isUnset($request->destinationEndpointRegion)) {
-            $query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
+
+        if (null !== $request->destinationEndpointRegion) {
+            @$query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
         }
-        if (!Utils::isUnset($request->destinationEndpointUserName)) {
-            $query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
+
+        if (null !== $request->destinationEndpointUserName) {
+            @$query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
         }
-        if (!Utils::isUnset($request->duplicateConflict)) {
-            $query['DuplicateConflict'] = $request->duplicateConflict;
+
+        if (null !== $request->duplicateConflict) {
+            @$query['DuplicateConflict'] = $request->duplicateConflict;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->restoreDir)) {
-            $query['RestoreDir'] = $request->restoreDir;
+
+        if (null !== $request->restoreDir) {
+            @$query['RestoreDir'] = $request->restoreDir;
         }
-        if (!Utils::isUnset($request->restoreHome)) {
-            $query['RestoreHome'] = $request->restoreHome;
+
+        if (null !== $request->restoreHome) {
+            @$query['RestoreHome'] = $request->restoreHome;
         }
-        if (!Utils::isUnset($request->restoreObjects)) {
-            $query['RestoreObjects'] = $request->restoreObjects;
+
+        if (null !== $request->restoreObjects) {
+            @$query['RestoreObjects'] = $request->restoreObjects;
         }
-        if (!Utils::isUnset($request->restoreTaskName)) {
-            $query['RestoreTaskName'] = $request->restoreTaskName;
+
+        if (null !== $request->restoreTaskName) {
+            @$query['RestoreTaskName'] = $request->restoreTaskName;
         }
-        if (!Utils::isUnset($request->restoreTime)) {
-            $query['RestoreTime'] = $request->restoreTime;
+
+        if (null !== $request->restoreTime) {
+            @$query['RestoreTime'] = $request->restoreTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRestoreTask',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRestoreTask',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRestoreTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a restoration task.
+     *
+     * @param request - CreateRestoreTaskRequest
+     *
+     * @returns CreateRestoreTaskResponse
+     *
      * @param CreateRestoreTaskRequest $request
      *
      * @return CreateRestoreTaskResponse
@@ -800,6 +1034,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries backup gateways.
+     *
+     * @param request - DescribeBackupGatewayListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupGatewayListResponse
+     *
      * @param DescribeBackupGatewayListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -807,45 +1048,57 @@ class Dbs extends OpenApiClient
      */
     public function describeBackupGatewayListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupGatewayList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupGatewayList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupGatewayListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries backup gateways.
+     *
+     * @param request - DescribeBackupGatewayListRequest
+     *
+     * @returns DescribeBackupGatewayListResponse
+     *
      * @param DescribeBackupGatewayListRequest $request
      *
      * @return DescribeBackupGatewayListResponse
@@ -858,6 +1111,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the billing information of a backup schedule.
+     *
+     * @param request - DescribeBackupPlanBillingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupPlanBillingResponse
+     *
      * @param DescribeBackupPlanBillingRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -865,39 +1125,49 @@ class Dbs extends OpenApiClient
      */
     public function describeBackupPlanBillingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->showStorageType)) {
-            $query['ShowStorageType'] = $request->showStorageType;
+
+        if (null !== $request->showStorageType) {
+            @$query['ShowStorageType'] = $request->showStorageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPlanBilling',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPlanBilling',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupPlanBillingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the billing information of a backup schedule.
+     *
+     * @param request - DescribeBackupPlanBillingRequest
+     *
+     * @returns DescribeBackupPlanBillingResponse
+     *
      * @param DescribeBackupPlanBillingRequest $request
      *
      * @return DescribeBackupPlanBillingResponse
@@ -910,6 +1180,16 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Query the list of backup plans.
+     *
+     * @remarks
+     * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+     *
+     * @param request - DescribeBackupPlanListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupPlanListResponse
+     *
      * @param DescribeBackupPlanListRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -917,54 +1197,72 @@ class Dbs extends OpenApiClient
      */
     public function describeBackupPlanListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupPlanName)) {
-            $query['BackupPlanName'] = $request->backupPlanName;
+
+        if (null !== $request->backupPlanName) {
+            @$query['BackupPlanName'] = $request->backupPlanName;
         }
-        if (!Utils::isUnset($request->backupPlanStatus)) {
-            $query['BackupPlanStatus'] = $request->backupPlanStatus;
+
+        if (null !== $request->backupPlanStatus) {
+            @$query['BackupPlanStatus'] = $request->backupPlanStatus;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPlanList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPlanList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupPlanListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Query the list of backup plans.
+     *
+     * @remarks
+     * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+     *
+     * @param request - DescribeBackupPlanListRequest
+     *
+     * @returns DescribeBackupPlanListResponse
+     *
      * @param DescribeBackupPlanListRequest $request
      *
      * @return DescribeBackupPlanListResponse
@@ -977,6 +1275,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries backup set download tasks.
+     *
+     * @param request - DescribeBackupSetDownloadTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupSetDownloadTaskListResponse
+     *
      * @param DescribeBackupSetDownloadTaskListRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -984,45 +1289,57 @@ class Dbs extends OpenApiClient
      */
     public function describeBackupSetDownloadTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupSetDownloadTaskId)) {
-            $query['BackupSetDownloadTaskId'] = $request->backupSetDownloadTaskId;
+
+        if (null !== $request->backupSetDownloadTaskId) {
+            @$query['BackupSetDownloadTaskId'] = $request->backupSetDownloadTaskId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupSetDownloadTaskList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupSetDownloadTaskList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupSetDownloadTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries backup set download tasks.
+     *
+     * @param request - DescribeBackupSetDownloadTaskListRequest
+     *
+     * @returns DescribeBackupSetDownloadTaskListResponse
+     *
      * @param DescribeBackupSetDownloadTaskListRequest $request
      *
      * @return DescribeBackupSetDownloadTaskListResponse
@@ -1035,6 +1352,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+     *
+     * @param request - DescribeDLAServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDLAServiceResponse
+     *
      * @param DescribeDLAServiceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1042,36 +1366,45 @@ class Dbs extends OpenApiClient
      */
     public function describeDLAServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDLAService',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDLAService',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDLAServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+     *
+     * @param request - DescribeDLAServiceRequest
+     *
+     * @returns DescribeDLAServiceResponse
+     *
      * @param DescribeDLAServiceRequest $request
      *
      * @return DescribeDLAServiceResponse
@@ -1084,6 +1417,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * cn-hangzhou.
+     *
+     * @param request - DescribeFullBackupListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFullBackupListResponse
+     *
      * @param DescribeFullBackupListRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1091,54 +1431,69 @@ class Dbs extends OpenApiClient
      */
     public function describeFullBackupListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->showStorageType)) {
-            $query['ShowStorageType'] = $request->showStorageType;
+
+        if (null !== $request->showStorageType) {
+            @$query['ShowStorageType'] = $request->showStorageType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFullBackupList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFullBackupList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFullBackupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * cn-hangzhou.
+     *
+     * @param request - DescribeFullBackupListRequest
+     *
+     * @returns DescribeFullBackupListResponse
+     *
      * @param DescribeFullBackupListRequest $request
      *
      * @return DescribeFullBackupListResponse
@@ -1151,6 +1506,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries incremental backup tasks.
+     *
+     * @param request - DescribeIncrementBackupListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIncrementBackupListResponse
+     *
      * @param DescribeIncrementBackupListRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1158,51 +1520,65 @@ class Dbs extends OpenApiClient
      */
     public function describeIncrementBackupListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->showStorageType)) {
-            $query['ShowStorageType'] = $request->showStorageType;
+
+        if (null !== $request->showStorageType) {
+            @$query['ShowStorageType'] = $request->showStorageType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIncrementBackupList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIncrementBackupList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeIncrementBackupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries incremental backup tasks.
+     *
+     * @param request - DescribeIncrementBackupListRequest
+     *
+     * @returns DescribeIncrementBackupListResponse
+     *
      * @param DescribeIncrementBackupListRequest $request
      *
      * @return DescribeIncrementBackupListResponse
@@ -1215,6 +1591,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the error information of a Database Backup (DBS) task.
+     *
+     * @param request - DescribeJobErrorCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJobErrorCodeResponse
+     *
      * @param DescribeJobErrorCodeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1222,39 +1605,49 @@ class Dbs extends OpenApiClient
      */
     public function describeJobErrorCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJobErrorCode',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJobErrorCode',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeJobErrorCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the error information of a Database Backup (DBS) task.
+     *
+     * @param request - DescribeJobErrorCodeRequest
+     *
+     * @returns DescribeJobErrorCodeResponse
+     *
      * @param DescribeJobErrorCodeRequest $request
      *
      * @return DescribeJobErrorCodeResponse
@@ -1267,6 +1660,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the CIDR blocks of nodes on which Database Backup (DBS) is running.
+     *
+     * @param request - DescribeNodeCidrListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeCidrListResponse
+     *
      * @param DescribeNodeCidrListRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1274,36 +1674,45 @@ class Dbs extends OpenApiClient
      */
     public function describeNodeCidrListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNodeCidrList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNodeCidrList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNodeCidrListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the CIDR blocks of nodes on which Database Backup (DBS) is running.
+     *
+     * @param request - DescribeNodeCidrListRequest
+     *
+     * @returns DescribeNodeCidrListResponse
+     *
      * @param DescribeNodeCidrListRequest $request
      *
      * @return DescribeNodeCidrListResponse
@@ -1316,6 +1725,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the precheck progress of a backup schedule or a restore task.
+     *
+     * @param request - DescribePreCheckProgressListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePreCheckProgressListResponse
+     *
      * @param DescribePreCheckProgressListRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1323,39 +1739,49 @@ class Dbs extends OpenApiClient
      */
     public function describePreCheckProgressListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->restoreTaskId)) {
-            $query['RestoreTaskId'] = $request->restoreTaskId;
+
+        if (null !== $request->restoreTaskId) {
+            @$query['RestoreTaskId'] = $request->restoreTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePreCheckProgressList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePreCheckProgressList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePreCheckProgressListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the precheck progress of a backup schedule or a restore task.
+     *
+     * @param request - DescribePreCheckProgressListRequest
+     *
+     * @returns DescribePreCheckProgressListResponse
+     *
      * @param DescribePreCheckProgressListRequest $request
      *
      * @return DescribePreCheckProgressListResponse
@@ -1368,6 +1794,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the regions that Database Backup (DBS) supports.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1375,33 +1808,41 @@ class Dbs extends OpenApiClient
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the regions that Database Backup (DBS) supports.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
      * @param DescribeRegionsRequest $request
      *
      * @return DescribeRegionsResponse
@@ -1414,6 +1855,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the range of time to which you can restore data in a backup schedule.
+     *
+     * @param request - DescribeRestoreRangeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRestoreRangeInfoResponse
+     *
      * @param DescribeRestoreRangeInfoRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1421,45 +1869,57 @@ class Dbs extends OpenApiClient
      */
     public function describeRestoreRangeInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->beginTimestampForRestore)) {
-            $query['BeginTimestampForRestore'] = $request->beginTimestampForRestore;
+
+        if (null !== $request->beginTimestampForRestore) {
+            @$query['BeginTimestampForRestore'] = $request->beginTimestampForRestore;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->endTimestampForRestore)) {
-            $query['EndTimestampForRestore'] = $request->endTimestampForRestore;
+
+        if (null !== $request->endTimestampForRestore) {
+            @$query['EndTimestampForRestore'] = $request->endTimestampForRestore;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->recentlyRestore)) {
-            $query['RecentlyRestore'] = $request->recentlyRestore;
+
+        if (null !== $request->recentlyRestore) {
+            @$query['RecentlyRestore'] = $request->recentlyRestore;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreRangeInfo',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreRangeInfo',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreRangeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the range of time to which you can restore data in a backup schedule.
+     *
+     * @param request - DescribeRestoreRangeInfoRequest
+     *
+     * @returns DescribeRestoreRangeInfoResponse
+     *
      * @param DescribeRestoreRangeInfoRequest $request
      *
      * @return DescribeRestoreRangeInfoResponse
@@ -1472,6 +1932,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries restore tasks.
+     *
+     * @param request - DescribeRestoreTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRestoreTaskListResponse
+     *
      * @param DescribeRestoreTaskListRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1479,51 +1946,65 @@ class Dbs extends OpenApiClient
      */
     public function describeRestoreTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->restoreTaskId)) {
-            $query['RestoreTaskId'] = $request->restoreTaskId;
+
+        if (null !== $request->restoreTaskId) {
+            @$query['RestoreTaskId'] = $request->restoreTaskId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreTaskList',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreTaskList',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries restore tasks.
+     *
+     * @param request - DescribeRestoreTaskListRequest
+     *
+     * @returns DescribeRestoreTaskListResponse
+     *
      * @param DescribeRestoreTaskListRequest $request
      *
      * @return DescribeRestoreTaskListResponse
@@ -1536,6 +2017,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Disables incremental backup for a backup schedule.
+     *
+     * @remarks
+     * ### Impact
+     * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+     *
+     * @param request - DisableBackupLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableBackupLogResponse
+     *
      * @param DisableBackupLogRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1543,36 +2035,49 @@ class Dbs extends OpenApiClient
      */
     public function disableBackupLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableBackupLog',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableBackupLog',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableBackupLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Disables incremental backup for a backup schedule.
+     *
+     * @remarks
+     * ### Impact
+     * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+     *
+     * @param request - DisableBackupLogRequest
+     *
+     * @returns DisableBackupLogResponse
+     *
      * @param DisableBackupLogRequest $request
      *
      * @return DisableBackupLogResponse
@@ -1585,6 +2090,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Enables incremental backup for a backup schedule.
+     *
+     * @remarks
+     * ## Impact
+     * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+     *
+     * @param request - EnableBackupLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableBackupLogResponse
+     *
      * @param EnableBackupLogRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1592,36 +2108,49 @@ class Dbs extends OpenApiClient
      */
     public function enableBackupLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableBackupLog',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableBackupLog',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableBackupLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Enables incremental backup for a backup schedule.
+     *
+     * @remarks
+     * ## Impact
+     * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+     *
+     * @param request - EnableBackupLogRequest
+     *
+     * @returns EnableBackupLogResponse
+     *
      * @param EnableBackupLogRequest $request
      *
      * @return EnableBackupLogResponse
@@ -1634,6 +2163,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+     *
+     * @param request - GetDBListFromAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDBListFromAgentResponse
+     *
      * @param GetDBListFromAgentRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1641,42 +2177,53 @@ class Dbs extends OpenApiClient
      */
     public function getDBListFromAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->sourceEndpointRegion)) {
-            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+
+        if (null !== $request->sourceEndpointRegion) {
+            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDBListFromAgent',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDBListFromAgent',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDBListFromAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+     *
+     * @param request - GetDBListFromAgentRequest
+     *
+     * @returns GetDBListFromAgentResponse
+     *
      * @param GetDBListFromAgentRequest $request
      *
      * @return GetDBListFromAgentResponse
@@ -1689,29 +2236,40 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+     *
+     * @param request - InitializeDbsServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeDbsServiceLinkedRoleResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return InitializeDbsServiceLinkedRoleResponse
      */
     public function initializeDbsServiceLinkedRoleWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'InitializeDbsServiceLinkedRole',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitializeDbsServiceLinkedRole',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitializeDbsServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+     *
+     * @returns InitializeDbsServiceLinkedRoleResponse
+     *
      * @return InitializeDbsServiceLinkedRoleResponse
      */
     public function initializeDbsServiceLinkedRole()
@@ -1722,6 +2280,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Modifies backup objects of a backup schedule in Database Backup (DBS).
+     *
+     * @param request - ModifyBackupObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupObjectsResponse
+     *
      * @param ModifyBackupObjectsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1729,39 +2294,49 @@ class Dbs extends OpenApiClient
      */
     public function modifyBackupObjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupObjects)) {
-            $query['BackupObjects'] = $request->backupObjects;
+        if (null !== $request->backupObjects) {
+            @$query['BackupObjects'] = $request->backupObjects;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupObjects',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupObjects',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies backup objects of a backup schedule in Database Backup (DBS).
+     *
+     * @param request - ModifyBackupObjectsRequest
+     *
+     * @returns ModifyBackupObjectsResponse
+     *
      * @param ModifyBackupObjectsRequest $request
      *
      * @return ModifyBackupObjectsResponse
@@ -1774,6 +2349,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Changes the name of a backup schedule.
+     *
+     * @param request - ModifyBackupPlanNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupPlanNameResponse
+     *
      * @param ModifyBackupPlanNameRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1781,39 +2363,49 @@ class Dbs extends OpenApiClient
      */
     public function modifyBackupPlanNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupPlanName)) {
-            $query['BackupPlanName'] = $request->backupPlanName;
+
+        if (null !== $request->backupPlanName) {
+            @$query['BackupPlanName'] = $request->backupPlanName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPlanName',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPlanName',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupPlanNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Changes the name of a backup schedule.
+     *
+     * @param request - ModifyBackupPlanNameRequest
+     *
+     * @returns ModifyBackupPlanNameResponse
+     *
      * @param ModifyBackupPlanNameRequest $request
      *
      * @return ModifyBackupPlanNameResponse
@@ -1826,6 +2418,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Enables, configures, or disables the automatic download feature.
+     *
+     * @param request - ModifyBackupSetDownloadRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupSetDownloadRulesResponse
+     *
      * @param ModifyBackupSetDownloadRulesRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1833,57 +2432,73 @@ class Dbs extends OpenApiClient
      */
     public function modifyBackupSetDownloadRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupSetDownloadDir)) {
-            $query['BackupSetDownloadDir'] = $request->backupSetDownloadDir;
+
+        if (null !== $request->backupSetDownloadDir) {
+            @$query['BackupSetDownloadDir'] = $request->backupSetDownloadDir;
         }
-        if (!Utils::isUnset($request->backupSetDownloadTargetType)) {
-            $query['BackupSetDownloadTargetType'] = $request->backupSetDownloadTargetType;
+
+        if (null !== $request->backupSetDownloadTargetType) {
+            @$query['BackupSetDownloadTargetType'] = $request->backupSetDownloadTargetType;
         }
-        if (!Utils::isUnset($request->backupSetDownloadTargetTypeLocation)) {
-            $query['BackupSetDownloadTargetTypeLocation'] = $request->backupSetDownloadTargetTypeLocation;
+
+        if (null !== $request->backupSetDownloadTargetTypeLocation) {
+            @$query['BackupSetDownloadTargetTypeLocation'] = $request->backupSetDownloadTargetTypeLocation;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->fullDataFormat)) {
-            $query['FullDataFormat'] = $request->fullDataFormat;
+
+        if (null !== $request->fullDataFormat) {
+            @$query['FullDataFormat'] = $request->fullDataFormat;
         }
-        if (!Utils::isUnset($request->incrementDataFormat)) {
-            $query['IncrementDataFormat'] = $request->incrementDataFormat;
+
+        if (null !== $request->incrementDataFormat) {
+            @$query['IncrementDataFormat'] = $request->incrementDataFormat;
         }
-        if (!Utils::isUnset($request->openAutoDownload)) {
-            $query['OpenAutoDownload'] = $request->openAutoDownload;
+
+        if (null !== $request->openAutoDownload) {
+            @$query['OpenAutoDownload'] = $request->openAutoDownload;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupSetDownloadRules',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupSetDownloadRules',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupSetDownloadRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Enables, configures, or disables the automatic download feature.
+     *
+     * @param request - ModifyBackupSetDownloadRulesRequest
+     *
+     * @returns ModifyBackupSetDownloadRulesResponse
+     *
      * @param ModifyBackupSetDownloadRulesRequest $request
      *
      * @return ModifyBackupSetDownloadRulesResponse
@@ -1896,6 +2511,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Modifies the data source of a backup schedule.
+     *
+     * @param request - ModifyBackupSourceEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupSourceEndpointResponse
+     *
      * @param ModifyBackupSourceEndpointRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1903,75 +2525,97 @@ class Dbs extends OpenApiClient
      */
     public function modifyBackupSourceEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupGatewayId)) {
-            $query['BackupGatewayId'] = $request->backupGatewayId;
+        if (null !== $request->backupGatewayId) {
+            @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
-        if (!Utils::isUnset($request->backupObjects)) {
-            $query['BackupObjects'] = $request->backupObjects;
+
+        if (null !== $request->backupObjects) {
+            @$query['BackupObjects'] = $request->backupObjects;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossAliyunId)) {
-            $query['CrossAliyunId'] = $request->crossAliyunId;
+
+        if (null !== $request->crossAliyunId) {
+            @$query['CrossAliyunId'] = $request->crossAliyunId;
         }
-        if (!Utils::isUnset($request->crossRoleName)) {
-            $query['CrossRoleName'] = $request->crossRoleName;
+
+        if (null !== $request->crossRoleName) {
+            @$query['CrossRoleName'] = $request->crossRoleName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
-            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+
+        if (null !== $request->sourceEndpointDatabaseName) {
+            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-        if (!Utils::isUnset($request->sourceEndpointIP)) {
-            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
+
+        if (null !== $request->sourceEndpointIP) {
+            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
-            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+
+        if (null !== $request->sourceEndpointInstanceID) {
+            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
-            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+
+        if (null !== $request->sourceEndpointInstanceType) {
+            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
-            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+
+        if (null !== $request->sourceEndpointOracleSID) {
+            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-        if (!Utils::isUnset($request->sourceEndpointPassword)) {
-            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+
+        if (null !== $request->sourceEndpointPassword) {
+            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-        if (!Utils::isUnset($request->sourceEndpointPort)) {
-            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
+
+        if (null !== $request->sourceEndpointPort) {
+            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-        if (!Utils::isUnset($request->sourceEndpointRegion)) {
-            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+
+        if (null !== $request->sourceEndpointRegion) {
+            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-        if (!Utils::isUnset($request->sourceEndpointUserName)) {
-            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+
+        if (null !== $request->sourceEndpointUserName) {
+            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupSourceEndpoint',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupSourceEndpoint',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupSourceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies the data source of a backup schedule.
+     *
+     * @param request - ModifyBackupSourceEndpointRequest
+     *
+     * @returns ModifyBackupSourceEndpointResponse
+     *
      * @param ModifyBackupSourceEndpointRequest $request
      *
      * @return ModifyBackupSourceEndpointResponse
@@ -1984,6 +2628,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Modifies the backup time of a backup schedule.
+     *
+     * @param request - ModifyBackupStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupStrategyResponse
+     *
      * @param ModifyBackupStrategyRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1991,48 +2642,61 @@ class Dbs extends OpenApiClient
      */
     public function modifyBackupStrategyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupLogIntervalSeconds)) {
-            $query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
+        if (null !== $request->backupLogIntervalSeconds) {
+            @$query['BackupLogIntervalSeconds'] = $request->backupLogIntervalSeconds;
         }
-        if (!Utils::isUnset($request->backupPeriod)) {
-            $query['BackupPeriod'] = $request->backupPeriod;
+
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
         }
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupStartTime)) {
-            $query['BackupStartTime'] = $request->backupStartTime;
+
+        if (null !== $request->backupStartTime) {
+            @$query['BackupStartTime'] = $request->backupStartTime;
         }
-        if (!Utils::isUnset($request->backupStrategyType)) {
-            $query['BackupStrategyType'] = $request->backupStrategyType;
+
+        if (null !== $request->backupStrategyType) {
+            @$query['BackupStrategyType'] = $request->backupStrategyType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupStrategy',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupStrategy',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies the backup time of a backup schedule.
+     *
+     * @param request - ModifyBackupStrategyRequest
+     *
+     * @returns ModifyBackupStrategyResponse
+     *
      * @param ModifyBackupStrategyRequest $request
      *
      * @return ModifyBackupStrategyResponse
@@ -2045,6 +2709,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Modifies the lifecycle of data that is backed up based on a backup schedule.
+     *
+     * @param request - ModifyStorageStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyStorageStrategyResponse
+     *
      * @param ModifyStorageStrategyRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2052,45 +2723,57 @@ class Dbs extends OpenApiClient
      */
     public function modifyStorageStrategyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->duplicationArchivePeriod)) {
-            $query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
+
+        if (null !== $request->duplicationArchivePeriod) {
+            @$query['DuplicationArchivePeriod'] = $request->duplicationArchivePeriod;
         }
-        if (!Utils::isUnset($request->duplicationInfrequentAccessPeriod)) {
-            $query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
+
+        if (null !== $request->duplicationInfrequentAccessPeriod) {
+            @$query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyStorageStrategy',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyStorageStrategy',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyStorageStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Modifies the lifecycle of data that is backed up based on a backup schedule.
+     *
+     * @param request - ModifyStorageStrategyRequest
+     *
+     * @returns ModifyStorageStrategyResponse
+     *
      * @param ModifyStorageStrategyRequest $request
      *
      * @return ModifyStorageStrategyResponse
@@ -2103,6 +2786,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Releases a pay-as-you-go backup schedule.
+     *
+     * @remarks
+     * ## Impacts
+     * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+     *
+     * @param request - ReleaseBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseBackupPlanResponse
+     *
      * @param ReleaseBackupPlanRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2110,36 +2804,49 @@ class Dbs extends OpenApiClient
      */
     public function releaseBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Releases a pay-as-you-go backup schedule.
+     *
+     * @remarks
+     * ## Impacts
+     * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+     *
+     * @param request - ReleaseBackupPlanRequest
+     *
+     * @returns ReleaseBackupPlanResponse
+     *
      * @param ReleaseBackupPlanRequest $request
      *
      * @return ReleaseBackupPlanResponse
@@ -2152,6 +2859,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Renews a backup schedule.
+     *
+     * @param request - RenewBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewBackupPlanResponse
+     *
      * @param RenewBackupPlanRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2159,42 +2873,53 @@ class Dbs extends OpenApiClient
      */
     public function renewBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Renews a backup schedule.
+     *
+     * @param request - RenewBackupPlanRequest
+     *
+     * @returns RenewBackupPlanResponse
+     *
      * @param RenewBackupPlanRequest $request
      *
      * @return RenewBackupPlanResponse
@@ -2207,6 +2932,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Starts a backup schedule.
+     *
+     * @param request - StartBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartBackupPlanResponse
+     *
      * @param StartBackupPlanRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2214,36 +2946,45 @@ class Dbs extends OpenApiClient
      */
     public function startBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts a backup schedule.
+     *
+     * @param request - StartBackupPlanRequest
+     *
+     * @returns StartBackupPlanResponse
+     *
      * @param StartBackupPlanRequest $request
      *
      * @return StartBackupPlanResponse
@@ -2256,6 +2997,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Starts a restore task.
+     *
+     * @param request - StartRestoreTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartRestoreTaskResponse
+     *
      * @param StartRestoreTaskRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2263,36 +3011,45 @@ class Dbs extends OpenApiClient
      */
     public function startRestoreTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->restoreTaskId)) {
-            $query['RestoreTaskId'] = $request->restoreTaskId;
+
+        if (null !== $request->restoreTaskId) {
+            @$query['RestoreTaskId'] = $request->restoreTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartRestoreTask',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartRestoreTask',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartRestoreTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts a restore task.
+     *
+     * @param request - StartRestoreTaskRequest
+     *
+     * @returns StartRestoreTaskResponse
+     *
      * @param StartRestoreTaskRequest $request
      *
      * @return StartRestoreTaskResponse
@@ -2305,6 +3062,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Stops a backup schedule.
+     *
+     * @param request - StopBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopBackupPlanResponse
+     *
      * @param StopBackupPlanRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2312,39 +3076,49 @@ class Dbs extends OpenApiClient
      */
     public function stopBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->stopMethod)) {
-            $query['StopMethod'] = $request->stopMethod;
+
+        if (null !== $request->stopMethod) {
+            @$query['StopMethod'] = $request->stopMethod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops a backup schedule.
+     *
+     * @param request - StopBackupPlanRequest
+     *
+     * @returns StopBackupPlanResponse
+     *
      * @param StopBackupPlanRequest $request
      *
      * @return StopBackupPlanResponse
@@ -2357,6 +3131,13 @@ class Dbs extends OpenApiClient
     }
 
     /**
+     * Upgrades a backup schedule.
+     *
+     * @param request - UpgradeBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeBackupPlanResponse
+     *
      * @param UpgradeBackupPlanRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2364,39 +3145,49 @@ class Dbs extends OpenApiClient
      */
     public function upgradeBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPlanId)) {
-            $query['BackupPlanId'] = $request->backupPlanId;
+        if (null !== $request->backupPlanId) {
+            @$query['BackupPlanId'] = $request->backupPlanId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceClass)) {
-            $query['InstanceClass'] = $request->instanceClass;
+
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeBackupPlan',
-            'version'     => '2019-03-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeBackupPlan',
+            'version' => '2019-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Upgrades a backup schedule.
+     *
+     * @param request - UpgradeBackupPlanRequest
+     *
+     * @returns UpgradeBackupPlanResponse
+     *
      * @param UpgradeBackupPlanRequest $request
      *
      * @return UpgradeBackupPlanResponse

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewBackupPlanResponseBody extends Model
 {
@@ -43,40 +43,47 @@ class RenewBackupPlanResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'backupPlanId'   => 'BackupPlanId',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'backupPlanId' => 'BackupPlanId',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -84,32 +91,38 @@ class RenewBackupPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewBackupPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

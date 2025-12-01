@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeBackupPlanRequest extends Model
 {
@@ -28,28 +28,32 @@ class UpgradeBackupPlanRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'backupPlanId'  => 'BackupPlanId',
-        'clientToken'   => 'ClientToken',
+        'backupPlanId' => 'BackupPlanId',
+        'clientToken' => 'ClientToken',
         'instanceClass' => 'InstanceClass',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -57,23 +61,26 @@ class UpgradeBackupPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeBackupPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

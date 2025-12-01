@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeJobErrorCodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class item extends Model
 {
@@ -38,36 +38,42 @@ class item extends Model
      */
     public $language;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'jobId'        => 'JobId',
-        'jobState'     => 'JobState',
-        'jobType'      => 'JobType',
-        'language'     => 'Language',
+        'jobId' => 'JobId',
+        'jobState' => 'JobState',
+        'jobType' => 'JobType',
+        'language' => 'Language',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->jobState) {
             $res['JobState'] = $this->jobState;
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -75,29 +81,34 @@ class item extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return item
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['JobState'])) {
             $model->jobState = $map['JobState'];
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }

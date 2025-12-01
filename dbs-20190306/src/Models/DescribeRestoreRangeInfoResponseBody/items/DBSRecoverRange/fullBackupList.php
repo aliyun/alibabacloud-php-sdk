@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items\DBSRecoverRange;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items\DBSRecoverRange\fullBackupList\fullBackupDetail;
-use AlibabaCloud\Tea\Model;
 
 class fullBackupList extends Model
 {
@@ -19,17 +19,22 @@ class fullBackupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullBackupDetail)) {
+            Model::validateArray($this->fullBackupDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullBackupDetail) {
-            $res['FullBackupDetail'] = [];
-            if (null !== $this->fullBackupDetail && \is_array($this->fullBackupDetail)) {
-                $n = 0;
-                foreach ($this->fullBackupDetail as $item) {
-                    $res['FullBackupDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullBackupDetail)) {
+                $res['FullBackupDetail'] = [];
+                $n1 = 0;
+                foreach ($this->fullBackupDetail as $item1) {
+                    $res['FullBackupDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class fullBackupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fullBackupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullBackupDetail'])) {
             if (!empty($map['FullBackupDetail'])) {
                 $model->fullBackupDetail = [];
-                $n                       = 0;
-                foreach ($map['FullBackupDetail'] as $item) {
-                    $model->fullBackupDetail[$n++] = null !== $item ? fullBackupDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FullBackupDetail'] as $item1) {
+                    $model->fullBackupDetail[$n1] = fullBackupDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRegionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regions extends Model
 {
@@ -18,29 +18,45 @@ class regions extends Model
 
     public function validate()
     {
+        if (\is_array($this->regionCode)) {
+            Model::validateArray($this->regionCode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionCode) {
-            $res['RegionCode'] = $this->regionCode;
+            if (\is_array($this->regionCode)) {
+                $res['RegionCode'] = [];
+                $n1 = 0;
+                foreach ($this->regionCode as $item1) {
+                    $res['RegionCode'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionCode'])) {
             if (!empty($map['RegionCode'])) {
-                $model->regionCode = $map['RegionCode'];
+                $model->regionCode = [];
+                $n1 = 0;
+                foreach ($map['RegionCode'] as $item1) {
+                    $model->regionCode[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

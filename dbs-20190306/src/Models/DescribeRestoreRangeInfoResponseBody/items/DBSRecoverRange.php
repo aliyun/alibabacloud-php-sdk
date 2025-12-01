@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items\DBSRecoverRange\fullBackupList;
-use AlibabaCloud\Tea\Model;
 
 class DBSRecoverRange extends Model
 {
@@ -39,36 +39,45 @@ class DBSRecoverRange extends Model
      */
     public $sourceEndpointInstanceType;
     protected $_name = [
-        'beginTimestampForRestore'   => 'BeginTimestampForRestore',
-        'endTimestampForRestore'     => 'EndTimestampForRestore',
-        'fullBackupList'             => 'FullBackupList',
-        'rangeType'                  => 'RangeType',
-        'sourceEndpointInstanceID'   => 'SourceEndpointInstanceID',
+        'beginTimestampForRestore' => 'BeginTimestampForRestore',
+        'endTimestampForRestore' => 'EndTimestampForRestore',
+        'fullBackupList' => 'FullBackupList',
+        'rangeType' => 'RangeType',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
         'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
     ];
 
     public function validate()
     {
+        if (null !== $this->fullBackupList) {
+            $this->fullBackupList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTimestampForRestore) {
             $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
         }
+
         if (null !== $this->endTimestampForRestore) {
             $res['EndTimestampForRestore'] = $this->endTimestampForRestore;
         }
+
         if (null !== $this->fullBackupList) {
-            $res['FullBackupList'] = null !== $this->fullBackupList ? $this->fullBackupList->toMap() : null;
+            $res['FullBackupList'] = null !== $this->fullBackupList ? $this->fullBackupList->toArray($noStream) : $this->fullBackupList;
         }
+
         if (null !== $this->rangeType) {
             $res['RangeType'] = $this->rangeType;
         }
+
         if (null !== $this->sourceEndpointInstanceID) {
             $res['SourceEndpointInstanceID'] = $this->sourceEndpointInstanceID;
         }
+
         if (null !== $this->sourceEndpointInstanceType) {
             $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
@@ -76,29 +85,34 @@ class DBSRecoverRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBSRecoverRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTimestampForRestore'])) {
             $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
         }
+
         if (isset($map['EndTimestampForRestore'])) {
             $model->endTimestampForRestore = $map['EndTimestampForRestore'];
         }
+
         if (isset($map['FullBackupList'])) {
             $model->fullBackupList = fullBackupList::fromMap($map['FullBackupList']);
         }
+
         if (isset($map['RangeType'])) {
             $model->rangeType = $map['RangeType'];
         }
+
         if (isset($map['SourceEndpointInstanceID'])) {
             $model->sourceEndpointInstanceID = $map['SourceEndpointInstanceID'];
         }
+
         if (isset($map['SourceEndpointInstanceType'])) {
             $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }

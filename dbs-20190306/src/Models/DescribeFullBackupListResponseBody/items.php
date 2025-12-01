@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeFullBackupListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeFullBackupListResponseBody\items\fullBackupFile;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,22 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullBackupFile)) {
+            Model::validateArray($this->fullBackupFile);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullBackupFile) {
-            $res['FullBackupFile'] = [];
-            if (null !== $this->fullBackupFile && \is_array($this->fullBackupFile)) {
-                $n = 0;
-                foreach ($this->fullBackupFile as $item) {
-                    $res['FullBackupFile'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullBackupFile)) {
+                $res['FullBackupFile'] = [];
+                $n1 = 0;
+                foreach ($this->fullBackupFile as $item1) {
+                    $res['FullBackupFile'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullBackupFile'])) {
             if (!empty($map['FullBackupFile'])) {
                 $model->fullBackupFile = [];
-                $n                     = 0;
-                foreach ($map['FullBackupFile'] as $item) {
-                    $model->fullBackupFile[$n++] = null !== $item ? fullBackupFile::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FullBackupFile'] as $item1) {
+                    $model->fullBackupFile[$n1] = fullBackupFile::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

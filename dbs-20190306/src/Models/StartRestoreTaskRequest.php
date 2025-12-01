@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartRestoreTaskRequest extends Model
 {
@@ -23,24 +23,27 @@ class StartRestoreTaskRequest extends Model
      */
     public $restoreTaskId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'ownerId'       => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
         'restoreTaskId' => 'RestoreTaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->restoreTaskId) {
             $res['RestoreTaskId'] = $this->restoreTaskId;
         }
@@ -48,20 +51,22 @@ class StartRestoreTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartRestoreTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RestoreTaskId'])) {
             $model->restoreTaskId = $map['RestoreTaskId'];
         }

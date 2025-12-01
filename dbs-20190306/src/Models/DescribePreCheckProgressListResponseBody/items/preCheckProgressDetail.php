@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribePreCheckProgressListResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class preCheckProgressDetail extends Model
 {
@@ -48,44 +48,52 @@ class preCheckProgressDetail extends Model
      */
     public $state;
     protected $_name = [
-        'bootTime'   => 'BootTime',
-        'errMsg'     => 'ErrMsg',
+        'bootTime' => 'BootTime',
+        'errMsg' => 'ErrMsg',
         'finishTime' => 'FinishTime',
-        'item'       => 'Item',
-        'jobId'      => 'JobId',
-        'names'      => 'Names',
-        'orderNum'   => 'OrderNum',
-        'state'      => 'State',
+        'item' => 'Item',
+        'jobId' => 'JobId',
+        'names' => 'Names',
+        'orderNum' => 'OrderNum',
+        'state' => 'State',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bootTime) {
             $res['BootTime'] = $this->bootTime;
         }
+
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
+
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->item) {
             $res['Item'] = $this->item;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->names) {
             $res['Names'] = $this->names;
         }
+
         if (null !== $this->orderNum) {
             $res['OrderNum'] = $this->orderNum;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -93,35 +101,42 @@ class preCheckProgressDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckProgressDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BootTime'])) {
             $model->bootTime = $map['BootTime'];
         }
+
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
+
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['Item'])) {
             $model->item = $map['Item'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Names'])) {
             $model->names = $map['Names'];
         }
+
         if (isset($map['OrderNum'])) {
             $model->orderNum = $map['OrderNum'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

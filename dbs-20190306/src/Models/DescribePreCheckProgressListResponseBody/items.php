@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribePreCheckProgressListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribePreCheckProgressListResponseBody\items\preCheckProgressDetail;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,22 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->preCheckProgressDetail)) {
+            Model::validateArray($this->preCheckProgressDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheckProgressDetail) {
-            $res['PreCheckProgressDetail'] = [];
-            if (null !== $this->preCheckProgressDetail && \is_array($this->preCheckProgressDetail)) {
-                $n = 0;
-                foreach ($this->preCheckProgressDetail as $item) {
-                    $res['PreCheckProgressDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preCheckProgressDetail)) {
+                $res['PreCheckProgressDetail'] = [];
+                $n1 = 0;
+                foreach ($this->preCheckProgressDetail as $item1) {
+                    $res['PreCheckProgressDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckProgressDetail'])) {
             if (!empty($map['PreCheckProgressDetail'])) {
                 $model->preCheckProgressDetail = [];
-                $n                             = 0;
-                foreach ($map['PreCheckProgressDetail'] as $item) {
-                    $model->preCheckProgressDetail[$n++] = null !== $item ? preCheckProgressDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PreCheckProgressDetail'] as $item1) {
+                    $model->preCheckProgressDetail[$n1] = preCheckProgressDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

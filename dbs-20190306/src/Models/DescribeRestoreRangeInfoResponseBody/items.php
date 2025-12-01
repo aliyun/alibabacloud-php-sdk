@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items\DBSRecoverRange;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,22 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBSRecoverRange)) {
+            Model::validateArray($this->DBSRecoverRange);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBSRecoverRange) {
-            $res['DBSRecoverRange'] = [];
-            if (null !== $this->DBSRecoverRange && \is_array($this->DBSRecoverRange)) {
-                $n = 0;
-                foreach ($this->DBSRecoverRange as $item) {
-                    $res['DBSRecoverRange'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBSRecoverRange)) {
+                $res['DBSRecoverRange'] = [];
+                $n1 = 0;
+                foreach ($this->DBSRecoverRange as $item1) {
+                    $res['DBSRecoverRange'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBSRecoverRange'])) {
             if (!empty($map['DBSRecoverRange'])) {
                 $model->DBSRecoverRange = [];
-                $n                      = 0;
-                foreach ($map['DBSRecoverRange'] as $item) {
-                    $model->DBSRecoverRange[$n++] = null !== $item ? DBSRecoverRange::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DBSRecoverRange'] as $item1) {
+                    $model->DBSRecoverRange[$n1] = DBSRecoverRange::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

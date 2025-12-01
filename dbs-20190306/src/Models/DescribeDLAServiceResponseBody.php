@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDLAServiceResponseBody extends Model
 {
@@ -48,44 +48,52 @@ class DescribeDLAServiceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'autoAdd'        => 'AutoAdd',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
-        'haveJobFailed'  => 'HaveJobFailed',
+        'autoAdd' => 'AutoAdd',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'haveJobFailed' => 'HaveJobFailed',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'state'          => 'State',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'state' => 'State',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoAdd) {
             $res['AutoAdd'] = $this->autoAdd;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->haveJobFailed) {
             $res['HaveJobFailed'] = $this->haveJobFailed;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -93,35 +101,42 @@ class DescribeDLAServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDLAServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoAdd'])) {
             $model->autoAdd = $map['AutoAdd'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HaveJobFailed'])) {
             $model->haveJobFailed = $map['HaveJobFailed'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

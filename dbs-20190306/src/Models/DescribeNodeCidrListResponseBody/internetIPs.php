@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeNodeCidrListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internetIPs extends Model
 {
@@ -18,29 +18,45 @@ class internetIPs extends Model
 
     public function validate()
     {
+        if (\is_array($this->internetIP)) {
+            Model::validateArray($this->internetIP);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->internetIP) {
-            $res['InternetIP'] = $this->internetIP;
+            if (\is_array($this->internetIP)) {
+                $res['InternetIP'] = [];
+                $n1 = 0;
+                foreach ($this->internetIP as $item1) {
+                    $res['InternetIP'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internetIPs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InternetIP'])) {
             if (!empty($map['InternetIP'])) {
-                $model->internetIP = $map['InternetIP'];
+                $model->internetIP = [];
+                $n1 = 0;
+                foreach ($map['InternetIP'] as $item1) {
+                    $model->internetIP[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyStorageStrategyRequest extends Model
 {
@@ -38,36 +38,42 @@ class ModifyStorageStrategyRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'backupPlanId'                      => 'BackupPlanId',
-        'backupRetentionPeriod'             => 'BackupRetentionPeriod',
-        'clientToken'                       => 'ClientToken',
-        'duplicationArchivePeriod'          => 'DuplicationArchivePeriod',
+        'backupPlanId' => 'BackupPlanId',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'clientToken' => 'ClientToken',
+        'duplicationArchivePeriod' => 'DuplicationArchivePeriod',
         'duplicationInfrequentAccessPeriod' => 'DuplicationInfrequentAccessPeriod',
-        'ownerId'                           => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->duplicationArchivePeriod) {
             $res['DuplicationArchivePeriod'] = $this->duplicationArchivePeriod;
         }
+
         if (null !== $this->duplicationInfrequentAccessPeriod) {
             $res['DuplicationInfrequentAccessPeriod'] = $this->duplicationInfrequentAccessPeriod;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -75,29 +81,34 @@ class ModifyStorageStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyStorageStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DuplicationArchivePeriod'])) {
             $model->duplicationArchivePeriod = $map['DuplicationArchivePeriod'];
         }
+
         if (isset($map['DuplicationInfrequentAccessPeriod'])) {
             $model->duplicationInfrequentAccessPeriod = $map['DuplicationInfrequentAccessPeriod'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

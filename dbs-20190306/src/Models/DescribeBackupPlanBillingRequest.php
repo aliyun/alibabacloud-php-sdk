@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupPlanBillingRequest extends Model
 {
@@ -28,28 +28,32 @@ class DescribeBackupPlanBillingRequest extends Model
      */
     public $showStorageType;
     protected $_name = [
-        'backupPlanId'    => 'BackupPlanId',
-        'clientToken'     => 'ClientToken',
-        'ownerId'         => 'OwnerId',
+        'backupPlanId' => 'BackupPlanId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
         'showStorageType' => 'ShowStorageType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->showStorageType) {
             $res['ShowStorageType'] = $this->showStorageType;
         }
@@ -57,23 +61,26 @@ class DescribeBackupPlanBillingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupPlanBillingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ShowStorageType'])) {
             $model->showStorageType = $map['ShowStorageType'];
         }

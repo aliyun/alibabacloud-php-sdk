@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRestoreRangeInfoRequest extends Model
 {
@@ -38,36 +38,42 @@ class DescribeRestoreRangeInfoRequest extends Model
      */
     public $recentlyRestore;
     protected $_name = [
-        'backupPlanId'             => 'BackupPlanId',
+        'backupPlanId' => 'BackupPlanId',
         'beginTimestampForRestore' => 'BeginTimestampForRestore',
-        'clientToken'              => 'ClientToken',
-        'endTimestampForRestore'   => 'EndTimestampForRestore',
-        'ownerId'                  => 'OwnerId',
-        'recentlyRestore'          => 'RecentlyRestore',
+        'clientToken' => 'ClientToken',
+        'endTimestampForRestore' => 'EndTimestampForRestore',
+        'ownerId' => 'OwnerId',
+        'recentlyRestore' => 'RecentlyRestore',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->beginTimestampForRestore) {
             $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->endTimestampForRestore) {
             $res['EndTimestampForRestore'] = $this->endTimestampForRestore;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->recentlyRestore) {
             $res['RecentlyRestore'] = $this->recentlyRestore;
         }
@@ -75,29 +81,34 @@ class DescribeRestoreRangeInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRestoreRangeInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['BeginTimestampForRestore'])) {
             $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['EndTimestampForRestore'])) {
             $model->endTimestampForRestore = $map['EndTimestampForRestore'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RecentlyRestore'])) {
             $model->recentlyRestore = $map['RecentlyRestore'];
         }

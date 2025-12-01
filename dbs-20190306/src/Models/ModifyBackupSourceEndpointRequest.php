@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBackupSourceEndpointRequest extends Model
 {
@@ -88,76 +88,92 @@ class ModifyBackupSourceEndpointRequest extends Model
      */
     public $sourceEndpointUserName;
     protected $_name = [
-        'backupGatewayId'            => 'BackupGatewayId',
-        'backupObjects'              => 'BackupObjects',
-        'backupPlanId'               => 'BackupPlanId',
-        'clientToken'                => 'ClientToken',
-        'crossAliyunId'              => 'CrossAliyunId',
-        'crossRoleName'              => 'CrossRoleName',
-        'ownerId'                    => 'OwnerId',
+        'backupGatewayId' => 'BackupGatewayId',
+        'backupObjects' => 'BackupObjects',
+        'backupPlanId' => 'BackupPlanId',
+        'clientToken' => 'ClientToken',
+        'crossAliyunId' => 'CrossAliyunId',
+        'crossRoleName' => 'CrossRoleName',
+        'ownerId' => 'OwnerId',
         'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
-        'sourceEndpointIP'           => 'SourceEndpointIP',
-        'sourceEndpointInstanceID'   => 'SourceEndpointInstanceID',
+        'sourceEndpointIP' => 'SourceEndpointIP',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
         'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
-        'sourceEndpointOracleSID'    => 'SourceEndpointOracleSID',
-        'sourceEndpointPassword'     => 'SourceEndpointPassword',
-        'sourceEndpointPort'         => 'SourceEndpointPort',
-        'sourceEndpointRegion'       => 'SourceEndpointRegion',
-        'sourceEndpointUserName'     => 'SourceEndpointUserName',
+        'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
+        'sourceEndpointPassword' => 'SourceEndpointPassword',
+        'sourceEndpointPort' => 'SourceEndpointPort',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'sourceEndpointUserName' => 'SourceEndpointUserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
+
         if (null !== $this->backupObjects) {
             $res['BackupObjects'] = $this->backupObjects;
         }
+
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->crossAliyunId) {
             $res['CrossAliyunId'] = $this->crossAliyunId;
         }
+
         if (null !== $this->crossRoleName) {
             $res['CrossRoleName'] = $this->crossRoleName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->sourceEndpointDatabaseName) {
             $res['SourceEndpointDatabaseName'] = $this->sourceEndpointDatabaseName;
         }
+
         if (null !== $this->sourceEndpointIP) {
             $res['SourceEndpointIP'] = $this->sourceEndpointIP;
         }
+
         if (null !== $this->sourceEndpointInstanceID) {
             $res['SourceEndpointInstanceID'] = $this->sourceEndpointInstanceID;
         }
+
         if (null !== $this->sourceEndpointInstanceType) {
             $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
+
         if (null !== $this->sourceEndpointOracleSID) {
             $res['SourceEndpointOracleSID'] = $this->sourceEndpointOracleSID;
         }
+
         if (null !== $this->sourceEndpointPassword) {
             $res['SourceEndpointPassword'] = $this->sourceEndpointPassword;
         }
+
         if (null !== $this->sourceEndpointPort) {
             $res['SourceEndpointPort'] = $this->sourceEndpointPort;
         }
+
         if (null !== $this->sourceEndpointRegion) {
             $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
+
         if (null !== $this->sourceEndpointUserName) {
             $res['SourceEndpointUserName'] = $this->sourceEndpointUserName;
         }
@@ -165,59 +181,74 @@ class ModifyBackupSourceEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupSourceEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
+
         if (isset($map['BackupObjects'])) {
             $model->backupObjects = $map['BackupObjects'];
         }
+
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['CrossAliyunId'])) {
             $model->crossAliyunId = $map['CrossAliyunId'];
         }
+
         if (isset($map['CrossRoleName'])) {
             $model->crossRoleName = $map['CrossRoleName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SourceEndpointDatabaseName'])) {
             $model->sourceEndpointDatabaseName = $map['SourceEndpointDatabaseName'];
         }
+
         if (isset($map['SourceEndpointIP'])) {
             $model->sourceEndpointIP = $map['SourceEndpointIP'];
         }
+
         if (isset($map['SourceEndpointInstanceID'])) {
             $model->sourceEndpointInstanceID = $map['SourceEndpointInstanceID'];
         }
+
         if (isset($map['SourceEndpointInstanceType'])) {
             $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }
+
         if (isset($map['SourceEndpointOracleSID'])) {
             $model->sourceEndpointOracleSID = $map['SourceEndpointOracleSID'];
         }
+
         if (isset($map['SourceEndpointPassword'])) {
             $model->sourceEndpointPassword = $map['SourceEndpointPassword'];
         }
+
         if (isset($map['SourceEndpointPort'])) {
             $model->sourceEndpointPort = $map['SourceEndpointPort'];
         }
+
         if (isset($map['SourceEndpointRegion'])) {
             $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }
+
         if (isset($map['SourceEndpointUserName'])) {
             $model->sourceEndpointUserName = $map['SourceEndpointUserName'];
         }

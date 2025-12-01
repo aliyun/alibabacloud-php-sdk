@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeFullBackupListResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fullBackupFile extends Model
 {
@@ -68,60 +68,72 @@ class fullBackupFile extends Model
      */
     public $storageMethod;
     protected $_name = [
-        'backupObjects'        => 'BackupObjects',
+        'backupObjects' => 'BackupObjects',
         'backupSetExpiredTime' => 'BackupSetExpiredTime',
-        'backupSetId'          => 'BackupSetId',
-        'backupSize'           => 'BackupSize',
-        'backupStatus'         => 'BackupStatus',
-        'createTime'           => 'CreateTime',
-        'endTime'              => 'EndTime',
-        'errMessage'           => 'ErrMessage',
-        'finishTime'           => 'FinishTime',
+        'backupSetId' => 'BackupSetId',
+        'backupSize' => 'BackupSize',
+        'backupStatus' => 'BackupStatus',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'errMessage' => 'ErrMessage',
+        'finishTime' => 'FinishTime',
         'sourceEndpointIpPort' => 'SourceEndpointIpPort',
-        'startTime'            => 'StartTime',
-        'storageMethod'        => 'StorageMethod',
+        'startTime' => 'StartTime',
+        'storageMethod' => 'StorageMethod',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupObjects) {
             $res['BackupObjects'] = $this->backupObjects;
         }
+
         if (null !== $this->backupSetExpiredTime) {
             $res['BackupSetExpiredTime'] = $this->backupSetExpiredTime;
         }
+
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
+
         if (null !== $this->backupSize) {
             $res['BackupSize'] = $this->backupSize;
         }
+
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->sourceEndpointIpPort) {
             $res['SourceEndpointIpPort'] = $this->sourceEndpointIpPort;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->storageMethod) {
             $res['StorageMethod'] = $this->storageMethod;
         }
@@ -129,47 +141,58 @@ class fullBackupFile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fullBackupFile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupObjects'])) {
             $model->backupObjects = $map['BackupObjects'];
         }
+
         if (isset($map['BackupSetExpiredTime'])) {
             $model->backupSetExpiredTime = $map['BackupSetExpiredTime'];
         }
+
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
+
         if (isset($map['BackupSize'])) {
             $model->backupSize = $map['BackupSize'];
         }
+
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['SourceEndpointIpPort'])) {
             $model->sourceEndpointIpPort = $map['SourceEndpointIpPort'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StorageMethod'])) {
             $model->storageMethod = $map['StorageMethod'];
         }

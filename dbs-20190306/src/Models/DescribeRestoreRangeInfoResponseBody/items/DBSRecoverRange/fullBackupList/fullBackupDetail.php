@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\items\DBSRecoverRange\fullBackupList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fullBackupDetail extends Model
 {
@@ -24,23 +24,26 @@ class fullBackupDetail extends Model
     public $startTime;
     protected $_name = [
         'backupSetId' => 'BackupSetId',
-        'endTime'     => 'EndTime',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -48,20 +51,22 @@ class fullBackupDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fullBackupDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
