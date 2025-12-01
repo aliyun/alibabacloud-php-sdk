@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareCopyRuleVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareCopyRuleVariableResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareRuleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisConditionFavoriteRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisConditionFavoriteResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateAnalysisExportTaskRequest;
@@ -213,6 +215,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariableFunctionLis
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariableFunctionListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariablePageRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariablePageResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariableVersionDetailRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeExpressionVariableVersionDetailResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeFieldByIdRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeFieldByIdResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeFieldListRequest;
@@ -449,6 +453,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableVersionDetailRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableVersionDetailResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchRequest;
@@ -1326,6 +1332,75 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->compareCopyRuleVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Policy Comparison.
+     *
+     * @param request - CompareRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompareRuleResponse
+     *
+     * @param CompareRuleRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CompareRuleResponse
+     */
+    public function compareRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->previousRuleVersionId) {
+            @$query['previousRuleVersionId'] = $request->previousRuleVersionId;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->ruleVersionId) {
+            @$query['ruleVersionId'] = $request->ruleVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CompareRule',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CompareRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Policy Comparison.
+     *
+     * @param request - CompareRuleRequest
+     *
+     * @returns CompareRuleResponse
+     *
+     * @param CompareRuleRequest $request
+     *
+     * @return CompareRuleResponse
+     */
+    public function compareRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->compareRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -8356,6 +8431,83 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeExpressionVariablePageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Custom Variable Version Details.
+     *
+     * @param request - DescribeExpressionVariableVersionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExpressionVariableVersionDetailResponse
+     *
+     * @param DescribeExpressionVariableVersionDetailRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeExpressionVariableVersionDetailResponse
+     */
+    public function describeExpressionVariableVersionDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->objectCode) {
+            @$query['objectCode'] = $request->objectCode;
+        }
+
+        if (null !== $request->objectId) {
+            @$query['objectId'] = $request->objectId;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeExpressionVariableVersionDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeExpressionVariableVersionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Custom Variable Version Details.
+     *
+     * @param request - DescribeExpressionVariableVersionDetailRequest
+     *
+     * @returns DescribeExpressionVariableVersionDetailResponse
+     *
+     * @param DescribeExpressionVariableVersionDetailRequest $request
+     *
+     * @return DescribeExpressionVariableVersionDetailResponse
+     */
+    public function describeExpressionVariableVersionDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExpressionVariableVersionDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -16776,6 +16928,83 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVariableSceneListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cumulative Variable Version Details.
+     *
+     * @param request - DescribeVariableVersionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVariableVersionDetailResponse
+     *
+     * @param DescribeVariableVersionDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVariableVersionDetailResponse
+     */
+    public function describeVariableVersionDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->objectCode) {
+            @$query['objectCode'] = $request->objectCode;
+        }
+
+        if (null !== $request->objectId) {
+            @$query['objectId'] = $request->objectId;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVariableVersionDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVariableVersionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cumulative Variable Version Details.
+     *
+     * @param request - DescribeVariableVersionDetailRequest
+     *
+     * @returns DescribeVariableVersionDetailResponse
+     *
+     * @param DescribeVariableVersionDetailRequest $request
+     *
+     * @return DescribeVariableVersionDetailResponse
+     */
+    public function describeVariableVersionDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVariableVersionDetailWithOptions($request, $runtime);
     }
 
     /**
