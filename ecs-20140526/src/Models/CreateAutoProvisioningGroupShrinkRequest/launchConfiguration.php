@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkReque
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\dataDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\schedulerOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\tag;
 
@@ -206,6 +207,11 @@ class launchConfiguration extends Model
     public $schedulerOptions;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var int
      */
     public $spotDuration;
@@ -253,6 +259,7 @@ class launchConfiguration extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'schedulerOptions' => 'SchedulerOptions',
+        'securityOptions' => 'SecurityOptions',
         'spotDuration' => 'SpotDuration',
         'spotInterruptionBehavior' => 'SpotInterruptionBehavior',
     ];
@@ -285,6 +292,9 @@ class launchConfiguration extends Model
         }
         if (null !== $this->schedulerOptions) {
             $this->schedulerOptions->validate();
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         parent::validate();
     }
@@ -477,6 +487,10 @@ class launchConfiguration extends Model
 
         if (null !== $this->schedulerOptions) {
             $res['SchedulerOptions'] = null !== $this->schedulerOptions ? $this->schedulerOptions->toArray($noStream) : $this->schedulerOptions;
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->spotDuration) {
@@ -683,6 +697,10 @@ class launchConfiguration extends Model
 
         if (isset($map['SchedulerOptions'])) {
             $model->schedulerOptions = schedulerOptions::fromMap($map['SchedulerOptions']);
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SpotDuration'])) {

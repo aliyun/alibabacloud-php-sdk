@@ -1,3 +1,9 @@
+2025-12-01 Version: 7.3.0
+- Support API OpenSnapshotService.
+- Update API CreateAutoProvisioningGroup: add request parameters LaunchConfiguration.SecurityOptions.
+- Update API ReleaseDedicatedHost: add request parameters TerminateSubscription.
+
+
 2025-10-17 Version: 7.2.3
 - Update API CreateImagePipeline: add request parameters ImportImageOptions.Description.
 - Update API CreateImagePipeline: add request parameters ImportImageOptions.ImageName.

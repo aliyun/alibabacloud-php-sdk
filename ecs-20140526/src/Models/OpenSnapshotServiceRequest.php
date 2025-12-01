@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ReleaseDedicatedHostRequest extends Model
+class OpenSnapshotServiceRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $dedicatedHostId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
     /**
      * @var int
      */
@@ -37,19 +27,11 @@ class ReleaseDedicatedHostRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var bool
-     */
-    public $terminateSubscription;
     protected $_name = [
-        'dedicatedHostId' => 'DedicatedHostId',
-        'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'terminateSubscription' => 'TerminateSubscription',
     ];
 
     public function validate()
@@ -60,14 +42,6 @@ class ReleaseDedicatedHostRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dedicatedHostId) {
-            $res['DedicatedHostId'] = $this->dedicatedHostId;
-        }
-
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -84,10 +58,6 @@ class ReleaseDedicatedHostRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->terminateSubscription) {
-            $res['TerminateSubscription'] = $this->terminateSubscription;
-        }
-
         return $res;
     }
 
@@ -99,14 +69,6 @@ class ReleaseDedicatedHostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DedicatedHostId'])) {
-            $model->dedicatedHostId = $map['DedicatedHostId'];
-        }
-
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -121,10 +83,6 @@ class ReleaseDedicatedHostRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-
-        if (isset($map['TerminateSubscription'])) {
-            $model->terminateSubscription = $map['TerminateSubscription'];
         }
 
         return $model;
