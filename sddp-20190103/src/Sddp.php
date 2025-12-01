@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\ExecDatamaskRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ExecDatamaskResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ManualTriggerMaskingProcessRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ManualTriggerMaskingProcessResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\MaskOssImageRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\MaskOssImageResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyDefaultLevelRequest;
@@ -103,6 +105,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ModifyRuleStatusResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\RestoreOssImageRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\RestoreOssImageResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1Request;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1ShrinkRequest;
@@ -4015,6 +4019,87 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * OSS图片脱敏.
+     *
+     * @param request - MaskOssImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MaskOssImageResponse
+     *
+     * @param MaskOssImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MaskOssImageResponse
+     */
+    public function maskOssImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketName) {
+            @$query['BucketName'] = $request->bucketName;
+        }
+
+        if (null !== $request->isAlwaysUpload) {
+            @$query['IsAlwaysUpload'] = $request->isAlwaysUpload;
+        }
+
+        if (null !== $request->isSupportRestore) {
+            @$query['IsSupportRestore'] = $request->isSupportRestore;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maskRuleIdList) {
+            @$query['MaskRuleIdList'] = $request->maskRuleIdList;
+        }
+
+        if (null !== $request->objectKey) {
+            @$query['ObjectKey'] = $request->objectKey;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MaskOssImage',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MaskOssImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * OSS图片脱敏.
+     *
+     * @param request - MaskOssImageRequest
+     *
+     * @returns MaskOssImageResponse
+     *
+     * @param MaskOssImageRequest $request
+     *
+     * @return MaskOssImageResponse
+     */
+    public function maskOssImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->maskOssImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
      *
      * @param request - ModifyDataLimitRequest
@@ -4619,6 +4704,79 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRuleStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 图片复原
+     *
+     * @param request - RestoreOssImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreOssImageResponse
+     *
+     * @param RestoreOssImageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreOssImageResponse
+     */
+    public function restoreOssImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->objectKey) {
+            @$query['ObjectKey'] = $request->objectKey;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
+        if (null !== $request->targetObjectKey) {
+            @$query['TargetObjectKey'] = $request->targetObjectKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreOssImage',
+            'version' => '2019-01-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreOssImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 图片复原
+     *
+     * @param request - RestoreOssImageRequest
+     *
+     * @returns RestoreOssImageResponse
+     *
+     * @param RestoreOssImageRequest $request
+     *
+     * @return RestoreOssImageResponse
+     */
+    public function restoreOssImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreOssImageWithOptions($request, $runtime);
     }
 
     /**
