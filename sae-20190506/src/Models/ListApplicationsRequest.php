@@ -46,6 +46,11 @@ class ListApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $newSaeVersion;
+
+    /**
+     * @var string
+     */
     public $orderBy;
 
     /**
@@ -70,6 +75,7 @@ class ListApplicationsRequest extends Model
         'fieldValue' => 'FieldValue',
         'isStateful' => 'IsStateful',
         'namespaceId' => 'NamespaceId',
+        'newSaeVersion' => 'NewSaeVersion',
         'orderBy' => 'OrderBy',
         'pageSize' => 'PageSize',
         'reverse' => 'Reverse',
@@ -110,6 +116,10 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
         }
 
         if (null !== $this->orderBy) {
@@ -165,6 +175,10 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
         }
 
         if (isset($map['OrderBy'])) {

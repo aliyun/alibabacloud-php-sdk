@@ -87,6 +87,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $trafficStatus;
+
+    /**
+     * @var string
+     */
     public $unhealthyMessage;
 
     /**
@@ -109,6 +114,7 @@ class instances extends Model
         'packageVersion' => 'PackageVersion',
         'sidecarContainersStatus' => 'SidecarContainersStatus',
         'timestamp' => 'Timestamp',
+        'trafficStatus' => 'TrafficStatus',
         'unhealthyMessage' => 'UnhealthyMessage',
         'vSwitchId' => 'VSwitchId',
     ];
@@ -189,6 +195,10 @@ class instances extends Model
 
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
+        }
+
+        if (null !== $this->trafficStatus) {
+            $res['TrafficStatus'] = $this->trafficStatus;
         }
 
         if (null !== $this->unhealthyMessage) {
@@ -275,6 +285,10 @@ class instances extends Model
 
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
+        }
+
+        if (isset($map['TrafficStatus'])) {
+            $model->trafficStatus = $map['TrafficStatus'];
         }
 
         if (isset($map['UnhealthyMessage'])) {

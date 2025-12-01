@@ -7610,6 +7610,10 @@ class Sae extends OpenApiClient
             @$query['NamespaceId'] = $request->namespaceId;
         }
 
+        if (null !== $request->newSaeVersion) {
+            @$query['NewSaeVersion'] = $request->newSaeVersion;
+        }
+
         if (null !== $request->orderBy) {
             @$query['OrderBy'] = $request->orderBy;
         }
