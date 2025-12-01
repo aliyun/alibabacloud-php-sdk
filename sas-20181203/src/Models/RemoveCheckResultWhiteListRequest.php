@@ -19,6 +19,11 @@ class RemoveCheckResultWhiteListRequest extends Model
     public $checkIds;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @var int
      */
     public $ruleId;
@@ -30,6 +35,7 @@ class RemoveCheckResultWhiteListRequest extends Model
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
         'checkIds' => 'CheckIds',
+        'instanceIds' => 'InstanceIds',
         'ruleId' => 'RuleId',
         'type' => 'Type',
     ];
@@ -38,6 +44,9 @@ class RemoveCheckResultWhiteListRequest extends Model
     {
         if (\is_array($this->checkIds)) {
             Model::validateArray($this->checkIds);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
         }
         parent::validate();
     }
@@ -55,6 +64,17 @@ class RemoveCheckResultWhiteListRequest extends Model
                 $n1 = 0;
                 foreach ($this->checkIds as $item1) {
                     $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -89,6 +109,17 @@ class RemoveCheckResultWhiteListRequest extends Model
                 $n1 = 0;
                 foreach ($map['CheckIds'] as $item1) {
                     $model->checkIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
                     ++$n1;
                 }
             }

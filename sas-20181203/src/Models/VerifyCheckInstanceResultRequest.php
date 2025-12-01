@@ -14,6 +14,11 @@ class VerifyCheckInstanceResultRequest extends Model
     public $checkId;
 
     /**
+     * @var int[]
+     */
+    public $checkIds;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -24,12 +29,16 @@ class VerifyCheckInstanceResultRequest extends Model
     public $taskSource;
     protected $_name = [
         'checkId' => 'CheckId',
+        'checkIds' => 'CheckIds',
         'instanceIds' => 'InstanceIds',
         'taskSource' => 'TaskSource',
     ];
 
     public function validate()
     {
+        if (\is_array($this->checkIds)) {
+            Model::validateArray($this->checkIds);
+        }
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
         }
@@ -41,6 +50,17 @@ class VerifyCheckInstanceResultRequest extends Model
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
+        }
+
+        if (null !== $this->checkIds) {
+            if (\is_array($this->checkIds)) {
+                $res['CheckIds'] = [];
+                $n1 = 0;
+                foreach ($this->checkIds as $item1) {
+                    $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceIds) {
@@ -71,6 +91,17 @@ class VerifyCheckInstanceResultRequest extends Model
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
+        }
+
+        if (isset($map['CheckIds'])) {
+            if (!empty($map['CheckIds'])) {
+                $model->checkIds = [];
+                $n1 = 0;
+                foreach ($map['CheckIds'] as $item1) {
+                    $model->checkIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['InstanceIds'])) {

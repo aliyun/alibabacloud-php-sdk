@@ -2117,6 +2117,10 @@ class Sas extends OpenApiClient
             @$query['CheckIds'] = $request->checkIds;
         }
 
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
         }
@@ -59514,6 +59518,10 @@ class Sas extends OpenApiClient
             @$query['CheckIds'] = $request->checkIds;
         }
 
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
         if (null !== $request->ruleId) {
             @$query['RuleId'] = $request->ruleId;
         }
@@ -64908,6 +64916,10 @@ class Sas extends OpenApiClient
             @$query['CheckId'] = $request->checkId;
         }
 
+        if (null !== $request->checkIds) {
+            @$query['CheckIds'] = $request->checkIds;
+        }
+
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
         }
@@ -64971,6 +64983,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->checkIds) {
             @$query['CheckIds'] = $request->checkIds;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
 
         if (null !== $request->taskSource) {

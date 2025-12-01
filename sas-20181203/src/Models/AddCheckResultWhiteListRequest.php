@@ -14,6 +14,11 @@ class AddCheckResultWhiteListRequest extends Model
     public $checkIds;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @var string
      */
     public $remark;
@@ -24,6 +29,7 @@ class AddCheckResultWhiteListRequest extends Model
     public $ruleType;
     protected $_name = [
         'checkIds' => 'CheckIds',
+        'instanceIds' => 'InstanceIds',
         'remark' => 'Remark',
         'ruleType' => 'RuleType',
     ];
@@ -32,6 +38,9 @@ class AddCheckResultWhiteListRequest extends Model
     {
         if (\is_array($this->checkIds)) {
             Model::validateArray($this->checkIds);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
         }
         parent::validate();
     }
@@ -45,6 +54,17 @@ class AddCheckResultWhiteListRequest extends Model
                 $n1 = 0;
                 foreach ($this->checkIds as $item1) {
                     $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -75,6 +95,17 @@ class AddCheckResultWhiteListRequest extends Model
                 $n1 = 0;
                 foreach ($map['CheckIds'] as $item1) {
                     $model->checkIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
                     ++$n1;
                 }
             }
