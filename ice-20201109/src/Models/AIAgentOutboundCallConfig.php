@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ambientSoundConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\asrConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\autoSpeechConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\llmConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ttsConfig;
@@ -23,6 +24,11 @@ class AIAgentOutboundCallConfig extends Model
      * @var asrConfig
      */
     public $asrConfig;
+
+    /**
+     * @var autoSpeechConfig
+     */
+    public $autoSpeechConfig;
 
     /**
      * @var bool
@@ -55,6 +61,11 @@ class AIAgentOutboundCallConfig extends Model
     public $llmConfig;
 
     /**
+     * @var int
+     */
+    public $maxIdleTime;
+
+    /**
      * @var ttsConfig
      */
     public $ttsConfig;
@@ -66,12 +77,14 @@ class AIAgentOutboundCallConfig extends Model
     protected $_name = [
         'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
+        'autoSpeechConfig' => 'AutoSpeechConfig',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'experimentalConfig' => 'ExperimentalConfig',
         'greeting' => 'Greeting',
         'greetingDelay' => 'GreetingDelay',
         'interruptConfig' => 'InterruptConfig',
         'llmConfig' => 'LlmConfig',
+        'maxIdleTime' => 'MaxIdleTime',
         'ttsConfig' => 'TtsConfig',
         'turnDetectionConfig' => 'TurnDetectionConfig',
     ];
@@ -83,6 +96,9 @@ class AIAgentOutboundCallConfig extends Model
         }
         if (null !== $this->asrConfig) {
             $this->asrConfig->validate();
+        }
+        if (null !== $this->autoSpeechConfig) {
+            $this->autoSpeechConfig->validate();
         }
         if (null !== $this->interruptConfig) {
             $this->interruptConfig->validate();
@@ -110,6 +126,10 @@ class AIAgentOutboundCallConfig extends Model
             $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
         }
 
+        if (null !== $this->autoSpeechConfig) {
+            $res['AutoSpeechConfig'] = null !== $this->autoSpeechConfig ? $this->autoSpeechConfig->toArray($noStream) : $this->autoSpeechConfig;
+        }
+
         if (null !== $this->enableIntelligentSegment) {
             $res['EnableIntelligentSegment'] = $this->enableIntelligentSegment;
         }
@@ -132,6 +152,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (null !== $this->llmConfig) {
             $res['LlmConfig'] = null !== $this->llmConfig ? $this->llmConfig->toArray($noStream) : $this->llmConfig;
+        }
+
+        if (null !== $this->maxIdleTime) {
+            $res['MaxIdleTime'] = $this->maxIdleTime;
         }
 
         if (null !== $this->ttsConfig) {
@@ -161,6 +185,10 @@ class AIAgentOutboundCallConfig extends Model
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }
 
+        if (isset($map['AutoSpeechConfig'])) {
+            $model->autoSpeechConfig = autoSpeechConfig::fromMap($map['AutoSpeechConfig']);
+        }
+
         if (isset($map['EnableIntelligentSegment'])) {
             $model->enableIntelligentSegment = $map['EnableIntelligentSegment'];
         }
@@ -183,6 +211,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (isset($map['LlmConfig'])) {
             $model->llmConfig = llmConfig::fromMap($map['LlmConfig']);
+        }
+
+        if (isset($map['MaxIdleTime'])) {
+            $model->maxIdleTime = $map['MaxIdleTime'];
         }
 
         if (isset($map['TtsConfig'])) {

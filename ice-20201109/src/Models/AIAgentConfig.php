@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\ambientSoundConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\asrConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\autoSpeechConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\avatarConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig;
@@ -26,6 +27,11 @@ class AIAgentConfig extends Model
      * @var asrConfig
      */
     public $asrConfig;
+
+    /**
+     * @var autoSpeechConfig
+     */
+    public $autoSpeechConfig;
 
     /**
      * @var avatarConfig
@@ -129,6 +135,7 @@ class AIAgentConfig extends Model
     protected $_name = [
         'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
+        'autoSpeechConfig' => 'AutoSpeechConfig',
         'avatarConfig' => 'AvatarConfig',
         'avatarUrl' => 'AvatarUrl',
         'avatarUrlType' => 'AvatarUrlType',
@@ -158,6 +165,9 @@ class AIAgentConfig extends Model
         }
         if (null !== $this->asrConfig) {
             $this->asrConfig->validate();
+        }
+        if (null !== $this->autoSpeechConfig) {
+            $this->autoSpeechConfig->validate();
         }
         if (null !== $this->avatarConfig) {
             $this->avatarConfig->validate();
@@ -192,6 +202,10 @@ class AIAgentConfig extends Model
 
         if (null !== $this->asrConfig) {
             $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
+        }
+
+        if (null !== $this->autoSpeechConfig) {
+            $res['AutoSpeechConfig'] = null !== $this->autoSpeechConfig ? $this->autoSpeechConfig->toArray($noStream) : $this->autoSpeechConfig;
         }
 
         if (null !== $this->avatarConfig) {
@@ -291,6 +305,10 @@ class AIAgentConfig extends Model
 
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
+        }
+
+        if (isset($map['AutoSpeechConfig'])) {
+            $model->autoSpeechConfig = autoSpeechConfig::fromMap($map['AutoSpeechConfig']);
         }
 
         if (isset($map['AvatarConfig'])) {

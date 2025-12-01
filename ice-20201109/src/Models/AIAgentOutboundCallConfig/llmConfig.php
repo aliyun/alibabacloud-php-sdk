@@ -23,6 +23,11 @@ class llmConfig extends Model
     /**
      * @var bool
      */
+    public $historySyncWithTTS;
+
+    /**
+     * @var bool
+     */
     public $llmCompleteReply;
 
     /**
@@ -57,6 +62,7 @@ class llmConfig extends Model
     protected $_name = [
         'bailianAppParams' => 'BailianAppParams',
         'functionMap' => 'FunctionMap',
+        'historySyncWithTTS' => 'HistorySyncWithTTS',
         'llmCompleteReply' => 'LlmCompleteReply',
         'llmHistory' => 'LlmHistory',
         'llmHistoryLimit' => 'LlmHistoryLimit',
@@ -93,6 +99,10 @@ class llmConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->historySyncWithTTS) {
+            $res['HistorySyncWithTTS'] = $this->historySyncWithTTS;
         }
 
         if (null !== $this->llmCompleteReply) {
@@ -154,6 +164,10 @@ class llmConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HistorySyncWithTTS'])) {
+            $model->historySyncWithTTS = $map['HistorySyncWithTTS'];
         }
 
         if (isset($map['LlmCompleteReply'])) {

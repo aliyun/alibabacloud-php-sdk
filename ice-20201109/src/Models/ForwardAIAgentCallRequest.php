@@ -16,6 +16,11 @@ class ForwardAIAgentCallRequest extends Model
     /**
      * @var string
      */
+    public $callerNumber;
+
+    /**
+     * @var string
+     */
     public $errorPrompt;
 
     /**
@@ -29,6 +34,7 @@ class ForwardAIAgentCallRequest extends Model
     public $transferPrompt;
     protected $_name = [
         'calledNumber' => 'CalledNumber',
+        'callerNumber' => 'CallerNumber',
         'errorPrompt' => 'ErrorPrompt',
         'instanceId' => 'InstanceId',
         'transferPrompt' => 'TransferPrompt',
@@ -44,6 +50,10 @@ class ForwardAIAgentCallRequest extends Model
         $res = [];
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
+        }
+
+        if (null !== $this->callerNumber) {
+            $res['CallerNumber'] = $this->callerNumber;
         }
 
         if (null !== $this->errorPrompt) {
@@ -71,6 +81,10 @@ class ForwardAIAgentCallRequest extends Model
         $model = new self();
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
+        }
+
+        if (isset($map['CallerNumber'])) {
+            $model->callerNumber = $map['CallerNumber'];
         }
 
         if (isset($map['ErrorPrompt'])) {

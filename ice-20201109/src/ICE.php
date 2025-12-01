@@ -8658,6 +8658,10 @@ class ICE extends OpenApiClient
             @$query['CalledNumber'] = $request->calledNumber;
         }
 
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
         if (null !== $request->errorPrompt) {
             @$query['ErrorPrompt'] = $request->errorPrompt;
         }
