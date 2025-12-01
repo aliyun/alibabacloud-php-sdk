@@ -3342,6 +3342,10 @@ class CS extends OpenApiClient
             @$body['nodepool_id'] = $request->nodepoolId;
         }
 
+        if (null !== $request->oneTimeToken) {
+            @$body['one_time_token'] = $request->oneTimeToken;
+        }
+
         if (null !== $request->options) {
             @$body['options'] = $request->options;
         }

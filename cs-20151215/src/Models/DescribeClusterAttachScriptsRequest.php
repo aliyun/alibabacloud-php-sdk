@@ -34,6 +34,11 @@ class DescribeClusterAttachScriptsRequest extends Model
     public $nodepoolId;
 
     /**
+     * @var bool
+     */
+    public $oneTimeToken;
+
+    /**
      * @var string
      */
     public $options;
@@ -48,6 +53,7 @@ class DescribeClusterAttachScriptsRequest extends Model
         'formatDisk' => 'format_disk',
         'keepInstanceName' => 'keep_instance_name',
         'nodepoolId' => 'nodepool_id',
+        'oneTimeToken' => 'one_time_token',
         'options' => 'options',
         'rdsInstances' => 'rds_instances',
     ];
@@ -81,6 +87,10 @@ class DescribeClusterAttachScriptsRequest extends Model
 
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
+        }
+
+        if (null !== $this->oneTimeToken) {
+            $res['one_time_token'] = $this->oneTimeToken;
         }
 
         if (null !== $this->options) {
@@ -127,6 +137,10 @@ class DescribeClusterAttachScriptsRequest extends Model
 
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
+        }
+
+        if (isset($map['one_time_token'])) {
+            $model->oneTimeToken = $map['one_time_token'];
         }
 
         if (isset($map['options'])) {
