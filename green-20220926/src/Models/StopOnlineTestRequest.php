@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopOnlineTestRequest extends Model
 {
     /**
-     * @example image
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @example VideoModeration
-     *
      * @var string
      */
     public $serviceCode;
 
     /**
-     * @example xxxxx-xxxxx
-     *
      * @var string
      */
     public $taskId;
@@ -34,17 +28,22 @@ class StopOnlineTestRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,20 +51,22 @@ class StopOnlineTestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopOnlineTestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

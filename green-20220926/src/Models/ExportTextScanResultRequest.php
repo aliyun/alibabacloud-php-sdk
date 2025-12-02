@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportTextScanResultRequest extends Model
 {
     /**
-     * @example 2024-03-11 10:00:00
-     *
      * @var string
      */
     public $endDate;
@@ -21,15 +19,11 @@ class ExportTextScanResultRequest extends Model
     public $query;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 2024-03-10 10:00:00
-     *
      * @var string
      */
     public $startDate;
@@ -40,20 +34,34 @@ class ExportTextScanResultRequest extends Model
         'startDate' => 'StartDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->query)) {
+            Model::validateArray($this->query);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->query) {
-            $res['Query'] = $this->query;
+            if (\is_array($this->query)) {
+                $res['Query'] = [];
+                foreach ($this->query as $key1 => $value1) {
+                    $res['Query'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -61,23 +69,31 @@ class ExportTextScanResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportTextScanResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['Query'])) {
-            $model->query = $map['Query'];
+            if (!empty($map['Query'])) {
+                $model->query = [];
+                foreach ($map['Query'] as $key1 => $value1) {
+                    $model->query[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

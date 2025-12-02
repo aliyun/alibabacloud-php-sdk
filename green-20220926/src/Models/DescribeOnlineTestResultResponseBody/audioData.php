@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\DescribeOnlineTestResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioData extends Model
 {
     /**
-     * @example 1724378510396
-     *
      * @var string
      */
     public $timeStamp;
@@ -18,9 +16,12 @@ class audioData extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
@@ -30,11 +31,11 @@ class audioData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateServiceConfigRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $fileConfig;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $keywordFilterLibs;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $keywordHitLibs;
@@ -35,36 +29,26 @@ class UpdateServiceConfigRequest extends Model
     public $manualMachineConfig;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example image
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @example pornographic
-     *
      * @var string
      */
     public $scene;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $sceneConfig;
 
     /**
-     * @example baselineCheck
-     *
      * @var string
      */
     public $serviceCode;
@@ -75,8 +59,6 @@ class UpdateServiceConfigRequest extends Model
     public $serviceConfig;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $videoConfig;
@@ -94,41 +76,54 @@ class UpdateServiceConfigRequest extends Model
         'videoConfig' => 'VideoConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileConfig) {
             $res['FileConfig'] = $this->fileConfig;
         }
+
         if (null !== $this->keywordFilterLibs) {
             $res['KeywordFilterLibs'] = $this->keywordFilterLibs;
         }
+
         if (null !== $this->keywordHitLibs) {
             $res['KeywordHitLibs'] = $this->keywordHitLibs;
         }
+
         if (null !== $this->manualMachineConfig) {
             $res['ManualMachineConfig'] = $this->manualMachineConfig;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->sceneConfig) {
             $res['SceneConfig'] = $this->sceneConfig;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->serviceConfig) {
             $res['ServiceConfig'] = $this->serviceConfig;
         }
+
         if (null !== $this->videoConfig) {
             $res['VideoConfig'] = $this->videoConfig;
         }
@@ -136,44 +131,54 @@ class UpdateServiceConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServiceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileConfig'])) {
             $model->fileConfig = $map['FileConfig'];
         }
+
         if (isset($map['KeywordFilterLibs'])) {
             $model->keywordFilterLibs = $map['KeywordFilterLibs'];
         }
+
         if (isset($map['KeywordHitLibs'])) {
             $model->keywordHitLibs = $map['KeywordHitLibs'];
         }
+
         if (isset($map['ManualMachineConfig'])) {
             $model->manualMachineConfig = $map['ManualMachineConfig'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['SceneConfig'])) {
             $model->sceneConfig = $map['SceneConfig'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['ServiceConfig'])) {
             $model->serviceConfig = $map['ServiceConfig'];
         }
+
         if (isset($map['VideoConfig'])) {
             $model->videoConfig = $map['VideoConfig'];
         }

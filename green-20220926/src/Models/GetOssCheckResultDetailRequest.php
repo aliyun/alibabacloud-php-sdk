@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssCheckResultDetailRequest extends Model
 {
     /**
-     * @example oss-tmp
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $mediaType;
 
     /**
-     * @example 1748396909030.jpg
-     *
      * @var string
      */
     public $object;
@@ -35,22 +29,16 @@ class GetOssCheckResultDetailRequest extends Model
     public $parentTaskId;
 
     /**
-     * @example 62E97001-1255-50A9-8E1E-4FD05473D952
-     *
      * @var string
      */
     public $queryRequestId;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example audio_media_detection_01
-     *
      * @var string
      */
     public $serviceCode;
@@ -64,29 +52,38 @@ class GetOssCheckResultDetailRequest extends Model
         'serviceCode' => 'ServiceCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
+
         if (null !== $this->parentTaskId) {
             $res['ParentTaskId'] = $this->parentTaskId;
         }
+
         if (null !== $this->queryRequestId) {
             $res['QueryRequestId'] = $this->queryRequestId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
@@ -94,32 +91,38 @@ class GetOssCheckResultDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssCheckResultDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
+
         if (isset($map['ParentTaskId'])) {
             $model->parentTaskId = $map['ParentTaskId'];
         }
+
         if (isset($map['QueryRequestId'])) {
             $model->queryRequestId = $map['QueryRequestId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }

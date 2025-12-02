@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetFeatureConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description List of feature configurations
-     *
      * @var mixed[][]
      */
     public $featureConf;
 
     /**
-     * @description Resource type.
-     *
-     * @example text
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description Service code.
-     *
-     * @example llm_query_moderation
-     *
      * @var string
      */
     public $serviceCode;
 
     /**
-     * @description Type
-     *
-     * @example custom_llm_template
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description UID.
-     *
-     * @example 1643953****74290
-     *
      * @var string
      */
     public $uid;
@@ -58,23 +40,45 @@ class data extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->featureConf)) {
+            Model::validateArray($this->featureConf);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureConf) {
-            $res['FeatureConf'] = $this->featureConf;
+            if (\is_array($this->featureConf)) {
+                $res['FeatureConf'] = [];
+                $n1 = 0;
+                foreach ($this->featureConf as $item1) {
+                    if (\is_array($item1)) {
+                        $res['FeatureConf'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['FeatureConf'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -82,28 +86,42 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureConf'])) {
             if (!empty($map['FeatureConf'])) {
-                $model->featureConf = $map['FeatureConf'];
+                $model->featureConf = [];
+                $n1 = 0;
+                foreach ($map['FeatureConf'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->featureConf[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->featureConf[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

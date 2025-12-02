@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssCheckTaskInfoRequest extends Model
 {
     /**
-     * @example P_AAA**
-     *
      * @var string
      */
     public $parentTaskId;
@@ -18,9 +16,12 @@ class GetOssCheckTaskInfoRequest extends Model
         'parentTaskId' => 'ParentTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parentTaskId) {
@@ -30,11 +31,11 @@ class GetOssCheckTaskInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssCheckTaskInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

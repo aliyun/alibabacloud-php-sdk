@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatResponseBody\choices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class delta extends Model
 {
@@ -14,8 +14,6 @@ class delta extends Model
     public $content;
 
     /**
-     * @example assistant
-     *
      * @var string
      */
     public $role;
@@ -24,14 +22,18 @@ class delta extends Model
         'role' => 'Role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -39,17 +41,18 @@ class delta extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return delta
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

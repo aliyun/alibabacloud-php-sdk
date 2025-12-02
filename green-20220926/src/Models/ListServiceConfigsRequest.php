@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListServiceConfigsRequest extends Model
 {
@@ -14,15 +14,11 @@ class ListServiceConfigsRequest extends Model
     public $classify;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $resourceType;
@@ -38,20 +34,26 @@ class ListServiceConfigsRequest extends Model
         'useStatus' => 'UseStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->useStatus) {
             $res['UseStatus'] = $this->useStatus;
         }
@@ -59,23 +61,26 @@ class ListServiceConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['UseStatus'])) {
             $model->useStatus = $map['UseStatus'];
         }

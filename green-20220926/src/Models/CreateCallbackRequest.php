@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCallbackRequest extends Model
 {
     /**
-     * @example SHA256
-     *
      * @var string
      */
     public $cryptType;
@@ -21,22 +19,16 @@ class CreateCallbackRequest extends Model
     public $name;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example all
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @example https://console.aliyun.com
-     *
      * @var string
      */
     public $url;
@@ -48,23 +40,30 @@ class CreateCallbackRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cryptType) {
             $res['CryptType'] = $this->cryptType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -72,26 +71,30 @@ class CreateCallbackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCallbackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CryptType'])) {
             $model->cryptType = $map['CryptType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

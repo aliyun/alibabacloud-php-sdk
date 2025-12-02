@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LlmStreamChatRequest extends Model
 {
@@ -14,58 +14,75 @@ class LlmStreamChatRequest extends Model
     public $messages;
 
     /**
-     * @example 0.5
-     *
      * @var float
      */
     public $temperature;
 
     /**
-     * @example 0.5
-     *
      * @var float
      */
     public $topP;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'messages' => 'Messages',
         'temperature' => 'Temperature',
         'topP' => 'TopP',
+        'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messages) {
             $res['Messages'] = $this->messages;
         }
+
         if (null !== $this->temperature) {
             $res['Temperature'] = $this->temperature;
         }
+
         if (null !== $this->topP) {
             $res['TopP'] = $this->topP;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LlmStreamChatRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Messages'])) {
             $model->messages = $map['Messages'];
         }
+
         if (isset($map['Temperature'])) {
             $model->temperature = $map['Temperature'];
         }
+
         if (isset($map['TopP'])) {
             $model->topP = $map['TopP'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

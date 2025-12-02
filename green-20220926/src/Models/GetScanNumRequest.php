@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetScanNumRequest extends Model
 {
     /**
-     * @example tmpsample
-     *
      * @var string
      */
     public $buckets;
 
     /**
-     * @example image
-     *
      * @var int
      */
     public $mediaType;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -34,17 +28,22 @@ class GetScanNumRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buckets) {
             $res['Buckets'] = $this->buckets;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class GetScanNumRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetScanNumRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Buckets'])) {
             $model->buckets = $map['Buckets'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

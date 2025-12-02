@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatResponseBody\choices\delta;
-use AlibabaCloud\Tea\Model;
 
 class choices extends Model
 {
@@ -15,22 +15,16 @@ class choices extends Model
     public $delta;
 
     /**
-     * @example stop
-     *
      * @var string
      */
     public $finishReason;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $logprobs;
@@ -41,20 +35,29 @@ class choices extends Model
         'logprobs' => 'Logprobs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->delta) {
+            $this->delta->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delta) {
-            $res['Delta'] = null !== $this->delta ? $this->delta->toMap() : null;
+            $res['Delta'] = null !== $this->delta ? $this->delta->toArray($noStream) : $this->delta;
         }
+
         if (null !== $this->finishReason) {
             $res['FinishReason'] = $this->finishReason;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->logprobs) {
             $res['Logprobs'] = $this->logprobs;
         }
@@ -62,23 +65,26 @@ class choices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return choices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Delta'])) {
             $model->delta = delta::fromMap($map['Delta']);
         }
+
         if (isset($map['FinishReason'])) {
             $model->finishReason = $map['FinishReason'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Logprobs'])) {
             $model->logprobs = $map['Logprobs'];
         }

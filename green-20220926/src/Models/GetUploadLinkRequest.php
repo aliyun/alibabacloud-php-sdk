@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUploadLinkRequest extends Model
 {
     /**
-     * @example http://www.aliyuncs.com/test.mp3
-     *
      * @var string
      */
     public $uploadUrl;
@@ -18,9 +16,12 @@ class GetUploadLinkRequest extends Model
         'uploadUrl' => 'UploadUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uploadUrl) {
@@ -30,11 +31,11 @@ class GetUploadLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUploadLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

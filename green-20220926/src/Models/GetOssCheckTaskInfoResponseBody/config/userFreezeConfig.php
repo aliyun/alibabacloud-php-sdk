@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponseBody\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userFreezeConfig extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $freezeRestorePath;
 
     /**
-     * @example ACL
-     *
      * @var string
      */
     public $freezeType;
@@ -26,14 +22,18 @@ class userFreezeConfig extends Model
         'freezeType' => 'FreezeType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->freezeRestorePath) {
             $res['FreezeRestorePath'] = $this->freezeRestorePath;
         }
+
         if (null !== $this->freezeType) {
             $res['FreezeType'] = $this->freezeType;
         }
@@ -41,17 +41,18 @@ class userFreezeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userFreezeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FreezeRestorePath'])) {
             $model->freezeRestorePath = $map['FreezeRestorePath'];
         }
+
         if (isset($map['FreezeType'])) {
             $model->freezeType = $map['FreezeType'];
         }

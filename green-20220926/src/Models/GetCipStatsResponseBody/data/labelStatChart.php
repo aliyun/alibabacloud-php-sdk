@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\imageTreeChar;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\textTreeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\treeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\voiceTreeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\y;
-use AlibabaCloud\Tea\Model;
 
 class labelStatChart extends Model
 {
@@ -19,8 +19,6 @@ class labelStatChart extends Model
     public $imageTreeChar;
 
     /**
-     * @example nickNameDetection
-     *
      * @var string
      */
     public $serviceCode;
@@ -31,8 +29,6 @@ class labelStatChart extends Model
     public $textTreeChart;
 
     /**
-     * @example 117
-     *
      * @var int
      */
     public $totalCount;
@@ -67,62 +63,102 @@ class labelStatChart extends Model
         'y' => 'Y',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageTreeChar)) {
+            Model::validateArray($this->imageTreeChar);
+        }
+        if (\is_array($this->textTreeChart)) {
+            Model::validateArray($this->textTreeChart);
+        }
+        if (\is_array($this->treeChart)) {
+            Model::validateArray($this->treeChart);
+        }
+        if (\is_array($this->voiceTreeChart)) {
+            Model::validateArray($this->voiceTreeChart);
+        }
+        if (\is_array($this->x)) {
+            Model::validateArray($this->x);
+        }
+        if (\is_array($this->y)) {
+            Model::validateArray($this->y);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageTreeChar) {
-            $res['ImageTreeChar'] = [];
-            if (null !== $this->imageTreeChar && \is_array($this->imageTreeChar)) {
-                $n = 0;
-                foreach ($this->imageTreeChar as $item) {
-                    $res['ImageTreeChar'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageTreeChar)) {
+                $res['ImageTreeChar'] = [];
+                $n1 = 0;
+                foreach ($this->imageTreeChar as $item1) {
+                    $res['ImageTreeChar'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->textTreeChart) {
-            $res['TextTreeChart'] = [];
-            if (null !== $this->textTreeChart && \is_array($this->textTreeChart)) {
-                $n = 0;
-                foreach ($this->textTreeChart as $item) {
-                    $res['TextTreeChart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->textTreeChart)) {
+                $res['TextTreeChart'] = [];
+                $n1 = 0;
+                foreach ($this->textTreeChart as $item1) {
+                    $res['TextTreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->treeChart) {
-            $res['TreeChart'] = [];
-            if (null !== $this->treeChart && \is_array($this->treeChart)) {
-                $n = 0;
-                foreach ($this->treeChart as $item) {
-                    $res['TreeChart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->treeChart)) {
+                $res['TreeChart'] = [];
+                $n1 = 0;
+                foreach ($this->treeChart as $item1) {
+                    $res['TreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->voiceTreeChart) {
-            $res['VoiceTreeChart'] = [];
-            if (null !== $this->voiceTreeChart && \is_array($this->voiceTreeChart)) {
-                $n = 0;
-                foreach ($this->voiceTreeChart as $item) {
-                    $res['VoiceTreeChart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->voiceTreeChart)) {
+                $res['VoiceTreeChart'] = [];
+                $n1 = 0;
+                foreach ($this->voiceTreeChart as $item1) {
+                    $res['VoiceTreeChart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->x) {
-            $res['X'] = $this->x;
+            if (\is_array($this->x)) {
+                $res['X'] = [];
+                $n1 = 0;
+                foreach ($this->x as $item1) {
+                    $res['X'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->y) {
-            $res['Y'] = [];
-            if (null !== $this->y && \is_array($this->y)) {
-                $n = 0;
-                foreach ($this->y as $item) {
-                    $res['Y'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->y)) {
+                $res['Y'] = [];
+                $n1 = 0;
+                foreach ($this->y as $item1) {
+                    $res['Y'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,67 +166,84 @@ class labelStatChart extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labelStatChart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageTreeChar'])) {
             if (!empty($map['ImageTreeChar'])) {
                 $model->imageTreeChar = [];
-                $n = 0;
-                foreach ($map['ImageTreeChar'] as $item) {
-                    $model->imageTreeChar[$n++] = null !== $item ? imageTreeChar::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageTreeChar'] as $item1) {
+                    $model->imageTreeChar[$n1] = imageTreeChar::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['TextTreeChart'])) {
             if (!empty($map['TextTreeChart'])) {
                 $model->textTreeChart = [];
-                $n = 0;
-                foreach ($map['TextTreeChart'] as $item) {
-                    $model->textTreeChart[$n++] = null !== $item ? textTreeChart::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TextTreeChart'] as $item1) {
+                    $model->textTreeChart[$n1] = textTreeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TreeChart'])) {
             if (!empty($map['TreeChart'])) {
                 $model->treeChart = [];
-                $n = 0;
-                foreach ($map['TreeChart'] as $item) {
-                    $model->treeChart[$n++] = null !== $item ? treeChart::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TreeChart'] as $item1) {
+                    $model->treeChart[$n1] = treeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VoiceTreeChart'])) {
             if (!empty($map['VoiceTreeChart'])) {
                 $model->voiceTreeChart = [];
-                $n = 0;
-                foreach ($map['VoiceTreeChart'] as $item) {
-                    $model->voiceTreeChart[$n++] = null !== $item ? voiceTreeChart::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VoiceTreeChart'] as $item1) {
+                    $model->voiceTreeChart[$n1] = voiceTreeChart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['X'])) {
             if (!empty($map['X'])) {
-                $model->x = $map['X'];
+                $model->x = [];
+                $n1 = 0;
+                foreach ($map['X'] as $item1) {
+                    $model->x[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = [];
-                $n = 0;
-                foreach ($map['Y'] as $item) {
-                    $model->y[$n++] = null !== $item ? y::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Y'] as $item1) {
+                    $model->y[$n1] = y::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

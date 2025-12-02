@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateOssCheckResultsBatchFeedbackRequest extends Model
 {
     /**
-     * @example misreport
-     *
      * @var string
      */
     public $feedback;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $items;
 
     /**
-     * @example P_XHDUS
-     *
      * @var string
      */
     public $parentTaskId;
@@ -34,17 +28,22 @@ class UpdateOssCheckResultsBatchFeedbackRequest extends Model
         'parentTaskId' => 'ParentTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
         }
+
         if (null !== $this->items) {
             $res['Items'] = $this->items;
         }
+
         if (null !== $this->parentTaskId) {
             $res['ParentTaskId'] = $this->parentTaskId;
         }
@@ -52,20 +51,22 @@ class UpdateOssCheckResultsBatchFeedbackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateOssCheckResultsBatchFeedbackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
         }
+
         if (isset($map['Items'])) {
             $model->items = $map['Items'];
         }
+
         if (isset($map['ParentTaskId'])) {
             $model->parentTaskId = $map['ParentTaskId'];
         }

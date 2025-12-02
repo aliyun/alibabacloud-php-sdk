@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OssCheckResultListRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 2023-10-21 16:08:38
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example 55
-     *
      * @var int
      */
     public $finishNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $query;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -56,15 +44,11 @@ class OssCheckResultListRequest extends Model
     public $sort;
 
     /**
-     * @example 2023-08-21 16:08:38
-     *
      * @var string
      */
     public $startDate;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -80,35 +64,54 @@ class OssCheckResultListRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sort)) {
+            Model::validateArray($this->sort);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->finishNum) {
             $res['FinishNum'] = $this->finishNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
+            if (\is_array($this->sort)) {
+                $res['Sort'] = [];
+                foreach ($this->sort as $key1 => $value1) {
+                    $res['Sort'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -116,38 +119,51 @@ class OssCheckResultListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OssCheckResultListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['FinishNum'])) {
             $model->finishNum = $map['FinishNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
+            if (!empty($map['Sort'])) {
+                $model->sort = [];
+                foreach ($map['Sort'] as $key1 => $value1) {
+                    $model->sort[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

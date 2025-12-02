@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateOnlineTestResponseBody extends Model
 {
     /**
-     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example VideoModeration
-     *
      * @var string
      */
     public $serviceCode;
 
     /**
-     * @example xxxxx-xxxxx
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $taskStatus;
 
     /**
-     * @example https://xxxxxxxxxx.com/data/data.png
-     *
      * @var string
      */
     public $url;
@@ -50,23 +40,30 @@ class CreateOnlineTestResponseBody extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -74,26 +71,30 @@ class CreateOnlineTestResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOnlineTestResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

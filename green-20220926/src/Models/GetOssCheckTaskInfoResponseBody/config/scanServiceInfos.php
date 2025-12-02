@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponseBody\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scanServiceInfos extends Model
 {
     /**
-     * @example oss_baselineCheck
-     *
      * @var string
      */
     public $copyFrom;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isCopy;
 
     /**
-     * @example oss_baselineCheck
-     *
      * @var string
      */
     public $serviceCode;
@@ -40,20 +34,26 @@ class scanServiceInfos extends Model
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->copyFrom) {
             $res['CopyFrom'] = $this->copyFrom;
         }
+
         if (null !== $this->isCopy) {
             $res['IsCopy'] = $this->isCopy;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -61,23 +61,26 @@ class scanServiceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scanServiceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CopyFrom'])) {
             $model->copyFrom = $map['CopyFrom'];
         }
+
         if (isset($map['IsCopy'])) {
             $model->isCopy = $map['IsCopy'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
