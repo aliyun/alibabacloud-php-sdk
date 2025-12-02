@@ -19,6 +19,11 @@ class ChatWithDesensitizeSSERequest extends Model
     public $desensitizationRule;
 
     /**
+     * @var int
+     */
+    public $dimensions;
+
+    /**
      * @var bool
      */
     public $enableCodeInterpreter;
@@ -37,6 +42,11 @@ class ChatWithDesensitizeSSERequest extends Model
      * @var bool
      */
     public $includeUsage;
+
+    /**
+     * @var string
+     */
+    public $input;
 
     /**
      * @var int
@@ -140,10 +150,12 @@ class ChatWithDesensitizeSSERequest extends Model
     protected $_name = [
         'audioJson' => 'AudioJson',
         'desensitizationRule' => 'DesensitizationRule',
+        'dimensions' => 'Dimensions',
         'enableCodeInterpreter' => 'EnableCodeInterpreter',
         'enableSearch' => 'EnableSearch',
         'enableThinking' => 'EnableThinking',
         'includeUsage' => 'IncludeUsage',
+        'input' => 'Input',
         'instanceId' => 'InstanceId',
         'logprobs' => 'Logprobs',
         'maxTokens' => 'MaxTokens',
@@ -194,6 +206,10 @@ class ChatWithDesensitizeSSERequest extends Model
             $res['DesensitizationRule'] = $this->desensitizationRule;
         }
 
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
+        }
+
         if (null !== $this->enableCodeInterpreter) {
             $res['EnableCodeInterpreter'] = $this->enableCodeInterpreter;
         }
@@ -208,6 +224,10 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (null !== $this->includeUsage) {
             $res['IncludeUsage'] = $this->includeUsage;
+        }
+
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
         }
 
         if (null !== $this->instanceId) {
@@ -335,6 +355,10 @@ class ChatWithDesensitizeSSERequest extends Model
             $model->desensitizationRule = $map['DesensitizationRule'];
         }
 
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
+        }
+
         if (isset($map['EnableCodeInterpreter'])) {
             $model->enableCodeInterpreter = $map['EnableCodeInterpreter'];
         }
@@ -349,6 +373,10 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (isset($map['IncludeUsage'])) {
             $model->includeUsage = $map['IncludeUsage'];
+        }
+
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
         }
 
         if (isset($map['InstanceId'])) {

@@ -159,6 +159,11 @@ class CreateDifyInstanceRequest extends Model
     public $natGatewayOption;
 
     /**
+     * @var bool
+     */
+    public $onlyIntranet;
+
+    /**
      * @var string
      */
     public $ossPath;
@@ -328,6 +333,7 @@ class CreateDifyInstanceRequest extends Model
         'modelId' => 'ModelId',
         'modelOption' => 'ModelOption',
         'natGatewayOption' => 'NatGatewayOption',
+        'onlyIntranet' => 'OnlyIntranet',
         'ossPath' => 'OssPath',
         'ossResourceId' => 'OssResourceId',
         'payPeriod' => 'PayPeriod',
@@ -484,6 +490,10 @@ class CreateDifyInstanceRequest extends Model
 
         if (null !== $this->natGatewayOption) {
             $res['NatGatewayOption'] = $this->natGatewayOption;
+        }
+
+        if (null !== $this->onlyIntranet) {
+            $res['OnlyIntranet'] = $this->onlyIntranet;
         }
 
         if (null !== $this->ossPath) {
@@ -727,6 +737,10 @@ class CreateDifyInstanceRequest extends Model
 
         if (isset($map['NatGatewayOption'])) {
             $model->natGatewayOption = $map['NatGatewayOption'];
+        }
+
+        if (isset($map['OnlyIntranet'])) {
+            $model->onlyIntranet = $map['OnlyIntranet'];
         }
 
         if (isset($map['OssPath'])) {

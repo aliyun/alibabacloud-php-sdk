@@ -2496,6 +2496,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['DesensitizationRule'] = $request->desensitizationRule;
         }
 
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
+        }
+
         if (null !== $request->enableCodeInterpreter) {
             @$query['EnableCodeInterpreter'] = $request->enableCodeInterpreter;
         }
@@ -2510,6 +2514,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->includeUsage) {
             @$query['IncludeUsage'] = $request->includeUsage;
+        }
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
         }
 
         if (null !== $request->instanceId) {
@@ -2670,6 +2678,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['DesensitizationRule'] = $request->desensitizationRule;
         }
 
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
+        }
+
         if (null !== $request->enableCodeInterpreter) {
             @$query['EnableCodeInterpreter'] = $request->enableCodeInterpreter;
         }
@@ -2684,6 +2696,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->includeUsage) {
             @$query['IncludeUsage'] = $request->includeUsage;
+        }
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
         }
 
         if (null !== $request->instanceId) {
@@ -4306,6 +4322,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->natGatewayOption) {
             @$query['NatGatewayOption'] = $request->natGatewayOption;
+        }
+
+        if (null !== $request->onlyIntranet) {
+            @$query['OnlyIntranet'] = $request->onlyIntranet;
         }
 
         if (null !== $request->ossPath) {
