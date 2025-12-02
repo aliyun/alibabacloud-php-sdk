@@ -49,6 +49,16 @@ class TableModel extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $createdBySource;
+
+    /**
+     * @var string
+     */
+    public $createdByUser;
+
+    /**
      * @var int
      */
     public $currentVersion;
@@ -256,6 +266,8 @@ class TableModel extends Model
         'comment' => 'Comment',
         'compression' => 'Compression',
         'createTime' => 'CreateTime',
+        'createdBySource' => 'CreatedBySource',
+        'createdByUser' => 'CreatedByUser',
         'currentVersion' => 'CurrentVersion',
         'dbName' => 'DbName',
         'dictEncode' => 'DictEncode',
@@ -367,6 +379,14 @@ class TableModel extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->createdBySource) {
+            $res['CreatedBySource'] = $this->createdBySource;
+        }
+
+        if (null !== $this->createdByUser) {
+            $res['CreatedByUser'] = $this->createdByUser;
         }
 
         if (null !== $this->currentVersion) {
@@ -610,6 +630,14 @@ class TableModel extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CreatedBySource'])) {
+            $model->createdBySource = $map['CreatedBySource'];
+        }
+
+        if (isset($map['CreatedByUser'])) {
+            $model->createdByUser = $map['CreatedByUser'];
         }
 
         if (isset($map['CurrentVersion'])) {

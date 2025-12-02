@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteMaterializedViewRecommendRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteMaterializedViewRecommendResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeletePerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeletePerformanceViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteSparkTemplateFileRequest;
@@ -223,6 +225,12 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMAnswerRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMAnswerResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMSimilarQuestionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLLMSimilarQuestionsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMVRecommendResultsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMVRecommendResultsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMvRecommendSubTasksRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMvRecommendSubTasksResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMvRecommendTasksRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeMvRecommendTasksResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOversizeNonPartitionTableInfosRequest;
@@ -277,6 +285,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableStatisticsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableStatisticsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeViewJobsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeViewJobsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DetachUserENIRequest;
@@ -1263,7 +1273,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则.
+     * Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
      *
      * @param tmpReq - ConfigureResultExportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1328,7 +1338,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则.
+     * Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
      *
      * @param request - ConfigureResultExportRequest
      *
@@ -1869,7 +1879,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建Kafka到Huid的APS链路.
+     * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @param tmpReq - CreateApsKafkaHudiJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2026,7 +2036,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建Kafka到Huid的APS链路.
+     * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @param request - CreateApsKafkaHudiJobRequest
      *
@@ -2239,7 +2249,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * CreateApsWebhook.
+     * Creates a new webhook for the specified cluster or task type.
      *
      * @param tmpReq - CreateApsWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,7 +2306,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * CreateApsWebhook.
+     * Creates a new webhook for the specified cluster or task type.
      *
      * @param request - CreateApsWebhookRequest
      *
@@ -2314,7 +2324,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 手动创建备份集.
+     * Creates a data backup for an AnalyticDB for MySQL instance.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2373,7 +2386,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 手动创建备份集.
+     * Creates a data backup for an AnalyticDB for MySQL instance.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
      *
      * @param request - CreateBackupRequest
      *
@@ -2590,6 +2606,10 @@ class Adb extends OpenApiClient
             $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
         }
 
+        if (null !== $tmpReq->gpuElasticPlan) {
+            $request->gpuElasticPlanShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->gpuElasticPlan, 'GpuElasticPlan', 'json');
+        }
+
         if (null !== $tmpReq->rayConfig) {
             $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
@@ -2625,6 +2645,10 @@ class Adb extends OpenApiClient
 
         if (null !== $request->engineParamsShrink) {
             @$query['EngineParams'] = $request->engineParamsShrink;
+        }
+
+        if (null !== $request->gpuElasticPlanShrink) {
+            @$query['GpuElasticPlan'] = $request->gpuElasticPlanShrink;
         }
 
         if (null !== $request->groupName) {
@@ -2899,7 +2923,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建物化视图自动推荐任务
+     * Creates a materialized view recommendation task.
      *
      * @param request - CreateMaterializedViewRecommendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2994,7 +3018,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建物化视图自动推荐任务
+     * Creates a materialized view recommendation task.
      *
      * @param request - CreateMaterializedViewRecommendRequest
      *
@@ -3478,7 +3502,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * DeleteApsWebhook.
+     * Deletes a specific webhook in a specified cluster.
+     *
+     * @remarks
+     * This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
      *
      * @param request - DeleteApsWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3525,7 +3552,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * DeleteApsWebhook.
+     * Deletes a specific webhook in a specified cluster.
+     *
+     * @remarks
+     * This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
      *
      * @param request - DeleteApsWebhookRequest
      *
@@ -3905,6 +3935,87 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLakeStorageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a materialized view recommendation task.
+     *
+     * @param request - DeleteMaterializedViewRecommendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaterializedViewRecommendResponse
+     *
+     * @param DeleteMaterializedViewRecommendRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteMaterializedViewRecommendResponse
+     */
+    public function deleteMaterializedViewRecommendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaterializedViewRecommend',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMaterializedViewRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a materialized view recommendation task.
+     *
+     * @param request - DeleteMaterializedViewRecommendRequest
+     *
+     * @returns DeleteMaterializedViewRecommendResponse
+     *
+     * @param DeleteMaterializedViewRecommendRequest $request
+     *
+     * @return DeleteMaterializedViewRecommendResponse
+     */
+    public function deleteMaterializedViewRecommend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMaterializedViewRecommendWithOptions($request, $runtime);
     }
 
     /**
@@ -7174,7 +7285,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取SSL配置信息.
+     * Queries the SSL configurations of a cluster.
      *
      * @param request - DescribeDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7217,7 +7328,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取SSL配置信息.
+     * Queries the SSL configurations of a cluster.
      *
      * @param request - DescribeDBClusterSSLRequest
      *
@@ -8547,7 +8658,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务列表.
+     * Retrieve historical task records.
+     *
+     * @remarks
+     * Only supports viewing tasks within the last 30 days.
      *
      * @param request - DescribeHistoryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8642,7 +8756,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务列表.
+     * Retrieve historical task records.
+     *
+     * @remarks
+     * Only supports viewing tasks within the last 30 days.
      *
      * @param request - DescribeHistoryTasksRequest
      *
@@ -8660,7 +8777,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务统计
+     * Queries task statistics.
      *
      * @param request - DescribeHistoryTasksStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8751,7 +8868,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务统计
+     * Queries task statistics.
      *
      * @param request - DescribeHistoryTasksStatRequest
      *
@@ -9387,6 +9504,275 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Retrieves the result of a recommendation task for a materialized view.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *
+     * @param request - DescribeMVRecommendResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMVRecommendResultsResponse
+     *
+     * @param DescribeMVRecommendResultsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMVRecommendResultsResponse
+     */
+    public function describeMVRecommendResultsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionInner) {
+            @$query['ActionInner'] = $request->actionInner;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->subQueryId) {
+            @$query['SubQueryId'] = $request->subQueryId;
+        }
+
+        if (null !== $request->subtaskId) {
+            @$query['SubtaskId'] = $request->subtaskId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMVRecommendResults',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMVRecommendResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the result of a recommendation task for a materialized view.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *
+     * @param request - DescribeMVRecommendResultsRequest
+     *
+     * @returns DescribeMVRecommendResultsResponse
+     *
+     * @param DescribeMVRecommendResultsRequest $request
+     *
+     * @return DescribeMVRecommendResultsResponse
+     */
+    public function describeMVRecommendResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMVRecommendResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看物化视图子任务
+     *
+     * @param request - DescribeMvRecommendSubTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMvRecommendSubTasksResponse
+     *
+     * @param DescribeMvRecommendSubTasksRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMvRecommendSubTasksResponse
+     */
+    public function describeMvRecommendSubTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionInner) {
+            @$query['ActionInner'] = $request->actionInner;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->subtaskId) {
+            @$query['SubtaskId'] = $request->subtaskId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMvRecommendSubTasks',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMvRecommendSubTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看物化视图子任务
+     *
+     * @param request - DescribeMvRecommendSubTasksRequest
+     *
+     * @returns DescribeMvRecommendSubTasksResponse
+     *
+     * @param DescribeMvRecommendSubTasksRequest $request
+     *
+     * @return DescribeMvRecommendSubTasksResponse
+     */
+    public function describeMvRecommendSubTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMvRecommendSubTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看物化视图推荐任务
+     *
+     * @param request - DescribeMvRecommendTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMvRecommendTasksResponse
+     *
+     * @param DescribeMvRecommendTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeMvRecommendTasksResponse
+     */
+    public function describeMvRecommendTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionInner) {
+            @$query['ActionInner'] = $request->actionInner;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMvRecommendTasks',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMvRecommendTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看物化视图推荐任务
+     *
+     * @param request - DescribeMvRecommendTasksRequest
+     *
+     * @returns DescribeMvRecommendTasksResponse
+     *
+     * @param DescribeMvRecommendTasksRequest $request
+     *
+     * @return DescribeMvRecommendTasksResponse
+     */
+    public function describeMvRecommendTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMvRecommendTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the service account permissions of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeOperatorPermissionRequest
@@ -9958,7 +10344,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取用户配置的导出信息.
+     * Queries the user-configured result set export settings.
      *
      * @param request - DescribeResultExportConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10005,7 +10391,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取用户配置的导出信息.
+     * Queries the user-configured result set export settings.
      *
      * @param request - DescribeResultExportConfigRequest
      *
@@ -10394,7 +10780,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询Spark审计日志.
+     * Queries the SQL audit logs for a Spark Interactive resource group.
+     *
+     * @remarks
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+     * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
      *
      * @param request - DescribeSparkAuditLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10513,7 +10903,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询Spark审计日志.
+     * Queries the SQL audit logs for a Spark Interactive resource group.
+     *
+     * @remarks
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+     * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
      *
      * @param request - DescribeSparkAuditLogRecordsRequest
      *
@@ -11516,6 +11910,95 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Retrieves materialized view refresh tasks.
+     *
+     * @param request - DescribeViewJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeViewJobsResponse
+     *
+     * @param DescribeViewJobsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeViewJobsResponse
+     */
+    public function describeViewJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->filterOwner) {
+            @$query['FilterOwner'] = $request->filterOwner;
+        }
+
+        if (null !== $request->filterViewName) {
+            @$query['FilterViewName'] = $request->filterViewName;
+        }
+
+        if (null !== $request->filterViewType) {
+            @$query['FilterViewType'] = $request->filterViewType;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeViewJobs',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeViewJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves materialized view refresh tasks.
+     *
+     * @param request - DescribeViewJobsRequest
+     *
+     * @returns DescribeViewJobsResponse
+     *
+     * @param DescribeViewJobsRequest $request
+     *
+     * @return DescribeViewJobsResponse
+     */
+    public function describeViewJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeViewJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the diagnostic results of the storage layer.
      *
      * @param request - DescribeWorkerDetectionRequest
@@ -12342,7 +12825,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取Spark权限说明,失败时给出配置权限的帮助信息.
+     * View the Spark basic permission diagnosis report of the current user.
+     *
+     * @remarks
+     * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
      *
      * @param request - GetADBSparkNecessaryRAMPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12381,7 +12867,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取Spark权限说明,失败时给出配置权限的帮助信息.
+     * View the Spark basic permission diagnosis report of the current user.
+     *
+     * @remarks
+     * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
      *
      * @param request - GetADBSparkNecessaryRAMPermissionsRequest
      *
@@ -14848,7 +15337,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ListApsWebhook.
+     * Queries the Webhook configurations of a specified database cluster.
+     *
+     * @remarks
+     * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+     * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
      *
      * @param request - ListApsWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14895,7 +15388,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ListApsWebhook.
+     * Queries the Webhook configurations of a specified database cluster.
+     *
+     * @remarks
+     * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+     * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
      *
      * @param request - ListApsWebhookRequest
      *
@@ -16914,7 +17411,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 配置SSL.
+     * Modifies the SSL link configuration of a cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16965,7 +17462,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 配置SSL.
+     * Modifies the SSL link configuration of a cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      *
@@ -17076,6 +17573,10 @@ class Adb extends OpenApiClient
             $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
         }
 
+        if (null !== $tmpReq->gpuElasticPlan) {
+            $request->gpuElasticPlanShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->gpuElasticPlan, 'GpuElasticPlan', 'json');
+        }
+
         if (null !== $tmpReq->rayConfig) {
             $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
@@ -17107,6 +17608,10 @@ class Adb extends OpenApiClient
 
         if (null !== $request->engineParamsShrink) {
             @$query['EngineParams'] = $request->engineParamsShrink;
+        }
+
+        if (null !== $request->gpuElasticPlanShrink) {
+            @$query['GpuElasticPlan'] = $request->gpuElasticPlanShrink;
         }
 
         if (null !== $request->groupName) {
@@ -17418,7 +17923,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改物化视图.
+     * Modifies materialized views.
      *
      * @param request - ModifyMaterializedViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17505,7 +18010,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改物化视图.
+     * Modifies materialized views.
      *
      * @param request - ModifyMaterializedViewRequest
      *
@@ -17523,7 +18028,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改物化视图自动推荐任务
+     * Modifies a materialized view recommendation task.
      *
      * @param request - ModifyMaterializedViewRecommendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17618,7 +18123,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改物化视图自动推荐任务
+     * Modifies a materialized view recommendation task.
      *
      * @param request - ModifyMaterializedViewRecommendRequest
      *
@@ -17727,7 +18232,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改SQL脚本模板位置.
+     * Modifies the directory location of SQL templates.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifySqlTemplatePositionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17778,7 +18286,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改SQL脚本模板位置.
+     * Modifies the directory location of SQL templates.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifySqlTemplatePositionRequest
      *
@@ -18910,7 +19421,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * UpdateApsWebhook.
+     * Updates the webhook configuration of a specified cluster.
      *
      * @param tmpReq - UpdateApsWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18963,7 +19474,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * UpdateApsWebhook.
+     * Updates the webhook configuration of a specified cluster.
      *
      * @param request - UpdateApsWebhookRequest
      *

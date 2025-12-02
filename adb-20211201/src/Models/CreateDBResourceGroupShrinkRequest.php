@@ -46,6 +46,11 @@ class CreateDBResourceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $gpuElasticPlanShrink;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -115,6 +120,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
         'enableSpot' => 'EnableSpot',
         'engine' => 'Engine',
         'engineParamsShrink' => 'EngineParams',
+        'gpuElasticPlanShrink' => 'GpuElasticPlan',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
         'maxClusterCount' => 'MaxClusterCount',
@@ -164,6 +170,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
 
         if (null !== $this->engineParamsShrink) {
             $res['EngineParams'] = $this->engineParamsShrink;
+        }
+
+        if (null !== $this->gpuElasticPlanShrink) {
+            $res['GpuElasticPlan'] = $this->gpuElasticPlanShrink;
         }
 
         if (null !== $this->groupName) {
@@ -255,6 +265,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
 
         if (isset($map['EngineParams'])) {
             $model->engineParamsShrink = $map['EngineParams'];
+        }
+
+        if (isset($map['GpuElasticPlan'])) {
+            $model->gpuElasticPlanShrink = $map['GpuElasticPlan'];
         }
 
         if (isset($map['GroupName'])) {

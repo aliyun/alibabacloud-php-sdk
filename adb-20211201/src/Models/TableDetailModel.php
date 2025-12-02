@@ -26,12 +26,32 @@ class TableDetailModel extends Model
     /**
      * @var string
      */
+    public $createdBySource;
+
+    /**
+     * @var string
+     */
+    public $createdByUser;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
      * @var string
      */
+    public $location;
+
+    /**
+     * @var string
+     */
     public $owner;
+
+    /**
+     * @var string[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -56,8 +76,12 @@ class TableDetailModel extends Model
         'catalog' => 'Catalog',
         'columns' => 'Columns',
         'createTime' => 'CreateTime',
+        'createdBySource' => 'CreatedBySource',
+        'createdByUser' => 'CreatedByUser',
         'description' => 'Description',
+        'location' => 'Location',
         'owner' => 'Owner',
+        'parameters' => 'Parameters',
         'schemaName' => 'SchemaName',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
@@ -68,6 +92,9 @@ class TableDetailModel extends Model
     {
         if (\is_array($this->columns)) {
             Model::validateArray($this->columns);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
         }
         parent::validate();
     }
@@ -94,12 +121,33 @@ class TableDetailModel extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->createdBySource) {
+            $res['CreatedBySource'] = $this->createdBySource;
+        }
+
+        if (null !== $this->createdByUser) {
+            $res['CreatedByUser'] = $this->createdByUser;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+
+        if (null !== $this->parameters) {
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->schemaName) {
@@ -148,12 +196,33 @@ class TableDetailModel extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['CreatedBySource'])) {
+            $model->createdBySource = $map['CreatedBySource'];
+        }
+
+        if (isset($map['CreatedByUser'])) {
+            $model->createdByUser = $map['CreatedByUser'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
 
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['SchemaName'])) {

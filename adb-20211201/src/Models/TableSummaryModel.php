@@ -16,6 +16,16 @@ class TableSummaryModel extends Model
     /**
      * @var string
      */
+    public $createdBySource;
+
+    /**
+     * @var string
+     */
+    public $createdByUser;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -59,6 +69,8 @@ class TableSummaryModel extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'createdBySource' => 'CreatedBySource',
+        'createdByUser' => 'CreatedByUser',
         'description' => 'Description',
         'mvDetailModel' => 'MvDetailModel',
         'owner' => 'Owner',
@@ -83,6 +95,14 @@ class TableSummaryModel extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->createdBySource) {
+            $res['CreatedBySource'] = $this->createdBySource;
+        }
+
+        if (null !== $this->createdByUser) {
+            $res['CreatedByUser'] = $this->createdByUser;
         }
 
         if (null !== $this->description) {
@@ -134,6 +154,14 @@ class TableSummaryModel extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CreatedBySource'])) {
+            $model->createdBySource = $map['CreatedBySource'];
+        }
+
+        if (isset($map['CreatedByUser'])) {
+            $model->createdByUser = $map['CreatedByUser'];
         }
 
         if (isset($map['Description'])) {

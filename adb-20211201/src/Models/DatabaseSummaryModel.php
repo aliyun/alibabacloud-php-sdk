@@ -16,7 +16,27 @@ class DatabaseSummaryModel extends Model
     /**
      * @var string
      */
+    public $createdBySource;
+
+    /**
+     * @var string
+     */
+    public $createdByUser;
+
+    /**
+     * @var string
+     */
+    public $dbType;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $location;
 
     /**
      * @var string
@@ -34,7 +54,11 @@ class DatabaseSummaryModel extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'createdBySource' => 'CreatedBySource',
+        'createdByUser' => 'CreatedByUser',
+        'dbType' => 'DbType',
         'description' => 'Description',
+        'location' => 'Location',
         'owner' => 'Owner',
         'schemaName' => 'SchemaName',
         'updateTime' => 'UpdateTime',
@@ -52,8 +76,24 @@ class DatabaseSummaryModel extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->createdBySource) {
+            $res['CreatedBySource'] = $this->createdBySource;
+        }
+
+        if (null !== $this->createdByUser) {
+            $res['CreatedByUser'] = $this->createdByUser;
+        }
+
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
         }
 
         if (null !== $this->owner) {
@@ -83,8 +123,24 @@ class DatabaseSummaryModel extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['CreatedBySource'])) {
+            $model->createdBySource = $map['CreatedBySource'];
+        }
+
+        if (isset($map['CreatedByUser'])) {
+            $model->createdByUser = $map['CreatedByUser'];
+        }
+
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
         }
 
         if (isset($map['Owner'])) {

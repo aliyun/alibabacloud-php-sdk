@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\gpuElasticPlan;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rules;
 
@@ -49,6 +50,11 @@ class groupsInfo extends Model
      * @var mixed[]
      */
     public $engineParams;
+
+    /**
+     * @var gpuElasticPlan
+     */
+    public $gpuElasticPlan;
 
     /**
      * @var string
@@ -143,6 +149,7 @@ class groupsInfo extends Model
         'enableSpot' => 'EnableSpot',
         'engine' => 'Engine',
         'engineParams' => 'EngineParams',
+        'gpuElasticPlan' => 'GpuElasticPlan',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
         'groupUsers' => 'GroupUsers',
@@ -166,6 +173,9 @@ class groupsInfo extends Model
     {
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
+        }
+        if (null !== $this->gpuElasticPlan) {
+            $this->gpuElasticPlan->validate();
         }
         if (null !== $this->rayConfig) {
             $this->rayConfig->validate();
@@ -214,6 +224,10 @@ class groupsInfo extends Model
                     $res['EngineParams'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->gpuElasticPlan) {
+            $res['GpuElasticPlan'] = null !== $this->gpuElasticPlan ? $this->gpuElasticPlan->toArray($noStream) : $this->gpuElasticPlan;
         }
 
         if (null !== $this->groupName) {
@@ -337,6 +351,10 @@ class groupsInfo extends Model
                     $model->engineParams[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['GpuElasticPlan'])) {
+            $model->gpuElasticPlan = gpuElasticPlan::fromMap($map['GpuElasticPlan']);
         }
 
         if (isset($map['GroupName'])) {
