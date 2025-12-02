@@ -112,6 +112,11 @@ class optionJson extends Model
     public $emptyMessage;
 
     /**
+     * @var bool
+     */
+    public $enablePacketCapture;
+
+    /**
      * @var expectExistString
      */
     public $expectExistString;
@@ -329,6 +334,7 @@ class optionJson extends Model
         'dnsServer' => 'dns_server',
         'dnsType' => 'dns_type',
         'emptyMessage' => 'empty_message',
+        'enablePacketCapture' => 'enable_packet_capture',
         'expectExistString' => 'expect_exist_string',
         'expectNonExistString' => 'expect_non_exist_string',
         'expectValue' => 'expect_value',
@@ -488,6 +494,10 @@ class optionJson extends Model
 
         if (null !== $this->emptyMessage) {
             $res['empty_message'] = $this->emptyMessage;
+        }
+
+        if (null !== $this->enablePacketCapture) {
+            $res['enable_packet_capture'] = $this->enablePacketCapture;
         }
 
         if (null !== $this->expectExistString) {
@@ -731,6 +741,10 @@ class optionJson extends Model
 
         if (isset($map['empty_message'])) {
             $model->emptyMessage = $map['empty_message'];
+        }
+
+        if (isset($map['enable_packet_capture'])) {
+            $model->enablePacketCapture = $map['enable_packet_capture'];
         }
 
         if (isset($map['expect_exist_string'])) {
