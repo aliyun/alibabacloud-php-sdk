@@ -44,6 +44,11 @@ class StartRtcCloudRecordingRequest extends Model
     public $notifyAuthKey;
 
     /**
+     * @var string[]
+     */
+    public $notifyFileUploadedFormat;
+
+    /**
      * @var string
      */
     public $notifyUrl;
@@ -69,6 +74,7 @@ class StartRtcCloudRecordingRequest extends Model
         'mixLayoutParams' => 'MixLayoutParams',
         'mixTranscodeParams' => 'MixTranscodeParams',
         'notifyAuthKey' => 'NotifyAuthKey',
+        'notifyFileUploadedFormat' => 'NotifyFileUploadedFormat',
         'notifyUrl' => 'NotifyUrl',
         'recordParams' => 'RecordParams',
         'storageParams' => 'StorageParams',
@@ -82,6 +88,9 @@ class StartRtcCloudRecordingRequest extends Model
         }
         if (null !== $this->mixTranscodeParams) {
             $this->mixTranscodeParams->validate();
+        }
+        if (\is_array($this->notifyFileUploadedFormat)) {
+            Model::validateArray($this->notifyFileUploadedFormat);
         }
         if (null !== $this->recordParams) {
             $this->recordParams->validate();
@@ -120,6 +129,17 @@ class StartRtcCloudRecordingRequest extends Model
 
         if (null !== $this->notifyAuthKey) {
             $res['NotifyAuthKey'] = $this->notifyAuthKey;
+        }
+
+        if (null !== $this->notifyFileUploadedFormat) {
+            if (\is_array($this->notifyFileUploadedFormat)) {
+                $res['NotifyFileUploadedFormat'] = [];
+                $n1 = 0;
+                foreach ($this->notifyFileUploadedFormat as $item1) {
+                    $res['NotifyFileUploadedFormat'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->notifyUrl) {
@@ -171,6 +191,17 @@ class StartRtcCloudRecordingRequest extends Model
 
         if (isset($map['NotifyAuthKey'])) {
             $model->notifyAuthKey = $map['NotifyAuthKey'];
+        }
+
+        if (isset($map['NotifyFileUploadedFormat'])) {
+            if (!empty($map['NotifyFileUploadedFormat'])) {
+                $model->notifyFileUploadedFormat = [];
+                $n1 = 0;
+                foreach ($map['NotifyFileUploadedFormat'] as $item1) {
+                    $model->notifyFileUploadedFormat[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['NotifyUrl'])) {

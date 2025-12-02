@@ -39,6 +39,11 @@ class StartRtcCloudRecordingShrinkRequest extends Model
     public $notifyAuthKey;
 
     /**
+     * @var string[]
+     */
+    public $notifyFileUploadedFormat;
+
+    /**
      * @var string
      */
     public $notifyUrl;
@@ -64,6 +69,7 @@ class StartRtcCloudRecordingShrinkRequest extends Model
         'mixLayoutParamsShrink' => 'MixLayoutParams',
         'mixTranscodeParamsShrink' => 'MixTranscodeParams',
         'notifyAuthKey' => 'NotifyAuthKey',
+        'notifyFileUploadedFormat' => 'NotifyFileUploadedFormat',
         'notifyUrl' => 'NotifyUrl',
         'recordParamsShrink' => 'RecordParams',
         'storageParamsShrink' => 'StorageParams',
@@ -72,6 +78,9 @@ class StartRtcCloudRecordingShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifyFileUploadedFormat)) {
+            Model::validateArray($this->notifyFileUploadedFormat);
+        }
         parent::validate();
     }
 
@@ -100,6 +109,17 @@ class StartRtcCloudRecordingShrinkRequest extends Model
 
         if (null !== $this->notifyAuthKey) {
             $res['NotifyAuthKey'] = $this->notifyAuthKey;
+        }
+
+        if (null !== $this->notifyFileUploadedFormat) {
+            if (\is_array($this->notifyFileUploadedFormat)) {
+                $res['NotifyFileUploadedFormat'] = [];
+                $n1 = 0;
+                foreach ($this->notifyFileUploadedFormat as $item1) {
+                    $res['NotifyFileUploadedFormat'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->notifyUrl) {
@@ -151,6 +171,17 @@ class StartRtcCloudRecordingShrinkRequest extends Model
 
         if (isset($map['NotifyAuthKey'])) {
             $model->notifyAuthKey = $map['NotifyAuthKey'];
+        }
+
+        if (isset($map['NotifyFileUploadedFormat'])) {
+            if (!empty($map['NotifyFileUploadedFormat'])) {
+                $model->notifyFileUploadedFormat = [];
+                $n1 = 0;
+                foreach ($map['NotifyFileUploadedFormat'] as $item1) {
+                    $model->notifyFileUploadedFormat[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['NotifyUrl'])) {

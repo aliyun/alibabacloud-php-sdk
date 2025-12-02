@@ -34082,6 +34082,10 @@ class Live extends OpenApiClient
             @$query['NotifyAuthKey'] = $request->notifyAuthKey;
         }
 
+        if (null !== $request->notifyFileUploadedFormat) {
+            @$query['NotifyFileUploadedFormat'] = $request->notifyFileUploadedFormat;
+        }
+
         if (null !== $request->notifyUrl) {
             @$query['NotifyUrl'] = $request->notifyUrl;
         }
