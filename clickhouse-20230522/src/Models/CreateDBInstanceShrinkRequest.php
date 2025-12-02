@@ -16,6 +16,11 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -114,6 +119,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $zoneId;
     protected $_name = [
         'backupSetId' => 'BackupSetId',
+        'category' => 'Category',
         'clientToken' => 'ClientToken',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBTimeZone' => 'DBTimeZone',
@@ -146,6 +152,10 @@ class CreateDBInstanceShrinkRequest extends Model
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->clientToken) {
@@ -241,6 +251,10 @@ class CreateDBInstanceShrinkRequest extends Model
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['ClientToken'])) {

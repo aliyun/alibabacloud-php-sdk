@@ -500,6 +500,10 @@ class Clickhouse extends OpenApiClient
             @$query['BackupSetId'] = $request->backupSetId;
         }
 
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
