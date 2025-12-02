@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDataQualityScanRunsRequest extends Model
+class ListDataQualityScanRunsShrinkRequest extends Model
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class ListDataQualityScanRunsRequest extends Model
     public $dataQualityScanId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $filter;
+    public $filterShrink;
 
     /**
      * @var int
@@ -56,7 +56,7 @@ class ListDataQualityScanRunsRequest extends Model
         'createTimeFrom' => 'CreateTimeFrom',
         'createTimeTo' => 'CreateTimeTo',
         'dataQualityScanId' => 'DataQualityScanId',
-        'filter' => 'Filter',
+        'filterShrink' => 'Filter',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -66,9 +66,6 @@ class ListDataQualityScanRunsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->filter)) {
-            Model::validateArray($this->filter);
-        }
         parent::validate();
     }
 
@@ -87,13 +84,8 @@ class ListDataQualityScanRunsRequest extends Model
             $res['DataQualityScanId'] = $this->dataQualityScanId;
         }
 
-        if (null !== $this->filter) {
-            if (\is_array($this->filter)) {
-                $res['Filter'] = [];
-                foreach ($this->filter as $key1 => $value1) {
-                    $res['Filter'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->filterShrink) {
+            $res['Filter'] = $this->filterShrink;
         }
 
         if (null !== $this->pageNumber) {
@@ -140,12 +132,7 @@ class ListDataQualityScanRunsRequest extends Model
         }
 
         if (isset($map['Filter'])) {
-            if (!empty($map['Filter'])) {
-                $model->filter = [];
-                foreach ($map['Filter'] as $key1 => $value1) {
-                    $model->filter[$key1] = $value1;
-                }
-            }
+            $model->filterShrink = $map['Filter'];
         }
 
         if (isset($map['PageNumber'])) {

@@ -340,6 +340,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplat
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplatesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScanRunsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScanRunsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScanRunsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityTemplatesRequest;
@@ -11384,19 +11385,25 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API operation is available for all DataWorks editions.
      *
-     * @param Request - ListDataQualityScanRunsRequest
+     * @param tmpReq - ListDataQualityScanRunsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDataQualityScanRunsResponse
      *
-     * @param ListDataQualityScanRunsRequest $request
+     * @param ListDataQualityScanRunsRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return ListDataQualityScanRunsResponse
      */
-    public function listDataQualityScanRunsWithOptions($request, $runtime)
+    public function listDataQualityScanRunsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListDataQualityScanRunsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
         $query = [];
         if (null !== $request->createTimeFrom) {
             @$query['CreateTimeFrom'] = $request->createTimeFrom;
@@ -11408,6 +11415,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->dataQualityScanId) {
             @$query['DataQualityScanId'] = $request->dataQualityScanId;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
         }
 
         if (null !== $request->pageNumber) {
