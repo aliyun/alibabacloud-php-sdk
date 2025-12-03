@@ -1081,6 +1081,18 @@ class Csas extends OpenApiClient
             @$body['UserGroupMode'] = $request->userGroupMode;
         }
 
+        if (null !== $request->validFrom) {
+            @$body['ValidFrom'] = $request->validFrom;
+        }
+
+        if (null !== $request->validTimeStatus) {
+            @$body['ValidTimeStatus'] = $request->validTimeStatus;
+        }
+
+        if (null !== $request->validUntil) {
+            @$body['ValidUntil'] = $request->validUntil;
+        }
+
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
@@ -7134,6 +7146,18 @@ class Csas extends OpenApiClient
 
         if (null !== $request->userGroupMode) {
             @$body['UserGroupMode'] = $request->userGroupMode;
+        }
+
+        if (null !== $request->validFrom) {
+            @$body['ValidFrom'] = $request->validFrom;
+        }
+
+        if (null !== $request->validTimeStatus) {
+            @$body['ValidTimeStatus'] = $request->validTimeStatus;
+        }
+
+        if (null !== $request->validUntil) {
+            @$body['ValidUntil'] = $request->validUntil;
         }
 
         $body = Dara::merge([

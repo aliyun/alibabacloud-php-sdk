@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Csas\V20230120\Models\OpenStructSaseUser\userTags;
 
 class OpenStructSaseUser extends Model
 {
@@ -79,6 +80,11 @@ class OpenStructSaseUser extends Model
     public $updateTimeUnix;
 
     /**
+     * @var userTags[]
+     */
+    public $userTags;
+
+    /**
      * @var string
      */
     public $username;
@@ -102,6 +108,7 @@ class OpenStructSaseUser extends Model
         'telephone' => 'Telephone',
         'title' => 'Title',
         'updateTimeUnix' => 'UpdateTimeUnix',
+        'userTags' => 'UserTags',
         'username' => 'Username',
         'workStatus' => 'WorkStatus',
     ];
@@ -113,6 +120,9 @@ class OpenStructSaseUser extends Model
         }
         if (\is_array($this->departments)) {
             Model::validateArray($this->departments);
+        }
+        if (\is_array($this->userTags)) {
+            Model::validateArray($this->userTags);
         }
         parent::validate();
     }
@@ -188,6 +198,17 @@ class OpenStructSaseUser extends Model
 
         if (null !== $this->updateTimeUnix) {
             $res['UpdateTimeUnix'] = $this->updateTimeUnix;
+        }
+
+        if (null !== $this->userTags) {
+            if (\is_array($this->userTags)) {
+                $res['UserTags'] = [];
+                $n1 = 0;
+                foreach ($this->userTags as $item1) {
+                    $res['UserTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->username) {
@@ -277,6 +298,17 @@ class OpenStructSaseUser extends Model
 
         if (isset($map['UpdateTimeUnix'])) {
             $model->updateTimeUnix = $map['UpdateTimeUnix'];
+        }
+
+        if (isset($map['UserTags'])) {
+            if (!empty($map['UserTags'])) {
+                $model->userTags = [];
+                $n1 = 0;
+                foreach ($map['UserTags'] as $item1) {
+                    $model->userTags[$n1] = userTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Username'])) {

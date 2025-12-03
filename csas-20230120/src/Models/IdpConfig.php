@@ -66,6 +66,11 @@ class IdpConfig extends Model
     /**
      * @var string
      */
+    public $logoDirectory;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -104,6 +109,7 @@ class IdpConfig extends Model
         'lastSyncTimeUnix' => 'LastSyncTimeUnix',
         'ldapConfig' => 'LdapConfig',
         'loginConfig' => 'LoginConfig',
+        'logoDirectory' => 'LogoDirectory',
         'name' => 'Name',
         'syncConfig' => 'SyncConfig',
         'syncStatus' => 'SyncStatus',
@@ -194,6 +200,10 @@ class IdpConfig extends Model
             $res['LoginConfig'] = null !== $this->loginConfig ? $this->loginConfig->toArray($noStream) : $this->loginConfig;
         }
 
+        if (null !== $this->logoDirectory) {
+            $res['LogoDirectory'] = $this->logoDirectory;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -271,6 +281,10 @@ class IdpConfig extends Model
 
         if (isset($map['LoginConfig'])) {
             $model->loginConfig = IdpLoginConfig::fromMap($map['LoginConfig']);
+        }
+
+        if (isset($map['LogoDirectory'])) {
+            $model->logoDirectory = $map['LogoDirectory'];
         }
 
         if (isset($map['Name'])) {

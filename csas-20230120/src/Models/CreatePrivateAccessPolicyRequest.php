@@ -93,6 +93,21 @@ class CreatePrivateAccessPolicyRequest extends Model
      * @var string
      */
     public $userGroupMode;
+
+    /**
+     * @var int
+     */
+    public $validFrom;
+
+    /**
+     * @var string
+     */
+    public $validTimeStatus;
+
+    /**
+     * @var int
+     */
+    public $validUntil;
     protected $_name = [
         'applicationIds' => 'ApplicationIds',
         'applicationType' => 'ApplicationType',
@@ -111,6 +126,9 @@ class CreatePrivateAccessPolicyRequest extends Model
         'trustedSoftwareIds' => 'TrustedSoftwareIds',
         'userGroupIds' => 'UserGroupIds',
         'userGroupMode' => 'UserGroupMode',
+        'validFrom' => 'ValidFrom',
+        'validTimeStatus' => 'ValidTimeStatus',
+        'validUntil' => 'ValidUntil',
     ];
 
     public function validate()
@@ -249,6 +267,18 @@ class CreatePrivateAccessPolicyRequest extends Model
             $res['UserGroupMode'] = $this->userGroupMode;
         }
 
+        if (null !== $this->validFrom) {
+            $res['ValidFrom'] = $this->validFrom;
+        }
+
+        if (null !== $this->validTimeStatus) {
+            $res['ValidTimeStatus'] = $this->validTimeStatus;
+        }
+
+        if (null !== $this->validUntil) {
+            $res['ValidUntil'] = $this->validUntil;
+        }
+
         return $res;
     }
 
@@ -368,6 +398,18 @@ class CreatePrivateAccessPolicyRequest extends Model
 
         if (isset($map['UserGroupMode'])) {
             $model->userGroupMode = $map['UserGroupMode'];
+        }
+
+        if (isset($map['ValidFrom'])) {
+            $model->validFrom = $map['ValidFrom'];
+        }
+
+        if (isset($map['ValidTimeStatus'])) {
+            $model->validTimeStatus = $map['ValidTimeStatus'];
+        }
+
+        if (isset($map['ValidUntil'])) {
+            $model->validUntil = $map['ValidUntil'];
         }
 
         return $model;
