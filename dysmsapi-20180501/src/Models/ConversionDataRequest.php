@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20180501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConversionDataRequest extends Model
 {
     /**
-     * @description Conversion rate monitoring return value.
-     *
-     * >  The value of this parameter is of type double, and the value is between [0,1].
-     *
-     * This parameter is required.
-     *
-     * @example 0.53
-     *
      * @var string
      */
     public $conversionRate;
 
     /**
-     * @description Timestamp of the conversion rate observation should be a Unix timestamp, a millisecond-level long integer.
-     *
-     * >  If this field is not specified: the current timestamp is the default.
-     *
-     * @example 1349055900000
-     *
      * @var int
      */
     public $reportTime;
@@ -36,14 +22,18 @@ class ConversionDataRequest extends Model
         'reportTime' => 'ReportTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conversionRate) {
             $res['ConversionRate'] = $this->conversionRate;
         }
+
         if (null !== $this->reportTime) {
             $res['ReportTime'] = $this->reportTime;
         }
@@ -51,17 +41,18 @@ class ConversionDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConversionDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConversionRate'])) {
             $model->conversionRate = $map['ConversionRate'];
         }
+
         if (isset($map['ReportTime'])) {
             $model->reportTime = $map['ReportTime'];
         }

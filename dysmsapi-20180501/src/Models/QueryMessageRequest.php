@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20180501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryMessageRequest extends Model
 {
     /**
-     * @description The ID of the message.
-     *
-     * This parameter is required.
-     *
-     * @example 1008030xxx3003
-     *
      * @var string
      */
     public $messageId;
@@ -22,9 +16,12 @@ class QueryMessageRequest extends Model
         'messageId' => 'MessageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
@@ -34,11 +31,11 @@ class QueryMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20180501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConversionDataResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F655A8D5-B967-440B-8683-DAD6FF8D****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Status code. Returning OK means the request was successful. For other error codes, please refer to the [Error codes](https://help.aliyun.com/document_detail/180674.html) list.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $responseCode;
 
     /**
-     * @description The description of the status code.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $responseDescription;
@@ -40,17 +28,22 @@ class ConversionDataResponseBody extends Model
         'responseDescription' => 'ResponseDescription',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->responseCode) {
             $res['ResponseCode'] = $this->responseCode;
         }
+
         if (null !== $this->responseDescription) {
             $res['ResponseDescription'] = $this->responseDescription;
         }
@@ -58,20 +51,22 @@ class ConversionDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConversionDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResponseCode'])) {
             $model->responseCode = $map['ResponseCode'];
         }
+
         if (isset($map['ResponseDescription'])) {
             $model->responseDescription = $map['ResponseDescription'];
         }

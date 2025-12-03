@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20180501\Models\QueryMessageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class numberDetail extends Model
 {
     /**
-     * @description The carrier that owns the mobile phone number.
-     *
-     * @example CMI
-     *
      * @var string
      */
     public $carrier;
 
     /**
-     * @description The country to which the mobile phone number belongs.
-     *
-     * @example China
-     *
      * @var string
      */
     public $country;
 
     /**
-     * @description The region to which the mobile phone number belongs.
-     *
-     * @example HongKong
-     *
      * @var string
      */
     public $region;
@@ -40,17 +28,22 @@ class numberDetail extends Model
         'region' => 'Region',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
+
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -58,20 +51,22 @@ class numberDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return numberDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
+
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

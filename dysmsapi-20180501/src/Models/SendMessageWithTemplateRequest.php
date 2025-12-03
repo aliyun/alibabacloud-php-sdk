@@ -4,77 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20180501\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendMessageWithTemplateRequest extends Model
 {
     /**
-     * @description The ID of the channel.
-     *
-     * @example 5739
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description The signature. To query the signature, log on to the [Short Message Service (SMS) console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Signatures** tab of the **Go China** page.
-     *
-     * This parameter is required.
-     *
-     * @example Alicloud321
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The extension code of the MO message.
-     *
-     * @example 90999
-     *
      * @var string
      */
     public $smsUpExtendCode;
 
     /**
-     * @description The code of the message template. To query the code, log on to the [SMS console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Templates** tab of the **Go China** page.
-     *
-     * This parameter is required.
-     *
-     * @example SMS_****
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description The value of the variable in the message template. If a variable exists in the template, the parameter is required.
-     *
-     * @example {"code":"1234","product":"ytx"}
-     *
      * @var string
      */
     public $templateParam;
 
     /**
-     * @description The mobile phone number to which the message is sent. You must add the country code to the beginning of the mobile phone number. Example: 861503871\\*\\*\\*\\*.
-     *
-     * For more information, see [Dialing codes](https://www.alibabacloud.com/help/en/sms/product-overview/dialing-codes?spm=a2c63.p38356.0.0.367279cbwQFoeM).
-     *
-     * This parameter is required.
-     *
-     * @example 861503871****
-     *
      * @var string
      */
     public $to;
 
     /**
-     * @description The validity period of the message.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $validityPeriod;
@@ -88,29 +52,38 @@ class SendMessageWithTemplateRequest extends Model
         'validityPeriod' => 'ValidityPeriod',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->smsUpExtendCode) {
             $res['SmsUpExtendCode'] = $this->smsUpExtendCode;
         }
+
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
+
         if (null !== $this->templateParam) {
             $res['TemplateParam'] = $this->templateParam;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
+
         if (null !== $this->validityPeriod) {
             $res['ValidityPeriod'] = $this->validityPeriod;
         }
@@ -118,32 +91,38 @@ class SendMessageWithTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendMessageWithTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['SmsUpExtendCode'])) {
             $model->smsUpExtendCode = $map['SmsUpExtendCode'];
         }
+
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
+
         if (isset($map['TemplateParam'])) {
             $model->templateParam = $map['TemplateParam'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
+
         if (isset($map['ValidityPeriod'])) {
             $model->validityPeriod = $map['ValidityPeriod'];
         }
