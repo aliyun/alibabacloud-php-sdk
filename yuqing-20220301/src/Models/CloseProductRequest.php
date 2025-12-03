@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseProductRequest extends Model
 {
@@ -19,19 +19,24 @@ class CloseProductRequest extends Model
     public $requestId;
     protected $_name = [
         'productInstance' => 'productInstance',
-        'requestId'       => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->productInstance) {
+            $this->productInstance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productInstance) {
-            $res['productInstance'] = null !== $this->productInstance ? $this->productInstance->toMap() : null;
+            $res['productInstance'] = null !== $this->productInstance ? $this->productInstance->toArray($noStream) : $this->productInstance;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -39,17 +44,18 @@ class CloseProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['productInstance'])) {
             $model->productInstance = ProductInstance::fromMap($map['productInstance']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

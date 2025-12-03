@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryProductInstanceListRequest extends Model
 {
@@ -33,32 +33,37 @@ class QueryProductInstanceListRequest extends Model
      */
     public $toTime;
     protected $_name = [
-        'appCode'   => 'appCode',
-        'fromTime'  => 'fromTime',
+        'appCode' => 'appCode',
+        'fromTime' => 'fromTime',
         'requestId' => 'requestId',
         'tenantUid' => 'tenantUid',
-        'toTime'    => 'toTime',
+        'toTime' => 'toTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCode) {
             $res['appCode'] = $this->appCode;
         }
+
         if (null !== $this->fromTime) {
             $res['fromTime'] = $this->fromTime;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->tenantUid) {
             $res['tenantUid'] = $this->tenantUid;
         }
+
         if (null !== $this->toTime) {
             $res['toTime'] = $this->toTime;
         }
@@ -66,26 +71,30 @@ class QueryProductInstanceListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryProductInstanceListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appCode'])) {
             $model->appCode = $map['appCode'];
         }
+
         if (isset($map['fromTime'])) {
             $model->fromTime = $map['fromTime'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['tenantUid'])) {
             $model->tenantUid = $map['tenantUid'];
         }
+
         if (isset($map['toTime'])) {
             $model->toTime = $map['toTime'];
         }

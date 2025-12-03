@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitAnalysisTaskRequest extends Model
 {
@@ -28,28 +28,35 @@ class SubmitAnalysisTaskRequest extends Model
      */
     public $teamHashId;
     protected $_name = [
-        'analyseType'     => 'analyseType',
-        'requestId'       => 'requestId',
+        'analyseType' => 'analyseType',
+        'requestId' => 'requestId',
         'searchCondition' => 'searchCondition',
-        'teamHashId'      => 'teamHashId',
+        'teamHashId' => 'teamHashId',
     ];
 
     public function validate()
     {
+        if (null !== $this->searchCondition) {
+            $this->searchCondition->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analyseType) {
             $res['analyseType'] = $this->analyseType;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->searchCondition) {
-            $res['searchCondition'] = null !== $this->searchCondition ? $this->searchCondition->toMap() : null;
+            $res['searchCondition'] = null !== $this->searchCondition ? $this->searchCondition->toArray($noStream) : $this->searchCondition;
         }
+
         if (null !== $this->teamHashId) {
             $res['teamHashId'] = $this->teamHashId;
         }
@@ -57,23 +64,26 @@ class SubmitAnalysisTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitAnalysisTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['analyseType'])) {
             $model->analyseType = $map['analyseType'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['searchCondition'])) {
             $model->searchCondition = SearchCondition::fromMap($map['searchCondition']);
         }
+
         if (isset($map['teamHashId'])) {
             $model->teamHashId = $map['teamHashId'];
         }

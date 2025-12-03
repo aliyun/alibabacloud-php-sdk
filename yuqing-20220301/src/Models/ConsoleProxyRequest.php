@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConsoleProxyRequest extends Model
 {
@@ -33,32 +33,37 @@ class ConsoleProxyRequest extends Model
      */
     public $teamHashId;
     protected $_name = [
-        'appCode'       => 'appCode',
+        'appCode' => 'appCode',
         'interfaceName' => 'interfaceName',
-        'paramJson'     => 'paramJson',
-        'requestId'     => 'requestId',
-        'teamHashId'    => 'teamHashId',
+        'paramJson' => 'paramJson',
+        'requestId' => 'requestId',
+        'teamHashId' => 'teamHashId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCode) {
             $res['appCode'] = $this->appCode;
         }
+
         if (null !== $this->interfaceName) {
             $res['interfaceName'] = $this->interfaceName;
         }
+
         if (null !== $this->paramJson) {
             $res['paramJson'] = $this->paramJson;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->teamHashId) {
             $res['teamHashId'] = $this->teamHashId;
         }
@@ -66,26 +71,30 @@ class ConsoleProxyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConsoleProxyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appCode'])) {
             $model->appCode = $map['appCode'];
         }
+
         if (isset($map['interfaceName'])) {
             $model->interfaceName = $map['interfaceName'];
         }
+
         if (isset($map['paramJson'])) {
             $model->paramJson = $map['paramJson'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['teamHashId'])) {
             $model->teamHashId = $map['teamHashId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConsoleApiProxyResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class ConsoleApiProxyResponseBody extends Model
      */
     public $resultJson;
     protected $_name = [
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
         'resultJson' => 'resultJson',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resultJson) {
             $res['resultJson'] = $this->resultJson;
         }
@@ -39,17 +41,18 @@ class ConsoleApiProxyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConsoleApiProxyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resultJson'])) {
             $model->resultJson = $map['resultJson'];
         }

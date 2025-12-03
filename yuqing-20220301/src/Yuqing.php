@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\CloseProductRequest;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\CloseProductResponse;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\ConsoleApiProxyRequest;
@@ -22,11 +21,10 @@ use AlibabaCloud\SDK\Yuqing\V20220301\Models\QueryYuqingMessageRequest;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\QueryYuqingMessageResponse;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\SubmitAnalysisTaskRequest;
 use AlibabaCloud\SDK\Yuqing\V20220301\Models\SubmitAnalysisTaskResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Yuqing extends OpenApiClient
 {
@@ -51,62 +49,75 @@ class Yuqing extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 关闭舆情产品
-     *  *
-     * @param CloseProductRequest $request CloseProductRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 关闭舆情产品
      *
-     * @return CloseProductResponse CloseProductResponse
+     * @param request - CloseProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseProductResponse
+     *
+     * @param CloseProductRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CloseProductResponse
      */
     public function closeProductWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->productInstance)) {
-            $body['productInstance'] = $request->productInstance;
+        if (null !== $request->productInstance) {
+            @$body['productInstance'] = $request->productInstance;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloseProduct',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/closeProduct.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloseProduct',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/closeProduct.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭舆情产品
-     *  *
-     * @param CloseProductRequest $request CloseProductRequest
+     * 关闭舆情产品
      *
-     * @return CloseProductResponse CloseProductResponse
+     * @param request - CloseProductRequest
+     *
+     * @returns CloseProductResponse
+     *
+     * @param CloseProductRequest $request
+     *
+     * @return CloseProductResponse
      */
     public function closeProduct($request)
     {
@@ -117,42 +128,52 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 控制台统一代理API
-     *  *
-     * @param ConsoleApiProxyRequest $request ConsoleApiProxyRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 控制台统一代理API.
      *
-     * @return ConsoleApiProxyResponse ConsoleApiProxyResponse
+     * @param request - ConsoleApiProxyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConsoleApiProxyResponse
+     *
+     * @param ConsoleApiProxyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConsoleApiProxyResponse
      */
     public function consoleApiProxyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ConsoleApiProxy',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/consoleApiProxy.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ConsoleApiProxy',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/consoleApiProxy.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConsoleApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 控制台统一代理API
-     *  *
-     * @param ConsoleApiProxyRequest $request ConsoleApiProxyRequest
+     * 控制台统一代理API.
      *
-     * @return ConsoleApiProxyResponse ConsoleApiProxyResponse
+     * @param request - ConsoleApiProxyRequest
+     *
+     * @returns ConsoleApiProxyResponse
+     *
+     * @param ConsoleApiProxyRequest $request
+     *
+     * @return ConsoleApiProxyResponse
      */
     public function consoleApiProxy($request)
     {
@@ -163,68 +184,80 @@ class Yuqing extends OpenApiClient
     }
 
     /**
+     * 控制台统一代理API.
+     *
      * @deprecated OpenAPI ConsoleProxy is deprecated
-     *  *
-     * @summary 控制台统一代理API
-     *  *
-     * Deprecated
      *
-     * @param ConsoleProxyRequest $request ConsoleProxyRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - ConsoleProxyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConsoleProxyResponse ConsoleProxyResponse
+     * @returns ConsoleProxyResponse
+     *
+     * @param ConsoleProxyRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ConsoleProxyResponse
      */
     public function consoleProxyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appCode)) {
-            $body['appCode'] = $request->appCode;
+        if (null !== $request->appCode) {
+            @$body['appCode'] = $request->appCode;
         }
-        if (!Utils::isUnset($request->interfaceName)) {
-            $body['interfaceName'] = $request->interfaceName;
+
+        if (null !== $request->interfaceName) {
+            @$body['interfaceName'] = $request->interfaceName;
         }
-        if (!Utils::isUnset($request->paramJson)) {
-            $body['paramJson'] = $request->paramJson;
+
+        if (null !== $request->paramJson) {
+            @$body['paramJson'] = $request->paramJson;
         }
-        if (!Utils::isUnset($request->teamHashId)) {
-            $body['teamHashId'] = $request->teamHashId;
+
+        if (null !== $request->teamHashId) {
+            @$body['teamHashId'] = $request->teamHashId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConsoleProxy',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/consoleProxy.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ConsoleProxy',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/consoleProxy.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConsoleProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 控制台统一代理API.
+     *
      * @deprecated OpenAPI ConsoleProxy is deprecated
-     *  *
-     * @summary 控制台统一代理API
-     *  *
-     * Deprecated
      *
-     * @param ConsoleProxyRequest $request ConsoleProxyRequest
+     * @param request - ConsoleProxyRequest
      *
-     * @return ConsoleProxyResponse ConsoleProxyResponse
+     * @returns ConsoleProxyResponse
+     *
+     * @param ConsoleProxyRequest $request
+     *
+     * @return ConsoleProxyResponse
      */
     public function consoleProxy($request)
     {
@@ -235,52 +268,65 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 读取分析组件计算任务结果
-     *  *
-     * @param GetAnalysisTaskResultRequest $request GetAnalysisTaskResultRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 读取分析组件计算任务结果.
      *
-     * @return GetAnalysisTaskResultResponse GetAnalysisTaskResultResponse
+     * @param request - GetAnalysisTaskResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAnalysisTaskResultResponse
+     *
+     * @param GetAnalysisTaskResultRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAnalysisTaskResultResponse
      */
     public function getAnalysisTaskResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisId)) {
-            $query['analysisId'] = $request->analysisId;
+        if (null !== $request->analysisId) {
+            @$query['analysisId'] = $request->analysisId;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->teamHashId)) {
-            $query['teamHashId'] = $request->teamHashId;
+
+        if (null !== $request->teamHashId) {
+            @$query['teamHashId'] = $request->teamHashId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAnalysisTaskResult',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/getAnalysisComponentResult.json',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAnalysisTaskResult',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/getAnalysisComponentResult.json',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAnalysisTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 读取分析组件计算任务结果
-     *  *
-     * @param GetAnalysisTaskResultRequest $request GetAnalysisTaskResultRequest
+     * 读取分析组件计算任务结果.
      *
-     * @return GetAnalysisTaskResultResponse GetAnalysisTaskResultResponse
+     * @param request - GetAnalysisTaskResultRequest
+     *
+     * @returns GetAnalysisTaskResultResponse
+     *
+     * @param GetAnalysisTaskResultRequest $request
+     *
+     * @return GetAnalysisTaskResultResponse
      */
     public function getAnalysisTaskResult($request)
     {
@@ -291,54 +337,67 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 开通舆情产品
-     *  *
-     * @param OpenProductRequest $request OpenProductRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 开通舆情产品
      *
-     * @return OpenProductResponse OpenProductResponse
+     * @param request - OpenProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenProductResponse
+     *
+     * @param OpenProductRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return OpenProductResponse
      */
     public function openProductWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->productInstance)) {
-            $body['productInstance'] = $request->productInstance;
+
+        if (null !== $request->productInstance) {
+            @$body['productInstance'] = $request->productInstance;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OpenProduct',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/openProduct.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'OpenProduct',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/openProduct.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通舆情产品
-     *  *
-     * @param OpenProductRequest $request OpenProductRequest
+     * 开通舆情产品
      *
-     * @return OpenProductResponse OpenProductResponse
+     * @param request - OpenProductRequest
+     *
+     * @returns OpenProductResponse
+     *
+     * @param OpenProductRequest $request
+     *
+     * @return OpenProductResponse
      */
     public function openProduct($request)
     {
@@ -349,58 +408,73 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 查询产品开通实例列表
-     *  *
-     * @param QueryProductInstanceListRequest $request QueryProductInstanceListRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询产品开通实例列表.
      *
-     * @return QueryProductInstanceListResponse QueryProductInstanceListResponse
+     * @param request - QueryProductInstanceListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryProductInstanceListResponse
+     *
+     * @param QueryProductInstanceListRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryProductInstanceListResponse
      */
     public function queryProductInstanceListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appCode)) {
-            $query['appCode'] = $request->appCode;
+        if (null !== $request->appCode) {
+            @$query['appCode'] = $request->appCode;
         }
-        if (!Utils::isUnset($request->fromTime)) {
-            $query['fromTime'] = $request->fromTime;
+
+        if (null !== $request->fromTime) {
+            @$query['fromTime'] = $request->fromTime;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->tenantUid)) {
-            $query['tenantUid'] = $request->tenantUid;
+
+        if (null !== $request->tenantUid) {
+            @$query['tenantUid'] = $request->tenantUid;
         }
-        if (!Utils::isUnset($request->toTime)) {
-            $query['toTime'] = $request->toTime;
+
+        if (null !== $request->toTime) {
+            @$query['toTime'] = $request->toTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryProductInstanceList',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/queryProductInstanceList.json',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryProductInstanceList',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/queryProductInstanceList.json',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryProductInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询产品开通实例列表
-     *  *
-     * @param QueryProductInstanceListRequest $request QueryProductInstanceListRequest
+     * 查询产品开通实例列表.
      *
-     * @return QueryProductInstanceListResponse QueryProductInstanceListResponse
+     * @param request - QueryProductInstanceListRequest
+     *
+     * @returns QueryProductInstanceListResponse
+     *
+     * @param QueryProductInstanceListRequest $request
+     *
+     * @return QueryProductInstanceListResponse
      */
     public function queryProductInstanceList($request)
     {
@@ -411,54 +485,67 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 查询舆情文章列表
-     *  *
-     * @param QueryYuqingMessageRequest $request QueryYuqingMessageRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询舆情文章列表.
      *
-     * @return QueryYuqingMessageResponse QueryYuqingMessageResponse
+     * @param request - QueryYuqingMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryYuqingMessageResponse
+     *
+     * @param QueryYuqingMessageRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryYuqingMessageResponse
      */
     public function queryYuqingMessageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->searchCondition)) {
-            $body['searchCondition'] = $request->searchCondition;
+        if (null !== $request->searchCondition) {
+            @$body['searchCondition'] = $request->searchCondition;
         }
-        if (!Utils::isUnset($request->teamHashId)) {
-            $body['teamHashId'] = $request->teamHashId;
+
+        if (null !== $request->teamHashId) {
+            @$body['teamHashId'] = $request->teamHashId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryYuqingMessage',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/queryYuqingMessage.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryYuqingMessage',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/queryYuqingMessage.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryYuqingMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询舆情文章列表
-     *  *
-     * @param QueryYuqingMessageRequest $request QueryYuqingMessageRequest
+     * 查询舆情文章列表.
      *
-     * @return QueryYuqingMessageResponse QueryYuqingMessageResponse
+     * @param request - QueryYuqingMessageRequest
+     *
+     * @returns QueryYuqingMessageResponse
+     *
+     * @param QueryYuqingMessageRequest $request
+     *
+     * @return QueryYuqingMessageResponse
      */
     public function queryYuqingMessage($request)
     {
@@ -469,57 +556,71 @@ class Yuqing extends OpenApiClient
     }
 
     /**
-     * @summary 提交分析组件计算任务
-     *  *
-     * @param SubmitAnalysisTaskRequest $request SubmitAnalysisTaskRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 提交分析组件计算任务
      *
-     * @return SubmitAnalysisTaskResponse SubmitAnalysisTaskResponse
+     * @param request - SubmitAnalysisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAnalysisTaskResponse
+     *
+     * @param SubmitAnalysisTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitAnalysisTaskResponse
      */
     public function submitAnalysisTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $query['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$query['requestId'] = $request->requestId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->analyseType)) {
-            $body['analyseType'] = $request->analyseType;
+        if (null !== $request->analyseType) {
+            @$body['analyseType'] = $request->analyseType;
         }
-        if (!Utils::isUnset($request->searchCondition)) {
-            $body['searchCondition'] = $request->searchCondition;
+
+        if (null !== $request->searchCondition) {
+            @$body['searchCondition'] = $request->searchCondition;
         }
-        if (!Utils::isUnset($request->teamHashId)) {
-            $body['teamHashId'] = $request->teamHashId;
+
+        if (null !== $request->teamHashId) {
+            @$body['teamHashId'] = $request->teamHashId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitAnalysisTask',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/aliyun/submitAnalysisComponent.json',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitAnalysisTask',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/aliyun/submitAnalysisComponent.json',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交分析组件计算任务
-     *  *
-     * @param SubmitAnalysisTaskRequest $request SubmitAnalysisTaskRequest
+     * 提交分析组件计算任务
      *
-     * @return SubmitAnalysisTaskResponse SubmitAnalysisTaskResponse
+     * @param request - SubmitAnalysisTaskRequest
+     *
+     * @returns SubmitAnalysisTaskResponse
+     *
+     * @param SubmitAnalysisTaskRequest $request
+     *
+     * @return SubmitAnalysisTaskResponse
      */
     public function submitAnalysisTask($request)
     {

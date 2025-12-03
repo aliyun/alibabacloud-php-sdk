@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yuqing\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class YuqingFinanceEvent extends Model
 {
@@ -118,189 +118,307 @@ class YuqingFinanceEvent extends Model
      */
     public $userSubscribeEventTags;
     protected $_name = [
-        'comprehensiveRisk'       => 'comprehensiveRisk',
-        'entityArea'              => 'entityArea',
-        'entityCrn'               => 'entityCrn',
-        'entityEmotionScore'      => 'entityEmotionScore',
-        'entityId'                => 'entityId',
-        'entityName'              => 'entityName',
-        'entityRelevanceScore'    => 'entityRelevanceScore',
-        'entityShowName'          => 'entityShowName',
-        'entitySummary'           => 'entitySummary',
-        'entityType'              => 'entityType',
-        'eventId'                 => 'eventId',
-        'eventLevel3Code'         => 'eventLevel3Code',
-        'eventLevel3Name'         => 'eventLevel3Name',
-        'eventTags'               => 'eventTags',
-        'eventTime'               => 'eventTime',
-        'securityAbbreviation'    => 'securityAbbreviation',
-        'securityCategoryCodes'   => 'securityCategoryCodes',
-        'securityCodes'           => 'securityCodes',
-        'securityMarketsCodes'    => 'securityMarketsCodes',
-        'spamScore'               => 'spamScore',
+        'comprehensiveRisk' => 'comprehensiveRisk',
+        'entityArea' => 'entityArea',
+        'entityCrn' => 'entityCrn',
+        'entityEmotionScore' => 'entityEmotionScore',
+        'entityId' => 'entityId',
+        'entityName' => 'entityName',
+        'entityRelevanceScore' => 'entityRelevanceScore',
+        'entityShowName' => 'entityShowName',
+        'entitySummary' => 'entitySummary',
+        'entityType' => 'entityType',
+        'eventId' => 'eventId',
+        'eventLevel3Code' => 'eventLevel3Code',
+        'eventLevel3Name' => 'eventLevel3Name',
+        'eventTags' => 'eventTags',
+        'eventTime' => 'eventTime',
+        'securityAbbreviation' => 'securityAbbreviation',
+        'securityCategoryCodes' => 'securityCategoryCodes',
+        'securityCodes' => 'securityCodes',
+        'securityMarketsCodes' => 'securityMarketsCodes',
+        'spamScore' => 'spamScore',
         'userSubscribeEntityTags' => 'userSubscribeEntityTags',
-        'userSubscribeEventTags'  => 'userSubscribeEventTags',
+        'userSubscribeEventTags' => 'userSubscribeEventTags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->securityCategoryCodes)) {
+            Model::validateArray($this->securityCategoryCodes);
+        }
+        if (\is_array($this->securityCodes)) {
+            Model::validateArray($this->securityCodes);
+        }
+        if (\is_array($this->securityMarketsCodes)) {
+            Model::validateArray($this->securityMarketsCodes);
+        }
+        if (\is_array($this->userSubscribeEntityTags)) {
+            Model::validateArray($this->userSubscribeEntityTags);
+        }
+        if (\is_array($this->userSubscribeEventTags)) {
+            Model::validateArray($this->userSubscribeEventTags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comprehensiveRisk) {
             $res['comprehensiveRisk'] = $this->comprehensiveRisk;
         }
+
         if (null !== $this->entityArea) {
             $res['entityArea'] = $this->entityArea;
         }
+
         if (null !== $this->entityCrn) {
             $res['entityCrn'] = $this->entityCrn;
         }
+
         if (null !== $this->entityEmotionScore) {
             $res['entityEmotionScore'] = $this->entityEmotionScore;
         }
+
         if (null !== $this->entityId) {
             $res['entityId'] = $this->entityId;
         }
+
         if (null !== $this->entityName) {
             $res['entityName'] = $this->entityName;
         }
+
         if (null !== $this->entityRelevanceScore) {
             $res['entityRelevanceScore'] = $this->entityRelevanceScore;
         }
+
         if (null !== $this->entityShowName) {
             $res['entityShowName'] = $this->entityShowName;
         }
+
         if (null !== $this->entitySummary) {
             $res['entitySummary'] = $this->entitySummary;
         }
+
         if (null !== $this->entityType) {
             $res['entityType'] = $this->entityType;
         }
+
         if (null !== $this->eventId) {
             $res['eventId'] = $this->eventId;
         }
+
         if (null !== $this->eventLevel3Code) {
             $res['eventLevel3Code'] = $this->eventLevel3Code;
         }
+
         if (null !== $this->eventLevel3Name) {
             $res['eventLevel3Name'] = $this->eventLevel3Name;
         }
+
         if (null !== $this->eventTags) {
             $res['eventTags'] = $this->eventTags;
         }
+
         if (null !== $this->eventTime) {
             $res['eventTime'] = $this->eventTime;
         }
+
         if (null !== $this->securityAbbreviation) {
             $res['securityAbbreviation'] = $this->securityAbbreviation;
         }
+
         if (null !== $this->securityCategoryCodes) {
-            $res['securityCategoryCodes'] = $this->securityCategoryCodes;
+            if (\is_array($this->securityCategoryCodes)) {
+                $res['securityCategoryCodes'] = [];
+                $n1 = 0;
+                foreach ($this->securityCategoryCodes as $item1) {
+                    $res['securityCategoryCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->securityCodes) {
-            $res['securityCodes'] = $this->securityCodes;
+            if (\is_array($this->securityCodes)) {
+                $res['securityCodes'] = [];
+                $n1 = 0;
+                foreach ($this->securityCodes as $item1) {
+                    $res['securityCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->securityMarketsCodes) {
-            $res['securityMarketsCodes'] = $this->securityMarketsCodes;
+            if (\is_array($this->securityMarketsCodes)) {
+                $res['securityMarketsCodes'] = [];
+                $n1 = 0;
+                foreach ($this->securityMarketsCodes as $item1) {
+                    $res['securityMarketsCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->spamScore) {
             $res['spamScore'] = $this->spamScore;
         }
+
         if (null !== $this->userSubscribeEntityTags) {
-            $res['userSubscribeEntityTags'] = $this->userSubscribeEntityTags;
+            if (\is_array($this->userSubscribeEntityTags)) {
+                $res['userSubscribeEntityTags'] = [];
+                $n1 = 0;
+                foreach ($this->userSubscribeEntityTags as $item1) {
+                    $res['userSubscribeEntityTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userSubscribeEventTags) {
-            $res['userSubscribeEventTags'] = $this->userSubscribeEventTags;
+            if (\is_array($this->userSubscribeEventTags)) {
+                $res['userSubscribeEventTags'] = [];
+                $n1 = 0;
+                foreach ($this->userSubscribeEventTags as $item1) {
+                    $res['userSubscribeEventTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return YuqingFinanceEvent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comprehensiveRisk'])) {
             $model->comprehensiveRisk = $map['comprehensiveRisk'];
         }
+
         if (isset($map['entityArea'])) {
             $model->entityArea = $map['entityArea'];
         }
+
         if (isset($map['entityCrn'])) {
             $model->entityCrn = $map['entityCrn'];
         }
+
         if (isset($map['entityEmotionScore'])) {
             $model->entityEmotionScore = $map['entityEmotionScore'];
         }
+
         if (isset($map['entityId'])) {
             $model->entityId = $map['entityId'];
         }
+
         if (isset($map['entityName'])) {
             $model->entityName = $map['entityName'];
         }
+
         if (isset($map['entityRelevanceScore'])) {
             $model->entityRelevanceScore = $map['entityRelevanceScore'];
         }
+
         if (isset($map['entityShowName'])) {
             $model->entityShowName = $map['entityShowName'];
         }
+
         if (isset($map['entitySummary'])) {
             $model->entitySummary = $map['entitySummary'];
         }
+
         if (isset($map['entityType'])) {
             $model->entityType = $map['entityType'];
         }
+
         if (isset($map['eventId'])) {
             $model->eventId = $map['eventId'];
         }
+
         if (isset($map['eventLevel3Code'])) {
             $model->eventLevel3Code = $map['eventLevel3Code'];
         }
+
         if (isset($map['eventLevel3Name'])) {
             $model->eventLevel3Name = $map['eventLevel3Name'];
         }
+
         if (isset($map['eventTags'])) {
             $model->eventTags = $map['eventTags'];
         }
+
         if (isset($map['eventTime'])) {
             $model->eventTime = $map['eventTime'];
         }
+
         if (isset($map['securityAbbreviation'])) {
             $model->securityAbbreviation = $map['securityAbbreviation'];
         }
+
         if (isset($map['securityCategoryCodes'])) {
             if (!empty($map['securityCategoryCodes'])) {
-                $model->securityCategoryCodes = $map['securityCategoryCodes'];
+                $model->securityCategoryCodes = [];
+                $n1 = 0;
+                foreach ($map['securityCategoryCodes'] as $item1) {
+                    $model->securityCategoryCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['securityCodes'])) {
             if (!empty($map['securityCodes'])) {
-                $model->securityCodes = $map['securityCodes'];
+                $model->securityCodes = [];
+                $n1 = 0;
+                foreach ($map['securityCodes'] as $item1) {
+                    $model->securityCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['securityMarketsCodes'])) {
             if (!empty($map['securityMarketsCodes'])) {
-                $model->securityMarketsCodes = $map['securityMarketsCodes'];
+                $model->securityMarketsCodes = [];
+                $n1 = 0;
+                foreach ($map['securityMarketsCodes'] as $item1) {
+                    $model->securityMarketsCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['spamScore'])) {
             $model->spamScore = $map['spamScore'];
         }
+
         if (isset($map['userSubscribeEntityTags'])) {
             if (!empty($map['userSubscribeEntityTags'])) {
-                $model->userSubscribeEntityTags = $map['userSubscribeEntityTags'];
+                $model->userSubscribeEntityTags = [];
+                $n1 = 0;
+                foreach ($map['userSubscribeEntityTags'] as $item1) {
+                    $model->userSubscribeEntityTags[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['userSubscribeEventTags'])) {
             if (!empty($map['userSubscribeEventTags'])) {
-                $model->userSubscribeEventTags = $map['userSubscribeEventTags'];
+                $model->userSubscribeEventTags = [];
+                $n1 = 0;
+                foreach ($map['userSubscribeEventTags'] as $item1) {
+                    $model->userSubscribeEventTags[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
