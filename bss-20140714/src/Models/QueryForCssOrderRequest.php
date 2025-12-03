@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bss\V20140714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryForCssOrderRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $paramStr;
@@ -20,9 +18,10 @@ class QueryForCssOrderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramStr) {
@@ -32,11 +31,11 @@ class QueryForCssOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryForCssOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bss\V20140714;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Bss\V20140714\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Bss\V20140714\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Bss\V20140714\Models\DescribeCashDetailResponse;
@@ -17,11 +16,10 @@ use AlibabaCloud\SDK\Bss\V20140714\Models\QueryForCssOrderRequest;
 use AlibabaCloud\SDK\Bss\V20140714\Models\QueryForCssOrderResponse;
 use AlibabaCloud\SDK\Bss\V20140714\Models\VnoBatchRefundOrderRequest;
 use AlibabaCloud\SDK\Bss\V20140714\Models\VnoBatchRefundOrderResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Bss extends OpenApiClient
 {
@@ -46,51 +44,66 @@ class Bss extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param CreateOrderRequest $request CreateOrderRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 创建订单.
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param request - CreateOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
      */
     public function createOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramStr)) {
-            $query['paramStr'] = $request->paramStr;
+        if (null !== $request->paramStr) {
+            @$query['paramStr'] = $request->paramStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrder',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOrder',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOrderRequest $request CreateOrderRequest
+     * 创建订单.
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param request - CreateOrderRequest
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -100,34 +113,41 @@ class Bss extends OpenApiClient
     }
 
     /**
-     * @summary 获取现金明细
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取现金明细.
      *
-     * @return DescribeCashDetailResponse DescribeCashDetailResponse
+     * @param request - DescribeCashDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCashDetailResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeCashDetailResponse
      */
     public function describeCashDetailWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeCashDetail',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCashDetail',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCashDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取现金明细
-     *  *
-     * @return DescribeCashDetailResponse DescribeCashDetailResponse
+     * 获取现金明细.
+     *
+     * @returns DescribeCashDetailResponse
+     *
+     * @return DescribeCashDetailResponse
      */
     public function describeCashDetail()
     {
@@ -137,52 +157,70 @@ class Bss extends OpenApiClient
     }
 
     /**
-     * @param DescribeCouponListRequest $request DescribeCouponListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询卡券列表.
      *
-     * @return DescribeCouponListResponse DescribeCouponListResponse
+     * @param request - DescribeCouponListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCouponListResponse
+     *
+     * @param DescribeCouponListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCouponListResponse
      */
     public function describeCouponListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endDeliveryTime)) {
-            $query['EndDeliveryTime'] = $request->endDeliveryTime;
+        if (null !== $request->endDeliveryTime) {
+            @$query['EndDeliveryTime'] = $request->endDeliveryTime;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startDeliveryTime)) {
-            $query['StartDeliveryTime'] = $request->startDeliveryTime;
+
+        if (null !== $request->startDeliveryTime) {
+            @$query['StartDeliveryTime'] = $request->startDeliveryTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCouponList',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCouponList',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCouponListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCouponListRequest $request DescribeCouponListRequest
+     * 查询卡券列表.
      *
-     * @return DescribeCouponListResponse DescribeCouponListResponse
+     * @param request - DescribeCouponListRequest
+     *
+     * @returns DescribeCouponListResponse
+     *
+     * @param DescribeCouponListRequest $request
+     *
+     * @return DescribeCouponListResponse
      */
     public function describeCouponList($request)
     {
@@ -192,44 +230,54 @@ class Bss extends OpenApiClient
     }
 
     /**
-     * @summary OpenCallback
-     *  *
-     * @param OpenCallbackRequest $request OpenCallbackRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 生产开通回调接口.
      *
-     * @return OpenCallbackResponse OpenCallbackResponse
+     * @param request - OpenCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenCallbackResponse
+     *
+     * @param OpenCallbackRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return OpenCallbackResponse
      */
     public function openCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramStr)) {
-            $query['paramStr'] = $request->paramStr;
+        if (null !== $request->paramStr) {
+            @$query['paramStr'] = $request->paramStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenCallback',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenCallback',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary OpenCallback
-     *  *
-     * @param OpenCallbackRequest $request OpenCallbackRequest
+     * 生产开通回调接口.
      *
-     * @return OpenCallbackResponse OpenCallbackResponse
+     * @param request - OpenCallbackRequest
+     *
+     * @returns OpenCallbackResponse
+     *
+     * @param OpenCallbackRequest $request
+     *
+     * @return OpenCallbackResponse
      */
     public function openCallback($request)
     {
@@ -239,40 +287,54 @@ class Bss extends OpenApiClient
     }
 
     /**
-     * @param QueryForCssOrderRequest $request QueryForCssOrderRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 订单询价.
      *
-     * @return QueryForCssOrderResponse QueryForCssOrderResponse
+     * @param request - QueryForCssOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryForCssOrderResponse
+     *
+     * @param QueryForCssOrderRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryForCssOrderResponse
      */
     public function queryForCssOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramStr)) {
-            $query['paramStr'] = $request->paramStr;
+        if (null !== $request->paramStr) {
+            @$query['paramStr'] = $request->paramStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryForCssOrder',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryForCssOrder',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryForCssOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryForCssOrderRequest $request QueryForCssOrderRequest
+     * 订单询价.
      *
-     * @return QueryForCssOrderResponse QueryForCssOrderResponse
+     * @param request - QueryForCssOrderRequest
+     *
+     * @returns QueryForCssOrderResponse
+     *
+     * @param QueryForCssOrderRequest $request
+     *
+     * @return QueryForCssOrderResponse
      */
     public function queryForCssOrder($request)
     {
@@ -282,40 +344,54 @@ class Bss extends OpenApiClient
     }
 
     /**
-     * @param VnoBatchRefundOrderRequest $request VnoBatchRefundOrderRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * vnoBatchRefundOrder.
      *
-     * @return VnoBatchRefundOrderResponse VnoBatchRefundOrderResponse
+     * @param request - VnoBatchRefundOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VnoBatchRefundOrderResponse
+     *
+     * @param VnoBatchRefundOrderRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return VnoBatchRefundOrderResponse
      */
     public function vnoBatchRefundOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramStr)) {
-            $query['paramStr'] = $request->paramStr;
+        if (null !== $request->paramStr) {
+            @$query['paramStr'] = $request->paramStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'vnoBatchRefundOrder',
-            'version'     => '2014-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'vnoBatchRefundOrder',
+            'version' => '2014-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VnoBatchRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param VnoBatchRefundOrderRequest $request VnoBatchRefundOrderRequest
+     * vnoBatchRefundOrder.
      *
-     * @return VnoBatchRefundOrderResponse VnoBatchRefundOrderResponse
+     * @param request - VnoBatchRefundOrderRequest
+     *
+     * @returns VnoBatchRefundOrderResponse
+     *
+     * @param VnoBatchRefundOrderRequest $request
+     *
+     * @return VnoBatchRefundOrderResponse
      */
     public function vnoBatchRefundOrder($request)
     {

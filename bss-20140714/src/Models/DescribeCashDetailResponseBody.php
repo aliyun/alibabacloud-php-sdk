@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bss\V20140714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCashDetailResponseBody extends Model
 {
@@ -58,52 +58,62 @@ class DescribeCashDetailResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'amountOwed'           => 'AmountOwed',
-        'availableCredit'      => 'AvailableCredit',
-        'balanceAmount'        => 'BalanceAmount',
-        'creditCardAmount'     => 'CreditCardAmount',
-        'creditLimit'          => 'CreditLimit',
+        'amountOwed' => 'AmountOwed',
+        'availableCredit' => 'AvailableCredit',
+        'balanceAmount' => 'BalanceAmount',
+        'creditCardAmount' => 'CreditCardAmount',
+        'creditLimit' => 'CreditLimit',
         'enableThresholdAlert' => 'EnableThresholdAlert',
-        'frozenAmount'         => 'FrozenAmount',
-        'miniAlertThreshold'   => 'MiniAlertThreshold',
-        'remmitanceAmount'     => 'RemmitanceAmount',
-        'requestId'            => 'RequestId',
+        'frozenAmount' => 'FrozenAmount',
+        'miniAlertThreshold' => 'MiniAlertThreshold',
+        'remmitanceAmount' => 'RemmitanceAmount',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amountOwed) {
             $res['AmountOwed'] = $this->amountOwed;
         }
+
         if (null !== $this->availableCredit) {
             $res['AvailableCredit'] = $this->availableCredit;
         }
+
         if (null !== $this->balanceAmount) {
             $res['BalanceAmount'] = $this->balanceAmount;
         }
+
         if (null !== $this->creditCardAmount) {
             $res['CreditCardAmount'] = $this->creditCardAmount;
         }
+
         if (null !== $this->creditLimit) {
             $res['CreditLimit'] = $this->creditLimit;
         }
+
         if (null !== $this->enableThresholdAlert) {
             $res['EnableThresholdAlert'] = $this->enableThresholdAlert;
         }
+
         if (null !== $this->frozenAmount) {
             $res['FrozenAmount'] = $this->frozenAmount;
         }
+
         if (null !== $this->miniAlertThreshold) {
             $res['MiniAlertThreshold'] = $this->miniAlertThreshold;
         }
+
         if (null !== $this->remmitanceAmount) {
             $res['RemmitanceAmount'] = $this->remmitanceAmount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -111,41 +121,50 @@ class DescribeCashDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCashDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AmountOwed'])) {
             $model->amountOwed = $map['AmountOwed'];
         }
+
         if (isset($map['AvailableCredit'])) {
             $model->availableCredit = $map['AvailableCredit'];
         }
+
         if (isset($map['BalanceAmount'])) {
             $model->balanceAmount = $map['BalanceAmount'];
         }
+
         if (isset($map['CreditCardAmount'])) {
             $model->creditCardAmount = $map['CreditCardAmount'];
         }
+
         if (isset($map['CreditLimit'])) {
             $model->creditLimit = $map['CreditLimit'];
         }
+
         if (isset($map['EnableThresholdAlert'])) {
             $model->enableThresholdAlert = $map['EnableThresholdAlert'];
         }
+
         if (isset($map['FrozenAmount'])) {
             $model->frozenAmount = $map['FrozenAmount'];
         }
+
         if (isset($map['MiniAlertThreshold'])) {
             $model->miniAlertThreshold = $map['MiniAlertThreshold'];
         }
+
         if (isset($map['RemmitanceAmount'])) {
             $model->remmitanceAmount = $map['RemmitanceAmount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

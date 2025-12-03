@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bss\V20140714\Models\DescribeCouponListResponseBody\coupons\coupon;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class productCodes extends Model
 {
@@ -18,29 +18,45 @@ class productCodes extends Model
 
     public function validate()
     {
+        if (\is_array($this->productCode)) {
+            Model::validateArray($this->productCode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+            if (\is_array($this->productCode)) {
+                $res['ProductCode'] = [];
+                $n1 = 0;
+                foreach ($this->productCode as $item1) {
+                    $res['ProductCode'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productCodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductCode'])) {
             if (!empty($map['ProductCode'])) {
-                $model->productCode = $map['ProductCode'];
+                $model->productCode = [];
+                $n1 = 0;
+                foreach ($map['ProductCode'] as $item1) {
+                    $model->productCode[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
