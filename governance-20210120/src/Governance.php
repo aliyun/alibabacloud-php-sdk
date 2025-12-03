@@ -809,6 +809,10 @@ class Governance extends OpenApiClient
             @$query['AccountId'] = $request->accountId;
         }
 
+        if (null !== $request->date) {
+            @$query['Date'] = $request->date;
+        }
+
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
         }

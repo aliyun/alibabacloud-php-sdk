@@ -16,6 +16,11 @@ class ListEvaluationMetricDetailsRequest extends Model
     /**
      * @var string
      */
+    public $date;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -44,6 +49,7 @@ class ListEvaluationMetricDetailsRequest extends Model
     public $snapshotId;
     protected $_name = [
         'accountId' => 'AccountId',
+        'date' => 'Date',
         'id' => 'Id',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -62,6 +68,10 @@ class ListEvaluationMetricDetailsRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
         }
 
         if (null !== $this->id) {
@@ -101,6 +111,10 @@ class ListEvaluationMetricDetailsRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
         }
 
         if (isset($map['Id'])) {

@@ -12,6 +12,11 @@ class ListEvaluationMetricDetailsResponseBody extends Model
     /**
      * @var string
      */
+    public $date;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -24,6 +29,7 @@ class ListEvaluationMetricDetailsResponseBody extends Model
      */
     public $resources;
     protected $_name = [
+        'date' => 'Date',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'resources' => 'Resources',
@@ -40,6 +46,10 @@ class ListEvaluationMetricDetailsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
+        }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -70,6 +80,10 @@ class ListEvaluationMetricDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
+        }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
