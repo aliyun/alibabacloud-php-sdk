@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eduaiservice\V20231218\Models\QueryOrgLabRecordListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -34,20 +34,26 @@ class data extends Model
         'submittedAt' => 'SubmittedAt',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
+
         if (null !== $this->labRecordId) {
             $res['LabRecordId'] = $this->labRecordId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->submittedAt) {
             $res['SubmittedAt'] = $this->submittedAt;
         }
@@ -55,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
+
         if (isset($map['LabRecordId'])) {
             $model->labRecordId = $map['LabRecordId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubmittedAt'])) {
             $model->submittedAt = $map['SubmittedAt'];
         }

@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eduaiservice\V20231218;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eduaiservice\V20231218\Models\QueryOrgLabRecordListRequest;
 use AlibabaCloud\SDK\Eduaiservice\V20231218\Models\QueryOrgLabRecordListResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eduaiservice extends OpenApiClient
 {
@@ -37,48 +35,60 @@ class Eduaiservice extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 查询指定学生实验记录
-     *  *
-     * @param QueryOrgLabRecordListRequest $request QueryOrgLabRecordListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询指定学生实验记录.
      *
-     * @return QueryOrgLabRecordListResponse QueryOrgLabRecordListResponse
+     * @param request - QueryOrgLabRecordListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryOrgLabRecordListResponse
+     *
+     * @param QueryOrgLabRecordListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryOrgLabRecordListResponse
      */
     public function queryOrgLabRecordListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunUid)) {
-            $query['AliyunUid'] = $request->aliyunUid;
+        if (null !== $request->aliyunUid) {
+            @$query['AliyunUid'] = $request->aliyunUid;
         }
-        if (!Utils::isUnset($request->labId)) {
-            $query['LabId'] = $request->labId;
+
+        if (null !== $request->labId) {
+            @$query['LabId'] = $request->labId;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderDirection)) {
-            $query['OrderDirection'] = $request->orderDirection;
+
+        if (null !== $request->orderDirection) {
+            @$query['OrderDirection'] = $request->orderDirection;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryOrgLabRecordList',
@@ -96,11 +106,15 @@ class Eduaiservice extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定学生实验记录
-     *  *
-     * @param QueryOrgLabRecordListRequest $request QueryOrgLabRecordListRequest
+     * 查询指定学生实验记录.
      *
-     * @return QueryOrgLabRecordListResponse QueryOrgLabRecordListResponse
+     * @param request - QueryOrgLabRecordListRequest
+     *
+     * @returns QueryOrgLabRecordListResponse
+     *
+     * @param QueryOrgLabRecordListRequest $request
+     *
+     * @return QueryOrgLabRecordListResponse
      */
     public function queryOrgLabRecordList($request)
     {
