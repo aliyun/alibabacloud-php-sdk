@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadDeviceRequest extends Model
 {
     /**
-     * @example device_token_1\\ndevice_token_2\\ndevice_token_3\\n...
-     * alias1\\nalias2\\nalias3\\n...
      * @var string
      */
     public $deviceTokens;
@@ -20,9 +18,10 @@ class UploadDeviceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceTokens) {
@@ -32,11 +31,11 @@ class UploadDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

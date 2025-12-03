@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HarmonyBody extends Model
 {
@@ -58,52 +58,62 @@ class HarmonyBody extends Model
      */
     public $uri;
     protected $_name = [
-        'action'    => 'action',
-        'addBadge'  => 'addBadge',
+        'action' => 'action',
+        'addBadge' => 'addBadge',
         'afterOpen' => 'afterOpen',
-        'bigBody'   => 'bigBody',
-        'custom'    => 'custom',
-        'img'       => 'img',
+        'bigBody' => 'bigBody',
+        'custom' => 'custom',
+        'img' => 'img',
         'largeIcon' => 'largeIcon',
-        'text'      => 'text',
-        'title'     => 'title',
-        'uri'       => 'uri',
+        'text' => 'text',
+        'title' => 'title',
+        'uri' => 'uri',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['action'] = $this->action;
         }
+
         if (null !== $this->addBadge) {
             $res['addBadge'] = $this->addBadge;
         }
+
         if (null !== $this->afterOpen) {
             $res['afterOpen'] = $this->afterOpen;
         }
+
         if (null !== $this->bigBody) {
             $res['bigBody'] = $this->bigBody;
         }
+
         if (null !== $this->custom) {
             $res['custom'] = $this->custom;
         }
+
         if (null !== $this->img) {
             $res['img'] = $this->img;
         }
+
         if (null !== $this->largeIcon) {
             $res['largeIcon'] = $this->largeIcon;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->uri) {
             $res['uri'] = $this->uri;
         }
@@ -111,41 +121,50 @@ class HarmonyBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HarmonyBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action'])) {
             $model->action = $map['action'];
         }
+
         if (isset($map['addBadge'])) {
             $model->addBadge = $map['addBadge'];
         }
+
         if (isset($map['afterOpen'])) {
             $model->afterOpen = $map['afterOpen'];
         }
+
         if (isset($map['bigBody'])) {
             $model->bigBody = $map['bigBody'];
         }
+
         if (isset($map['custom'])) {
             $model->custom = $map['custom'];
         }
+
         if (isset($map['img'])) {
             $model->img = $map['img'];
         }
+
         if (isset($map['largeIcon'])) {
             $model->largeIcon = $map['largeIcon'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['uri'])) {
             $model->uri = $map['uri'];
         }

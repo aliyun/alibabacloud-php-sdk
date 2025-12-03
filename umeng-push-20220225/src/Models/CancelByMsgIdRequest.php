@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelByMsgIdRequest extends Model
 {
     /**
-     * @example ucj0242167047014687101
-     *
      * @var string
      */
     public $msgId;
@@ -20,9 +18,10 @@ class CancelByMsgIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msgId) {
@@ -32,11 +31,11 @@ class CancelByMsgIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelByMsgIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

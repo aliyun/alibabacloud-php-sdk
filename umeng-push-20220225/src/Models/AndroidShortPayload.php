@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\AndroidShortPayload\body;
-use AlibabaCloud\Tea\Model;
 
 class AndroidShortPayload extends Model
 {
@@ -19,40 +19,59 @@ class AndroidShortPayload extends Model
      */
     public $extra;
     protected $_name = [
-        'body'  => 'body',
+        'body' => 'body',
         'extra' => 'extra',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        if (\is_array($this->extra)) {
+            Model::validateArray($this->extra);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->extra) {
-            $res['extra'] = $this->extra;
+            if (\is_array($this->extra)) {
+                $res['extra'] = [];
+                foreach ($this->extra as $key1 => $value1) {
+                    $res['extra'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AndroidShortPayload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = body::fromMap($map['body']);
         }
+
         if (isset($map['extra'])) {
-            $model->extra = $map['extra'];
+            if (!empty($map['extra'])) {
+                $model->extra = [];
+                foreach ($map['extra'] as $key1 => $value1) {
+                    $model->extra[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

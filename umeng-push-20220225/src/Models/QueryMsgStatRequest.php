@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryMsgStatRequest extends Model
 {
     /**
-     * @example ufe29y2167046828041801
-     *
      * @var string
      */
     public $msgId;
@@ -20,9 +18,10 @@ class QueryMsgStatRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msgId) {
@@ -32,11 +31,11 @@ class QueryMsgStatRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMsgStatRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\CancelByMsgIdRequest;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\CancelByMsgIdResponse;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\QueryMsgStatRequest;
@@ -30,11 +29,10 @@ use AlibabaCloud\SDK\Umengpush\V20220225\Models\SendByFilterResponse;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\SendByFilterShrinkRequest;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\UploadDeviceRequest;
 use AlibabaCloud\SDK\Umengpush\V20220225\Models\UploadDeviceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Umengpush extends OpenApiClient
 {
@@ -59,57 +57,69 @@ class Umengpush extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 根据消息ID取消发送
-     *  *
-     * @param CancelByMsgIdRequest $request CancelByMsgIdRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 根据消息ID取消发送
      *
-     * @return CancelByMsgIdResponse CancelByMsgIdResponse
+     * @param request - CancelByMsgIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelByMsgIdResponse
+     *
+     * @param CancelByMsgIdRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CancelByMsgIdResponse
      */
     public function cancelByMsgIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->msgId)) {
-            $body['MsgId'] = $request->msgId;
+        if (null !== $request->msgId) {
+            @$body['MsgId'] = $request->msgId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelByMsgId',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/CancelByMsgId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelByMsgId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/CancelByMsgId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据消息ID取消发送
-     *  *
-     * @param CancelByMsgIdRequest $request CancelByMsgIdRequest
+     * 根据消息ID取消发送
      *
-     * @return CancelByMsgIdResponse CancelByMsgIdResponse
+     * @param request - CancelByMsgIdRequest
+     *
+     * @returns CancelByMsgIdResponse
+     *
+     * @param CancelByMsgIdRequest $request
+     *
+     * @return CancelByMsgIdResponse
      */
     public function cancelByMsgId($request)
     {
@@ -120,46 +130,57 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 消息状态查询
-     *  *
-     * @param QueryMsgStatRequest $request QueryMsgStatRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 消息状态查询.
      *
-     * @return QueryMsgStatResponse QueryMsgStatResponse
+     * @param request - QueryMsgStatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMsgStatResponse
+     *
+     * @param QueryMsgStatRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryMsgStatResponse
      */
     public function queryMsgStatWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->msgId)) {
-            $body['MsgId'] = $request->msgId;
+        if (null !== $request->msgId) {
+            @$body['MsgId'] = $request->msgId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMsgStat',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/QueryMsgStat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMsgStat',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/QueryMsgStat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMsgStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 消息状态查询
-     *  *
-     * @param QueryMsgStatRequest $request QueryMsgStatRequest
+     * 消息状态查询.
      *
-     * @return QueryMsgStatResponse QueryMsgStatResponse
+     * @param request - QueryMsgStatRequest
+     *
+     * @returns QueryMsgStatResponse
+     *
+     * @param QueryMsgStatRequest $request
+     *
+     * @return QueryMsgStatResponse
      */
     public function queryMsgStat($request)
     {
@@ -170,105 +191,135 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 指定别名发送
-     *  *
-     * @param SendByAliasRequest $tmpReq  SendByAliasRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 指定别名发送
      *
-     * @return SendByAliasResponse SendByAliasResponse
+     * @param tmpReq - SendByAliasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByAliasResponse
+     *
+     * @param SendByAliasRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendByAliasResponse
      */
     public function sendByAliasWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByAliasShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
-            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+
+        if (null !== $tmpReq->androidShortPayload) {
+            $request->androidShortPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->aliasType)) {
-            $body['AliasType'] = $request->aliasType;
+
+        if (null !== $request->aliasType) {
+            @$body['AliasType'] = $request->aliasType;
         }
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
+
+        if (null !== $request->androidShortPayloadShrink) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByAlias',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByAlias',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByAlias',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByAlias',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 指定别名发送
-     *  *
-     * @param SendByAliasRequest $request SendByAliasRequest
+     * 指定别名发送
      *
-     * @return SendByAliasResponse SendByAliasResponse
+     * @param request - SendByAliasRequest
+     *
+     * @returns SendByAliasResponse
+     *
+     * @param SendByAliasRequest $request
+     *
+     * @return SendByAliasResponse
      */
     public function sendByAlias($request)
     {
@@ -279,105 +330,135 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 指定别名文件发送
-     *  *
-     * @param SendByAliasFileIdRequest $tmpReq  SendByAliasFileIdRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 指定别名文件发送
      *
-     * @return SendByAliasFileIdResponse SendByAliasFileIdResponse
+     * @param tmpReq - SendByAliasFileIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByAliasFileIdResponse
+     *
+     * @param SendByAliasFileIdRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendByAliasFileIdResponse
      */
     public function sendByAliasFileIdWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByAliasFileIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
-            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+
+        if (null !== $tmpReq->androidShortPayload) {
+            $request->androidShortPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aliasType)) {
-            $body['AliasType'] = $request->aliasType;
+        if (null !== $request->aliasType) {
+            @$body['AliasType'] = $request->aliasType;
         }
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
+
+        if (null !== $request->androidShortPayloadShrink) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByAliasFileId',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByAliasFileId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByAliasFileId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByAliasFileId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByAliasFileIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 指定别名文件发送
-     *  *
-     * @param SendByAliasFileIdRequest $request SendByAliasFileIdRequest
+     * 指定别名文件发送
      *
-     * @return SendByAliasFileIdResponse SendByAliasFileIdResponse
+     * @param request - SendByAliasFileIdRequest
+     *
+     * @returns SendByAliasFileIdResponse
+     *
+     * @param SendByAliasFileIdRequest $request
+     *
+     * @return SendByAliasFileIdResponse
      */
     public function sendByAliasFileId($request)
     {
@@ -388,99 +469,127 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 广播
-     *  *
-     * @param SendByAppRequest $tmpReq  SendByAppRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 广播.
      *
-     * @return SendByAppResponse SendByAppResponse
+     * @param tmpReq - SendByAppRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByAppResponse
+     *
+     * @param SendByAppRequest $tmpReq
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SendByAppResponse
      */
     public function sendByAppWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
-            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+
+        if (null !== $tmpReq->androidShortPayload) {
+            $request->androidShortPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
+
+        if (null !== $request->androidShortPayloadShrink) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByApp',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByApp',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByApp',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByApp',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 广播
-     *  *
-     * @param SendByAppRequest $request SendByAppRequest
+     * 广播.
      *
-     * @return SendByAppResponse SendByAppResponse
+     * @param request - SendByAppRequest
+     *
+     * @returns SendByAppResponse
+     *
+     * @param SendByAppRequest $request
+     *
+     * @return SendByAppResponse
      */
     public function sendByApp($request)
     {
@@ -491,102 +600,131 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 指定设备发送
-     *  *
-     * @param SendByDeviceRequest $tmpReq  SendByDeviceRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 指定设备发送
      *
-     * @return SendByDeviceResponse SendByDeviceResponse
+     * @param tmpReq - SendByDeviceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByDeviceResponse
+     *
+     * @param SendByDeviceRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SendByDeviceResponse
      */
     public function sendByDeviceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByDeviceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
-            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+
+        if (null !== $tmpReq->androidShortPayload) {
+            $request->androidShortPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
+
+        if (null !== $request->androidShortPayloadShrink) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->deviceTokens)) {
-            $body['DeviceTokens'] = $request->deviceTokens;
+
+        if (null !== $request->deviceTokens) {
+            @$body['DeviceTokens'] = $request->deviceTokens;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByDevice',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByDevice',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 指定设备发送
-     *  *
-     * @param SendByDeviceRequest $request SendByDeviceRequest
+     * 指定设备发送
      *
-     * @return SendByDeviceResponse SendByDeviceResponse
+     * @param request - SendByDeviceRequest
+     *
+     * @returns SendByDeviceResponse
+     *
+     * @param SendByDeviceRequest $request
+     *
+     * @return SendByDeviceResponse
      */
     public function sendByDevice($request)
     {
@@ -597,102 +735,131 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 指定设备文件发送
-     *  *
-     * @param SendByDeviceFileIdRequest $tmpReq  SendByDeviceFileIdRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 指定设备文件发送
      *
-     * @return SendByDeviceFileIdResponse SendByDeviceFileIdResponse
+     * @param tmpReq - SendByDeviceFileIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByDeviceFileIdResponse
+     *
+     * @param SendByDeviceFileIdRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendByDeviceFileIdResponse
      */
     public function sendByDeviceFileIdWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByDeviceFileIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
-            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+
+        if (null !== $tmpReq->androidShortPayload) {
+            $request->androidShortPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
+
+        if (null !== $request->androidShortPayloadShrink) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByDeviceFileId',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByDeviceFileId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByDeviceFileId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByDeviceFileId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByDeviceFileIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 指定设备文件发送
-     *  *
-     * @param SendByDeviceFileIdRequest $request SendByDeviceFileIdRequest
+     * 指定设备文件发送
      *
-     * @return SendByDeviceFileIdResponse SendByDeviceFileIdResponse
+     * @param request - SendByDeviceFileIdRequest
+     *
+     * @returns SendByDeviceFileIdResponse
+     *
+     * @param SendByDeviceFileIdRequest $request
+     *
+     * @return SendByDeviceFileIdResponse
      */
     public function sendByDeviceFileId($request)
     {
@@ -703,99 +870,127 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 根据筛选条件发送
-     *  *
-     * @param SendByFilterRequest $tmpReq  SendByFilterRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 根据筛选条件发送
      *
-     * @return SendByFilterResponse SendByFilterResponse
+     * @param tmpReq - SendByFilterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendByFilterResponse
+     *
+     * @param SendByFilterRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SendByFilterResponse
      */
     public function sendByFilterWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendByFilterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->androidPayload)) {
-            $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->androidPayload) {
+            $request->androidPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->channelProperties)) {
-            $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
+
+        if (null !== $tmpReq->channelProperties) {
+            $request->channelPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
-            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+
+        if (null !== $tmpReq->harmonyPayload) {
+            $request->harmonyPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->iosPayload)) {
-            $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
+
+        if (null !== $tmpReq->iosPayload) {
+            $request->iosPayloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->policy)) {
-            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidPayloadShrink)) {
-            $body['AndroidPayload'] = $request->androidPayloadShrink;
+        if (null !== $request->androidPayloadShrink) {
+            @$body['AndroidPayload'] = $request->androidPayloadShrink;
         }
-        if (!Utils::isUnset($request->androidShortPayload)) {
-            $body['AndroidShortPayload'] = $request->androidShortPayload;
+
+        if (null !== $request->androidShortPayload) {
+            @$body['AndroidShortPayload'] = $request->androidShortPayload;
         }
-        if (!Utils::isUnset($request->channelPropertiesShrink)) {
-            $body['ChannelProperties'] = $request->channelPropertiesShrink;
+
+        if (null !== $request->channelPropertiesShrink) {
+            @$body['ChannelProperties'] = $request->channelPropertiesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $body['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
-            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
+
+        if (null !== $request->harmonyPayloadShrink) {
+            @$body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
-        if (!Utils::isUnset($request->iosPayloadShrink)) {
-            $body['IosPayload'] = $request->iosPayloadShrink;
+
+        if (null !== $request->iosPayloadShrink) {
+            @$body['IosPayload'] = $request->iosPayloadShrink;
         }
-        if (!Utils::isUnset($request->policyShrink)) {
-            $body['Policy'] = $request->policyShrink;
+
+        if (null !== $request->policyShrink) {
+            @$body['Policy'] = $request->policyShrink;
         }
-        if (!Utils::isUnset($request->productionMode)) {
-            $body['ProductionMode'] = $request->productionMode;
+
+        if (null !== $request->productionMode) {
+            @$body['ProductionMode'] = $request->productionMode;
         }
-        if (!Utils::isUnset($request->receiptType)) {
-            $body['ReceiptType'] = $request->receiptType;
+
+        if (null !== $request->receiptType) {
+            @$body['ReceiptType'] = $request->receiptType;
         }
-        if (!Utils::isUnset($request->receiptUrl)) {
-            $body['ReceiptUrl'] = $request->receiptUrl;
+
+        if (null !== $request->receiptUrl) {
+            @$body['ReceiptUrl'] = $request->receiptUrl;
         }
-        if (!Utils::isUnset($request->thirdPartyId)) {
-            $body['ThirdPartyId'] = $request->thirdPartyId;
+
+        if (null !== $request->thirdPartyId) {
+            @$body['ThirdPartyId'] = $request->thirdPartyId;
         }
-        if (!Utils::isUnset($request->callbackParams)) {
-            $body['callbackParams'] = $request->callbackParams;
+
+        if (null !== $request->callbackParams) {
+            @$body['callbackParams'] = $request->callbackParams;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendByFilter',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/SendByFilter',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendByFilter',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/SendByFilter',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendByFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据筛选条件发送
-     *  *
-     * @param SendByFilterRequest $request SendByFilterRequest
+     * 根据筛选条件发送
      *
-     * @return SendByFilterResponse SendByFilterResponse
+     * @param request - SendByFilterRequest
+     *
+     * @returns SendByFilterResponse
+     *
+     * @param SendByFilterRequest $request
+     *
+     * @return SendByFilterResponse
      */
     public function sendByFilter($request)
     {
@@ -806,46 +1001,57 @@ class Umengpush extends OpenApiClient
     }
 
     /**
-     * @summary 上传设备列表创建设备文件
-     *  *
-     * @param UploadDeviceRequest $request UploadDeviceRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 上传设备列表创建设备文件.
      *
-     * @return UploadDeviceResponse UploadDeviceResponse
+     * @param request - UploadDeviceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDeviceResponse
+     *
+     * @param UploadDeviceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UploadDeviceResponse
      */
     public function uploadDeviceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deviceTokens)) {
-            $body['DeviceTokens'] = $request->deviceTokens;
+        if (null !== $request->deviceTokens) {
+            @$body['DeviceTokens'] = $request->deviceTokens;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadDevice',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/UploadDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UploadDevice',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/UploadDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上传设备列表创建设备文件
-     *  *
-     * @param UploadDeviceRequest $request UploadDeviceRequest
+     * 上传设备列表创建设备文件.
      *
-     * @return UploadDeviceResponse UploadDeviceResponse
+     * @param request - UploadDeviceRequest
+     *
+     * @returns UploadDeviceResponse
+     *
+     * @param UploadDeviceRequest $request
+     *
+     * @return UploadDeviceResponse
      */
     public function uploadDevice($request)
     {

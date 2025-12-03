@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Umengpush\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IosPayload extends Model
 {
@@ -18,40 +18,59 @@ class IosPayload extends Model
      */
     public $extra;
     protected $_name = [
-        'aps'   => 'aps',
+        'aps' => 'aps',
         'extra' => 'extra',
     ];
 
     public function validate()
     {
+        if (null !== $this->aps) {
+            $this->aps->validate();
+        }
+        if (\is_array($this->extra)) {
+            Model::validateArray($this->extra);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aps) {
-            $res['aps'] = null !== $this->aps ? $this->aps->toMap() : null;
+            $res['aps'] = null !== $this->aps ? $this->aps->toArray($noStream) : $this->aps;
         }
+
         if (null !== $this->extra) {
-            $res['extra'] = $this->extra;
+            if (\is_array($this->extra)) {
+                $res['extra'] = [];
+                foreach ($this->extra as $key1 => $value1) {
+                    $res['extra'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IosPayload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aps'])) {
             $model->aps = Aps::fromMap($map['aps']);
         }
+
         if (isset($map['extra'])) {
-            $model->extra = $map['extra'];
+            if (!empty($map['extra'])) {
+                $model->extra = [];
+                foreach ($map['extra'] as $key1 => $value1) {
+                    $model->extra[$key1] = $value1;
+                }
+            }
         }
 
         return $model;
