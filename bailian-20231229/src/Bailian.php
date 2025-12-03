@@ -897,6 +897,18 @@ class Bailian extends OpenApiClient
             @$query['metaExtractColumns'] = $request->metaExtractColumnsShrink;
         }
 
+        if (null !== $request->pipelineCommercialCu) {
+            @$query['pipelineCommercialCu'] = $request->pipelineCommercialCu;
+        }
+
+        if (null !== $request->pipelineCommercialType) {
+            @$query['pipelineCommercialType'] = $request->pipelineCommercialType;
+        }
+
+        if (null !== $request->pipelineRetrieveRateLimitStrategy) {
+            @$query['pipelineRetrieveRateLimitStrategy'] = $request->pipelineRetrieveRateLimitStrategy;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

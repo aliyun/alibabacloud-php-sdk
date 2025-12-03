@@ -125,6 +125,21 @@ class CreateIndexRequest extends Model
      * @var metaExtractColumns[]
      */
     public $metaExtractColumns;
+
+    /**
+     * @var int
+     */
+    public $pipelineCommercialCu;
+
+    /**
+     * @var string
+     */
+    public $pipelineCommercialType;
+
+    /**
+     * @var string
+     */
+    public $pipelineRetrieveRateLimitStrategy;
     protected $_name = [
         'categoryIds' => 'CategoryIds',
         'chunkSize' => 'ChunkSize',
@@ -149,6 +164,9 @@ class CreateIndexRequest extends Model
         'chunkMode' => 'chunkMode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumns' => 'metaExtractColumns',
+        'pipelineCommercialCu' => 'pipelineCommercialCu',
+        'pipelineCommercialType' => 'pipelineCommercialType',
+        'pipelineRetrieveRateLimitStrategy' => 'pipelineRetrieveRateLimitStrategy',
     ];
 
     public function validate()
@@ -304,6 +322,18 @@ class CreateIndexRequest extends Model
             }
         }
 
+        if (null !== $this->pipelineCommercialCu) {
+            $res['pipelineCommercialCu'] = $this->pipelineCommercialCu;
+        }
+
+        if (null !== $this->pipelineCommercialType) {
+            $res['pipelineCommercialType'] = $this->pipelineCommercialType;
+        }
+
+        if (null !== $this->pipelineRetrieveRateLimitStrategy) {
+            $res['pipelineRetrieveRateLimitStrategy'] = $this->pipelineRetrieveRateLimitStrategy;
+        }
+
         return $res;
     }
 
@@ -440,6 +470,18 @@ class CreateIndexRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['pipelineCommercialCu'])) {
+            $model->pipelineCommercialCu = $map['pipelineCommercialCu'];
+        }
+
+        if (isset($map['pipelineCommercialType'])) {
+            $model->pipelineCommercialType = $map['pipelineCommercialType'];
+        }
+
+        if (isset($map['pipelineRetrieveRateLimitStrategy'])) {
+            $model->pipelineRetrieveRateLimitStrategy = $map['pipelineRetrieveRateLimitStrategy'];
         }
 
         return $model;

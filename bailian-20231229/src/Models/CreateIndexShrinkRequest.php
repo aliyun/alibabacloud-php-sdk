@@ -122,6 +122,21 @@ class CreateIndexShrinkRequest extends Model
      * @var string
      */
     public $metaExtractColumnsShrink;
+
+    /**
+     * @var int
+     */
+    public $pipelineCommercialCu;
+
+    /**
+     * @var string
+     */
+    public $pipelineCommercialType;
+
+    /**
+     * @var string
+     */
+    public $pipelineRetrieveRateLimitStrategy;
     protected $_name = [
         'categoryIdsShrink' => 'CategoryIds',
         'chunkSize' => 'ChunkSize',
@@ -146,6 +161,9 @@ class CreateIndexShrinkRequest extends Model
         'chunkMode' => 'chunkMode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
+        'pipelineCommercialCu' => 'pipelineCommercialCu',
+        'pipelineCommercialType' => 'pipelineCommercialType',
+        'pipelineRetrieveRateLimitStrategy' => 'pipelineRetrieveRateLimitStrategy',
     ];
 
     public function validate()
@@ -246,6 +264,18 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->metaExtractColumnsShrink) {
             $res['metaExtractColumns'] = $this->metaExtractColumnsShrink;
+        }
+
+        if (null !== $this->pipelineCommercialCu) {
+            $res['pipelineCommercialCu'] = $this->pipelineCommercialCu;
+        }
+
+        if (null !== $this->pipelineCommercialType) {
+            $res['pipelineCommercialType'] = $this->pipelineCommercialType;
+        }
+
+        if (null !== $this->pipelineRetrieveRateLimitStrategy) {
+            $res['pipelineRetrieveRateLimitStrategy'] = $this->pipelineRetrieveRateLimitStrategy;
         }
 
         return $res;
@@ -349,6 +379,18 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['metaExtractColumns'])) {
             $model->metaExtractColumnsShrink = $map['metaExtractColumns'];
+        }
+
+        if (isset($map['pipelineCommercialCu'])) {
+            $model->pipelineCommercialCu = $map['pipelineCommercialCu'];
+        }
+
+        if (isset($map['pipelineCommercialType'])) {
+            $model->pipelineCommercialType = $map['pipelineCommercialType'];
+        }
+
+        if (isset($map['pipelineRetrieveRateLimitStrategy'])) {
+            $model->pipelineRetrieveRateLimitStrategy = $map['pipelineRetrieveRateLimitStrategy'];
         }
 
         return $model;
