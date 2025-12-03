@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\GetAccessGroupResponseBody\accessGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetAccessGroupResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class GetAccessGroupResponseBody extends Model
     public $accessGroup;
 
     /**
-     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class GetAccessGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->accessGroup) {
+            $this->accessGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessGroup) {
-            $res['AccessGroup'] = null !== $this->accessGroup ? $this->accessGroup->toMap() : null;
+            $res['AccessGroup'] = null !== $this->accessGroup ? $this->accessGroup->toArray($noStream) : $this->accessGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetAccessGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessGroup'])) {
             $model->accessGroup = accessGroup::fromMap($map['AccessGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

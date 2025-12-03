@@ -1,3 +1,6 @@
+2025-12-03 Version: 1.1.3
+- Generated php 2018-06-20 for DFS.
+
 2025-07-23 Version: 1.1.2
 - Update API CreateQosPolicy: add request parameters ReqTags.
 - Update API DeleteQosPolicy: add request parameters FederationId.

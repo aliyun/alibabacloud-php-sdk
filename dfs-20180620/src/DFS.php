@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\AttachVscMountPointShrinkRequest;
@@ -90,11 +89,10 @@ use AlibabaCloud\SDK\DFS\V20180620\Models\ModifyMountPointRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\ModifyMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\ModifyQosPolicyRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\ModifyQosPolicyResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class DFS extends OpenApiClient
 {
@@ -119,67 +117,84 @@ class DFS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 挂载VSC挂载点
-     *  *
-     * @description ****
-     *  *
-     * @param AttachVscMountPointRequest $tmpReq  AttachVscMountPointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 挂载VSC挂载点.
      *
-     * @return AttachVscMountPointResponse AttachVscMountPointResponse
+     * @remarks
+     *
+     * @param tmpReq - AttachVscMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachVscMountPointResponse
+     *
+     * @param AttachVscMountPointRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AttachVscMountPointResponse
      */
     public function attachVscMountPointWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachVscMountPointShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->vscIds)) {
-            $request->vscIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
+
+        if (null !== $tmpReq->vscIds) {
+            $request->vscIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
-        if (!Utils::isUnset($request->useAssumeRoleChkServerPerm)) {
-            $query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
         }
-        if (!Utils::isUnset($request->vscIdsShrink)) {
-            $query['VscIds'] = $request->vscIdsShrink;
+
+        if (null !== $request->vscIdsShrink) {
+            @$query['VscIds'] = $request->vscIdsShrink;
         }
-        if (!Utils::isUnset($request->vscName)) {
-            $query['VscName'] = $request->vscName;
+
+        if (null !== $request->vscName) {
+            @$query['VscName'] = $request->vscName;
         }
-        if (!Utils::isUnset($request->vscType)) {
-            $query['VscType'] = $request->vscType;
+
+        if (null !== $request->vscType) {
+            @$query['VscType'] = $request->vscType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AttachVscMountPoint',
@@ -197,13 +212,17 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 挂载VSC挂载点
-     *  *
-     * @description ****
-     *  *
-     * @param AttachVscMountPointRequest $request AttachVscMountPointRequest
+     * 挂载VSC挂载点.
      *
-     * @return AttachVscMountPointResponse AttachVscMountPointResponse
+     * @remarks
+     *
+     * @param request - AttachVscMountPointRequest
+     *
+     * @returns AttachVscMountPointResponse
+     *
+     * @param AttachVscMountPointRequest $request
+     *
+     * @return AttachVscMountPointResponse
      */
     public function attachVscMountPoint($request)
     {
@@ -213,33 +232,42 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 批量挂载VSC挂载点
-     *  *
-     * @param AttachVscToMountPointsRequest $tmpReq  AttachVscToMountPointsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 批量挂载VSC挂载点.
      *
-     * @return AttachVscToMountPointsResponse AttachVscToMountPointsResponse
+     * @param tmpReq - AttachVscToMountPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachVscToMountPointsResponse
+     *
+     * @param AttachVscToMountPointsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachVscToMountPointsResponse
      */
     public function attachVscToMountPointsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachVscToMountPointsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->attachInfos)) {
-            $request->attachInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attachInfos, 'AttachInfos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attachInfos) {
+            $request->attachInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attachInfos, 'AttachInfos', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachInfosShrink)) {
-            $query['AttachInfos'] = $request->attachInfosShrink;
+        if (null !== $request->attachInfosShrink) {
+            @$query['AttachInfos'] = $request->attachInfosShrink;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->useAssumeRoleChkServerPerm)) {
-            $query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AttachVscToMountPoints',
@@ -257,11 +285,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 批量挂载VSC挂载点
-     *  *
-     * @param AttachVscToMountPointsRequest $request AttachVscToMountPointsRequest
+     * 批量挂载VSC挂载点.
      *
-     * @return AttachVscToMountPointsResponse AttachVscToMountPointsResponse
+     * @param request - AttachVscToMountPointsRequest
+     *
+     * @returns AttachVscToMountPointsResponse
+     *
+     * @param AttachVscToMountPointsRequest $request
+     *
+     * @return AttachVscToMountPointsResponse
      */
     public function attachVscToMountPoints($request)
     {
@@ -271,29 +303,38 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param BindVscMountPointAliasRequest $request BindVscMountPointAliasRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - BindVscMountPointAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BindVscMountPointAliasResponse BindVscMountPointAliasResponse
+     * @returns BindVscMountPointAliasResponse
+     *
+     * @param BindVscMountPointAliasRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BindVscMountPointAliasResponse
      */
     public function bindVscMountPointAliasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliasPrefix)) {
-            $query['AliasPrefix'] = $request->aliasPrefix;
+        if (null !== $request->aliasPrefix) {
+            @$query['AliasPrefix'] = $request->aliasPrefix;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BindVscMountPointAlias',
@@ -311,9 +352,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param BindVscMountPointAliasRequest $request BindVscMountPointAliasRequest
+     * @param request - BindVscMountPointAliasRequest
      *
-     * @return BindVscMountPointAliasResponse BindVscMountPointAliasResponse
+     * @returns BindVscMountPointAliasResponse
+     *
+     * @param BindVscMountPointAliasRequest $request
+     *
+     * @return BindVscMountPointAliasResponse
      */
     public function bindVscMountPointAlias($request)
     {
@@ -323,29 +368,38 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessGroupResponse CreateAccessGroupResponse
+     * @returns CreateAccessGroupResponse
+     *
+     * @param CreateAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAccessGroupResponse
      */
     public function createAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccessGroup',
@@ -363,9 +417,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
+     * @param request - CreateAccessGroupRequest
      *
-     * @return CreateAccessGroupResponse CreateAccessGroupResponse
+     * @returns CreateAccessGroupResponse
+     *
+     * @param CreateAccessGroupRequest $request
+     *
+     * @return CreateAccessGroupResponse
      */
     public function createAccessGroup($request)
     {
@@ -375,35 +433,46 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessRuleResponse CreateAccessRuleResponse
+     * @returns CreateAccessRuleResponse
+     *
+     * @param CreateAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAccessRuleResponse
      */
     public function createAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->networkSegment)) {
-            $query['NetworkSegment'] = $request->networkSegment;
+
+        if (null !== $request->networkSegment) {
+            @$query['NetworkSegment'] = $request->networkSegment;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->RWAccessType)) {
-            $query['RWAccessType'] = $request->RWAccessType;
+
+        if (null !== $request->RWAccessType) {
+            @$query['RWAccessType'] = $request->RWAccessType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccessRule',
@@ -421,9 +490,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
+     * @param request - CreateAccessRuleRequest
      *
-     * @return CreateAccessRuleResponse CreateAccessRuleResponse
+     * @returns CreateAccessRuleResponse
+     *
+     * @param CreateAccessRuleRequest $request
+     *
+     * @return CreateAccessRuleResponse
      */
     public function createAccessRule($request)
     {
@@ -433,56 +506,74 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateFileSystemRequest $request CreateFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateFileSystemResponse CreateFileSystemResponse
+     * @returns CreateFileSystemResponse
+     *
+     * @param CreateFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateFileSystemResponse
      */
     public function createFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataRedundancyType)) {
-            $query['DataRedundancyType'] = $request->dataRedundancyType;
+        if (null !== $request->dataRedundancyType) {
+            @$query['DataRedundancyType'] = $request->dataRedundancyType;
         }
-        if (!Utils::isUnset($request->dedicatedClusterId)) {
-            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+
+        if (null !== $request->dedicatedClusterId) {
+            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemName)) {
-            $query['FileSystemName'] = $request->fileSystemName;
+
+        if (null !== $request->fileSystemName) {
+            @$query['FileSystemName'] = $request->fileSystemName;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->partitionNumber)) {
-            $query['PartitionNumber'] = $request->partitionNumber;
+
+        if (null !== $request->partitionNumber) {
+            @$query['PartitionNumber'] = $request->partitionNumber;
         }
-        if (!Utils::isUnset($request->protocolType)) {
-            $query['ProtocolType'] = $request->protocolType;
+
+        if (null !== $request->protocolType) {
+            @$query['ProtocolType'] = $request->protocolType;
         }
-        if (!Utils::isUnset($request->provisionedThroughputInMiBps)) {
-            $query['ProvisionedThroughputInMiBps'] = $request->provisionedThroughputInMiBps;
+
+        if (null !== $request->provisionedThroughputInMiBps) {
+            @$query['ProvisionedThroughputInMiBps'] = $request->provisionedThroughputInMiBps;
         }
-        if (!Utils::isUnset($request->spaceCapacity)) {
-            $query['SpaceCapacity'] = $request->spaceCapacity;
+
+        if (null !== $request->spaceCapacity) {
+            @$query['SpaceCapacity'] = $request->spaceCapacity;
         }
-        if (!Utils::isUnset($request->storageSetName)) {
-            $query['StorageSetName'] = $request->storageSetName;
+
+        if (null !== $request->storageSetName) {
+            @$query['StorageSetName'] = $request->storageSetName;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->throughputMode)) {
-            $query['ThroughputMode'] = $request->throughputMode;
+
+        if (null !== $request->throughputMode) {
+            @$query['ThroughputMode'] = $request->throughputMode;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateFileSystem',
@@ -500,9 +591,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateFileSystemRequest $request CreateFileSystemRequest
+     * @param request - CreateFileSystemRequest
      *
-     * @return CreateFileSystemResponse CreateFileSystemResponse
+     * @returns CreateFileSystemResponse
+     *
+     * @param CreateFileSystemRequest $request
+     *
+     * @return CreateFileSystemResponse
      */
     public function createFileSystem($request)
     {
@@ -512,41 +607,54 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateMountPointRequest $request CreateMountPointRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMountPointResponse CreateMountPointResponse
+     * @returns CreateMountPointResponse
+     *
+     * @param CreateMountPointRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMountPointResponse
      */
     public function createMountPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->usePerformanceMode)) {
-            $query['UsePerformanceMode'] = $request->usePerformanceMode;
+
+        if (null !== $request->usePerformanceMode) {
+            @$query['UsePerformanceMode'] = $request->usePerformanceMode;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateMountPoint',
@@ -564,9 +672,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateMountPointRequest $request CreateMountPointRequest
+     * @param request - CreateMountPointRequest
      *
-     * @return CreateMountPointResponse CreateMountPointResponse
+     * @returns CreateMountPointResponse
+     *
+     * @param CreateMountPointRequest $request
+     *
+     * @return CreateMountPointResponse
      */
     public function createMountPoint($request)
     {
@@ -576,60 +688,78 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary CreateQosPolicy
-     *  *
-     * @param CreateQosPolicyRequest $tmpReq  CreateQosPolicyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * CreateQosPolicy.
      *
-     * @return CreateQosPolicyResponse CreateQosPolicyResponse
+     * @param tmpReq - CreateQosPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQosPolicyResponse
+     *
+     * @param CreateQosPolicyRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateQosPolicyResponse
      */
     public function createQosPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateQosPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->flowIds)) {
-            $request->flowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->flowIds, 'FlowIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->flowIds) {
+            $request->flowIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->flowIds, 'FlowIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->reqTags)) {
-            $request->reqTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reqTags, 'ReqTags', 'json');
+
+        if (null !== $tmpReq->reqTags) {
+            $request->reqTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reqTags, 'ReqTags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->zoneIds)) {
-            $request->zoneIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->zoneIds, 'ZoneIds', 'json');
+
+        if (null !== $tmpReq->zoneIds) {
+            $request->zoneIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->zoneIds, 'ZoneIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->federationId)) {
-            $query['FederationId'] = $request->federationId;
+
+        if (null !== $request->federationId) {
+            @$query['FederationId'] = $request->federationId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->flowIdsShrink)) {
-            $query['FlowIds'] = $request->flowIdsShrink;
+
+        if (null !== $request->flowIdsShrink) {
+            @$query['FlowIds'] = $request->flowIdsShrink;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->maxIOBandWidth)) {
-            $query['MaxIOBandWidth'] = $request->maxIOBandWidth;
+
+        if (null !== $request->maxIOBandWidth) {
+            @$query['MaxIOBandWidth'] = $request->maxIOBandWidth;
         }
-        if (!Utils::isUnset($request->maxIOps)) {
-            $query['MaxIOps'] = $request->maxIOps;
+
+        if (null !== $request->maxIOps) {
+            @$query['MaxIOps'] = $request->maxIOps;
         }
-        if (!Utils::isUnset($request->maxMetaQps)) {
-            $query['MaxMetaQps'] = $request->maxMetaQps;
+
+        if (null !== $request->maxMetaQps) {
+            @$query['MaxMetaQps'] = $request->maxMetaQps;
         }
-        if (!Utils::isUnset($request->reqTagsShrink)) {
-            $query['ReqTags'] = $request->reqTagsShrink;
+
+        if (null !== $request->reqTagsShrink) {
+            @$query['ReqTags'] = $request->reqTagsShrink;
         }
-        if (!Utils::isUnset($request->zoneIdsShrink)) {
-            $query['ZoneIds'] = $request->zoneIdsShrink;
+
+        if (null !== $request->zoneIdsShrink) {
+            @$query['ZoneIds'] = $request->zoneIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateQosPolicy',
@@ -647,11 +777,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary CreateQosPolicy
-     *  *
-     * @param CreateQosPolicyRequest $request CreateQosPolicyRequest
+     * CreateQosPolicy.
      *
-     * @return CreateQosPolicyResponse CreateQosPolicyResponse
+     * @param request - CreateQosPolicyRequest
+     *
+     * @returns CreateQosPolicyResponse
+     *
+     * @param CreateQosPolicyRequest $request
+     *
+     * @return CreateQosPolicyResponse
      */
     public function createQosPolicy($request)
     {
@@ -661,24 +795,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 创建 ugo
-     *  *
-     * @param CreateUserGroupsMappingRequest $tmpReq  CreateUserGroupsMappingRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 创建 ugo.
      *
-     * @return CreateUserGroupsMappingResponse CreateUserGroupsMappingResponse
+     * @param tmpReq - CreateUserGroupsMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserGroupsMappingResponse
+     *
+     * @param CreateUserGroupsMappingRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateUserGroupsMappingResponse
      */
     public function createUserGroupsMappingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUserGroupsMappingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->groupNames)) {
-            $request->groupNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupNames, 'GroupNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupNames) {
+            $request->groupNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupNames, 'GroupNames', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUserGroupsMapping',
@@ -696,11 +836,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 创建 ugo
-     *  *
-     * @param CreateUserGroupsMappingRequest $request CreateUserGroupsMappingRequest
+     * 创建 ugo.
      *
-     * @return CreateUserGroupsMappingResponse CreateUserGroupsMappingResponse
+     * @param request - CreateUserGroupsMappingRequest
+     *
+     * @returns CreateUserGroupsMappingResponse
+     *
+     * @param CreateUserGroupsMappingRequest $request
+     *
+     * @return CreateUserGroupsMappingResponse
      */
     public function createUserGroupsMapping($request)
     {
@@ -710,34 +854,44 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateVscMountPointRequest $tmpReq  CreateVscMountPointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - CreateVscMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateVscMountPointResponse CreateVscMountPointResponse
+     * @returns CreateVscMountPointResponse
+     *
+     * @param CreateVscMountPointRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVscMountPointResponse
      */
     public function createVscMountPointWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateVscMountPointShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateVscMountPoint',
@@ -755,9 +909,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param CreateVscMountPointRequest $request CreateVscMountPointRequest
+     * @param request - CreateVscMountPointRequest
      *
-     * @return CreateVscMountPointResponse CreateVscMountPointResponse
+     * @returns CreateVscMountPointResponse
+     *
+     * @param CreateVscMountPointRequest $request
+     *
+     * @return CreateVscMountPointResponse
      */
     public function createVscMountPoint($request)
     {
@@ -767,23 +925,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessGroupResponse DeleteAccessGroupResponse
+     * @returns DeleteAccessGroupResponse
+     *
+     * @param DeleteAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAccessGroupResponse
      */
     public function deleteAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccessGroup',
@@ -801,9 +966,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
+     * @param request - DeleteAccessGroupRequest
      *
-     * @return DeleteAccessGroupResponse DeleteAccessGroupResponse
+     * @returns DeleteAccessGroupResponse
+     *
+     * @param DeleteAccessGroupRequest $request
+     *
+     * @return DeleteAccessGroupResponse
      */
     public function deleteAccessGroup($request)
     {
@@ -813,26 +982,34 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessRuleResponse DeleteAccessRuleResponse
+     * @returns DeleteAccessRuleResponse
+     *
+     * @param DeleteAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAccessRuleResponse
      */
     public function deleteAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccessRule',
@@ -850,9 +1027,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
+     * @param request - DeleteAccessRuleRequest
      *
-     * @return DeleteAccessRuleResponse DeleteAccessRuleResponse
+     * @returns DeleteAccessRuleResponse
+     *
+     * @param DeleteAccessRuleRequest $request
+     *
+     * @return DeleteAccessRuleResponse
      */
     public function deleteAccessRule($request)
     {
@@ -862,23 +1043,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileSystemResponse DeleteFileSystemResponse
+     * @returns DeleteFileSystemResponse
+     *
+     * @param DeleteFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFileSystemResponse
      */
     public function deleteFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteFileSystem',
@@ -896,9 +1084,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
+     * @param request - DeleteFileSystemRequest
      *
-     * @return DeleteFileSystemResponse DeleteFileSystemResponse
+     * @returns DeleteFileSystemResponse
+     *
+     * @param DeleteFileSystemRequest $request
+     *
+     * @return DeleteFileSystemResponse
      */
     public function deleteFileSystem($request)
     {
@@ -908,26 +1100,34 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMountPointRequest $request DeleteMountPointRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMountPointResponse DeleteMountPointResponse
+     * @returns DeleteMountPointResponse
+     *
+     * @param DeleteMountPointRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMountPointResponse
      */
     public function deleteMountPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMountPoint',
@@ -945,9 +1145,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMountPointRequest $request DeleteMountPointRequest
+     * @param request - DeleteMountPointRequest
      *
-     * @return DeleteMountPointResponse DeleteMountPointResponse
+     * @returns DeleteMountPointResponse
+     *
+     * @param DeleteMountPointRequest $request
+     *
+     * @return DeleteMountPointResponse
      */
     public function deleteMountPoint($request)
     {
@@ -957,31 +1161,40 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary DeleteQosPolicy
-     *  *
-     * @param DeleteQosPolicyRequest $request DeleteQosPolicyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * DeleteQosPolicy.
      *
-     * @return DeleteQosPolicyResponse DeleteQosPolicyResponse
+     * @param request - DeleteQosPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQosPolicyResponse
+     *
+     * @param DeleteQosPolicyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteQosPolicyResponse
      */
     public function deleteQosPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->federationId)) {
-            $query['FederationId'] = $request->federationId;
+        if (null !== $request->federationId) {
+            @$query['FederationId'] = $request->federationId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->qosPolicyId)) {
-            $query['QosPolicyId'] = $request->qosPolicyId;
+
+        if (null !== $request->qosPolicyId) {
+            @$query['QosPolicyId'] = $request->qosPolicyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteQosPolicy',
@@ -999,11 +1212,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary DeleteQosPolicy
-     *  *
-     * @param DeleteQosPolicyRequest $request DeleteQosPolicyRequest
+     * DeleteQosPolicy.
      *
-     * @return DeleteQosPolicyResponse DeleteQosPolicyResponse
+     * @param request - DeleteQosPolicyRequest
+     *
+     * @returns DeleteQosPolicyResponse
+     *
+     * @param DeleteQosPolicyRequest $request
+     *
+     * @return DeleteQosPolicyResponse
      */
     public function deleteQosPolicy($request)
     {
@@ -1013,24 +1230,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 删除 ugo
-     *  *
-     * @param DeleteUserGroupsMappingRequest $tmpReq  DeleteUserGroupsMappingRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除 ugo.
      *
-     * @return DeleteUserGroupsMappingResponse DeleteUserGroupsMappingResponse
+     * @param tmpReq - DeleteUserGroupsMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserGroupsMappingResponse
+     *
+     * @param DeleteUserGroupsMappingRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteUserGroupsMappingResponse
      */
     public function deleteUserGroupsMappingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteUserGroupsMappingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->groupNames)) {
-            $request->groupNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupNames, 'GroupNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupNames) {
+            $request->groupNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupNames, 'GroupNames', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteUserGroupsMapping',
@@ -1048,11 +1271,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 删除 ugo
-     *  *
-     * @param DeleteUserGroupsMappingRequest $request DeleteUserGroupsMappingRequest
+     * 删除 ugo.
      *
-     * @return DeleteUserGroupsMappingResponse DeleteUserGroupsMappingResponse
+     * @param request - DeleteUserGroupsMappingRequest
+     *
+     * @returns DeleteUserGroupsMappingResponse
+     *
+     * @param DeleteUserGroupsMappingRequest $request
+     *
+     * @return DeleteUserGroupsMappingResponse
      */
     public function deleteUserGroupsMapping($request)
     {
@@ -1062,26 +1289,34 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteVscMountPointRequest $request DeleteVscMountPointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteVscMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteVscMountPointResponse DeleteVscMountPointResponse
+     * @returns DeleteVscMountPointResponse
+     *
+     * @param DeleteVscMountPointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVscMountPointResponse
      */
     public function deleteVscMountPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVscMountPoint',
@@ -1099,9 +1334,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteVscMountPointRequest $request DeleteVscMountPointRequest
+     * @param request - DeleteVscMountPointRequest
      *
-     * @return DeleteVscMountPointResponse DeleteVscMountPointResponse
+     * @returns DeleteVscMountPointResponse
+     *
+     * @param DeleteVscMountPointRequest $request
+     *
+     * @return DeleteVscMountPointResponse
      */
     public function deleteVscMountPoint($request)
     {
@@ -1111,39 +1350,50 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 批量挂载VSC挂载点
-     *  *
-     * @param DescribeMountPointsVscAttachInfoRequest $tmpReq  DescribeMountPointsVscAttachInfoRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 批量挂载VSC挂载点.
      *
-     * @return DescribeMountPointsVscAttachInfoResponse DescribeMountPointsVscAttachInfoResponse
+     * @param tmpReq - DescribeMountPointsVscAttachInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMountPointsVscAttachInfoResponse
+     *
+     * @param DescribeMountPointsVscAttachInfoRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMountPointsVscAttachInfoResponse
      */
     public function describeMountPointsVscAttachInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeMountPointsVscAttachInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryInfos)) {
-            $request->queryInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryInfos, 'QueryInfos', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryInfos) {
+            $request->queryInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryInfos, 'QueryInfos', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->queryInfosShrink)) {
-            $query['QueryInfos'] = $request->queryInfosShrink;
+
+        if (null !== $request->queryInfosShrink) {
+            @$query['QueryInfos'] = $request->queryInfosShrink;
         }
-        if (!Utils::isUnset($request->useAssumeRoleChkServerPerm)) {
-            $query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMountPointsVscAttachInfo',
@@ -1161,11 +1411,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 批量挂载VSC挂载点
-     *  *
-     * @param DescribeMountPointsVscAttachInfoRequest $request DescribeMountPointsVscAttachInfoRequest
+     * 批量挂载VSC挂载点.
      *
-     * @return DescribeMountPointsVscAttachInfoResponse DescribeMountPointsVscAttachInfoResponse
+     * @param request - DescribeMountPointsVscAttachInfoRequest
+     *
+     * @returns DescribeMountPointsVscAttachInfoResponse
+     *
+     * @param DescribeMountPointsVscAttachInfoRequest $request
+     *
+     * @return DescribeMountPointsVscAttachInfoResponse
      */
     public function describeMountPointsVscAttachInfo($request)
     {
@@ -1175,23 +1429,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -1209,9 +1470,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param request - DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1221,37 +1486,48 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询VSC挂载信息
-     *  *
-     * @param DescribeVscMountPointsRequest $request DescribeVscMountPointsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询VSC挂载信息.
      *
-     * @return DescribeVscMountPointsResponse DescribeVscMountPointsResponse
+     * @param request - DescribeVscMountPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVscMountPointsResponse
+     *
+     * @param DescribeVscMountPointsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVscMountPointsResponse
      */
     public function describeVscMountPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->vscId)) {
-            $query['VscId'] = $request->vscId;
+
+        if (null !== $request->vscId) {
+            @$query['VscId'] = $request->vscId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVscMountPoints',
@@ -1269,11 +1545,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询VSC挂载信息
-     *  *
-     * @param DescribeVscMountPointsRequest $request DescribeVscMountPointsRequest
+     * 查询VSC挂载信息.
      *
-     * @return DescribeVscMountPointsResponse DescribeVscMountPointsResponse
+     * @param request - DescribeVscMountPointsRequest
+     *
+     * @returns DescribeVscMountPointsResponse
+     *
+     * @param DescribeVscMountPointsRequest $request
+     *
+     * @return DescribeVscMountPointsResponse
      */
     public function describeVscMountPoints($request)
     {
@@ -1283,46 +1563,60 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DetachVscMountPointRequest $tmpReq  DetachVscMountPointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - DetachVscMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DetachVscMountPointResponse DetachVscMountPointResponse
+     * @returns DetachVscMountPointResponse
+     *
+     * @param DetachVscMountPointRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetachVscMountPointResponse
      */
     public function detachVscMountPointWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetachVscMountPointShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->vscIds)) {
-            $request->vscIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
+
+        if (null !== $tmpReq->vscIds) {
+            $request->vscIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vscIds, 'VscIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
-        if (!Utils::isUnset($request->useAssumeRoleChkServerPerm)) {
-            $query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
         }
-        if (!Utils::isUnset($request->vscIdsShrink)) {
-            $query['VscIds'] = $request->vscIdsShrink;
+
+        if (null !== $request->vscIdsShrink) {
+            @$query['VscIds'] = $request->vscIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DetachVscMountPoint',
@@ -1340,9 +1634,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param DetachVscMountPointRequest $request DetachVscMountPointRequest
+     * @param request - DetachVscMountPointRequest
      *
-     * @return DetachVscMountPointResponse DetachVscMountPointResponse
+     * @returns DetachVscMountPointResponse
+     *
+     * @param DetachVscMountPointRequest $request
+     *
+     * @return DetachVscMountPointResponse
      */
     public function detachVscMountPoint($request)
     {
@@ -1352,23 +1650,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetAccessGroupRequest $request GetAccessGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAccessGroupResponse GetAccessGroupResponse
+     * @returns GetAccessGroupResponse
+     *
+     * @param GetAccessGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAccessGroupResponse
      */
     public function getAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAccessGroup',
@@ -1386,9 +1691,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetAccessGroupRequest $request GetAccessGroupRequest
+     * @param request - GetAccessGroupRequest
      *
-     * @return GetAccessGroupResponse GetAccessGroupResponse
+     * @returns GetAccessGroupResponse
+     *
+     * @param GetAccessGroupRequest $request
+     *
+     * @return GetAccessGroupResponse
      */
     public function getAccessGroup($request)
     {
@@ -1398,26 +1707,34 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetAccessRuleRequest $request GetAccessRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAccessRuleResponse GetAccessRuleResponse
+     * @returns GetAccessRuleResponse
+     *
+     * @param GetAccessRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAccessRuleResponse
      */
     public function getAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAccessRule',
@@ -1435,9 +1752,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetAccessRuleRequest $request GetAccessRuleRequest
+     * @param request - GetAccessRuleRequest
      *
-     * @return GetAccessRuleResponse GetAccessRuleResponse
+     * @returns GetAccessRuleResponse
+     *
+     * @param GetAccessRuleRequest $request
+     *
+     * @return GetAccessRuleResponse
      */
     public function getAccessRule($request)
     {
@@ -1447,23 +1768,30 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetFileSystemRequest $request GetFileSystemRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetFileSystemResponse GetFileSystemResponse
+     * @returns GetFileSystemResponse
+     *
+     * @param GetFileSystemRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetFileSystemResponse
      */
     public function getFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFileSystem',
@@ -1481,9 +1809,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetFileSystemRequest $request GetFileSystemRequest
+     * @param request - GetFileSystemRequest
      *
-     * @return GetFileSystemResponse GetFileSystemResponse
+     * @returns GetFileSystemResponse
+     *
+     * @param GetFileSystemRequest $request
+     *
+     * @return GetFileSystemResponse
      */
     public function getFileSystem($request)
     {
@@ -1493,26 +1825,34 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetMountPointRequest $request GetMountPointRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMountPointResponse GetMountPointResponse
+     * @returns GetMountPointResponse
+     *
+     * @param GetMountPointRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMountPointResponse
      */
     public function getMountPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMountPoint',
@@ -1530,9 +1870,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetMountPointRequest $request GetMountPointRequest
+     * @param request - GetMountPointRequest
      *
-     * @return GetMountPointResponse GetMountPointResponse
+     * @returns GetMountPointResponse
+     *
+     * @param GetMountPointRequest $request
+     *
+     * @return GetMountPointResponse
      */
     public function getMountPoint($request)
     {
@@ -1542,20 +1886,26 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetRegionRequest $request GetRegionRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRegionResponse GetRegionResponse
+     * @returns GetRegionResponse
+     *
+     * @param GetRegionRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRegionResponse
      */
     public function getRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRegion',
@@ -1573,9 +1923,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param GetRegionRequest $request GetRegionRequest
+     * @param request - GetRegionRequest
      *
-     * @return GetRegionResponse GetRegionResponse
+     * @returns GetRegionResponse
+     *
+     * @param GetRegionRequest $request
+     *
+     * @return GetRegionResponse
      */
     public function getRegion($request)
     {
@@ -1585,35 +1939,46 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListAccessGroupsRequest $request ListAccessGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListAccessGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListAccessGroupsResponse ListAccessGroupsResponse
+     * @returns ListAccessGroupsResponse
+     *
+     * @param ListAccessGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAccessGroupsResponse
      */
     public function listAccessGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->startOffset)) {
-            $query['StartOffset'] = $request->startOffset;
+
+        if (null !== $request->startOffset) {
+            @$query['StartOffset'] = $request->startOffset;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAccessGroups',
@@ -1631,9 +1996,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListAccessGroupsRequest $request ListAccessGroupsRequest
+     * @param request - ListAccessGroupsRequest
      *
-     * @return ListAccessGroupsResponse ListAccessGroupsResponse
+     * @returns ListAccessGroupsResponse
+     *
+     * @param ListAccessGroupsRequest $request
+     *
+     * @return ListAccessGroupsResponse
      */
     public function listAccessGroups($request)
     {
@@ -1643,38 +2012,50 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListAccessRulesRequest $request ListAccessRulesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListAccessRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListAccessRulesResponse ListAccessRulesResponse
+     * @returns ListAccessRulesResponse
+     *
+     * @param ListAccessRulesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAccessRulesResponse
      */
     public function listAccessRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->startOffset)) {
-            $query['StartOffset'] = $request->startOffset;
+
+        if (null !== $request->startOffset) {
+            @$query['StartOffset'] = $request->startOffset;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAccessRules',
@@ -1692,9 +2073,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListAccessRulesRequest $request ListAccessRulesRequest
+     * @param request - ListAccessRulesRequest
      *
-     * @return ListAccessRulesResponse ListAccessRulesResponse
+     * @returns ListAccessRulesResponse
+     *
+     * @param ListAccessRulesRequest $request
+     *
+     * @return ListAccessRulesResponse
      */
     public function listAccessRules($request)
     {
@@ -1704,34 +2089,44 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询Federation
-     *  *
-     * @param ListFederationsRequest $request ListFederationsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询Federation.
      *
-     * @return ListFederationsResponse ListFederationsResponse
+     * @param request - ListFederationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFederationsResponse
+     *
+     * @param ListFederationsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFederationsResponse
      */
     public function listFederationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->federationId)) {
-            $query['FederationId'] = $request->federationId;
+        if (null !== $request->federationId) {
+            @$query['FederationId'] = $request->federationId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFederations',
@@ -1749,11 +2144,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询Federation
-     *  *
-     * @param ListFederationsRequest $request ListFederationsRequest
+     * 查询Federation.
      *
-     * @return ListFederationsResponse ListFederationsResponse
+     * @param request - ListFederationsRequest
+     *
+     * @returns ListFederationsResponse
+     *
+     * @param ListFederationsRequest $request
+     *
+     * @return ListFederationsResponse
      */
     public function listFederations($request)
     {
@@ -1763,35 +2162,46 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListFileSystemsRequest $request ListFileSystemsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListFileSystemsResponse ListFileSystemsResponse
+     * @returns ListFileSystemsResponse
+     *
+     * @param ListFileSystemsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFileSystemsResponse
      */
     public function listFileSystemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->startOffset)) {
-            $query['StartOffset'] = $request->startOffset;
+
+        if (null !== $request->startOffset) {
+            @$query['StartOffset'] = $request->startOffset;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFileSystems',
@@ -1809,9 +2219,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListFileSystemsRequest $request ListFileSystemsRequest
+     * @param request - ListFileSystemsRequest
      *
-     * @return ListFileSystemsResponse ListFileSystemsResponse
+     * @returns ListFileSystemsResponse
+     *
+     * @param ListFileSystemsRequest $request
+     *
+     * @return ListFileSystemsResponse
      */
     public function listFileSystems($request)
     {
@@ -1821,38 +2235,50 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListMountPointsRequest $request ListMountPointsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMountPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMountPointsResponse ListMountPointsResponse
+     * @returns ListMountPointsResponse
+     *
+     * @param ListMountPointsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListMountPointsResponse
      */
     public function listMountPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->startOffset)) {
-            $query['StartOffset'] = $request->startOffset;
+
+        if (null !== $request->startOffset) {
+            @$query['StartOffset'] = $request->startOffset;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMountPoints',
@@ -1870,9 +2296,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ListMountPointsRequest $request ListMountPointsRequest
+     * @param request - ListMountPointsRequest
      *
-     * @return ListMountPointsResponse ListMountPointsResponse
+     * @returns ListMountPointsResponse
+     *
+     * @param ListMountPointsRequest $request
+     *
+     * @return ListMountPointsResponse
      */
     public function listMountPoints($request)
     {
@@ -1882,34 +2312,44 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询QosPolicies
-     *  *
-     * @param ListQosPoliciesRequest $request ListQosPoliciesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询QosPolicies.
      *
-     * @return ListQosPoliciesResponse ListQosPoliciesResponse
+     * @param request - ListQosPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQosPoliciesResponse
+     *
+     * @param ListQosPoliciesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListQosPoliciesResponse
      */
     public function listQosPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->federationId)) {
-            $query['FederationId'] = $request->federationId;
+        if (null !== $request->federationId) {
+            @$query['FederationId'] = $request->federationId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQosPolicies',
@@ -1927,11 +2367,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary 查询QosPolicies
-     *  *
-     * @param ListQosPoliciesRequest $request ListQosPoliciesRequest
+     * 查询QosPolicies.
      *
-     * @return ListQosPoliciesResponse ListQosPoliciesResponse
+     * @param request - ListQosPoliciesRequest
+     *
+     * @returns ListQosPoliciesResponse
+     *
+     * @param ListQosPoliciesRequest $request
+     *
+     * @return ListQosPoliciesResponse
      */
     public function listQosPolicies($request)
     {
@@ -1941,31 +2385,40 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary list ugm
-     *  *
-     * @param ListUserGroupsMappingsRequest $request ListUserGroupsMappingsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * list ugm.
      *
-     * @return ListUserGroupsMappingsResponse ListUserGroupsMappingsResponse
+     * @param request - ListUserGroupsMappingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupsMappingsResponse
+     *
+     * @param ListUserGroupsMappingsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListUserGroupsMappingsResponse
      */
     public function listUserGroupsMappingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filesystemId)) {
-            $query['FilesystemId'] = $request->filesystemId;
+        if (null !== $request->filesystemId) {
+            @$query['FilesystemId'] = $request->filesystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserGroupsMappings',
@@ -1983,11 +2436,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary list ugm
-     *  *
-     * @param ListUserGroupsMappingsRequest $request ListUserGroupsMappingsRequest
+     * list ugm.
      *
-     * @return ListUserGroupsMappingsResponse ListUserGroupsMappingsResponse
+     * @param request - ListUserGroupsMappingsRequest
+     *
+     * @returns ListUserGroupsMappingsResponse
+     *
+     * @param ListUserGroupsMappingsRequest $request
+     *
+     * @return ListUserGroupsMappingsResponse
      */
     public function listUserGroupsMappings($request)
     {
@@ -1997,29 +2454,38 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccessGroupResponse ModifyAccessGroupResponse
+     * @returns ModifyAccessGroupResponse
+     *
+     * @param ModifyAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyAccessGroupResponse
      */
     public function modifyAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccessGroup',
@@ -2037,9 +2503,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
+     * @param request - ModifyAccessGroupRequest
      *
-     * @return ModifyAccessGroupResponse ModifyAccessGroupResponse
+     * @returns ModifyAccessGroupResponse
+     *
+     * @param ModifyAccessGroupRequest $request
+     *
+     * @return ModifyAccessGroupResponse
      */
     public function modifyAccessGroup($request)
     {
@@ -2049,35 +2519,46 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccessRuleResponse ModifyAccessRuleResponse
+     * @returns ModifyAccessRuleResponse
+     *
+     * @param ModifyAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyAccessRuleResponse
      */
     public function modifyAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->RWAccessType)) {
-            $query['RWAccessType'] = $request->RWAccessType;
+
+        if (null !== $request->RWAccessType) {
+            @$query['RWAccessType'] = $request->RWAccessType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccessRule',
@@ -2095,9 +2576,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
+     * @param request - ModifyAccessRuleRequest
      *
-     * @return ModifyAccessRuleResponse ModifyAccessRuleResponse
+     * @returns ModifyAccessRuleResponse
+     *
+     * @param ModifyAccessRuleRequest $request
+     *
+     * @return ModifyAccessRuleResponse
      */
     public function modifyAccessRule($request)
     {
@@ -2107,38 +2592,50 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyFileSystemResponse ModifyFileSystemResponse
+     * @returns ModifyFileSystemResponse
+     *
+     * @param ModifyFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFileSystemResponse
      */
     public function modifyFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemName)) {
-            $query['FileSystemName'] = $request->fileSystemName;
+
+        if (null !== $request->fileSystemName) {
+            @$query['FileSystemName'] = $request->fileSystemName;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->provisionedThroughputInMiBps)) {
-            $query['ProvisionedThroughputInMiBps'] = $request->provisionedThroughputInMiBps;
+
+        if (null !== $request->provisionedThroughputInMiBps) {
+            @$query['ProvisionedThroughputInMiBps'] = $request->provisionedThroughputInMiBps;
         }
-        if (!Utils::isUnset($request->spaceCapacity)) {
-            $query['SpaceCapacity'] = $request->spaceCapacity;
+
+        if (null !== $request->spaceCapacity) {
+            @$query['SpaceCapacity'] = $request->spaceCapacity;
         }
-        if (!Utils::isUnset($request->throughputMode)) {
-            $query['ThroughputMode'] = $request->throughputMode;
+
+        if (null !== $request->throughputMode) {
+            @$query['ThroughputMode'] = $request->throughputMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyFileSystem',
@@ -2156,9 +2653,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
+     * @param request - ModifyFileSystemRequest
      *
-     * @return ModifyFileSystemResponse ModifyFileSystemResponse
+     * @returns ModifyFileSystemResponse
+     *
+     * @param ModifyFileSystemRequest $request
+     *
+     * @return ModifyFileSystemResponse
      */
     public function modifyFileSystem($request)
     {
@@ -2168,35 +2669,46 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyMountPointRequest $request ModifyMountPointRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyMountPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyMountPointResponse ModifyMountPointResponse
+     * @returns ModifyMountPointResponse
+     *
+     * @param ModifyMountPointRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyMountPointResponse
      */
     public function modifyMountPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupId)) {
-            $query['AccessGroupId'] = $request->accessGroupId;
+        if (null !== $request->accessGroupId) {
+            @$query['AccessGroupId'] = $request->accessGroupId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->mountPointId)) {
-            $query['MountPointId'] = $request->mountPointId;
+
+        if (null !== $request->mountPointId) {
+            @$query['MountPointId'] = $request->mountPointId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyMountPoint',
@@ -2214,9 +2726,13 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyMountPointRequest $request ModifyMountPointRequest
+     * @param request - ModifyMountPointRequest
      *
-     * @return ModifyMountPointResponse ModifyMountPointResponse
+     * @returns ModifyMountPointResponse
+     *
+     * @param ModifyMountPointRequest $request
+     *
+     * @return ModifyMountPointResponse
      */
     public function modifyMountPoint($request)
     {
@@ -2226,43 +2742,56 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary ModifyQosPolicy
-     *  *
-     * @param ModifyQosPolicyRequest $request ModifyQosPolicyRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * ModifyQosPolicy.
      *
-     * @return ModifyQosPolicyResponse ModifyQosPolicyResponse
+     * @param request - ModifyQosPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyQosPolicyResponse
+     *
+     * @param ModifyQosPolicyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyQosPolicyResponse
      */
     public function modifyQosPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->federationId)) {
-            $query['FederationId'] = $request->federationId;
+
+        if (null !== $request->federationId) {
+            @$query['FederationId'] = $request->federationId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->inputRegionId)) {
-            $query['InputRegionId'] = $request->inputRegionId;
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
         }
-        if (!Utils::isUnset($request->maxIOBandWidth)) {
-            $query['MaxIOBandWidth'] = $request->maxIOBandWidth;
+
+        if (null !== $request->maxIOBandWidth) {
+            @$query['MaxIOBandWidth'] = $request->maxIOBandWidth;
         }
-        if (!Utils::isUnset($request->maxIOps)) {
-            $query['MaxIOps'] = $request->maxIOps;
+
+        if (null !== $request->maxIOps) {
+            @$query['MaxIOps'] = $request->maxIOps;
         }
-        if (!Utils::isUnset($request->maxMetaQps)) {
-            $query['MaxMetaQps'] = $request->maxMetaQps;
+
+        if (null !== $request->maxMetaQps) {
+            @$query['MaxMetaQps'] = $request->maxMetaQps;
         }
-        if (!Utils::isUnset($request->qosPolicyId)) {
-            $query['QosPolicyId'] = $request->qosPolicyId;
+
+        if (null !== $request->qosPolicyId) {
+            @$query['QosPolicyId'] = $request->qosPolicyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyQosPolicy',
@@ -2280,11 +2809,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * @summary ModifyQosPolicy
-     *  *
-     * @param ModifyQosPolicyRequest $request ModifyQosPolicyRequest
+     * ModifyQosPolicy.
      *
-     * @return ModifyQosPolicyResponse ModifyQosPolicyResponse
+     * @param request - ModifyQosPolicyRequest
+     *
+     * @returns ModifyQosPolicyResponse
+     *
+     * @param ModifyQosPolicyRequest $request
+     *
+     * @return ModifyQosPolicyResponse
      */
     public function modifyQosPolicy($request)
     {

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsResponseBody\mountPoints;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsResponseBody\mountPoints\instances\vscs;
-use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
     /**
-     * @example ["ecs-instance1", "ecs-instance2"]
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $status;
@@ -33,23 +29,32 @@ class instances extends Model
         'vscs' => 'Vscs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vscs)) {
+            Model::validateArray($this->vscs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vscs) {
-            $res['Vscs'] = [];
-            if (null !== $this->vscs && \is_array($this->vscs)) {
-                $n = 0;
-                foreach ($this->vscs as $item) {
-                    $res['Vscs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vscs)) {
+                $res['Vscs'] = [];
+                $n1 = 0;
+                foreach ($this->vscs as $item1) {
+                    $res['Vscs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,26 +62,29 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Vscs'])) {
             if (!empty($map['Vscs'])) {
                 $model->vscs = [];
-                $n = 0;
-                foreach ($map['Vscs'] as $item) {
-                    $model->vscs[$n++] = null !== $item ? vscs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Vscs'] as $item1) {
+                    $model->vscs[$n1] = vscs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

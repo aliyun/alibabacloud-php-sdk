@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRegionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
@@ -20,9 +16,12 @@ class GetRegionRequest extends Model
         'inputRegionId' => 'InputRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputRegionId) {
@@ -32,11 +31,11 @@ class GetRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

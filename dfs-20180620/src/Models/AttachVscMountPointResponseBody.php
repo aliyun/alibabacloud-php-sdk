@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachVscMountPointResponseBody extends Model
 {
     /**
-     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class AttachVscMountPointResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class AttachVscMountPointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachVscMountPointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

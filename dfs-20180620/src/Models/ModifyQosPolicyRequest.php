@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyQosPolicyRequest extends Model
 {
@@ -24,8 +24,6 @@ class ModifyQosPolicyRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $inputRegionId;
@@ -46,8 +44,6 @@ class ModifyQosPolicyRequest extends Model
     public $maxMetaQps;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $qosPolicyId;
@@ -62,32 +58,42 @@ class ModifyQosPolicyRequest extends Model
         'qosPolicyId' => 'QosPolicyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->federationId) {
             $res['FederationId'] = $this->federationId;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->maxIOBandWidth) {
             $res['MaxIOBandWidth'] = $this->maxIOBandWidth;
         }
+
         if (null !== $this->maxIOps) {
             $res['MaxIOps'] = $this->maxIOps;
         }
+
         if (null !== $this->maxMetaQps) {
             $res['MaxMetaQps'] = $this->maxMetaQps;
         }
+
         if (null !== $this->qosPolicyId) {
             $res['QosPolicyId'] = $this->qosPolicyId;
         }
@@ -95,35 +101,42 @@ class ModifyQosPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyQosPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FederationId'])) {
             $model->federationId = $map['FederationId'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['MaxIOBandWidth'])) {
             $model->maxIOBandWidth = $map['MaxIOBandWidth'];
         }
+
         if (isset($map['MaxIOps'])) {
             $model->maxIOps = $map['MaxIOps'];
         }
+
         if (isset($map['MaxMetaQps'])) {
             $model->maxMetaQps = $map['MaxMetaQps'];
         }
+
         if (isset($map['QosPolicyId'])) {
             $model->qosPolicyId = $map['QosPolicyId'];
         }

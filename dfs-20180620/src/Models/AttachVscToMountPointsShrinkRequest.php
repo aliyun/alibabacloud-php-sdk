@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachVscToMountPointsShrinkRequest extends Model
 {
@@ -14,17 +14,11 @@ class AttachVscToMountPointsShrinkRequest extends Model
     public $attachInfosShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $useAssumeRoleChkServerPerm;
@@ -34,17 +28,22 @@ class AttachVscToMountPointsShrinkRequest extends Model
         'useAssumeRoleChkServerPerm' => 'UseAssumeRoleChkServerPerm',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachInfosShrink) {
             $res['AttachInfos'] = $this->attachInfosShrink;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->useAssumeRoleChkServerPerm) {
             $res['UseAssumeRoleChkServerPerm'] = $this->useAssumeRoleChkServerPerm;
         }
@@ -52,20 +51,22 @@ class AttachVscToMountPointsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachVscToMountPointsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachInfos'])) {
             $model->attachInfosShrink = $map['AttachInfos'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['UseAssumeRoleChkServerPerm'])) {
             $model->useAssumeRoleChkServerPerm = $map['UseAssumeRoleChkServerPerm'];
         }

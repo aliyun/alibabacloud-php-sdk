@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQosPolicyResponseBody extends Model
 {
@@ -22,14 +22,18 @@ class DeleteQosPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessages) {
             $res['ErrorMessages'] = $this->errorMessages;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,17 +41,18 @@ class DeleteQosPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQosPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessages'])) {
             $model->errorMessages = $map['ErrorMessages'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateQosPolicyRequest extends Model
 {
@@ -29,8 +29,6 @@ class CreateQosPolicyRequest extends Model
     public $flowIds;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $inputRegionId;
@@ -72,87 +70,153 @@ class CreateQosPolicyRequest extends Model
         'zoneIds' => 'ZoneIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->flowIds)) {
+            Model::validateArray($this->flowIds);
+        }
+        if (\is_array($this->reqTags)) {
+            Model::validateArray($this->reqTags);
+        }
+        if (\is_array($this->zoneIds)) {
+            Model::validateArray($this->zoneIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->federationId) {
             $res['FederationId'] = $this->federationId;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->flowIds) {
-            $res['FlowIds'] = $this->flowIds;
+            if (\is_array($this->flowIds)) {
+                $res['FlowIds'] = [];
+                $n1 = 0;
+                foreach ($this->flowIds as $item1) {
+                    $res['FlowIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->maxIOBandWidth) {
             $res['MaxIOBandWidth'] = $this->maxIOBandWidth;
         }
+
         if (null !== $this->maxIOps) {
             $res['MaxIOps'] = $this->maxIOps;
         }
+
         if (null !== $this->maxMetaQps) {
             $res['MaxMetaQps'] = $this->maxMetaQps;
         }
+
         if (null !== $this->reqTags) {
-            $res['ReqTags'] = $this->reqTags;
+            if (\is_array($this->reqTags)) {
+                $res['ReqTags'] = [];
+                $n1 = 0;
+                foreach ($this->reqTags as $item1) {
+                    $res['ReqTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->zoneIds) {
-            $res['ZoneIds'] = $this->zoneIds;
+            if (\is_array($this->zoneIds)) {
+                $res['ZoneIds'] = [];
+                $n1 = 0;
+                foreach ($this->zoneIds as $item1) {
+                    $res['ZoneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateQosPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FederationId'])) {
             $model->federationId = $map['FederationId'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['FlowIds'])) {
             if (!empty($map['FlowIds'])) {
-                $model->flowIds = $map['FlowIds'];
+                $model->flowIds = [];
+                $n1 = 0;
+                foreach ($map['FlowIds'] as $item1) {
+                    $model->flowIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['MaxIOBandWidth'])) {
             $model->maxIOBandWidth = $map['MaxIOBandWidth'];
         }
+
         if (isset($map['MaxIOps'])) {
             $model->maxIOps = $map['MaxIOps'];
         }
+
         if (isset($map['MaxMetaQps'])) {
             $model->maxMetaQps = $map['MaxMetaQps'];
         }
+
         if (isset($map['ReqTags'])) {
             if (!empty($map['ReqTags'])) {
-                $model->reqTags = $map['ReqTags'];
+                $model->reqTags = [];
+                $n1 = 0;
+                foreach ($map['ReqTags'] as $item1) {
+                    $model->reqTags[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ZoneIds'])) {
             if (!empty($map['ZoneIds'])) {
-                $model->zoneIds = $map['ZoneIds'];
+                $model->zoneIds = [];
+                $n1 = 0;
+                foreach ($map['ZoneIds'] as $item1) {
+                    $model->zoneIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
