@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetBatchTranslateByVPCResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @example Param checker failed! param:[sourceText]. reason: stringChecker not pass. Param length not less [0] and not greater[10000]
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
-     * @example DC2DCCC9-C3DF-4F59-8D8E-78185729F16D
-     *
      * @var string
      */
     public $requestId;
@@ -42,47 +34,81 @@ class GetBatchTranslateByVPCResponseBody extends Model
         'translatedList' => 'TranslatedList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->translatedList)) {
+            Model::validateArray($this->translatedList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->translatedList) {
-            $res['TranslatedList'] = $this->translatedList;
+            if (\is_array($this->translatedList)) {
+                $res['TranslatedList'] = [];
+                $n1 = 0;
+                foreach ($this->translatedList as $item1) {
+                    if (\is_array($item1)) {
+                        $res['TranslatedList'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['TranslatedList'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBatchTranslateByVPCResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TranslatedList'])) {
             if (!empty($map['TranslatedList'])) {
-                $model->translatedList = $map['TranslatedList'];
+                $model->translatedList = [];
+                $n1 = 0;
+                foreach ($map['TranslatedList'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->translatedList[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->translatedList[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
 

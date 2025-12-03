@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetImageTranslateTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxxx
-     *
      * @var string
      */
     public $taskId;
@@ -20,9 +16,12 @@ class GetImageTranslateTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -32,11 +31,11 @@ class GetImageTranslateTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageTranslateTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

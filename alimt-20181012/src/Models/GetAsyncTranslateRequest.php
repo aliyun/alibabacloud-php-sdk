@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAsyncTranslateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 77056ab7-7be1-4c2a-91a1-f20f63894048
-     *
      * @var string
      */
     public $jobId;
@@ -20,9 +16,12 @@ class GetAsyncTranslateRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -32,11 +31,11 @@ class GetAsyncTranslateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAsyncTranslateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

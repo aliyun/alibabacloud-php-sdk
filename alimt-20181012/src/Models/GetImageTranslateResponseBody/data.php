@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models\GetImageTranslateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -19,8 +19,6 @@ class data extends Model
     public $pictureEditor;
 
     /**
-     * @example https://ae01.alicdn.com/kf/xxxxx.jpeg
-     *
      * @var string
      */
     public $url;
@@ -30,17 +28,22 @@ class data extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orc) {
             $res['Orc'] = $this->orc;
         }
+
         if (null !== $this->pictureEditor) {
             $res['PictureEditor'] = $this->pictureEditor;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -48,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Orc'])) {
             $model->orc = $map['Orc'];
         }
+
         if (isset($map['PictureEditor'])) {
             $model->pictureEditor = $map['PictureEditor'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

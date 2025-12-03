@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTranslateReportRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2021-03-01 00:00:00
-     *
      * @var string
      */
     public $beginTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2021-03-01 23:59:59
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $group;
@@ -46,20 +34,26 @@ class GetTranslateReportRequest extends Model
         'group' => 'Group',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
@@ -67,23 +61,26 @@ class GetTranslateReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTranslateReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
