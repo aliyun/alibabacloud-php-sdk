@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models\GetInstanceMetricsResponseBody\podMetrics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metrics extends Model
 {
     /**
-     * @example 1669107528450
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @example 4.536552540058814
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'time'  => 'Time',
+        'time' => 'Time',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +41,18 @@ class metrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

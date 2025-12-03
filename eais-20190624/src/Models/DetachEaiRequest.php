@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachEaiRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example eais-sz8t15a7gt7z7j7i****
-     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
-        'regionId'                     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +41,18 @@ class DetachEaiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachEaiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

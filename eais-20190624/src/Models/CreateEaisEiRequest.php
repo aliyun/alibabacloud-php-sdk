@@ -4,55 +4,37 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaisEiRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateEaisEiRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example test_ei
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example eais.ei-a6.2xlarge
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example rg-acfmvpuy4a5****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example sg-bp16jgp51ttnkbdr****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -63,58 +45,66 @@ class CreateEaisEiRequest extends Model
     public $tag;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example vsw-bp17wmd1wb6fwlimk****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'instanceName'    => 'InstanceName',
-        'instanceType'    => 'InstanceType',
-        'regionId'        => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
-        'tag'             => 'Tag',
-        'vSwitchId'       => 'VSwitchId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -122,41 +112,49 @@ class CreateEaisEiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEaisEiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

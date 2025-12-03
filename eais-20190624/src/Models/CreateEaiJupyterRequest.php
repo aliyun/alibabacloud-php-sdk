@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterRequest\environmentVar;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateEaiJupyterRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
@@ -23,10 +21,6 @@ class CreateEaiJupyterRequest extends Model
     public $eaisName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example eais.ei-a6.2xlarge
-     *
      * @var string
      */
     public $eaisType;
@@ -37,10 +31,6 @@ class CreateEaiJupyterRequest extends Model
     public $environmentVar;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -51,10 +41,6 @@ class CreateEaiJupyterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example sg-uf66jeqopgqa9hdn****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -65,68 +51,81 @@ class CreateEaiJupyterRequest extends Model
     public $tag;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example vsw-uf6h3rbwbm90urjwa****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'eaisName'        => 'EaisName',
-        'eaisType'        => 'EaisType',
-        'environmentVar'  => 'EnvironmentVar',
-        'regionId'        => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'eaisName' => 'EaisName',
+        'eaisType' => 'EaisType',
+        'environmentVar' => 'EnvironmentVar',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
-        'tag'             => 'Tag',
-        'vSwitchId'       => 'VSwitchId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->environmentVar)) {
+            Model::validateArray($this->environmentVar);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->eaisName) {
             $res['EaisName'] = $this->eaisName;
         }
+
         if (null !== $this->eaisType) {
             $res['EaisType'] = $this->eaisType;
         }
+
         if (null !== $this->environmentVar) {
-            $res['EnvironmentVar'] = [];
-            if (null !== $this->environmentVar && \is_array($this->environmentVar)) {
-                $n = 0;
-                foreach ($this->environmentVar as $item) {
-                    $res['EnvironmentVar'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->environmentVar)) {
+                $res['EnvironmentVar'] = [];
+                $n1 = 0;
+                foreach ($this->environmentVar as $item1) {
+                    $res['EnvironmentVar'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -134,50 +133,60 @@ class CreateEaiJupyterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEaiJupyterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['EaisName'])) {
             $model->eaisName = $map['EaisName'];
         }
+
         if (isset($map['EaisType'])) {
             $model->eaisType = $map['EaisType'];
         }
+
         if (isset($map['EnvironmentVar'])) {
             if (!empty($map['EnvironmentVar'])) {
                 $model->environmentVar = [];
-                $n                     = 0;
-                foreach ($map['EnvironmentVar'] as $item) {
-                    $model->environmentVar[$n++] = null !== $item ? environmentVar::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnvironmentVar'] as $item1) {
+                    $model->environmentVar[$n1] = environmentVar::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

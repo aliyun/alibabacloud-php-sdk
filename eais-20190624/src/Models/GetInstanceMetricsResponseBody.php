@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eais\V20190624\Models\GetInstanceMetricsResponseBody\podMetrics;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceMetricsResponseBody extends Model
 {
     /**
-     * @example eais-bj8b53it29hfhj******
-     *
      * @var string
      */
     public $instanceId;
@@ -22,36 +20,41 @@ class GetInstanceMetricsResponseBody extends Model
     public $podMetrics;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'podMetrics' => 'PodMetrics',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->podMetrics)) {
+            Model::validateArray($this->podMetrics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->podMetrics) {
-            $res['PodMetrics'] = [];
-            if (null !== $this->podMetrics && \is_array($this->podMetrics)) {
-                $n = 0;
-                foreach ($this->podMetrics as $item) {
-                    $res['PodMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->podMetrics)) {
+                $res['PodMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->podMetrics as $item1) {
+                    $res['PodMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,26 +62,29 @@ class GetInstanceMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PodMetrics'])) {
             if (!empty($map['PodMetrics'])) {
                 $model->podMetrics = [];
-                $n                 = 0;
-                foreach ($map['PodMetrics'] as $item) {
-                    $model->podMetrics[$n++] = null !== $item ? podMetrics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PodMetrics'] as $item1) {
+                    $model->podMetrics[$n1] = podMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

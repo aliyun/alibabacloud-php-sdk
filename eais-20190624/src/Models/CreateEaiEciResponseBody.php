@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEaiEciResponseBody extends Model
 {
     /**
-     * @example eci-2zeh03ygxlrzmfi6****
-     *
      * @var string
      */
     public $clientInstanceId;
 
     /**
-     * @example eais-sz8t15a7gt7z7j7i****
-     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
 
     /**
-     * @example F5FEB9AA-C108-577C-AB3D-D13524AF****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clientInstanceId'             => 'ClientInstanceId',
+        'clientInstanceId' => 'ClientInstanceId',
         'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientInstanceId) {
             $res['ClientInstanceId'] = $this->clientInstanceId;
         }
+
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +51,22 @@ class CreateEaiEciResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEaiEciResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientInstanceId'])) {
             $model->clientInstanceId = $map['ClientInstanceId'];
         }
+
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
