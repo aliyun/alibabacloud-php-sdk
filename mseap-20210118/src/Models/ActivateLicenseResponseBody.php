@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mseap\V20210118\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ActivateLicenseResponseBody extends Model
 {
     /**
-     * @example True
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @example 88EDA98E-6BE7-55DA-9EB6-B6444B882C59
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class ActivateLicenseResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class ActivateLicenseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ActivateLicenseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
