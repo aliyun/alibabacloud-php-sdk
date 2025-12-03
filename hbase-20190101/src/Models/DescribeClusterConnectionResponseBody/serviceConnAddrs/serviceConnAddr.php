@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeClusterConnectionResponseBody\serviceConnAddrs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeClusterConnectionResponseBody\serviceConnAddrs\serviceConnAddr\connAddrInfo;
-use AlibabaCloud\Tea\Model;
 
 class serviceConnAddr extends Model
 {
@@ -15,26 +15,29 @@ class serviceConnAddr extends Model
     public $connAddrInfo;
 
     /**
-     * @example PhoenixConnAddr
-     *
      * @var string
      */
     public $connType;
     protected $_name = [
         'connAddrInfo' => 'ConnAddrInfo',
-        'connType'     => 'ConnType',
+        'connType' => 'ConnType',
     ];
 
     public function validate()
     {
+        if (null !== $this->connAddrInfo) {
+            $this->connAddrInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connAddrInfo) {
-            $res['ConnAddrInfo'] = null !== $this->connAddrInfo ? $this->connAddrInfo->toMap() : null;
+            $res['ConnAddrInfo'] = null !== $this->connAddrInfo ? $this->connAddrInfo->toArray($noStream) : $this->connAddrInfo;
         }
+
         if (null !== $this->connType) {
             $res['ConnType'] = $this->connType;
         }
@@ -42,17 +45,18 @@ class serviceConnAddr extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceConnAddr
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnAddrInfo'])) {
             $model->connAddrInfo = connAddrInfo::fromMap($map['ConnAddrInfo']);
         }
+
         if (isset($map['ConnType'])) {
             $model->connType = $map['ConnType'];
         }

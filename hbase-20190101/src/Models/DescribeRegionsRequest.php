@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @example hbase
-     *
      * @var string
      */
     public $engine;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'engine'         => 'Engine',
+        'engine' => 'Engine',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -43,17 +41,18 @@ class DescribeRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }

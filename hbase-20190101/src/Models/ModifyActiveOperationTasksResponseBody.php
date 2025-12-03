@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @example 1111,2222
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @example 8C9CC46A-9532-4752-B59F-580112C5A45B
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'ids'       => 'Ids',
+        'ids' => 'Ids',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class ModifyActiveOperationTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActiveOperationTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAccountPasswordResponseBody extends Model
 {
     /**
-     * @example AFAA617B-3268-5883-982B-DB8EC8CC1F1B
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class ModifyAccountPasswordResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyAccountPasswordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAccountPasswordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

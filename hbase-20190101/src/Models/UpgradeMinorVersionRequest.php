@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeMinorVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-t4naqsay5gn****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example HADOOP
-     *
      * @var string
      */
     public $components;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'components' => 'Components',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->components) {
             $res['Components'] = $this->components;
         }
@@ -45,17 +41,18 @@ class UpgradeMinorVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeMinorVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Components'])) {
             $model->components = $map['Components'];
         }

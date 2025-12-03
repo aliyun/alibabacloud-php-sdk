@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories;
 
 class supportedCategories extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories[]
+     * @var supportedCategories[]
      */
     public $supportedCategories;
     protected $_name = [
@@ -18,17 +19,22 @@ class supportedCategories extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedCategories)) {
+            Model::validateArray($this->supportedCategories);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedCategories) {
-            $res['SupportedCategories'] = [];
-            if (null !== $this->supportedCategories && \is_array($this->supportedCategories)) {
-                $n = 0;
-                foreach ($this->supportedCategories as $item) {
-                    $res['SupportedCategories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedCategories)) {
+                $res['SupportedCategories'] = [];
+                $n1 = 0;
+                foreach ($this->supportedCategories as $item1) {
+                    $res['SupportedCategories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class supportedCategories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedCategories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedCategories'])) {
             if (!empty($map['SupportedCategories'])) {
                 $model->supportedCategories = [];
-                $n                          = 0;
-                foreach ($map['SupportedCategories'] as $item) {
-                    $model->supportedCategories[$n++] = null !== $item ? \AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedCategories'] as $item1) {
+                    $model->supportedCategories[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableResourceResponseBody\availableZones\availableZone\supportedEngines;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions;
-use AlibabaCloud\Tea\Model;
 
 class supportedEngine extends Model
 {
     /**
-     * @example hbaseue
-     *
      * @var string
      */
     public $engine;
@@ -21,38 +19,44 @@ class supportedEngine extends Model
      */
     public $supportedEngineVersions;
     protected $_name = [
-        'engine'                  => 'Engine',
+        'engine' => 'Engine',
         'supportedEngineVersions' => 'SupportedEngineVersions',
     ];
 
     public function validate()
     {
+        if (null !== $this->supportedEngineVersions) {
+            $this->supportedEngineVersions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->supportedEngineVersions) {
-            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toMap() : null;
+            $res['SupportedEngineVersions'] = null !== $this->supportedEngineVersions ? $this->supportedEngineVersions->toArray($noStream) : $this->supportedEngineVersions;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedEngine
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['SupportedEngineVersions'])) {
             $model->supportedEngineVersions = supportedEngineVersions::fromMap($map['SupportedEngineVersions']);
         }

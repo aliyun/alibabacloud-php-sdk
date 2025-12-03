@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeClusterConnectionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class thriftConn extends Model
 {
     /**
-     * @example hb-bp1u0639js2h7****-proxy-thrift.hbase.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connAddr;
 
     /**
-     * @example 9099
-     *
      * @var string
      */
     public $connAddrPort;
 
     /**
-     * @example 2
-     *
      * @var string
      */
     public $netType;
     protected $_name = [
-        'connAddr'     => 'ConnAddr',
+        'connAddr' => 'ConnAddr',
         'connAddrPort' => 'ConnAddrPort',
-        'netType'      => 'NetType',
+        'netType' => 'NetType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connAddr) {
             $res['ConnAddr'] = $this->connAddr;
         }
+
         if (null !== $this->connAddrPort) {
             $res['ConnAddrPort'] = $this->connAddrPort;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
@@ -54,20 +51,22 @@ class thriftConn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return thriftConn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnAddr'])) {
             $model->connAddr = $map['ConnAddr'];
         }
+
         if (isset($map['ConnAddrPort'])) {
             $model->connAddrPort = $map['ConnAddrPort'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }

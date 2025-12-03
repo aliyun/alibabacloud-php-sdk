@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGlobalResourceRequest extends Model
 {
     /**
-     * @example xxxxx-xxxxx-xxxxx
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-t4naqsay5gn****
-     *
      * @var string
      */
     public $clusterId;
@@ -30,49 +24,46 @@ class CreateGlobalResourceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PubPhoenixSLBQueryServerVip
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example GLOBAL_VIP
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'clusterId'    => 'ClusterId',
-        'regionId'     => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'clusterId' => 'ClusterId',
+        'regionId' => 'RegionId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -80,26 +71,30 @@ class CreateGlobalResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGlobalResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResizeMultiZoneClusterDiskSizeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ld-f5d6vc2r8d6****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 480
-     *
      * @var int
      */
     public $coreDiskSize;
 
     /**
-     * @example 440
-     *
      * @var int
      */
     public $logDiskSize;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'coreDiskSize' => 'CoreDiskSize',
-        'logDiskSize'  => 'LogDiskSize',
+        'logDiskSize' => 'LogDiskSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->coreDiskSize) {
             $res['CoreDiskSize'] = $this->coreDiskSize;
         }
+
         if (null !== $this->logDiskSize) {
             $res['LogDiskSize'] = $this->logDiskSize;
         }
@@ -56,20 +51,22 @@ class ResizeMultiZoneClusterDiskSizeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResizeMultiZoneClusterDiskSizeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['CoreDiskSize'])) {
             $model->coreDiskSize = $map['CoreDiskSize'];
         }
+
         if (isset($map['LogDiskSize'])) {
             $model->logDiskSize = $map['LogDiskSize'];
         }

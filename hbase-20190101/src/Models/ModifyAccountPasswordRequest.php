@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAccountPasswordRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test01
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ld-bp150tns0sjxs****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example **********
-     *
      * @var string
      */
     public $newAccountPassword;
     protected $_name = [
-        'accountName'        => 'AccountName',
-        'clusterId'          => 'ClusterId',
+        'accountName' => 'AccountName',
+        'clusterId' => 'ClusterId',
         'newAccountPassword' => 'NewAccountPassword',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->newAccountPassword) {
             $res['NewAccountPassword'] = $this->newAccountPassword;
         }
@@ -60,20 +51,22 @@ class ModifyAccountPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAccountPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NewAccountPassword'])) {
             $model->newAccountPassword = $map['NewAccountPassword'];
         }

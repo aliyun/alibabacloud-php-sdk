@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeIpWhitelistResponseBody\groups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeIpWhitelistResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeIpWhitelistResponseBody extends Model
     public $groups;
 
     /**
-     * @example AFAA617B-3268-5883-982B-DB8EC8CC1F1B
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'groups'    => 'Groups',
+        'groups' => 'Groups',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->groups) {
+            $this->groups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groups) {
-            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
+            $res['Groups'] = null !== $this->groups ? $this->groups->toArray($noStream) : $this->groups;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeIpWhitelistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIpWhitelistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Groups'])) {
             $model->groups = groups::fromMap($map['Groups']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-bp161ax8i03c4uq**
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class DescribeSecurityGroupsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class DescribeSecurityGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

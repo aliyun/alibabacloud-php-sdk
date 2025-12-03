@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHbaseHaSlbRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example bds-t4n3496whj23ia4k
-     *
      * @var string
      */
     public $bdsId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ha-v21tmnxjwh2yuy1il
-     *
      * @var string
      */
     public $haId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example thrift
-     *
      * @var string
      */
     public $haTypes;
     protected $_name = [
-        'bdsId'   => 'BdsId',
-        'haId'    => 'HaId',
+        'bdsId' => 'BdsId',
+        'haId' => 'HaId',
         'haTypes' => 'HaTypes',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bdsId) {
             $res['BdsId'] = $this->bdsId;
         }
+
         if (null !== $this->haId) {
             $res['HaId'] = $this->haId;
         }
+
         if (null !== $this->haTypes) {
             $res['HaTypes'] = $this->haTypes;
         }
@@ -60,20 +51,22 @@ class DeleteHbaseHaSlbRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHbaseHaSlbRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BdsId'])) {
             $model->bdsId = $map['BdsId'];
         }
+
         if (isset($map['HaId'])) {
             $model->haId = $map['HaId'];
         }
+
         if (isset($map['HaTypes'])) {
             $model->haTypes = $map['HaTypes'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRestoreSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRestoreSummaryResponseBody\rescords\rescord;
-use AlibabaCloud\Tea\Model;
 
 class rescords extends Model
 {
@@ -19,17 +19,22 @@ class rescords extends Model
 
     public function validate()
     {
+        if (\is_array($this->rescord)) {
+            Model::validateArray($this->rescord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rescord) {
-            $res['Rescord'] = [];
-            if (null !== $this->rescord && \is_array($this->rescord)) {
-                $n = 0;
-                foreach ($this->rescord as $item) {
-                    $res['Rescord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rescord)) {
+                $res['Rescord'] = [];
+                $n1 = 0;
+                foreach ($this->rescord as $item1) {
+                    $res['Rescord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class rescords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rescords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rescord'])) {
             if (!empty($map['Rescord'])) {
                 $model->rescord = [];
-                $n              = 0;
-                foreach ($map['Rescord'] as $item) {
-                    $model->rescord[$n++] = null !== $item ? rescord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Rescord'] as $item1) {
+                    $model->rescord[$n1] = rescord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

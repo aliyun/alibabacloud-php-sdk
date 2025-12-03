@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyMultiZoneClusterNodeTypeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ld-dj45g7d6rbrd****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example hbase.sn1.large
-     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
-     * @example hbase.sn1.2xlarge
-     *
      * @var string
      */
     public $logInstanceType;
 
     /**
-     * @example hbase.sn1.8xlarge
-     *
      * @var string
      */
     public $masterInstanceType;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'coreInstanceType'   => 'CoreInstanceType',
-        'logInstanceType'    => 'LogInstanceType',
+        'clusterId' => 'ClusterId',
+        'coreInstanceType' => 'CoreInstanceType',
+        'logInstanceType' => 'LogInstanceType',
         'masterInstanceType' => 'MasterInstanceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->coreInstanceType) {
             $res['CoreInstanceType'] = $this->coreInstanceType;
         }
+
         if (null !== $this->logInstanceType) {
             $res['LogInstanceType'] = $this->logInstanceType;
         }
+
         if (null !== $this->masterInstanceType) {
             $res['MasterInstanceType'] = $this->masterInstanceType;
         }
@@ -67,23 +61,26 @@ class ModifyMultiZoneClusterNodeTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyMultiZoneClusterNodeTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['CoreInstanceType'])) {
             $model->coreInstanceType = $map['CoreInstanceType'];
         }
+
         if (isset($map['LogInstanceType'])) {
             $model->logInstanceType = $map['LogInstanceType'];
         }
+
         if (isset($map['MasterInstanceType'])) {
             $model->masterInstanceType = $map['MasterInstanceType'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseBackupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-t4naqsay5gn****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class CloseBackupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class CloseBackupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseBackupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

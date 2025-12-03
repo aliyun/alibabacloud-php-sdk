@@ -4,79 +4,66 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateHbaseHaSlbRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example bds-t4n3496whj23****
-     *
      * @var string
      */
     public $bdsId;
 
     /**
-     * @example ETnLKlblzczshOTUbOCz****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ha-v21tmnxjwh2yu****
-     *
      * @var string
      */
     public $haId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example thrift
-     *
      * @var string
      */
     public $haTypes;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Active
-     *
      * @var string
      */
     public $hbaseType;
     protected $_name = [
-        'bdsId'       => 'BdsId',
+        'bdsId' => 'BdsId',
         'clientToken' => 'ClientToken',
-        'haId'        => 'HaId',
-        'haTypes'     => 'HaTypes',
-        'hbaseType'   => 'HbaseType',
+        'haId' => 'HaId',
+        'haTypes' => 'HaTypes',
+        'hbaseType' => 'HbaseType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bdsId) {
             $res['BdsId'] = $this->bdsId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->haId) {
             $res['HaId'] = $this->haId;
         }
+
         if (null !== $this->haTypes) {
             $res['HaTypes'] = $this->haTypes;
         }
+
         if (null !== $this->hbaseType) {
             $res['HbaseType'] = $this->hbaseType;
         }
@@ -84,26 +71,30 @@ class CreateHbaseHaSlbRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHbaseHaSlbRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BdsId'])) {
             $model->bdsId = $map['BdsId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['HaId'])) {
             $model->haId = $map['HaId'];
         }
+
         if (isset($map['HaTypes'])) {
             $model->haTypes = $map['HaTypes'];
         }
+
         if (isset($map['HbaseType'])) {
             $model->hbaseType = $map['HbaseType'];
         }

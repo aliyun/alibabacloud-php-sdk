@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ld-bp150tns0sjxs****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example THRIFT
-     *
      * @var string
      */
     public $components;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'components' => 'Components',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->components) {
             $res['Components'] = $this->components;
         }
@@ -45,17 +41,18 @@ class RestartInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Components'])) {
             $model->components = $map['Components'];
         }

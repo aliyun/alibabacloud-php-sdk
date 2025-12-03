@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\ListTagsResponseBody\tags;
-use AlibabaCloud\Tea\Model;
 
 class ListTagsResponseBody extends Model
 {
     /**
-     * @example 36D1BE9B-3C4A-425B-947A-69E3D77999C4
-     *
      * @var string
      */
     public $requestId;
@@ -22,37 +20,43 @@ class ListTagsResponseBody extends Model
     public $tags;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tags'      => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

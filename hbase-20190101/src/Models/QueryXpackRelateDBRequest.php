@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryXpackRelateDBRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ap-bp1qtz9rcbbt3p6ng
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $hasSingleNode;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hbase
-     *
      * @var string
      */
     public $relateDbType;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'hasSingleNode' => 'HasSingleNode',
-        'relateDbType'  => 'RelateDbType',
+        'relateDbType' => 'RelateDbType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->hasSingleNode) {
             $res['HasSingleNode'] = $this->hasSingleNode;
         }
+
         if (null !== $this->relateDbType) {
             $res['RelateDbType'] = $this->relateDbType;
         }
@@ -58,20 +51,22 @@ class QueryXpackRelateDBRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryXpackRelateDBRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['HasSingleNode'])) {
             $model->hasSingleNode = $map['HasSingleNode'];
         }
+
         if (isset($map['RelateDbType'])) {
             $model->relateDbType = $map['RelateDbType'];
         }

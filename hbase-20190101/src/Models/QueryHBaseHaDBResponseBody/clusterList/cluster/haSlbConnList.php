@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\QueryHBaseHaDBResponseBody\clusterList\cluster;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\QueryHBaseHaDBResponseBody\clusterList\cluster\haSlbConnList\haSlbConn;
-use AlibabaCloud\Tea\Model;
 
 class haSlbConnList extends Model
 {
@@ -19,17 +19,22 @@ class haSlbConnList extends Model
 
     public function validate()
     {
+        if (\is_array($this->haSlbConn)) {
+            Model::validateArray($this->haSlbConn);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->haSlbConn) {
-            $res['HaSlbConn'] = [];
-            if (null !== $this->haSlbConn && \is_array($this->haSlbConn)) {
-                $n = 0;
-                foreach ($this->haSlbConn as $item) {
-                    $res['HaSlbConn'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->haSlbConn)) {
+                $res['HaSlbConn'] = [];
+                $n1 = 0;
+                foreach ($this->haSlbConn as $item1) {
+                    $res['HaSlbConn'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class haSlbConnList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return haSlbConnList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaSlbConn'])) {
             if (!empty($map['HaSlbConn'])) {
                 $model->haSlbConn = [];
-                $n                = 0;
-                foreach ($map['HaSlbConn'] as $item) {
-                    $model->haSlbConn[$n++] = null !== $item ? haSlbConn::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HaSlbConn'] as $item1) {
+                    $model->haSlbConn[$n1] = haSlbConn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\CheckComponentsVersionResponseBody\components;
-use AlibabaCloud\Tea\Model;
 
 class CheckComponentsVersionResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class CheckComponentsVersionResponseBody extends Model
     public $components;
 
     /**
-     * @example E3537EB4-1100-41CA-A147-C74CCC8BB12C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'components' => 'Components',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->components) {
+            $this->components->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->components) {
-            $res['Components'] = null !== $this->components ? $this->components->toMap() : null;
+            $res['Components'] = null !== $this->components ? $this->components->toArray($noStream) : $this->components;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class CheckComponentsVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckComponentsVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Components'])) {
             $model->components = components::fromMap($map['Components']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

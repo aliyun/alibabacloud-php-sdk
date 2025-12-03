@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeInstanceTypeResponseBody\instanceTypeSpecList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceTypeSpec extends Model
 {
     /**
-     * @example 8
-     *
      * @var int
      */
     public $cpuSize;
 
     /**
-     * @example hbase.n2.4xlarge
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $memSize;
     protected $_name = [
-        'cpuSize'      => 'CpuSize',
+        'cpuSize' => 'CpuSize',
         'instanceType' => 'InstanceType',
-        'memSize'      => 'MemSize',
+        'memSize' => 'MemSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuSize) {
             $res['CpuSize'] = $this->cpuSize;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->memSize) {
             $res['MemSize'] = $this->memSize;
         }
@@ -54,20 +51,22 @@ class instanceTypeSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTypeSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuSize'])) {
             $model->cpuSize = $map['CpuSize'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['MemSize'])) {
             $model->memSize = $map['MemSize'];
         }

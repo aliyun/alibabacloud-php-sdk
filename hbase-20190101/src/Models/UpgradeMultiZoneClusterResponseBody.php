@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeMultiZoneClusterResponseBody extends Model
 {
     /**
-     * @example C532A4D4-9451-4460-BB3E-300FEC852D3F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example LINDORM
-     *
      * @var string
      */
     public $upgradingComponents;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'upgradingComponents' => 'UpgradingComponents',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->upgradingComponents) {
             $res['UpgradingComponents'] = $this->upgradingComponents;
         }
@@ -43,17 +41,18 @@ class UpgradeMultiZoneClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeMultiZoneClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UpgradingComponents'])) {
             $model->upgradingComponents = $map['UpgradingComponents'];
         }

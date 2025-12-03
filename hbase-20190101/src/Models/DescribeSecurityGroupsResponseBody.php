@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeSecurityGroupsResponseBody\securityGroupIds;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
-     * @example 50373857-C47B-4B64-9332-D0B5280B59EA
-     *
      * @var string
      */
     public $requestId;
@@ -21,38 +19,44 @@ class DescribeSecurityGroupsResponseBody extends Model
      */
     public $securityGroupIds;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
     public function validate()
     {
+        if (null !== $this->securityGroupIds) {
+            $this->securityGroupIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toArray($noStream) : $this->securityGroupIds;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }

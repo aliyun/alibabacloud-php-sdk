@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddUserHdfsInfoRequest extends Model
 {
     /**
-     * @example ETnLKlblzczshOTUbOCz****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-bp16o0pd5****582s
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"dfs.nameservices":"hdfs_test","dfs.ha.namenodes":"nn1,nn2","dfs.namenode.http-address.hdfs_test.nn1":"TEST-xxx1.com:50070","dfs.namenode.http-address.hdfs_test.nn2":"TEST-xxx2.com:50070","dfs.namenode.rpc-address.hdfs_test.nn1":"TEST-xxx1.com:8020","dfs.namenode.rpc-address.hdfs_test.nn2":"TEST-xxx2.com:8020"}
-     *
      * @var string
      */
     public $extInfo;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'clusterId'   => 'ClusterId',
-        'extInfo'     => 'ExtInfo',
+        'clusterId' => 'ClusterId',
+        'extInfo' => 'ExtInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -58,20 +51,22 @@ class AddUserHdfsInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddUserHdfsInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }

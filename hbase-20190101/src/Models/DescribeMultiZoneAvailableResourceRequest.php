@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMultiZoneAvailableResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example Prepaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example cn-hangzhou-bef-aliyun
-     *
      * @var string
      */
     public $zoneCombination;
     protected $_name = [
-        'chargeType'      => 'ChargeType',
-        'regionId'        => 'RegionId',
+        'chargeType' => 'ChargeType',
+        'regionId' => 'RegionId',
         'zoneCombination' => 'ZoneCombination',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->zoneCombination) {
             $res['ZoneCombination'] = $this->zoneCombination;
         }
@@ -58,20 +51,22 @@ class DescribeMultiZoneAvailableResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMultiZoneAvailableResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ZoneCombination'])) {
             $model->zoneCombination = $map['ZoneCombination'];
         }

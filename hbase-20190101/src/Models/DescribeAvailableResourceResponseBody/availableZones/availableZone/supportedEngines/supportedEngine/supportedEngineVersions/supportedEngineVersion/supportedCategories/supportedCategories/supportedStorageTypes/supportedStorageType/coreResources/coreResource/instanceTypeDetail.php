@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes\supportedStorageType\coreResources\coreResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceTypeDetail extends Model
 {
     /**
-     * @example 4
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @example 8
-     *
      * @var int
      */
     public $mem;
@@ -28,14 +24,16 @@ class instanceTypeDetail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
         }
@@ -43,17 +41,18 @@ class instanceTypeDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTypeDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
         }

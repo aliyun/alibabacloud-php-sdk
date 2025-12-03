@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResizeDiskSizeResponseBody extends Model
 {
     /**
-     * @example 3C22622B-8555-42BF-AD8A-1B960743****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example 493A762B-E4A6-44E9-B877-CA6D0CAF8B29
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class ResizeDiskSizeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResizeDiskSizeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

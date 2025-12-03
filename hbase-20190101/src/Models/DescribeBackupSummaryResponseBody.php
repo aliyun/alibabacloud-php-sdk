@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeBackupSummaryResponseBody\full;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeBackupSummaryResponseBody\incr;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupSummaryResponseBody extends Model
 {
@@ -21,30 +21,37 @@ class DescribeBackupSummaryResponseBody extends Model
     public $incr;
 
     /**
-     * @example 168793CB-7B31-43E7-ADAB-FE3E8D584D6E
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'full'      => 'Full',
-        'incr'      => 'Incr',
+        'full' => 'Full',
+        'incr' => 'Incr',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->full) {
+            $this->full->validate();
+        }
+        if (null !== $this->incr) {
+            $this->incr->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->full) {
-            $res['Full'] = null !== $this->full ? $this->full->toMap() : null;
+            $res['Full'] = null !== $this->full ? $this->full->toArray($noStream) : $this->full;
         }
+
         if (null !== $this->incr) {
-            $res['Incr'] = null !== $this->incr ? $this->incr->toMap() : null;
+            $res['Incr'] = null !== $this->incr ? $this->incr->toArray($noStream) : $this->incr;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,20 +59,22 @@ class DescribeBackupSummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Full'])) {
             $model->full = full::fromMap($map['Full']);
         }
+
         if (isset($map['Incr'])) {
             $model->incr = incr::fromMap($map['Incr']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

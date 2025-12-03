@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRestoreTablesResponseBody\restoreSchema;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRestoreTablesResponseBody\restoreSchema\restoreSchemaDetails\restoreSchemaDetail;
-use AlibabaCloud\Tea\Model;
 
 class restoreSchemaDetails extends Model
 {
@@ -19,17 +19,22 @@ class restoreSchemaDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->restoreSchemaDetail)) {
+            Model::validateArray($this->restoreSchemaDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->restoreSchemaDetail) {
-            $res['RestoreSchemaDetail'] = [];
-            if (null !== $this->restoreSchemaDetail && \is_array($this->restoreSchemaDetail)) {
-                $n = 0;
-                foreach ($this->restoreSchemaDetail as $item) {
-                    $res['RestoreSchemaDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->restoreSchemaDetail)) {
+                $res['RestoreSchemaDetail'] = [];
+                $n1 = 0;
+                foreach ($this->restoreSchemaDetail as $item1) {
+                    $res['RestoreSchemaDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class restoreSchemaDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return restoreSchemaDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RestoreSchemaDetail'])) {
             if (!empty($map['RestoreSchemaDetail'])) {
                 $model->restoreSchemaDetail = [];
-                $n                          = 0;
-                foreach ($map['RestoreSchemaDetail'] as $item) {
-                    $model->restoreSchemaDetail[$n++] = null !== $item ? restoreSchemaDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RestoreSchemaDetail'] as $item1) {
+                    $model->restoreSchemaDetail[$n1] = restoreSchemaDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

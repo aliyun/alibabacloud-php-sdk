@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSubDomainResponseBody extends Model
 {
     /**
-     * @example F4208C83-B9BC-4A64-A739-8F88E98DA469
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example cn-hangzhou-h-aliyun
-     *
      * @var string
      */
     public $subDomain;
@@ -28,14 +24,16 @@ class DescribeSubDomainResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
         }
@@ -43,17 +41,18 @@ class DescribeSubDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSubDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
         }

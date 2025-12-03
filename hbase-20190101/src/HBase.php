@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AddUserHdfsInfoRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AddUserHdfsInfoResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\AllocatePublicNetworkAddressRequest;
@@ -212,11 +211,10 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\UpgradeMultiZoneClusterRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\UpgradeMultiZoneClusterResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\XpackRelateDBRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\XpackRelateDBResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class HBase extends OpenApiClient
 {
@@ -224,41 +222,41 @@ class HBase extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'hbase.aliyuncs.com',
-            'ap-south-1'                  => 'hbase.aliyuncs.com',
-            'ap-southeast-2'              => 'hbase.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'hbase.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'hbase.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'hbase.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'hbase.aliyuncs.com',
-            'cn-edge-1'                   => 'hbase.aliyuncs.com',
-            'cn-fujian'                   => 'hbase.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'hbase.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'hbase.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-2-pop' => 'hbase.aliyuncs.com',
+            'ap-south-1' => 'hbase.aliyuncs.com',
+            'ap-southeast-2' => 'hbase.aliyuncs.com',
+            'cn-beijing-finance-1' => 'hbase.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'hbase.aliyuncs.com',
+            'cn-beijing-gov-1' => 'hbase.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'hbase.aliyuncs.com',
+            'cn-edge-1' => 'hbase.aliyuncs.com',
+            'cn-fujian' => 'hbase.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'hbase.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'hbase.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'hbase.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'hbase.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'hbase.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'hbase.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'hbase.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'hbase.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'hbase.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'hbase.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'hbase.aliyuncs.com',
-            'cn-shanghai-inner'           => 'hbase.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'hbase.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'hbase.aliyuncs.com',
+            'cn-qingdao-nebula' => 'hbase.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'hbase.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'hbase.aliyuncs.com',
+            'cn-shanghai-inner' => 'hbase.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'hbase.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'hbase.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'hbase.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'hbase.aliyuncs.com',
-            'cn-wuhan'                    => 'hbase.aliyuncs.com',
-            'cn-wulanchabu'               => 'hbase.aliyuncs.com',
-            'cn-yushanfang'               => 'hbase.aliyuncs.com',
-            'cn-zhangbei'                 => 'hbase.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'hbase.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'hbase.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'hbase.aliyuncs.com',
-            'eu-west-1-oxs'               => 'hbase.aliyuncs.com',
-            'rus-west-1-pop'              => 'hbase.aliyuncs.com',
+            'cn-shenzhen-inner' => 'hbase.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'hbase.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'hbase.aliyuncs.com',
+            'cn-wuhan' => 'hbase.aliyuncs.com',
+            'cn-wulanchabu' => 'hbase.aliyuncs.com',
+            'cn-yushanfang' => 'hbase.aliyuncs.com',
+            'cn-zhangbei' => 'hbase.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'hbase.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'hbase.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'hbase.aliyuncs.com',
+            'eu-west-1-oxs' => 'hbase.aliyuncs.com',
+            'rus-west-1-pop' => 'hbase.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hbase', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -277,57 +275,70 @@ class HBase extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddUserHdfsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
+     * @returns AddUserHdfsInfoResponse
+     *
+     * @param AddUserHdfsInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserHdfsInfo',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserHdfsInfo',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
+     * @param request - AddUserHdfsInfoRequest
      *
-     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
+     * @returns AddUserHdfsInfoResponse
+     *
+     * @param AddUserHdfsInfoRequest $request
+     *
+     * @return AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfo($request)
     {
@@ -337,43 +348,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - AllocatePublicNetworkAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
+     * @returns AllocatePublicNetworkAddressResponse
+     *
+     * @param AllocatePublicNetworkAddressRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocatePublicNetworkAddress',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocatePublicNetworkAddress',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
+     * @param request - AllocatePublicNetworkAddressRequest
      *
-     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
+     * @returns AllocatePublicNetworkAddressResponse
+     *
+     * @param AllocatePublicNetworkAddressRequest $request
+     *
+     * @return AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddress($request)
     {
@@ -383,55 +405,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - CancelActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelActiveOperationTasks',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelActiveOperationTasks',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param request - CancelActiveOperationTasksRequest
      *
-     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -441,43 +478,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CheckComponentsVersionRequest $request CheckComponentsVersionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckComponentsVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckComponentsVersionResponse CheckComponentsVersionResponse
+     * @returns CheckComponentsVersionResponse
+     *
+     * @param CheckComponentsVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckComponentsVersionResponse
      */
     public function checkComponentsVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->components)) {
-            $query['Components'] = $request->components;
+
+        if (null !== $request->components) {
+            @$query['Components'] = $request->components;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckComponentsVersion',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckComponentsVersion',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckComponentsVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckComponentsVersionRequest $request CheckComponentsVersionRequest
+     * @param request - CheckComponentsVersionRequest
      *
-     * @return CheckComponentsVersionResponse CheckComponentsVersionResponse
+     * @returns CheckComponentsVersionResponse
+     *
+     * @param CheckComponentsVersionRequest $request
+     *
+     * @return CheckComponentsVersionResponse
      */
     public function checkComponentsVersion($request)
     {
@@ -487,40 +535,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CloseBackupRequest $request CloseBackupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - CloseBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CloseBackupResponse CloseBackupResponse
+     * @returns CloseBackupResponse
+     *
+     * @param CloseBackupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CloseBackupResponse
      */
     public function closeBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseBackup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseBackup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CloseBackupRequest $request CloseBackupRequest
+     * @param request - CloseBackupRequest
      *
-     * @return CloseBackupResponse CloseBackupResponse
+     * @returns CloseBackupResponse
+     *
+     * @param CloseBackupRequest $request
+     *
+     * @return CloseBackupResponse
      */
     public function closeBackup($request)
     {
@@ -530,49 +588,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ConvertInstanceRequest $request ConvertInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ConvertInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConvertInstanceResponse ConvertInstanceResponse
+     * @returns ConvertInstanceResponse
+     *
+     * @param ConvertInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConvertInstanceResponse
      */
     public function convertInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConvertInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConvertInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ConvertInstanceRequest $request ConvertInstanceRequest
+     * @param request - ConvertInstanceRequest
      *
-     * @return ConvertInstanceResponse ConvertInstanceResponse
+     * @returns ConvertInstanceResponse
+     *
+     * @param ConvertInstanceRequest $request
+     *
+     * @return ConvertInstanceResponse
      */
     public function convertInstance($request)
     {
@@ -582,50 +653,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 新建账户
-     *  *
-     * @param CreateAccountRequest $request CreateAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 新建账户.
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param request - CreateAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAccountResponse
+     *
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建账户
-     *  *
-     * @param CreateAccountRequest $request CreateAccountRequest
+     * 新建账户.
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param request - CreateAccountRequest
+     *
+     * @returns CreateAccountResponse
+     *
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -635,40 +718,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateBackupPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupPlanResponse CreateBackupPlanResponse
+     * @returns CreateBackupPlanResponse
+     *
+     * @param CreateBackupPlanRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateBackupPlanResponse
      */
     public function createBackupPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackupPlan',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackupPlan',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
+     * @param request - CreateBackupPlanRequest
      *
-     * @return CreateBackupPlanResponse CreateBackupPlanResponse
+     * @returns CreateBackupPlanResponse
+     *
+     * @param CreateBackupPlanRequest $request
+     *
+     * @return CreateBackupPlanResponse
      */
     public function createBackupPlan($request)
     {
@@ -678,100 +771,130 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->coldStorageSize)) {
-            $query['ColdStorageSize'] = $request->coldStorageSize;
+
+        if (null !== $request->coldStorageSize) {
+            @$query['ColdStorageSize'] = $request->coldStorageSize;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->encryptionKey)) {
-            $query['EncryptionKey'] = $request->encryptionKey;
+
+        if (null !== $request->encryptionKey) {
+            @$query['EncryptionKey'] = $request->encryptionKey;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
-        if (!Utils::isUnset($request->nodeCount)) {
-            $query['NodeCount'] = $request->nodeCount;
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param request - CreateClusterRequest
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -781,52 +904,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateGlobalResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
+     * @returns CreateGlobalResourceResponse
+     *
+     * @param CreateGlobalResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateGlobalResourceResponse
      */
     public function createGlobalResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGlobalResource',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGlobalResource',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
+     * @param request - CreateGlobalResourceRequest
      *
-     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
+     * @returns CreateGlobalResourceResponse
+     *
+     * @param CreateGlobalResourceRequest $request
+     *
+     * @return CreateGlobalResourceResponse
      */
     public function createGlobalResource($request)
     {
@@ -836,46 +973,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHBaseSlbServerRequest $request CreateHBaseSlbServerRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateHBaseSlbServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateHBaseSlbServerResponse CreateHBaseSlbServerResponse
+     * @returns CreateHBaseSlbServerResponse
+     *
+     * @param CreateHBaseSlbServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateHBaseSlbServerResponse
      */
     public function createHBaseSlbServerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->slbServer)) {
-            $query['SlbServer'] = $request->slbServer;
+
+        if (null !== $request->slbServer) {
+            @$query['SlbServer'] = $request->slbServer;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHBaseSlbServer',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHBaseSlbServer',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHBaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateHBaseSlbServerRequest $request CreateHBaseSlbServerRequest
+     * @param request - CreateHBaseSlbServerRequest
      *
-     * @return CreateHBaseSlbServerResponse CreateHBaseSlbServerResponse
+     * @returns CreateHBaseSlbServerResponse
+     *
+     * @param CreateHBaseSlbServerRequest $request
+     *
+     * @return CreateHBaseSlbServerResponse
      */
     public function createHBaseSlbServer($request)
     {
@@ -885,52 +1034,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHbaseHaSlbRequest $request CreateHbaseHaSlbRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateHbaseHaSlbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateHbaseHaSlbResponse CreateHbaseHaSlbResponse
+     * @returns CreateHbaseHaSlbResponse
+     *
+     * @param CreateHbaseHaSlbRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateHbaseHaSlbResponse
      */
     public function createHbaseHaSlbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->haId)) {
-            $query['HaId'] = $request->haId;
+
+        if (null !== $request->haId) {
+            @$query['HaId'] = $request->haId;
         }
-        if (!Utils::isUnset($request->haTypes)) {
-            $query['HaTypes'] = $request->haTypes;
+
+        if (null !== $request->haTypes) {
+            @$query['HaTypes'] = $request->haTypes;
         }
-        if (!Utils::isUnset($request->hbaseType)) {
-            $query['HbaseType'] = $request->hbaseType;
+
+        if (null !== $request->hbaseType) {
+            @$query['HbaseType'] = $request->hbaseType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHbaseHaSlb',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHbaseHaSlb',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHbaseHaSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateHbaseHaSlbRequest $request CreateHbaseHaSlbRequest
+     * @param request - CreateHbaseHaSlbRequest
      *
-     * @return CreateHbaseHaSlbResponse CreateHbaseHaSlbResponse
+     * @returns CreateHbaseHaSlbResponse
+     *
+     * @param CreateHbaseHaSlbRequest $request
+     *
+     * @return CreateHbaseHaSlbResponse
      */
     public function createHbaseHaSlb($request)
     {
@@ -940,124 +1103,162 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateMultiZoneClusterRequest $request CreateMultiZoneClusterRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMultiZoneClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMultiZoneClusterResponse CreateMultiZoneClusterResponse
+     * @returns CreateMultiZoneClusterResponse
+     *
+     * @param CreateMultiZoneClusterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMultiZoneClusterResponse
      */
     public function createMultiZoneClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arbiterVSwitchId)) {
-            $query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
+        if (null !== $request->arbiterVSwitchId) {
+            @$query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
         }
-        if (!Utils::isUnset($request->arbiterZoneId)) {
-            $query['ArbiterZoneId'] = $request->arbiterZoneId;
+
+        if (null !== $request->arbiterZoneId) {
+            @$query['ArbiterZoneId'] = $request->arbiterZoneId;
         }
-        if (!Utils::isUnset($request->archVersion)) {
-            $query['ArchVersion'] = $request->archVersion;
+
+        if (null !== $request->archVersion) {
+            @$query['ArchVersion'] = $request->archVersion;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->coreDiskSize)) {
-            $query['CoreDiskSize'] = $request->coreDiskSize;
+
+        if (null !== $request->coreDiskSize) {
+            @$query['CoreDiskSize'] = $request->coreDiskSize;
         }
-        if (!Utils::isUnset($request->coreDiskType)) {
-            $query['CoreDiskType'] = $request->coreDiskType;
+
+        if (null !== $request->coreDiskType) {
+            @$query['CoreDiskType'] = $request->coreDiskType;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->coreNodeCount)) {
-            $query['CoreNodeCount'] = $request->coreNodeCount;
+
+        if (null !== $request->coreNodeCount) {
+            @$query['CoreNodeCount'] = $request->coreNodeCount;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->logDiskSize)) {
-            $query['LogDiskSize'] = $request->logDiskSize;
+
+        if (null !== $request->logDiskSize) {
+            @$query['LogDiskSize'] = $request->logDiskSize;
         }
-        if (!Utils::isUnset($request->logDiskType)) {
-            $query['LogDiskType'] = $request->logDiskType;
+
+        if (null !== $request->logDiskType) {
+            @$query['LogDiskType'] = $request->logDiskType;
         }
-        if (!Utils::isUnset($request->logInstanceType)) {
-            $query['LogInstanceType'] = $request->logInstanceType;
+
+        if (null !== $request->logInstanceType) {
+            @$query['LogInstanceType'] = $request->logInstanceType;
         }
-        if (!Utils::isUnset($request->logNodeCount)) {
-            $query['LogNodeCount'] = $request->logNodeCount;
+
+        if (null !== $request->logNodeCount) {
+            @$query['LogNodeCount'] = $request->logNodeCount;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
-        if (!Utils::isUnset($request->multiZoneCombination)) {
-            $query['MultiZoneCombination'] = $request->multiZoneCombination;
+
+        if (null !== $request->multiZoneCombination) {
+            @$query['MultiZoneCombination'] = $request->multiZoneCombination;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->primaryVSwitchId)) {
-            $query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+
+        if (null !== $request->primaryVSwitchId) {
+            @$query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
         }
-        if (!Utils::isUnset($request->primaryZoneId)) {
-            $query['PrimaryZoneId'] = $request->primaryZoneId;
+
+        if (null !== $request->primaryZoneId) {
+            @$query['PrimaryZoneId'] = $request->primaryZoneId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->standbyVSwitchId)) {
-            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
         }
-        if (!Utils::isUnset($request->standbyZoneId)) {
-            $query['StandbyZoneId'] = $request->standbyZoneId;
+
+        if (null !== $request->standbyZoneId) {
+            @$query['StandbyZoneId'] = $request->standbyZoneId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMultiZoneCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMultiZoneCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMultiZoneClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMultiZoneClusterRequest $request CreateMultiZoneClusterRequest
+     * @param request - CreateMultiZoneClusterRequest
      *
-     * @return CreateMultiZoneClusterResponse CreateMultiZoneClusterResponse
+     * @returns CreateMultiZoneClusterResponse
+     *
+     * @param CreateMultiZoneClusterRequest $request
+     *
+     * @return CreateMultiZoneClusterResponse
      */
     public function createMultiZoneCluster($request)
     {
@@ -1067,55 +1268,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateRestorePlanRequest $request CreateRestorePlanRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateRestorePlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateRestorePlanResponse CreateRestorePlanResponse
+     * @returns CreateRestorePlanResponse
+     *
+     * @param CreateRestorePlanRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateRestorePlanResponse
      */
     public function createRestorePlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->restoreAllTable)) {
-            $query['RestoreAllTable'] = $request->restoreAllTable;
+
+        if (null !== $request->restoreAllTable) {
+            @$query['RestoreAllTable'] = $request->restoreAllTable;
         }
-        if (!Utils::isUnset($request->restoreByCopy)) {
-            $query['RestoreByCopy'] = $request->restoreByCopy;
+
+        if (null !== $request->restoreByCopy) {
+            @$query['RestoreByCopy'] = $request->restoreByCopy;
         }
-        if (!Utils::isUnset($request->restoreToDate)) {
-            $query['RestoreToDate'] = $request->restoreToDate;
+
+        if (null !== $request->restoreToDate) {
+            @$query['RestoreToDate'] = $request->restoreToDate;
         }
-        if (!Utils::isUnset($request->tables)) {
-            $query['Tables'] = $request->tables;
+
+        if (null !== $request->tables) {
+            @$query['Tables'] = $request->tables;
         }
-        if (!Utils::isUnset($request->targetClusterId)) {
-            $query['TargetClusterId'] = $request->targetClusterId;
+
+        if (null !== $request->targetClusterId) {
+            @$query['TargetClusterId'] = $request->targetClusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRestorePlan',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRestorePlan',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRestorePlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateRestorePlanRequest $request CreateRestorePlanRequest
+     * @param request - CreateRestorePlanRequest
      *
-     * @return CreateRestorePlanResponse CreateRestorePlanResponse
+     * @returns CreateRestorePlanResponse
+     *
+     * @param CreateRestorePlanRequest $request
+     *
+     * @return CreateRestorePlanResponse
      */
     public function createRestorePlan($request)
     {
@@ -1125,91 +1341,118 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateServerlessClusterRequest $request CreateServerlessClusterRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateServerlessClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateServerlessClusterResponse CreateServerlessClusterResponse
+     * @returns CreateServerlessClusterResponse
+     *
+     * @param CreateServerlessClusterRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServerlessClusterResponse
      */
     public function createServerlessClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverlessCapability)) {
-            $query['ServerlessCapability'] = $request->serverlessCapability;
+
+        if (null !== $request->serverlessCapability) {
+            @$query['ServerlessCapability'] = $request->serverlessCapability;
         }
-        if (!Utils::isUnset($request->serverlessSpec)) {
-            $query['ServerlessSpec'] = $request->serverlessSpec;
+
+        if (null !== $request->serverlessSpec) {
+            @$query['ServerlessSpec'] = $request->serverlessSpec;
         }
-        if (!Utils::isUnset($request->serverlessStorage)) {
-            $query['ServerlessStorage'] = $request->serverlessStorage;
+
+        if (null !== $request->serverlessStorage) {
+            @$query['ServerlessStorage'] = $request->serverlessStorage;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServerlessCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServerlessCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateServerlessClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateServerlessClusterRequest $request CreateServerlessClusterRequest
+     * @param request - CreateServerlessClusterRequest
      *
-     * @return CreateServerlessClusterResponse CreateServerlessClusterResponse
+     * @returns CreateServerlessClusterResponse
+     *
+     * @param CreateServerlessClusterRequest $request
+     *
+     * @return CreateServerlessClusterResponse
      */
     public function createServerlessCluster($request)
     {
@@ -1219,47 +1462,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 删除账户
-     *  *
-     * @param DeleteAccountRequest $request DeleteAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除账户.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @param request - DeleteAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除账户
-     *  *
-     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * 删除账户.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @param request - DeleteAccountRequest
+     *
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1269,49 +1523,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteGlobalResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
+     * @returns DeleteGlobalResourceResponse
+     *
+     * @param DeleteGlobalResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteGlobalResourceResponse
      */
     public function deleteGlobalResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGlobalResource',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGlobalResource',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
+     * @param request - DeleteGlobalResourceRequest
      *
-     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
+     * @returns DeleteGlobalResourceResponse
+     *
+     * @param DeleteGlobalResourceRequest $request
+     *
+     * @return DeleteGlobalResourceResponse
      */
     public function deleteGlobalResource($request)
     {
@@ -1321,43 +1588,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseHaDBRequest $request DeleteHBaseHaDBRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteHBaseHaDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteHBaseHaDBResponse DeleteHBaseHaDBResponse
+     * @returns DeleteHBaseHaDBResponse
+     *
+     * @param DeleteHBaseHaDBRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteHBaseHaDBResponse
      */
     public function deleteHBaseHaDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
-        if (!Utils::isUnset($request->haId)) {
-            $query['HaId'] = $request->haId;
+
+        if (null !== $request->haId) {
+            @$query['HaId'] = $request->haId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHBaseHaDB',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHBaseHaDB',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHBaseHaDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteHBaseHaDBRequest $request DeleteHBaseHaDBRequest
+     * @param request - DeleteHBaseHaDBRequest
      *
-     * @return DeleteHBaseHaDBResponse DeleteHBaseHaDBResponse
+     * @returns DeleteHBaseHaDBResponse
+     *
+     * @param DeleteHBaseHaDBRequest $request
+     *
+     * @return DeleteHBaseHaDBResponse
      */
     public function deleteHBaseHaDB($request)
     {
@@ -1367,43 +1645,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHBaseSlbServerRequest $request DeleteHBaseSlbServerRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteHBaseSlbServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteHBaseSlbServerResponse DeleteHBaseSlbServerResponse
+     * @returns DeleteHBaseSlbServerResponse
+     *
+     * @param DeleteHBaseSlbServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteHBaseSlbServerResponse
      */
     public function deleteHBaseSlbServerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->slbServer)) {
-            $query['SlbServer'] = $request->slbServer;
+
+        if (null !== $request->slbServer) {
+            @$query['SlbServer'] = $request->slbServer;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHBaseSlbServer',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHBaseSlbServer',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHBaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteHBaseSlbServerRequest $request DeleteHBaseSlbServerRequest
+     * @param request - DeleteHBaseSlbServerRequest
      *
-     * @return DeleteHBaseSlbServerResponse DeleteHBaseSlbServerResponse
+     * @returns DeleteHBaseSlbServerResponse
+     *
+     * @param DeleteHBaseSlbServerRequest $request
+     *
+     * @return DeleteHBaseSlbServerResponse
      */
     public function deleteHBaseSlbServer($request)
     {
@@ -1413,46 +1702,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHbaseHaSlbRequest $request DeleteHbaseHaSlbRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteHbaseHaSlbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteHbaseHaSlbResponse DeleteHbaseHaSlbResponse
+     * @returns DeleteHbaseHaSlbResponse
+     *
+     * @param DeleteHbaseHaSlbRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteHbaseHaSlbResponse
      */
     public function deleteHbaseHaSlbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
-        if (!Utils::isUnset($request->haId)) {
-            $query['HaId'] = $request->haId;
+
+        if (null !== $request->haId) {
+            @$query['HaId'] = $request->haId;
         }
-        if (!Utils::isUnset($request->haTypes)) {
-            $query['HaTypes'] = $request->haTypes;
+
+        if (null !== $request->haTypes) {
+            @$query['HaTypes'] = $request->haTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHbaseHaSlb',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHbaseHaSlb',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHbaseHaSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteHbaseHaSlbRequest $request DeleteHbaseHaSlbRequest
+     * @param request - DeleteHbaseHaSlbRequest
      *
-     * @return DeleteHbaseHaSlbResponse DeleteHbaseHaSlbResponse
+     * @returns DeleteHbaseHaSlbResponse
+     *
+     * @param DeleteHbaseHaSlbRequest $request
+     *
+     * @return DeleteHbaseHaSlbResponse
      */
     public function deleteHbaseHaSlb($request)
     {
@@ -1462,43 +1763,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->immediateDeleteFlag)) {
-            $query['ImmediateDeleteFlag'] = $request->immediateDeleteFlag;
+
+        if (null !== $request->immediateDeleteFlag) {
+            @$query['ImmediateDeleteFlag'] = $request->immediateDeleteFlag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param request - DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1508,43 +1820,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteMultiZoneClusterRequest $request DeleteMultiZoneClusterRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMultiZoneClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMultiZoneClusterResponse DeleteMultiZoneClusterResponse
+     * @returns DeleteMultiZoneClusterResponse
+     *
+     * @param DeleteMultiZoneClusterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteMultiZoneClusterResponse
      */
     public function deleteMultiZoneClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->immediateDeleteFlag)) {
-            $query['ImmediateDeleteFlag'] = $request->immediateDeleteFlag;
+
+        if (null !== $request->immediateDeleteFlag) {
+            @$query['ImmediateDeleteFlag'] = $request->immediateDeleteFlag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMultiZoneCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMultiZoneCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMultiZoneClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMultiZoneClusterRequest $request DeleteMultiZoneClusterRequest
+     * @param request - DeleteMultiZoneClusterRequest
      *
-     * @return DeleteMultiZoneClusterResponse DeleteMultiZoneClusterResponse
+     * @returns DeleteMultiZoneClusterResponse
+     *
+     * @param DeleteMultiZoneClusterRequest $request
+     *
+     * @return DeleteMultiZoneClusterResponse
      */
     public function deleteMultiZoneCluster($request)
     {
@@ -1554,46 +1877,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerlessClusterRequest $request DeleteServerlessClusterRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteServerlessClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerlessClusterResponse DeleteServerlessClusterResponse
+     * @returns DeleteServerlessClusterResponse
+     *
+     * @param DeleteServerlessClusterRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteServerlessClusterResponse
      */
     public function deleteServerlessClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServerlessCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServerlessCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteServerlessClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteServerlessClusterRequest $request DeleteServerlessClusterRequest
+     * @param request - DeleteServerlessClusterRequest
      *
-     * @return DeleteServerlessClusterResponse DeleteServerlessClusterResponse
+     * @returns DeleteServerlessClusterResponse
+     *
+     * @param DeleteServerlessClusterRequest $request
+     *
+     * @return DeleteServerlessClusterResponse
      */
     public function deleteServerlessCluster($request)
     {
@@ -1603,43 +1938,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteUserHdfsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
+     * @returns DeleteUserHdfsInfoResponse
+     *
+     * @param DeleteUserHdfsInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nameService)) {
-            $query['NameService'] = $request->nameService;
+
+        if (null !== $request->nameService) {
+            @$query['NameService'] = $request->nameService;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserHdfsInfo',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserHdfsInfo',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
+     * @param request - DeleteUserHdfsInfoRequest
      *
-     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
+     * @returns DeleteUserHdfsInfoResponse
+     *
+     * @param DeleteUserHdfsInfoRequest $request
+     *
+     * @return DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfo($request)
     {
@@ -1649,44 +1995,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 查询账户列表
-     *  *
-     * @param DescribeAccountsRequest $request DescribeAccountsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询账户列表.
      *
-     * @return DescribeAccountsResponse DescribeAccountsResponse
+     * @param request - DescribeAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccountsResponse
+     *
+     * @param DescribeAccountsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询账户列表
-     *  *
-     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * 查询账户列表.
      *
-     * @return DescribeAccountsResponse DescribeAccountsResponse
+     * @param request - DescribeAccountsRequest
+     *
+     * @returns DescribeAccountsResponse
+     *
+     * @param DescribeAccountsRequest $request
+     *
+     * @return DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1696,55 +2052,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeActiveOperationTaskTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
+     * @returns DescribeActiveOperationTaskTypeResponse
+     *
+     * @param DescribeActiveOperationTaskTypeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isHistory)) {
-            $query['IsHistory'] = $request->isHistory;
+        if (null !== $request->isHistory) {
+            @$query['IsHistory'] = $request->isHistory;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTaskType',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTaskType',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeActiveOperationTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
+     * @param request - DescribeActiveOperationTaskTypeRequest
      *
-     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
+     * @returns DescribeActiveOperationTaskTypeResponse
+     *
+     * @param DescribeActiveOperationTaskTypeRequest $request
+     *
+     * @return DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskType($request)
     {
@@ -1754,85 +2125,110 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowCancel)) {
-            $query['AllowCancel'] = $request->allowCancel;
+        if (null !== $request->allowCancel) {
+            @$query['AllowCancel'] = $request->allowCancel;
         }
-        if (!Utils::isUnset($request->allowChange)) {
-            $query['AllowChange'] = $request->allowChange;
+
+        if (null !== $request->allowChange) {
+            @$query['AllowChange'] = $request->allowChange;
         }
-        if (!Utils::isUnset($request->changeLevel)) {
-            $query['ChangeLevel'] = $request->changeLevel;
+
+        if (null !== $request->changeLevel) {
+            @$query['ChangeLevel'] = $request->changeLevel;
         }
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->insName)) {
-            $query['InsName'] = $request->insName;
+
+        if (null !== $request->insName) {
+            @$query['InsName'] = $request->insName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTasks',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTasks',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param request - DescribeActiveOperationTasksRequest
      *
-     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -1842,58 +2238,74 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeAvailableResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
+     * @returns DescribeAvailableResourceResponse
+     *
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableResource',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param request - DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
+     * @returns DescribeAvailableResourceResponse
+     *
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -1903,40 +2315,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPlanConfigRequest $request DescribeBackupPlanConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupPlanConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPlanConfigResponse DescribeBackupPlanConfigResponse
+     * @returns DescribeBackupPlanConfigResponse
+     *
+     * @param DescribeBackupPlanConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeBackupPlanConfigResponse
      */
     public function describeBackupPlanConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPlanConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPlanConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupPlanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupPlanConfigRequest $request DescribeBackupPlanConfigRequest
+     * @param request - DescribeBackupPlanConfigRequest
      *
-     * @return DescribeBackupPlanConfigResponse DescribeBackupPlanConfigResponse
+     * @returns DescribeBackupPlanConfigResponse
+     *
+     * @param DescribeBackupPlanConfigRequest $request
+     *
+     * @return DescribeBackupPlanConfigResponse
      */
     public function describeBackupPlanConfig($request)
     {
@@ -1946,40 +2368,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param request - DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1989,40 +2421,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupStatusRequest $request DescribeBackupStatusRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupStatusResponse DescribeBackupStatusResponse
+     * @returns DescribeBackupStatusResponse
+     *
+     * @param DescribeBackupStatusRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupStatusResponse
      */
     public function describeBackupStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupStatus',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupStatus',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupStatusRequest $request DescribeBackupStatusRequest
+     * @param request - DescribeBackupStatusRequest
      *
-     * @return DescribeBackupStatusResponse DescribeBackupStatusResponse
+     * @returns DescribeBackupStatusResponse
+     *
+     * @param DescribeBackupStatusRequest $request
+     *
+     * @return DescribeBackupStatusResponse
      */
     public function describeBackupStatus($request)
     {
@@ -2032,46 +2474,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSummaryRequest $request DescribeBackupSummaryRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSummaryResponse DescribeBackupSummaryResponse
+     * @returns DescribeBackupSummaryResponse
+     *
+     * @param DescribeBackupSummaryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBackupSummaryResponse
      */
     public function describeBackupSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupSummary',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupSummary',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupSummaryRequest $request DescribeBackupSummaryRequest
+     * @param request - DescribeBackupSummaryRequest
      *
-     * @return DescribeBackupSummaryResponse DescribeBackupSummaryResponse
+     * @returns DescribeBackupSummaryResponse
+     *
+     * @param DescribeBackupSummaryRequest $request
+     *
+     * @return DescribeBackupSummaryResponse
      */
     public function describeBackupSummary($request)
     {
@@ -2081,49 +2535,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTablesRequest $request DescribeBackupTablesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTablesResponse DescribeBackupTablesResponse
+     * @returns DescribeBackupTablesResponse
+     *
+     * @param DescribeBackupTablesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupTablesResponse
      */
     public function describeBackupTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupRecordId)) {
-            $query['BackupRecordId'] = $request->backupRecordId;
+        if (null !== $request->backupRecordId) {
+            @$query['BackupRecordId'] = $request->backupRecordId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupTables',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupTables',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupTablesRequest $request DescribeBackupTablesRequest
+     * @param request - DescribeBackupTablesRequest
      *
-     * @return DescribeBackupTablesResponse DescribeBackupTablesResponse
+     * @returns DescribeBackupTablesResponse
+     *
+     * @param DescribeBackupTablesRequest $request
+     *
+     * @return DescribeBackupTablesResponse
      */
     public function describeBackupTables($request)
     {
@@ -2133,61 +2600,78 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request DescribeBackupsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse DescribeBackupsResponse
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->endTimeUTC)) {
-            $query['EndTimeUTC'] = $request->endTimeUTC;
+
+        if (null !== $request->endTimeUTC) {
+            @$query['EndTimeUTC'] = $request->endTimeUTC;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->startTimeUTC)) {
-            $query['StartTimeUTC'] = $request->startTimeUTC;
+
+        if (null !== $request->startTimeUTC) {
+            @$query['StartTimeUTC'] = $request->startTimeUTC;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param request - DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse DescribeBackupsResponse
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     *
+     * @return DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2197,43 +2681,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterConnectionRequest $request DescribeClusterConnectionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeClusterConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterConnectionResponse DescribeClusterConnectionResponse
+     * @returns DescribeClusterConnectionResponse
+     *
+     * @param DescribeClusterConnectionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeClusterConnectionResponse
      */
     public function describeClusterConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterConnection',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterConnection',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeClusterConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterConnectionRequest $request DescribeClusterConnectionRequest
+     * @param request - DescribeClusterConnectionRequest
      *
-     * @return DescribeClusterConnectionResponse DescribeClusterConnectionResponse
+     * @returns DescribeClusterConnectionResponse
+     *
+     * @param DescribeClusterConnectionRequest $request
+     *
+     * @return DescribeClusterConnectionResponse
      */
     public function describeClusterConnection($request)
     {
@@ -2243,40 +2738,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeColdStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeColdStorageResponse DescribeColdStorageResponse
+     * @returns DescribeColdStorageResponse
+     *
+     * @param DescribeColdStorageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeColdStorageResponse
      */
     public function describeColdStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColdStorage',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColdStorage',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeColdStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
+     * @param request - DescribeColdStorageRequest
      *
-     * @return DescribeColdStorageResponse DescribeColdStorageResponse
+     * @returns DescribeColdStorageResponse
+     *
+     * @param DescribeColdStorageRequest $request
+     *
+     * @return DescribeColdStorageResponse
      */
     public function describeColdStorage($request)
     {
@@ -2286,40 +2791,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceUsageRequest $request DescribeDBInstanceUsageRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceUsageResponse DescribeDBInstanceUsageResponse
+     * @returns DescribeDBInstanceUsageResponse
+     *
+     * @param DescribeDBInstanceUsageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBInstanceUsageResponse
      */
     public function describeDBInstanceUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceUsage',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceUsage',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDBInstanceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceUsageRequest $request DescribeDBInstanceUsageRequest
+     * @param request - DescribeDBInstanceUsageRequest
      *
-     * @return DescribeDBInstanceUsageResponse DescribeDBInstanceUsageResponse
+     * @returns DescribeDBInstanceUsageResponse
+     *
+     * @param DescribeDBInstanceUsageRequest $request
+     *
+     * @return DescribeDBInstanceUsageResponse
      */
     public function describeDBInstanceUsage($request)
     {
@@ -2329,46 +2844,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeletedInstancesRequest $request DescribeDeletedInstancesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDeletedInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeletedInstancesResponse DescribeDeletedInstancesResponse
+     * @returns DescribeDeletedInstancesResponse
+     *
+     * @param DescribeDeletedInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDeletedInstancesResponse
      */
     public function describeDeletedInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDeletedInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDeletedInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDeletedInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDeletedInstancesRequest $request DescribeDeletedInstancesRequest
+     * @param request - DescribeDeletedInstancesRequest
      *
-     * @return DescribeDeletedInstancesResponse DescribeDeletedInstancesResponse
+     * @returns DescribeDeletedInstancesResponse
+     *
+     * @param DescribeDeletedInstancesRequest $request
+     *
+     * @return DescribeDeletedInstancesResponse
      */
     public function describeDeletedInstances($request)
     {
@@ -2378,40 +2905,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiskWarningLineRequest $request DescribeDiskWarningLineRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDiskWarningLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiskWarningLineResponse DescribeDiskWarningLineResponse
+     * @returns DescribeDiskWarningLineResponse
+     *
+     * @param DescribeDiskWarningLineRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDiskWarningLineResponse
      */
     public function describeDiskWarningLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiskWarningLine',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiskWarningLine',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDiskWarningLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDiskWarningLineRequest $request DescribeDiskWarningLineRequest
+     * @param request - DescribeDiskWarningLineRequest
      *
-     * @return DescribeDiskWarningLineResponse DescribeDiskWarningLineResponse
+     * @returns DescribeDiskWarningLineResponse
+     *
+     * @param DescribeDiskWarningLineRequest $request
+     *
+     * @return DescribeDiskWarningLineResponse
      */
     public function describeDiskWarningLine($request)
     {
@@ -2421,40 +2958,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndpointsRequest $request DescribeEndpointsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeEndpointsResponse DescribeEndpointsResponse
+     * @returns DescribeEndpointsResponse
+     *
+     * @param DescribeEndpointsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeEndpointsResponse
      */
     public function describeEndpointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEndpoints',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEndpoints',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeEndpointsRequest $request DescribeEndpointsRequest
+     * @param request - DescribeEndpointsRequest
      *
-     * @return DescribeEndpointsResponse DescribeEndpointsResponse
+     * @returns DescribeEndpointsResponse
+     *
+     * @param DescribeEndpointsRequest $request
+     *
+     * @return DescribeEndpointsResponse
      */
     public function describeEndpoints($request)
     {
@@ -2464,40 +3011,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param request - DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2507,40 +3064,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTypeRequest $request DescribeInstanceTypeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTypeResponse DescribeInstanceTypeResponse
+     * @returns DescribeInstanceTypeResponse
+     *
+     * @param DescribeInstanceTypeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeInstanceTypeResponse
      */
     public function describeInstanceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceType',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceType',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceTypeRequest $request DescribeInstanceTypeRequest
+     * @param request - DescribeInstanceTypeRequest
      *
-     * @return DescribeInstanceTypeResponse DescribeInstanceTypeResponse
+     * @returns DescribeInstanceTypeResponse
+     *
+     * @param DescribeInstanceTypeRequest $request
+     *
+     * @return DescribeInstanceTypeResponse
      */
     public function describeInstanceType($request)
     {
@@ -2550,61 +3117,78 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param request - DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2614,40 +3198,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpWhitelistRequest $request DescribeIpWhitelistRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeIpWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpWhitelistResponse DescribeIpWhitelistResponse
+     * @returns DescribeIpWhitelistResponse
+     *
+     * @param DescribeIpWhitelistRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeIpWhitelistResponse
      */
     public function describeIpWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpWhitelist',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpWhitelist',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeIpWhitelistRequest $request DescribeIpWhitelistRequest
+     * @param request - DescribeIpWhitelistRequest
      *
-     * @return DescribeIpWhitelistResponse DescribeIpWhitelistResponse
+     * @returns DescribeIpWhitelistResponse
+     *
+     * @param DescribeIpWhitelistRequest $request
+     *
+     * @return DescribeIpWhitelistResponse
      */
     public function describeIpWhitelist($request)
     {
@@ -2657,40 +3251,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableRegionsRequest $request DescribeMultiZoneAvailableRegionsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeMultiZoneAvailableRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneAvailableRegionsResponse DescribeMultiZoneAvailableRegionsResponse
+     * @returns DescribeMultiZoneAvailableRegionsResponse
+     *
+     * @param DescribeMultiZoneAvailableRegionsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeMultiZoneAvailableRegionsResponse
      */
     public function describeMultiZoneAvailableRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMultiZoneAvailableRegions',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMultiZoneAvailableRegions',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMultiZoneAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMultiZoneAvailableRegionsRequest $request DescribeMultiZoneAvailableRegionsRequest
+     * @param request - DescribeMultiZoneAvailableRegionsRequest
      *
-     * @return DescribeMultiZoneAvailableRegionsResponse DescribeMultiZoneAvailableRegionsResponse
+     * @returns DescribeMultiZoneAvailableRegionsResponse
+     *
+     * @param DescribeMultiZoneAvailableRegionsRequest $request
+     *
+     * @return DescribeMultiZoneAvailableRegionsResponse
      */
     public function describeMultiZoneAvailableRegions($request)
     {
@@ -2700,46 +3304,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneAvailableResourceRequest $request DescribeMultiZoneAvailableResourceRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeMultiZoneAvailableResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneAvailableResourceResponse DescribeMultiZoneAvailableResourceResponse
+     * @returns DescribeMultiZoneAvailableResourceResponse
+     *
+     * @param DescribeMultiZoneAvailableResourceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeMultiZoneAvailableResourceResponse
      */
     public function describeMultiZoneAvailableResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneCombination)) {
-            $query['ZoneCombination'] = $request->zoneCombination;
+
+        if (null !== $request->zoneCombination) {
+            @$query['ZoneCombination'] = $request->zoneCombination;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMultiZoneAvailableResource',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMultiZoneAvailableResource',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMultiZoneAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMultiZoneAvailableResourceRequest $request DescribeMultiZoneAvailableResourceRequest
+     * @param request - DescribeMultiZoneAvailableResourceRequest
      *
-     * @return DescribeMultiZoneAvailableResourceResponse DescribeMultiZoneAvailableResourceResponse
+     * @returns DescribeMultiZoneAvailableResourceResponse
+     *
+     * @param DescribeMultiZoneAvailableResourceRequest $request
+     *
+     * @return DescribeMultiZoneAvailableResourceResponse
      */
     public function describeMultiZoneAvailableResource($request)
     {
@@ -2749,40 +3365,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiZoneClusterRequest $request DescribeMultiZoneClusterRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeMultiZoneClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiZoneClusterResponse DescribeMultiZoneClusterResponse
+     * @returns DescribeMultiZoneClusterResponse
+     *
+     * @param DescribeMultiZoneClusterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeMultiZoneClusterResponse
      */
     public function describeMultiZoneClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMultiZoneCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMultiZoneCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMultiZoneClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMultiZoneClusterRequest $request DescribeMultiZoneClusterRequest
+     * @param request - DescribeMultiZoneClusterRequest
      *
-     * @return DescribeMultiZoneClusterResponse DescribeMultiZoneClusterResponse
+     * @returns DescribeMultiZoneClusterResponse
+     *
+     * @param DescribeMultiZoneClusterRequest $request
+     *
+     * @return DescribeMultiZoneClusterResponse
      */
     public function describeMultiZoneCluster($request)
     {
@@ -2792,40 +3418,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecoverableTimeRangeRequest $request DescribeRecoverableTimeRangeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRecoverableTimeRangeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecoverableTimeRangeResponse DescribeRecoverableTimeRangeResponse
+     * @returns DescribeRecoverableTimeRangeResponse
+     *
+     * @param DescribeRecoverableTimeRangeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeRecoverableTimeRangeResponse
      */
     public function describeRecoverableTimeRangeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecoverableTimeRange',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecoverableTimeRange',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRecoverableTimeRangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRecoverableTimeRangeRequest $request DescribeRecoverableTimeRangeRequest
+     * @param request - DescribeRecoverableTimeRangeRequest
      *
-     * @return DescribeRecoverableTimeRangeResponse DescribeRecoverableTimeRangeResponse
+     * @returns DescribeRecoverableTimeRangeResponse
+     *
+     * @param DescribeRecoverableTimeRangeRequest $request
+     *
+     * @return DescribeRecoverableTimeRangeResponse
      */
     public function describeRecoverableTimeRange($request)
     {
@@ -2835,43 +3471,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param request - DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2881,49 +3528,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreFullDetailsRequest $request DescribeRestoreFullDetailsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRestoreFullDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreFullDetailsResponse DescribeRestoreFullDetailsResponse
+     * @returns DescribeRestoreFullDetailsResponse
+     *
+     * @param DescribeRestoreFullDetailsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeRestoreFullDetailsResponse
      */
     public function describeRestoreFullDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->restoreRecordId)) {
-            $query['RestoreRecordId'] = $request->restoreRecordId;
+
+        if (null !== $request->restoreRecordId) {
+            @$query['RestoreRecordId'] = $request->restoreRecordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreFullDetails',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreFullDetails',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreFullDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRestoreFullDetailsRequest $request DescribeRestoreFullDetailsRequest
+     * @param request - DescribeRestoreFullDetailsRequest
      *
-     * @return DescribeRestoreFullDetailsResponse DescribeRestoreFullDetailsResponse
+     * @returns DescribeRestoreFullDetailsResponse
+     *
+     * @param DescribeRestoreFullDetailsRequest $request
+     *
+     * @return DescribeRestoreFullDetailsResponse
      */
     public function describeRestoreFullDetails($request)
     {
@@ -2933,43 +3593,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreIncrDetailRequest $request DescribeRestoreIncrDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRestoreIncrDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreIncrDetailResponse DescribeRestoreIncrDetailResponse
+     * @returns DescribeRestoreIncrDetailResponse
+     *
+     * @param DescribeRestoreIncrDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRestoreIncrDetailResponse
      */
     public function describeRestoreIncrDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->restoreRecordId)) {
-            $query['RestoreRecordId'] = $request->restoreRecordId;
+
+        if (null !== $request->restoreRecordId) {
+            @$query['RestoreRecordId'] = $request->restoreRecordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreIncrDetail',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreIncrDetail',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreIncrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRestoreIncrDetailRequest $request DescribeRestoreIncrDetailRequest
+     * @param request - DescribeRestoreIncrDetailRequest
      *
-     * @return DescribeRestoreIncrDetailResponse DescribeRestoreIncrDetailResponse
+     * @returns DescribeRestoreIncrDetailResponse
+     *
+     * @param DescribeRestoreIncrDetailRequest $request
+     *
+     * @return DescribeRestoreIncrDetailResponse
      */
     public function describeRestoreIncrDetail($request)
     {
@@ -2979,49 +3650,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSchemaDetailsRequest $request DescribeRestoreSchemaDetailsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRestoreSchemaDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreSchemaDetailsResponse DescribeRestoreSchemaDetailsResponse
+     * @returns DescribeRestoreSchemaDetailsResponse
+     *
+     * @param DescribeRestoreSchemaDetailsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeRestoreSchemaDetailsResponse
      */
     public function describeRestoreSchemaDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->restoreRecordId)) {
-            $query['RestoreRecordId'] = $request->restoreRecordId;
+
+        if (null !== $request->restoreRecordId) {
+            @$query['RestoreRecordId'] = $request->restoreRecordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreSchemaDetails',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreSchemaDetails',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreSchemaDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRestoreSchemaDetailsRequest $request DescribeRestoreSchemaDetailsRequest
+     * @param request - DescribeRestoreSchemaDetailsRequest
      *
-     * @return DescribeRestoreSchemaDetailsResponse DescribeRestoreSchemaDetailsResponse
+     * @returns DescribeRestoreSchemaDetailsResponse
+     *
+     * @param DescribeRestoreSchemaDetailsRequest $request
+     *
+     * @return DescribeRestoreSchemaDetailsResponse
      */
     public function describeRestoreSchemaDetails($request)
     {
@@ -3031,46 +3715,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreSummaryRequest $request DescribeRestoreSummaryRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRestoreSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreSummaryResponse DescribeRestoreSummaryResponse
+     * @returns DescribeRestoreSummaryResponse
+     *
+     * @param DescribeRestoreSummaryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRestoreSummaryResponse
      */
     public function describeRestoreSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreSummary',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreSummary',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRestoreSummaryRequest $request DescribeRestoreSummaryRequest
+     * @param request - DescribeRestoreSummaryRequest
      *
-     * @return DescribeRestoreSummaryResponse DescribeRestoreSummaryResponse
+     * @returns DescribeRestoreSummaryResponse
+     *
+     * @param DescribeRestoreSummaryRequest $request
+     *
+     * @return DescribeRestoreSummaryResponse
      */
     public function describeRestoreSummary($request)
     {
@@ -3080,43 +3776,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreTablesRequest $request DescribeRestoreTablesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRestoreTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreTablesResponse DescribeRestoreTablesResponse
+     * @returns DescribeRestoreTablesResponse
+     *
+     * @param DescribeRestoreTablesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRestoreTablesResponse
      */
     public function describeRestoreTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->restoreRecordId)) {
-            $query['RestoreRecordId'] = $request->restoreRecordId;
+
+        if (null !== $request->restoreRecordId) {
+            @$query['RestoreRecordId'] = $request->restoreRecordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreTables',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreTables',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRestoreTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRestoreTablesRequest $request DescribeRestoreTablesRequest
+     * @param request - DescribeRestoreTablesRequest
      *
-     * @return DescribeRestoreTablesResponse DescribeRestoreTablesResponse
+     * @returns DescribeRestoreTablesResponse
+     *
+     * @param DescribeRestoreTablesRequest $request
+     *
+     * @return DescribeRestoreTablesResponse
      */
     public function describeRestoreTables($request)
     {
@@ -3126,40 +3833,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
+     * @returns DescribeSecurityGroupsResponse
+     *
+     * @param DescribeSecurityGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecurityGroups',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecurityGroups',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
+     * @param request - DescribeSecurityGroupsRequest
      *
-     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
+     * @returns DescribeSecurityGroupsResponse
+     *
+     * @param DescribeSecurityGroupsRequest $request
+     *
+     * @return DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroups($request)
     {
@@ -3169,43 +3886,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerlessClusterRequest $request DescribeServerlessClusterRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeServerlessClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeServerlessClusterResponse DescribeServerlessClusterResponse
+     * @returns DescribeServerlessClusterResponse
+     *
+     * @param DescribeServerlessClusterRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeServerlessClusterResponse
      */
     public function describeServerlessClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServerlessCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServerlessCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeServerlessClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeServerlessClusterRequest $request DescribeServerlessClusterRequest
+     * @param request - DescribeServerlessClusterRequest
      *
-     * @return DescribeServerlessClusterResponse DescribeServerlessClusterResponse
+     * @returns DescribeServerlessClusterResponse
+     *
+     * @param DescribeServerlessClusterRequest $request
+     *
+     * @return DescribeServerlessClusterResponse
      */
     public function describeServerlessCluster($request)
     {
@@ -3215,43 +3943,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubDomainRequest $request DescribeSubDomainRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSubDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubDomainResponse DescribeSubDomainResponse
+     * @returns DescribeSubDomainResponse
+     *
+     * @param DescribeSubDomainRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSubDomainResponse
      */
     public function describeSubDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubDomain',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubDomain',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSubDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSubDomainRequest $request DescribeSubDomainRequest
+     * @param request - DescribeSubDomainRequest
      *
-     * @return DescribeSubDomainResponse DescribeSubDomainResponse
+     * @returns DescribeSubDomainResponse
+     *
+     * @param DescribeSubDomainRequest $request
+     *
+     * @return DescribeSubDomainResponse
      */
     public function describeSubDomain($request)
     {
@@ -3261,49 +4000,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueBackupRequest $request EnableHBaseueBackupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableHBaseueBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableHBaseueBackupResponse EnableHBaseueBackupResponse
+     * @returns EnableHBaseueBackupResponse
+     *
+     * @param EnableHBaseueBackupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EnableHBaseueBackupResponse
      */
     public function enableHBaseueBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->coldStorageSize)) {
-            $query['ColdStorageSize'] = $request->coldStorageSize;
+
+        if (null !== $request->coldStorageSize) {
+            @$query['ColdStorageSize'] = $request->coldStorageSize;
         }
-        if (!Utils::isUnset($request->hbaseueClusterId)) {
-            $query['HbaseueClusterId'] = $request->hbaseueClusterId;
+
+        if (null !== $request->hbaseueClusterId) {
+            @$query['HbaseueClusterId'] = $request->hbaseueClusterId;
         }
-        if (!Utils::isUnset($request->nodeCount)) {
-            $query['NodeCount'] = $request->nodeCount;
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableHBaseueBackup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableHBaseueBackup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableHBaseueBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableHBaseueBackupRequest $request EnableHBaseueBackupRequest
+     * @param request - EnableHBaseueBackupRequest
      *
-     * @return EnableHBaseueBackupResponse EnableHBaseueBackupResponse
+     * @returns EnableHBaseueBackupResponse
+     *
+     * @param EnableHBaseueBackupRequest $request
+     *
+     * @return EnableHBaseueBackupResponse
      */
     public function enableHBaseueBackup($request)
     {
@@ -3313,91 +4065,118 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableHBaseueModuleRequest $request EnableHBaseueModuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableHBaseueModuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableHBaseueModuleResponse EnableHBaseueModuleResponse
+     * @returns EnableHBaseueModuleResponse
+     *
+     * @param EnableHBaseueModuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EnableHBaseueModuleResponse
      */
     public function enableHBaseueModuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->hbaseueClusterId)) {
-            $query['HbaseueClusterId'] = $request->hbaseueClusterId;
+
+        if (null !== $request->hbaseueClusterId) {
+            @$query['HbaseueClusterId'] = $request->hbaseueClusterId;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
-        if (!Utils::isUnset($request->moduleClusterName)) {
-            $query['ModuleClusterName'] = $request->moduleClusterName;
+
+        if (null !== $request->moduleClusterName) {
+            @$query['ModuleClusterName'] = $request->moduleClusterName;
         }
-        if (!Utils::isUnset($request->moduleTypeName)) {
-            $query['ModuleTypeName'] = $request->moduleTypeName;
+
+        if (null !== $request->moduleTypeName) {
+            @$query['ModuleTypeName'] = $request->moduleTypeName;
         }
-        if (!Utils::isUnset($request->nodeCount)) {
-            $query['NodeCount'] = $request->nodeCount;
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $query['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableHBaseueModule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableHBaseueModule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableHBaseueModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableHBaseueModuleRequest $request EnableHBaseueModuleRequest
+     * @param request - EnableHBaseueModuleRequest
      *
-     * @return EnableHBaseueModuleResponse EnableHBaseueModuleResponse
+     * @returns EnableHBaseueModuleResponse
+     *
+     * @param EnableHBaseueModuleRequest $request
+     *
+     * @return EnableHBaseueModuleResponse
      */
     public function enableHBaseueModule($request)
     {
@@ -3407,121 +4186,158 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EvaluateMultiZoneResourceRequest $request EvaluateMultiZoneResourceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - EvaluateMultiZoneResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EvaluateMultiZoneResourceResponse EvaluateMultiZoneResourceResponse
+     * @returns EvaluateMultiZoneResourceResponse
+     *
+     * @param EvaluateMultiZoneResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EvaluateMultiZoneResourceResponse
      */
     public function evaluateMultiZoneResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arbiterVSwitchId)) {
-            $query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
+        if (null !== $request->arbiterVSwitchId) {
+            @$query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
         }
-        if (!Utils::isUnset($request->arbiterZoneId)) {
-            $query['ArbiterZoneId'] = $request->arbiterZoneId;
+
+        if (null !== $request->arbiterZoneId) {
+            @$query['ArbiterZoneId'] = $request->arbiterZoneId;
         }
-        if (!Utils::isUnset($request->archVersion)) {
-            $query['ArchVersion'] = $request->archVersion;
+
+        if (null !== $request->archVersion) {
+            @$query['ArchVersion'] = $request->archVersion;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->coreDiskSize)) {
-            $query['CoreDiskSize'] = $request->coreDiskSize;
+
+        if (null !== $request->coreDiskSize) {
+            @$query['CoreDiskSize'] = $request->coreDiskSize;
         }
-        if (!Utils::isUnset($request->coreDiskType)) {
-            $query['CoreDiskType'] = $request->coreDiskType;
+
+        if (null !== $request->coreDiskType) {
+            @$query['CoreDiskType'] = $request->coreDiskType;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->coreNodeCount)) {
-            $query['CoreNodeCount'] = $request->coreNodeCount;
+
+        if (null !== $request->coreNodeCount) {
+            @$query['CoreNodeCount'] = $request->coreNodeCount;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->logDiskSize)) {
-            $query['LogDiskSize'] = $request->logDiskSize;
+
+        if (null !== $request->logDiskSize) {
+            @$query['LogDiskSize'] = $request->logDiskSize;
         }
-        if (!Utils::isUnset($request->logDiskType)) {
-            $query['LogDiskType'] = $request->logDiskType;
+
+        if (null !== $request->logDiskType) {
+            @$query['LogDiskType'] = $request->logDiskType;
         }
-        if (!Utils::isUnset($request->logInstanceType)) {
-            $query['LogInstanceType'] = $request->logInstanceType;
+
+        if (null !== $request->logInstanceType) {
+            @$query['LogInstanceType'] = $request->logInstanceType;
         }
-        if (!Utils::isUnset($request->logNodeCount)) {
-            $query['LogNodeCount'] = $request->logNodeCount;
+
+        if (null !== $request->logNodeCount) {
+            @$query['LogNodeCount'] = $request->logNodeCount;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
-        if (!Utils::isUnset($request->multiZoneCombination)) {
-            $query['MultiZoneCombination'] = $request->multiZoneCombination;
+
+        if (null !== $request->multiZoneCombination) {
+            @$query['MultiZoneCombination'] = $request->multiZoneCombination;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->primaryVSwitchId)) {
-            $query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+
+        if (null !== $request->primaryVSwitchId) {
+            @$query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
         }
-        if (!Utils::isUnset($request->primaryZoneId)) {
-            $query['PrimaryZoneId'] = $request->primaryZoneId;
+
+        if (null !== $request->primaryZoneId) {
+            @$query['PrimaryZoneId'] = $request->primaryZoneId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->standbyVSwitchId)) {
-            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
         }
-        if (!Utils::isUnset($request->standbyZoneId)) {
-            $query['StandbyZoneId'] = $request->standbyZoneId;
+
+        if (null !== $request->standbyZoneId) {
+            @$query['StandbyZoneId'] = $request->standbyZoneId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EvaluateMultiZoneResource',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EvaluateMultiZoneResource',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EvaluateMultiZoneResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EvaluateMultiZoneResourceRequest $request EvaluateMultiZoneResourceRequest
+     * @param request - EvaluateMultiZoneResourceRequest
      *
-     * @return EvaluateMultiZoneResourceResponse EvaluateMultiZoneResourceResponse
+     * @returns EvaluateMultiZoneResourceResponse
+     *
+     * @param EvaluateMultiZoneResourceRequest $request
+     *
+     * @return EvaluateMultiZoneResourceResponse
      */
     public function evaluateMultiZoneResource($request)
     {
@@ -3531,43 +4347,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMultimodeCmsUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
+     * @returns GetMultimodeCmsUrlResponse
+     *
+     * @param GetMultimodeCmsUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMultimodeCmsUrl',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMultimodeCmsUrl',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMultimodeCmsUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
+     * @param request - GetMultimodeCmsUrlRequest
      *
-     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
+     * @returns GetMultimodeCmsUrlResponse
+     *
+     * @param GetMultimodeCmsUrlRequest $request
+     *
+     * @return GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrl($request)
     {
@@ -3577,56 +4404,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 授权账户权限
-     *  *
-     * @param GrantRequest   $request GrantRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 授权账户权限.
      *
-     * @return GrantResponse GrantResponse
+     * @param request - GrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantResponse
+     *
+     * @param GrantRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GrantResponse
      */
     public function grantWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->aclActions)) {
-            $query['AclActions'] = $request->aclActions;
+
+        if (null !== $request->aclActions) {
+            @$query['AclActions'] = $request->aclActions;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Grant',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Grant',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GrantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 授权账户权限
-     *  *
-     * @param GrantRequest $request GrantRequest
+     * 授权账户权限.
      *
-     * @return GrantResponse GrantResponse
+     * @param request - GrantRequest
+     *
+     * @returns GrantResponse
+     *
+     * @param GrantRequest $request
+     *
+     * @return GrantResponse
      */
     public function grant($request)
     {
@@ -3636,40 +4477,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListHBaseInstancesRequest $request ListHBaseInstancesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ListHBaseInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListHBaseInstancesResponse ListHBaseInstancesResponse
+     * @returns ListHBaseInstancesResponse
+     *
+     * @param ListHBaseInstancesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListHBaseInstancesResponse
      */
     public function listHBaseInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHBaseInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHBaseInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHBaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListHBaseInstancesRequest $request ListHBaseInstancesRequest
+     * @param request - ListHBaseInstancesRequest
      *
-     * @return ListHBaseInstancesResponse ListHBaseInstancesResponse
+     * @returns ListHBaseInstancesResponse
+     *
+     * @param ListHBaseInstancesRequest $request
+     *
+     * @return ListHBaseInstancesResponse
      */
     public function listHBaseInstances($request)
     {
@@ -3679,46 +4530,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigHistoriesRequest $request ListInstanceServiceConfigHistoriesRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param request - ListInstanceServiceConfigHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceServiceConfigHistoriesResponse ListInstanceServiceConfigHistoriesResponse
+     * @returns ListInstanceServiceConfigHistoriesResponse
+     *
+     * @param ListInstanceServiceConfigHistoriesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListInstanceServiceConfigHistoriesResponse
      */
     public function listInstanceServiceConfigHistoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceServiceConfigHistories',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceServiceConfigHistories',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstanceServiceConfigHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListInstanceServiceConfigHistoriesRequest $request ListInstanceServiceConfigHistoriesRequest
+     * @param request - ListInstanceServiceConfigHistoriesRequest
      *
-     * @return ListInstanceServiceConfigHistoriesResponse ListInstanceServiceConfigHistoriesResponse
+     * @returns ListInstanceServiceConfigHistoriesResponse
+     *
+     * @param ListInstanceServiceConfigHistoriesRequest $request
+     *
+     * @return ListInstanceServiceConfigHistoriesResponse
      */
     public function listInstanceServiceConfigHistories($request)
     {
@@ -3728,46 +4591,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceServiceConfigurationsRequest $request ListInstanceServiceConfigurationsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListInstanceServiceConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceServiceConfigurationsResponse ListInstanceServiceConfigurationsResponse
+     * @returns ListInstanceServiceConfigurationsResponse
+     *
+     * @param ListInstanceServiceConfigurationsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListInstanceServiceConfigurationsResponse
      */
     public function listInstanceServiceConfigurationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceServiceConfigurations',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceServiceConfigurations',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstanceServiceConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListInstanceServiceConfigurationsRequest $request ListInstanceServiceConfigurationsRequest
+     * @param request - ListInstanceServiceConfigurationsRequest
      *
-     * @return ListInstanceServiceConfigurationsResponse ListInstanceServiceConfigurationsResponse
+     * @returns ListInstanceServiceConfigurationsResponse
+     *
+     * @param ListInstanceServiceConfigurationsRequest $request
+     *
+     * @return ListInstanceServiceConfigurationsResponse
      */
     public function listInstanceServiceConfigurations($request)
     {
@@ -3777,49 +4652,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param request - ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3829,40 +4717,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagsRequest $request ListTagsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListTagsResponse
      */
     public function listTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTags',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTags',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagsRequest $request ListTagsRequest
+     * @param request - ListTagsRequest
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     *
+     * @return ListTagsResponse
      */
     public function listTags($request)
     {
@@ -3872,50 +4770,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 更改账户密码
-     *  *
-     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 更改账户密码
      *
-     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
+     * @param request - ModifyAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccountPasswordResponse
+     *
+     * @param ModifyAccountPasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->newAccountPassword)) {
-            $query['NewAccountPassword'] = $request->newAccountPassword;
+
+        if (null !== $request->newAccountPassword) {
+            @$query['NewAccountPassword'] = $request->newAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountPassword',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountPassword',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更改账户密码
-     *  *
-     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * 更改账户密码
      *
-     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
+     * @param request - ModifyAccountPasswordRequest
+     *
+     * @returns ModifyAccountPasswordResponse
+     *
+     * @param ModifyAccountPasswordRequest $request
+     *
+     * @return ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -3925,61 +4835,78 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->immediateStart)) {
-            $query['ImmediateStart'] = $request->immediateStart;
+
+        if (null !== $request->immediateStart) {
+            @$query['ImmediateStart'] = $request->immediateStart;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTasks',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyActiveOperationTasks',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param request - ModifyActiveOperationTasksRequest
      *
-     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     *
+     * @return ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -3989,52 +4916,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPlanConfigRequest $request ModifyBackupPlanConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyBackupPlanConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPlanConfigResponse ModifyBackupPlanConfigResponse
+     * @returns ModifyBackupPlanConfigResponse
+     *
+     * @param ModifyBackupPlanConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyBackupPlanConfigResponse
      */
     public function modifyBackupPlanConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->fullBackupCycle)) {
-            $query['FullBackupCycle'] = $request->fullBackupCycle;
+
+        if (null !== $request->fullBackupCycle) {
+            @$query['FullBackupCycle'] = $request->fullBackupCycle;
         }
-        if (!Utils::isUnset($request->minHFileBackupCount)) {
-            $query['MinHFileBackupCount'] = $request->minHFileBackupCount;
+
+        if (null !== $request->minHFileBackupCount) {
+            @$query['MinHFileBackupCount'] = $request->minHFileBackupCount;
         }
-        if (!Utils::isUnset($request->nextFullBackupDate)) {
-            $query['NextFullBackupDate'] = $request->nextFullBackupDate;
+
+        if (null !== $request->nextFullBackupDate) {
+            @$query['NextFullBackupDate'] = $request->nextFullBackupDate;
         }
-        if (!Utils::isUnset($request->tables)) {
-            $query['Tables'] = $request->tables;
+
+        if (null !== $request->tables) {
+            @$query['Tables'] = $request->tables;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPlanConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPlanConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupPlanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyBackupPlanConfigRequest $request ModifyBackupPlanConfigRequest
+     * @param request - ModifyBackupPlanConfigRequest
      *
-     * @return ModifyBackupPlanConfigResponse ModifyBackupPlanConfigResponse
+     * @returns ModifyBackupPlanConfigResponse
+     *
+     * @param ModifyBackupPlanConfigRequest $request
+     *
+     * @return ModifyBackupPlanConfigResponse
      */
     public function modifyBackupPlanConfig($request)
     {
@@ -4044,52 +4985,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->preferredBackupEndTimeUTC)) {
-            $query['PreferredBackupEndTimeUTC'] = $request->preferredBackupEndTimeUTC;
+
+        if (null !== $request->preferredBackupEndTimeUTC) {
+            @$query['PreferredBackupEndTimeUTC'] = $request->preferredBackupEndTimeUTC;
         }
-        if (!Utils::isUnset($request->preferredBackupPeriod)) {
-            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-        if (!Utils::isUnset($request->preferredBackupStartTimeUTC)) {
-            $query['PreferredBackupStartTimeUTC'] = $request->preferredBackupStartTimeUTC;
+
+        if (null !== $request->preferredBackupStartTimeUTC) {
+            @$query['PreferredBackupStartTimeUTC'] = $request->preferredBackupStartTimeUTC;
         }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param request - ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     *
+     * @return ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -4099,43 +5054,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterDeletionProtectionRequest $request ModifyClusterDeletionProtectionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyClusterDeletionProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterDeletionProtectionResponse ModifyClusterDeletionProtectionResponse
+     * @returns ModifyClusterDeletionProtectionResponse
+     *
+     * @param ModifyClusterDeletionProtectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyClusterDeletionProtectionResponse
      */
     public function modifyClusterDeletionProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->protection)) {
-            $query['Protection'] = $request->protection;
+
+        if (null !== $request->protection) {
+            @$query['Protection'] = $request->protection;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterDeletionProtection',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyClusterDeletionProtection',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyClusterDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyClusterDeletionProtectionRequest $request ModifyClusterDeletionProtectionRequest
+     * @param request - ModifyClusterDeletionProtectionRequest
      *
-     * @return ModifyClusterDeletionProtectionResponse ModifyClusterDeletionProtectionResponse
+     * @returns ModifyClusterDeletionProtectionResponse
+     *
+     * @param ModifyClusterDeletionProtectionRequest $request
+     *
+     * @return ModifyClusterDeletionProtectionResponse
      */
     public function modifyClusterDeletionProtection($request)
     {
@@ -4145,43 +5111,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyDiskWarningLineRequest $request ModifyDiskWarningLineRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDiskWarningLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyDiskWarningLineResponse ModifyDiskWarningLineResponse
+     * @returns ModifyDiskWarningLineResponse
+     *
+     * @param ModifyDiskWarningLineRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDiskWarningLineResponse
      */
     public function modifyDiskWarningLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->warningLine)) {
-            $query['WarningLine'] = $request->warningLine;
+
+        if (null !== $request->warningLine) {
+            @$query['WarningLine'] = $request->warningLine;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDiskWarningLine',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDiskWarningLine',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDiskWarningLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDiskWarningLineRequest $request ModifyDiskWarningLineRequest
+     * @param request - ModifyDiskWarningLineRequest
      *
-     * @return ModifyDiskWarningLineResponse ModifyDiskWarningLineResponse
+     * @returns ModifyDiskWarningLineResponse
+     *
+     * @param ModifyDiskWarningLineRequest $request
+     *
+     * @return ModifyDiskWarningLineResponse
      */
     public function modifyDiskWarningLine($request)
     {
@@ -4191,46 +5168,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceMaintainTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
+     * @returns ModifyInstanceMaintainTimeResponse
+     *
+     * @param ModifyInstanceMaintainTimeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->maintainEndTime)) {
-            $query['MaintainEndTime'] = $request->maintainEndTime;
+
+        if (null !== $request->maintainEndTime) {
+            @$query['MaintainEndTime'] = $request->maintainEndTime;
         }
-        if (!Utils::isUnset($request->maintainStartTime)) {
-            $query['MaintainStartTime'] = $request->maintainStartTime;
+
+        if (null !== $request->maintainStartTime) {
+            @$query['MaintainStartTime'] = $request->maintainStartTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceMaintainTime',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceMaintainTime',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
+     * @param request - ModifyInstanceMaintainTimeRequest
      *
-     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
+     * @returns ModifyInstanceMaintainTimeResponse
+     *
+     * @param ModifyInstanceMaintainTimeRequest $request
+     *
+     * @return ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTime($request)
     {
@@ -4240,52 +5229,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
+     * @returns ModifyInstanceNameResponse
+     *
+     * @param ModifyInstanceNameRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceNameResponse
      */
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceName',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceName',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
+     * @param request - ModifyInstanceNameRequest
      *
-     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
+     * @returns ModifyInstanceNameResponse
+     *
+     * @param ModifyInstanceNameRequest $request
+     *
+     * @return ModifyInstanceNameResponse
      */
     public function modifyInstanceName($request)
     {
@@ -4295,52 +5298,66 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceServiceConfigRequest $request ModifyInstanceServiceConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceServiceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceServiceConfigResponse ModifyInstanceServiceConfigResponse
+     * @returns ModifyInstanceServiceConfigResponse
+     *
+     * @param ModifyInstanceServiceConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyInstanceServiceConfigResponse
      */
     public function modifyInstanceServiceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->configureName)) {
-            $query['ConfigureName'] = $request->configureName;
+
+        if (null !== $request->configureName) {
+            @$query['ConfigureName'] = $request->configureName;
         }
-        if (!Utils::isUnset($request->configureValue)) {
-            $query['ConfigureValue'] = $request->configureValue;
+
+        if (null !== $request->configureValue) {
+            @$query['ConfigureValue'] = $request->configureValue;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->restart)) {
-            $query['Restart'] = $request->restart;
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceServiceConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceServiceConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyInstanceServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceServiceConfigRequest $request ModifyInstanceServiceConfigRequest
+     * @param request - ModifyInstanceServiceConfigRequest
      *
-     * @return ModifyInstanceServiceConfigResponse ModifyInstanceServiceConfigResponse
+     * @returns ModifyInstanceServiceConfigResponse
+     *
+     * @param ModifyInstanceServiceConfigRequest $request
+     *
+     * @return ModifyInstanceServiceConfigResponse
      */
     public function modifyInstanceServiceConfig($request)
     {
@@ -4350,46 +5367,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTypeRequest $request ModifyInstanceTypeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTypeResponse ModifyInstanceTypeResponse
+     * @returns ModifyInstanceTypeResponse
+     *
+     * @param ModifyInstanceTypeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceTypeResponse
      */
     public function modifyInstanceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceType',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceType',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceTypeRequest $request ModifyInstanceTypeRequest
+     * @param request - ModifyInstanceTypeRequest
      *
-     * @return ModifyInstanceTypeResponse ModifyInstanceTypeResponse
+     * @returns ModifyInstanceTypeResponse
+     *
+     * @param ModifyInstanceTypeRequest $request
+     *
+     * @return ModifyInstanceTypeResponse
      */
     public function modifyInstanceType($request)
     {
@@ -4399,49 +5428,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyIpWhitelistRequest $request ModifyIpWhitelistRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyIpWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyIpWhitelistResponse ModifyIpWhitelistResponse
+     * @returns ModifyIpWhitelistResponse
+     *
+     * @param ModifyIpWhitelistRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyIpWhitelistResponse
      */
     public function modifyIpWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->ipVersion)) {
-            $query['IpVersion'] = $request->ipVersion;
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIpWhitelist',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIpWhitelist',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyIpWhitelistRequest $request ModifyIpWhitelistRequest
+     * @param request - ModifyIpWhitelistRequest
      *
-     * @return ModifyIpWhitelistResponse ModifyIpWhitelistResponse
+     * @returns ModifyIpWhitelistResponse
+     *
+     * @param ModifyIpWhitelistRequest $request
+     *
+     * @return ModifyIpWhitelistResponse
      */
     public function modifyIpWhitelist($request)
     {
@@ -4451,49 +5493,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyMultiZoneClusterNodeTypeRequest $request ModifyMultiZoneClusterNodeTypeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyMultiZoneClusterNodeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyMultiZoneClusterNodeTypeResponse ModifyMultiZoneClusterNodeTypeResponse
+     * @returns ModifyMultiZoneClusterNodeTypeResponse
+     *
+     * @param ModifyMultiZoneClusterNodeTypeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyMultiZoneClusterNodeTypeResponse
      */
     public function modifyMultiZoneClusterNodeTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->coreInstanceType)) {
-            $query['CoreInstanceType'] = $request->coreInstanceType;
+
+        if (null !== $request->coreInstanceType) {
+            @$query['CoreInstanceType'] = $request->coreInstanceType;
         }
-        if (!Utils::isUnset($request->logInstanceType)) {
-            $query['LogInstanceType'] = $request->logInstanceType;
+
+        if (null !== $request->logInstanceType) {
+            @$query['LogInstanceType'] = $request->logInstanceType;
         }
-        if (!Utils::isUnset($request->masterInstanceType)) {
-            $query['MasterInstanceType'] = $request->masterInstanceType;
+
+        if (null !== $request->masterInstanceType) {
+            @$query['MasterInstanceType'] = $request->masterInstanceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMultiZoneClusterNodeType',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMultiZoneClusterNodeType',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyMultiZoneClusterNodeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyMultiZoneClusterNodeTypeRequest $request ModifyMultiZoneClusterNodeTypeRequest
+     * @param request - ModifyMultiZoneClusterNodeTypeRequest
      *
-     * @return ModifyMultiZoneClusterNodeTypeResponse ModifyMultiZoneClusterNodeTypeResponse
+     * @returns ModifyMultiZoneClusterNodeTypeResponse
+     *
+     * @param ModifyMultiZoneClusterNodeTypeRequest $request
+     *
+     * @return ModifyMultiZoneClusterNodeTypeResponse
      */
     public function modifyMultiZoneClusterNodeType($request)
     {
@@ -4503,43 +5558,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityGroupsRequest $request ModifySecurityGroupsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifySecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityGroupsResponse ModifySecurityGroupsResponse
+     * @returns ModifySecurityGroupsResponse
+     *
+     * @param ModifySecurityGroupsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifySecurityGroupsResponse
      */
     public function modifySecurityGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->securityGroupIds)) {
-            $query['SecurityGroupIds'] = $request->securityGroupIds;
+
+        if (null !== $request->securityGroupIds) {
+            @$query['SecurityGroupIds'] = $request->securityGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityGroups',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityGroups',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifySecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySecurityGroupsRequest $request ModifySecurityGroupsRequest
+     * @param request - ModifySecurityGroupsRequest
      *
-     * @return ModifySecurityGroupsResponse ModifySecurityGroupsResponse
+     * @returns ModifySecurityGroupsResponse
+     *
+     * @param ModifySecurityGroupsRequest $request
+     *
+     * @return ModifySecurityGroupsResponse
      */
     public function modifySecurityGroups($request)
     {
@@ -4549,46 +5615,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyUIAccountPasswordRequest $request ModifyUIAccountPasswordRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyUIAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyUIAccountPasswordResponse ModifyUIAccountPasswordResponse
+     * @returns ModifyUIAccountPasswordResponse
+     *
+     * @param ModifyUIAccountPasswordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyUIAccountPasswordResponse
      */
     public function modifyUIAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUIAccountPassword',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUIAccountPassword',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyUIAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyUIAccountPasswordRequest $request ModifyUIAccountPasswordRequest
+     * @param request - ModifyUIAccountPasswordRequest
      *
-     * @return ModifyUIAccountPasswordResponse ModifyUIAccountPasswordResponse
+     * @returns ModifyUIAccountPasswordResponse
+     *
+     * @param ModifyUIAccountPasswordRequest $request
+     *
+     * @return ModifyUIAccountPasswordResponse
      */
     public function modifyUIAccountPassword($request)
     {
@@ -4598,43 +5676,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param request - MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -4644,40 +5733,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param OpenBackupRequest $request OpenBackupRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - OpenBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return OpenBackupResponse OpenBackupResponse
+     * @returns OpenBackupResponse
+     *
+     * @param OpenBackupRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return OpenBackupResponse
      */
     public function openBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenBackup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenBackup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OpenBackupRequest $request OpenBackupRequest
+     * @param request - OpenBackupRequest
      *
-     * @return OpenBackupResponse OpenBackupResponse
+     * @returns OpenBackupResponse
+     *
+     * @param OpenBackupRequest $request
+     *
+     * @return OpenBackupResponse
      */
     public function openBackup($request)
     {
@@ -4687,40 +5786,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param PurgeInstanceRequest $request PurgeInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - PurgeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PurgeInstanceResponse PurgeInstanceResponse
+     * @returns PurgeInstanceResponse
+     *
+     * @param PurgeInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PurgeInstanceResponse
      */
     public function purgeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PurgeInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PurgeInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PurgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PurgeInstanceRequest $request PurgeInstanceRequest
+     * @param request - PurgeInstanceRequest
      *
-     * @return PurgeInstanceResponse PurgeInstanceResponse
+     * @returns PurgeInstanceResponse
+     *
+     * @param PurgeInstanceRequest $request
+     *
+     * @return PurgeInstanceResponse
      */
     public function purgeInstance($request)
     {
@@ -4730,40 +5839,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryHBaseHaDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
+     * @returns QueryHBaseHaDBResponse
+     *
+     * @param QueryHBaseHaDBRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryHBaseHaDB',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryHBaseHaDB',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryHBaseHaDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
+     * @param request - QueryHBaseHaDBRequest
      *
-     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
+     * @returns QueryHBaseHaDBResponse
+     *
+     * @param QueryHBaseHaDBRequest $request
+     *
+     * @return QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDB($request)
     {
@@ -4773,46 +5892,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryXpackRelateDBRequest $request QueryXpackRelateDBRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryXpackRelateDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryXpackRelateDBResponse QueryXpackRelateDBResponse
+     * @returns QueryXpackRelateDBResponse
+     *
+     * @param QueryXpackRelateDBRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryXpackRelateDBResponse
      */
     public function queryXpackRelateDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->hasSingleNode)) {
-            $query['HasSingleNode'] = $request->hasSingleNode;
+
+        if (null !== $request->hasSingleNode) {
+            @$query['HasSingleNode'] = $request->hasSingleNode;
         }
-        if (!Utils::isUnset($request->relateDbType)) {
-            $query['RelateDbType'] = $request->relateDbType;
+
+        if (null !== $request->relateDbType) {
+            @$query['RelateDbType'] = $request->relateDbType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryXpackRelateDB',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryXpackRelateDB',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryXpackRelateDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryXpackRelateDBRequest $request QueryXpackRelateDBRequest
+     * @param request - QueryXpackRelateDBRequest
      *
-     * @return QueryXpackRelateDBResponse QueryXpackRelateDBResponse
+     * @returns QueryXpackRelateDBResponse
+     *
+     * @param QueryXpackRelateDBRequest $request
+     *
+     * @return QueryXpackRelateDBResponse
      */
     public function queryXpackRelateDB($request)
     {
@@ -4822,100 +5953,130 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - RelateDbForHBaseHaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
+     * @returns RelateDbForHBaseHaResponse
+     *
+     * @param RelateDbForHBaseHaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->haActive)) {
-            $query['HaActive'] = $request->haActive;
+
+        if (null !== $request->haActive) {
+            @$query['HaActive'] = $request->haActive;
         }
-        if (!Utils::isUnset($request->haActiveClusterKey)) {
-            $query['HaActiveClusterKey'] = $request->haActiveClusterKey;
+
+        if (null !== $request->haActiveClusterKey) {
+            @$query['HaActiveClusterKey'] = $request->haActiveClusterKey;
         }
-        if (!Utils::isUnset($request->haActiveDBType)) {
-            $query['HaActiveDBType'] = $request->haActiveDBType;
+
+        if (null !== $request->haActiveDBType) {
+            @$query['HaActiveDBType'] = $request->haActiveDBType;
         }
-        if (!Utils::isUnset($request->haActiveHbaseFsDir)) {
-            $query['HaActiveHbaseFsDir'] = $request->haActiveHbaseFsDir;
+
+        if (null !== $request->haActiveHbaseFsDir) {
+            @$query['HaActiveHbaseFsDir'] = $request->haActiveHbaseFsDir;
         }
-        if (!Utils::isUnset($request->haActiveHdfsUri)) {
-            $query['HaActiveHdfsUri'] = $request->haActiveHdfsUri;
+
+        if (null !== $request->haActiveHdfsUri) {
+            @$query['HaActiveHdfsUri'] = $request->haActiveHdfsUri;
         }
-        if (!Utils::isUnset($request->haActivePassword)) {
-            $query['HaActivePassword'] = $request->haActivePassword;
+
+        if (null !== $request->haActivePassword) {
+            @$query['HaActivePassword'] = $request->haActivePassword;
         }
-        if (!Utils::isUnset($request->haActiveUser)) {
-            $query['HaActiveUser'] = $request->haActiveUser;
+
+        if (null !== $request->haActiveUser) {
+            @$query['HaActiveUser'] = $request->haActiveUser;
         }
-        if (!Utils::isUnset($request->haActiveVersion)) {
-            $query['HaActiveVersion'] = $request->haActiveVersion;
+
+        if (null !== $request->haActiveVersion) {
+            @$query['HaActiveVersion'] = $request->haActiveVersion;
         }
-        if (!Utils::isUnset($request->haMigrateType)) {
-            $query['HaMigrateType'] = $request->haMigrateType;
+
+        if (null !== $request->haMigrateType) {
+            @$query['HaMigrateType'] = $request->haMigrateType;
         }
-        if (!Utils::isUnset($request->haStandby)) {
-            $query['HaStandby'] = $request->haStandby;
+
+        if (null !== $request->haStandby) {
+            @$query['HaStandby'] = $request->haStandby;
         }
-        if (!Utils::isUnset($request->haStandbyClusterKey)) {
-            $query['HaStandbyClusterKey'] = $request->haStandbyClusterKey;
+
+        if (null !== $request->haStandbyClusterKey) {
+            @$query['HaStandbyClusterKey'] = $request->haStandbyClusterKey;
         }
-        if (!Utils::isUnset($request->haStandbyDBType)) {
-            $query['HaStandbyDBType'] = $request->haStandbyDBType;
+
+        if (null !== $request->haStandbyDBType) {
+            @$query['HaStandbyDBType'] = $request->haStandbyDBType;
         }
-        if (!Utils::isUnset($request->haStandbyHbaseFsDir)) {
-            $query['HaStandbyHbaseFsDir'] = $request->haStandbyHbaseFsDir;
+
+        if (null !== $request->haStandbyHbaseFsDir) {
+            @$query['HaStandbyHbaseFsDir'] = $request->haStandbyHbaseFsDir;
         }
-        if (!Utils::isUnset($request->haStandbyHdfsUri)) {
-            $query['HaStandbyHdfsUri'] = $request->haStandbyHdfsUri;
+
+        if (null !== $request->haStandbyHdfsUri) {
+            @$query['HaStandbyHdfsUri'] = $request->haStandbyHdfsUri;
         }
-        if (!Utils::isUnset($request->haStandbyPassword)) {
-            $query['HaStandbyPassword'] = $request->haStandbyPassword;
+
+        if (null !== $request->haStandbyPassword) {
+            @$query['HaStandbyPassword'] = $request->haStandbyPassword;
         }
-        if (!Utils::isUnset($request->haStandbyUser)) {
-            $query['HaStandbyUser'] = $request->haStandbyUser;
+
+        if (null !== $request->haStandbyUser) {
+            @$query['HaStandbyUser'] = $request->haStandbyUser;
         }
-        if (!Utils::isUnset($request->haStandbyVersion)) {
-            $query['HaStandbyVersion'] = $request->haStandbyVersion;
+
+        if (null !== $request->haStandbyVersion) {
+            @$query['HaStandbyVersion'] = $request->haStandbyVersion;
         }
-        if (!Utils::isUnset($request->haTables)) {
-            $query['HaTables'] = $request->haTables;
+
+        if (null !== $request->haTables) {
+            @$query['HaTables'] = $request->haTables;
         }
-        if (!Utils::isUnset($request->isActiveStandard)) {
-            $query['IsActiveStandard'] = $request->isActiveStandard;
+
+        if (null !== $request->isActiveStandard) {
+            @$query['IsActiveStandard'] = $request->isActiveStandard;
         }
-        if (!Utils::isUnset($request->isStandbyStandard)) {
-            $query['IsStandbyStandard'] = $request->isStandbyStandard;
+
+        if (null !== $request->isStandbyStandard) {
+            @$query['IsStandbyStandard'] = $request->isStandbyStandard;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RelateDbForHBaseHa',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RelateDbForHBaseHa',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RelateDbForHBaseHaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
+     * @param request - RelateDbForHBaseHaRequest
      *
-     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
+     * @returns RelateDbForHBaseHaResponse
+     *
+     * @param RelateDbForHBaseHaRequest $request
+     *
+     * @return RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHa($request)
     {
@@ -4925,40 +6086,50 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ReleasePublicNetworkAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
+     * @returns ReleasePublicNetworkAddressResponse
+     *
+     * @param ReleasePublicNetworkAddressRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleasePublicNetworkAddress',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleasePublicNetworkAddress',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
+     * @param request - ReleasePublicNetworkAddressRequest
      *
-     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
+     * @returns ReleasePublicNetworkAddressResponse
+     *
+     * @param ReleasePublicNetworkAddressRequest $request
+     *
+     * @return ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddress($request)
     {
@@ -4968,46 +6139,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request RenewInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - RenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param request - RenewInstanceRequest
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -5017,43 +6200,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeColdStorageSizeRequest $request ResizeColdStorageSizeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ResizeColdStorageSizeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResizeColdStorageSizeResponse ResizeColdStorageSizeResponse
+     * @returns ResizeColdStorageSizeResponse
+     *
+     * @param ResizeColdStorageSizeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResizeColdStorageSizeResponse
      */
     public function resizeColdStorageSizeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->coldStorageSize)) {
-            $query['ColdStorageSize'] = $request->coldStorageSize;
+
+        if (null !== $request->coldStorageSize) {
+            @$query['ColdStorageSize'] = $request->coldStorageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeColdStorageSize',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeColdStorageSize',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeColdStorageSizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeColdStorageSizeRequest $request ResizeColdStorageSizeRequest
+     * @param request - ResizeColdStorageSizeRequest
      *
-     * @return ResizeColdStorageSizeResponse ResizeColdStorageSizeResponse
+     * @returns ResizeColdStorageSizeResponse
+     *
+     * @param ResizeColdStorageSizeRequest $request
+     *
+     * @return ResizeColdStorageSizeResponse
      */
     public function resizeColdStorageSize($request)
     {
@@ -5063,43 +6257,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeDiskSizeRequest $request ResizeDiskSizeRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ResizeDiskSizeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResizeDiskSizeResponse ResizeDiskSizeResponse
+     * @returns ResizeDiskSizeResponse
+     *
+     * @param ResizeDiskSizeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResizeDiskSizeResponse
      */
     public function resizeDiskSizeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nodeDiskSize)) {
-            $query['NodeDiskSize'] = $request->nodeDiskSize;
+
+        if (null !== $request->nodeDiskSize) {
+            @$query['NodeDiskSize'] = $request->nodeDiskSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeDiskSize',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeDiskSize',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeDiskSizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeDiskSizeRequest $request ResizeDiskSizeRequest
+     * @param request - ResizeDiskSizeRequest
      *
-     * @return ResizeDiskSizeResponse ResizeDiskSizeResponse
+     * @returns ResizeDiskSizeResponse
+     *
+     * @param ResizeDiskSizeRequest $request
+     *
+     * @return ResizeDiskSizeResponse
      */
     public function resizeDiskSize($request)
     {
@@ -5109,46 +6314,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterDiskSizeRequest $request ResizeMultiZoneClusterDiskSizeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - ResizeMultiZoneClusterDiskSizeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResizeMultiZoneClusterDiskSizeResponse ResizeMultiZoneClusterDiskSizeResponse
+     * @returns ResizeMultiZoneClusterDiskSizeResponse
+     *
+     * @param ResizeMultiZoneClusterDiskSizeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ResizeMultiZoneClusterDiskSizeResponse
      */
     public function resizeMultiZoneClusterDiskSizeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->coreDiskSize)) {
-            $query['CoreDiskSize'] = $request->coreDiskSize;
+
+        if (null !== $request->coreDiskSize) {
+            @$query['CoreDiskSize'] = $request->coreDiskSize;
         }
-        if (!Utils::isUnset($request->logDiskSize)) {
-            $query['LogDiskSize'] = $request->logDiskSize;
+
+        if (null !== $request->logDiskSize) {
+            @$query['LogDiskSize'] = $request->logDiskSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeMultiZoneClusterDiskSize',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeMultiZoneClusterDiskSize',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeMultiZoneClusterDiskSizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeMultiZoneClusterDiskSizeRequest $request ResizeMultiZoneClusterDiskSizeRequest
+     * @param request - ResizeMultiZoneClusterDiskSizeRequest
      *
-     * @return ResizeMultiZoneClusterDiskSizeResponse ResizeMultiZoneClusterDiskSizeResponse
+     * @returns ResizeMultiZoneClusterDiskSizeResponse
+     *
+     * @param ResizeMultiZoneClusterDiskSizeRequest $request
+     *
+     * @return ResizeMultiZoneClusterDiskSizeResponse
      */
     public function resizeMultiZoneClusterDiskSize($request)
     {
@@ -5158,61 +6375,78 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeMultiZoneClusterNodeCountRequest $request ResizeMultiZoneClusterNodeCountRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - ResizeMultiZoneClusterNodeCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResizeMultiZoneClusterNodeCountResponse ResizeMultiZoneClusterNodeCountResponse
+     * @returns ResizeMultiZoneClusterNodeCountResponse
+     *
+     * @param ResizeMultiZoneClusterNodeCountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ResizeMultiZoneClusterNodeCountResponse
      */
     public function resizeMultiZoneClusterNodeCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arbiterVSwitchId)) {
-            $query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
+        if (null !== $request->arbiterVSwitchId) {
+            @$query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->coreNodeCount)) {
-            $query['CoreNodeCount'] = $request->coreNodeCount;
+
+        if (null !== $request->coreNodeCount) {
+            @$query['CoreNodeCount'] = $request->coreNodeCount;
         }
-        if (!Utils::isUnset($request->logNodeCount)) {
-            $query['LogNodeCount'] = $request->logNodeCount;
+
+        if (null !== $request->logNodeCount) {
+            @$query['LogNodeCount'] = $request->logNodeCount;
         }
-        if (!Utils::isUnset($request->primaryCoreNodeCount)) {
-            $query['PrimaryCoreNodeCount'] = $request->primaryCoreNodeCount;
+
+        if (null !== $request->primaryCoreNodeCount) {
+            @$query['PrimaryCoreNodeCount'] = $request->primaryCoreNodeCount;
         }
-        if (!Utils::isUnset($request->primaryVSwitchId)) {
-            $query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+
+        if (null !== $request->primaryVSwitchId) {
+            @$query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
         }
-        if (!Utils::isUnset($request->standbyCoreNodeCount)) {
-            $query['StandbyCoreNodeCount'] = $request->standbyCoreNodeCount;
+
+        if (null !== $request->standbyCoreNodeCount) {
+            @$query['StandbyCoreNodeCount'] = $request->standbyCoreNodeCount;
         }
-        if (!Utils::isUnset($request->standbyVSwitchId)) {
-            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeMultiZoneClusterNodeCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeMultiZoneClusterNodeCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeMultiZoneClusterNodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeMultiZoneClusterNodeCountRequest $request ResizeMultiZoneClusterNodeCountRequest
+     * @param request - ResizeMultiZoneClusterNodeCountRequest
      *
-     * @return ResizeMultiZoneClusterNodeCountResponse ResizeMultiZoneClusterNodeCountResponse
+     * @returns ResizeMultiZoneClusterNodeCountResponse
+     *
+     * @param ResizeMultiZoneClusterNodeCountRequest $request
+     *
+     * @return ResizeMultiZoneClusterNodeCountResponse
      */
     public function resizeMultiZoneClusterNodeCount($request)
     {
@@ -5222,49 +6456,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeNodeCountRequest $request ResizeNodeCountRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ResizeNodeCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResizeNodeCountResponse ResizeNodeCountResponse
+     * @returns ResizeNodeCountResponse
+     *
+     * @param ResizeNodeCountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResizeNodeCountResponse
      */
     public function resizeNodeCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nodeCount)) {
-            $query['NodeCount'] = $request->nodeCount;
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResizeNodeCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResizeNodeCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResizeNodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeNodeCountRequest $request ResizeNodeCountRequest
+     * @param request - ResizeNodeCountRequest
      *
-     * @return ResizeNodeCountResponse ResizeNodeCountResponse
+     * @returns ResizeNodeCountResponse
+     *
+     * @param ResizeNodeCountRequest $request
+     *
+     * @return ResizeNodeCountResponse
      */
     public function resizeNodeCount($request)
     {
@@ -5274,43 +6521,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request RestartInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - RestartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->components)) {
-            $query['Components'] = $request->components;
+
+        if (null !== $request->components) {
+            @$query['Components'] = $request->components;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartInstance',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartInstance',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param request - RestartInstanceRequest
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     *
+     * @return RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -5320,56 +6578,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 回收账户权限
-     *  *
-     * @param RevokeRequest  $request RevokeRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 回收账户权限.
      *
-     * @return RevokeResponse RevokeResponse
+     * @param request - RevokeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResponse
+     *
+     * @param RevokeRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return RevokeResponse
      */
     public function revokeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->aclActions)) {
-            $query['AclActions'] = $request->aclActions;
+
+        if (null !== $request->aclActions) {
+            @$query['AclActions'] = $request->aclActions;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Revoke',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Revoke',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RevokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 回收账户权限
-     *  *
-     * @param RevokeRequest $request RevokeRequest
+     * 回收账户权限.
      *
-     * @return RevokeResponse RevokeResponse
+     * @param request - RevokeRequest
+     *
+     * @returns RevokeResponse
+     *
+     * @param RevokeRequest $request
+     *
+     * @return RevokeResponse
      */
     public function revoke($request)
     {
@@ -5379,49 +6651,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SwitchHbaseHaSlbRequest $request SwitchHbaseHaSlbRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - SwitchHbaseHaSlbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SwitchHbaseHaSlbResponse SwitchHbaseHaSlbResponse
+     * @returns SwitchHbaseHaSlbResponse
+     *
+     * @param SwitchHbaseHaSlbRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SwitchHbaseHaSlbResponse
      */
     public function switchHbaseHaSlbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bdsId)) {
-            $query['BdsId'] = $request->bdsId;
+        if (null !== $request->bdsId) {
+            @$query['BdsId'] = $request->bdsId;
         }
-        if (!Utils::isUnset($request->haId)) {
-            $query['HaId'] = $request->haId;
+
+        if (null !== $request->haId) {
+            @$query['HaId'] = $request->haId;
         }
-        if (!Utils::isUnset($request->haTypes)) {
-            $query['HaTypes'] = $request->haTypes;
+
+        if (null !== $request->haTypes) {
+            @$query['HaTypes'] = $request->haTypes;
         }
-        if (!Utils::isUnset($request->hbaseType)) {
-            $query['HbaseType'] = $request->hbaseType;
+
+        if (null !== $request->hbaseType) {
+            @$query['HbaseType'] = $request->hbaseType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchHbaseHaSlb',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchHbaseHaSlb',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchHbaseHaSlbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SwitchHbaseHaSlbRequest $request SwitchHbaseHaSlbRequest
+     * @param request - SwitchHbaseHaSlbRequest
      *
-     * @return SwitchHbaseHaSlbResponse SwitchHbaseHaSlbResponse
+     * @returns SwitchHbaseHaSlbResponse
+     *
+     * @param SwitchHbaseHaSlbRequest $request
+     *
+     * @return SwitchHbaseHaSlbResponse
      */
     public function switchHbaseHaSlb($request)
     {
@@ -5431,50 +6716,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @summary 开通/关闭 扩展服务
-     *  *
-     * @param SwitchServiceRequest $request SwitchServiceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 开通/关闭 扩展服务
      *
-     * @return SwitchServiceResponse SwitchServiceResponse
+     * @param request - SwitchServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchServiceResponse
+     *
+     * @param SwitchServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SwitchServiceResponse
      */
     public function switchServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->operate)) {
-            $query['Operate'] = $request->operate;
+
+        if (null !== $request->operate) {
+            @$query['Operate'] = $request->operate;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchService',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchService',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SwitchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通/关闭 扩展服务
-     *  *
-     * @param SwitchServiceRequest $request SwitchServiceRequest
+     * 开通/关闭 扩展服务
      *
-     * @return SwitchServiceResponse SwitchServiceResponse
+     * @param request - SwitchServiceRequest
+     *
+     * @returns SwitchServiceResponse
+     *
+     * @param SwitchServiceRequest $request
+     *
+     * @return SwitchServiceResponse
      */
     public function switchService($request)
     {
@@ -5484,46 +6781,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param request - TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5533,49 +6842,62 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param request - UnTagResourcesRequest
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -5585,43 +6907,54 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - UpgradeMinorVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
+     * @returns UpgradeMinorVersionResponse
+     *
+     * @param UpgradeMinorVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->components)) {
-            $query['Components'] = $request->components;
+
+        if (null !== $request->components) {
+            @$query['Components'] = $request->components;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeMinorVersion',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeMinorVersion',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
+     * @param request - UpgradeMinorVersionRequest
      *
-     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
+     * @returns UpgradeMinorVersionResponse
+     *
+     * @param UpgradeMinorVersionRequest $request
+     *
+     * @return UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersion($request)
     {
@@ -5631,55 +6964,70 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMultiZoneClusterRequest $request UpgradeMultiZoneClusterRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - UpgradeMultiZoneClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpgradeMultiZoneClusterResponse UpgradeMultiZoneClusterResponse
+     * @returns UpgradeMultiZoneClusterResponse
+     *
+     * @param UpgradeMultiZoneClusterRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpgradeMultiZoneClusterResponse
      */
     public function upgradeMultiZoneClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->components)) {
-            $query['Components'] = $request->components;
+
+        if (null !== $request->components) {
+            @$query['Components'] = $request->components;
         }
-        if (!Utils::isUnset($request->restartComponents)) {
-            $query['RestartComponents'] = $request->restartComponents;
+
+        if (null !== $request->restartComponents) {
+            @$query['RestartComponents'] = $request->restartComponents;
         }
-        if (!Utils::isUnset($request->runMode)) {
-            $query['RunMode'] = $request->runMode;
+
+        if (null !== $request->runMode) {
+            @$query['RunMode'] = $request->runMode;
         }
-        if (!Utils::isUnset($request->upgradeInsName)) {
-            $query['UpgradeInsName'] = $request->upgradeInsName;
+
+        if (null !== $request->upgradeInsName) {
+            @$query['UpgradeInsName'] = $request->upgradeInsName;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $query['Versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$query['Versions'] = $request->versions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeMultiZoneCluster',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeMultiZoneCluster',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeMultiZoneClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeMultiZoneClusterRequest $request UpgradeMultiZoneClusterRequest
+     * @param request - UpgradeMultiZoneClusterRequest
      *
-     * @return UpgradeMultiZoneClusterResponse UpgradeMultiZoneClusterResponse
+     * @returns UpgradeMultiZoneClusterResponse
+     *
+     * @param UpgradeMultiZoneClusterRequest $request
+     *
+     * @return UpgradeMultiZoneClusterResponse
      */
     public function upgradeMultiZoneCluster($request)
     {
@@ -5689,46 +7037,58 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param XpackRelateDBRequest $request XpackRelateDBRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - XpackRelateDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return XpackRelateDBResponse XpackRelateDBResponse
+     * @returns XpackRelateDBResponse
+     *
+     * @param XpackRelateDBRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return XpackRelateDBResponse
      */
     public function xpackRelateDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dbClusterIds)) {
-            $query['DbClusterIds'] = $request->dbClusterIds;
+
+        if (null !== $request->dbClusterIds) {
+            @$query['DbClusterIds'] = $request->dbClusterIds;
         }
-        if (!Utils::isUnset($request->relateDbType)) {
-            $query['RelateDbType'] = $request->relateDbType;
+
+        if (null !== $request->relateDbType) {
+            @$query['RelateDbType'] = $request->relateDbType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'XpackRelateDB',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'XpackRelateDB',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return XpackRelateDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param XpackRelateDBRequest $request XpackRelateDBRequest
+     * @param request - XpackRelateDBRequest
      *
-     * @return XpackRelateDBResponse XpackRelateDBResponse
+     * @returns XpackRelateDBResponse
+     *
+     * @param XpackRelateDBRequest $request
+     *
+     * @return XpackRelateDBResponse
      */
     public function xpackRelateDB($request)
     {

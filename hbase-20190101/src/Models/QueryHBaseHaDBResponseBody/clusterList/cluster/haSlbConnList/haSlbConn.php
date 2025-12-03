@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\QueryHBaseHaDBResponseBody\clusterList\cluster\haSlbConnList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class haSlbConn extends Model
 {
     /**
-     * @example Standby
-     *
      * @var string
      */
     public $hbaseType;
 
     /**
-     * @example ha-v21tmnxjwh2yuy1il-phoenix.bds.9b78df04-b.rds.aliyuncs.com:8765
-     *
      * @var string
      */
     public $slbConnAddr;
 
     /**
-     * @example phoenix
-     *
      * @var string
      */
     public $slbType;
     protected $_name = [
-        'hbaseType'   => 'HbaseType',
+        'hbaseType' => 'HbaseType',
         'slbConnAddr' => 'SlbConnAddr',
-        'slbType'     => 'SlbType',
+        'slbType' => 'SlbType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hbaseType) {
             $res['HbaseType'] = $this->hbaseType;
         }
+
         if (null !== $this->slbConnAddr) {
             $res['SlbConnAddr'] = $this->slbConnAddr;
         }
+
         if (null !== $this->slbType) {
             $res['SlbType'] = $this->slbType;
         }
@@ -54,20 +51,22 @@ class haSlbConn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return haSlbConn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HbaseType'])) {
             $model->hbaseType = $map['HbaseType'];
         }
+
         if (isset($map['SlbConnAddr'])) {
             $model->slbConnAddr = $map['SlbConnAddr'];
         }
+
         if (isset($map['SlbType'])) {
             $model->slbType = $map['SlbType'];
         }

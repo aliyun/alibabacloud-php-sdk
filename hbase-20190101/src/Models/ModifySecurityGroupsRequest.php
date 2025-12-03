@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySecurityGroupsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-bp16f1441y6p2kv**
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example sg-t4ng4yyc916o81nu****,sg-x4gg4dyc9d6w********
-     *
      * @var string
      */
     public $securityGroupIds;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
@@ -47,17 +41,18 @@ class ModifySecurityGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySecurityGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = $map['SecurityGroupIds'];
         }

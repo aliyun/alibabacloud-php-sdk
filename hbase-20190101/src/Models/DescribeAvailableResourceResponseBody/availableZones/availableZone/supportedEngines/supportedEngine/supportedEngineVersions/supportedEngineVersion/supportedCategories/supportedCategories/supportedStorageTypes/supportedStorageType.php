@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes\supportedStorageType\coreResources;
-use AlibabaCloud\Tea\Model;
 
 class supportedStorageType extends Model
 {
@@ -15,26 +15,29 @@ class supportedStorageType extends Model
     public $coreResources;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $storageType;
     protected $_name = [
         'coreResources' => 'CoreResources',
-        'storageType'   => 'StorageType',
+        'storageType' => 'StorageType',
     ];
 
     public function validate()
     {
+        if (null !== $this->coreResources) {
+            $this->coreResources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coreResources) {
-            $res['CoreResources'] = null !== $this->coreResources ? $this->coreResources->toMap() : null;
+            $res['CoreResources'] = null !== $this->coreResources ? $this->coreResources->toArray($noStream) : $this->coreResources;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -42,17 +45,18 @@ class supportedStorageType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedStorageType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoreResources'])) {
             $model->coreResources = coreResources::fromMap($map['CoreResources']);
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

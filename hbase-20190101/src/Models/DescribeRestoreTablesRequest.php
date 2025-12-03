@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRestoreTablesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ld-m5eznlga4k5bcxxxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2020110514xxxx
-     *
      * @var string
      */
     public $restoreRecordId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'restoreRecordId' => 'RestoreRecordId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->restoreRecordId) {
             $res['RestoreRecordId'] = $this->restoreRecordId;
         }
@@ -47,17 +41,18 @@ class DescribeRestoreTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRestoreTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['RestoreRecordId'])) {
             $model->restoreRecordId = $map['RestoreRecordId'];
         }

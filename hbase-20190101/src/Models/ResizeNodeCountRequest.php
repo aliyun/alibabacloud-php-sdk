@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResizeNodeCountRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-bp16o0pd52e3y****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $nodeCount;
 
     /**
-     * @example vsw-bp191otqj1ssyl****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example cn-hangzhou-f
-     *
      * @var string
      */
     public $zoneId;
@@ -43,25 +31,29 @@ class ResizeNodeCountRequest extends Model
         'clusterId' => 'ClusterId',
         'nodeCount' => 'NodeCount',
         'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -69,23 +61,26 @@ class ResizeNodeCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResizeNodeCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

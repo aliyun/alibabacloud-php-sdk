@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeEndpointsResponseBody\connAddrs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connAddrInfo extends Model
 {
     /**
-     * @example ****
-     *
      * @var string
      */
     public $connAddr;
 
     /**
-     * @example ****
-     *
      * @var string
      */
     public $connAddrPort;
 
     /**
-     * @example zkConn
-     *
      * @var string
      */
     public $connType;
 
     /**
-     * @example 2
-     *
      * @var string
      */
     public $netType;
     protected $_name = [
-        'connAddr'     => 'ConnAddr',
+        'connAddr' => 'ConnAddr',
         'connAddrPort' => 'ConnAddrPort',
-        'connType'     => 'ConnType',
-        'netType'      => 'NetType',
+        'connType' => 'ConnType',
+        'netType' => 'NetType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connAddr) {
             $res['ConnAddr'] = $this->connAddr;
         }
+
         if (null !== $this->connAddrPort) {
             $res['ConnAddrPort'] = $this->connAddrPort;
         }
+
         if (null !== $this->connType) {
             $res['ConnType'] = $this->connType;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
@@ -65,23 +61,26 @@ class connAddrInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connAddrInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnAddr'])) {
             $model->connAddr = $map['ConnAddr'];
         }
+
         if (isset($map['ConnAddrPort'])) {
             $model->connAddrPort = $map['ConnAddrPort'];
         }
+
         if (isset($map['ConnType'])) {
             $model->connType = $map['ConnType'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }

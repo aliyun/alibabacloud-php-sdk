@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableRegionsResponseBody\regions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableRegionsResponseBody\regions\region\availableCombines;
-use AlibabaCloud\Tea\Model;
 
 class region extends Model
 {
@@ -20,41 +20,44 @@ class region extends Model
     public $localName;
 
     /**
-     * @example hbase.aliyuncs.com
-     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'availableCombines' => 'AvailableCombines',
-        'localName'         => 'LocalName',
-        'regionEndpoint'    => 'RegionEndpoint',
-        'regionId'          => 'RegionId',
+        'localName' => 'LocalName',
+        'regionEndpoint' => 'RegionEndpoint',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (null !== $this->availableCombines) {
+            $this->availableCombines->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableCombines) {
-            $res['AvailableCombines'] = null !== $this->availableCombines ? $this->availableCombines->toMap() : null;
+            $res['AvailableCombines'] = null !== $this->availableCombines ? $this->availableCombines->toArray($noStream) : $this->availableCombines;
         }
+
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,23 +65,26 @@ class region extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableCombines'])) {
             $model->availableCombines = availableCombines::fromMap($map['AvailableCombines']);
         }
+
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

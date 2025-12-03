@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMultimodeCmsUrlResponseBody extends Model
 {
     /**
-     * @example hb-t4naqsay5gn******
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example htpp://***********
-     *
      * @var string
      */
     public $multimodCmsUrl;
 
     /**
-     * @example 44183B05-852E-4716-B902-52977140190F
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'multimodCmsUrl' => 'MultimodCmsUrl',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->multimodCmsUrl) {
             $res['MultimodCmsUrl'] = $this->multimodCmsUrl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +51,22 @@ class GetMultimodeCmsUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMultimodeCmsUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MultimodCmsUrl'])) {
             $model->multimodCmsUrl = $map['MultimodCmsUrl'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

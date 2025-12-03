@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableRegionsResponseBody\regions\region;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableRegionsResponseBody\regions\region\availableCombines\availableCombine;
-use AlibabaCloud\Tea\Model;
 
 class availableCombines extends Model
 {
@@ -19,17 +19,22 @@ class availableCombines extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableCombine)) {
+            Model::validateArray($this->availableCombine);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableCombine) {
-            $res['AvailableCombine'] = [];
-            if (null !== $this->availableCombine && \is_array($this->availableCombine)) {
-                $n = 0;
-                foreach ($this->availableCombine as $item) {
-                    $res['AvailableCombine'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableCombine)) {
+                $res['AvailableCombine'] = [];
+                $n1 = 0;
+                foreach ($this->availableCombine as $item1) {
+                    $res['AvailableCombine'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class availableCombines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableCombines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableCombine'])) {
             if (!empty($map['AvailableCombine'])) {
                 $model->availableCombine = [];
-                $n                       = 0;
-                foreach ($map['AvailableCombine'] as $item) {
-                    $model->availableCombine[$n++] = null !== $item ? availableCombine::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableCombine'] as $item1) {
+                    $model->availableCombine[$n1] = availableCombine::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiskWarningLineResponseBody extends Model
 {
     /**
-     * @example 08DF8283-D290-4107-931E-7913D6D3480D
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 80
-     *
      * @var string
      */
     public $warningLine;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'warningLine' => 'WarningLine',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->warningLine) {
             $res['WarningLine'] = $this->warningLine;
         }
@@ -43,17 +41,18 @@ class DescribeDiskWarningLineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskWarningLineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WarningLine'])) {
             $model->warningLine = $map['WarningLine'];
         }

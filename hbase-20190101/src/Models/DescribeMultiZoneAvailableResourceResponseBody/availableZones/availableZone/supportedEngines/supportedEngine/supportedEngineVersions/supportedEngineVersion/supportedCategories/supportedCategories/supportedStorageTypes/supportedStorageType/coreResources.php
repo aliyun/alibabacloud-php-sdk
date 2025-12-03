@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes\supportedStorageType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes\supportedStorageType\coreResources\coreResource;
-use AlibabaCloud\Tea\Model;
 
 class coreResources extends Model
 {
@@ -19,17 +19,22 @@ class coreResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->coreResource)) {
+            Model::validateArray($this->coreResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coreResource) {
-            $res['CoreResource'] = [];
-            if (null !== $this->coreResource && \is_array($this->coreResource)) {
-                $n = 0;
-                foreach ($this->coreResource as $item) {
-                    $res['CoreResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->coreResource)) {
+                $res['CoreResource'] = [];
+                $n1 = 0;
+                foreach ($this->coreResource as $item1) {
+                    $res['CoreResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class coreResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coreResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoreResource'])) {
             if (!empty($map['CoreResource'])) {
                 $model->coreResource = [];
-                $n                   = 0;
-                foreach ($map['CoreResource'] as $item) {
-                    $model->coreResource[$n++] = null !== $item ? coreResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CoreResource'] as $item1) {
+                    $model->coreResource[$n1] = coreResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

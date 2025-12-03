@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRegionsResponseBody\regions\region\zones;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zone extends Model
 {
     /**
-     * @example cn-hangzhou-b
-     *
      * @var string
      */
     public $id;
@@ -20,9 +18,10 @@ class zone extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -32,11 +31,11 @@ class zone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

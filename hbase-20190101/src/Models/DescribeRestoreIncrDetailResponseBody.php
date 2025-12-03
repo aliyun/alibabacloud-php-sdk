@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeRestoreIncrDetailResponseBody\restoreIncrDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRestoreIncrDetailResponseBody extends Model
 {
     /**
-     * @example D0FE2717-E194-465A-B27B-7373F96E580B
-     *
      * @var string
      */
     public $requestId;
@@ -21,38 +19,44 @@ class DescribeRestoreIncrDetailResponseBody extends Model
      */
     public $restoreIncrDetail;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'restoreIncrDetail' => 'RestoreIncrDetail',
     ];
 
     public function validate()
     {
+        if (null !== $this->restoreIncrDetail) {
+            $this->restoreIncrDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->restoreIncrDetail) {
-            $res['RestoreIncrDetail'] = null !== $this->restoreIncrDetail ? $this->restoreIncrDetail->toMap() : null;
+            $res['RestoreIncrDetail'] = null !== $this->restoreIncrDetail ? $this->restoreIncrDetail->toArray($noStream) : $this->restoreIncrDetail;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRestoreIncrDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RestoreIncrDetail'])) {
             $model->restoreIncrDetail = restoreIncrDetail::fromMap($map['RestoreIncrDetail']);
         }

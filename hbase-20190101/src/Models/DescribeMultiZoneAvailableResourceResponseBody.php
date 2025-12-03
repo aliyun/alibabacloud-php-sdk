@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeMultiZoneAvailableResourceResponseBody\availableZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMultiZoneAvailableResourceResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeMultiZoneAvailableResourceResponseBody extends Model
     public $availableZones;
 
     /**
-     * @example B2EEBBA9-C627-4415-81A0-B77BC54F1D52
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableZones' => 'AvailableZones',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->availableZones) {
+            $this->availableZones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toMap() : null;
+            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toArray($noStream) : $this->availableZones;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeMultiZoneAvailableResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMultiZoneAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             $model->availableZones = availableZones::fromMap($map['AvailableZones']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeAvailableResourceResponseBody\availableZones\availableZone\supportedEngines\supportedEngine\supportedEngineVersions\supportedEngineVersion\supportedCategories\supportedCategories\supportedStorageTypes;
-use AlibabaCloud\Tea\Model;
 
 class supportedCategories extends Model
 {
     /**
-     * @example cluster
-     *
      * @var string
      */
     public $category;
@@ -21,38 +19,44 @@ class supportedCategories extends Model
      */
     public $supportedStorageTypes;
     protected $_name = [
-        'category'              => 'Category',
+        'category' => 'Category',
         'supportedStorageTypes' => 'SupportedStorageTypes',
     ];
 
     public function validate()
     {
+        if (null !== $this->supportedStorageTypes) {
+            $this->supportedStorageTypes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->supportedStorageTypes) {
-            $res['SupportedStorageTypes'] = null !== $this->supportedStorageTypes ? $this->supportedStorageTypes->toMap() : null;
+            $res['SupportedStorageTypes'] = null !== $this->supportedStorageTypes ? $this->supportedStorageTypes->toArray($noStream) : $this->supportedStorageTypes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedCategories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['SupportedStorageTypes'])) {
             $model->supportedStorageTypes = supportedStorageTypes::fromMap($map['SupportedStorageTypes']);
         }

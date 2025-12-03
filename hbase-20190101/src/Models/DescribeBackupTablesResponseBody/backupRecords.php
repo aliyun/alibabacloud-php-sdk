@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models\DescribeBackupTablesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20190101\Models\DescribeBackupTablesResponseBody\backupRecords\backupRecord;
-use AlibabaCloud\Tea\Model;
 
 class backupRecords extends Model
 {
@@ -19,17 +19,22 @@ class backupRecords extends Model
 
     public function validate()
     {
+        if (\is_array($this->backupRecord)) {
+            Model::validateArray($this->backupRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupRecord) {
-            $res['BackupRecord'] = [];
-            if (null !== $this->backupRecord && \is_array($this->backupRecord)) {
-                $n = 0;
-                foreach ($this->backupRecord as $item) {
-                    $res['BackupRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupRecord)) {
+                $res['BackupRecord'] = [];
+                $n1 = 0;
+                foreach ($this->backupRecord as $item1) {
+                    $res['BackupRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class backupRecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupRecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupRecord'])) {
             if (!empty($map['BackupRecord'])) {
                 $model->backupRecord = [];
-                $n                   = 0;
-                foreach ($map['BackupRecord'] as $item) {
-                    $model->backupRecord[$n++] = null !== $item ? backupRecord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupRecord'] as $item1) {
+                    $model->backupRecord[$n1] = backupRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

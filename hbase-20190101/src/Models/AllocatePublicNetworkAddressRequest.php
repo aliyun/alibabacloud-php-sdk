@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\HBase\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocatePublicNetworkAddressRequest extends Model
 {
     /**
-     * @example 83b2b5e117a5b8bce0fae88d90576a84_6452320_82718582
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hb-t4naqsay5gn******
-     *
      * @var string
      */
     public $clusterId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -45,17 +41,18 @@ class AllocatePublicNetworkAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocatePublicNetworkAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
