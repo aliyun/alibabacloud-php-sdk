@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListJoinedOrganizationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class organizations extends Model
 {
     /**
-     * @example 65f25d0fa54c216dcf6b1dbd
-     *
      * @var string
      */
     public $id;
@@ -25,24 +23,27 @@ class organizations extends Model
      */
     public $name;
     protected $_name = [
-        'id'         => 'id',
+        'id' => 'id',
         'isOrgAdmin' => 'isOrgAdmin',
-        'name'       => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->isOrgAdmin) {
             $res['isOrgAdmin'] = $this->isOrgAdmin;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -50,20 +51,22 @@ class organizations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return organizations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['isOrgAdmin'])) {
             $model->isOrgAdmin = $map['isOrgAdmin'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

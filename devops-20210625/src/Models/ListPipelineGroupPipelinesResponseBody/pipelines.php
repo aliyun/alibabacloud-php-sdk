@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineGroupPipelinesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pipelines extends Model
 {
     /**
-     * @example 1586863220000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 1111
-     *
      * @var int
      */
     public $pipelineId;
@@ -27,24 +23,27 @@ class pipelines extends Model
      */
     public $pipelineName;
     protected $_name = [
-        'createTime'   => 'createTime',
-        'pipelineId'   => 'pipelineId',
+        'createTime' => 'createTime',
+        'pipelineId' => 'pipelineId',
         'pipelineName' => 'pipelineName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->pipelineId) {
             $res['pipelineId'] = $this->pipelineId;
         }
+
         if (null !== $this->pipelineName) {
             $res['pipelineName'] = $this->pipelineName;
         }
@@ -52,20 +51,22 @@ class pipelines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pipelines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['pipelineId'])) {
             $model->pipelineId = $map['pipelineId'];
         }
+
         if (isset($map['pipelineName'])) {
             $model->pipelineName = $map['pipelineName'];
         }

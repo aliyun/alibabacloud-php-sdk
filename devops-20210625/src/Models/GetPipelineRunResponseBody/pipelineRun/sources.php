@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun\sources\data;
-use AlibabaCloud\Tea\Model;
 
 class sources extends Model
 {
@@ -15,15 +15,11 @@ class sources extends Model
     public $data;
 
     /**
-     * @example assaaaaaasasasa
-     *
      * @var string
      */
     public $sign;
 
     /**
-     * @example Codeup
-     *
      * @var string
      */
     public $type;
@@ -35,17 +31,23 @@ class sources extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->sign) {
             $res['sign'] = $this->sign;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -53,20 +55,22 @@ class sources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['sign'])) {
             $model->sign = $map['sign'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

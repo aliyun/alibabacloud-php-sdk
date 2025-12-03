@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecuteChangeRequestReleaseStageRequest extends Model
 {
@@ -14,26 +14,34 @@ class ExecuteChangeRequestReleaseStageRequest extends Model
     public $params;
 
     /**
-     * @example 66c0c9fffeb86b450c199fcd
-     *
      * @var string
      */
     public $organizationId;
     protected $_name = [
-        'params'         => 'params',
+        'params' => 'params',
         'organizationId' => 'organizationId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
-            $res['params'] = $this->params;
+            if (\is_array($this->params)) {
+                $res['params'] = [];
+                foreach ($this->params as $key1 => $value1) {
+                    $res['params'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -41,17 +49,23 @@ class ExecuteChangeRequestReleaseStageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteChangeRequestReleaseStageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['params'])) {
-            $model->params = $map['params'];
+            if (!empty($map['params'])) {
+                $model->params = [];
+                foreach ($map['params'] as $key1 => $value1) {
+                    $model->params[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

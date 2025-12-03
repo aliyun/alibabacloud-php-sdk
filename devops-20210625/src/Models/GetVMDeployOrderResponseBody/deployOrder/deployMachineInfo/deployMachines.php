@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponseBody\deployOrder\deployMachineInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponseBody\deployOrder\deployMachineInfo\deployMachines\actions;
-use AlibabaCloud\Tea\Model;
 
 class deployMachines extends Model
 {
@@ -15,98 +15,96 @@ class deployMachines extends Model
     public $actions;
 
     /**
-     * @example 22
-     *
      * @var int
      */
     public $batchNum;
 
     /**
-     * @example ok
-     *
      * @var string
      */
     public $clientStatus;
 
     /**
-     * @example 1111111111
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example sasssasa
-     *
      * @var string
      */
     public $machineSn;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 11111111
-     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'actions'      => 'actions',
-        'batchNum'     => 'batchNum',
+        'actions' => 'actions',
+        'batchNum' => 'batchNum',
         'clientStatus' => 'clientStatus',
-        'createTime'   => 'createTime',
-        'ip'           => 'ip',
-        'machineSn'    => 'machineSn',
-        'status'       => 'status',
-        'updateTime'   => 'updateTime',
+        'createTime' => 'createTime',
+        'ip' => 'ip',
+        'machineSn' => 'machineSn',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actions) {
-            $res['actions'] = [];
-            if (null !== $this->actions && \is_array($this->actions)) {
-                $n = 0;
-                foreach ($this->actions as $item) {
-                    $res['actions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actions)) {
+                $res['actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['actions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->batchNum) {
             $res['batchNum'] = $this->batchNum;
         }
+
         if (null !== $this->clientStatus) {
             $res['clientStatus'] = $this->clientStatus;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->ip) {
             $res['ip'] = $this->ip;
         }
+
         if (null !== $this->machineSn) {
             $res['machineSn'] = $this->machineSn;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -114,41 +112,49 @@ class deployMachines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployMachines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actions'])) {
             if (!empty($map['actions'])) {
                 $model->actions = [];
-                $n              = 0;
-                foreach ($map['actions'] as $item) {
-                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['actions'] as $item1) {
+                    $model->actions[$n1] = actions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['batchNum'])) {
             $model->batchNum = $map['batchNum'];
         }
+
         if (isset($map['clientStatus'])) {
             $model->clientStatus = $map['clientStatus'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['ip'])) {
             $model->ip = $map['ip'];
         }
+
         if (isset($map['machineSn'])) {
             $model->machineSn = $map['machineSn'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }

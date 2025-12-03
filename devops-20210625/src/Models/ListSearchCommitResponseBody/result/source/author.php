@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchCommitResponseBody\result\source;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class author extends Model
 {
     /**
-     * @example username@example.com
-     *
      * @var string
      */
     public $email;
@@ -21,19 +19,21 @@ class author extends Model
     public $name;
     protected $_name = [
         'email' => 'email',
-        'name'  => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class author extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return author
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserInfoRequest extends Model
 {
     /**
-     * @example 61e54b0e0bb300d827e1ae27
-     *
      * @var string
      */
     public $organizationId;
@@ -20,9 +18,10 @@ class GetUserInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->organizationId) {
@@ -32,11 +31,11 @@ class GetUserInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

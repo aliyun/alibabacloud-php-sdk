@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetWorkitemRelationsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $relationType;
@@ -20,9 +18,10 @@ class GetWorkitemRelationsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relationType) {
@@ -32,11 +31,11 @@ class GetWorkitemRelationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkitemRelationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

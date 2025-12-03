@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineJobsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jobs extends Model
 {
     /**
-     * @example ss_saxsxsxs
-     *
      * @var string
      */
     public $identifier;
@@ -21,41 +19,41 @@ class jobs extends Model
     public $jobName;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $lastJobId;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $lastJobParams;
     protected $_name = [
-        'identifier'    => 'identifier',
-        'jobName'       => 'jobName',
-        'lastJobId'     => 'lastJobId',
+        'identifier' => 'identifier',
+        'jobName' => 'jobName',
+        'lastJobId' => 'lastJobId',
         'lastJobParams' => 'lastJobParams',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->jobName) {
             $res['jobName'] = $this->jobName;
         }
+
         if (null !== $this->lastJobId) {
             $res['lastJobId'] = $this->lastJobId;
         }
+
         if (null !== $this->lastJobParams) {
             $res['lastJobParams'] = $this->lastJobParams;
         }
@@ -63,23 +61,26 @@ class jobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['jobName'])) {
             $model->jobName = $map['jobName'];
         }
+
         if (isset($map['lastJobId'])) {
             $model->lastJobId = $map['lastJobId'];
         }
+
         if (isset($map['lastJobParams'])) {
             $model->lastJobParams = $map['lastJobParams'];
         }

@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVariableGroupsRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example aaaaaa
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example DESC
-     *
      * @var string
      */
     public $pageOrder;
 
     /**
-     * @example ID
-     *
      * @var string
      */
     public $pageSort;
     protected $_name = [
         'maxResults' => 'maxResults',
-        'nextToken'  => 'nextToken',
-        'pageOrder'  => 'pageOrder',
-        'pageSort'   => 'pageSort',
+        'nextToken' => 'nextToken',
+        'pageOrder' => 'pageOrder',
+        'pageSort' => 'pageSort',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageOrder) {
             $res['pageOrder'] = $this->pageOrder;
         }
+
         if (null !== $this->pageSort) {
             $res['pageSort'] = $this->pageSort;
         }
@@ -65,23 +61,26 @@ class ListVariableGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVariableGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['pageOrder'])) {
             $model->pageOrder = $map['pageOrder'];
         }
+
         if (isset($map['pageSort'])) {
             $model->pageSort = $map['pageSort'];
         }

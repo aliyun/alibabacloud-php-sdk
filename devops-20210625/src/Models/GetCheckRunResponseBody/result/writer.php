@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetCheckRunResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class writer extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $logoUrl;
 
     /**
-     * @example test-codeup
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example test-codeup
-     *
      * @var string
      */
     public $slug;
 
     /**
-     * @example User
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'      => 'id',
+        'id' => 'id',
         'logoUrl' => 'logoUrl',
-        'name'    => 'name',
-        'slug'    => 'slug',
-        'type'    => 'type',
+        'name' => 'name',
+        'slug' => 'slug',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->logoUrl) {
             $res['logoUrl'] = $this->logoUrl;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->slug) {
             $res['slug'] = $this->slug;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -76,26 +71,30 @@ class writer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return writer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['logoUrl'])) {
             $model->logoUrl = $map['logoUrl'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['slug'])) {
             $model->slug = $map['slug'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

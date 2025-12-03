@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\repositoryInfos\repositoryInfo;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\repositoryInfos\repositoryRole;
-use AlibabaCloud\Tea\Model;
 
 class repositoryInfos extends Model
 {
@@ -26,32 +26,41 @@ class repositoryInfos extends Model
 
     public function validate()
     {
+        if (null !== $this->repositoryInfo) {
+            $this->repositoryInfo->validate();
+        }
+        if (null !== $this->repositoryRole) {
+            $this->repositoryRole->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->repositoryInfo) {
-            $res['repositoryInfo'] = null !== $this->repositoryInfo ? $this->repositoryInfo->toMap() : null;
+            $res['repositoryInfo'] = null !== $this->repositoryInfo ? $this->repositoryInfo->toArray($noStream) : $this->repositoryInfo;
         }
+
         if (null !== $this->repositoryRole) {
-            $res['repositoryRole'] = null !== $this->repositoryRole ? $this->repositoryRole->toMap() : null;
+            $res['repositoryRole'] = null !== $this->repositoryRole ? $this->repositoryRole->toArray($noStream) : $this->repositoryRole;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return repositoryInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['repositoryInfo'])) {
             $model->repositoryInfo = repositoryInfo::fromMap($map['repositoryInfo']);
         }
+
         if (isset($map['repositoryRole'])) {
             $model->repositoryRole = repositoryRole::fromMap($map['repositoryRole']);
         }

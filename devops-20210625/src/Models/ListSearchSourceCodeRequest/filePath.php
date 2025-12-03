@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchSourceCodeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filePath extends Model
 {
     /**
-     * @example term
-     *
      * @var string
      */
     public $matchType;
 
     /**
-     * @example equal
-     *
      * @var string
      */
     public $operatorType;
 
     /**
-     * @example orgId/test-group/spring-boot-demo/test.java
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'matchType'    => 'matchType',
+        'matchType' => 'matchType',
         'operatorType' => 'operatorType',
-        'value'        => 'value',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchType) {
             $res['matchType'] = $this->matchType;
         }
+
         if (null !== $this->operatorType) {
             $res['operatorType'] = $this->operatorType;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -54,20 +51,22 @@ class filePath extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filePath
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['matchType'])) {
             $model->matchType = $map['matchType'];
         }
+
         if (isset($map['operatorType'])) {
             $model->operatorType = $map['operatorType'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

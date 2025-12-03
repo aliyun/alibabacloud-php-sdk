@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListAllReleaseWorkflowsResponse;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListAllReleaseWorkflowsResponse\body\releaseStages;
-use AlibabaCloud\Tea\Model;
 
 class body extends Model
 {
     /**
-     * @example testApp
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example ce51b31b996246ecaf874736838360b2
-     *
      * @var string
      */
     public $sn;
@@ -29,8 +25,6 @@ class body extends Model
     public $name;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $order;
@@ -41,48 +35,56 @@ class body extends Model
     public $releaseStages;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $note;
     protected $_name = [
-        'appName'       => 'appName',
-        'sn'            => 'sn',
-        'name'          => 'name',
-        'order'         => 'order',
+        'appName' => 'appName',
+        'sn' => 'sn',
+        'name' => 'name',
+        'order' => 'order',
         'releaseStages' => 'releaseStages',
-        'note'          => 'note',
+        'note' => 'note',
     ];
 
     public function validate()
     {
+        if (\is_array($this->releaseStages)) {
+            Model::validateArray($this->releaseStages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['appName'] = $this->appName;
         }
+
         if (null !== $this->sn) {
             $res['sn'] = $this->sn;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
+
         if (null !== $this->releaseStages) {
-            $res['releaseStages'] = [];
-            if (null !== $this->releaseStages && \is_array($this->releaseStages)) {
-                $n = 0;
-                foreach ($this->releaseStages as $item) {
-                    $res['releaseStages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->releaseStages)) {
+                $res['releaseStages'] = [];
+                $n1 = 0;
+                foreach ($this->releaseStages as $item1) {
+                    $res['releaseStages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->note) {
             $res['note'] = $this->note;
         }
@@ -90,35 +92,41 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appName'])) {
             $model->appName = $map['appName'];
         }
+
         if (isset($map['sn'])) {
             $model->sn = $map['sn'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }
+
         if (isset($map['releaseStages'])) {
             if (!empty($map['releaseStages'])) {
                 $model->releaseStages = [];
-                $n                    = 0;
-                foreach ($map['releaseStages'] as $item) {
-                    $model->releaseStages[$n++] = null !== $item ? releaseStages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['releaseStages'] as $item1) {
+                    $model->releaseStages[$n1] = releaseStages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['note'])) {
             $model->note = $map['note'];
         }

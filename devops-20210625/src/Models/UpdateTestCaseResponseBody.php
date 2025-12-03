@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponseBody\testcase;
-use AlibabaCloud\Tea\Model;
 
 class UpdateTestCaseResponseBody extends Model
 {
@@ -15,61 +15,59 @@ class UpdateTestCaseResponseBody extends Model
     public $testcase;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Id of the request
-     *
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'testcase'  => 'Testcase',
+        'testcase' => 'Testcase',
         'errorCode' => 'errorCode',
-        'errorMsg'  => 'errorMsg',
+        'errorMsg' => 'errorMsg',
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        if (null !== $this->testcase) {
+            $this->testcase->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->testcase) {
-            $res['Testcase'] = null !== $this->testcase ? $this->testcase->toMap() : null;
+            $res['Testcase'] = null !== $this->testcase ? $this->testcase->toArray($noStream) : $this->testcase;
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -77,26 +75,30 @@ class UpdateTestCaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTestCaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Testcase'])) {
             $model->testcase = testcase::fromMap($map['Testcase']);
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

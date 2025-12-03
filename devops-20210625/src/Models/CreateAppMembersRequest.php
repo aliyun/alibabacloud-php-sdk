@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest\playerList;
-use AlibabaCloud\Tea\Model;
 
 class CreateAppMembersRequest extends Model
 {
@@ -20,36 +20,51 @@ class CreateAppMembersRequest extends Model
     public $roleNames;
 
     /**
-     * @example 66c0c9fffeb86b450c199fcd
-     *
      * @var string
      */
     public $organizationId;
     protected $_name = [
-        'playerList'     => 'playerList',
-        'roleNames'      => 'roleNames',
+        'playerList' => 'playerList',
+        'roleNames' => 'roleNames',
         'organizationId' => 'organizationId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->playerList)) {
+            Model::validateArray($this->playerList);
+        }
+        if (\is_array($this->roleNames)) {
+            Model::validateArray($this->roleNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playerList) {
-            $res['playerList'] = [];
-            if (null !== $this->playerList && \is_array($this->playerList)) {
-                $n = 0;
-                foreach ($this->playerList as $item) {
-                    $res['playerList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->playerList)) {
+                $res['playerList'] = [];
+                $n1 = 0;
+                foreach ($this->playerList as $item1) {
+                    $res['playerList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->roleNames) {
-            $res['roleNames'] = $this->roleNames;
+            if (\is_array($this->roleNames)) {
+                $res['roleNames'] = [];
+                $n1 = 0;
+                foreach ($this->roleNames as $item1) {
+                    $res['roleNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -57,28 +72,36 @@ class CreateAppMembersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppMembersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['playerList'])) {
             if (!empty($map['playerList'])) {
                 $model->playerList = [];
-                $n                 = 0;
-                foreach ($map['playerList'] as $item) {
-                    $model->playerList[$n++] = null !== $item ? playerList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['playerList'] as $item1) {
+                    $model->playerList[$n1] = playerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['roleNames'])) {
             if (!empty($map['roleNames'])) {
-                $model->roleNames = $map['roleNames'];
+                $model->roleNames = [];
+                $n1 = 0;
+                foreach ($map['roleNames'] as $item1) {
+                    $model->roleNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

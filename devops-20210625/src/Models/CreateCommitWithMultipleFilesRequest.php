@@ -4,93 +4,87 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitWithMultipleFilesRequest\actions;
-use AlibabaCloud\Tea\Model;
 
 class CreateCommitWithMultipleFilesRequest extends Model
 {
     /**
-     * @example f0b1e61db5961df5975a93f9129d2513
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example master
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @example auto
-     *
      * @var string
      */
     public $commitMessage;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 5ebbc0228123212b59xxxxx
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $repositoryIdentity;
     protected $_name = [
-        'accessToken'        => 'accessToken',
-        'actions'            => 'actions',
-        'branch'             => 'branch',
-        'commitMessage'      => 'commitMessage',
-        'organizationId'     => 'organizationId',
+        'accessToken' => 'accessToken',
+        'actions' => 'actions',
+        'branch' => 'branch',
+        'commitMessage' => 'commitMessage',
+        'organizationId' => 'organizationId',
         'repositoryIdentity' => 'repositoryIdentity',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
+
         if (null !== $this->actions) {
-            $res['actions'] = [];
-            if (null !== $this->actions && \is_array($this->actions)) {
-                $n = 0;
-                foreach ($this->actions as $item) {
-                    $res['actions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actions)) {
+                $res['actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['actions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->branch) {
             $res['branch'] = $this->branch;
         }
+
         if (null !== $this->commitMessage) {
             $res['commitMessage'] = $this->commitMessage;
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
+
         if (null !== $this->repositoryIdentity) {
             $res['repositoryIdentity'] = $this->repositoryIdentity;
         }
@@ -98,35 +92,41 @@ class CreateCommitWithMultipleFilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCommitWithMultipleFilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
+
         if (isset($map['actions'])) {
             if (!empty($map['actions'])) {
                 $model->actions = [];
-                $n              = 0;
-                foreach ($map['actions'] as $item) {
-                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['actions'] as $item1) {
+                    $model->actions[$n1] = actions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['branch'])) {
             $model->branch = $map['branch'];
         }
+
         if (isset($map['commitMessage'])) {
             $model->commitMessage = $map['commitMessage'];
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }
+
         if (isset($map['repositoryIdentity'])) {
             $model->repositoryIdentity = $map['repositoryIdentity'];
         }

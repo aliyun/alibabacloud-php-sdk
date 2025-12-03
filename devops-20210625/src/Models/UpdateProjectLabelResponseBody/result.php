@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectLabelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example #EF433B
-     *
      * @var string
      */
     public $color;
@@ -21,8 +19,6 @@ class result extends Model
     public $description;
 
     /**
-     * @example 8d84d73cf315473683400760f02dbfc1
-     *
      * @var string
      */
     public $id;
@@ -32,28 +28,32 @@ class result extends Model
      */
     public $name;
     protected $_name = [
-        'color'       => 'color',
+        'color' => 'color',
         'description' => 'description',
-        'id'          => 'id',
-        'name'        => 'name',
+        'id' => 'id',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->color) {
             $res['color'] = $this->color;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -61,23 +61,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['color'])) {
             $model->color = $map['color'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

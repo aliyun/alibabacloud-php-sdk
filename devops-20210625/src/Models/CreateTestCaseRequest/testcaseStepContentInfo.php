@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseRequest\testcaseStepContentInfo\stepResultList;
-use AlibabaCloud\Tea\Model;
 
 class testcaseStepContentInfo extends Model
 {
@@ -20,38 +20,41 @@ class testcaseStepContentInfo extends Model
     public $stepResultList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example TEXT
-     *
      * @var string
      */
     public $stepType;
     protected $_name = [
-        'precondition'   => 'precondition',
+        'precondition' => 'precondition',
         'stepResultList' => 'stepResultList',
-        'stepType'       => 'stepType',
+        'stepType' => 'stepType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stepResultList)) {
+            Model::validateArray($this->stepResultList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->precondition) {
             $res['precondition'] = $this->precondition;
         }
+
         if (null !== $this->stepResultList) {
-            $res['stepResultList'] = [];
-            if (null !== $this->stepResultList && \is_array($this->stepResultList)) {
-                $n = 0;
-                foreach ($this->stepResultList as $item) {
-                    $res['stepResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stepResultList)) {
+                $res['stepResultList'] = [];
+                $n1 = 0;
+                foreach ($this->stepResultList as $item1) {
+                    $res['stepResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->stepType) {
             $res['stepType'] = $this->stepType;
         }
@@ -59,26 +62,29 @@ class testcaseStepContentInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return testcaseStepContentInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['precondition'])) {
             $model->precondition = $map['precondition'];
         }
+
         if (isset($map['stepResultList'])) {
             if (!empty($map['stepResultList'])) {
                 $model->stepResultList = [];
-                $n                     = 0;
-                foreach ($map['stepResultList'] as $item) {
-                    $model->stepResultList[$n++] = null !== $item ? stepResultList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['stepResultList'] as $item1) {
+                    $model->stepResultList[$n1] = stepResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['stepType'])) {
             $model->stepType = $map['stepType'];
         }

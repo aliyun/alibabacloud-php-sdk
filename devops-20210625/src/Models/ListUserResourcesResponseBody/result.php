@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\groupInfos;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\repositoryInfos;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -26,69 +26,87 @@ class result extends Model
      */
     public $userInfo;
     protected $_name = [
-        'groupInfos'      => 'groupInfos',
+        'groupInfos' => 'groupInfos',
         'repositoryInfos' => 'repositoryInfos',
-        'userInfo'        => 'userInfo',
+        'userInfo' => 'userInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groupInfos)) {
+            Model::validateArray($this->groupInfos);
+        }
+        if (\is_array($this->repositoryInfos)) {
+            Model::validateArray($this->repositoryInfos);
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupInfos) {
-            $res['groupInfos'] = [];
-            if (null !== $this->groupInfos && \is_array($this->groupInfos)) {
-                $n = 0;
-                foreach ($this->groupInfos as $item) {
-                    $res['groupInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupInfos)) {
+                $res['groupInfos'] = [];
+                $n1 = 0;
+                foreach ($this->groupInfos as $item1) {
+                    $res['groupInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->repositoryInfos) {
-            $res['repositoryInfos'] = [];
-            if (null !== $this->repositoryInfos && \is_array($this->repositoryInfos)) {
-                $n = 0;
-                foreach ($this->repositoryInfos as $item) {
-                    $res['repositoryInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->repositoryInfos)) {
+                $res['repositoryInfos'] = [];
+                $n1 = 0;
+                foreach ($this->repositoryInfos as $item1) {
+                    $res['repositoryInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->userInfo) {
-            $res['userInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['userInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupInfos'])) {
             if (!empty($map['groupInfos'])) {
                 $model->groupInfos = [];
-                $n                 = 0;
-                foreach ($map['groupInfos'] as $item) {
-                    $model->groupInfos[$n++] = null !== $item ? groupInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['groupInfos'] as $item1) {
+                    $model->groupInfos[$n1] = groupInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['repositoryInfos'])) {
             if (!empty($map['repositoryInfos'])) {
                 $model->repositoryInfos = [];
-                $n                      = 0;
-                foreach ($map['repositoryInfos'] as $item) {
-                    $model->repositoryInfos[$n++] = null !== $item ? repositoryInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['repositoryInfos'] as $item1) {
+                    $model->repositoryInfos[$n1] = repositoryInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['userInfo'])) {
             $model->userInfo = userInfo::fromMap($map['userInfo']);
         }

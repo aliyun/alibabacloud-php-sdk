@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldRequest\updateBasicFieldRequestList;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldRequest\updateForOpenApiList;
-use AlibabaCloud\Tea\Model;
 
 class UpdateProjectFieldRequest extends Model
 {
     /**
-     * @example fdsaadsfasxxxxdddd
-     *
      * @var string
      */
     public $statusIdentifier;
@@ -27,36 +25,47 @@ class UpdateProjectFieldRequest extends Model
      */
     public $updateForOpenApiList;
     protected $_name = [
-        'statusIdentifier'            => 'statusIdentifier',
+        'statusIdentifier' => 'statusIdentifier',
         'updateBasicFieldRequestList' => 'updateBasicFieldRequestList',
-        'updateForOpenApiList'        => 'updateForOpenApiList',
+        'updateForOpenApiList' => 'updateForOpenApiList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->updateBasicFieldRequestList)) {
+            Model::validateArray($this->updateBasicFieldRequestList);
+        }
+        if (\is_array($this->updateForOpenApiList)) {
+            Model::validateArray($this->updateForOpenApiList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->statusIdentifier) {
             $res['statusIdentifier'] = $this->statusIdentifier;
         }
+
         if (null !== $this->updateBasicFieldRequestList) {
-            $res['updateBasicFieldRequestList'] = [];
-            if (null !== $this->updateBasicFieldRequestList && \is_array($this->updateBasicFieldRequestList)) {
-                $n = 0;
-                foreach ($this->updateBasicFieldRequestList as $item) {
-                    $res['updateBasicFieldRequestList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->updateBasicFieldRequestList)) {
+                $res['updateBasicFieldRequestList'] = [];
+                $n1 = 0;
+                foreach ($this->updateBasicFieldRequestList as $item1) {
+                    $res['updateBasicFieldRequestList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->updateForOpenApiList) {
-            $res['updateForOpenApiList'] = [];
-            if (null !== $this->updateForOpenApiList && \is_array($this->updateForOpenApiList)) {
-                $n = 0;
-                foreach ($this->updateForOpenApiList as $item) {
-                    $res['updateForOpenApiList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->updateForOpenApiList)) {
+                $res['updateForOpenApiList'] = [];
+                $n1 = 0;
+                foreach ($this->updateForOpenApiList as $item1) {
+                    $res['updateForOpenApiList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,32 +73,36 @@ class UpdateProjectFieldRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProjectFieldRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['statusIdentifier'])) {
             $model->statusIdentifier = $map['statusIdentifier'];
         }
+
         if (isset($map['updateBasicFieldRequestList'])) {
             if (!empty($map['updateBasicFieldRequestList'])) {
                 $model->updateBasicFieldRequestList = [];
-                $n                                  = 0;
-                foreach ($map['updateBasicFieldRequestList'] as $item) {
-                    $model->updateBasicFieldRequestList[$n++] = null !== $item ? updateBasicFieldRequestList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['updateBasicFieldRequestList'] as $item1) {
+                    $model->updateBasicFieldRequestList[$n1] = updateBasicFieldRequestList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['updateForOpenApiList'])) {
             if (!empty($map['updateForOpenApiList'])) {
                 $model->updateForOpenApiList = [];
-                $n                           = 0;
-                foreach ($map['updateForOpenApiList'] as $item) {
-                    $model->updateForOpenApiList[$n++] = null !== $item ? updateForOpenApiList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['updateForOpenApiList'] as $item1) {
+                    $model->updateForOpenApiList[$n1] = updateForOpenApiList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

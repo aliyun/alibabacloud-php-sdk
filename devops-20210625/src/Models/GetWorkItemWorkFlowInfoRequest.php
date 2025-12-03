@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetWorkItemWorkFlowInfoRequest extends Model
 {
     /**
-     * @example 711d33c738b9171c45fa......
-     *
      * @var string
      */
     public $configurationId;
@@ -20,9 +18,10 @@ class GetWorkItemWorkFlowInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configurationId) {
@@ -32,11 +31,11 @@ class GetWorkItemWorkFlowInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkItemWorkFlowInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example master
-     *
      * @var string
      */
     public $branchName;
 
     /**
-     * @example src/main/delete.java
-     *
      * @var string
      */
     public $filePath;
     protected $_name = [
         'branchName' => 'branchName',
-        'filePath'   => 'filePath',
+        'filePath' => 'filePath',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->branchName) {
             $res['branchName'] = $this->branchName;
         }
+
         if (null !== $this->filePath) {
             $res['filePath'] = $this->filePath;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['branchName'])) {
             $model->branchName = $map['branchName'];
         }
+
         if (isset($map['filePath'])) {
             $model->filePath = $map['filePath'];
         }

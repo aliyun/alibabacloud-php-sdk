@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponseBody\resourceMembers;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceMembersResponseBody extends Model
 {
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
@@ -36,44 +30,51 @@ class ListResourceMembersResponseBody extends Model
     public $resourceMembers;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'       => 'errorCode',
-        'errorMessage'    => 'errorMessage',
-        'requestId'       => 'requestId',
+        'errorCode' => 'errorCode',
+        'errorMessage' => 'errorMessage',
+        'requestId' => 'requestId',
         'resourceMembers' => 'resourceMembers',
-        'success'         => 'success',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceMembers)) {
+            Model::validateArray($this->resourceMembers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceMembers) {
-            $res['resourceMembers'] = [];
-            if (null !== $this->resourceMembers && \is_array($this->resourceMembers)) {
-                $n = 0;
-                foreach ($this->resourceMembers as $item) {
-                    $res['resourceMembers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceMembers)) {
+                $res['resourceMembers'] = [];
+                $n1 = 0;
+                foreach ($this->resourceMembers as $item1) {
+                    $res['resourceMembers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -81,32 +82,37 @@ class ListResourceMembersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceMembersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resourceMembers'])) {
             if (!empty($map['resourceMembers'])) {
                 $model->resourceMembers = [];
-                $n                      = 0;
-                foreach ($map['resourceMembers'] as $item) {
-                    $model->resourceMembers[$n++] = null !== $item ? resourceMembers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['resourceMembers'] as $item1) {
+                    $model->resourceMembers[$n1] = resourceMembers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

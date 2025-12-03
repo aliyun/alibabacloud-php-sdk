@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRepositoryWebhookRequest extends Model
 {
@@ -14,48 +14,46 @@ class ListRepositoryWebhookRequest extends Model
     public $accessToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'accessToken'    => 'accessToken',
+        'accessToken' => 'accessToken',
         'organizationId' => 'organizationId',
-        'page'           => 'page',
-        'pageSize'       => 'pageSize',
+        'page' => 'page',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -63,23 +61,26 @@ class ListRepositoryWebhookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRepositoryWebhookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ResetSshKeyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sshKey extends Model
 {
     /**
-     * @example 1212
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example saaaaaaaaaaaaaaaa
-     *
      * @var string
      */
     public $publicKey;
     protected $_name = [
-        'id'        => 'id',
+        'id' => 'id',
         'publicKey' => 'publicKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->publicKey) {
             $res['publicKey'] = $this->publicKey;
         }
@@ -43,17 +41,18 @@ class sshKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sshKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['publicKey'])) {
             $model->publicKey = $map['publicKey'];
         }

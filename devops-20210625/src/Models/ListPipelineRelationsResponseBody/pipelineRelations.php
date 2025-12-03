@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRelationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pipelineRelations extends Model
 {
     /**
-     * @example 12234
-     *
      * @var int
      */
     public $refObjectId;
@@ -20,9 +18,10 @@ class pipelineRelations extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->refObjectId) {
@@ -32,11 +31,11 @@ class pipelineRelations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pipelineRelations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

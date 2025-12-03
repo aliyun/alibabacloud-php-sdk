@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class playerList extends Model
 {
     /**
-     * @example 1332695887xxxxxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example User
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'   => 'id',
+        'id' => 'id',
         'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -43,17 +41,18 @@ class playerList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

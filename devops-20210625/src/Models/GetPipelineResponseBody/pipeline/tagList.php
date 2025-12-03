@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineResponseBody\pipeline;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagList extends Model
 {
     /**
-     * @example 22
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 标签1
-     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'id',
+        'id' => 'id',
         'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -43,17 +41,18 @@ class tagList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

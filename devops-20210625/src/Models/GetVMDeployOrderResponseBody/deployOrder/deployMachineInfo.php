@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponseBody\deployOrder;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponseBody\deployOrder\deployMachineInfo\deployMachines;
-use AlibabaCloud\Tea\Model;
 
 class deployMachineInfo extends Model
 {
     /**
-     * @example 11
-     *
      * @var int
      */
     public $batchNum;
@@ -22,36 +20,41 @@ class deployMachineInfo extends Model
     public $deployMachines;
 
     /**
-     * @example 1111
-     *
      * @var int
      */
     public $hostGroupId;
     protected $_name = [
-        'batchNum'       => 'batchNum',
+        'batchNum' => 'batchNum',
         'deployMachines' => 'deployMachines',
-        'hostGroupId'    => 'hostGroupId',
+        'hostGroupId' => 'hostGroupId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deployMachines)) {
+            Model::validateArray($this->deployMachines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchNum) {
             $res['batchNum'] = $this->batchNum;
         }
+
         if (null !== $this->deployMachines) {
-            $res['deployMachines'] = [];
-            if (null !== $this->deployMachines && \is_array($this->deployMachines)) {
-                $n = 0;
-                foreach ($this->deployMachines as $item) {
-                    $res['deployMachines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deployMachines)) {
+                $res['deployMachines'] = [];
+                $n1 = 0;
+                foreach ($this->deployMachines as $item1) {
+                    $res['deployMachines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hostGroupId) {
             $res['hostGroupId'] = $this->hostGroupId;
         }
@@ -59,26 +62,29 @@ class deployMachineInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployMachineInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['batchNum'])) {
             $model->batchNum = $map['batchNum'];
         }
+
         if (isset($map['deployMachines'])) {
             if (!empty($map['deployMachines'])) {
                 $model->deployMachines = [];
-                $n                     = 0;
-                foreach ($map['deployMachines'] as $item) {
-                    $model->deployMachines[$n++] = null !== $item ? deployMachines::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['deployMachines'] as $item1) {
+                    $model->deployMachines[$n1] = deployMachines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['hostGroupId'])) {
             $model->hostGroupId = $map['hostGroupId'];
         }

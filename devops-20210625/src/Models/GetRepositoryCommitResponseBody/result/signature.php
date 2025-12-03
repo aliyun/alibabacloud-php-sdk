@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class signature extends Model
 {
     /**
-     * @example 34d2c47c7ce46a5c4639c5ffe208
-     *
      * @var string
      */
     public $gpgKeyId;
 
     /**
-     * @example verified
-     *
      * @var string
      */
     public $verificationStatus;
     protected $_name = [
-        'gpgKeyId'           => 'gpgKeyId',
+        'gpgKeyId' => 'gpgKeyId',
         'verificationStatus' => 'verificationStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gpgKeyId) {
             $res['gpgKeyId'] = $this->gpgKeyId;
         }
+
         if (null !== $this->verificationStatus) {
             $res['verificationStatus'] = $this->verificationStatus;
         }
@@ -43,17 +41,18 @@ class signature extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return signature
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gpgKeyId'])) {
             $model->gpgKeyId = $map['gpgKeyId'];
         }
+
         if (isset($map['verificationStatus'])) {
             $model->verificationStatus = $map['verificationStatus'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListChangeRequestsResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $current;
@@ -21,63 +19,71 @@ class ListChangeRequestsResponseBody extends Model
     public $data;
 
     /**
-     * @example eb13ac6049d3d78159d60f84af
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $pages;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $perPage;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'current'   => 'current',
-        'data'      => 'data',
+        'current' => 'current',
+        'data' => 'data',
         'nextToken' => 'nextToken',
-        'pages'     => 'pages',
-        'perPage'   => 'perPage',
-        'total'     => 'total',
+        'pages' => 'pages',
+        'perPage' => 'perPage',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
+
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pages) {
             $res['pages'] = $this->pages;
         }
+
         if (null !== $this->perPage) {
             $res['perPage'] = $this->perPage;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -85,31 +91,41 @@ class ListChangeRequestsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListChangeRequestsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
-                $model->data = $map['data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['pages'])) {
             $model->pages = $map['pages'];
         }
+
         if (isset($map['perPage'])) {
             $model->perPage = $map['perPage'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

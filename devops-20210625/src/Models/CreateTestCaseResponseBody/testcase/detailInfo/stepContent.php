@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseResponseBody\testcase\detailInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stepContent extends Model
 {
@@ -14,37 +14,36 @@ class stepContent extends Model
     public $stepContent;
 
     /**
-     * @example RICHTEXT
-     *
      * @var string
      */
     public $stepContentType;
 
     /**
-     * @example 59253164xxxxxxf2e98dbc7e27
-     *
      * @var string
      */
     public $stepIdentifier;
     protected $_name = [
-        'stepContent'     => 'stepContent',
+        'stepContent' => 'stepContent',
         'stepContentType' => 'stepContentType',
-        'stepIdentifier'  => 'stepIdentifier',
+        'stepIdentifier' => 'stepIdentifier',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stepContent) {
             $res['stepContent'] = $this->stepContent;
         }
+
         if (null !== $this->stepContentType) {
             $res['stepContentType'] = $this->stepContentType;
         }
+
         if (null !== $this->stepIdentifier) {
             $res['stepIdentifier'] = $this->stepIdentifier;
         }
@@ -52,20 +51,22 @@ class stepContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stepContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['stepContent'])) {
             $model->stepContent = $map['stepContent'];
         }
+
         if (isset($map['stepContentType'])) {
             $model->stepContentType = $map['stepContentType'];
         }
+
         if (isset($map['stepIdentifier'])) {
             $model->stepIdentifier = $map['stepIdentifier'];
         }

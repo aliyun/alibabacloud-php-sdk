@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example Project
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description {"conditionGroups":[[]]}
-     *
      * @var string
      */
     public $conditions;
@@ -30,56 +24,56 @@ class ListProjectsRequest extends Model
     public $extraConditions;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example public
-     *
      * @var string
      */
     public $scope;
     protected $_name = [
-        'category'        => 'category',
-        'conditions'      => 'conditions',
+        'category' => 'category',
+        'conditions' => 'conditions',
         'extraConditions' => 'extraConditions',
-        'maxResults'      => 'maxResults',
-        'nextToken'       => 'nextToken',
-        'scope'           => 'scope',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'scope' => 'scope',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->conditions) {
             $res['conditions'] = $this->conditions;
         }
+
         if (null !== $this->extraConditions) {
             $res['extraConditions'] = $this->extraConditions;
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
@@ -87,29 +81,34 @@ class ListProjectsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['conditions'])) {
             $model->conditions = $map['conditions'];
         }
+
         if (isset($map['extraConditions'])) {
             $model->extraConditions = $map['extraConditions'];
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }

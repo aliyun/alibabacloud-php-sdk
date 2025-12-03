@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateCheckRunRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class annotations extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example failure
-     *
      * @var string
      */
     public $annotationLevel;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $endColumn;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $endLine;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example demo/test.txt
-     *
      * @var string
      */
     public $path;
@@ -55,17 +39,11 @@ class annotations extends Model
     public $rawDetails;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $startColumn;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $startLine;
@@ -76,47 +54,56 @@ class annotations extends Model
     public $title;
     protected $_name = [
         'annotationLevel' => 'annotationLevel',
-        'endColumn'       => 'endColumn',
-        'endLine'         => 'endLine',
-        'message'         => 'message',
-        'path'            => 'path',
-        'rawDetails'      => 'rawDetails',
-        'startColumn'     => 'startColumn',
-        'startLine'       => 'startLine',
-        'title'           => 'title',
+        'endColumn' => 'endColumn',
+        'endLine' => 'endLine',
+        'message' => 'message',
+        'path' => 'path',
+        'rawDetails' => 'rawDetails',
+        'startColumn' => 'startColumn',
+        'startLine' => 'startLine',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotationLevel) {
             $res['annotationLevel'] = $this->annotationLevel;
         }
+
         if (null !== $this->endColumn) {
             $res['endColumn'] = $this->endColumn;
         }
+
         if (null !== $this->endLine) {
             $res['endLine'] = $this->endLine;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->rawDetails) {
             $res['rawDetails'] = $this->rawDetails;
         }
+
         if (null !== $this->startColumn) {
             $res['startColumn'] = $this->startColumn;
         }
+
         if (null !== $this->startLine) {
             $res['startLine'] = $this->startLine;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -124,38 +111,46 @@ class annotations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return annotations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['annotationLevel'])) {
             $model->annotationLevel = $map['annotationLevel'];
         }
+
         if (isset($map['endColumn'])) {
             $model->endColumn = $map['endColumn'];
         }
+
         if (isset($map['endLine'])) {
             $model->endLine = $map['endLine'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['rawDetails'])) {
             $model->rawDetails = $map['rawDetails'];
         }
+
         if (isset($map['startColumn'])) {
             $model->startColumn = $map['startColumn'];
         }
+
         if (isset($map['startLine'])) {
             $model->startLine = $map['startLine'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

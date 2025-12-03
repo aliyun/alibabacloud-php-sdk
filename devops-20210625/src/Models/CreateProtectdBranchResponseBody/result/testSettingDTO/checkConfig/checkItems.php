@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponseBody\result\testSettingDTO\checkConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkItems extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isRequired;
@@ -21,19 +19,21 @@ class checkItems extends Model
     public $name;
     protected $_name = [
         'isRequired' => 'isRequired',
-        'name'       => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isRequired) {
             $res['isRequired'] = $this->isRequired;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class checkItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['isRequired'])) {
             $model->isRequired = $map['isRequired'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

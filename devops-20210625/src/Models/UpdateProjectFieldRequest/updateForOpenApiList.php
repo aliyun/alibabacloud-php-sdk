@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateForOpenApiList extends Model
 {
     /**
-     * @example c4fd21xxxxxxxx9oj8jk
-     *
      * @var string
      */
     public $fieldIdentifier;
@@ -21,19 +19,21 @@ class updateForOpenApiList extends Model
     public $value;
     protected $_name = [
         'fieldIdentifier' => 'fieldIdentifier',
-        'value'           => 'value',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldIdentifier) {
             $res['fieldIdentifier'] = $this->fieldIdentifier;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class updateForOpenApiList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateForOpenApiList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldIdentifier'])) {
             $model->fieldIdentifier = $map['fieldIdentifier'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

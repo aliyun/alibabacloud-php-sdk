@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponseBody\commentList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
@@ -33,32 +33,37 @@ class user extends Model
      */
     public $realName;
     protected $_name = [
-        'account'    => 'account',
-        'avatar'     => 'avatar',
+        'account' => 'account',
+        'avatar' => 'avatar',
         'identifier' => 'identifier',
-        'nickName'   => 'nickName',
-        'realName'   => 'realName',
+        'nickName' => 'nickName',
+        'realName' => 'realName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['account'] = $this->account;
         }
+
         if (null !== $this->avatar) {
             $res['avatar'] = $this->avatar;
         }
+
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
+
         if (null !== $this->realName) {
             $res['realName'] = $this->realName;
         }
@@ -66,26 +71,30 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['account'])) {
             $model->account = $map['account'];
         }
+
         if (isset($map['avatar'])) {
             $model->avatar = $map['avatar'];
         }
+
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
+
         if (isset($map['realName'])) {
             $model->realName = $map['realName'];
         }

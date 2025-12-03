@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemEstimateResponseBody\workitemTimeEstimate;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recordUser extends Model
 {
     /**
-     * @example 132xxxx123
-     *
      * @var string
      */
     public $identifier;
@@ -21,19 +19,21 @@ class recordUser extends Model
     public $name;
     protected $_name = [
         'identifier' => 'identifier',
-        'name'       => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class recordUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

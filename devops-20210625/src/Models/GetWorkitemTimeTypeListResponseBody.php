@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemTimeTypeListResponseBody\timeType;
-use AlibabaCloud\Tea\Model;
 
 class GetWorkitemTimeTypeListResponseBody extends Model
 {
     /**
-     * @example Invalid.IdNotFound
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Id of the request
-     *
-     * @example HC93CE1A-8D7A-13A9-8306-7465DE2E5C0F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -45,37 +35,46 @@ class GetWorkitemTimeTypeListResponseBody extends Model
     public $timeType;
     protected $_name = [
         'errorCode' => 'errorCode',
-        'errorMsg'  => 'errorMsg',
+        'errorMsg' => 'errorMsg',
         'requestId' => 'requestId',
-        'success'   => 'success',
-        'timeType'  => 'timeType',
+        'success' => 'success',
+        'timeType' => 'timeType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->timeType)) {
+            Model::validateArray($this->timeType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->timeType) {
-            $res['timeType'] = [];
-            if (null !== $this->timeType && \is_array($this->timeType)) {
-                $n = 0;
-                foreach ($this->timeType as $item) {
-                    $res['timeType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->timeType)) {
+                $res['timeType'] = [];
+                $n1 = 0;
+                foreach ($this->timeType as $item1) {
+                    $res['timeType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,32 +82,37 @@ class GetWorkitemTimeTypeListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkitemTimeTypeListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['timeType'])) {
             if (!empty($map['timeType'])) {
                 $model->timeType = [];
-                $n               = 0;
-                foreach ($map['timeType'] as $item) {
-                    $model->timeType[$n++] = null !== $item ? timeType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['timeType'] as $item1) {
+                    $model->timeType[$n1] = timeType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

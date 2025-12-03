@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun\stages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun\stages\stageInfo\jobs;
-use AlibabaCloud\Tea\Model;
 
 class stageInfo extends Model
 {
     /**
-     * @example 1586863220000
-     *
      * @var int
      */
     public $endTime;
@@ -27,51 +25,56 @@ class stageInfo extends Model
     public $name;
 
     /**
-     * @example 1586863220000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'endTime'   => 'endTime',
-        'jobs'      => 'jobs',
-        'name'      => 'name',
+        'endTime' => 'endTime',
+        'jobs' => 'jobs',
+        'name' => 'name',
         'startTime' => 'startTime',
-        'status'    => 'status',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->jobs)) {
+            Model::validateArray($this->jobs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->jobs) {
-            $res['jobs'] = [];
-            if (null !== $this->jobs && \is_array($this->jobs)) {
-                $n = 0;
-                foreach ($this->jobs as $item) {
-                    $res['jobs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobs)) {
+                $res['jobs'] = [];
+                $n1 = 0;
+                foreach ($this->jobs as $item1) {
+                    $res['jobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -79,32 +82,37 @@ class stageInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stageInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['jobs'])) {
             if (!empty($map['jobs'])) {
                 $model->jobs = [];
-                $n           = 0;
-                foreach ($map['jobs'] as $item) {
-                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['jobs'] as $item1) {
+                    $model->jobs[$n1] = jobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

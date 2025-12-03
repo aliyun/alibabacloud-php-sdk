@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\customFields;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class valueList extends Model
 {
     /**
-     * @example 2022-02-01 00:00:00
-     *
      * @var string
      */
     public $displayValue;
 
     /**
-     * @example 2022-02-01 00:00:00
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @example 2022-02-01 00:00:00
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $valueEn;
     protected $_name = [
         'displayValue' => 'displayValue',
-        'identifier'   => 'identifier',
-        'level'        => 'level',
-        'value'        => 'value',
-        'valueEn'      => 'valueEn',
+        'identifier' => 'identifier',
+        'level' => 'level',
+        'value' => 'value',
+        'valueEn' => 'valueEn',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayValue) {
             $res['displayValue'] = $this->displayValue;
         }
+
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
+
         if (null !== $this->valueEn) {
             $res['valueEn'] = $this->valueEn;
         }
@@ -76,26 +71,30 @@ class valueList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return valueList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayValue'])) {
             $model->displayValue = $map['displayValue'];
         }
+
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
+
         if (isset($map['valueEn'])) {
             $model->valueEn = $map['valueEn'];
         }
