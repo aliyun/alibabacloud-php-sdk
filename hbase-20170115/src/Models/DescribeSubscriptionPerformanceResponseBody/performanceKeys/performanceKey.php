@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionPerformanceResponseBody\performanceKeys;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionPerformanceResponseBody\performanceKeys\performanceKey\performanceValues;
-use AlibabaCloud\Tea\Model;
 
 class performanceKey extends Model
 {
@@ -29,28 +29,35 @@ class performanceKey extends Model
      */
     public $valueFormat;
     protected $_name = [
-        'key'               => 'Key',
+        'key' => 'Key',
         'performanceValues' => 'PerformanceValues',
-        'unit'              => 'Unit',
-        'valueFormat'       => 'ValueFormat',
+        'unit' => 'Unit',
+        'valueFormat' => 'ValueFormat',
     ];
 
     public function validate()
     {
+        if (null !== $this->performanceValues) {
+            $this->performanceValues->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->performanceValues) {
-            $res['PerformanceValues'] = null !== $this->performanceValues ? $this->performanceValues->toMap() : null;
+            $res['PerformanceValues'] = null !== $this->performanceValues ? $this->performanceValues->toArray($noStream) : $this->performanceValues;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->valueFormat) {
             $res['ValueFormat'] = $this->valueFormat;
         }
@@ -58,23 +65,26 @@ class performanceKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['PerformanceValues'])) {
             $model->performanceValues = performanceValues::fromMap($map['PerformanceValues']);
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['ValueFormat'])) {
             $model->valueFormat = $map['ValueFormat'];
         }

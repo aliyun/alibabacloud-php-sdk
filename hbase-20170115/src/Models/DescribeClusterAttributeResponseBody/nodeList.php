@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterAttributeResponseBody\nodeList\node;
-use AlibabaCloud\Tea\Model;
 
 class nodeList extends Model
 {
@@ -19,17 +19,22 @@ class nodeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->node)) {
+            Model::validateArray($this->node);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->node) {
-            $res['Node'] = [];
-            if (null !== $this->node && \is_array($this->node)) {
-                $n = 0;
-                foreach ($this->node as $item) {
-                    $res['Node'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->node)) {
+                $res['Node'] = [];
+                $n1 = 0;
+                foreach ($this->node as $item1) {
+                    $res['Node'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class nodeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
-                $n           = 0;
-                foreach ($map['Node'] as $item) {
-                    $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Node'] as $item1) {
+                    $model->node[$n1] = node::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

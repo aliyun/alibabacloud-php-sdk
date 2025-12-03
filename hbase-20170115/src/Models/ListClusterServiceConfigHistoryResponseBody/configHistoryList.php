@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\ListClusterServiceConfigHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\ListClusterServiceConfigHistoryResponseBody\configHistoryList\configHistory;
-use AlibabaCloud\Tea\Model;
 
 class configHistoryList extends Model
 {
@@ -19,17 +19,22 @@ class configHistoryList extends Model
 
     public function validate()
     {
+        if (\is_array($this->configHistory)) {
+            Model::validateArray($this->configHistory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configHistory) {
-            $res['ConfigHistory'] = [];
-            if (null !== $this->configHistory && \is_array($this->configHistory)) {
-                $n = 0;
-                foreach ($this->configHistory as $item) {
-                    $res['ConfigHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configHistory)) {
+                $res['ConfigHistory'] = [];
+                $n1 = 0;
+                foreach ($this->configHistory as $item1) {
+                    $res['ConfigHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class configHistoryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configHistoryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigHistory'])) {
             if (!empty($map['ConfigHistory'])) {
                 $model->configHistory = [];
-                $n                    = 0;
-                foreach ($map['ConfigHistory'] as $item) {
-                    $model->configHistory[$n++] = null !== $item ? configHistory::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigHistory'] as $item1) {
+                    $model->configHistory[$n1] = configHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

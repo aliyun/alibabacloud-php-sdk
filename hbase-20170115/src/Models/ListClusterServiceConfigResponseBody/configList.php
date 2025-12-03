@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\ListClusterServiceConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\ListClusterServiceConfigResponseBody\configList\config;
-use AlibabaCloud\Tea\Model;
 
 class configList extends Model
 {
@@ -19,17 +19,22 @@ class configList extends Model
 
     public function validate()
     {
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = [];
-            if (null !== $this->config && \is_array($this->config)) {
-                $n = 0;
-                foreach ($this->config as $item) {
-                    $res['Config'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->config)) {
+                $res['Config'] = [];
+                $n1 = 0;
+                foreach ($this->config as $item1) {
+                    $res['Config'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class configList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
                 $model->config = [];
-                $n             = 0;
-                foreach ($map['Config'] as $item) {
-                    $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Config'] as $item1) {
+                    $model->config[$n1] = config::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

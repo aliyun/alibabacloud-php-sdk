@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterAttributeResponseBody\nodeList\node;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterAttributeResponseBody\nodeList\node\daemonList\daemon;
-use AlibabaCloud\Tea\Model;
 
 class daemonList extends Model
 {
@@ -19,17 +19,22 @@ class daemonList extends Model
 
     public function validate()
     {
+        if (\is_array($this->daemon)) {
+            Model::validateArray($this->daemon);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->daemon) {
-            $res['Daemon'] = [];
-            if (null !== $this->daemon && \is_array($this->daemon)) {
-                $n = 0;
-                foreach ($this->daemon as $item) {
-                    $res['Daemon'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->daemon)) {
+                $res['Daemon'] = [];
+                $n1 = 0;
+                foreach ($this->daemon as $item1) {
+                    $res['Daemon'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class daemonList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return daemonList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Daemon'])) {
             if (!empty($map['Daemon'])) {
                 $model->daemon = [];
-                $n             = 0;
-                foreach ($map['Daemon'] as $item) {
-                    $model->daemon[$n++] = null !== $item ? daemon::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Daemon'] as $item1) {
+                    $model->daemon[$n1] = daemon::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

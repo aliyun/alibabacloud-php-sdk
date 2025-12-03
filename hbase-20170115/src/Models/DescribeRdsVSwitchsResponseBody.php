@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeRdsVSwitchsResponseBody\vSwitches;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRdsVSwitchsResponseBody extends Model
 {
@@ -25,32 +25,38 @@ class DescribeRdsVSwitchsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->vSwitches) {
+            $this->vSwitches->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toMap() : null;
+            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toArray($noStream) : $this->vSwitches;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRdsVSwitchsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VSwitches'])) {
             $model->vSwitches = vSwitches::fromMap($map['VSwitches']);
         }

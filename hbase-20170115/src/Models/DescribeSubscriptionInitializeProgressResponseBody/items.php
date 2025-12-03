@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionInitializeProgressResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
@@ -28,28 +28,32 @@ class items extends Model
      */
     public $subscriptionId;
     protected $_name = [
-        'finishTime'     => 'FinishTime',
-        'progress'       => 'Progress',
-        'status'         => 'Status',
+        'finishTime' => 'FinishTime',
+        'progress' => 'Progress',
+        'status' => 'Status',
         'subscriptionId' => 'SubscriptionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->subscriptionId) {
             $res['SubscriptionId'] = $this->subscriptionId;
         }
@@ -57,23 +61,26 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubscriptionId'])) {
             $model->subscriptionId = $map['SubscriptionId'];
         }

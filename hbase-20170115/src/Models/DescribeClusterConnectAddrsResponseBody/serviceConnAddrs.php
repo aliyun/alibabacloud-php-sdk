@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterConnectAddrsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterConnectAddrsResponseBody\serviceConnAddrs\serviceConnAddr;
-use AlibabaCloud\Tea\Model;
 
 class serviceConnAddrs extends Model
 {
@@ -19,17 +19,22 @@ class serviceConnAddrs extends Model
 
     public function validate()
     {
+        if (\is_array($this->serviceConnAddr)) {
+            Model::validateArray($this->serviceConnAddr);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceConnAddr) {
-            $res['ServiceConnAddr'] = [];
-            if (null !== $this->serviceConnAddr && \is_array($this->serviceConnAddr)) {
-                $n = 0;
-                foreach ($this->serviceConnAddr as $item) {
-                    $res['ServiceConnAddr'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceConnAddr)) {
+                $res['ServiceConnAddr'] = [];
+                $n1 = 0;
+                foreach ($this->serviceConnAddr as $item1) {
+                    $res['ServiceConnAddr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class serviceConnAddrs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceConnAddrs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceConnAddr'])) {
             if (!empty($map['ServiceConnAddr'])) {
                 $model->serviceConnAddr = [];
-                $n                      = 0;
-                foreach ($map['ServiceConnAddr'] as $item) {
-                    $model->serviceConnAddr[$n++] = null !== $item ? serviceConnAddr::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceConnAddr'] as $item1) {
+                    $model->serviceConnAddr[$n1] = serviceConnAddr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

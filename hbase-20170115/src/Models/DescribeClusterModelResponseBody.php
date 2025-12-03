@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterModelResponseBody\tags;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterModelResponseBody extends Model
 {
@@ -159,132 +159,165 @@ class DescribeClusterModelResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'backupStatus'         => 'BackupStatus',
-        'clusterId'            => 'ClusterId',
-        'clusterName'          => 'ClusterName',
-        'clusterType'          => 'ClusterType',
-        'coldStorageStatus'    => 'ColdStorageStatus',
-        'coreDiskQuantity'     => 'CoreDiskQuantity',
-        'coreDiskSize'         => 'CoreDiskSize',
-        'coreDiskType'         => 'CoreDiskType',
+        'autoRenew' => 'AutoRenew',
+        'backupStatus' => 'BackupStatus',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'coldStorageStatus' => 'ColdStorageStatus',
+        'coreDiskQuantity' => 'CoreDiskQuantity',
+        'coreDiskSize' => 'CoreDiskSize',
+        'coreDiskType' => 'CoreDiskType',
         'coreInstanceQuantity' => 'CoreInstanceQuantity',
-        'coreInstanceType'     => 'CoreInstanceType',
-        'createTime'           => 'CreateTime',
-        'dbType'               => 'DbType',
-        'expireTime'           => 'ExpireTime',
-        'haType'               => 'HaType',
-        'hasUser'              => 'HasUser',
-        'isMultimod'           => 'IsMultimod',
-        'lockMode'             => 'LockMode',
-        'mainVersion'          => 'MainVersion',
-        'masterDiskSize'       => 'MasterDiskSize',
-        'masterDiskType'       => 'MasterDiskType',
-        'masterInstanceType'   => 'MasterInstanceType',
-        'minorVersion'         => 'MinorVersion',
-        'payType'              => 'PayType',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
-        'updateStatus'         => 'UpdateStatus',
-        'zoneId'               => 'ZoneId',
+        'coreInstanceType' => 'CoreInstanceType',
+        'createTime' => 'CreateTime',
+        'dbType' => 'DbType',
+        'expireTime' => 'ExpireTime',
+        'haType' => 'HaType',
+        'hasUser' => 'HasUser',
+        'isMultimod' => 'IsMultimod',
+        'lockMode' => 'LockMode',
+        'mainVersion' => 'MainVersion',
+        'masterDiskSize' => 'MasterDiskSize',
+        'masterDiskType' => 'MasterDiskType',
+        'masterInstanceType' => 'MasterInstanceType',
+        'minorVersion' => 'MinorVersion',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'updateStatus' => 'UpdateStatus',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
+
         if (null !== $this->coldStorageStatus) {
             $res['ColdStorageStatus'] = $this->coldStorageStatus;
         }
+
         if (null !== $this->coreDiskQuantity) {
             $res['CoreDiskQuantity'] = $this->coreDiskQuantity;
         }
+
         if (null !== $this->coreDiskSize) {
             $res['CoreDiskSize'] = $this->coreDiskSize;
         }
+
         if (null !== $this->coreDiskType) {
             $res['CoreDiskType'] = $this->coreDiskType;
         }
+
         if (null !== $this->coreInstanceQuantity) {
             $res['CoreInstanceQuantity'] = $this->coreInstanceQuantity;
         }
+
         if (null !== $this->coreInstanceType) {
             $res['CoreInstanceType'] = $this->coreInstanceType;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->haType) {
             $res['HaType'] = $this->haType;
         }
+
         if (null !== $this->hasUser) {
             $res['HasUser'] = $this->hasUser;
         }
+
         if (null !== $this->isMultimod) {
             $res['IsMultimod'] = $this->isMultimod;
         }
+
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
+
         if (null !== $this->mainVersion) {
             $res['MainVersion'] = $this->mainVersion;
         }
+
         if (null !== $this->masterDiskSize) {
             $res['MasterDiskSize'] = $this->masterDiskSize;
         }
+
         if (null !== $this->masterDiskType) {
             $res['MasterDiskType'] = $this->masterDiskType;
         }
+
         if (null !== $this->masterInstanceType) {
             $res['MasterInstanceType'] = $this->masterInstanceType;
         }
+
         if (null !== $this->minorVersion) {
             $res['MinorVersion'] = $this->minorVersion;
         }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->updateStatus) {
             $res['UpdateStatus'] = $this->updateStatus;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -292,101 +325,130 @@ class DescribeClusterModelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterModelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
+
         if (isset($map['ColdStorageStatus'])) {
             $model->coldStorageStatus = $map['ColdStorageStatus'];
         }
+
         if (isset($map['CoreDiskQuantity'])) {
             $model->coreDiskQuantity = $map['CoreDiskQuantity'];
         }
+
         if (isset($map['CoreDiskSize'])) {
             $model->coreDiskSize = $map['CoreDiskSize'];
         }
+
         if (isset($map['CoreDiskType'])) {
             $model->coreDiskType = $map['CoreDiskType'];
         }
+
         if (isset($map['CoreInstanceQuantity'])) {
             $model->coreInstanceQuantity = $map['CoreInstanceQuantity'];
         }
+
         if (isset($map['CoreInstanceType'])) {
             $model->coreInstanceType = $map['CoreInstanceType'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['HaType'])) {
             $model->haType = $map['HaType'];
         }
+
         if (isset($map['HasUser'])) {
             $model->hasUser = $map['HasUser'];
         }
+
         if (isset($map['IsMultimod'])) {
             $model->isMultimod = $map['IsMultimod'];
         }
+
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
+
         if (isset($map['MainVersion'])) {
             $model->mainVersion = $map['MainVersion'];
         }
+
         if (isset($map['MasterDiskSize'])) {
             $model->masterDiskSize = $map['MasterDiskSize'];
         }
+
         if (isset($map['MasterDiskType'])) {
             $model->masterDiskType = $map['MasterDiskType'];
         }
+
         if (isset($map['MasterInstanceType'])) {
             $model->masterInstanceType = $map['MasterInstanceType'];
         }
+
         if (isset($map['MinorVersion'])) {
             $model->minorVersion = $map['MinorVersion'];
         }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['UpdateStatus'])) {
             $model->updateStatus = $map['UpdateStatus'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

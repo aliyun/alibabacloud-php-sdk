@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionsResponseBody\subscriptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstances extends Model
 {
@@ -24,23 +24,26 @@ class DBInstances extends Model
     public $role;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'regionId'     => 'RegionId',
-        'role'         => 'Role',
+        'regionId' => 'RegionId',
+        'role' => 'Role',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -48,20 +51,22 @@ class DBInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

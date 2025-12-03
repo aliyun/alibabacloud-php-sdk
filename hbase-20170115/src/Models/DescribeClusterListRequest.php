@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterListRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterListRequest extends Model
 {
@@ -40,8 +40,6 @@ class DescribeClusterListRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -71,66 +69,92 @@ class DescribeClusterListRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
-        'clusterName'          => 'ClusterName',
-        'dbType'               => 'DbType',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'dbType' => 'DbType',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'statusList'           => 'StatusList',
-        'tag'                  => 'Tag',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'statusList' => 'StatusList',
+        'tag' => 'Tag',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->statusList)) {
+            Model::validateArray($this->statusList);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statusList)) {
+                $res['StatusList'] = [];
+                $n1 = 0;
+                foreach ($this->statusList as $item1) {
+                    $res['StatusList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -138,55 +162,72 @@ class DescribeClusterListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
-            }
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $model->statusList = [];
+                $n1 = 0;
+                foreach ($map['StatusList'] as $item1) {
+                    $model->statusList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

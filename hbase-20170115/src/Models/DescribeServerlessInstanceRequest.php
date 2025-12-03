@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeServerlessInstanceRequest extends Model
 {
@@ -14,48 +14,46 @@ class DescribeServerlessInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
-        'zoneId'      => 'ZoneId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -63,23 +61,26 @@ class DescribeServerlessInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServerlessInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSubscriptionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $destinationInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $destinationInstanceRegionId;
@@ -28,8 +24,6 @@ class CreateSubscriptionRequest extends Model
     public $extraContext;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $mapping;
@@ -55,15 +49,11 @@ class CreateSubscriptionRequest extends Model
     public $slbServer;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sourceInstanceRegionId;
@@ -74,8 +64,6 @@ class CreateSubscriptionRequest extends Model
     public $subscriptionDescription;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $subscriptionType;
@@ -85,64 +73,77 @@ class CreateSubscriptionRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'destinationInstanceId'       => 'DestinationInstanceId',
+        'destinationInstanceId' => 'DestinationInstanceId',
         'destinationInstanceRegionId' => 'DestinationInstanceRegionId',
-        'extraContext'                => 'ExtraContext',
-        'mapping'                     => 'Mapping',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'slbServer'                   => 'SlbServer',
-        'sourceInstanceId'            => 'SourceInstanceId',
-        'sourceInstanceRegionId'      => 'SourceInstanceRegionId',
-        'subscriptionDescription'     => 'SubscriptionDescription',
-        'subscriptionType'            => 'SubscriptionType',
-        'zoneId'                      => 'ZoneId',
+        'extraContext' => 'ExtraContext',
+        'mapping' => 'Mapping',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'slbServer' => 'SlbServer',
+        'sourceInstanceId' => 'SourceInstanceId',
+        'sourceInstanceRegionId' => 'SourceInstanceRegionId',
+        'subscriptionDescription' => 'SubscriptionDescription',
+        'subscriptionType' => 'SubscriptionType',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationInstanceId) {
             $res['DestinationInstanceId'] = $this->destinationInstanceId;
         }
+
         if (null !== $this->destinationInstanceRegionId) {
             $res['DestinationInstanceRegionId'] = $this->destinationInstanceRegionId;
         }
+
         if (null !== $this->extraContext) {
             $res['ExtraContext'] = $this->extraContext;
         }
+
         if (null !== $this->mapping) {
             $res['Mapping'] = $this->mapping;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->slbServer) {
             $res['SlbServer'] = $this->slbServer;
         }
+
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
+
         if (null !== $this->sourceInstanceRegionId) {
             $res['SourceInstanceRegionId'] = $this->sourceInstanceRegionId;
         }
+
         if (null !== $this->subscriptionDescription) {
             $res['SubscriptionDescription'] = $this->subscriptionDescription;
         }
+
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -150,50 +151,62 @@ class CreateSubscriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSubscriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationInstanceId'])) {
             $model->destinationInstanceId = $map['DestinationInstanceId'];
         }
+
         if (isset($map['DestinationInstanceRegionId'])) {
             $model->destinationInstanceRegionId = $map['DestinationInstanceRegionId'];
         }
+
         if (isset($map['ExtraContext'])) {
             $model->extraContext = $map['ExtraContext'];
         }
+
         if (isset($map['Mapping'])) {
             $model->mapping = $map['Mapping'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SlbServer'])) {
             $model->slbServer = $map['SlbServer'];
         }
+
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
+
         if (isset($map['SourceInstanceRegionId'])) {
             $model->sourceInstanceRegionId = $map['SourceInstanceRegionId'];
         }
+
         if (isset($map['SubscriptionDescription'])) {
             $model->subscriptionDescription = $map['SubscriptionDescription'];
         }
+
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

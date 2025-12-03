@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $clusterName;
@@ -28,8 +24,6 @@ class ModifyClusterNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -49,40 +43,47 @@ class ModifyClusterNameRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
-        'clusterName'          => 'ClusterName',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -90,32 +91,38 @@ class ModifyClusterNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

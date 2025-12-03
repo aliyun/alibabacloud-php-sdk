@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeRegionsResponseBody\regions\region\zones;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zone extends Model
 {
@@ -19,19 +19,21 @@ class zone extends Model
     public $zoneId;
     protected $_name = [
         'vpcEnabled' => 'VpcEnabled',
-        'zoneId'     => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcEnabled) {
             $res['VpcEnabled'] = $this->vpcEnabled;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -39,17 +41,18 @@ class zone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcEnabled'])) {
             $model->vpcEnabled = $map['VpcEnabled'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

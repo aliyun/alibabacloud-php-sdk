@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterConnectAddrsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterConnectAddrsResponseBody\zkConnAddrs\zkConnAddr;
-use AlibabaCloud\Tea\Model;
 
 class zkConnAddrs extends Model
 {
@@ -19,17 +19,22 @@ class zkConnAddrs extends Model
 
     public function validate()
     {
+        if (\is_array($this->zkConnAddr)) {
+            Model::validateArray($this->zkConnAddr);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zkConnAddr) {
-            $res['ZkConnAddr'] = [];
-            if (null !== $this->zkConnAddr && \is_array($this->zkConnAddr)) {
-                $n = 0;
-                foreach ($this->zkConnAddr as $item) {
-                    $res['ZkConnAddr'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zkConnAddr)) {
+                $res['ZkConnAddr'] = [];
+                $n1 = 0;
+                foreach ($this->zkConnAddr as $item1) {
+                    $res['ZkConnAddr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class zkConnAddrs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zkConnAddrs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ZkConnAddr'])) {
             if (!empty($map['ZkConnAddr'])) {
                 $model->zkConnAddr = [];
-                $n                 = 0;
-                foreach ($map['ZkConnAddr'] as $item) {
-                    $model->zkConnAddr[$n++] = null !== $item ? zkConnAddr::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ZkConnAddr'] as $item1) {
+                    $model->zkConnAddr[$n1] = zkConnAddr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

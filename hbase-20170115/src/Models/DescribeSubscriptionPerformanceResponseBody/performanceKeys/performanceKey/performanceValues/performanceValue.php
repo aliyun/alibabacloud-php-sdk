@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionPerformanceResponseBody\performanceKeys\performanceKey\performanceValues;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class performanceValue extends Model
 {
@@ -18,20 +18,22 @@ class performanceValue extends Model
      */
     public $value;
     protected $_name = [
-        'date'  => 'Date',
+        'date' => 'Date',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -39,17 +41,18 @@ class performanceValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

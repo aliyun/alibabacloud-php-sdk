@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBackupPolicyRequest extends Model
 {
@@ -14,8 +14,6 @@ class ModifyBackupPolicyRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $clusterId;
@@ -31,8 +29,6 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupEndTimeUTC;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $preferredBackupPeriod;
@@ -43,8 +39,6 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupStartTimeUTC;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $preferredBackupTime;
@@ -69,56 +63,67 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'                 => 'ClientToken',
-        'clusterId'                   => 'ClusterId',
-        'ownerId'                     => 'OwnerId',
-        'preferredBackupEndTimeUTC'   => 'PreferredBackupEndTimeUTC',
-        'preferredBackupPeriod'       => 'PreferredBackupPeriod',
+        'clientToken' => 'ClientToken',
+        'clusterId' => 'ClusterId',
+        'ownerId' => 'OwnerId',
+        'preferredBackupEndTimeUTC' => 'PreferredBackupEndTimeUTC',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupStartTimeUTC' => 'PreferredBackupStartTimeUTC',
-        'preferredBackupTime'         => 'PreferredBackupTime',
-        'regionId'                    => 'RegionId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'zoneId'                      => 'ZoneId',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->preferredBackupEndTimeUTC) {
             $res['PreferredBackupEndTimeUTC'] = $this->preferredBackupEndTimeUTC;
         }
+
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
+
         if (null !== $this->preferredBackupStartTimeUTC) {
             $res['PreferredBackupStartTimeUTC'] = $this->preferredBackupStartTimeUTC;
         }
+
         if (null !== $this->preferredBackupTime) {
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -126,44 +131,54 @@ class ModifyBackupPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PreferredBackupEndTimeUTC'])) {
             $model->preferredBackupEndTimeUTC = $map['PreferredBackupEndTimeUTC'];
         }
+
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
+
         if (isset($map['PreferredBackupStartTimeUTC'])) {
             $model->preferredBackupStartTimeUTC = $map['PreferredBackupStartTimeUTC'];
         }
+
         if (isset($map['PreferredBackupTime'])) {
             $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

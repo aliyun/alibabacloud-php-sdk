@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class netInfo extends Model
 {
@@ -38,36 +38,42 @@ class netInfo extends Model
      */
     public $vpcId;
     protected $_name = [
-        'innerIpAddress'  => 'InnerIpAddress',
-        'netType'         => 'NetType',
+        'innerIpAddress' => 'InnerIpAddress',
+        'netType' => 'NetType',
         'publicIpAddress' => 'PublicIpAddress',
-        'securityIpList'  => 'SecurityIpList',
-        'vSwitchId'       => 'VSwitchId',
-        'vpcId'           => 'VpcId',
+        'securityIpList' => 'SecurityIpList',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->innerIpAddress) {
             $res['InnerIpAddress'] = $this->innerIpAddress;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = $this->publicIpAddress;
         }
+
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -75,29 +81,34 @@ class netInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return netInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InnerIpAddress'])) {
             $model->innerIpAddress = $map['InnerIpAddress'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = $map['PublicIpAddress'];
         }
+
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

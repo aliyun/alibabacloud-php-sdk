@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\CheckVersionsOfComponentsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class components extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\HBase\V20170115\Models\CheckVersionsOfComponentsResponseBody\components\components[]
+     * @var components\components[]
      */
     public $components;
     protected $_name = [
@@ -18,17 +18,22 @@ class components extends Model
 
     public function validate()
     {
+        if (\is_array($this->components)) {
+            Model::validateArray($this->components);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->components) {
-            $res['Components'] = [];
-            if (null !== $this->components && \is_array($this->components)) {
-                $n = 0;
-                foreach ($this->components as $item) {
-                    $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->components)) {
+                $res['Components'] = [];
+                $n1 = 0;
+                foreach ($this->components as $item1) {
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class components extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return components
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n                 = 0;
-                foreach ($map['Components'] as $item) {
-                    $model->components[$n++] = null !== $item ? \AlibabaCloud\SDK\HBase\V20170115\Models\CheckVersionsOfComponentsResponseBody\components\components::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Components'] as $item1) {
+                    $model->components[$n1] = components\components::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSubscriptionResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class CreateSubscriptionResponseBody extends Model
      */
     public $subscriptionId;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'subscriptionId' => 'SubscriptionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->subscriptionId) {
             $res['SubscriptionId'] = $this->subscriptionId;
         }
@@ -39,17 +41,18 @@ class CreateSubscriptionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSubscriptionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SubscriptionId'])) {
             $model->subscriptionId = $map['SubscriptionId'];
         }

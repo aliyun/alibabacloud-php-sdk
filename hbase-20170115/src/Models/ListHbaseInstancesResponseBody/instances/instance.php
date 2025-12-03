@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models\ListHbaseInstancesResponseBody\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instance extends Model
 {
@@ -23,24 +23,27 @@ class instance extends Model
      */
     public $isDefault;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'isDefault'    => 'IsDefault',
+        'isDefault' => 'IsDefault',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
@@ -48,20 +51,22 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }

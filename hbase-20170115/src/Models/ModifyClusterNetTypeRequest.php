@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterNetTypeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $netType;
@@ -28,8 +24,6 @@ class ModifyClusterNetTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -59,48 +53,57 @@ class ModifyClusterNetTypeRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
-        'netType'              => 'NetType',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'netType' => 'NetType',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -108,38 +111,46 @@ class ModifyClusterNetTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterNetTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

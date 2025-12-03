@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionsResponseBody\subscriptions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSubscriptionsResponseBody extends Model
 {
@@ -19,26 +19,32 @@ class DescribeSubscriptionsResponseBody extends Model
      */
     public $subscriptions;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'subscriptions' => 'Subscriptions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subscriptions)) {
+            Model::validateArray($this->subscriptions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->subscriptions) {
-            $res['Subscriptions'] = [];
-            if (null !== $this->subscriptions && \is_array($this->subscriptions)) {
-                $n = 0;
-                foreach ($this->subscriptions as $item) {
-                    $res['Subscriptions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscriptions)) {
+                $res['Subscriptions'] = [];
+                $n1 = 0;
+                foreach ($this->subscriptions as $item1) {
+                    $res['Subscriptions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class DescribeSubscriptionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSubscriptionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Subscriptions'])) {
             if (!empty($map['Subscriptions'])) {
                 $model->subscriptions = [];
-                $n                    = 0;
-                foreach ($map['Subscriptions'] as $item) {
-                    $model->subscriptions[$n++] = null !== $item ? subscriptions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Subscriptions'] as $item1) {
+                    $model->subscriptions[$n1] = subscriptions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeSubscriptionPerformanceResponseBody\performanceKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSubscriptionPerformanceResponseBody extends Model
 {
@@ -34,32 +34,40 @@ class DescribeSubscriptionPerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
+        'endTime' => 'EndTime',
         'performanceKeys' => 'PerformanceKeys',
-        'replicaId'       => 'ReplicaId',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'replicaId' => 'ReplicaId',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->performanceKeys) {
+            $this->performanceKeys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toArray($noStream) : $this->performanceKeys;
         }
+
         if (null !== $this->replicaId) {
             $res['ReplicaId'] = $this->replicaId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -67,26 +75,30 @@ class DescribeSubscriptionPerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSubscriptionPerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['PerformanceKeys'])) {
             $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
         }
+
         if (isset($map['ReplicaId'])) {
             $model->replicaId = $map['ReplicaId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

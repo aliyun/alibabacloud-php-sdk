@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\HBase\V20170115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\HBase\V20170115\Models\DescribeClusterWhiteListResponseBody\groupItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterWhiteListResponseBody extends Model
 {
@@ -20,19 +20,24 @@ class DescribeClusterWhiteListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'groupItems' => 'GroupItems',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->groupItems) {
+            $this->groupItems->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupItems) {
-            $res['GroupItems'] = null !== $this->groupItems ? $this->groupItems->toMap() : null;
+            $res['GroupItems'] = null !== $this->groupItems ? $this->groupItems->toArray($noStream) : $this->groupItems;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeClusterWhiteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupItems'])) {
             $model->groupItems = groupItems::fromMap($map['GroupItems']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
