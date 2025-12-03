@@ -4,56 +4,32 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateBackendRequest extends Model
 {
     /**
-     * @description The name of the backend service.
-     *
-     * This parameter is required.
-     *
-     * @example testBackendService
-     *
      * @var string
      */
     public $backendName;
 
     /**
-     * @description The type of the backend service.
-     *
-     * This parameter is required.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $backendType;
 
     /**
-     * @description Specifies to create a EventBridge service-linked role.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $createEventBridgeServiceLinkedRole;
 
     /**
-     * @description Specifies to create a service-linked role.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $createSlr;
 
     /**
-     * @description The description.
-     *
-     * @example release data api 411055691504981
-     *
      * @var string
      */
     public $description;
@@ -64,8 +40,6 @@ class CreateBackendRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -79,35 +53,48 @@ class CreateBackendRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendName) {
             $res['BackendName'] = $this->backendName;
         }
+
         if (null !== $this->backendType) {
             $res['BackendType'] = $this->backendType;
         }
+
         if (null !== $this->createEventBridgeServiceLinkedRole) {
             $res['CreateEventBridgeServiceLinkedRole'] = $this->createEventBridgeServiceLinkedRole;
         }
+
         if (null !== $this->createSlr) {
             $res['CreateSlr'] = $this->createSlr;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,38 +102,45 @@ class CreateBackendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBackendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendName'])) {
             $model->backendName = $map['BackendName'];
         }
+
         if (isset($map['BackendType'])) {
             $model->backendType = $map['BackendType'];
         }
+
         if (isset($map['CreateEventBridgeServiceLinkedRole'])) {
             $model->createEventBridgeServiceLinkedRole = $map['CreateEventBridgeServiceLinkedRole'];
         }
+
         if (isset($map['CreateSlr'])) {
             $model->createSlr = $map['CreateSlr'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

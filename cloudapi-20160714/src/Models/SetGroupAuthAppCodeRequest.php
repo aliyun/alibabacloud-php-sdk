@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetGroupAuthAppCodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $authAppCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $groupId;
@@ -32,17 +28,22 @@ class SetGroupAuthAppCodeRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authAppCode) {
             $res['AuthAppCode'] = $this->authAppCode;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -50,20 +51,22 @@ class SetGroupAuthAppCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetGroupAuthAppCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthAppCode'])) {
             $model->authAppCode = $map['AuthAppCode'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

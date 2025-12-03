@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceClusterListRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example apigateway-cluster-hz-xxxxxxxxxxxx
-     *
      * @var string
      */
     public $instanceClusterId;
 
     /**
-     * @description The cluster name.
-     *
-     * @example test-cluster
-     *
      * @var string
      */
     public $instanceClusterName;
 
     /**
-     * @description The page number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -56,23 +40,30 @@ class DescribeInstanceClusterListRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceClusterId) {
             $res['InstanceClusterId'] = $this->instanceClusterId;
         }
+
         if (null !== $this->instanceClusterName) {
             $res['InstanceClusterName'] = $this->instanceClusterName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -80,26 +71,30 @@ class DescribeInstanceClusterListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceClusterListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceClusterId'])) {
             $model->instanceClusterId = $map['InstanceClusterId'];
         }
+
         if (isset($map['InstanceClusterName'])) {
             $model->instanceClusterName = $map['InstanceClusterName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

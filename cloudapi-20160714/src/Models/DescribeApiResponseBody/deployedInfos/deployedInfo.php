@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\deployedInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deployedInfo extends Model
 {
     /**
-     * @description The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
-     *
-     * @example DEPLOYED
-     *
      * @var string
      */
     public $deployedStatus;
 
     /**
-     * @description The effective version.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $effectiveVersion;
 
     /**
-     * @description The environment to which the API is published. Valid values: RELEASE and TEST.
-     *
-     * @example RELEASE
-     *
      * @var string
      */
     public $stageName;
@@ -40,17 +28,22 @@ class deployedInfo extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployedStatus) {
             $res['DeployedStatus'] = $this->deployedStatus;
         }
+
         if (null !== $this->effectiveVersion) {
             $res['EffectiveVersion'] = $this->effectiveVersion;
         }
+
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -58,20 +51,22 @@ class deployedInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployedInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployedStatus'])) {
             $model->deployedStatus = $map['DeployedStatus'];
         }
+
         if (isset($map['EffectiveVersion'])) {
             $model->effectiveVersion = $map['EffectiveVersion'];
         }
+
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

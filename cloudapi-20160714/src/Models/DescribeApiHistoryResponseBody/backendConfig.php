@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backendConfig extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
-     * @example a0305308908c4740aba9cbfd63ba99b7
-     *
      * @var string
      */
     public $backendId;
 
     /**
-     * @description The name of the backend service.
-     *
-     * @example zmapi
-     *
      * @var string
      */
     public $backendName;
 
     /**
-     * @description The type of the backend service.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $backendType;
@@ -40,17 +28,22 @@ class backendConfig extends Model
         'backendType' => 'BackendType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendId) {
             $res['BackendId'] = $this->backendId;
         }
+
         if (null !== $this->backendName) {
             $res['BackendName'] = $this->backendName;
         }
+
         if (null !== $this->backendType) {
             $res['BackendType'] = $this->backendType;
         }
@@ -58,20 +51,22 @@ class backendConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendId'])) {
             $model->backendId = $map['BackendId'];
         }
+
         if (isset($map['BackendName'])) {
             $model->backendName = $map['BackendName'];
         }
+
         if (isset($map['BackendType'])) {
             $model->backendType = $map['BackendType'];
         }

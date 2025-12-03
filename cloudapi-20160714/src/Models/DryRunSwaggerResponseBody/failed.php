@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody\failed\apiImportSwaggerFailed;
-use AlibabaCloud\Tea\Model;
 
 class failed extends Model
 {
@@ -17,17 +17,24 @@ class failed extends Model
         'apiImportSwaggerFailed' => 'ApiImportSwaggerFailed',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiImportSwaggerFailed)) {
+            Model::validateArray($this->apiImportSwaggerFailed);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiImportSwaggerFailed) {
-            $res['ApiImportSwaggerFailed'] = [];
-            if (null !== $this->apiImportSwaggerFailed && \is_array($this->apiImportSwaggerFailed)) {
-                $n = 0;
-                foreach ($this->apiImportSwaggerFailed as $item) {
-                    $res['ApiImportSwaggerFailed'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiImportSwaggerFailed)) {
+                $res['ApiImportSwaggerFailed'] = [];
+                $n1 = 0;
+                foreach ($this->apiImportSwaggerFailed as $item1) {
+                    $res['ApiImportSwaggerFailed'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class failed extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failed
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiImportSwaggerFailed'])) {
             if (!empty($map['ApiImportSwaggerFailed'])) {
                 $model->apiImportSwaggerFailed = [];
-                $n = 0;
-                foreach ($map['ApiImportSwaggerFailed'] as $item) {
-                    $model->apiImportSwaggerFailed[$n++] = null !== $item ? apiImportSwaggerFailed::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiImportSwaggerFailed'] as $item1) {
+                    $model->apiImportSwaggerFailed[$n1] = apiImportSwaggerFailed::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

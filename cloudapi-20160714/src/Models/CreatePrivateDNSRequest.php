@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSRequest\records;
-use AlibabaCloud\Tea\Model;
 
 class CreatePrivateDNSRequest extends Model
 {
     /**
-     * @description The internal domain name.
-     *
-     * This parameter is required.
-     *
-     * @example api.demo.com
-     *
      * @var string
      */
     public $intranetDomain;
 
     /**
-     * @description The resolution records. This parameter is valid only when Type is set to A.
-     *
      * @var records[]
      */
     public $records;
@@ -33,15 +25,6 @@ class CreatePrivateDNSRequest extends Model
     public $securityToken;
 
     /**
-     * @description The internal domain name resolution type. Valid values:
-     *
-     *   VPC: resolution for VPC access authorizations. A resolution of this type can be bound only to traditional dedicated instances.
-     *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
-     *
-     * This parameter is required.
-     *
-     * @example A
-     *
      * @var string
      */
     public $type;
@@ -52,26 +35,36 @@ class CreatePrivateDNSRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
         }
+
         if (null !== $this->records) {
-            $res['Records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['Records'] = [];
+                $n1 = 0;
+                foreach ($this->records as $item1) {
+                    $res['Records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -79,29 +72,33 @@ class CreatePrivateDNSRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePrivateDNSRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
         }
+
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n = 0;
-                foreach ($map['Records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Records'] as $item1) {
+                    $model->records[$n1] = records::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

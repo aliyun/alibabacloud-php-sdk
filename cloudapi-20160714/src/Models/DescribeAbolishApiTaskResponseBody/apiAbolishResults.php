@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAbolishApiTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAbolishApiTaskResponseBody\apiAbolishResults\apiAbolishResult;
-use AlibabaCloud\Tea\Model;
 
 class apiAbolishResults extends Model
 {
@@ -17,17 +17,24 @@ class apiAbolishResults extends Model
         'apiAbolishResult' => 'ApiAbolishResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiAbolishResult)) {
+            Model::validateArray($this->apiAbolishResult);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiAbolishResult) {
-            $res['ApiAbolishResult'] = [];
-            if (null !== $this->apiAbolishResult && \is_array($this->apiAbolishResult)) {
-                $n = 0;
-                foreach ($this->apiAbolishResult as $item) {
-                    $res['ApiAbolishResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiAbolishResult)) {
+                $res['ApiAbolishResult'] = [];
+                $n1 = 0;
+                foreach ($this->apiAbolishResult as $item1) {
+                    $res['ApiAbolishResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class apiAbolishResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiAbolishResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiAbolishResult'])) {
             if (!empty($map['ApiAbolishResult'])) {
                 $model->apiAbolishResult = [];
-                $n = 0;
-                foreach ($map['ApiAbolishResult'] as $item) {
-                    $model->apiAbolishResult[$n++] = null !== $item ? apiAbolishResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiAbolishResult'] as $item1) {
+                    $model->apiAbolishResult[$n1] = apiAbolishResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

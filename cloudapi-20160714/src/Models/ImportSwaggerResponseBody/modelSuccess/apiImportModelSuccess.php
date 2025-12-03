@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponseBody\modelSuccess;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiImportModelSuccess extends Model
 {
     /**
-     * @description The ID of the API group.
-     *
-     * @example b2d552ed90ca435b86f7bf8d45414793
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the model.
-     *
-     * @example NewInstance
-     *
      * @var string
      */
     public $modelName;
 
     /**
-     * @description The model operation
-     *
-     * @example CREATE
-     *
      * @var string
      */
     public $modelOperation;
 
     /**
-     * @description The UID of the model.
-     *
-     * @example d4bcfaec1946e1870d
-     *
      * @var string
      */
     public $modelUid;
@@ -50,20 +34,26 @@ class apiImportModelSuccess extends Model
         'modelUid' => 'ModelUid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->modelOperation) {
             $res['ModelOperation'] = $this->modelOperation;
         }
+
         if (null !== $this->modelUid) {
             $res['ModelUid'] = $this->modelUid;
         }
@@ -71,23 +61,26 @@ class apiImportModelSuccess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiImportModelSuccess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['ModelOperation'])) {
             $model->modelOperation = $map['ModelOperation'];
         }
+
         if (isset($map['ModelUid'])) {
             $model->modelUid = $map['ModelUid'];
         }

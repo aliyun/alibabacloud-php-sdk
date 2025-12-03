@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponseBody\trafficControls\trafficControl;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponseBody\trafficControls\trafficControl\specialPolicies\specialPolicy;
-use AlibabaCloud\Tea\Model;
 
 class specialPolicies extends Model
 {
@@ -17,17 +17,24 @@ class specialPolicies extends Model
         'specialPolicy' => 'SpecialPolicy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->specialPolicy)) {
+            Model::validateArray($this->specialPolicy);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specialPolicy) {
-            $res['SpecialPolicy'] = [];
-            if (null !== $this->specialPolicy && \is_array($this->specialPolicy)) {
-                $n = 0;
-                foreach ($this->specialPolicy as $item) {
-                    $res['SpecialPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specialPolicy)) {
+                $res['SpecialPolicy'] = [];
+                $n1 = 0;
+                foreach ($this->specialPolicy as $item1) {
+                    $res['SpecialPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class specialPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specialPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecialPolicy'])) {
             if (!empty($map['SpecialPolicy'])) {
                 $model->specialPolicy = [];
-                $n = 0;
-                foreach ($map['SpecialPolicy'] as $item) {
-                    $model->specialPolicy[$n++] = null !== $item ? specialPolicy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpecialPolicy'] as $item1) {
+                    $model->specialPolicy[$n1] = specialPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

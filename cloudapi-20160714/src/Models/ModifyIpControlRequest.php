@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyIpControlRequest extends Model
 {
     /**
-     * @description The description. The description can be up to 200 characters in length.
-     *
-     * @example description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the ACL. The ID is unique.
-     *
-     * This parameter is required.
-     *
-     * @example 7ea91319a34d48a09b5c9c871d9768b1
-     *
      * @var string
      */
     public $ipControlId;
 
     /**
-     * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore (_).
-     *
-     * @example testControl11
-     *
      * @var string
      */
     public $ipControlName;
@@ -48,20 +34,26 @@ class ModifyIpControlRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
         }
+
         if (null !== $this->ipControlName) {
             $res['IpControlName'] = $this->ipControlName;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -69,23 +61,26 @@ class ModifyIpControlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIpControlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
         }
+
         if (isset($map['IpControlName'])) {
             $model->ipControlName = $map['IpControlName'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

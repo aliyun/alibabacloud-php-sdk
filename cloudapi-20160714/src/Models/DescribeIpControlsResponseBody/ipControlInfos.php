@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlsResponseBody\ipControlInfos\ipControlInfo;
-use AlibabaCloud\Tea\Model;
 
 class ipControlInfos extends Model
 {
@@ -17,17 +17,24 @@ class ipControlInfos extends Model
         'ipControlInfo' => 'IpControlInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipControlInfo)) {
+            Model::validateArray($this->ipControlInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipControlInfo) {
-            $res['IpControlInfo'] = [];
-            if (null !== $this->ipControlInfo && \is_array($this->ipControlInfo)) {
-                $n = 0;
-                foreach ($this->ipControlInfo as $item) {
-                    $res['IpControlInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipControlInfo)) {
+                $res['IpControlInfo'] = [];
+                $n1 = 0;
+                foreach ($this->ipControlInfo as $item1) {
+                    $res['IpControlInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ipControlInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipControlInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpControlInfo'])) {
             if (!empty($map['IpControlInfo'])) {
                 $model->ipControlInfo = [];
-                $n = 0;
-                foreach ($map['IpControlInfo'] as $item) {
-                    $model->ipControlInfo[$n++] = null !== $item ? ipControlInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpControlInfo'] as $item1) {
+                    $model->ipControlInfo[$n1] = ipControlInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachGroupPluginRequest extends Model
 {
     /**
-     * @description API group ID
-     *
-     * This parameter is required.
-     *
-     * @example 0009db9c828549768a200320714b8930
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description API Gateway plugin ID
-     *
-     * This parameter is required.
-     *
-     * @example a96926e82f994915a8da40a119374537
-     *
      * @var string
      */
     public $pluginId;
@@ -36,16 +24,6 @@ class DetachGroupPluginRequest extends Model
     public $securityToken;
 
     /**
-     * @description Specify the environment of the API to operate on.
-     *
-     * - **RELEASE**: Production
-     * - **PRE**: Pre-release
-     * - **TEST**: Test
-     *
-     * This parameter is required.
-     *
-     * @example RELEASE
-     *
      * @var string
      */
     public $stageName;
@@ -56,20 +34,26 @@ class DetachGroupPluginRequest extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -77,23 +61,26 @@ class DetachGroupPluginRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachGroupPluginRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

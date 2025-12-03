@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUpdateBackendTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4e13c3e0c44c4a4ebb5231264eeb9bc1
-     *
      * @var string
      */
     public $operationUid;
@@ -26,14 +22,18 @@ class DescribeUpdateBackendTaskRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationUid) {
             $res['OperationUid'] = $this->operationUid;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -41,17 +41,18 @@ class DescribeUpdateBackendTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUpdateBackendTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationUid'])) {
             $model->operationUid = $map['OperationUid'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

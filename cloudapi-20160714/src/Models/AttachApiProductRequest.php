@@ -4,27 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachApiProductRequest\apis;
-use AlibabaCloud\Tea\Model;
 
 class AttachApiProductRequest extends Model
 {
     /**
-     * @description The ID of the API product.
-     *
-     * This parameter is required.
-     *
-     * @example 117b7a64a8b3f064eaa4a47ac62aac5e
-     *
      * @var string
      */
     public $apiProductId;
 
     /**
-     * @description The APIs to be attached.
-     *
-     * This parameter is required.
-     *
      * @var apis[]
      */
     public $apis;
@@ -39,23 +29,32 @@ class AttachApiProductRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apis)) {
+            Model::validateArray($this->apis);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiProductId) {
             $res['ApiProductId'] = $this->apiProductId;
         }
+
         if (null !== $this->apis) {
-            $res['Apis'] = [];
-            if (null !== $this->apis && \is_array($this->apis)) {
-                $n = 0;
-                foreach ($this->apis as $item) {
-                    $res['Apis'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apis)) {
+                $res['Apis'] = [];
+                $n1 = 0;
+                foreach ($this->apis as $item1) {
+                    $res['Apis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -63,26 +62,29 @@ class AttachApiProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachApiProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductId'])) {
             $model->apiProductId = $map['ApiProductId'];
         }
+
         if (isset($map['Apis'])) {
             if (!empty($map['Apis'])) {
                 $model->apis = [];
-                $n = 0;
-                foreach ($map['Apis'] as $item) {
-                    $model->apis[$n++] = null !== $item ? apis::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Apis'] as $item1) {
+                    $model->apis[$n1] = apis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

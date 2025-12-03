@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteModelRequest extends Model
 {
     /**
-     * @description The ID of the API group to which the model belongs.
-     *
-     * This parameter is required.
-     *
-     * @example 30e792398d6c4569b04c0e53a3494381
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the model.
-     *
-     * This parameter is required.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $modelName;
@@ -34,14 +22,18 @@ class DeleteModelRequest extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
@@ -49,17 +41,18 @@ class DeleteModelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteModelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }

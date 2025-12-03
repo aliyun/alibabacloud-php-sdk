@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute;
-use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
@@ -17,17 +17,24 @@ class instances extends Model
         'instanceAttribute' => 'InstanceAttribute',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceAttribute)) {
+            Model::validateArray($this->instanceAttribute);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceAttribute) {
-            $res['InstanceAttribute'] = [];
-            if (null !== $this->instanceAttribute && \is_array($this->instanceAttribute)) {
-                $n = 0;
-                foreach ($this->instanceAttribute as $item) {
-                    $res['InstanceAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceAttribute)) {
+                $res['InstanceAttribute'] = [];
+                $n1 = 0;
+                foreach ($this->instanceAttribute as $item1) {
+                    $res['InstanceAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceAttribute'])) {
             if (!empty($map['InstanceAttribute'])) {
                 $model->instanceAttribute = [];
-                $n = 0;
-                foreach ($map['InstanceAttribute'] as $item) {
-                    $model->instanceAttribute[$n++] = null !== $item ? instanceAttribute::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceAttribute'] as $item1) {
+                    $model->instanceAttribute[$n1] = instanceAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

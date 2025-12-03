@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiResponseBody\trafficControlItems\trafficControlItem;
-use AlibabaCloud\Tea\Model;
 
 class trafficControlItems extends Model
 {
@@ -17,17 +17,24 @@ class trafficControlItems extends Model
         'trafficControlItem' => 'TrafficControlItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->trafficControlItem)) {
+            Model::validateArray($this->trafficControlItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trafficControlItem) {
-            $res['TrafficControlItem'] = [];
-            if (null !== $this->trafficControlItem && \is_array($this->trafficControlItem)) {
-                $n = 0;
-                foreach ($this->trafficControlItem as $item) {
-                    $res['TrafficControlItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trafficControlItem)) {
+                $res['TrafficControlItem'] = [];
+                $n1 = 0;
+                foreach ($this->trafficControlItem as $item1) {
+                    $res['TrafficControlItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class trafficControlItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficControlItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TrafficControlItem'])) {
             if (!empty($map['TrafficControlItem'])) {
                 $model->trafficControlItem = [];
-                $n = 0;
-                foreach ($map['TrafficControlItem'] as $item) {
-                    $model->trafficControlItem[$n++] = null !== $item ? trafficControlItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TrafficControlItem'] as $item1) {
+                    $model->trafficControlItem[$n1] = trafficControlItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

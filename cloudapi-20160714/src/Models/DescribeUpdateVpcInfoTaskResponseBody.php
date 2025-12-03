@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateVpcInfoTaskResponseBody\apiUpdateVpcInfoResults;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUpdateVpcInfoTaskResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeUpdateVpcInfoTaskResponseBody extends Model
     public $apiUpdateVpcInfoResults;
 
     /**
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeUpdateVpcInfoTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->apiUpdateVpcInfoResults) {
+            $this->apiUpdateVpcInfoResults->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiUpdateVpcInfoResults) {
-            $res['ApiUpdateVpcInfoResults'] = null !== $this->apiUpdateVpcInfoResults ? $this->apiUpdateVpcInfoResults->toMap() : null;
+            $res['ApiUpdateVpcInfoResults'] = null !== $this->apiUpdateVpcInfoResults ? $this->apiUpdateVpcInfoResults->toArray($noStream) : $this->apiUpdateVpcInfoResults;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeUpdateVpcInfoTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUpdateVpcInfoTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiUpdateVpcInfoResults'])) {
             $model->apiUpdateVpcInfoResults = apiUpdateVpcInfoResults::fromMap($map['ApiUpdateVpcInfoResults']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

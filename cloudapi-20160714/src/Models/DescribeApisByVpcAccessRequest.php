@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApisByVpcAccessRequest extends Model
 {
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -32,10 +24,6 @@ class DescribeApisByVpcAccessRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the VPC access authorization.
-     *
-     * @example lynkco-iov-uat
-     *
      * @var string
      */
     public $vpcName;
@@ -46,20 +34,26 @@ class DescribeApisByVpcAccessRequest extends Model
         'vpcName' => 'VpcName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
@@ -67,23 +61,26 @@ class DescribeApisByVpcAccessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApisByVpcAccessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }

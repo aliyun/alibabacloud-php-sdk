@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchAbolishApisRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class api extends Model
 {
     /**
-     * @description The ID of the API.
-     *
-     * This parameter is required.
-     *
-     * @example 994f72dcdaf04af0b38022c65fdbd1ac
-     *
      * @var string
      */
     public $apiUid;
 
     /**
-     * @description The ID of the API group.
-     *
-     * This parameter is required.
-     *
-     * @example ced5ab777f7b440398ea70e4470124de
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the environment.
-     *
-     * @example 979fd16250644d5b82173534f465ac77
-     *
      * @var string
      */
     public $stageId;
 
     /**
-     * @description The name of the environment.
-     *
-     * @example RELEASE
-     *
      * @var string
      */
     public $stageName;
@@ -54,20 +34,26 @@ class api extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
+
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -75,23 +61,26 @@ class api extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return api
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
+
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

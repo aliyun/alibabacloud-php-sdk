@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\customSystemParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customSystemParameter extends Model
 {
     /**
-     * @description The sample value.
-     *
-     * @example 192.168.1.1
-     *
      * @var string
      */
     public $demoValue;
 
     /**
-     * @description The parameter description.
-     *
-     * @example balabala
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-     *
-     * @example HEAD
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The parameter name.
-     *
-     * @example CaClientIp
-     *
      * @var string
      */
     public $parameterName;
 
     /**
-     * @description The mapped parameter name in the backend service.
-     *
-     * @example clientIp
-     *
      * @var string
      */
     public $serviceParameterName;
@@ -60,23 +40,30 @@ class customSystemParameter extends Model
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->demoValue) {
             $res['DemoValue'] = $this->demoValue;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
+
         if (null !== $this->serviceParameterName) {
             $res['ServiceParameterName'] = $this->serviceParameterName;
         }
@@ -84,26 +71,30 @@ class customSystemParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customSystemParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DemoValue'])) {
             $model->demoValue = $map['DemoValue'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
+
         if (isset($map['ServiceParameterName'])) {
             $model->serviceParameterName = $map['ServiceParameterName'];
         }

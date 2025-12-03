@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisResponseBody\apiSummarys\apiPluginSummary;
-use AlibabaCloud\Tea\Model;
 
 class apiSummarys extends Model
 {
@@ -17,17 +17,24 @@ class apiSummarys extends Model
         'apiPluginSummary' => 'ApiPluginSummary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiPluginSummary)) {
+            Model::validateArray($this->apiPluginSummary);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiPluginSummary) {
-            $res['ApiPluginSummary'] = [];
-            if (null !== $this->apiPluginSummary && \is_array($this->apiPluginSummary)) {
-                $n = 0;
-                foreach ($this->apiPluginSummary as $item) {
-                    $res['ApiPluginSummary'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiPluginSummary)) {
+                $res['ApiPluginSummary'] = [];
+                $n1 = 0;
+                foreach ($this->apiPluginSummary as $item1) {
+                    $res['ApiPluginSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class apiSummarys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiSummarys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiPluginSummary'])) {
             if (!empty($map['ApiPluginSummary'])) {
                 $model->apiPluginSummary = [];
-                $n = 0;
-                foreach ($map['ApiPluginSummary'] as $item) {
-                    $model->apiPluginSummary[$n++] = null !== $item ? apiPluginSummary::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiPluginSummary'] as $item1) {
+                    $model->apiPluginSummary[$n1] = apiPluginSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterListResponseBody\instanceClusters\instanceCluster;
-use AlibabaCloud\Tea\Model;
 
 class instanceClusters extends Model
 {
@@ -17,17 +17,24 @@ class instanceClusters extends Model
         'instanceCluster' => 'InstanceCluster',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceCluster)) {
+            Model::validateArray($this->instanceCluster);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceCluster) {
-            $res['InstanceCluster'] = [];
-            if (null !== $this->instanceCluster && \is_array($this->instanceCluster)) {
-                $n = 0;
-                foreach ($this->instanceCluster as $item) {
-                    $res['InstanceCluster'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceCluster)) {
+                $res['InstanceCluster'] = [];
+                $n1 = 0;
+                foreach ($this->instanceCluster as $item1) {
+                    $res['InstanceCluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class instanceClusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceClusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceCluster'])) {
             if (!empty($map['InstanceCluster'])) {
                 $model->instanceCluster = [];
-                $n = 0;
-                foreach ($map['InstanceCluster'] as $item) {
-                    $model->instanceCluster[$n++] = null !== $item ? instanceCluster::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceCluster'] as $item1) {
+                    $model->instanceCluster[$n1] = instanceCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

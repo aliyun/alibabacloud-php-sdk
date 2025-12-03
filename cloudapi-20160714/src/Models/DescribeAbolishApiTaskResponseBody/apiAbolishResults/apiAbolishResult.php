@@ -4,81 +4,46 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAbolishApiTaskResponseBody\apiAbolishResults;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiAbolishResult extends Model
 {
     /**
-     * @description The unpublishing status.
-     *
-     * @example OVER
-     *
      * @var string
      */
     public $abolishStatus;
 
     /**
-     * @description The name of the API.
-     *
-     * @example v2_page_consent
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description The ID of the API.
-     *
-     * @example 4e26cdbbb113416dba1f0285bed29979
-     *
      * @var string
      */
     public $apiUid;
 
     /**
-     * @description The error message.
-     *
-     * @example Success. Request Success.
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description The ID of the API group.
-     *
-     * @example 160cb6505e1c43a6b84346856d74eb47
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the API group.
-     *
-     * @example wb2022021401619286
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The ID of the runtime environment.
-     *
-     * @example 0919f2854a88484c91dc9253347c78f9
-     *
      * @var string
      */
     public $stageId;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
-     *
-     * @example RELEASE
-     *
      * @var string
      */
     public $stageName;
@@ -93,32 +58,42 @@ class apiAbolishResult extends Model
         'stageName' => 'StageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abolishStatus) {
             $res['AbolishStatus'] = $this->abolishStatus;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
+
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -126,35 +101,42 @@ class apiAbolishResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiAbolishResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbolishStatus'])) {
             $model->abolishStatus = $map['AbolishStatus'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
+
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeIpControlPolicyItemsResponseBody\ipControlPolicyItems\ipControlPolicyItem;
-use AlibabaCloud\Tea\Model;
 
 class ipControlPolicyItems extends Model
 {
@@ -17,17 +17,24 @@ class ipControlPolicyItems extends Model
         'ipControlPolicyItem' => 'IpControlPolicyItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipControlPolicyItem)) {
+            Model::validateArray($this->ipControlPolicyItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipControlPolicyItem) {
-            $res['IpControlPolicyItem'] = [];
-            if (null !== $this->ipControlPolicyItem && \is_array($this->ipControlPolicyItem)) {
-                $n = 0;
-                foreach ($this->ipControlPolicyItem as $item) {
-                    $res['IpControlPolicyItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipControlPolicyItem)) {
+                $res['IpControlPolicyItem'] = [];
+                $n1 = 0;
+                foreach ($this->ipControlPolicyItem as $item1) {
+                    $res['IpControlPolicyItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ipControlPolicyItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipControlPolicyItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpControlPolicyItem'])) {
             if (!empty($map['IpControlPolicyItem'])) {
                 $model->ipControlPolicyItem = [];
-                $n = 0;
-                foreach ($map['IpControlPolicyItem'] as $item) {
-                    $model->ipControlPolicyItem[$n++] = null !== $item ? ipControlPolicyItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpControlPolicyItem'] as $item1) {
+                    $model->ipControlPolicyItem[$n1] = ipControlPolicyItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

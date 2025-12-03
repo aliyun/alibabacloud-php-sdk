@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\serviceParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceParameter extends Model
 {
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-     *
-     * @example HEAD
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The data type of the parameter. Valid values: STRING, NUMBER, and BOOLEAN.
-     *
-     * @example String
-     *
      * @var string
      */
     public $parameterType;
 
     /**
-     * @description The mapped parameter name in the backend service.
-     *
-     * @example clientIp
-     *
      * @var string
      */
     public $serviceParameterName;
@@ -40,17 +28,22 @@ class serviceParameter extends Model
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->parameterType) {
             $res['ParameterType'] = $this->parameterType;
         }
+
         if (null !== $this->serviceParameterName) {
             $res['ServiceParameterName'] = $this->serviceParameterName;
         }
@@ -58,20 +51,22 @@ class serviceParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['ParameterType'])) {
             $model->parameterType = $map['ParameterType'];
         }
+
         if (isset($map['ServiceParameterName'])) {
             $model->serviceParameterName = $map['ServiceParameterName'];
         }

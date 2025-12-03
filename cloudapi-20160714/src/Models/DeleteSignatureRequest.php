@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSignatureRequest extends Model
 {
     /**
-     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-     *
-     * @example 9abe3317-3e22-4957-ab9f-dd893d0ac956
-     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The ID of the key to be deleted.
-     *
-     * This parameter is required.
-     *
-     * @example dd05f1c54d6749eda95f9fa6d491449a
-     *
      * @var string
      */
     public $signatureId;
@@ -32,14 +22,18 @@ class DeleteSignatureRequest extends Model
         'signatureId' => 'SignatureId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
@@ -47,17 +41,18 @@ class DeleteSignatureRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSignatureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }

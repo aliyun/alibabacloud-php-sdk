@@ -4,53 +4,31 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySignatureRequest extends Model
 {
     /**
-     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-     *
-     * @example 436fa39b-b3b9-40c5-ae5d-ce3e000e38c5
-     *
      * @var string
      */
     public $securityToken;
 
     /**
-     * @description The ID of the signature key that you want to manage.
-     *
-     * This parameter is required.
-     *
-     * @example dd05f1c54d6749eda95f9fa6d491449a
-     *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description The new Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
-     *
-     * @example qwertyuiop
-     *
      * @var string
      */
     public $signatureKey;
 
     /**
-     * @description The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
-     *
-     * @example backendsignature
-     *
      * @var string
      */
     public $signatureName;
 
     /**
-     * @description The new Secret value of the key. The value must be 6 to 30 characters in length and can contain letters, digits, and special characters. Special characters include underscores (_), at signs (@), number signs (#), exclamation points (!), and asterisks (\\*). The value must start with a letter.
-     *
-     * @example asdfghjkl
-     *
      * @var string
      */
     public $signatureSecret;
@@ -62,23 +40,30 @@ class ModifySignatureRequest extends Model
         'signatureSecret' => 'SignatureSecret',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
+
         if (null !== $this->signatureKey) {
             $res['SignatureKey'] = $this->signatureKey;
         }
+
         if (null !== $this->signatureName) {
             $res['SignatureName'] = $this->signatureName;
         }
+
         if (null !== $this->signatureSecret) {
             $res['SignatureSecret'] = $this->signatureSecret;
         }
@@ -86,26 +71,30 @@ class ModifySignatureRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySignatureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }
+
         if (isset($map['SignatureKey'])) {
             $model->signatureKey = $map['SignatureKey'];
         }
+
         if (isset($map['SignatureName'])) {
             $model->signatureName = $map['SignatureName'];
         }
+
         if (isset($map['SignatureSecret'])) {
             $model->signatureSecret = $map['SignatureSecret'];
         }

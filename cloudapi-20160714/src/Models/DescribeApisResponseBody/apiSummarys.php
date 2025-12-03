@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponseBody\apiSummarys\apiSummary;
-use AlibabaCloud\Tea\Model;
 
 class apiSummarys extends Model
 {
@@ -17,17 +17,24 @@ class apiSummarys extends Model
         'apiSummary' => 'ApiSummary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiSummary)) {
+            Model::validateArray($this->apiSummary);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiSummary) {
-            $res['ApiSummary'] = [];
-            if (null !== $this->apiSummary && \is_array($this->apiSummary)) {
-                $n = 0;
-                foreach ($this->apiSummary as $item) {
-                    $res['ApiSummary'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiSummary)) {
+                $res['ApiSummary'] = [];
+                $n1 = 0;
+                foreach ($this->apiSummary as $item1) {
+                    $res['ApiSummary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class apiSummarys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiSummarys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiSummary'])) {
             if (!empty($map['ApiSummary'])) {
                 $model->apiSummary = [];
-                $n = 0;
-                foreach ($map['ApiSummary'] as $item) {
-                    $model->apiSummary[$n++] = null !== $item ? apiSummary::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiSummary'] as $item1) {
+                    $model->apiSummary[$n1] = apiSummary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

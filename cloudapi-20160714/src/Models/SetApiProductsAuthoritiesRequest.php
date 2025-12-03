@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetApiProductsAuthoritiesRequest extends Model
 {
     /**
-     * @description The API products.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $apiProductIds;
 
     /**
-     * @description The application ID.
-     *
-     * This parameter is required.
-     *
-     * @example 111385984
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description 授权有效时间的截止时间，请设置格林尼治标准时间(GMT), 如果为空，即为授权永久有效。
-     *
-     * @example 2023-06-12T03:07:37Z
-     *
      * @var string
      */
     public $authValidTime;
 
     /**
-     * @description The authorization description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
@@ -58,23 +40,40 @@ class SetApiProductsAuthoritiesRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiProductIds)) {
+            Model::validateArray($this->apiProductIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiProductIds) {
-            $res['ApiProductIds'] = $this->apiProductIds;
+            if (\is_array($this->apiProductIds)) {
+                $res['ApiProductIds'] = [];
+                $n1 = 0;
+                foreach ($this->apiProductIds as $item1) {
+                    $res['ApiProductIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->authValidTime) {
             $res['AuthValidTime'] = $this->authValidTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -82,28 +81,37 @@ class SetApiProductsAuthoritiesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetApiProductsAuthoritiesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductIds'])) {
             if (!empty($map['ApiProductIds'])) {
-                $model->apiProductIds = $map['ApiProductIds'];
+                $model->apiProductIds = [];
+                $n1 = 0;
+                foreach ($map['ApiProductIds'] as $item1) {
+                    $model->apiProductIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AuthValidTime'])) {
             $model->authValidTime = $map['AuthValidTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
