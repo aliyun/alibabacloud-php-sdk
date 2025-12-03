@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\CreateMasterSlaveServerGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\CreateMasterSlaveServerGroupResponseBody\masterSlaveBackendServers\masterSlaveBackendServer;
-use AlibabaCloud\Tea\Model;
 
 class masterSlaveBackendServers extends Model
 {
@@ -19,17 +19,22 @@ class masterSlaveBackendServers extends Model
 
     public function validate()
     {
+        if (\is_array($this->masterSlaveBackendServer)) {
+            Model::validateArray($this->masterSlaveBackendServer);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->masterSlaveBackendServer) {
-            $res['MasterSlaveBackendServer'] = [];
-            if (null !== $this->masterSlaveBackendServer && \is_array($this->masterSlaveBackendServer)) {
-                $n = 0;
-                foreach ($this->masterSlaveBackendServer as $item) {
-                    $res['MasterSlaveBackendServer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->masterSlaveBackendServer)) {
+                $res['MasterSlaveBackendServer'] = [];
+                $n1 = 0;
+                foreach ($this->masterSlaveBackendServer as $item1) {
+                    $res['MasterSlaveBackendServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class masterSlaveBackendServers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return masterSlaveBackendServers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MasterSlaveBackendServer'])) {
             if (!empty($map['MasterSlaveBackendServer'])) {
                 $model->masterSlaveBackendServer = [];
-                $n                               = 0;
-                foreach ($map['MasterSlaveBackendServer'] as $item) {
-                    $model->masterSlaveBackendServer[$n++] = null !== $item ? masterSlaveBackendServer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MasterSlaveBackendServer'] as $item1) {
+                    $model->masterSlaveBackendServer[$n1] = masterSlaveBackendServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

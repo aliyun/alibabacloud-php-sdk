@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeRegionsResponseBody\regions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class region extends Model
 {
     /**
-     * @description The name of the region.
-     *
-     * @example China (Beijing)
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The endpoint of the region.
-     *
-     * @example slb.aliyuncs.com
-     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'localName'      => 'LocalName',
+        'localName' => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -60,20 +51,22 @@ class region extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

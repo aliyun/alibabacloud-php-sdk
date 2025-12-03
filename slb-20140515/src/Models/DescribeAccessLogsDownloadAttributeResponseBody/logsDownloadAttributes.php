@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessLogsDownloadAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessLogsDownloadAttributeResponseBody\logsDownloadAttributes\logsDownloadAttribute;
-use AlibabaCloud\Tea\Model;
 
 class logsDownloadAttributes extends Model
 {
@@ -19,17 +19,22 @@ class logsDownloadAttributes extends Model
 
     public function validate()
     {
+        if (\is_array($this->logsDownloadAttribute)) {
+            Model::validateArray($this->logsDownloadAttribute);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logsDownloadAttribute) {
-            $res['LogsDownloadAttribute'] = [];
-            if (null !== $this->logsDownloadAttribute && \is_array($this->logsDownloadAttribute)) {
-                $n = 0;
-                foreach ($this->logsDownloadAttribute as $item) {
-                    $res['LogsDownloadAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logsDownloadAttribute)) {
+                $res['LogsDownloadAttribute'] = [];
+                $n1 = 0;
+                foreach ($this->logsDownloadAttribute as $item1) {
+                    $res['LogsDownloadAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class logsDownloadAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logsDownloadAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogsDownloadAttribute'])) {
             if (!empty($map['LogsDownloadAttribute'])) {
                 $model->logsDownloadAttribute = [];
-                $n                            = 0;
-                foreach ($map['LogsDownloadAttribute'] as $item) {
-                    $model->logsDownloadAttribute[$n++] = null !== $item ? logsDownloadAttribute::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogsDownloadAttribute'] as $item1) {
+                    $model->logsDownloadAttribute[$n1] = logsDownloadAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

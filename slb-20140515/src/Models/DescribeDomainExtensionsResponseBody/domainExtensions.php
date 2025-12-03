@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeDomainExtensionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeDomainExtensionsResponseBody\domainExtensions\domainExtension;
-use AlibabaCloud\Tea\Model;
 
 class domainExtensions extends Model
 {
@@ -19,17 +19,22 @@ class domainExtensions extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainExtension)) {
+            Model::validateArray($this->domainExtension);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainExtension) {
-            $res['DomainExtension'] = [];
-            if (null !== $this->domainExtension && \is_array($this->domainExtension)) {
-                $n = 0;
-                foreach ($this->domainExtension as $item) {
-                    $res['DomainExtension'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainExtension)) {
+                $res['DomainExtension'] = [];
+                $n1 = 0;
+                foreach ($this->domainExtension as $item1) {
+                    $res['DomainExtension'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class domainExtensions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainExtensions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainExtension'])) {
             if (!empty($map['DomainExtension'])) {
                 $model->domainExtension = [];
-                $n                      = 0;
-                foreach ($map['DomainExtension'] as $item) {
-                    $model->domainExtension[$n++] = null !== $item ? domainExtension::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainExtension'] as $item1) {
+                    $model->domainExtension[$n1] = domainExtension::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

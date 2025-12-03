@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\CreateRulesResponseBody\rules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rule extends Model
 {
     /**
-     * @description The forwarding rule ID.
-     *
-     * @example rule-bp12jzy0*****
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule.
-     *
-     * @example Rule2
-     *
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -47,17 +41,18 @@ class rule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeDomainExtensionsResponseBody\domainExtensions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainExtension extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The ID of the additional certificate.
-     *
-     * @example de-bp1rp7ta1****
-     *
      * @var string
      */
     public $domainExtensionId;
 
     /**
-     * @description The ID of the server certificate that is used by the domain name.
-     *
-     * @example 1231579085529123_166f8204689_1714763408_70998****
-     *
      * @var string
      */
     public $serverCertificateId;
     protected $_name = [
-        'domain'              => 'Domain',
-        'domainExtensionId'   => 'DomainExtensionId',
+        'domain' => 'Domain',
+        'domainExtensionId' => 'DomainExtensionId',
         'serverCertificateId' => 'ServerCertificateId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->domainExtensionId) {
             $res['DomainExtensionId'] = $this->domainExtensionId;
         }
+
         if (null !== $this->serverCertificateId) {
             $res['ServerCertificateId'] = $this->serverCertificateId;
         }
@@ -60,20 +51,22 @@ class domainExtension extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainExtension
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['DomainExtensionId'])) {
             $model->domainExtensionId = $map['DomainExtensionId'];
         }
+
         if (isset($map['ServerCertificateId'])) {
             $model->serverCertificateId = $map['ServerCertificateId'];
         }

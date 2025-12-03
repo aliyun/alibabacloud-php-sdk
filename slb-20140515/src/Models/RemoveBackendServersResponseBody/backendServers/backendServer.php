@@ -4,72 +4,56 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\RemoveBackendServersResponseBody\backendServers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backendServer extends Model
 {
     /**
-     * @description The description of the server group.
-     *
-     * @example BackendServer1
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the backend server.
-     *
-     * @example i-bp1fq61enf4loa5i****
-     *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description The type of backend server. Valid values:
-     *
-     *   **ecs**: ECS instance
-     *   **eni**: ENI
-     *   **eci**: elastic container instances
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The weight of the backend server. Valid values: **0 to 100**.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $weight;
     protected $_name = [
         'description' => 'Description',
-        'serverId'    => 'ServerId',
-        'type'        => 'Type',
-        'weight'      => 'Weight',
+        'serverId' => 'ServerId',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -77,23 +61,26 @@ class backendServer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendServer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

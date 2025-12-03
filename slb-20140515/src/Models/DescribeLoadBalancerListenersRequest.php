@@ -4,70 +4,37 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLoadBalancerListenersRequest extends Model
 {
     /**
-     * @description The description of the listener.
-     *
-     * @example HTTPS_443
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The frontend port that is used by the CLB instance.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The protocol used by the listener. Valid values:
-     *
-     *   **tcp**
-     *   **udp**
-     *   **http**
-     *   **https**
-     *
-     * @example http
-     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description The ID of the CLB instance. You can specify at most 10 IDs.
-     *
-     * @example lb-123wrwer
-     *
      * @var string[]
      */
     public $loadBalancerId;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Valid values: **1** to **100**. If you do not specify this parameter, the default value **20** is used.
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
@@ -83,11 +50,6 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the CLB instance is deployed.
-     *
-     * >  If the endpoint of the selected region is slb.aliyuncs.com, the `RegionId` parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -103,72 +65,96 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'description'          => 'Description',
-        'listenerPort'         => 'ListenerPort',
-        'listenerProtocol'     => 'ListenerProtocol',
-        'loadBalancerId'       => 'LoadBalancerId',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'description' => 'Description',
+        'listenerPort' => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'loadBalancerId' => 'LoadBalancerId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->loadBalancerId)) {
+            Model::validateArray($this->loadBalancerId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
         }
+
         if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
+            if (\is_array($this->loadBalancerId)) {
+                $res['LoadBalancerId'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancerId as $item1) {
+                    $res['LoadBalancerId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,55 +162,72 @@ class DescribeLoadBalancerListenersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoadBalancerListenersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             if (!empty($map['LoadBalancerId'])) {
-                $model->loadBalancerId = $map['LoadBalancerId'];
+                $model->loadBalancerId = [];
+                $n1 = 0;
+                foreach ($map['LoadBalancerId'] as $item1) {
+                    $model->loadBalancerId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

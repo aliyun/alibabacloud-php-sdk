@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody\relatedListeners\relatedListener;
-use AlibabaCloud\Tea\Model;
 
 class relatedListeners extends Model
 {
@@ -19,17 +19,22 @@ class relatedListeners extends Model
 
     public function validate()
     {
+        if (\is_array($this->relatedListener)) {
+            Model::validateArray($this->relatedListener);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relatedListener) {
-            $res['RelatedListener'] = [];
-            if (null !== $this->relatedListener && \is_array($this->relatedListener)) {
-                $n = 0;
-                foreach ($this->relatedListener as $item) {
-                    $res['RelatedListener'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relatedListener)) {
+                $res['RelatedListener'] = [];
+                $n1 = 0;
+                foreach ($this->relatedListener as $item1) {
+                    $res['RelatedListener'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class relatedListeners extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedListeners
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RelatedListener'])) {
             if (!empty($map['RelatedListener'])) {
                 $model->relatedListener = [];
-                $n                      = 0;
-                foreach ($map['RelatedListener'] as $item) {
-                    $model->relatedListener[$n++] = null !== $item ? relatedListener::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelatedListener'] as $item1) {
+                    $model->relatedListener[$n1] = relatedListener::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listenerPorts extends Model
 {
@@ -18,29 +18,45 @@ class listenerPorts extends Model
 
     public function validate()
     {
+        if (\is_array($this->listenerPort)) {
+            Model::validateArray($this->listenerPort);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
+            if (\is_array($this->listenerPort)) {
+                $res['ListenerPort'] = [];
+                $n1 = 0;
+                foreach ($this->listenerPort as $item1) {
+                    $res['ListenerPort'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listenerPorts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPort'])) {
             if (!empty($map['ListenerPort'])) {
-                $model->listenerPort = $map['ListenerPort'];
+                $model->listenerPort = [];
+                $n1 = 0;
+                foreach ($map['ListenerPort'] as $item1) {
+                    $model->listenerPort[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

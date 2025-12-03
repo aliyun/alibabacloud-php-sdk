@@ -4,58 +4,63 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\VServerGroup;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\VServerGroup\associatedObjects\listeners;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\VServerGroup\associatedObjects\rules;
-use AlibabaCloud\Tea\Model;
 
 class associatedObjects extends Model
 {
     /**
-     * @description The listeners.
-     *
      * @var listeners
      */
     public $listeners;
 
     /**
-     * @description The forwarding rules.
-     *
      * @var rules
      */
     public $rules;
     protected $_name = [
         'listeners' => 'Listeners',
-        'rules'     => 'Rules',
+        'rules' => 'Rules',
     ];
 
     public function validate()
     {
+        if (null !== $this->listeners) {
+            $this->listeners->validate();
+        }
+        if (null !== $this->rules) {
+            $this->rules->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listeners) {
-            $res['Listeners'] = null !== $this->listeners ? $this->listeners->toMap() : null;
+            $res['Listeners'] = null !== $this->listeners ? $this->listeners->toArray($noStream) : $this->listeners;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Listeners'])) {
             $model->listeners = listeners::fromMap($map['Listeners']);
         }
+
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }

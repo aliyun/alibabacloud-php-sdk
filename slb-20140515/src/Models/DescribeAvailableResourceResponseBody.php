@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
-     * @description The zones and the supported resources.
-     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The request ID.
-     *
-     * @example 173B0EEA-22ED-4EE2-91F9-3A1CDDFFBBBA
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableResources' => 'AvailableResources',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->availableResources) {
+            $this->availableResources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableResources) {
-            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
+            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toArray($noStream) : $this->availableResources;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeAvailableResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableResources'])) {
             $model->availableResources = availableResources::fromMap($map['AvailableResources']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

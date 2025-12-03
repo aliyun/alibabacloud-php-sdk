@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLoadBalancerUDPListenerResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 06F00FBB-3D9E-4CCE-9D43-1A6946A75556
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateLoadBalancerUDPListenerResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateLoadBalancerUDPListenerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLoadBalancerUDPListenerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

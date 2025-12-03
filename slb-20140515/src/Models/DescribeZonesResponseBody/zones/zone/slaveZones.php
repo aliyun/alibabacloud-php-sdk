@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones\zone;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones\zone\slaveZones\slaveZone;
-use AlibabaCloud\Tea\Model;
 
 class slaveZones extends Model
 {
@@ -19,17 +19,22 @@ class slaveZones extends Model
 
     public function validate()
     {
+        if (\is_array($this->slaveZone)) {
+            Model::validateArray($this->slaveZone);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slaveZone) {
-            $res['SlaveZone'] = [];
-            if (null !== $this->slaveZone && \is_array($this->slaveZone)) {
-                $n = 0;
-                foreach ($this->slaveZone as $item) {
-                    $res['SlaveZone'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slaveZone)) {
+                $res['SlaveZone'] = [];
+                $n1 = 0;
+                foreach ($this->slaveZone as $item1) {
+                    $res['SlaveZone'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class slaveZones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slaveZones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlaveZone'])) {
             if (!empty($map['SlaveZone'])) {
                 $model->slaveZone = [];
-                $n                = 0;
-                foreach ($map['SlaveZone'] as $item) {
-                    $model->slaveZone[$n++] = null !== $item ? slaveZone::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlaveZone'] as $item1) {
+                    $model->slaveZone[$n1] = slaveZone::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

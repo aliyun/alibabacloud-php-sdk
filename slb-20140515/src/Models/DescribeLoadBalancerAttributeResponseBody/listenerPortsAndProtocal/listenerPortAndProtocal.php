@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocal;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listenerPortAndProtocal extends Model
 {
     /**
-     * @description The frontend port that is used by the CLB instance.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The frontend protocol that is used by the CLB instance.
-     *
-     * @example http
-     *
      * @var string
      */
     public $listenerProtocal;
     protected $_name = [
-        'listenerPort'     => 'ListenerPort',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocal' => 'ListenerProtocal',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->listenerProtocal) {
             $res['ListenerProtocal'] = $this->listenerProtocal;
         }
@@ -47,17 +41,18 @@ class listenerPortAndProtocal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listenerPortAndProtocal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['ListenerProtocal'])) {
             $model->listenerProtocal = $map['ListenerProtocal'];
         }

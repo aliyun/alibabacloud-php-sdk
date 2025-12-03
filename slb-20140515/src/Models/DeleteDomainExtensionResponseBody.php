@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDomainExtensionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 149A2470-F010-4437-BF68-343D5099C19D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteDomainExtensionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteDomainExtensionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDomainExtensionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

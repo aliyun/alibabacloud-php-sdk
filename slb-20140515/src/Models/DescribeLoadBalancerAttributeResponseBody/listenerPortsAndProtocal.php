@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocal\listenerPortAndProtocal;
-use AlibabaCloud\Tea\Model;
 
 class listenerPortsAndProtocal extends Model
 {
@@ -19,17 +19,22 @@ class listenerPortsAndProtocal extends Model
 
     public function validate()
     {
+        if (\is_array($this->listenerPortAndProtocal)) {
+            Model::validateArray($this->listenerPortAndProtocal);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPortAndProtocal) {
-            $res['ListenerPortAndProtocal'] = [];
-            if (null !== $this->listenerPortAndProtocal && \is_array($this->listenerPortAndProtocal)) {
-                $n = 0;
-                foreach ($this->listenerPortAndProtocal as $item) {
-                    $res['ListenerPortAndProtocal'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listenerPortAndProtocal)) {
+                $res['ListenerPortAndProtocal'] = [];
+                $n1 = 0;
+                foreach ($this->listenerPortAndProtocal as $item1) {
+                    $res['ListenerPortAndProtocal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class listenerPortsAndProtocal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listenerPortsAndProtocal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPortAndProtocal'])) {
             if (!empty($map['ListenerPortAndProtocal'])) {
                 $model->listenerPortAndProtocal = [];
-                $n                              = 0;
-                foreach ($map['ListenerPortAndProtocal'] as $item) {
-                    $model->listenerPortAndProtocal[$n++] = null !== $item ? listenerPortAndProtocal::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ListenerPortAndProtocal'] as $item1) {
+                    $model->listenerPortAndProtocal[$n1] = listenerPortAndProtocal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

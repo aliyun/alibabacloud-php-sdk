@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetBackendServersResponseBody\backendServers;
-use AlibabaCloud\Tea\Model;
 
 class SetBackendServersResponseBody extends Model
 {
     /**
-     * @description The backend servers.
-     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
-     * @description The ID of the CLB instance.
-     *
-     * @example lb-bp1qjwo61pqz3a******
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'backendServers' => 'BackendServers',
         'loadBalancerId' => 'LoadBalancerId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->backendServers) {
+            $this->backendServers->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toArray($noStream) : $this->backendServers;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class SetBackendServersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetBackendServersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServers'])) {
             $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

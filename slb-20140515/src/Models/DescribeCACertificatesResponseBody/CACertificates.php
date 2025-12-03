@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeCACertificatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeCACertificatesResponseBody\CACertificates\CACertificate;
-use AlibabaCloud\Tea\Model;
 
 class CACertificates extends Model
 {
@@ -19,17 +19,22 @@ class CACertificates extends Model
 
     public function validate()
     {
+        if (\is_array($this->CACertificate)) {
+            Model::validateArray($this->CACertificate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CACertificate) {
-            $res['CACertificate'] = [];
-            if (null !== $this->CACertificate && \is_array($this->CACertificate)) {
-                $n = 0;
-                foreach ($this->CACertificate as $item) {
-                    $res['CACertificate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->CACertificate)) {
+                $res['CACertificate'] = [];
+                $n1 = 0;
+                foreach ($this->CACertificate as $item1) {
+                    $res['CACertificate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class CACertificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CACertificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CACertificate'])) {
             if (!empty($map['CACertificate'])) {
                 $model->CACertificate = [];
-                $n                    = 0;
-                foreach ($map['CACertificate'] as $item) {
-                    $model->CACertificate[$n++] = null !== $item ? CACertificate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CACertificate'] as $item1) {
+                    $model->CACertificate[$n1] = CACertificate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

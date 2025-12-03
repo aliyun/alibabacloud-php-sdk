@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetAccessLogsDownloadAttributeRequest extends Model
 {
     /**
-     * @description The ID of the CLB instance.
-     *
-     * @example lb-bp1b6c719dfa08ex*****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The access log forwarding rule. Parameters:
-     *
-     *   **LogProject**: the name of the project of Simple Log Service.
-     *   **LogStore**: the name of the Logstore of Simple Log Service.
-     *   **LoadBalancerId**: the ID of the CLB instance.
-     *
-     * This parameter is required.
-     * @example [{"logProject":"my-project", "LogStore":"my-log-store", "LoadBalancerId":"lb-uf68ps3rekbljmdb0****"}]
-     *
      * @var string
      */
     public $logsDownloadAttributes;
@@ -42,11 +29,6 @@ class SetAccessLogsDownloadAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the CLB instance.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -62,53 +44,56 @@ class SetAccessLogsDownloadAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags that are added to the CLB instance. The tags must be key-value pairs that are contained in a JSON dictionary.
-     *
-     * You can specify up to 10 tags in each call.
-     * @example [{"tagKey":"Key1","tagValue":"Value1"}]
-     *
      * @var string
      */
     public $tags;
     protected $_name = [
-        'loadBalancerId'         => 'LoadBalancerId',
+        'loadBalancerId' => 'LoadBalancerId',
         'logsDownloadAttributes' => 'LogsDownloadAttributes',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'tags'                   => 'Tags',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->logsDownloadAttributes) {
             $res['LogsDownloadAttributes'] = $this->logsDownloadAttributes;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
@@ -116,35 +101,42 @@ class SetAccessLogsDownloadAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetAccessLogsDownloadAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['LogsDownloadAttributes'])) {
             $model->logsDownloadAttributes = $map['LogsDownloadAttributes'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }

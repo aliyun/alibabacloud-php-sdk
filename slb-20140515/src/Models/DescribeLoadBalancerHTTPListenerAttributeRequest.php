@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
 {
     /**
-     * @description The frontend port that is used by the CLB instance.
-     *
-     * Valid values: **1** to **65535**.
-     *
-     * This parameter is required.
-     * @example 80
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The CLB instance ID.
-     *
-     * This parameter is required.
-     * @example lb-bp1uaunez0uho0zf0****
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -41,11 +29,6 @@ class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the CLB instance.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,40 +43,47 @@ class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'listenerPort'         => 'ListenerPort',
-        'loadBalancerId'       => 'LoadBalancerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -101,32 +91,38 @@ class DescribeLoadBalancerHTTPListenerAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoadBalancerHTTPListenerAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

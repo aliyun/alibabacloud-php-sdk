@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccessLogsDownloadAttributeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9C****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteAccessLogsDownloadAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteAccessLogsDownloadAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccessLogsDownloadAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

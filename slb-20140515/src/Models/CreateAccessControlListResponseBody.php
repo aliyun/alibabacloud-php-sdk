@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAccessControlListResponseBody extends Model
 {
     /**
-     * @description The IP version. Valid values: **ipv4** and **ipv6**.
-     *
-     * @example acl-rj9xpxzcwxrukois****
-     *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 988CB45E-1643-48C0-87B4-928DDF77EA49
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aclId'     => 'AclId',
+        'aclId' => 'AclId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateAccessControlListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAccessControlListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

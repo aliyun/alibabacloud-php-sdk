@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetCACertificateNameRequest extends Model
 {
     /**
-     * @description The ID of the CA certificate.
-     *
-     * This parameter is required.
-     * @example 139a0******-cn-east-hangzhou-01
-     *
      * @var string
      */
     public $CACertificateId;
 
     /**
-     * @description The CA certificate name.
-     *
-     * This parameter is required.
-     * @example mycacert02
-     *
      * @var string
      */
     public $CACertificateName;
@@ -39,11 +29,6 @@ class SetCACertificateNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region of the CA certificate.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -58,40 +43,47 @@ class SetCACertificateNameRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'CACertificateId'      => 'CACertificateId',
-        'CACertificateName'    => 'CACertificateName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'CACertificateId' => 'CACertificateId',
+        'CACertificateName' => 'CACertificateName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CACertificateId) {
             $res['CACertificateId'] = $this->CACertificateId;
         }
+
         if (null !== $this->CACertificateName) {
             $res['CACertificateName'] = $this->CACertificateName;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -99,32 +91,38 @@ class SetCACertificateNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetCACertificateNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CACertificateId'])) {
             $model->CACertificateId = $map['CACertificateId'];
         }
+
         if (isset($map['CACertificateName'])) {
             $model->CACertificateName = $map['CACertificateName'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

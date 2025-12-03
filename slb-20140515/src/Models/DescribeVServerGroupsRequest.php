@@ -4,50 +4,27 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVServerGroupsRequest extends Model
 {
     /**
-     * @description The name of the vServer group.
-     *
-     * @example Group3
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Specifies whether to return information about the associated listeners. Valid values:
-     *
-     *   **true**: yes
-     *   **false** (default): no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $includeListener;
 
     /**
-     * @description Specifies whether to return the forwarding rules associated with the vServer groups. Valid values:
-     *
-     *   **true**: yes
-     *   **false** (default): no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $includeRule;
 
     /**
-     * @description The ID of the CLB instance.
-     *
-     * This parameter is required.
-     * @example lb-bp1o94dp5i6ea*******
-     *
      * @var string
      */
     public $loadBalancerId;
@@ -63,11 +40,6 @@ class DescribeVServerGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Classic Load Balancer (CLB) instance.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -83,64 +55,76 @@ class DescribeVServerGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'description'          => 'Description',
-        'includeListener'      => 'IncludeListener',
-        'includeRule'          => 'IncludeRule',
-        'loadBalancerId'       => 'LoadBalancerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'description' => 'Description',
+        'includeListener' => 'IncludeListener',
+        'includeRule' => 'IncludeRule',
+        'loadBalancerId' => 'LoadBalancerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->includeListener) {
             $res['IncludeListener'] = $this->includeListener;
         }
+
         if (null !== $this->includeRule) {
             $res['IncludeRule'] = $this->includeRule;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,47 +132,57 @@ class DescribeVServerGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVServerGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IncludeListener'])) {
             $model->includeListener = $map['IncludeListener'];
         }
+
         if (isset($map['IncludeRule'])) {
             $model->includeRule = $map['IncludeRule'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

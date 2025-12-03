@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetLoadBalancerNameRequest extends Model
 {
     /**
-     * @description The ID of the CLB instance.
-     *
-     * This parameter is required.
-     * @example lb-bp1b6c719dfa08e******
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The new name of the CLB instance.
-     *
-     * This parameter is required.
-     * @example test1
-     *
      * @var string
      */
     public $loadBalancerName;
@@ -39,11 +29,6 @@ class SetLoadBalancerNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the CLB instance is deployed.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -58,40 +43,47 @@ class SetLoadBalancerNameRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'loadBalancerId'       => 'LoadBalancerId',
-        'loadBalancerName'     => 'LoadBalancerName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->loadBalancerName) {
             $res['LoadBalancerName'] = $this->loadBalancerName;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -99,32 +91,38 @@ class SetLoadBalancerNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetLoadBalancerNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['LoadBalancerName'])) {
             $model->loadBalancerName = $map['LoadBalancerName'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

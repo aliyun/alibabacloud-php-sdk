@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMasterSlaveServerGroupsResponseBody extends Model
 {
     /**
-     * @description The primary/secondary server groups.
-     *
      * @var masterSlaveServerGroups
      */
     public $masterSlaveServerGroups;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'masterSlaveServerGroups' => 'MasterSlaveServerGroups',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->masterSlaveServerGroups) {
+            $this->masterSlaveServerGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->masterSlaveServerGroups) {
-            $res['MasterSlaveServerGroups'] = null !== $this->masterSlaveServerGroups ? $this->masterSlaveServerGroups->toMap() : null;
+            $res['MasterSlaveServerGroups'] = null !== $this->masterSlaveServerGroups ? $this->masterSlaveServerGroups->toArray($noStream) : $this->masterSlaveServerGroups;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeMasterSlaveServerGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMasterSlaveServerGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MasterSlaveServerGroups'])) {
             $model->masterSlaveServerGroups = masterSlaveServerGroups::fromMap($map['MasterSlaveServerGroups']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,71 +4,56 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody\relatedListeners;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedListener extends Model
 {
     /**
-     * @description The type of ACL. Valid values:
-     *
-     *   **black**
-     *   **white**
-     *
-     * @example white
-     *
      * @var string
      */
     public $aclType;
 
     /**
-     * @description The frontend port of the listener with which the ACL is associated.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description The CLB instance ID.
-     *
-     * @example lb-bp1qpzldlm38bnexl****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The type of protocol that the associated listener uses.
-     *
-     * @example https
-     *
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'aclType'        => 'AclType',
-        'listenerPort'   => 'ListenerPort',
+        'aclType' => 'AclType',
+        'listenerPort' => 'ListenerPort',
         'loadBalancerId' => 'LoadBalancerId',
-        'protocol'       => 'Protocol',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
+
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -76,23 +61,26 @@ class relatedListener extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedListener
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
+
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

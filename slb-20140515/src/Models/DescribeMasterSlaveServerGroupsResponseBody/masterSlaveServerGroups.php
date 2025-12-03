@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\masterSlaveServerGroup;
-use AlibabaCloud\Tea\Model;
 
 class masterSlaveServerGroups extends Model
 {
@@ -19,17 +19,22 @@ class masterSlaveServerGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->masterSlaveServerGroup)) {
+            Model::validateArray($this->masterSlaveServerGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->masterSlaveServerGroup) {
-            $res['MasterSlaveServerGroup'] = [];
-            if (null !== $this->masterSlaveServerGroup && \is_array($this->masterSlaveServerGroup)) {
-                $n = 0;
-                foreach ($this->masterSlaveServerGroup as $item) {
-                    $res['MasterSlaveServerGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->masterSlaveServerGroup)) {
+                $res['MasterSlaveServerGroup'] = [];
+                $n1 = 0;
+                foreach ($this->masterSlaveServerGroup as $item1) {
+                    $res['MasterSlaveServerGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class masterSlaveServerGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return masterSlaveServerGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MasterSlaveServerGroup'])) {
             if (!empty($map['MasterSlaveServerGroup'])) {
                 $model->masterSlaveServerGroup = [];
-                $n                             = 0;
-                foreach ($map['MasterSlaveServerGroup'] as $item) {
-                    $model->masterSlaveServerGroup[$n++] = null !== $item ? masterSlaveServerGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MasterSlaveServerGroup'] as $item1) {
+                    $model->masterSlaveServerGroup[$n1] = masterSlaveServerGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

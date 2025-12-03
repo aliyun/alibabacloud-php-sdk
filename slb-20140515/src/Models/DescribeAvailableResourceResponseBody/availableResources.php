@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources\availableResource;
-use AlibabaCloud\Tea\Model;
 
 class availableResources extends Model
 {
@@ -19,17 +19,22 @@ class availableResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableResource)) {
+            Model::validateArray($this->availableResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableResource) {
-            $res['AvailableResource'] = [];
-            if (null !== $this->availableResource && \is_array($this->availableResource)) {
-                $n = 0;
-                foreach ($this->availableResource as $item) {
-                    $res['AvailableResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableResource)) {
+                $res['AvailableResource'] = [];
+                $n1 = 0;
+                foreach ($this->availableResource as $item1) {
+                    $res['AvailableResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class availableResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableResource'])) {
             if (!empty($map['AvailableResource'])) {
                 $model->availableResource = [];
-                $n                        = 0;
-                foreach ($map['AvailableResource'] as $item) {
-                    $model->availableResource[$n++] = null !== $item ? availableResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableResource'] as $item1) {
+                    $model->availableResource[$n1] = availableResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

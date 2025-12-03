@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\masterSlaveServerGroup;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\masterSlaveServerGroup\associatedObjects\listeners;
-use AlibabaCloud\Tea\Model;
 
 class associatedObjects extends Model
 {
     /**
-     * @description The listeners.
-     *
      * @var listeners
      */
     public $listeners;
@@ -21,23 +19,27 @@ class associatedObjects extends Model
 
     public function validate()
     {
+        if (null !== $this->listeners) {
+            $this->listeners->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listeners) {
-            $res['Listeners'] = null !== $this->listeners ? $this->listeners->toMap() : null;
+            $res['Listeners'] = null !== $this->listeners ? $this->listeners->toArray($noStream) : $this->listeners;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

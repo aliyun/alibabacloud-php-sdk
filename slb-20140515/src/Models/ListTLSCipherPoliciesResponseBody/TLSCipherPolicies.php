@@ -4,192 +4,178 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\ListTLSCipherPoliciesResponseBody\TLSCipherPolicies\relateListeners;
-use AlibabaCloud\Tea\Model;
 
 class TLSCipherPolicies extends Model
 {
     /**
-     * @description The cipher suites supported by the TLS version.
-     *
-     * TLS 1.0 and TLS 1.1 support the following cipher suites:
-     *
-     *   ECDHE-ECDSA-AES128-SHA
-     *   ECDHE-ECDSA-AES256-SHA
-     *   ECDHE-RSA-AES128-SHA
-     *   ECDHE-RSA-AES256-SHA
-     *   AES128-SHA AES256-SHA
-     *   DES-CBC3-SHA
-     *
-     * TLS 1.2 supports the following cipher suites:
-     *
-     *   ECDHE-ECDSA-AES128-SHA
-     *   ECDHE-ECDSA-AES256-SHA
-     *   ECDHE-RSA-AES128-SHA
-     *   ECDHE-RSA-AES256-SHA
-     *   AES128-SHA AES256-SHA
-     *   DES-CBC3-SHA
-     *   ECDHE-ECDSA-AES128-GCM-SHA256
-     *   ECDHE-ECDSA-AES256-GCM-SHA384
-     *   ECDHE-ECDSA-AES128-SHA256
-     *   ECDHE-ECDSA-AES256-SHA384
-     *   ECDHE-RSA-AES128-GCM-SHA256
-     *   ECDHE-RSA-AES256-GCM-SHA384
-     *   ECDHE-RSA-AES128-SHA256
-     *   ECDHE-RSA-AES256-SHA384
-     *   AES128-GCM-SHA256
-     *   AES256-GCM-SHA384
-     *   AES128-SHA256 AES256-SHA256
-     *
-     * TLS 1.3 supports the following cipher suites:
-     *
-     *   TLS_AES_128_GCM_SHA256
-     *   TLS_AES_256_GCM_SHA384
-     *   TLS_CHACHA20_POLY1305_SHA256
-     *   TLS_AES_128_CCM_SHA256
-     *   TLS_AES_128_CCM_8_SHA256
-     *
      * @var string[]
      */
     public $ciphers;
 
     /**
-     * @description The timestamp generated when the TLS policy is created.
-     *
-     * @example 1608273800000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The ID of the TLS policy.
-     *
-     * @example tls-bp17elso1h323r****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the TLS policy.
-     *
-     * @example TLSPolicy-test****
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The list of associated listeners.
-     *
      * @var relateListeners[]
      */
     public $relateListeners;
 
     /**
-     * @description The status of the TLS policy. Valid values:
-     *
-     *   **configuring**: The TLS policy is being configured.
-     *   **normal**: The TLS policy works as expected.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The version of the TLS protocol.
-     *
      * @var string[]
      */
     public $TLSVersions;
     protected $_name = [
-        'ciphers'         => 'Ciphers',
-        'createTime'      => 'CreateTime',
-        'instanceId'      => 'InstanceId',
-        'name'            => 'Name',
+        'ciphers' => 'Ciphers',
+        'createTime' => 'CreateTime',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'relateListeners' => 'RelateListeners',
-        'status'          => 'Status',
-        'TLSVersions'     => 'TLSVersions',
+        'status' => 'Status',
+        'TLSVersions' => 'TLSVersions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ciphers)) {
+            Model::validateArray($this->ciphers);
+        }
+        if (\is_array($this->relateListeners)) {
+            Model::validateArray($this->relateListeners);
+        }
+        if (\is_array($this->TLSVersions)) {
+            Model::validateArray($this->TLSVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ciphers) {
-            $res['Ciphers'] = $this->ciphers;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->relateListeners) {
-            $res['RelateListeners'] = [];
-            if (null !== $this->relateListeners && \is_array($this->relateListeners)) {
-                $n = 0;
-                foreach ($this->relateListeners as $item) {
-                    $res['RelateListeners'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ciphers)) {
+                $res['Ciphers'] = [];
+                $n1 = 0;
+                foreach ($this->ciphers as $item1) {
+                    $res['Ciphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->relateListeners) {
+            if (\is_array($this->relateListeners)) {
+                $res['RelateListeners'] = [];
+                $n1 = 0;
+                foreach ($this->relateListeners as $item1) {
+                    $res['RelateListeners'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->TLSVersions) {
-            $res['TLSVersions'] = $this->TLSVersions;
+            if (\is_array($this->TLSVersions)) {
+                $res['TLSVersions'] = [];
+                $n1 = 0;
+                foreach ($this->TLSVersions as $item1) {
+                    $res['TLSVersions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TLSCipherPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ciphers'])) {
             if (!empty($map['Ciphers'])) {
-                $model->ciphers = $map['Ciphers'];
-            }
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RelateListeners'])) {
-            if (!empty($map['RelateListeners'])) {
-                $model->relateListeners = [];
-                $n                      = 0;
-                foreach ($map['RelateListeners'] as $item) {
-                    $model->relateListeners[$n++] = null !== $item ? relateListeners::fromMap($item) : $item;
+                $model->ciphers = [];
+                $n1 = 0;
+                foreach ($map['Ciphers'] as $item1) {
+                    $model->ciphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['RelateListeners'])) {
+            if (!empty($map['RelateListeners'])) {
+                $model->relateListeners = [];
+                $n1 = 0;
+                foreach ($map['RelateListeners'] as $item1) {
+                    $model->relateListeners[$n1] = relateListeners::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TLSVersions'])) {
             if (!empty($map['TLSVersions'])) {
-                $model->TLSVersions = $map['TLSVersions'];
+                $model->TLSVersions = [];
+                $n1 = 0;
+                foreach ($map['TLSVersions'] as $item1) {
+                    $model->TLSVersions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

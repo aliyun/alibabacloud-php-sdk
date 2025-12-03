@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVServerGroupsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The backend servers.
-     *
      * @var VServerGroups
      */
     public $VServerGroups;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'VServerGroups' => 'VServerGroups',
     ];
 
     public function validate()
     {
+        if (null !== $this->VServerGroups) {
+            $this->VServerGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->VServerGroups) {
-            $res['VServerGroups'] = null !== $this->VServerGroups ? $this->VServerGroups->toMap() : null;
+            $res['VServerGroups'] = null !== $this->VServerGroups ? $this->VServerGroups->toArray($noStream) : $this->VServerGroups;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVServerGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VServerGroups'])) {
             $model->VServerGroups = VServerGroups::fromMap($map['VServerGroups']);
         }

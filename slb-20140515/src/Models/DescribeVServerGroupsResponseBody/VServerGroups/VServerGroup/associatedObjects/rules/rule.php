@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\VServerGroup\associatedObjects\rules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rule extends Model
 {
     /**
-     * @description The requested domain name.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The ID of the forwarding rule.
-     *
-     * @example rule-a3x3pg1yohq3lq****
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule.
-     *
-     * @example test
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The request URL.
-     *
-     * @example /example
-     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'domain'   => 'Domain',
-        'ruleId'   => 'RuleId',
+        'domain' => 'Domain',
+        'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
-        'url'      => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -73,23 +61,26 @@ class rule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

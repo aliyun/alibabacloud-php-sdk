@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Slb\V20140515\Models\SetVServerGroupAttributeResponseBody\backendServers;
-use AlibabaCloud\Tea\Model;
 
 class SetVServerGroupAttributeResponseBody extends Model
 {
     /**
-     * @description The backend servers.
-     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The server group ID.
-     *
-     * @example rsp-cige6****
-     *
      * @var string
      */
     public $VServerGroupId;
 
     /**
-     * @description The name of the vServer group.
-     *
-     * @example Group1
-     *
      * @var string
      */
     public $VServerGroupName;
     protected $_name = [
-        'backendServers'   => 'BackendServers',
-        'requestId'        => 'RequestId',
-        'VServerGroupId'   => 'VServerGroupId',
+        'backendServers' => 'BackendServers',
+        'requestId' => 'RequestId',
+        'VServerGroupId' => 'VServerGroupId',
         'VServerGroupName' => 'VServerGroupName',
     ];
 
     public function validate()
     {
+        if (null !== $this->backendServers) {
+            $this->backendServers->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toArray($noStream) : $this->backendServers;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
+
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
         }
@@ -72,23 +65,26 @@ class SetVServerGroupAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetVServerGroupAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendServers'])) {
             $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
+
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
         }

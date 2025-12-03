@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\UploadServerCertificateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subjectAlternativeNames extends Model
 {
@@ -18,29 +18,45 @@ class subjectAlternativeNames extends Model
 
     public function validate()
     {
+        if (\is_array($this->subjectAlternativeName)) {
+            Model::validateArray($this->subjectAlternativeName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subjectAlternativeName) {
-            $res['SubjectAlternativeName'] = $this->subjectAlternativeName;
+            if (\is_array($this->subjectAlternativeName)) {
+                $res['SubjectAlternativeName'] = [];
+                $n1 = 0;
+                foreach ($this->subjectAlternativeName as $item1) {
+                    $res['SubjectAlternativeName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subjectAlternativeNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubjectAlternativeName'])) {
             if (!empty($map['SubjectAlternativeName'])) {
-                $model->subjectAlternativeName = $map['SubjectAlternativeName'];
+                $model->subjectAlternativeName = [];
+                $n1 = 0;
+                foreach ($map['SubjectAlternativeName'] as $item1) {
+                    $model->subjectAlternativeName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
