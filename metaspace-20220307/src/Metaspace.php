@@ -4,27 +4,24 @@
 
 namespace AlibabaCloud\SDK\Metaspace\V20220307;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\ApplyCoordinationWithCodeRequest;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\ApplyCoordinationWithCodeResponse;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\EndAllCoordinationByOwnerRequest;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\EndAllCoordinationByOwnerResponse;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\GenerateCoordinationCodeRequest;
 use AlibabaCloud\SDK\Metaspace\V20220307\Models\GenerateCoordinationCodeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Metaspace extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('metaspace', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -42,67 +39,82 @@ class Metaspace extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 用协同码发起协同
-     *  *
-     * @param ApplyCoordinationWithCodeRequest $request ApplyCoordinationWithCodeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 用协同码发起协同.
      *
-     * @return ApplyCoordinationWithCodeResponse ApplyCoordinationWithCodeResponse
+     * @param request - ApplyCoordinationWithCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyCoordinationWithCodeResponse
+     *
+     * @param ApplyCoordinationWithCodeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ApplyCoordinationWithCodeResponse
      */
     public function applyCoordinationWithCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->coordinationCode)) {
-            $body['CoordinationCode'] = $request->coordinationCode;
+        if (null !== $request->coordinationCode) {
+            @$body['CoordinationCode'] = $request->coordinationCode;
         }
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyCoordinationWithCode',
-            'version'     => '2022-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'ApplyCoordinationWithCode',
+            'version' => '2022-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return ApplyCoordinationWithCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyCoordinationWithCodeResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 用协同码发起协同
-     *  *
-     * @param ApplyCoordinationWithCodeRequest $request ApplyCoordinationWithCodeRequest
+     * 用协同码发起协同.
      *
-     * @return ApplyCoordinationWithCodeResponse ApplyCoordinationWithCodeResponse
+     * @param request - ApplyCoordinationWithCodeRequest
+     *
+     * @returns ApplyCoordinationWithCodeResponse
+     *
+     * @param ApplyCoordinationWithCodeRequest $request
+     *
+     * @return ApplyCoordinationWithCodeResponse
      */
     public function applyCoordinationWithCode($request)
     {
@@ -112,59 +124,74 @@ class Metaspace extends OpenApiClient
     }
 
     /**
-     * @summary Owner主动结束本次协同，同步失效协同码
-     *  *
-     * @param EndAllCoordinationByOwnerRequest $request EndAllCoordinationByOwnerRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Owner主动结束本次协同，同步失效协同码
      *
-     * @return EndAllCoordinationByOwnerResponse EndAllCoordinationByOwnerResponse
+     * @param request - EndAllCoordinationByOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndAllCoordinationByOwnerResponse
+     *
+     * @param EndAllCoordinationByOwnerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EndAllCoordinationByOwnerResponse
      */
     public function endAllCoordinationByOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $body['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$body['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EndAllCoordinationByOwner',
-            'version'     => '2022-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'EndAllCoordinationByOwner',
+            'version' => '2022-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return EndAllCoordinationByOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EndAllCoordinationByOwnerResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary Owner主动结束本次协同，同步失效协同码
-     *  *
-     * @param EndAllCoordinationByOwnerRequest $request EndAllCoordinationByOwnerRequest
+     * Owner主动结束本次协同，同步失效协同码
      *
-     * @return EndAllCoordinationByOwnerResponse EndAllCoordinationByOwnerResponse
+     * @param request - EndAllCoordinationByOwnerRequest
+     *
+     * @returns EndAllCoordinationByOwnerResponse
+     *
+     * @param EndAllCoordinationByOwnerRequest $request
+     *
+     * @return EndAllCoordinationByOwnerResponse
      */
     public function endAllCoordinationByOwner($request)
     {
@@ -174,62 +201,78 @@ class Metaspace extends OpenApiClient
     }
 
     /**
-     * @summary 生成协同码
-     *  *
-     * @param GenerateCoordinationCodeRequest $request GenerateCoordinationCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 生成协同码
      *
-     * @return GenerateCoordinationCodeResponse GenerateCoordinationCodeResponse
+     * @param request - GenerateCoordinationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateCoordinationCodeResponse
      */
     public function generateCoordinationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->loginRegionId)) {
-            $body['LoginRegionId'] = $request->loginRegionId;
+        if (null !== $request->loginRegionId) {
+            @$body['LoginRegionId'] = $request->loginRegionId;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $body['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$body['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $body['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$body['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $body['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$body['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateCoordinationCode',
-            'version'     => '2022-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GenerateCoordinationCode',
+            'version' => '2022-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
-        return GenerateCoordinationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateCoordinationCodeResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 生成协同码
-     *  *
-     * @param GenerateCoordinationCodeRequest $request GenerateCoordinationCodeRequest
+     * 生成协同码
      *
-     * @return GenerateCoordinationCodeResponse GenerateCoordinationCodeResponse
+     * @param request - GenerateCoordinationCodeRequest
+     *
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     *
+     * @return GenerateCoordinationCodeResponse
      */
     public function generateCoordinationCode($request)
     {
