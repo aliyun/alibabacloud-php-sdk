@@ -14,6 +14,11 @@ class config extends Model
     public $autoApply;
 
     /**
+     * @var string
+     */
+    public $hasConfigProactive;
+
+    /**
      * @var bool
      */
     public $isDestroy;
@@ -34,6 +39,7 @@ class config extends Model
     public $subCommand;
     protected $_name = [
         'autoApply' => 'autoApply',
+        'hasConfigProactive' => 'hasConfigProactive',
         'isDestroy' => 'isDestroy',
         'moduleVersion' => 'moduleVersion',
         'resourcesChanged' => 'resourcesChanged',
@@ -50,6 +56,10 @@ class config extends Model
         $res = [];
         if (null !== $this->autoApply) {
             $res['autoApply'] = $this->autoApply;
+        }
+
+        if (null !== $this->hasConfigProactive) {
+            $res['hasConfigProactive'] = $this->hasConfigProactive;
         }
 
         if (null !== $this->isDestroy) {
@@ -81,6 +91,10 @@ class config extends Model
         $model = new self();
         if (isset($map['autoApply'])) {
             $model->autoApply = $map['autoApply'];
+        }
+
+        if (isset($map['hasConfigProactive'])) {
+            $model->hasConfigProactive = $map['hasConfigProactive'];
         }
 
         if (isset($map['isDestroy'])) {

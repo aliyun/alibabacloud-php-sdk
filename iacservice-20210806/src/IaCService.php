@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformDestroyRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformDestroyResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformPlanRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformPlanResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetExecuteStateResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobRequest;
@@ -2000,6 +2002,91 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->executeTerraformPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 生成模板
+     *
+     * @param request - GenerateModuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateModuleResponse
+     *
+     * @param GenerateModuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GenerateModuleResponse
+     */
+    public function generateModuleWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->generateSource) {
+            @$body['generateSource'] = $request->generateSource;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->syntax) {
+            @$body['syntax'] = $request->syntax;
+        }
+
+        if (null !== $request->template) {
+            @$body['template'] = $request->template;
+        }
+
+        if (null !== $request->terraformProviderVersion) {
+            @$body['terraformProviderVersion'] = $request->terraformProviderVersion;
+        }
+
+        if (null !== $request->terraformResourceType) {
+            @$body['terraformResourceType'] = $request->terraformResourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateModule',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/explorer/generate/module',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateModuleResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 生成模板
+     *
+     * @param request - GenerateModuleRequest
+     *
+     * @returns GenerateModuleResponse
+     *
+     * @param GenerateModuleRequest $request
+     *
+     * @return GenerateModuleResponse
+     */
+    public function generateModule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateModuleWithOptions($request, $headers, $runtime);
     }
 
     /**
