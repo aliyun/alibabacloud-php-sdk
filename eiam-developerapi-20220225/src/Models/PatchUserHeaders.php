@@ -4,34 +4,44 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PatchUserHeaders extends Model
 {
+    /**
+     * @var string[]
+     */
     public $commonHeaders;
 
     /**
-     * @description The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
-     *
-     * This parameter is required.
-     *
-     * @example Bearer AT8csE2seYxxxxxij
-     *
      * @var string
      */
     public $authorization;
     protected $_name = [
+        'commonHeaders' => 'commonHeaders',
         'authorization' => 'Authorization',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commonHeaders)) {
+            Model::validateArray($this->commonHeaders);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonHeaders) {
-            $res['commonHeaders'] = $this->commonHeaders;
+            if (\is_array($this->commonHeaders)) {
+                $res['commonHeaders'] = [];
+                foreach ($this->commonHeaders as $key1 => $value1) {
+                    $res['commonHeaders'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->authorization) {
             $res['Authorization'] = $this->authorization;
         }
@@ -39,17 +49,23 @@ class PatchUserHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PatchUserHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
-            $model->commonHeaders = $map['commonHeaders'];
+            if (!empty($map['commonHeaders'])) {
+                $model->commonHeaders = [];
+                foreach ($map['commonHeaders'] as $key1 => $value1) {
+                    $model->commonHeaders[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Authorization'])) {
             $model->authorization = $map['Authorization'];
         }

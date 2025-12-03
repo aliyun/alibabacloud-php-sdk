@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitsResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListOrganizationalUnitsResponseBody extends Model
 {
     /**
-     * @description The queried organizational units.
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $totalCount;
@@ -29,20 +23,28 @@ class ListOrganizationalUnitsResponseBody extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -50,23 +52,25 @@ class ListOrganizationalUnitsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOrganizationalUnitsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

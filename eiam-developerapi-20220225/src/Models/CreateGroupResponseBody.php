@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGroupResponseBody extends Model
 {
     /**
-     * @example group_wovwffm62xifdziem7an7xxxxx
-     *
      * @var string
      */
     public $groupId;
@@ -18,9 +16,12 @@ class CreateGroupResponseBody extends Model
         'groupId' => 'groupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -30,11 +31,11 @@ class CreateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

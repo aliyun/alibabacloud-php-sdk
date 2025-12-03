@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserIdByPhoneNumberRequest extends Model
 {
     /**
-     * @description The mobile number of the user who owns the account.
-     *
-     * This parameter is required.
-     *
-     * @example 156xxxxxxx
-     *
      * @var string
      */
     public $phoneNumber;
@@ -22,9 +16,12 @@ class GetUserIdByPhoneNumberRequest extends Model
         'phoneNumber' => 'phoneNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phoneNumber) {
@@ -34,11 +31,11 @@ class GetUserIdByPhoneNumberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserIdByPhoneNumberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

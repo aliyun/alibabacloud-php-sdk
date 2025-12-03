@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeTokenRequest extends Model
 {
     /**
-     * @description The client ID.
-     *
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $clientId;
 
     /**
-     * @description The client secret.
-     *
-     * @example CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
-     *
      * @var string
      */
     public $clientSecret;
 
     /**
-     * @description The token to be revoked.
-     *
-     * This parameter is required.
-     *
-     * @example ATxxxx
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description The type of the token. Valid values: access_token refresh_token
-     *
-     * @example access_token
-     *
      * @var string
      */
     public $tokenTypeHint;
@@ -52,20 +34,26 @@ class RevokeTokenRequest extends Model
         'tokenTypeHint' => 'token_type_hint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['client_id'] = $this->clientId;
         }
+
         if (null !== $this->clientSecret) {
             $res['client_secret'] = $this->clientSecret;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->tokenTypeHint) {
             $res['token_type_hint'] = $this->tokenTypeHint;
         }
@@ -73,23 +61,26 @@ class RevokeTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['client_id'])) {
             $model->clientId = $map['client_id'];
         }
+
         if (isset($map['client_secret'])) {
             $model->clientSecret = $map['client_secret'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['token_type_hint'])) {
             $model->tokenTypeHint = $map['token_type_hint'];
         }

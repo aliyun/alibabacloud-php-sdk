@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserIdByEmailRequest extends Model
 {
     /**
-     * @description The email address of the user who owns the account.
-     *
-     * This parameter is required.
-     *
-     * @example example@example.com
-     *
      * @var string
      */
     public $email;
@@ -22,9 +16,12 @@ class GetUserIdByEmailRequest extends Model
         'email' => 'email',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->email) {
@@ -34,11 +31,11 @@ class GetUserIdByEmailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserIdByEmailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

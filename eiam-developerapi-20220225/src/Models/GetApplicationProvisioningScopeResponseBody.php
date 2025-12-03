@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetApplicationProvisioningScopeResponseBody extends Model
 {
@@ -14,10 +14,6 @@ class GetApplicationProvisioningScopeResponseBody extends Model
     public $groupIds;
 
     /**
-     * @description The IDs of organizational units.
-     *
-     * @example [ou_xxx001]
-     *
      * @var string[]
      */
     public $organizationalUnitIds;
@@ -26,37 +22,72 @@ class GetApplicationProvisioningScopeResponseBody extends Model
         'organizationalUnitIds' => 'organizationalUnitIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        if (\is_array($this->organizationalUnitIds)) {
+            Model::validateArray($this->organizationalUnitIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupIds) {
-            $res['groupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['groupIds'] = [];
+                $n1 = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['groupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->organizationalUnitIds) {
-            $res['organizationalUnitIds'] = $this->organizationalUnitIds;
+            if (\is_array($this->organizationalUnitIds)) {
+                $res['organizationalUnitIds'] = [];
+                $n1 = 0;
+                foreach ($this->organizationalUnitIds as $item1) {
+                    $res['organizationalUnitIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationProvisioningScopeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupIds'])) {
             if (!empty($map['groupIds'])) {
-                $model->groupIds = $map['groupIds'];
+                $model->groupIds = [];
+                $n1 = 0;
+                foreach ($map['groupIds'] as $item1) {
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['organizationalUnitIds'])) {
             if (!empty($map['organizationalUnitIds'])) {
-                $model->organizationalUnitIds = $map['organizationalUnitIds'];
+                $model->organizationalUnitIds = [];
+                $n1 = 0;
+                foreach ($map['organizationalUnitIds'] as $item1) {
+                    $model->organizationalUnitIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

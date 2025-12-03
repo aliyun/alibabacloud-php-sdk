@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateDeviceCodeRequest extends Model
 {
     /**
-     * @description The authorization scope.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $scope;
@@ -20,9 +16,12 @@ class GenerateDeviceCodeRequest extends Model
         'scope' => 'scope',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scope) {
@@ -32,11 +31,11 @@ class GenerateDeviceCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateDeviceCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

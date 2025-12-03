@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passwordInitializationConfig extends Model
 {
     /**
-     * @description Password  forced update
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $passwordForcedUpdateStatus;
 
     /**
-     * @description Password policy
-     *
-     * @example global
-     *
      * @var string
      */
     public $passwordInitializationPolicyPriority;
 
     /**
-     * @description Password Initialization Type
-     *
-     * @example random
-     *
      * @var string
      */
     public $passwordInitializationType;
 
     /**
-     * @description User Notification Channels
-     *
-     * @example sms
-     *
      * @var string[]
      */
     public $userNotificationChannels;
@@ -50,47 +34,71 @@ class passwordInitializationConfig extends Model
         'userNotificationChannels' => 'userNotificationChannels',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userNotificationChannels)) {
+            Model::validateArray($this->userNotificationChannels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordForcedUpdateStatus) {
             $res['passwordForcedUpdateStatus'] = $this->passwordForcedUpdateStatus;
         }
+
         if (null !== $this->passwordInitializationPolicyPriority) {
             $res['passwordInitializationPolicyPriority'] = $this->passwordInitializationPolicyPriority;
         }
+
         if (null !== $this->passwordInitializationType) {
             $res['passwordInitializationType'] = $this->passwordInitializationType;
         }
+
         if (null !== $this->userNotificationChannels) {
-            $res['userNotificationChannels'] = $this->userNotificationChannels;
+            if (\is_array($this->userNotificationChannels)) {
+                $res['userNotificationChannels'] = [];
+                $n1 = 0;
+                foreach ($this->userNotificationChannels as $item1) {
+                    $res['userNotificationChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passwordInitializationConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['passwordForcedUpdateStatus'])) {
             $model->passwordForcedUpdateStatus = $map['passwordForcedUpdateStatus'];
         }
+
         if (isset($map['passwordInitializationPolicyPriority'])) {
             $model->passwordInitializationPolicyPriority = $map['passwordInitializationPolicyPriority'];
         }
+
         if (isset($map['passwordInitializationType'])) {
             $model->passwordInitializationType = $map['passwordInitializationType'];
         }
+
         if (isset($map['userNotificationChannels'])) {
             if (!empty($map['userNotificationChannels'])) {
-                $model->userNotificationChannels = $map['userNotificationChannels'];
+                $model->userNotificationChannels = [];
+                $n1 = 0;
+                foreach ($map['userNotificationChannels'] as $item1) {
+                    $model->userNotificationChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

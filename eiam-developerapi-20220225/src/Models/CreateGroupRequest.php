@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGroupRequest extends Model
 {
     /**
-     * @example group_2bo6lefcewdausyyxxxx
-     *
      * @var string
      */
     public $groupExternalId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example name001
-     *
      * @var string
      */
     public $groupName;
@@ -28,14 +22,18 @@ class CreateGroupRequest extends Model
         'groupName' => 'groupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupExternalId) {
             $res['groupExternalId'] = $this->groupExternalId;
         }
+
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
@@ -43,17 +41,18 @@ class CreateGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupExternalId'])) {
             $model->groupExternalId = $map['groupExternalId'];
         }
+
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }

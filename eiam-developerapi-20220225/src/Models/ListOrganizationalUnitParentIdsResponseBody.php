@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListOrganizationalUnitParentIdsResponseBody extends Model
 {
     /**
-     * @description The IDs of the parent organizational units. The IDs of the organizational unit are ordered based on their levels from high to low. Only the IDs of the organizational units within the authorization scope are displayed.
-     *
-     * @example [ou_xxx001]
-     *
      * @var string[]
      */
     public $parentIds;
@@ -20,29 +16,47 @@ class ListOrganizationalUnitParentIdsResponseBody extends Model
         'parentIds' => 'parentIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parentIds)) {
+            Model::validateArray($this->parentIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parentIds) {
-            $res['parentIds'] = $this->parentIds;
+            if (\is_array($this->parentIds)) {
+                $res['parentIds'] = [];
+                $n1 = 0;
+                foreach ($this->parentIds as $item1) {
+                    $res['parentIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOrganizationalUnitParentIdsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parentIds'])) {
             if (!empty($map['parentIds'])) {
-                $model->parentIds = $map['parentIds'];
+                $model->parentIds = [];
+                $n1 = 0;
+                foreach ($map['parentIds'] as $item1) {
+                    $model->parentIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

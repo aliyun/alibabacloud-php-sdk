@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class organizationalUnits extends Model
 {
     /**
-     * @description The ID of the organizational unit.
-     *
-     * @example ou_wovwffm62xifdziem7an7xxxxx
-     *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
-     * @description The name of the organizational unit.
-     *
-     * @example name001
-     *
      * @var string
      */
     public $organizationalUnitName;
 
     /**
-     * @description Indicates whether the organizational unit is the primary organizational unit.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $primary;
@@ -40,17 +28,22 @@ class organizationalUnits extends Model
         'primary' => 'primary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->organizationalUnitId) {
             $res['organizationalUnitId'] = $this->organizationalUnitId;
         }
+
         if (null !== $this->organizationalUnitName) {
             $res['organizationalUnitName'] = $this->organizationalUnitName;
         }
+
         if (null !== $this->primary) {
             $res['primary'] = $this->primary;
         }
@@ -58,20 +51,22 @@ class organizationalUnits extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return organizationalUnits
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['organizationalUnitId'])) {
             $model->organizationalUnitId = $map['organizationalUnitId'];
         }
+
         if (isset($map['organizationalUnitName'])) {
             $model->organizationalUnitName = $map['organizationalUnitName'];
         }
+
         if (isset($map['primary'])) {
             $model->primary = $map['primary'];
         }

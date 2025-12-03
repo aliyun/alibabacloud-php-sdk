@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customFields extends Model
 {
     /**
-     * @description Field name
-     *
-     * @example age
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @description Filed value
-     *
-     * @example fieldValue_001
-     *
      * @var string
      */
     public $fieldValue;
@@ -30,14 +22,18 @@ class customFields extends Model
         'fieldValue' => 'fieldValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['fieldName'] = $this->fieldName;
         }
+
         if (null !== $this->fieldValue) {
             $res['fieldValue'] = $this->fieldValue;
         }
@@ -45,17 +41,18 @@ class customFields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customFields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldName'])) {
             $model->fieldName = $map['fieldName'];
         }
+
         if (isset($map['fieldValue'])) {
             $model->fieldValue = $map['fieldValue'];
         }

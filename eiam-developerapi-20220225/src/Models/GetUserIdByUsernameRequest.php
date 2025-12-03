@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserIdByUsernameRequest extends Model
 {
     /**
-     * @description The username of the account.
-     *
-     * This parameter is required.
-     *
-     * @example username_001
-     *
      * @var string
      */
     public $username;
@@ -22,9 +16,12 @@ class GetUserIdByUsernameRequest extends Model
         'username' => 'username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->username) {
@@ -34,11 +31,11 @@ class GetUserIdByUsernameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserIdByUsernameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
