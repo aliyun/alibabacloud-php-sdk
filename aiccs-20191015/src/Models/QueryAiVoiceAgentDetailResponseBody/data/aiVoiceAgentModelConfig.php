@@ -111,6 +111,16 @@ class aiVoiceAgentModelConfig extends Model
     /**
      * @var string
      */
+    public $recordingFile;
+
+    /**
+     * @var int
+     */
+    public $startWordType;
+
+    /**
+     * @var string
+     */
     public $sysRole;
 
     /**
@@ -142,6 +152,8 @@ class aiVoiceAgentModelConfig extends Model
         'outputTagConfig' => 'OutputTagConfig',
         'phoneTagConfig' => 'PhoneTagConfig',
         'prologue' => 'Prologue',
+        'recordingFile' => 'RecordingFile',
+        'startWordType' => 'StartWordType',
         'sysRole' => 'SysRole',
         'taskType' => 'TaskType',
         'userRole' => 'UserRole',
@@ -304,6 +316,14 @@ class aiVoiceAgentModelConfig extends Model
             $res['Prologue'] = $this->prologue;
         }
 
+        if (null !== $this->recordingFile) {
+            $res['RecordingFile'] = $this->recordingFile;
+        }
+
+        if (null !== $this->startWordType) {
+            $res['StartWordType'] = $this->startWordType;
+        }
+
         if (null !== $this->sysRole) {
             $res['SysRole'] = $this->sysRole;
         }
@@ -450,6 +470,14 @@ class aiVoiceAgentModelConfig extends Model
 
         if (isset($map['Prologue'])) {
             $model->prologue = $map['Prologue'];
+        }
+
+        if (isset($map['RecordingFile'])) {
+            $model->recordingFile = $map['RecordingFile'];
+        }
+
+        if (isset($map['StartWordType'])) {
+            $model->startWordType = $map['StartWordType'];
         }
 
         if (isset($map['SysRole'])) {

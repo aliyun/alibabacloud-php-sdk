@@ -31,12 +31,18 @@ class variables extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
         'id' => 'Id',
         'key' => 'Key',
         'name' => 'Name',
         'required' => 'Required',
+        'source' => 'Source',
         'value' => 'Value',
     ];
 
@@ -62,6 +68,10 @@ class variables extends Model
 
         if (null !== $this->required) {
             $res['Required'] = $this->required;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->value) {
@@ -93,6 +103,10 @@ class variables extends Model
 
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Value'])) {

@@ -42,6 +42,11 @@ class phoneTagConfig extends Model
     /**
      * @var string
      */
+    public $phoneTagSource;
+
+    /**
+     * @var string
+     */
     public $phoneTagType;
     protected $_name = [
         'id' => 'Id',
@@ -50,6 +55,7 @@ class phoneTagConfig extends Model
         'phoneTagKey' => 'PhoneTagKey',
         'phoneTagName' => 'PhoneTagName',
         'phoneTagRequired' => 'PhoneTagRequired',
+        'phoneTagSource' => 'PhoneTagSource',
         'phoneTagType' => 'PhoneTagType',
     ];
 
@@ -93,6 +99,10 @@ class phoneTagConfig extends Model
 
         if (null !== $this->phoneTagRequired) {
             $res['PhoneTagRequired'] = $this->phoneTagRequired;
+        }
+
+        if (null !== $this->phoneTagSource) {
+            $res['PhoneTagSource'] = $this->phoneTagSource;
         }
 
         if (null !== $this->phoneTagType) {
@@ -139,6 +149,10 @@ class phoneTagConfig extends Model
 
         if (isset($map['PhoneTagRequired'])) {
             $model->phoneTagRequired = $map['PhoneTagRequired'];
+        }
+
+        if (isset($map['PhoneTagSource'])) {
+            $model->phoneTagSource = $map['PhoneTagSource'];
         }
 
         if (isset($map['PhoneTagType'])) {
