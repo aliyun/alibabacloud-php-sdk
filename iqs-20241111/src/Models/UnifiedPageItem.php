@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UnifiedPageItem extends Model
 {
     /**
+     * @var int
+     */
+    public $correlationTag;
+
+    /**
      * @var float
      */
     public $hostAuthorityScore;
@@ -78,6 +83,7 @@ class UnifiedPageItem extends Model
      */
     public $websiteAuthorityScore;
     protected $_name = [
+        'correlationTag' => 'correlationTag',
         'hostAuthorityScore' => 'hostAuthorityScore',
         'hostLogo' => 'hostLogo',
         'hostname' => 'hostname',
@@ -105,6 +111,10 @@ class UnifiedPageItem extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->correlationTag) {
+            $res['correlationTag'] = $this->correlationTag;
+        }
+
         if (null !== $this->hostAuthorityScore) {
             $res['hostAuthorityScore'] = $this->hostAuthorityScore;
         }
@@ -179,6 +189,10 @@ class UnifiedPageItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['correlationTag'])) {
+            $model->correlationTag = $map['correlationTag'];
+        }
+
         if (isset($map['hostAuthorityScore'])) {
             $model->hostAuthorityScore = $map['hostAuthorityScore'];
         }

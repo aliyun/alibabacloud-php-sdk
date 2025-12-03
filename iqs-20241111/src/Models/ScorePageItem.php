@@ -14,6 +14,11 @@ class ScorePageItem extends Model
     public $cardType;
 
     /**
+     * @var int
+     */
+    public $correlationTag;
+
+    /**
      * @var string
      */
     public $displayLink;
@@ -114,6 +119,7 @@ class ScorePageItem extends Model
     public $websiteAuthorityScore;
     protected $_name = [
         'cardType' => 'cardType',
+        'correlationTag' => 'correlationTag',
         'displayLink' => 'displayLink',
         'hostAuthorityScore' => 'hostAuthorityScore',
         'hostLogo' => 'hostLogo',
@@ -152,6 +158,10 @@ class ScorePageItem extends Model
         $res = [];
         if (null !== $this->cardType) {
             $res['cardType'] = $this->cardType;
+        }
+
+        if (null !== $this->correlationTag) {
+            $res['correlationTag'] = $this->correlationTag;
         }
 
         if (null !== $this->displayLink) {
@@ -259,6 +269,10 @@ class ScorePageItem extends Model
         $model = new self();
         if (isset($map['cardType'])) {
             $model->cardType = $map['cardType'];
+        }
+
+        if (isset($map['correlationTag'])) {
+            $model->correlationTag = $map['correlationTag'];
         }
 
         if (isset($map['displayLink'])) {
