@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CioMarketPop\V20250709\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEveryOneSellsFormListRequest extends Model
 {
@@ -16,9 +16,12 @@ class GetEveryOneSellsFormListRequest extends Model
         'auth' => 'Auth',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auth) {
@@ -28,11 +31,11 @@ class GetEveryOneSellsFormListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEveryOneSellsFormListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

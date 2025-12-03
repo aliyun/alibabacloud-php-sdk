@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\CioMarketPop\V20250709\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushEveryOneSellMsgShrinkRequest extends Model
 {
     /**
-     * @example ["1234567"]
-     *
      * @var string
      */
     public $dingIdListShrink;
 
     /**
-     * @example 推送内容
-     *
      * @var string
      */
     public $pushMsg;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $pushType;
@@ -34,17 +28,22 @@ class PushEveryOneSellMsgShrinkRequest extends Model
         'pushType' => 'PushType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingIdListShrink) {
             $res['DingIdList'] = $this->dingIdListShrink;
         }
+
         if (null !== $this->pushMsg) {
             $res['PushMsg'] = $this->pushMsg;
         }
+
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
         }
@@ -52,20 +51,22 @@ class PushEveryOneSellMsgShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushEveryOneSellMsgShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingIdList'])) {
             $model->dingIdListShrink = $map['DingIdList'];
         }
+
         if (isset($map['PushMsg'])) {
             $model->pushMsg = $map['PushMsg'];
         }
+
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
         }

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\CioMarketPop\V20250709\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushEveryOneSellMsgRequest extends Model
 {
     /**
-     * @example ["1234567"]
-     *
      * @var string[]
      */
     public $dingIdList;
 
     /**
-     * @example 推送内容
-     *
      * @var string
      */
     public $pushMsg;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $pushType;
@@ -34,17 +28,32 @@ class PushEveryOneSellMsgRequest extends Model
         'pushType' => 'PushType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dingIdList)) {
+            Model::validateArray($this->dingIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingIdList) {
-            $res['DingIdList'] = $this->dingIdList;
+            if (\is_array($this->dingIdList)) {
+                $res['DingIdList'] = [];
+                $n1 = 0;
+                foreach ($this->dingIdList as $item1) {
+                    $res['DingIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->pushMsg) {
             $res['PushMsg'] = $this->pushMsg;
         }
+
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
         }
@@ -52,22 +61,29 @@ class PushEveryOneSellMsgRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushEveryOneSellMsgRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingIdList'])) {
             if (!empty($map['DingIdList'])) {
-                $model->dingIdList = $map['DingIdList'];
+                $model->dingIdList = [];
+                $n1 = 0;
+                foreach ($map['DingIdList'] as $item1) {
+                    $model->dingIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PushMsg'])) {
             $model->pushMsg = $map['PushMsg'];
         }
+
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
         }

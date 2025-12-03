@@ -4,25 +4,22 @@
 
 namespace AlibabaCloud\SDK\CioMarketPop\V20250709;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\GetEveryOneSellsFormListRequest;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\GetEveryOneSellsFormListResponse;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgRequest;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgResponse;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class CioMarketPop extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ciomarketpop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -41,30 +38,36 @@ class CioMarketPop extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 全员营销
-     *  *
-     * @param GetEveryOneSellsFormListRequest $request GetEveryOneSellsFormListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 全员营销
      *
-     * @return GetEveryOneSellsFormListResponse GetEveryOneSellsFormListResponse
+     * @param request - GetEveryOneSellsFormListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEveryOneSellsFormListResponse
+     *
+     * @param GetEveryOneSellsFormListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetEveryOneSellsFormListResponse
      */
     public function getEveryOneSellsFormListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEveryOneSellsFormList',
@@ -78,15 +81,19 @@ class CioMarketPop extends OpenApiClient
             'bodyType' => 'array',
         ]);
 
-        return GetEveryOneSellsFormListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEveryOneSellsFormListResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 全员营销
-     *  *
-     * @param GetEveryOneSellsFormListRequest $request GetEveryOneSellsFormListRequest
+     * 全员营销
      *
-     * @return GetEveryOneSellsFormListResponse GetEveryOneSellsFormListResponse
+     * @param request - GetEveryOneSellsFormListRequest
+     *
+     * @returns GetEveryOneSellsFormListResponse
+     *
+     * @param GetEveryOneSellsFormListRequest $request
+     *
+     * @return GetEveryOneSellsFormListResponse
      */
     public function getEveryOneSellsFormList($request)
     {
@@ -96,33 +103,42 @@ class CioMarketPop extends OpenApiClient
     }
 
     /**
-     * @summary 推送钉钉消息
-     *  *
-     * @param PushEveryOneSellMsgRequest $tmpReq  PushEveryOneSellMsgRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 推送钉钉消息.
      *
-     * @return PushEveryOneSellMsgResponse PushEveryOneSellMsgResponse
+     * @param tmpReq - PushEveryOneSellMsgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushEveryOneSellMsgResponse
+     *
+     * @param PushEveryOneSellMsgRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PushEveryOneSellMsgResponse
      */
     public function pushEveryOneSellMsgWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushEveryOneSellMsgShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dingIdList)) {
-            $request->dingIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dingIdList, 'DingIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dingIdList) {
+            $request->dingIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dingIdList, 'DingIdList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dingIdListShrink)) {
-            $body['DingIdList'] = $request->dingIdListShrink;
+        if (null !== $request->dingIdListShrink) {
+            @$body['DingIdList'] = $request->dingIdListShrink;
         }
-        if (!Utils::isUnset($request->pushMsg)) {
-            $body['PushMsg'] = $request->pushMsg;
+
+        if (null !== $request->pushMsg) {
+            @$body['PushMsg'] = $request->pushMsg;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $body['PushType'] = $request->pushType;
+
+        if (null !== $request->pushType) {
+            @$body['PushType'] = $request->pushType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PushEveryOneSellMsg',
@@ -136,15 +152,19 @@ class CioMarketPop extends OpenApiClient
             'bodyType' => 'string',
         ]);
 
-        return PushEveryOneSellMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushEveryOneSellMsgResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
-     * @summary 推送钉钉消息
-     *  *
-     * @param PushEveryOneSellMsgRequest $request PushEveryOneSellMsgRequest
+     * 推送钉钉消息.
      *
-     * @return PushEveryOneSellMsgResponse PushEveryOneSellMsgResponse
+     * @param request - PushEveryOneSellMsgRequest
+     *
+     * @returns PushEveryOneSellMsgResponse
+     *
+     * @param PushEveryOneSellMsgRequest $request
+     *
+     * @return PushEveryOneSellMsgResponse
      */
     public function pushEveryOneSellMsg($request)
     {
