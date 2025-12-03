@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScreenSummaryInfoResponseBody extends Model
 {
     /**
-     * @example 12
-     *
      * @var int
      */
     public $aegisClientOfflineCount;
 
     /**
-     * @example 127
-     *
      * @var int
      */
     public $aegisClientOnlineCount;
 
     /**
-     * @example 23AD0BD2-8771-5647-819E-XXXXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $securityScore;
@@ -42,20 +34,26 @@ class DescribeScreenSummaryInfoResponseBody extends Model
         'securityScore' => 'SecurityScore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aegisClientOfflineCount) {
             $res['AegisClientOfflineCount'] = $this->aegisClientOfflineCount;
         }
+
         if (null !== $this->aegisClientOnlineCount) {
             $res['AegisClientOnlineCount'] = $this->aegisClientOnlineCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityScore) {
             $res['SecurityScore'] = $this->securityScore;
         }
@@ -63,23 +61,26 @@ class DescribeScreenSummaryInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScreenSummaryInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AegisClientOfflineCount'])) {
             $model->aegisClientOfflineCount = $map['AegisClientOfflineCount'];
         }
+
         if (isset($map['AegisClientOnlineCount'])) {
             $model->aegisClientOnlineCount = $map['AegisClientOnlineCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityScore'])) {
             $model->securityScore = $map['SecurityScore'];
         }

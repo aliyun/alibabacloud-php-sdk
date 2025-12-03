@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScreenScoreThreadRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1723445464501
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1722840664501
-     *
      * @var int
      */
     public $startTime;
@@ -30,14 +22,18 @@ class DescribeScreenScoreThreadRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -45,17 +41,18 @@ class DescribeScreenScoreThreadRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScreenScoreThreadRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenDataMapResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenDataMapResponseBody\sasScreenTypeList\typeData;
-use AlibabaCloud\Tea\Model;
 
 class sasScreenTypeList extends Model
 {
@@ -15,8 +15,6 @@ class sasScreenTypeList extends Model
     public $type;
 
     /**
-     * @example ASSETS
-     *
      * @var string
      */
     public $typeCode;
@@ -31,23 +29,32 @@ class sasScreenTypeList extends Model
         'typeData' => 'TypeData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->typeData)) {
+            Model::validateArray($this->typeData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->typeCode) {
             $res['TypeCode'] = $this->typeCode;
         }
+
         if (null !== $this->typeData) {
-            $res['TypeData'] = [];
-            if (null !== $this->typeData && \is_array($this->typeData)) {
-                $n = 0;
-                foreach ($this->typeData as $item) {
-                    $res['TypeData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->typeData)) {
+                $res['TypeData'] = [];
+                $n1 = 0;
+                foreach ($this->typeData as $item1) {
+                    $res['TypeData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,26 +62,29 @@ class sasScreenTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sasScreenTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['TypeCode'])) {
             $model->typeCode = $map['TypeCode'];
         }
+
         if (isset($map['TypeData'])) {
             if (!empty($map['TypeData'])) {
                 $model->typeData = [];
-                $n = 0;
-                foreach ($map['TypeData'] as $item) {
-                    $model->typeData[$n++] = null !== $item ? typeData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TypeData'] as $item1) {
+                    $model->typeData[$n1] = typeData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

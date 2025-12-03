@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateScreenSettingResponseBody extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 898F7AA7-CECD-5EC7-AF4D-664C601B****
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateScreenSettingResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateScreenSettingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateScreenSettingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

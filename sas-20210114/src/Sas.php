@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Sas\V20210114\Models\CreateScreenSettingRequest;
 use AlibabaCloud\SDK\Sas\V20210114\Models\CreateScreenSettingResponse;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DeleteScreenSettingRequest;
@@ -36,18 +35,16 @@ use AlibabaCloud\SDK\Sas\V20210114\Models\GetFileDetectResultInnerResponse;
 use AlibabaCloud\SDK\Sas\V20210114\Models\ListGlobalUserConfigRequest;
 use AlibabaCloud\SDK\Sas\V20210114\Models\ListGlobalUserConfigResponse;
 use AlibabaCloud\SDK\Sas\V20210114\Models\ListGlobalUserConfigShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Sas extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-qingdao' => 'tds.cn-shanghai.aliyuncs.com',
@@ -107,51 +104,64 @@ class Sas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 新增或者修改用户大屏设置
-     *  *
-     * @param CreateScreenSettingRequest $request CreateScreenSettingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 新增或者修改用户大屏设置.
      *
-     * @return CreateScreenSettingResponse CreateScreenSettingResponse
+     * @param request - CreateScreenSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScreenSettingResponse
+     *
+     * @param CreateScreenSettingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateScreenSettingResponse
      */
     public function createScreenSettingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->logoPower)) {
-            $query['LogoPower'] = $request->logoPower;
+
+        if (null !== $request->logoPower) {
+            @$query['LogoPower'] = $request->logoPower;
         }
-        if (!Utils::isUnset($request->logoUrl)) {
-            $query['LogoUrl'] = $request->logoUrl;
+
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
         }
-        if (!Utils::isUnset($request->monitorUrl)) {
-            $query['MonitorUrl'] = $request->monitorUrl;
+
+        if (null !== $request->monitorUrl) {
+            @$query['MonitorUrl'] = $request->monitorUrl;
         }
-        if (!Utils::isUnset($request->screenDataMap)) {
-            $query['ScreenDataMap'] = $request->screenDataMap;
+
+        if (null !== $request->screenDataMap) {
+            @$query['ScreenDataMap'] = $request->screenDataMap;
         }
-        if (!Utils::isUnset($request->screenDefault)) {
-            $query['ScreenDefault'] = $request->screenDefault;
+
+        if (null !== $request->screenDefault) {
+            @$query['ScreenDefault'] = $request->screenDefault;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScreenSetting',
@@ -164,19 +174,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScreenSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增或者修改用户大屏设置
-     *  *
-     * @param CreateScreenSettingRequest $request CreateScreenSettingRequest
+     * 新增或者修改用户大屏设置.
      *
-     * @return CreateScreenSettingResponse CreateScreenSettingResponse
+     * @param request - CreateScreenSettingRequest
+     *
+     * @returns CreateScreenSettingResponse
+     *
+     * @param CreateScreenSettingRequest $request
+     *
+     * @return CreateScreenSettingResponse
      */
     public function createScreenSetting($request)
     {
@@ -186,22 +197,28 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 删除大屏设置
-     *  *
-     * @param DeleteScreenSettingRequest $request DeleteScreenSettingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除大屏设置.
      *
-     * @return DeleteScreenSettingResponse DeleteScreenSettingResponse
+     * @param request - DeleteScreenSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScreenSettingResponse
+     *
+     * @param DeleteScreenSettingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScreenSettingResponse
      */
     public function deleteScreenSettingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScreenSetting',
@@ -214,19 +231,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScreenSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除大屏设置
-     *  *
-     * @param DeleteScreenSettingRequest $request DeleteScreenSettingRequest
+     * 删除大屏设置.
      *
-     * @return DeleteScreenSettingResponse DeleteScreenSettingResponse
+     * @param request - DeleteScreenSettingRequest
+     *
+     * @returns DeleteScreenSettingResponse
+     *
+     * @param DeleteScreenSettingRequest $request
+     *
+     * @return DeleteScreenSettingResponse
      */
     public function deleteScreenSetting($request)
     {
@@ -236,52 +254,68 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询安全大屏告警事件
-     *  *
-     * @param DescribeScreenAlarmEventListRequest $request DescribeScreenAlarmEventListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询安全大屏告警事件.
      *
-     * @return DescribeScreenAlarmEventListResponse DescribeScreenAlarmEventListResponse
+     * @param request - DescribeScreenAlarmEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenAlarmEventListResponse
+     *
+     * @param DescribeScreenAlarmEventListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeScreenAlarmEventListResponse
      */
     public function describeScreenAlarmEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmEventName)) {
-            $query['AlarmEventName'] = $request->alarmEventName;
+        if (null !== $request->alarmEventName) {
+            @$query['AlarmEventName'] = $request->alarmEventName;
         }
-        if (!Utils::isUnset($request->alarmEventType)) {
-            $query['AlarmEventType'] = $request->alarmEventType;
+
+        if (null !== $request->alarmEventType) {
+            @$query['AlarmEventType'] = $request->alarmEventType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dealed)) {
-            $query['Dealed'] = $request->dealed;
+
+        if (null !== $request->dealed) {
+            @$query['Dealed'] = $request->dealed;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->levels)) {
-            $query['Levels'] = $request->levels;
+
+        if (null !== $request->levels) {
+            @$query['Levels'] = $request->levels;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->timeEnd)) {
-            $query['TimeEnd'] = $request->timeEnd;
+
+        if (null !== $request->timeEnd) {
+            @$query['TimeEnd'] = $request->timeEnd;
         }
-        if (!Utils::isUnset($request->timeStart)) {
-            $query['TimeStart'] = $request->timeStart;
+
+        if (null !== $request->timeStart) {
+            @$query['TimeStart'] = $request->timeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenAlarmEventList',
@@ -294,19 +328,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenAlarmEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenAlarmEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenAlarmEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询安全大屏告警事件
-     *  *
-     * @param DescribeScreenAlarmEventListRequest $request DescribeScreenAlarmEventListRequest
+     * 查询安全大屏告警事件.
      *
-     * @return DescribeScreenAlarmEventListResponse DescribeScreenAlarmEventListResponse
+     * @param request - DescribeScreenAlarmEventListRequest
+     *
+     * @returns DescribeScreenAlarmEventListResponse
+     *
+     * @param DescribeScreenAlarmEventListRequest $request
+     *
+     * @return DescribeScreenAlarmEventListResponse
      */
     public function describeScreenAlarmEventList($request)
     {
@@ -316,40 +351,52 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询大屏攻击防御事件
-     *  *
-     * @param DescribeScreenAttackAnalysisDataRequest $request DescribeScreenAttackAnalysisDataRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 查询大屏攻击防御事件.
      *
-     * @return DescribeScreenAttackAnalysisDataResponse DescribeScreenAttackAnalysisDataResponse
+     * @param request - DescribeScreenAttackAnalysisDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenAttackAnalysisDataResponse
+     *
+     * @param DescribeScreenAttackAnalysisDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeScreenAttackAnalysisDataResponse
      */
     public function describeScreenAttackAnalysisDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->base64)) {
-            $query['Base64'] = $request->base64;
+        if (null !== $request->base64) {
+            @$query['Base64'] = $request->base64;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenAttackAnalysisData',
@@ -362,19 +409,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenAttackAnalysisDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenAttackAnalysisDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenAttackAnalysisDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询大屏攻击防御事件
-     *  *
-     * @param DescribeScreenAttackAnalysisDataRequest $request DescribeScreenAttackAnalysisDataRequest
+     * 查询大屏攻击防御事件.
      *
-     * @return DescribeScreenAttackAnalysisDataResponse DescribeScreenAttackAnalysisDataResponse
+     * @param request - DescribeScreenAttackAnalysisDataRequest
+     *
+     * @returns DescribeScreenAttackAnalysisDataResponse
+     *
+     * @param DescribeScreenAttackAnalysisDataRequest $request
+     *
+     * @return DescribeScreenAttackAnalysisDataResponse
      */
     public function describeScreenAttackAnalysisData($request)
     {
@@ -384,11 +432,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询云产品基线问题
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询云产品基线问题.
      *
-     * @return DescribeScreenCloudHcRiskResponse DescribeScreenCloudHcRiskResponse
+     * @param request - DescribeScreenCloudHcRiskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenCloudHcRiskResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenCloudHcRiskResponse
      */
     public function describeScreenCloudHcRiskWithOptions($runtime)
     {
@@ -404,17 +457,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenCloudHcRiskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenCloudHcRiskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenCloudHcRiskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询云产品基线问题
-     *  *
-     * @return DescribeScreenCloudHcRiskResponse DescribeScreenCloudHcRiskResponse
+     * 查询云产品基线问题.
+     *
+     * @returns DescribeScreenCloudHcRiskResponse
+     *
+     * @return DescribeScreenCloudHcRiskResponse
      */
     public function describeScreenCloudHcRisk()
     {
@@ -424,11 +476,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取大屏可展示数据列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取大屏可展示数据列表.
      *
-     * @return DescribeScreenDataMapResponse DescribeScreenDataMapResponse
+     * @param request - DescribeScreenDataMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenDataMapResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenDataMapResponse
      */
     public function describeScreenDataMapWithOptions($runtime)
     {
@@ -444,17 +501,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenDataMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenDataMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenDataMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取大屏可展示数据列表
-     *  *
-     * @return DescribeScreenDataMapResponse DescribeScreenDataMapResponse
+     * 获取大屏可展示数据列表.
+     *
+     * @returns DescribeScreenDataMapResponse
+     *
+     * @return DescribeScreenDataMapResponse
      */
     public function describeScreenDataMap()
     {
@@ -464,11 +520,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询云产品漏洞风险
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询云产品漏洞风险.
      *
-     * @return DescribeScreenEmerRiskResponse DescribeScreenEmerRiskResponse
+     * @param request - DescribeScreenEmerRiskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenEmerRiskResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenEmerRiskResponse
      */
     public function describeScreenEmerRiskWithOptions($runtime)
     {
@@ -484,17 +545,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenEmerRiskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenEmerRiskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenEmerRiskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询云产品漏洞风险
-     *  *
-     * @return DescribeScreenEmerRiskResponse DescribeScreenEmerRiskResponse
+     * 查询云产品漏洞风险.
+     *
+     * @returns DescribeScreenEmerRiskResponse
+     *
+     * @return DescribeScreenEmerRiskResponse
      */
     public function describeScreenEmerRisk()
     {
@@ -504,11 +564,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询大屏主机统计数据
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询大屏主机统计数据.
      *
-     * @return DescribeScreenHostStatisticsResponse DescribeScreenHostStatisticsResponse
+     * @param request - DescribeScreenHostStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenHostStatisticsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenHostStatisticsResponse
      */
     public function describeScreenHostStatisticsWithOptions($runtime)
     {
@@ -524,17 +589,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenHostStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenHostStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenHostStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询大屏主机统计数据
-     *  *
-     * @return DescribeScreenHostStatisticsResponse DescribeScreenHostStatisticsResponse
+     * 查询大屏主机统计数据.
+     *
+     * @returns DescribeScreenHostStatisticsResponse
+     *
+     * @return DescribeScreenHostStatisticsResponse
      */
     public function describeScreenHostStatistics()
     {
@@ -544,25 +608,32 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查看运营信息
-     *  *
-     * @param DescribeScreenOperateInfoRequest $request DescribeScreenOperateInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查看运营信息.
      *
-     * @return DescribeScreenOperateInfoResponse DescribeScreenOperateInfoResponse
+     * @param request - DescribeScreenOperateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenOperateInfoResponse
+     *
+     * @param DescribeScreenOperateInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeScreenOperateInfoResponse
      */
     public function describeScreenOperateInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenOperateInfo',
@@ -575,19 +646,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenOperateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenOperateInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenOperateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看运营信息
-     *  *
-     * @param DescribeScreenOperateInfoRequest $request DescribeScreenOperateInfoRequest
+     * 查看运营信息.
      *
-     * @return DescribeScreenOperateInfoResponse DescribeScreenOperateInfoResponse
+     * @param request - DescribeScreenOperateInfoRequest
+     *
+     * @returns DescribeScreenOperateInfoResponse
+     *
+     * @param DescribeScreenOperateInfoRequest $request
+     *
+     * @return DescribeScreenOperateInfoResponse
      */
     public function describeScreenOperateInfo($request)
     {
@@ -597,11 +669,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询大屏上传信息
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询大屏上传信息.
      *
-     * @return DescribeScreenOssUploadInfoResponse DescribeScreenOssUploadInfoResponse
+     * @param request - DescribeScreenOssUploadInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenOssUploadInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenOssUploadInfoResponse
      */
     public function describeScreenOssUploadInfoWithOptions($runtime)
     {
@@ -617,17 +694,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenOssUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenOssUploadInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenOssUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询大屏上传信息
-     *  *
-     * @return DescribeScreenOssUploadInfoResponse DescribeScreenOssUploadInfoResponse
+     * 查询大屏上传信息.
+     *
+     * @returns DescribeScreenOssUploadInfoResponse
+     *
+     * @return DescribeScreenOssUploadInfoResponse
      */
     public function describeScreenOssUploadInfo()
     {
@@ -637,25 +713,32 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询安全大屏分数趋势
-     *  *
-     * @param DescribeScreenScoreThreadRequest $request DescribeScreenScoreThreadRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询安全大屏分数趋势
      *
-     * @return DescribeScreenScoreThreadResponse DescribeScreenScoreThreadResponse
+     * @param request - DescribeScreenScoreThreadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenScoreThreadResponse
+     *
+     * @param DescribeScreenScoreThreadRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeScreenScoreThreadResponse
      */
     public function describeScreenScoreThreadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenScoreThread',
@@ -668,19 +751,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenScoreThreadResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenScoreThreadResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenScoreThreadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询安全大屏分数趋势
-     *  *
-     * @param DescribeScreenScoreThreadRequest $request DescribeScreenScoreThreadRequest
+     * 查询安全大屏分数趋势
      *
-     * @return DescribeScreenScoreThreadResponse DescribeScreenScoreThreadResponse
+     * @param request - DescribeScreenScoreThreadRequest
+     *
+     * @returns DescribeScreenScoreThreadResponse
+     *
+     * @param DescribeScreenScoreThreadRequest $request
+     *
+     * @return DescribeScreenScoreThreadResponse
      */
     public function describeScreenScoreThread($request)
     {
@@ -690,11 +774,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询已处理的风险
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询已处理的风险.
      *
-     * @return DescribeScreenSecurityStatInfoResponse DescribeScreenSecurityStatInfoResponse
+     * @param request - DescribeScreenSecurityStatInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenSecurityStatInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenSecurityStatInfoResponse
      */
     public function describeScreenSecurityStatInfoWithOptions($runtime)
     {
@@ -710,17 +799,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenSecurityStatInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenSecurityStatInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenSecurityStatInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询已处理的风险
-     *  *
-     * @return DescribeScreenSecurityStatInfoResponse DescribeScreenSecurityStatInfoResponse
+     * 查询已处理的风险.
+     *
+     * @returns DescribeScreenSecurityStatInfoResponse
+     *
+     * @return DescribeScreenSecurityStatInfoResponse
      */
     public function describeScreenSecurityStatInfo()
     {
@@ -730,22 +818,28 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询大屏配置
-     *  *
-     * @param DescribeScreenSettingRequest $request DescribeScreenSettingRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询大屏配置.
      *
-     * @return DescribeScreenSettingResponse DescribeScreenSettingResponse
+     * @param request - DescribeScreenSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenSettingResponse
+     *
+     * @param DescribeScreenSettingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeScreenSettingResponse
      */
     public function describeScreenSettingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenSetting',
@@ -758,19 +852,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询大屏配置
-     *  *
-     * @param DescribeScreenSettingRequest $request DescribeScreenSettingRequest
+     * 查询大屏配置.
      *
-     * @return DescribeScreenSettingResponse DescribeScreenSettingResponse
+     * @param request - DescribeScreenSettingRequest
+     *
+     * @returns DescribeScreenSettingResponse
+     *
+     * @param DescribeScreenSettingRequest $request
+     *
+     * @return DescribeScreenSettingResponse
      */
     public function describeScreenSetting($request)
     {
@@ -780,11 +875,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询大屏统计信息
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询大屏统计信息.
      *
-     * @return DescribeScreenSummaryInfoResponse DescribeScreenSummaryInfoResponse
+     * @param request - DescribeScreenSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenSummaryInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenSummaryInfoResponse
      */
     public function describeScreenSummaryInfoWithOptions($runtime)
     {
@@ -800,17 +900,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenSummaryInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询大屏统计信息
-     *  *
-     * @return DescribeScreenSummaryInfoResponse DescribeScreenSummaryInfoResponse
+     * 查询大屏统计信息.
+     *
+     * @returns DescribeScreenSummaryInfoResponse
+     *
+     * @return DescribeScreenSummaryInfoResponse
      */
     public function describeScreenSummaryInfo()
     {
@@ -820,11 +919,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取大屏幕设置全部列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取大屏幕设置全部列表.
      *
-     * @return DescribeScreenTitlesResponse DescribeScreenTitlesResponse
+     * @param request - DescribeScreenTitlesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenTitlesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenTitlesResponse
      */
     public function describeScreenTitlesWithOptions($runtime)
     {
@@ -840,17 +944,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenTitlesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenTitlesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenTitlesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取大屏幕设置全部列表
-     *  *
-     * @return DescribeScreenTitlesResponse DescribeScreenTitlesResponse
+     * 获取大屏幕设置全部列表.
+     *
+     * @returns DescribeScreenTitlesResponse
+     *
+     * @return DescribeScreenTitlesResponse
      */
     public function describeScreenTitles()
     {
@@ -860,22 +963,28 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询上传之后的图片显示地址
-     *  *
-     * @param DescribeScreenUploadPictureRequest $request DescribeScreenUploadPictureRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询上传之后的图片显示地址
      *
-     * @return DescribeScreenUploadPictureResponse DescribeScreenUploadPictureResponse
+     * @param request - DescribeScreenUploadPictureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenUploadPictureResponse
+     *
+     * @param DescribeScreenUploadPictureRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeScreenUploadPictureResponse
      */
     public function describeScreenUploadPictureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logoUrl)) {
-            $query['LogoUrl'] = $request->logoUrl;
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeScreenUploadPicture',
@@ -888,19 +997,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenUploadPictureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenUploadPictureResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenUploadPictureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询上传之后的图片显示地址
-     *  *
-     * @param DescribeScreenUploadPictureRequest $request DescribeScreenUploadPictureRequest
+     * 查询上传之后的图片显示地址
      *
-     * @return DescribeScreenUploadPictureResponse DescribeScreenUploadPictureResponse
+     * @param request - DescribeScreenUploadPictureRequest
+     *
+     * @returns DescribeScreenUploadPictureResponse
+     *
+     * @param DescribeScreenUploadPictureRequest $request
+     *
+     * @return DescribeScreenUploadPictureResponse
      */
     public function describeScreenUploadPicture($request)
     {
@@ -910,11 +1020,16 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询安全大屏版本配置
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询安全大屏版本配置.
      *
-     * @return DescribeScreenVersionConfigResponse DescribeScreenVersionConfigResponse
+     * @param request - DescribeScreenVersionConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScreenVersionConfigResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeScreenVersionConfigResponse
      */
     public function describeScreenVersionConfigWithOptions($runtime)
     {
@@ -930,17 +1045,16 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScreenVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScreenVersionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScreenVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询安全大屏版本配置
-     *  *
-     * @return DescribeScreenVersionConfigResponse DescribeScreenVersionConfigResponse
+     * 查询安全大屏版本配置.
+     *
+     * @returns DescribeScreenVersionConfigResponse
+     *
+     * @return DescribeScreenVersionConfigResponse
      */
     public function describeScreenVersionConfig()
     {
@@ -950,34 +1064,44 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件检测结果。
-     *  *
-     * @param GetFileDetectResultInnerRequest $request GetFileDetectResultInnerRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取文件检测结果。
      *
-     * @return GetFileDetectResultInnerResponse GetFileDetectResultInnerResponse
+     * @param request - GetFileDetectResultInnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileDetectResultInnerResponse
+     *
+     * @param GetFileDetectResultInnerRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetFileDetectResultInnerResponse
      */
     public function getFileDetectResultInnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dnaHashKeyList)) {
-            $query['DnaHashKeyList'] = $request->dnaHashKeyList;
+        if (null !== $request->dnaHashKeyList) {
+            @$query['DnaHashKeyList'] = $request->dnaHashKeyList;
         }
-        if (!Utils::isUnset($request->hashKeyList)) {
-            $query['HashKeyList'] = $request->hashKeyList;
+
+        if (null !== $request->hashKeyList) {
+            @$query['HashKeyList'] = $request->hashKeyList;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFileDetectResultInner',
@@ -990,19 +1114,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetFileDetectResultInnerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFileDetectResultInnerResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFileDetectResultInnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文件检测结果。
-     *  *
-     * @param GetFileDetectResultInnerRequest $request GetFileDetectResultInnerRequest
+     * 获取文件检测结果。
      *
-     * @return GetFileDetectResultInnerResponse GetFileDetectResultInnerResponse
+     * @param request - GetFileDetectResultInnerRequest
+     *
+     * @returns GetFileDetectResultInnerResponse
+     *
+     * @param GetFileDetectResultInnerRequest $request
+     *
+     * @return GetFileDetectResultInnerResponse
      */
     public function getFileDetectResultInner($request)
     {
@@ -1012,27 +1137,34 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 首页配置情况汇总接口
-     *  *
-     * @param ListGlobalUserConfigRequest $tmpReq  ListGlobalUserConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 首页配置情况汇总接口.
      *
-     * @return ListGlobalUserConfigResponse ListGlobalUserConfigResponse
+     * @param tmpReq - ListGlobalUserConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGlobalUserConfigResponse
+     *
+     * @param ListGlobalUserConfigRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListGlobalUserConfigResponse
      */
     public function listGlobalUserConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListGlobalUserConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->moduleList)) {
-            $request->moduleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moduleList, 'ModuleList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->moduleList) {
+            $request->moduleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->moduleList, 'ModuleList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->moduleListShrink)) {
-            $query['ModuleList'] = $request->moduleListShrink;
+        if (null !== $request->moduleListShrink) {
+            @$query['ModuleList'] = $request->moduleListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGlobalUserConfig',
@@ -1045,19 +1177,20 @@ class Sas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGlobalUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGlobalUserConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGlobalUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 首页配置情况汇总接口
-     *  *
-     * @param ListGlobalUserConfigRequest $request ListGlobalUserConfigRequest
+     * 首页配置情况汇总接口.
      *
-     * @return ListGlobalUserConfigResponse ListGlobalUserConfigResponse
+     * @param request - ListGlobalUserConfigRequest
+     *
+     * @returns ListGlobalUserConfigResponse
+     *
+     * @param ListGlobalUserConfigRequest $request
+     *
+     * @return ListGlobalUserConfigResponse
      */
     public function listGlobalUserConfig($request)
     {

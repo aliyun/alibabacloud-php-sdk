@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenDataMapResponseBody\sasScreenTypeList\typeData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class date extends Model
 {
     /**
-     * @example second
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class date extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class date extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return date
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

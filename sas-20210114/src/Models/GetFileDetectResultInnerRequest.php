@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileDetectResultInnerRequest extends Model
 {
@@ -14,8 +14,6 @@ class GetFileDetectResultInnerRequest extends Model
     public $dnaHashKeyList;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $hashKeyList;
@@ -42,23 +40,50 @@ class GetFileDetectResultInnerRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dnaHashKeyList)) {
+            Model::validateArray($this->dnaHashKeyList);
+        }
+        if (\is_array($this->hashKeyList)) {
+            Model::validateArray($this->hashKeyList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnaHashKeyList) {
-            $res['DnaHashKeyList'] = $this->dnaHashKeyList;
+            if (\is_array($this->dnaHashKeyList)) {
+                $res['DnaHashKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->dnaHashKeyList as $item1) {
+                    $res['DnaHashKeyList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->hashKeyList) {
-            $res['HashKeyList'] = $this->hashKeyList;
+            if (\is_array($this->hashKeyList)) {
+                $res['HashKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->hashKeyList as $item1) {
+                    $res['HashKeyList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -66,30 +91,44 @@ class GetFileDetectResultInnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDetectResultInnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnaHashKeyList'])) {
             if (!empty($map['DnaHashKeyList'])) {
-                $model->dnaHashKeyList = $map['DnaHashKeyList'];
+                $model->dnaHashKeyList = [];
+                $n1 = 0;
+                foreach ($map['DnaHashKeyList'] as $item1) {
+                    $model->dnaHashKeyList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['HashKeyList'])) {
             if (!empty($map['HashKeyList'])) {
-                $model->hashKeyList = $map['HashKeyList'];
+                $model->hashKeyList = [];
+                $n1 = 0;
+                foreach ($map['HashKeyList'] as $item1) {
+                    $model->hashKeyList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

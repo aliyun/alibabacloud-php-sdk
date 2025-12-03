@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScreenAttackAnalysisDataResponseBody extends Model
 {
     /**
-     * @example [{\\"crack_hour\\":1662480000000,\\"crack_cnt\\":471},{\\"crack_hour\\":1662483600000,\\"crack_cnt\\":461},{\\"crack_hour\\":1662487200000,\\"crack_cnt\\":445},{\\"crack_hour\\":1662490800000,\\"crack_cnt\\":471},{\\"crack_hour\\":1662494400000,\\"crack_cnt\\":534},{\\"crack_hour\\":1662498000000,\\"crack_cnt\\":652},{\\"crack_hour\\":1662501600000,\\"crack_cnt\\":706},{\\"crack_hour\\":1662505200000,\\"crack_cnt\\":613},{\\"crack_hour\\":1662508800000,\\"crack_cnt\\":578},{\\"crack_hour\\":1662512400000,\\"crack_cnt\\":577},{\\"crack_hour\\":1662516000000,\\"crack_cnt\\":616},{\\"crack_hour\\":1662519600000,\\"crack_cnt\\":597},{\\"crack_hour\\":1662523200000,\\"crack_cnt\\":575},{\\"crack_hour\\":1662526800000,\\"crack_cnt\\":507}]
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 7532B7EE-7CE7-5F4D-BF04-Bxxxxxxxx
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 11
-     *
      * @var int
      */
     public $total;
@@ -50,23 +40,30 @@ class DescribeScreenAttackAnalysisDataResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -74,26 +71,30 @@ class DescribeScreenAttackAnalysisDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScreenAttackAnalysisDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

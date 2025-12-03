@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenTitlesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sasScreenSettingList extends Model
 {
     /**
-     * @example 3267
-     *
      * @var int
      */
     public $screenID;
 
     /**
-     * @example titlexxx
-     *
      * @var string
      */
     public $screenTitle;
@@ -26,14 +22,18 @@ class sasScreenSettingList extends Model
         'screenTitle' => 'ScreenTitle',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->screenID) {
             $res['ScreenID'] = $this->screenID;
         }
+
         if (null !== $this->screenTitle) {
             $res['ScreenTitle'] = $this->screenTitle;
         }
@@ -41,17 +41,18 @@ class sasScreenSettingList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sasScreenSettingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScreenID'])) {
             $model->screenID = $map['ScreenID'];
         }
+
         if (isset($map['ScreenTitle'])) {
             $model->screenTitle = $map['ScreenTitle'];
         }

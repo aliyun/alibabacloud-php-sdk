@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenEmerRiskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cloudHcRiskItems extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $affectCount;
 
     /**
-     * @example ASAP
-     *
      * @var string
      */
     public $level;
@@ -32,17 +28,22 @@ class cloudHcRiskItems extends Model
         'vulName' => 'VulName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->affectCount) {
             $res['AffectCount'] = $this->affectCount;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->vulName) {
             $res['VulName'] = $this->vulName;
         }
@@ -50,20 +51,22 @@ class cloudHcRiskItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cloudHcRiskItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AffectCount'])) {
             $model->affectCount = $map['AffectCount'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['VulName'])) {
             $model->vulName = $map['VulName'];
         }

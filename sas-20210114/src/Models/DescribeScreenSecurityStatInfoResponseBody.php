@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenSecurityStatInfoResponseBody\attackEvent;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenSecurityStatInfoResponseBody\healthCheck;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenSecurityStatInfoResponseBody\securityEvent;
 use AlibabaCloud\SDK\Sas\V20210114\Models\DescribeScreenSecurityStatInfoResponseBody\vulnerability;
-use AlibabaCloud\Tea\Model;
 
 class DescribeScreenSecurityStatInfoResponseBody extends Model
 {
@@ -23,8 +23,6 @@ class DescribeScreenSecurityStatInfoResponseBody extends Model
     public $healthCheck;
 
     /**
-     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
-     *
      * @var string
      */
     public $requestId;
@@ -46,50 +44,73 @@ class DescribeScreenSecurityStatInfoResponseBody extends Model
         'vulnerability' => 'Vulnerability',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->attackEvent) {
+            $this->attackEvent->validate();
+        }
+        if (null !== $this->healthCheck) {
+            $this->healthCheck->validate();
+        }
+        if (null !== $this->securityEvent) {
+            $this->securityEvent->validate();
+        }
+        if (null !== $this->vulnerability) {
+            $this->vulnerability->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attackEvent) {
-            $res['AttackEvent'] = null !== $this->attackEvent ? $this->attackEvent->toMap() : null;
+            $res['AttackEvent'] = null !== $this->attackEvent ? $this->attackEvent->toArray($noStream) : $this->attackEvent;
         }
+
         if (null !== $this->healthCheck) {
-            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
+            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toArray($noStream) : $this->healthCheck;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityEvent) {
-            $res['SecurityEvent'] = null !== $this->securityEvent ? $this->securityEvent->toMap() : null;
+            $res['SecurityEvent'] = null !== $this->securityEvent ? $this->securityEvent->toArray($noStream) : $this->securityEvent;
         }
+
         if (null !== $this->vulnerability) {
-            $res['Vulnerability'] = null !== $this->vulnerability ? $this->vulnerability->toMap() : null;
+            $res['Vulnerability'] = null !== $this->vulnerability ? $this->vulnerability->toArray($noStream) : $this->vulnerability;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScreenSecurityStatInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttackEvent'])) {
             $model->attackEvent = attackEvent::fromMap($map['AttackEvent']);
         }
+
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityEvent'])) {
             $model->securityEvent = securityEvent::fromMap($map['SecurityEvent']);
         }
+
         if (isset($map['Vulnerability'])) {
             $model->vulnerability = vulnerability::fromMap($map['Vulnerability']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListGlobalUserConfigRequest extends Model
 {
@@ -16,29 +16,47 @@ class ListGlobalUserConfigRequest extends Model
         'moduleList' => 'ModuleList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->moduleList)) {
+            Model::validateArray($this->moduleList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleList) {
-            $res['ModuleList'] = $this->moduleList;
+            if (\is_array($this->moduleList)) {
+                $res['ModuleList'] = [];
+                $n1 = 0;
+                foreach ($this->moduleList as $item1) {
+                    $res['ModuleList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGlobalUserConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleList'])) {
             if (!empty($map['ModuleList'])) {
-                $model->moduleList = $map['ModuleList'];
+                $model->moduleList = [];
+                $n1 = 0;
+                foreach ($map['ModuleList'] as $item1) {
+                    $model->moduleList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

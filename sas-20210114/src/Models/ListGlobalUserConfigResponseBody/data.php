@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20210114\Models\ListGlobalUserConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $globalConfigSwitch;
 
     /**
-     * @example ransomware_breaking
-     *
      * @var string
      */
     public $moduleName;
@@ -26,14 +22,18 @@ class data extends Model
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalConfigSwitch) {
             $res['GlobalConfigSwitch'] = $this->globalConfigSwitch;
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalConfigSwitch'])) {
             $model->globalConfigSwitch = $map['GlobalConfigSwitch'];
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }
