@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteAdvancedQueryHistoryRequ
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteAdvancedQueryHistoryResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteAdvancedQueryTemplateRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteAdvancedQueryTemplateResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteDataEventSelectorRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteDataEventSelectorResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteDeliveryHistoryJobRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteDeliveryHistoryJobResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DeleteTrailRequest;
@@ -52,18 +54,24 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesR
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedResourcesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAdvancedQueryTemplateRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAdvancedQueryTemplateResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDataEventSelectorRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDataEventSelectorResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetGlobalEventsStorageRegionResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetGovernanceMetricsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDataEventSelectorsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDataEventSelectorsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDataEventServicesRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDataEventServicesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDeliveryHistoryJobsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDeliveryHistoryJobsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupEventsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupEventsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutDataEventSelectorRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutDataEventSelectorResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StopLoggingRequest;
@@ -591,6 +599,63 @@ class Actiontrail extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAdvancedQueryTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据事件选择器.
+     *
+     * @param request - DeleteDataEventSelectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataEventSelectorResponse
+     *
+     * @param DeleteDataEventSelectorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDataEventSelectorResponse
+     */
+    public function deleteDataEventSelectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->trailName) {
+            @$query['TrailName'] = $request->trailName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataEventSelector',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataEventSelectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据事件选择器.
+     *
+     * @param request - DeleteDataEventSelectorRequest
+     *
+     * @returns DeleteDataEventSelectorResponse
+     *
+     * @param DeleteDataEventSelectorRequest $request
+     *
+     * @return DeleteDataEventSelectorResponse
+     */
+    public function deleteDataEventSelector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataEventSelectorWithOptions($request, $runtime);
     }
 
     /**
@@ -1733,6 +1798,63 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 查询事件选择器.
+     *
+     * @param request - GetDataEventSelectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataEventSelectorResponse
+     *
+     * @param GetDataEventSelectorRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDataEventSelectorResponse
+     */
+    public function getDataEventSelectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->trailName) {
+            @$query['TrailName'] = $request->trailName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataEventSelector',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataEventSelectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询事件选择器.
+     *
+     * @param request - GetDataEventSelectorRequest
+     *
+     * @returns GetDataEventSelectorResponse
+     *
+     * @param GetDataEventSelectorRequest $request
+     *
+     * @return GetDataEventSelectorResponse
+     */
+    public function getDataEventSelector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataEventSelectorWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a data backfill task.
      *
      * @remarks
@@ -1959,6 +2081,67 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 批量查询事件选择器.
+     *
+     * @param request - ListDataEventSelectorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataEventSelectorsResponse
+     *
+     * @param ListDataEventSelectorsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataEventSelectorsResponse
+     */
+    public function listDataEventSelectorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataEventSelectors',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataEventSelectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询事件选择器.
+     *
+     * @param request - ListDataEventSelectorsRequest
+     *
+     * @returns ListDataEventSelectorsResponse
+     *
+     * @param ListDataEventSelectorsRequest $request
+     *
+     * @return ListDataEventSelectorsResponse
+     */
+    public function listDataEventSelectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataEventSelectorsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询数据事件支持的服务与事件名称.
      *
      * @param request - ListDataEventServicesRequest
@@ -2169,6 +2352,75 @@ class Actiontrail extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->lookupEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建事件选择器.
+     *
+     * @param request - PutDataEventSelectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutDataEventSelectorResponse
+     *
+     * @param PutDataEventSelectorRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PutDataEventSelectorResponse
+     */
+    public function putDataEventSelectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventSelectors) {
+            @$query['EventSelectors'] = $request->eventSelectors;
+        }
+
+        if (null !== $request->isTrailAllRegion) {
+            @$query['IsTrailAllRegion'] = $request->isTrailAllRegion;
+        }
+
+        if (null !== $request->trailName) {
+            @$query['TrailName'] = $request->trailName;
+        }
+
+        if (null !== $request->trailRegionIds) {
+            @$query['TrailRegionIds'] = $request->trailRegionIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutDataEventSelector',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutDataEventSelectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建事件选择器.
+     *
+     * @param request - PutDataEventSelectorRequest
+     *
+     * @returns PutDataEventSelectorResponse
+     *
+     * @param PutDataEventSelectorRequest $request
+     *
+     * @return PutDataEventSelectorResponse
+     */
+    public function putDataEventSelector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putDataEventSelectorWithOptions($request, $runtime);
     }
 
     /**
