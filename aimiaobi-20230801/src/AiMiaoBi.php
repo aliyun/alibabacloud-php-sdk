@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteRes
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneralConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneralConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentShrinkRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDocsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDocsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteFactAuditUrlRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteFactAuditUrlResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneralConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneralConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
@@ -164,6 +168,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFactAuditUrlRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFactAuditUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetFileContentLengthResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneralConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneralConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastRequest;
@@ -230,8 +236,12 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocumentRetrieveRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocumentRetrieveResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneralConfigsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneralConfigsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeRequest;
@@ -329,6 +339,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationSh
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationShrinkRequest;
@@ -348,6 +361,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTextPolishingResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTopicSelectionMergeRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTopicSelectionMergeResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTopicSelectionMergeShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationShrinkRequest;
@@ -425,6 +441,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetDocumentShrinkReques
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneralConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneralConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentShrinkRequest;
@@ -1507,6 +1525,71 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 通用配置-创建.
+     *
+     * @param request - CreateGeneralConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGeneralConfigResponse
+     *
+     * @param CreateGeneralConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateGeneralConfigResponse
+     */
+    public function createGeneralConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configKey) {
+            @$body['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->configValue) {
+            @$body['ConfigValue'] = $request->configValue;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGeneralConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGeneralConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用配置-创建.
+     *
+     * @param request - CreateGeneralConfigRequest
+     *
+     * @returns CreateGeneralConfigResponse
+     *
+     * @param CreateGeneralConfigRequest $request
+     *
+     * @return CreateGeneralConfigResponse
+     */
+    public function createGeneralConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGeneralConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 文档管理-创建.
      *
      * @param tmpReq - CreateGeneratedContentRequest
@@ -2241,6 +2324,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFactAuditUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通用配置-删除.
+     *
+     * @param request - DeleteGeneralConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGeneralConfigResponse
+     *
+     * @param DeleteGeneralConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteGeneralConfigResponse
+     */
+    public function deleteGeneralConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configKey) {
+            @$body['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGeneralConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGeneralConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用配置-删除.
+     *
+     * @param request - DeleteGeneralConfigRequest
+     *
+     * @returns DeleteGeneralConfigResponse
+     *
+     * @param DeleteGeneralConfigRequest $request
+     *
+     * @return DeleteGeneralConfigResponse
+     */
+    public function deleteGeneralConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGeneralConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -5272,6 +5416,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 通用配置-查询.
+     *
+     * @param request - GetGeneralConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGeneralConfigResponse
+     *
+     * @param GetGeneralConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetGeneralConfigResponse
+     */
+    public function getGeneralConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configKey) {
+            @$body['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGeneralConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGeneralConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用配置-查询.
+     *
+     * @param request - GetGeneralConfigRequest
+     *
+     * @returns GetGeneralConfigResponse
+     *
+     * @param GetGeneralConfigRequest $request
+     *
+     * @return GetGeneralConfigResponse
+     */
+    public function getGeneralConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGeneralConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 文档管理-查询详情。
      *
      * @param request - GetGeneratedContentRequest
@@ -7433,6 +7638,113 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 公文检索.
+     *
+     * @param request - ListDocumentRetrieveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDocumentRetrieveResponse
+     *
+     * @param ListDocumentRetrieveRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDocumentRetrieveResponse
+     */
+    public function listDocumentRetrieveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->elementScope) {
+            @$query['ElementScope'] = $request->elementScope;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->office) {
+            @$query['Office'] = $request->office;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->subContentType) {
+            @$query['SubContentType'] = $request->subContentType;
+        }
+
+        if (null !== $request->wordSize) {
+            @$query['WordSize'] = $request->wordSize;
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDocumentRetrieve',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDocumentRetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公文检索.
+     *
+     * @param request - ListDocumentRetrieveRequest
+     *
+     * @returns ListDocumentRetrieveResponse
+     *
+     * @param ListDocumentRetrieveRequest $request
+     *
+     * @return ListDocumentRetrieveResponse
+     */
+    public function listDocumentRetrieve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentRetrieveWithOptions($request, $runtime);
+    }
+
+    /**
      * 新颖视角列表.
      *
      * @param request - ListFreshViewPointsRequest
@@ -7505,6 +7817,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFreshViewPointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通用配置-列表.
+     *
+     * @param request - ListGeneralConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGeneralConfigsResponse
+     *
+     * @param ListGeneralConfigsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListGeneralConfigsResponse
+     */
+    public function listGeneralConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGeneralConfigs',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGeneralConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用配置-列表.
+     *
+     * @param request - ListGeneralConfigsRequest
+     *
+     * @returns ListGeneralConfigsResponse
+     *
+     * @param ListGeneralConfigsRequest $request
+     *
+     * @return ListGeneralConfigsResponse
+     */
+    public function listGeneralConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGeneralConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -12521,6 +12898,166 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 快速写作.
+     *
+     * @param tmpReq - RunQuickWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunQuickWritingResponse
+     *
+     * @param RunQuickWritingRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RunQuickWritingResponse
+     */
+    public function runQuickWritingWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunQuickWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->articles) {
+            $request->articlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->articles, 'Articles', 'json');
+        }
+
+        if (null !== $tmpReq->searchSources) {
+            $request->searchSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->articlesShrink) {
+            @$body['Articles'] = $request->articlesShrink;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->searchSourcesShrink) {
+            @$body['SearchSources'] = $request->searchSourcesShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunQuickWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunQuickWritingResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 快速写作.
+     *
+     * @param tmpReq - RunQuickWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunQuickWritingResponse
+     *
+     * @param RunQuickWritingRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RunQuickWritingResponse
+     */
+    public function runQuickWritingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunQuickWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->articles) {
+            $request->articlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->articles, 'Articles', 'json');
+        }
+
+        if (null !== $tmpReq->searchSources) {
+            $request->searchSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->articlesShrink) {
+            @$body['Articles'] = $request->articlesShrink;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->searchSourcesShrink) {
+            @$body['SearchSources'] = $request->searchSourcesShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunQuickWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunQuickWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 快速写作.
+     *
+     * @param request - RunQuickWritingRequest
+     *
+     * @returns RunQuickWritingResponse
+     *
+     * @param RunQuickWritingRequest $request
+     *
+     * @return RunQuickWritingResponse
+     */
+    public function runQuickWriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runQuickWritingWithOptions($request, $runtime);
+    }
+
+    /**
      * AI妙搜-智能搜索生成.
      *
      * @param tmpReq - RunSearchGenerationRequest
@@ -13582,6 +14119,142 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runTitleGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 妙策选题策划聚合.
+     *
+     * @param tmpReq - RunTopicSelectionMergeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunTopicSelectionMergeResponse
+     *
+     * @param RunTopicSelectionMergeRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunTopicSelectionMergeResponse
+     */
+    public function runTopicSelectionMergeWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunTopicSelectionMergeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunTopicSelectionMerge',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunTopicSelectionMergeResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 妙策选题策划聚合.
+     *
+     * @param tmpReq - RunTopicSelectionMergeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunTopicSelectionMergeResponse
+     *
+     * @param RunTopicSelectionMergeRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunTopicSelectionMergeResponse
+     */
+    public function runTopicSelectionMergeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunTopicSelectionMergeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunTopicSelectionMerge',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunTopicSelectionMergeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 妙策选题策划聚合.
+     *
+     * @param request - RunTopicSelectionMergeRequest
+     *
+     * @returns RunTopicSelectionMergeResponse
+     *
+     * @param RunTopicSelectionMergeRequest $request
+     *
+     * @return RunTopicSelectionMergeResponse
+     */
+    public function runTopicSelectionMerge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTopicSelectionMergeWithOptions($request, $runtime);
     }
 
     /**
@@ -16476,6 +17149,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDatasetDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通用配置-更新.
+     *
+     * @param request - UpdateGeneralConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGeneralConfigResponse
+     *
+     * @param UpdateGeneralConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateGeneralConfigResponse
+     */
+    public function updateGeneralConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configKey) {
+            @$body['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->configValue) {
+            @$body['ConfigValue'] = $request->configValue;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGeneralConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGeneralConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用配置-更新.
+     *
+     * @param request - UpdateGeneralConfigRequest
+     *
+     * @returns UpdateGeneralConfigResponse
+     *
+     * @param UpdateGeneralConfigRequest $request
+     *
+     * @return UpdateGeneralConfigResponse
+     */
+    public function updateGeneralConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGeneralConfigWithOptions($request, $runtime);
     }
 
     /**
