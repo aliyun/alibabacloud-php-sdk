@@ -63,6 +63,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunSh
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetVersionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDatasetVersionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
@@ -143,6 +149,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityScanReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityScanResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDatasetRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDatasetVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDatasetVersionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleRequest;
@@ -231,6 +241,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatasetRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatasetVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatasetVersionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentPackageRequest;
@@ -345,6 +359,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityTemplatesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityTemplatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatasetsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatasetsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatasetVersionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatasetVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
@@ -454,6 +473,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
@@ -542,6 +563,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityScanRespo
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityScanShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDatasetRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDatasetVersionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDatasetVersionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
@@ -2680,6 +2705,172 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceSharedRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param tmpReq - CreateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->initVersion) {
+            $request->initVersionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->initVersion, 'InitVersion', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->initVersionShrink) {
+            @$body['InitVersion'] = $request->initVersionShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->origin) {
+            @$body['Origin'] = $request->origin;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->storageType) {
+            @$body['StorageType'] = $request->storageType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataset',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param Request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据集版本.
+     *
+     * @param tmpReq - CreateDatasetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetVersionResponse
+     *
+     * @param CreateDatasetVersionRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDatasetVersionResponse
+     */
+    public function createDatasetVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDatasetVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->importInfo) {
+            $request->importInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->importInfo, 'ImportInfo', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->importInfoShrink) {
+            @$body['ImportInfo'] = $request->importInfoShrink;
+        }
+
+        if (null !== $request->mountPath) {
+            @$body['MountPath'] = $request->mountPath;
+        }
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatasetVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据集版本.
+     *
+     * @param Request - CreateDatasetVersionRequest
+     *
+     * @returns CreateDatasetVersionResponse
+     *
+     * @param CreateDatasetVersionRequest $request
+     *
+     * @return CreateDatasetVersionResponse
+     */
+    public function createDatasetVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -5447,6 +5638,120 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除数据集.
+     *
+     * @param Request - DeleteDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataset',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据集.
+     *
+     * @param Request - DeleteDatasetRequest
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据集版本.
+     *
+     * @param Request - DeleteDatasetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetVersionResponse
+     *
+     * @param DeleteDatasetVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDatasetVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据集版本.
+     *
+     * @param Request - DeleteDatasetVersionRequest
+     *
+     * @returns DeleteDatasetVersionResponse
+     *
+     * @param DeleteDatasetVersionRequest $request
+     *
+     * @return DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param Request - DeleteFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8098,6 +8403,120 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据集详情.
+     *
+     * @param Request - GetDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataset',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集详情.
+     *
+     * @param Request - GetDatasetRequest
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据集版本.
+     *
+     * @param Request - GetDatasetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetVersionResponse
+     *
+     * @param GetDatasetVersionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDatasetVersionResponse
+     */
+    public function getDatasetVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDatasetVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集版本.
+     *
+     * @param Request - GetDatasetVersionRequest
+     *
+     * @returns GetDatasetVersionResponse
+     *
+     * @param GetDatasetVersionRequest $request
+     *
+     * @return GetDatasetVersionResponse
+     */
+    public function getDatasetVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatasetVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -11828,6 +12247,186 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 获取数据集版本列表.
+     *
+     * @param Request - ListDatasetVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetVersionsResponse
+     *
+     * @param ListDatasetVersionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDatasetVersionsResponse
+     */
+    public function listDatasetVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->creatorId) {
+            @$body['CreatorId'] = $request->creatorId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasetVersions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集版本列表.
+     *
+     * @param Request - ListDatasetVersionsRequest
+     *
+     * @returns ListDatasetVersionsResponse
+     *
+     * @param ListDatasetVersionsRequest $request
+     *
+     * @return ListDatasetVersionsResponse
+     */
+    public function listDatasetVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatasetVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据集列表.
+     *
+     * @param tmpReq - ListDatasetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasetsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDatasetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataTypeList) {
+            $request->dataTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataTypeList, 'DataTypeList', 'simple');
+        }
+
+        if (null !== $tmpReq->storageTypeList) {
+            $request->storageTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storageTypeList, 'StorageTypeList', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->creatorId) {
+            @$body['CreatorId'] = $request->creatorId;
+        }
+
+        if (null !== $request->dataTypeListShrink) {
+            @$body['DataTypeList'] = $request->dataTypeListShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        if (null !== $request->origin) {
+            @$body['Origin'] = $request->origin;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->storageTypeListShrink) {
+            @$body['StorageTypeList'] = $request->storageTypeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasets',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集列表.
+     *
+     * @param Request - ListDatasetsRequest
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatasetsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of versions of files to be deployed.
      *
      * @param tmpReq - ListDeploymentPackageFilesRequest
@@ -14754,6 +15353,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预览数据集版本内容.
+     *
+     * @param Request - PreviewDatasetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewDatasetVersionResponse
+     *
+     * @param PreviewDatasetVersionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PreviewDatasetVersionResponse
+     */
+    public function previewDatasetVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewDatasetVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预览数据集版本内容.
+     *
+     * @param Request - PreviewDatasetVersionRequest
+     *
+     * @returns PreviewDatasetVersionResponse
+     *
+     * @param PreviewDatasetVersionRequest $request
+     *
+     * @return PreviewDatasetVersionResponse
+     */
+    public function previewDatasetVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->previewDatasetVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -17697,6 +18353,136 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据集.
+     *
+     * @param Request - UpdateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->readme) {
+            @$body['Readme'] = $request->readme;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataset',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据集.
+     *
+     * @param Request - UpdateDatasetRequest
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据集版本信息.
+     *
+     * @param Request - UpdateDatasetVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetVersionResponse
+     *
+     * @param UpdateDatasetVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDatasetVersionResponse
+     */
+    public function updateDatasetVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDatasetVersion',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据集版本信息.
+     *
+     * @param Request - UpdateDatasetVersionRequest
+     *
+     * @returns UpdateDatasetVersionResponse
+     *
+     * @param UpdateDatasetVersionRequest $request
+     *
+     * @return UpdateDatasetVersionResponse
+     */
+    public function updateDatasetVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDatasetVersionWithOptions($request, $runtime);
     }
 
     /**
