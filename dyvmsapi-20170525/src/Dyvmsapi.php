@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
@@ -75,6 +77,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsRealNumberCallConnectionRateInfoRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsRealNumberCallConnectionRateInfoResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsVirtualNumberRelationByPageRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsVirtualNumberRelationByPageResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigRequest;
@@ -368,6 +374,71 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchRobotSmartCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CancelCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelCallResponse
+     *
+     * @param CancelCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelCallResponse
+     */
+    public function cancelCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelCall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CancelCallRequest
+     *
+     * @returns CancelCallResponse
+     *
+     * @param CancelCallRequest $request
+     *
+     * @return CancelCallResponse
+     */
+    public function cancelCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelCallWithOptions($request, $runtime);
     }
 
     /**
@@ -3197,6 +3268,176 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryVirtualNumberRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询真实号接通率.
+     *
+     * @param request - QueryVmsRealNumberCallConnectionRateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVmsRealNumberCallConnectionRateInfoResponse
+     *
+     * @param QueryVmsRealNumberCallConnectionRateInfoRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+     */
+    public function queryVmsRealNumberCallConnectionRateInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->realNumber) {
+            @$query['RealNumber'] = $request->realNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->timePeriod) {
+            @$query['TimePeriod'] = $request->timePeriod;
+        }
+
+        if (null !== $request->virtualNumber) {
+            @$query['VirtualNumber'] = $request->virtualNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVmsRealNumberCallConnectionRateInfo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVmsRealNumberCallConnectionRateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询真实号接通率.
+     *
+     * @param request - QueryVmsRealNumberCallConnectionRateInfoRequest
+     *
+     * @returns QueryVmsRealNumberCallConnectionRateInfoResponse
+     *
+     * @param QueryVmsRealNumberCallConnectionRateInfoRequest $request
+     *
+     * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+     */
+    public function queryVmsRealNumberCallConnectionRateInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVmsRealNumberCallConnectionRateInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询虚拟号码与真实号码绑定关系列表.
+     *
+     * @param request - QueryVmsVirtualNumberRelationByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVmsVirtualNumberRelationByPageResponse
+     *
+     * @param QueryVmsVirtualNumberRelationByPageRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryVmsVirtualNumberRelationByPageResponse
+     */
+    public function queryVmsVirtualNumberRelationByPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->numberCity) {
+            @$query['NumberCity'] = $request->numberCity;
+        }
+
+        if (null !== $request->numberProvince) {
+            @$query['NumberProvince'] = $request->numberProvince;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->realNumber) {
+            @$query['RealNumber'] = $request->realNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->virtualNumber) {
+            @$query['VirtualNumber'] = $request->virtualNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVmsVirtualNumberRelationByPage',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVmsVirtualNumberRelationByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询虚拟号码与真实号码绑定关系列表.
+     *
+     * @param request - QueryVmsVirtualNumberRelationByPageRequest
+     *
+     * @returns QueryVmsVirtualNumberRelationByPageResponse
+     *
+     * @param QueryVmsVirtualNumberRelationByPageRequest $request
+     *
+     * @return QueryVmsVirtualNumberRelationByPageResponse
+     */
+    public function queryVmsVirtualNumberRelationByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVmsVirtualNumberRelationByPageWithOptions($request, $runtime);
     }
 
     /**
