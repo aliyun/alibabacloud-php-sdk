@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponseBody;
+namespace AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayResponseBody;
 
 use AlibabaCloud\Dara\Model;
 

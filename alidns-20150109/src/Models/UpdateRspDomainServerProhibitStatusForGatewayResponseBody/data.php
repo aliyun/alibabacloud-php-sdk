@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponseBody;
+namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponseBody\data\statusList;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayResponseBody\data\statusList;
 
 class data extends Model
 {

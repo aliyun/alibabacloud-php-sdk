@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteRequest;
+namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class addStatusList extends Model
+class deleteStatusList extends Model
 {
     /**
      * @var string

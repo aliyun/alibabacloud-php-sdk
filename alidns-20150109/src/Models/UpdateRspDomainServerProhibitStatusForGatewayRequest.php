@@ -5,10 +5,10 @@
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteRequest\addStatusList;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteRequest\deleteStatusList;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayRequest\addStatusList;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayRequest\deleteStatusList;
 
-class UpdateRspDomainStatusOteRequest extends Model
+class UpdateRspDomainServerProhibitStatusForGatewayRequest extends Model
 {
     /**
      * @var addStatusList[]
@@ -29,23 +29,11 @@ class UpdateRspDomainStatusOteRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $operatorId;
-
-    /**
-     * @var string
-     */
-    public $operatorType;
     protected $_name = [
         'addStatusList' => 'AddStatusList',
         'clientToken' => 'ClientToken',
         'deleteStatusList' => 'DeleteStatusList',
         'domainName' => 'DomainName',
-        'operatorId' => 'OperatorId',
-        'operatorType' => 'OperatorType',
     ];
 
     public function validate()
@@ -92,14 +80,6 @@ class UpdateRspDomainStatusOteRequest extends Model
             $res['DomainName'] = $this->domainName;
         }
 
-        if (null !== $this->operatorId) {
-            $res['OperatorId'] = $this->operatorId;
-        }
-
-        if (null !== $this->operatorType) {
-            $res['OperatorType'] = $this->operatorType;
-        }
-
         return $res;
     }
 
@@ -139,14 +119,6 @@ class UpdateRspDomainStatusOteRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-
-        if (isset($map['OperatorId'])) {
-            $model->operatorId = $map['OperatorId'];
-        }
-
-        if (isset($map['OperatorType'])) {
-            $model->operatorType = $map['OperatorType'];
         }
 
         return $model;

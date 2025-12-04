@@ -5,10 +5,10 @@
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponseBody\accessDeniedDetail;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponseBody\data;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayResponseBody\accessDeniedDetail;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayResponseBody\data;
 
-class UpdateRspDomainStatusOteResponseBody extends Model
+class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends Model
 {
     /**
      * @var accessDeniedDetail

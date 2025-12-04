@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateRspDomainServerHoldStatusOteResponse extends Model
+class UpdateRspDomainServerProhibitStatusForGatewayResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateRspDomainServerHoldStatusOteResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateRspDomainServerHoldStatusOteResponseBody
+     * @var UpdateRspDomainServerProhibitStatusForGatewayResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateRspDomainServerHoldStatusOteResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateRspDomainServerHoldStatusOteResponseBody::fromMap($map['body']);
+            $model->body = UpdateRspDomainServerProhibitStatusForGatewayResponseBody::fromMap($map['body']);
         }
 
         return $model;
