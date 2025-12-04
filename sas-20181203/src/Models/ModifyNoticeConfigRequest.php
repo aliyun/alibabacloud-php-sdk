@@ -11,6 +11,11 @@ class ModifyNoticeConfigRequest extends Model
     /**
      * @var string
      */
+    public $bizType;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
@@ -28,6 +33,7 @@ class ModifyNoticeConfigRequest extends Model
      */
     public $timeLimit;
     protected $_name = [
+        'bizType' => 'BizType',
         'project' => 'Project',
         'route' => 'Route',
         'sourceIp' => 'SourceIp',
@@ -42,6 +48,10 @@ class ModifyNoticeConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -69,6 +79,10 @@ class ModifyNoticeConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

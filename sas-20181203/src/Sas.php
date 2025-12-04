@@ -19513,6 +19513,10 @@ class Sas extends OpenApiClient
             @$query['ExportId'] = $request->exportId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -24915,6 +24919,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -27946,6 +27954,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->source) {
@@ -34653,6 +34665,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->params) {
             @$query['Params'] = $request->params;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         $req = new OpenApiRequest([
@@ -54445,6 +54461,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
         if (null !== $request->project) {
             @$query['Project'] = $request->project;
         }
@@ -62488,12 +62508,56 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->alertLevels) {
+            @$query['AlertLevels'] = $request->alertLevels;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
         }
 
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->internetIp) {
+            @$query['InternetIp'] = $request->internetIp;
+        }
+
+        if (null !== $request->intranetIp) {
+            @$query['IntranetIp'] = $request->intranetIp;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->selectAllAcrossPages) {
+            @$query['SelectAllAcrossPages'] = $request->selectAllAcrossPages;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
 
         $req = new OpenApiRequest([
@@ -62549,12 +62613,60 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->alertLevels) {
+            @$query['AlertLevels'] = $request->alertLevels;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
         }
 
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->internetIp) {
+            @$query['InternetIp'] = $request->internetIp;
+        }
+
+        if (null !== $request->intranetIp) {
+            @$query['IntranetIp'] = $request->intranetIp;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->selectAllAcrossPages) {
+            @$query['SelectAllAcrossPages'] = $request->selectAllAcrossPages;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
 
         $req = new OpenApiRequest([

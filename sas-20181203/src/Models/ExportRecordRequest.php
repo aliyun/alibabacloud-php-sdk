@@ -27,11 +27,17 @@ class ExportRecordRequest extends Model
      * @var string
      */
     public $params;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'exportFileType' => 'ExportFileType',
         'exportType' => 'ExportType',
         'lang' => 'Lang',
         'params' => 'Params',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ExportRecordRequest extends Model
 
         if (null !== $this->params) {
             $res['Params'] = $this->params;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ExportRecordRequest extends Model
 
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

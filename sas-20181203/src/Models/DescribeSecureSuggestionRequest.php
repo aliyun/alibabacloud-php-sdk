@@ -21,6 +21,11 @@ class DescribeSecureSuggestionRequest extends Model
     /**
      * @var int
      */
+    public $resourceDirectoryAccountId;
+
+    /**
+     * @var int
+     */
     public $source;
 
     /**
@@ -30,6 +35,7 @@ class DescribeSecureSuggestionRequest extends Model
     protected $_name = [
         'calType' => 'CalType',
         'lang' => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'source' => 'Source',
         'sourceIp' => 'SourceIp',
     ];
@@ -48,6 +54,10 @@ class DescribeSecureSuggestionRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->source) {
@@ -75,6 +85,10 @@ class DescribeSecureSuggestionRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['Source'])) {

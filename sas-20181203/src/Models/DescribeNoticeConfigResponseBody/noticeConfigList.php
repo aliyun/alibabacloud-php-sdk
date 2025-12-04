@@ -14,6 +14,11 @@ class noticeConfigList extends Model
     public $aliUid;
 
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -34,6 +39,7 @@ class noticeConfigList extends Model
     public $timeLimit;
     protected $_name = [
         'aliUid' => 'AliUid',
+        'category' => 'Category',
         'currentPage' => 'CurrentPage',
         'project' => 'Project',
         'route' => 'Route',
@@ -50,6 +56,10 @@ class noticeConfigList extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->currentPage) {
@@ -81,6 +91,10 @@ class noticeConfigList extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['CurrentPage'])) {
