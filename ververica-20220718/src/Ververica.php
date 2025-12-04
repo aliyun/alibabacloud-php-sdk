@@ -4325,6 +4325,10 @@ class Ververica extends OpenApiClient
             @$query['sortName'] = $request->sortName;
         }
 
+        if (null !== $request->sortOrder) {
+            @$query['sortOrder'] = $request->sortOrder;
+        }
+
         $realHeaders = [];
         if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;

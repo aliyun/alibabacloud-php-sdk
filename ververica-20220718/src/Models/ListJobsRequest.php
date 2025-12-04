@@ -27,11 +27,17 @@ class ListJobsRequest extends Model
      * @var string
      */
     public $sortName;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
     protected $_name = [
         'deploymentId' => 'deploymentId',
         'pageIndex' => 'pageIndex',
         'pageSize' => 'pageSize',
         'sortName' => 'sortName',
+        'sortOrder' => 'sortOrder',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->sortName) {
             $res['sortName'] = $this->sortName;
+        }
+
+        if (null !== $this->sortOrder) {
+            $res['sortOrder'] = $this->sortOrder;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['sortName'])) {
             $model->sortName = $map['sortName'];
+        }
+
+        if (isset($map['sortOrder'])) {
+            $model->sortOrder = $map['sortOrder'];
         }
 
         return $model;
