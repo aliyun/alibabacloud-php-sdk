@@ -47,6 +47,11 @@ class appInstanceModels extends Model
     /**
      * @var string
      */
+    public $networkInterfaceId;
+
+    /**
+     * @var string
+     */
     public $networkInterfaceIp;
 
     /**
@@ -71,6 +76,7 @@ class appInstanceModels extends Model
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'mainEthPublicIp' => 'MainEthPublicIp',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'networkInterfaceIp' => 'NetworkInterfaceIp',
         'nodeId' => 'NodeId',
         'sessionStatus' => 'SessionStatus',
@@ -114,6 +120,10 @@ class appInstanceModels extends Model
 
         if (null !== $this->mainEthPublicIp) {
             $res['MainEthPublicIp'] = $this->mainEthPublicIp;
+        }
+
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
 
         if (null !== $this->networkInterfaceIp) {
@@ -169,6 +179,10 @@ class appInstanceModels extends Model
 
         if (isset($map['MainEthPublicIp'])) {
             $model->mainEthPublicIp = $map['MainEthPublicIp'];
+        }
+
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
 
         if (isset($map['NetworkInterfaceIp'])) {

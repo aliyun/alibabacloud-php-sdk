@@ -110,6 +110,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -4155,5 +4157,70 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAppInstanceGroupImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新研发主机镜像.
+     *
+     * @param request - UpdateWuyingServerImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWuyingServerImageResponse
+     *
+     * @param UpdateWuyingServerImageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateWuyingServerImageResponse
+     */
+    public function updateWuyingServerImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWuyingServerImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWuyingServerImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新研发主机镜像.
+     *
+     * @param request - UpdateWuyingServerImageRequest
+     *
+     * @returns UpdateWuyingServerImageResponse
+     *
+     * @param UpdateWuyingServerImageRequest $request
+     *
+     * @return UpdateWuyingServerImageResponse
+     */
+    public function updateWuyingServerImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWuyingServerImageWithOptions($request, $runtime);
     }
 }
