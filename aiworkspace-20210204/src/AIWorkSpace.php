@@ -5209,6 +5209,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['StartTagUpdateTime'] = $request->startTagUpdateTime;
         }
 
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
         if (null !== $request->thumbnailMode) {
             @$query['ThumbnailMode'] = $request->thumbnailMode;
         }

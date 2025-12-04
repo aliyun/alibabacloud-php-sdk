@@ -19,6 +19,11 @@ class DatasetShareRelationship extends Model
     public $expiresAt;
 
     /**
+     * @var string
+     */
+    public $extra;
+
+    /**
      * @var bool
      */
     public $isSecureMode;
@@ -55,6 +60,7 @@ class DatasetShareRelationship extends Model
     protected $_name = [
         'allowedMountAccessLevels' => 'AllowedMountAccessLevels',
         'expiresAt' => 'ExpiresAt',
+        'extra' => 'Extra',
         'isSecureMode' => 'IsSecureMode',
         'sharedAt' => 'SharedAt',
         'sourceTenantId' => 'SourceTenantId',
@@ -88,6 +94,10 @@ class DatasetShareRelationship extends Model
 
         if (null !== $this->expiresAt) {
             $res['ExpiresAt'] = $this->expiresAt;
+        }
+
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
         }
 
         if (null !== $this->isSecureMode) {
@@ -142,6 +152,10 @@ class DatasetShareRelationship extends Model
 
         if (isset($map['ExpiresAt'])) {
             $model->expiresAt = $map['ExpiresAt'];
+        }
+
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
         }
 
         if (isset($map['IsSecureMode'])) {

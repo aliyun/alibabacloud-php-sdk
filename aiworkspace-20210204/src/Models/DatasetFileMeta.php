@@ -76,6 +76,11 @@ class DatasetFileMeta extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tags;
 
     /**
@@ -101,6 +106,7 @@ class DatasetFileMeta extends Model
         'score' => 'Score',
         'semanticIndexJobId' => 'SemanticIndexJobId',
         'semanticIndexUpdateTime' => 'SemanticIndexUpdateTime',
+        'status' => 'Status',
         'tags' => 'Tags',
         'thumbnailUrl' => 'ThumbnailUrl',
         'uri' => 'Uri',
@@ -164,6 +170,10 @@ class DatasetFileMeta extends Model
 
         if (null !== $this->semanticIndexUpdateTime) {
             $res['SemanticIndexUpdateTime'] = $this->semanticIndexUpdateTime;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->tags) {
@@ -239,6 +249,10 @@ class DatasetFileMeta extends Model
 
         if (isset($map['SemanticIndexUpdateTime'])) {
             $model->semanticIndexUpdateTime = $map['SemanticIndexUpdateTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Tags'])) {

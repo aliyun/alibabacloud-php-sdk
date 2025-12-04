@@ -121,6 +121,11 @@ class ListDatasetFileMetasRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $thumbnailMode;
 
     /**
@@ -155,6 +160,7 @@ class ListDatasetFileMetasRequest extends Model
         'sortBy' => 'SortBy',
         'startFileUpdateTime' => 'StartFileUpdateTime',
         'startTagUpdateTime' => 'StartTagUpdateTime',
+        'status' => 'Status',
         'thumbnailMode' => 'ThumbnailMode',
         'topK' => 'TopK',
         'workspaceId' => 'WorkspaceId',
@@ -306,6 +312,10 @@ class ListDatasetFileMetasRequest extends Model
             $res['StartTagUpdateTime'] = $this->startTagUpdateTime;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         if (null !== $this->thumbnailMode) {
             $res['ThumbnailMode'] = $this->thumbnailMode;
         }
@@ -450,6 +460,10 @@ class ListDatasetFileMetasRequest extends Model
 
         if (isset($map['StartTagUpdateTime'])) {
             $model->startTagUpdateTime = $map['StartTagUpdateTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['ThumbnailMode'])) {

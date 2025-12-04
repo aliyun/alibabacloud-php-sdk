@@ -76,6 +76,11 @@ class DatasetFileMetaContentGet extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tagUpdateTime;
 
     /**
@@ -101,6 +106,7 @@ class DatasetFileMetaContentGet extends Model
         'metaAttributes' => 'MetaAttributes',
         'semanticIndexJobId' => 'SemanticIndexJobId',
         'semanticIndexUpdateTime' => 'SemanticIndexUpdateTime',
+        'status' => 'Status',
         'tagUpdateTime' => 'TagUpdateTime',
         'tags' => 'Tags',
         'uri' => 'Uri',
@@ -164,6 +170,10 @@ class DatasetFileMetaContentGet extends Model
 
         if (null !== $this->semanticIndexUpdateTime) {
             $res['SemanticIndexUpdateTime'] = $this->semanticIndexUpdateTime;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->tagUpdateTime) {
@@ -239,6 +249,10 @@ class DatasetFileMetaContentGet extends Model
 
         if (isset($map['SemanticIndexUpdateTime'])) {
             $model->semanticIndexUpdateTime = $map['SemanticIndexUpdateTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['TagUpdateTime'])) {

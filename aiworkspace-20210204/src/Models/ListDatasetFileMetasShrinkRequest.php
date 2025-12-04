@@ -121,6 +121,11 @@ class ListDatasetFileMetasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $thumbnailMode;
 
     /**
@@ -155,6 +160,7 @@ class ListDatasetFileMetasShrinkRequest extends Model
         'sortBy' => 'SortBy',
         'startFileUpdateTime' => 'StartFileUpdateTime',
         'startTagUpdateTime' => 'StartTagUpdateTime',
+        'status' => 'Status',
         'thumbnailMode' => 'ThumbnailMode',
         'topK' => 'TopK',
         'workspaceId' => 'WorkspaceId',
@@ -254,6 +260,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (null !== $this->startTagUpdateTime) {
             $res['StartTagUpdateTime'] = $this->startTagUpdateTime;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->thumbnailMode) {
@@ -365,6 +375,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (isset($map['StartTagUpdateTime'])) {
             $model->startTagUpdateTime = $map['StartTagUpdateTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['ThumbnailMode'])) {
