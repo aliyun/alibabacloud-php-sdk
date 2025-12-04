@@ -81,6 +81,21 @@ class UpdateCacheRuleRequest extends Model
     /**
      * @var string
      */
+    public $postBodyCacheKey;
+
+    /**
+     * @var string
+     */
+    public $postBodySizeLimit;
+
+    /**
+     * @var string
+     */
+    public $postCache;
+
+    /**
+     * @var string
+     */
     public $queryString;
 
     /**
@@ -152,6 +167,9 @@ class UpdateCacheRuleRequest extends Model
         'edgeStatusCodeCacheTtl' => 'EdgeStatusCodeCacheTtl',
         'includeCookie' => 'IncludeCookie',
         'includeHeader' => 'IncludeHeader',
+        'postBodyCacheKey' => 'PostBodyCacheKey',
+        'postBodySizeLimit' => 'PostBodySizeLimit',
+        'postCache' => 'PostCache',
         'queryString' => 'QueryString',
         'queryStringMode' => 'QueryStringMode',
         'rule' => 'Rule',
@@ -228,6 +246,18 @@ class UpdateCacheRuleRequest extends Model
 
         if (null !== $this->includeHeader) {
             $res['IncludeHeader'] = $this->includeHeader;
+        }
+
+        if (null !== $this->postBodyCacheKey) {
+            $res['PostBodyCacheKey'] = $this->postBodyCacheKey;
+        }
+
+        if (null !== $this->postBodySizeLimit) {
+            $res['PostBodySizeLimit'] = $this->postBodySizeLimit;
+        }
+
+        if (null !== $this->postCache) {
+            $res['PostCache'] = $this->postCache;
         }
 
         if (null !== $this->queryString) {
@@ -343,6 +373,18 @@ class UpdateCacheRuleRequest extends Model
 
         if (isset($map['IncludeHeader'])) {
             $model->includeHeader = $map['IncludeHeader'];
+        }
+
+        if (isset($map['PostBodyCacheKey'])) {
+            $model->postBodyCacheKey = $map['PostBodyCacheKey'];
+        }
+
+        if (isset($map['PostBodySizeLimit'])) {
+            $model->postBodySizeLimit = $map['PostBodySizeLimit'];
+        }
+
+        if (isset($map['PostCache'])) {
+            $model->postCache = $map['PostCache'];
         }
 
         if (isset($map['QueryString'])) {

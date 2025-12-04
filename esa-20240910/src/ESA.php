@@ -2434,6 +2434,18 @@ class ESA extends OpenApiClient
             @$query['IncludeHeader'] = $request->includeHeader;
         }
 
+        if (null !== $request->postBodyCacheKey) {
+            @$query['PostBodyCacheKey'] = $request->postBodyCacheKey;
+        }
+
+        if (null !== $request->postBodySizeLimit) {
+            @$query['PostBodySizeLimit'] = $request->postBodySizeLimit;
+        }
+
+        if (null !== $request->postCache) {
+            @$query['PostCache'] = $request->postCache;
+        }
+
         if (null !== $request->queryString) {
             @$query['QueryString'] = $request->queryString;
         }
@@ -20745,6 +20757,18 @@ class ESA extends OpenApiClient
 
         if (null !== $request->includeHeader) {
             @$query['IncludeHeader'] = $request->includeHeader;
+        }
+
+        if (null !== $request->postBodyCacheKey) {
+            @$query['PostBodyCacheKey'] = $request->postBodyCacheKey;
+        }
+
+        if (null !== $request->postBodySizeLimit) {
+            @$query['PostBodySizeLimit'] = $request->postBodySizeLimit;
+        }
+
+        if (null !== $request->postCache) {
+            @$query['PostCache'] = $request->postCache;
         }
 
         if (null !== $request->queryString) {
