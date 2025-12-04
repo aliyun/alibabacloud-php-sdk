@@ -21,6 +21,11 @@ class dingtalkAppConfig extends Model
     /**
      * @var string
      */
+    public $dingtalkLoginVersion;
+
+    /**
+     * @var string
+     */
     public $encryptKey;
 
     /**
@@ -30,6 +35,7 @@ class dingtalkAppConfig extends Model
     protected $_name = [
         'appKey' => 'AppKey',
         'appSecret' => 'AppSecret',
+        'dingtalkLoginVersion' => 'DingtalkLoginVersion',
         'encryptKey' => 'EncryptKey',
         'verificationToken' => 'VerificationToken',
     ];
@@ -48,6 +54,10 @@ class dingtalkAppConfig extends Model
 
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
+        }
+
+        if (null !== $this->dingtalkLoginVersion) {
+            $res['DingtalkLoginVersion'] = $this->dingtalkLoginVersion;
         }
 
         if (null !== $this->encryptKey) {
@@ -75,6 +85,10 @@ class dingtalkAppConfig extends Model
 
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
+        }
+
+        if (isset($map['DingtalkLoginVersion'])) {
+            $model->dingtalkLoginVersion = $map['DingtalkLoginVersion'];
         }
 
         if (isset($map['EncryptKey'])) {

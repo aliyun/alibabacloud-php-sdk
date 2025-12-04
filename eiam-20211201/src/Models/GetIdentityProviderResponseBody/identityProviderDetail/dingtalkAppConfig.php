@@ -26,6 +26,11 @@ class dingtalkAppConfig extends Model
     /**
      * @var string
      */
+    public $dingtalkLoginVersion;
+
+    /**
+     * @var string
+     */
     public $dingtalkVersion;
 
     /**
@@ -41,6 +46,7 @@ class dingtalkAppConfig extends Model
         'appKey' => 'AppKey',
         'appSecret' => 'AppSecret',
         'corpId' => 'CorpId',
+        'dingtalkLoginVersion' => 'DingtalkLoginVersion',
         'dingtalkVersion' => 'DingtalkVersion',
         'encryptKey' => 'EncryptKey',
         'verificationToken' => 'VerificationToken',
@@ -64,6 +70,10 @@ class dingtalkAppConfig extends Model
 
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
+        }
+
+        if (null !== $this->dingtalkLoginVersion) {
+            $res['DingtalkLoginVersion'] = $this->dingtalkLoginVersion;
         }
 
         if (null !== $this->dingtalkVersion) {
@@ -99,6 +109,10 @@ class dingtalkAppConfig extends Model
 
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
+        }
+
+        if (isset($map['DingtalkLoginVersion'])) {
+            $model->dingtalkLoginVersion = $map['DingtalkLoginVersion'];
         }
 
         if (isset($map['DingtalkVersion'])) {
