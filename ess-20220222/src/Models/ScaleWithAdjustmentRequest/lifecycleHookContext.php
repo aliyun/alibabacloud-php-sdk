@@ -17,9 +17,15 @@ class lifecycleHookContext extends Model
      * @var string[]
      */
     public $ignoredLifecycleHookIds;
+
+    /**
+     * @var string
+     */
+    public $lifecycleHookResult;
     protected $_name = [
         'disableLifecycleHook' => 'DisableLifecycleHook',
         'ignoredLifecycleHookIds' => 'IgnoredLifecycleHookIds',
+        'lifecycleHookResult' => 'LifecycleHookResult',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class lifecycleHookContext extends Model
             }
         }
 
+        if (null !== $this->lifecycleHookResult) {
+            $res['LifecycleHookResult'] = $this->lifecycleHookResult;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class lifecycleHookContext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['LifecycleHookResult'])) {
+            $model->lifecycleHookResult = $map['LifecycleHookResult'];
         }
 
         return $model;
