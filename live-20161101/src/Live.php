@@ -436,6 +436,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordNotifyRecordsReques
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordNotifyRecordsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordVodConfigsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordVodConfigsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRtcRecordUsageDataRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRtcRecordUsageDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveShiftConfigsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveShiftConfigsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotConfigRequest;
@@ -19338,6 +19340,79 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLiveRecordVodConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 云端录制用量.
+     *
+     * @param request - DescribeLiveRtcRecordUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLiveRtcRecordUsageDataResponse
+     *
+     * @param DescribeLiveRtcRecordUsageDataRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeLiveRtcRecordUsageDataResponse
+     */
+    public function describeLiveRtcRecordUsageDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->recordMode) {
+            @$query['RecordMode'] = $request->recordMode;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLiveRtcRecordUsageData',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLiveRtcRecordUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 云端录制用量.
+     *
+     * @param request - DescribeLiveRtcRecordUsageDataRequest
+     *
+     * @returns DescribeLiveRtcRecordUsageDataResponse
+     *
+     * @param DescribeLiveRtcRecordUsageDataRequest $request
+     *
+     * @return DescribeLiveRtcRecordUsageDataResponse
+     */
+    public function describeLiveRtcRecordUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveRtcRecordUsageDataWithOptions($request, $runtime);
     }
 
     /**
