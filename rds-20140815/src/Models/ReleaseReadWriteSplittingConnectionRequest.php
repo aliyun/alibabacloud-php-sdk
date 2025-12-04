@@ -26,6 +26,11 @@ class ReleaseReadWriteSplittingConnectionRequest extends Model
     /**
      * @var string
      */
+    public $RWAddressType;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -36,6 +41,7 @@ class ReleaseReadWriteSplittingConnectionRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'RWAddressType' => 'RWAddressType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -58,6 +64,10 @@ class ReleaseReadWriteSplittingConnectionRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->RWAddressType) {
+            $res['RWAddressType'] = $this->RWAddressType;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -89,6 +99,10 @@ class ReleaseReadWriteSplittingConnectionRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RWAddressType'])) {
+            $model->RWAddressType = $map['RWAddressType'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
