@@ -41,6 +41,16 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceVersion;
+
+    /**
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @var string
+     */
     public $privateConnectUrl;
 
     /**
@@ -91,6 +101,11 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -109,6 +124,8 @@ class GetSupabaseProjectResponseBody extends Model
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'instanceVersion' => 'InstanceVersion',
+        'payType' => 'PayType',
         'privateConnectUrl' => 'PrivateConnectUrl',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
@@ -119,6 +136,7 @@ class GetSupabaseProjectResponseBody extends Model
         'securityIpList' => 'SecurityIpList',
         'status' => 'Status',
         'storageSize' => 'StorageSize',
+        'storageType' => 'StorageType',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
@@ -154,6 +172,14 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->instanceVersion) {
+            $res['InstanceVersion'] = $this->instanceVersion;
+        }
+
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
 
         if (null !== $this->privateConnectUrl) {
@@ -194,6 +220,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->vSwitchId) {
@@ -243,6 +273,14 @@ class GetSupabaseProjectResponseBody extends Model
             $model->engineVersion = $map['EngineVersion'];
         }
 
+        if (isset($map['InstanceVersion'])) {
+            $model->instanceVersion = $map['InstanceVersion'];
+        }
+
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+
         if (isset($map['PrivateConnectUrl'])) {
             $model->privateConnectUrl = $map['PrivateConnectUrl'];
         }
@@ -281,6 +319,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['VSwitchId'])) {

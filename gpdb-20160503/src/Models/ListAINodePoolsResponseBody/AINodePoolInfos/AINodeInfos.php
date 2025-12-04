@@ -42,6 +42,11 @@ class AINodeInfos extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'bindObject' => 'BindObject',
         'bindStatus' => 'BindStatus',
@@ -50,6 +55,7 @@ class AINodeInfos extends Model
         'nodeName' => 'NodeName',
         'nodeSpec' => 'NodeSpec',
         'updateTime' => 'UpdateTime',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class AINodeInfos extends Model
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class AINodeInfos extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

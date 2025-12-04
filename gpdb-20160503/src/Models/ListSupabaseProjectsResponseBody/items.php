@@ -41,6 +41,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -109,6 +114,7 @@ class items extends Model
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
         'payType' => 'PayType',
         'privateConnectUrl' => 'PrivateConnectUrl',
         'projectId' => 'ProjectId',
@@ -154,6 +160,10 @@ class items extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
 
         if (null !== $this->payType) {
@@ -241,6 +251,10 @@ class items extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
 
         if (isset($map['PayType'])) {
