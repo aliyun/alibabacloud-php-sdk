@@ -31,6 +31,11 @@ class GetVideoListRequest extends Model
     /**
      * @var string
      */
+    public $referenceIds;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -52,6 +57,7 @@ class GetVideoListRequest extends Model
         'endTime' => 'EndTime',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'referenceIds' => 'ReferenceIds',
         'sortBy' => 'SortBy',
         'startTime' => 'StartTime',
         'status' => 'Status',
@@ -80,6 +86,10 @@ class GetVideoListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->referenceIds) {
+            $res['ReferenceIds'] = $this->referenceIds;
         }
 
         if (null !== $this->sortBy) {
@@ -123,6 +133,10 @@ class GetVideoListRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ReferenceIds'])) {
+            $model->referenceIds = $map['ReferenceIds'];
         }
 
         if (isset($map['SortBy'])) {

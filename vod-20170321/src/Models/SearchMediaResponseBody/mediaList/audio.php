@@ -71,6 +71,11 @@ class audio extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $restoreExpiration;
 
     /**
@@ -135,6 +140,7 @@ class audio extends Model
         'mediaSource' => 'MediaSource',
         'modificationTime' => 'ModificationTime',
         'preprocessStatus' => 'PreprocessStatus',
+        'referenceId' => 'ReferenceId',
         'restoreExpiration' => 'RestoreExpiration',
         'restoreStatus' => 'RestoreStatus',
         'size' => 'Size',
@@ -208,6 +214,10 @@ class audio extends Model
 
         if (null !== $this->preprocessStatus) {
             $res['PreprocessStatus'] = $this->preprocessStatus;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->restoreExpiration) {
@@ -325,6 +335,10 @@ class audio extends Model
 
         if (isset($map['PreprocessStatus'])) {
             $model->preprocessStatus = $map['PreprocessStatus'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['RestoreExpiration'])) {

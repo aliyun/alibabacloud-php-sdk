@@ -16,9 +16,15 @@ class DeleteMezzaninesRequest extends Model
     /**
      * @var string
      */
+    public $referenceIds;
+
+    /**
+     * @var string
+     */
     public $videoIds;
     protected $_name = [
         'force' => 'Force',
+        'referenceIds' => 'ReferenceIds',
         'videoIds' => 'VideoIds',
     ];
 
@@ -32,6 +38,10 @@ class DeleteMezzaninesRequest extends Model
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
+        }
+
+        if (null !== $this->referenceIds) {
+            $res['ReferenceIds'] = $this->referenceIds;
         }
 
         if (null !== $this->videoIds) {
@@ -51,6 +61,10 @@ class DeleteMezzaninesRequest extends Model
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+
+        if (isset($map['ReferenceIds'])) {
+            $model->referenceIds = $map['ReferenceIds'];
         }
 
         if (isset($map['VideoIds'])) {

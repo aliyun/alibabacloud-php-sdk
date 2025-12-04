@@ -31,6 +31,11 @@ class SubmitTranscodeJobsRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -52,6 +57,7 @@ class SubmitTranscodeJobsRequest extends Model
         'overrideParams' => 'OverrideParams',
         'pipelineId' => 'PipelineId',
         'priority' => 'Priority',
+        'referenceId' => 'ReferenceId',
         'sessionId' => 'SessionId',
         'templateGroupId' => 'TemplateGroupId',
         'userData' => 'UserData',
@@ -80,6 +86,10 @@ class SubmitTranscodeJobsRequest extends Model
 
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->sessionId) {
@@ -123,6 +133,10 @@ class SubmitTranscodeJobsRequest extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['SessionId'])) {

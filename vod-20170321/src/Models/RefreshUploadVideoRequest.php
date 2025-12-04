@@ -16,6 +16,11 @@ class RefreshUploadVideoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -29,6 +34,7 @@ class RefreshUploadVideoRequest extends Model
     public $videoId;
     protected $_name = [
         'ownerId' => 'OwnerId',
+        'referenceId' => 'ReferenceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'videoId' => 'VideoId',
@@ -44,6 +50,10 @@ class RefreshUploadVideoRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -71,6 +81,10 @@ class RefreshUploadVideoRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

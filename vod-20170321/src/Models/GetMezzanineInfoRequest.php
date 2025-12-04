@@ -26,11 +26,17 @@ class GetMezzanineInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $videoId;
     protected $_name = [
         'additionType' => 'AdditionType',
         'authTimeout' => 'AuthTimeout',
         'outputType' => 'OutputType',
+        'referenceId' => 'ReferenceId',
         'videoId' => 'VideoId',
     ];
 
@@ -52,6 +58,10 @@ class GetMezzanineInfoRequest extends Model
 
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->videoId) {
@@ -79,6 +89,10 @@ class GetMezzanineInfoRequest extends Model
 
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['VideoId'])) {

@@ -26,6 +26,11 @@ class SubmitSnapshotJobRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $snapshotTemplateId;
 
     /**
@@ -61,6 +66,7 @@ class SubmitSnapshotJobRequest extends Model
         'count' => 'Count',
         'height' => 'Height',
         'interval' => 'Interval',
+        'referenceId' => 'ReferenceId',
         'snapshotTemplateId' => 'SnapshotTemplateId',
         'specifiedOffsetTime' => 'SpecifiedOffsetTime',
         'specifiedOffsetTimes' => 'SpecifiedOffsetTimes',
@@ -91,6 +97,10 @@ class SubmitSnapshotJobRequest extends Model
 
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->snapshotTemplateId) {
@@ -149,6 +159,10 @@ class SubmitSnapshotJobRequest extends Model
 
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['SnapshotTemplateId'])) {

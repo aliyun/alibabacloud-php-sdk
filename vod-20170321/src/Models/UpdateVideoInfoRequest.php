@@ -26,6 +26,11 @@ class UpdateVideoInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $tags;
 
     /**
@@ -46,6 +51,7 @@ class UpdateVideoInfoRequest extends Model
         'cateId' => 'CateId',
         'coverURL' => 'CoverURL',
         'description' => 'Description',
+        'referenceId' => 'ReferenceId',
         'tags' => 'Tags',
         'title' => 'Title',
         'userData' => 'UserData',
@@ -70,6 +76,10 @@ class UpdateVideoInfoRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->tags) {
@@ -109,6 +119,10 @@ class UpdateVideoInfoRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['Tags'])) {

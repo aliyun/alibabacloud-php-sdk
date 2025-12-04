@@ -16,9 +16,15 @@ class DeleteStreamRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $videoId;
     protected $_name = [
         'jobIds' => 'JobIds',
+        'referenceId' => 'ReferenceId',
         'videoId' => 'VideoId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteStreamRequest extends Model
         $res = [];
         if (null !== $this->jobIds) {
             $res['JobIds'] = $this->jobIds;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->videoId) {
@@ -51,6 +61,10 @@ class DeleteStreamRequest extends Model
         $model = new self();
         if (isset($map['JobIds'])) {
             $model->jobIds = $map['JobIds'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['VideoId'])) {

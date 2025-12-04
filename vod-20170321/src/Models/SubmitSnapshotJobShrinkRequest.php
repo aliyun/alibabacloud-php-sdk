@@ -26,6 +26,11 @@ class SubmitSnapshotJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $snapshotTemplateId;
 
     /**
@@ -61,6 +66,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
         'count' => 'Count',
         'height' => 'Height',
         'interval' => 'Interval',
+        'referenceId' => 'ReferenceId',
         'snapshotTemplateId' => 'SnapshotTemplateId',
         'specifiedOffsetTime' => 'SpecifiedOffsetTime',
         'specifiedOffsetTimesShrink' => 'SpecifiedOffsetTimes',
@@ -88,6 +94,10 @@ class SubmitSnapshotJobShrinkRequest extends Model
 
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->snapshotTemplateId) {
@@ -139,6 +149,10 @@ class SubmitSnapshotJobShrinkRequest extends Model
 
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['SnapshotTemplateId'])) {

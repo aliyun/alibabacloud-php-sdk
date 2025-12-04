@@ -41,6 +41,11 @@ class CreateUploadVideoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $storageLocation;
 
     /**
@@ -74,6 +79,7 @@ class CreateUploadVideoRequest extends Model
         'description' => 'Description',
         'fileName' => 'FileName',
         'fileSize' => 'FileSize',
+        'referenceId' => 'ReferenceId',
         'storageLocation' => 'StorageLocation',
         'tags' => 'Tags',
         'templateGroupId' => 'TemplateGroupId',
@@ -112,6 +118,10 @@ class CreateUploadVideoRequest extends Model
 
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->storageLocation) {
@@ -171,6 +181,10 @@ class CreateUploadVideoRequest extends Model
 
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['StorageLocation'])) {

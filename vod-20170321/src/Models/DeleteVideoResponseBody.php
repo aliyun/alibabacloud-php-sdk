@@ -16,6 +16,11 @@ class DeleteVideoResponseBody extends Model
     /**
      * @var string[]
      */
+    public $nonExistReferenceIds;
+
+    /**
+     * @var string[]
+     */
     public $nonExistVideoIds;
 
     /**
@@ -24,6 +29,7 @@ class DeleteVideoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbiddenVideoIds' => 'ForbiddenVideoIds',
+        'nonExistReferenceIds' => 'NonExistReferenceIds',
         'nonExistVideoIds' => 'NonExistVideoIds',
         'requestId' => 'RequestId',
     ];
@@ -32,6 +38,9 @@ class DeleteVideoResponseBody extends Model
     {
         if (\is_array($this->forbiddenVideoIds)) {
             Model::validateArray($this->forbiddenVideoIds);
+        }
+        if (\is_array($this->nonExistReferenceIds)) {
+            Model::validateArray($this->nonExistReferenceIds);
         }
         if (\is_array($this->nonExistVideoIds)) {
             Model::validateArray($this->nonExistVideoIds);
@@ -48,6 +57,17 @@ class DeleteVideoResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->forbiddenVideoIds as $item1) {
                     $res['ForbiddenVideoIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->nonExistReferenceIds) {
+            if (\is_array($this->nonExistReferenceIds)) {
+                $res['NonExistReferenceIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistReferenceIds as $item1) {
+                    $res['NonExistReferenceIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -85,6 +105,17 @@ class DeleteVideoResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['ForbiddenVideoIds'] as $item1) {
                     $model->forbiddenVideoIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['NonExistReferenceIds'])) {
+            if (!empty($map['NonExistReferenceIds'])) {
+                $model->nonExistReferenceIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistReferenceIds'] as $item1) {
+                    $model->nonExistReferenceIds[$n1] = $item1;
                     ++$n1;
                 }
             }

@@ -1300,6 +1300,10 @@ class Vod extends OpenApiClient
             @$query['MediaIds'] = $request->mediaIds;
         }
 
+        if (null !== $request->referenceIds) {
+            @$query['ReferenceIds'] = $request->referenceIds;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2103,6 +2107,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->fileSize) {
             @$query['FileSize'] = $request->fileSize;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->storageLocation) {
@@ -2971,6 +2979,10 @@ class Vod extends OpenApiClient
             @$query['Force'] = $request->force;
         }
 
+        if (null !== $request->referenceIds) {
+            @$query['ReferenceIds'] = $request->referenceIds;
+        }
+
         if (null !== $request->videoIds) {
             @$query['VideoIds'] = $request->videoIds;
         }
@@ -3110,6 +3122,10 @@ class Vod extends OpenApiClient
             @$query['JobIds'] = $request->jobIds;
         }
 
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
+        }
+
         if (null !== $request->videoId) {
             @$query['VideoId'] = $request->videoId;
         }
@@ -3245,6 +3261,10 @@ class Vod extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->referenceIds) {
+            @$query['ReferenceIds'] = $request->referenceIds;
+        }
+
         if (null !== $request->videoIds) {
             @$query['VideoIds'] = $request->videoIds;
         }
@@ -9204,6 +9224,10 @@ class Vod extends OpenApiClient
             @$query['OutputType'] = $request->outputType;
         }
 
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
+        }
+
         if (null !== $request->videoId) {
             @$query['VideoId'] = $request->videoId;
         }
@@ -9299,6 +9323,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->reAuthInfo) {
             @$query['ReAuthInfo'] = $request->reAuthInfo;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->resultType) {
@@ -9729,6 +9757,10 @@ class Vod extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
+        }
+
         if (null !== $request->videoId) {
             @$query['VideoId'] = $request->videoId;
         }
@@ -9793,6 +9825,10 @@ class Vod extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->referenceIds) {
+            @$query['ReferenceIds'] = $request->referenceIds;
+        }
+
         if (null !== $request->videoIds) {
             @$query['VideoIds'] = $request->videoIds;
         }
@@ -9871,6 +9907,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->referenceIds) {
+            @$query['ReferenceIds'] = $request->referenceIds;
         }
 
         if (null !== $request->sortBy) {
@@ -9955,6 +9995,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->authInfoTimeout) {
             @$query['AuthInfoTimeout'] = $request->authInfoTimeout;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->videoId) {
@@ -11511,6 +11555,10 @@ class Vod extends OpenApiClient
         $query = [];
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -13415,6 +13463,10 @@ class Vod extends OpenApiClient
             @$query['Interval'] = $request->interval;
         }
 
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
+        }
+
         if (null !== $request->snapshotTemplateId) {
             @$query['SnapshotTemplateId'] = $request->snapshotTemplateId;
         }
@@ -13523,6 +13575,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->priority) {
             @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->sessionId) {
@@ -14280,6 +14336,10 @@ class Vod extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
 
         if (null !== $request->tags) {

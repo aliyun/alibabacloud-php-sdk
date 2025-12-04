@@ -51,6 +51,11 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $resultType;
 
     /**
@@ -76,6 +81,7 @@ class GetPlayInfoRequest extends Model
         'outputType' => 'OutputType',
         'playConfig' => 'PlayConfig',
         'reAuthInfo' => 'ReAuthInfo',
+        'referenceId' => 'ReferenceId',
         'resultType' => 'ResultType',
         'streamType' => 'StreamType',
         'trace' => 'Trace',
@@ -120,6 +126,10 @@ class GetPlayInfoRequest extends Model
 
         if (null !== $this->reAuthInfo) {
             $res['ReAuthInfo'] = $this->reAuthInfo;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->resultType) {
@@ -179,6 +189,10 @@ class GetPlayInfoRequest extends Model
 
         if (isset($map['ReAuthInfo'])) {
             $model->reAuthInfo = $map['ReAuthInfo'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['ResultType'])) {

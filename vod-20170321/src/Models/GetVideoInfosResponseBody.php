@@ -12,6 +12,11 @@ class GetVideoInfosResponseBody extends Model
     /**
      * @var string[]
      */
+    public $nonExistReferenceIds;
+
+    /**
+     * @var string[]
+     */
     public $nonExistVideoIds;
 
     /**
@@ -24,6 +29,7 @@ class GetVideoInfosResponseBody extends Model
      */
     public $videoList;
     protected $_name = [
+        'nonExistReferenceIds' => 'NonExistReferenceIds',
         'nonExistVideoIds' => 'NonExistVideoIds',
         'requestId' => 'RequestId',
         'videoList' => 'VideoList',
@@ -31,6 +37,9 @@ class GetVideoInfosResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->nonExistReferenceIds)) {
+            Model::validateArray($this->nonExistReferenceIds);
+        }
         if (\is_array($this->nonExistVideoIds)) {
             Model::validateArray($this->nonExistVideoIds);
         }
@@ -43,6 +52,17 @@ class GetVideoInfosResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nonExistReferenceIds) {
+            if (\is_array($this->nonExistReferenceIds)) {
+                $res['NonExistReferenceIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistReferenceIds as $item1) {
+                    $res['NonExistReferenceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->nonExistVideoIds) {
             if (\is_array($this->nonExistVideoIds)) {
                 $res['NonExistVideoIds'] = [];
@@ -80,6 +100,17 @@ class GetVideoInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NonExistReferenceIds'])) {
+            if (!empty($map['NonExistReferenceIds'])) {
+                $model->nonExistReferenceIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistReferenceIds'] as $item1) {
+                    $model->nonExistReferenceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['NonExistVideoIds'])) {
             if (!empty($map['NonExistVideoIds'])) {
                 $model->nonExistVideoIds = [];

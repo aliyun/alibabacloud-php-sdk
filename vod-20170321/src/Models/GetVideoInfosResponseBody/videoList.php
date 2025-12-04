@@ -56,6 +56,11 @@ class videoList extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $restoreExpiration;
 
     /**
@@ -122,6 +127,7 @@ class videoList extends Model
         'downloadSwitch' => 'DownloadSwitch',
         'duration' => 'Duration',
         'modificationTime' => 'ModificationTime',
+        'referenceId' => 'ReferenceId',
         'restoreExpiration' => 'RestoreExpiration',
         'restoreStatus' => 'RestoreStatus',
         'size' => 'Size',
@@ -181,6 +187,10 @@ class videoList extends Model
 
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->restoreExpiration) {
@@ -283,6 +293,10 @@ class videoList extends Model
 
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['RestoreExpiration'])) {

@@ -11,8 +11,14 @@ class GetVideoInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $videoId;
     protected $_name = [
+        'referenceId' => 'ReferenceId',
         'videoId' => 'VideoId',
     ];
 
@@ -24,6 +30,10 @@ class GetVideoInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
+        }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
@@ -39,6 +49,10 @@ class GetVideoInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
+        }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }

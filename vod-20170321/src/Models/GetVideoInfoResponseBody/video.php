@@ -67,6 +67,11 @@ class video extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -140,6 +145,7 @@ class video extends Model
         'downloadSwitch' => 'DownloadSwitch',
         'duration' => 'Duration',
         'modificationTime' => 'ModificationTime',
+        'referenceId' => 'ReferenceId',
         'regionId' => 'RegionId',
         'restoreExpiration' => 'RestoreExpiration',
         'restoreStatus' => 'RestoreStatus',
@@ -208,6 +214,10 @@ class video extends Model
 
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->regionId) {
@@ -315,6 +325,10 @@ class video extends Model
 
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['RegionId'])) {

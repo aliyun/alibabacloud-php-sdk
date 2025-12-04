@@ -21,10 +21,16 @@ class GetVideoPlayAuthRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $videoId;
     protected $_name = [
         'apiVersion' => 'ApiVersion',
         'authInfoTimeout' => 'AuthInfoTimeout',
+        'referenceId' => 'ReferenceId',
         'videoId' => 'VideoId',
     ];
 
@@ -42,6 +48,10 @@ class GetVideoPlayAuthRequest extends Model
 
         if (null !== $this->authInfoTimeout) {
             $res['AuthInfoTimeout'] = $this->authInfoTimeout;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
 
         if (null !== $this->videoId) {
@@ -65,6 +75,10 @@ class GetVideoPlayAuthRequest extends Model
 
         if (isset($map['AuthInfoTimeout'])) {
             $model->authInfoTimeout = $map['AuthInfoTimeout'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
 
         if (isset($map['VideoId'])) {
