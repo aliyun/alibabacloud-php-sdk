@@ -7409,6 +7409,10 @@ class Ess extends OpenApiClient
             @$query['NtpServers'] = $request->ntpServers;
         }
 
+        if (null !== $request->override) {
+            @$query['Override'] = $request->override;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }

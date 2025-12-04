@@ -203,6 +203,11 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $ntpServers;
 
     /**
+     * @var bool
+     */
+    public $override;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -309,6 +314,7 @@ class ModifyEciScalingConfigurationRequest extends Model
         'loadBalancerWeight' => 'LoadBalancerWeight',
         'memory' => 'Memory',
         'ntpServers' => 'NtpServers',
+        'override' => 'Override',
         'ownerId' => 'OwnerId',
         'ramRoleName' => 'RamRoleName',
         'resourceGroupId' => 'ResourceGroupId',
@@ -588,6 +594,10 @@ class ModifyEciScalingConfigurationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->override) {
+            $res['Override'] = $this->override;
         }
 
         if (null !== $this->ownerId) {
@@ -894,6 +904,10 @@ class ModifyEciScalingConfigurationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Override'])) {
+            $model->override = $map['Override'];
         }
 
         if (isset($map['OwnerId'])) {
