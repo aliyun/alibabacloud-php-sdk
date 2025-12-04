@@ -3101,6 +3101,10 @@ class IaCService extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->jobType) {
+            @$query['jobType'] = $request->jobType;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }

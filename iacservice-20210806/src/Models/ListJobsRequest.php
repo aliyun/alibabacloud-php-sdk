@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListJobsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $jobType;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,6 +33,7 @@ class ListJobsRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'jobType' => 'jobType',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'status' => 'status',
@@ -42,6 +48,10 @@ class ListJobsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->jobType) {
+            $res['jobType'] = $this->jobType;
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -69,6 +79,10 @@ class ListJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['jobType'])) {
+            $model->jobType = $map['jobType'];
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }

@@ -57,6 +57,11 @@ class job extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $jobType;
+
+    /**
      * @var mixed[]
      */
     public $logFile;
@@ -110,6 +115,7 @@ class job extends Model
         'executeType' => 'executeType',
         'isPassAssertCheck' => 'isPassAssertCheck',
         'jobId' => 'jobId',
+        'jobType' => 'jobType',
         'logFile' => 'logFile',
         'output' => 'output',
         'outputJsonPlan' => 'outputJsonPlan',
@@ -193,6 +199,10 @@ class job extends Model
 
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
+        }
+
+        if (null !== $this->jobType) {
+            $res['jobType'] = $this->jobType;
         }
 
         if (null !== $this->logFile) {
@@ -303,6 +313,10 @@ class job extends Model
 
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
+        }
+
+        if (isset($map['jobType'])) {
+            $model->jobType = $map['jobType'];
         }
 
         if (isset($map['logFile'])) {
