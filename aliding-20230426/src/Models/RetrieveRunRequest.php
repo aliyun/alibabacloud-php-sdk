@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RetrieveRunRequest\extLoginUser;
 
 class RetrieveRunRequest extends Model
 {
@@ -12,6 +13,11 @@ class RetrieveRunRequest extends Model
      * @var string
      */
     public $assistantId;
+
+    /**
+     * @var extLoginUser
+     */
+    public $extLoginUser;
 
     /**
      * @var string
@@ -34,6 +40,7 @@ class RetrieveRunRequest extends Model
     public $sourceTypeOfOriginalAssistantId;
     protected $_name = [
         'assistantId' => 'assistantId',
+        'extLoginUser' => 'extLoginUser',
         'originalAssistantId' => 'originalAssistantId',
         'runId' => 'runId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
@@ -42,6 +49,9 @@ class RetrieveRunRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->extLoginUser) {
+            $this->extLoginUser->validate();
+        }
         parent::validate();
     }
 
@@ -50,6 +60,10 @@ class RetrieveRunRequest extends Model
         $res = [];
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
+        }
+
+        if (null !== $this->extLoginUser) {
+            $res['extLoginUser'] = null !== $this->extLoginUser ? $this->extLoginUser->toArray($noStream) : $this->extLoginUser;
         }
 
         if (null !== $this->originalAssistantId) {
@@ -81,6 +95,10 @@ class RetrieveRunRequest extends Model
         $model = new self();
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
+        }
+
+        if (isset($map['extLoginUser'])) {
+            $model->extLoginUser = extLoginUser::fromMap($map['extLoginUser']);
         }
 
         if (isset($map['originalAssistantId'])) {

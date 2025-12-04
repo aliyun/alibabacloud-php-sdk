@@ -5073,6 +5073,10 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
+        }
+
         if (null !== $request->messages) {
             @$body['messages'] = $request->messages;
         }
@@ -5723,6 +5727,10 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
+        }
+
         if (null !== $request->originalAssistantId) {
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
@@ -5808,6 +5816,10 @@ class Aliding extends OpenApiClient
 
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->originalAssistantId) {
@@ -6552,6 +6564,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->originalAssistantId) {
@@ -10152,6 +10168,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->messages) {
@@ -16620,6 +16640,10 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
+        }
+
         if (null !== $request->messages) {
             @$body['messages'] = $request->messages;
         }
@@ -16705,6 +16729,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->messages) {
@@ -17660,6 +17688,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->limit) {
@@ -21904,6 +21936,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->extLoginUser) {
+            @$body['extLoginUser'] = $request->extLoginUser;
         }
 
         if (null !== $request->originalAssistantId) {

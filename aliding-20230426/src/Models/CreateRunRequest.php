@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunRequest\extLoginUser;
 
 class CreateRunRequest extends Model
 {
@@ -17,6 +18,11 @@ class CreateRunRequest extends Model
      * @var string
      */
     public $assistantId;
+
+    /**
+     * @var extLoginUser
+     */
+    public $extLoginUser;
 
     /**
      * @var string
@@ -45,6 +51,7 @@ class CreateRunRequest extends Model
     protected $_name = [
         'allowStructViewContent' => 'allowStructViewContent',
         'assistantId' => 'assistantId',
+        'extLoginUser' => 'extLoginUser',
         'originalAssistantId' => 'originalAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
         'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
@@ -54,6 +61,9 @@ class CreateRunRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->extLoginUser) {
+            $this->extLoginUser->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +76,10 @@ class CreateRunRequest extends Model
 
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
+        }
+
+        if (null !== $this->extLoginUser) {
+            $res['extLoginUser'] = null !== $this->extLoginUser ? $this->extLoginUser->toArray($noStream) : $this->extLoginUser;
         }
 
         if (null !== $this->originalAssistantId) {
@@ -105,6 +119,10 @@ class CreateRunRequest extends Model
 
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
+        }
+
+        if (isset($map['extLoginUser'])) {
+            $model->extLoginUser = extLoginUser::fromMap($map['extLoginUser']);
         }
 
         if (isset($map['originalAssistantId'])) {

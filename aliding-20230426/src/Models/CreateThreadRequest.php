@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadRequest\extLoginUser;
 
 class CreateThreadRequest extends Model
 {
@@ -12,6 +13,11 @@ class CreateThreadRequest extends Model
      * @var string
      */
     public $assistantId;
+
+    /**
+     * @var extLoginUser
+     */
+    public $extLoginUser;
 
     /**
      * @var string
@@ -29,6 +35,7 @@ class CreateThreadRequest extends Model
     public $sourceTypeOfOriginalAssistantId;
     protected $_name = [
         'assistantId' => 'assistantId',
+        'extLoginUser' => 'extLoginUser',
         'originalAssistantId' => 'originalAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
         'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
@@ -36,6 +43,9 @@ class CreateThreadRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->extLoginUser) {
+            $this->extLoginUser->validate();
+        }
         parent::validate();
     }
 
@@ -44,6 +54,10 @@ class CreateThreadRequest extends Model
         $res = [];
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
+        }
+
+        if (null !== $this->extLoginUser) {
+            $res['extLoginUser'] = null !== $this->extLoginUser ? $this->extLoginUser->toArray($noStream) : $this->extLoginUser;
         }
 
         if (null !== $this->originalAssistantId) {
@@ -71,6 +85,10 @@ class CreateThreadRequest extends Model
         $model = new self();
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
+        }
+
+        if (isset($map['extLoginUser'])) {
+            $model->extLoginUser = extLoginUser::fromMap($map['extLoginUser']);
         }
 
         if (isset($map['originalAssistantId'])) {
