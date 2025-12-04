@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputePreCheckRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputePreCheckResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenLdpsColumnarIndexRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenLdpsColumnarIndexResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormV2InstanceRequest;
@@ -4261,6 +4263,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 修改Lindorm新版实例白名单.
+     *
      * @param request - ModifyLindormV2WhiteIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4334,6 +4338,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 修改Lindorm新版实例白名单.
+     *
      * @param request - ModifyLindormV2WhiteIpListRequest
      *
      * @returns ModifyLindormV2WhiteIpListResponse
@@ -4517,6 +4523,83 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openComputePreCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开通列存索引.
+     *
+     * @param request - OpenLdpsColumnarIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenLdpsColumnarIndexResponse
+     *
+     * @param OpenLdpsColumnarIndexRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return OpenLdpsColumnarIndexResponse
+     */
+    public function openLdpsColumnarIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OpenLdpsColumnarIndex',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenLdpsColumnarIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开通列存索引.
+     *
+     * @param request - OpenLdpsColumnarIndexRequest
+     *
+     * @returns OpenLdpsColumnarIndexResponse
+     *
+     * @param OpenLdpsColumnarIndexRequest $request
+     *
+     * @return OpenLdpsColumnarIndexResponse
+     */
+    public function openLdpsColumnarIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openLdpsColumnarIndexWithOptions($request, $runtime);
     }
 
     /**
