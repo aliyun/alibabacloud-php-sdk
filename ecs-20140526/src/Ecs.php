@@ -474,8 +474,12 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableDiskEncryptionByDefaultRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableDiskEncryptionByDefaultResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableNetworkInterfaceQoSRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableNetworkInterfaceQoSResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableDiskEncryptionByDefaultRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableDiskEncryptionByDefaultResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableNetworkInterfaceQoSRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\EnableNetworkInterfaceQoSResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnablePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EnablePhysicalConnectionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EndTerminalSessionRequest;
@@ -26176,6 +26180,87 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 禁用弹性网卡QoS限速设置.
+     *
+     * @param request - DisableNetworkInterfaceQoSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableNetworkInterfaceQoSResponse
+     *
+     * @param DisableNetworkInterfaceQoSRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DisableNetworkInterfaceQoSResponse
+     */
+    public function disableNetworkInterfaceQoSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkInterfaceId) {
+            @$query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableNetworkInterfaceQoS',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableNetworkInterfaceQoSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用弹性网卡QoS限速设置.
+     *
+     * @param request - DisableNetworkInterfaceQoSRequest
+     *
+     * @returns DisableNetworkInterfaceQoSResponse
+     *
+     * @param DisableNetworkInterfaceQoSRequest $request
+     *
+     * @return DisableNetworkInterfaceQoSResponse
+     */
+    public function disableNetworkInterfaceQoS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableNetworkInterfaceQoSWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
      *
      * @remarks
@@ -26274,6 +26359,91 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableDiskEncryptionByDefaultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用或修改弹性网卡QoS限速设置.
+     *
+     * @param request - EnableNetworkInterfaceQoSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableNetworkInterfaceQoSResponse
+     *
+     * @param EnableNetworkInterfaceQoSRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableNetworkInterfaceQoSResponse
+     */
+    public function enableNetworkInterfaceQoSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkInterfaceId) {
+            @$query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qoS) {
+            @$query['QoS'] = $request->qoS;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableNetworkInterfaceQoS',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableNetworkInterfaceQoSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用或修改弹性网卡QoS限速设置.
+     *
+     * @param request - EnableNetworkInterfaceQoSRequest
+     *
+     * @returns EnableNetworkInterfaceQoSResponse
+     *
+     * @param EnableNetworkInterfaceQoSRequest $request
+     *
+     * @return EnableNetworkInterfaceQoSResponse
+     */
+    public function enableNetworkInterfaceQoS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableNetworkInterfaceQoSWithOptions($request, $runtime);
     }
 
     /**

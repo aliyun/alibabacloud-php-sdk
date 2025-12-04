@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeRespo
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\networkInterfaceTrafficConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\privateIpSets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\qoSConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\slaveInterfaceSpecification;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\tags;
@@ -122,6 +123,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $privateIpSets;
 
     /**
+     * @var qoSConfig
+     */
+    public $qoSConfig;
+
+    /**
      * @var int
      */
     public $queueNumber;
@@ -221,6 +227,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         'ownerId' => 'OwnerId',
         'privateIpAddress' => 'PrivateIpAddress',
         'privateIpSets' => 'PrivateIpSets',
+        'qoSConfig' => 'QoSConfig',
         'queueNumber' => 'QueueNumber',
         'queuePairNumber' => 'QueuePairNumber',
         'requestId' => 'RequestId',
@@ -270,6 +277,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->privateIpSets) {
             $this->privateIpSets->validate();
+        }
+        if (null !== $this->qoSConfig) {
+            $this->qoSConfig->validate();
         }
         if (null !== $this->securityGroupIds) {
             $this->securityGroupIds->validate();
@@ -364,6 +374,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
 
         if (null !== $this->privateIpSets) {
             $res['PrivateIpSets'] = null !== $this->privateIpSets ? $this->privateIpSets->toArray($noStream) : $this->privateIpSets;
+        }
+
+        if (null !== $this->qoSConfig) {
+            $res['QoSConfig'] = null !== $this->qoSConfig ? $this->qoSConfig->toArray($noStream) : $this->qoSConfig;
         }
 
         if (null !== $this->queueNumber) {
@@ -519,6 +533,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
 
         if (isset($map['PrivateIpSets'])) {
             $model->privateIpSets = privateIpSets::fromMap($map['PrivateIpSets']);
+        }
+
+        if (isset($map['QoSConfig'])) {
+            $model->qoSConfig = qoSConfig::fromMap($map['QoSConfig']);
         }
 
         if (isset($map['QueueNumber'])) {
