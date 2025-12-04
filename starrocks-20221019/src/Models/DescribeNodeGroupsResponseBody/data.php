@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsResponse
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsResponseBody\data\nodeInfo;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsResponseBody\data\tags;
 
 class data extends Model
 {
@@ -160,6 +161,11 @@ class data extends Model
     public $storageSize;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $targetElasticNodeNumber;
@@ -199,6 +205,7 @@ class data extends Model
         'status' => 'Status',
         'storagePerformanceLevel' => 'StoragePerformanceLevel',
         'storageSize' => 'StorageSize',
+        'tags' => 'Tags',
         'targetElasticNodeNumber' => 'TargetElasticNodeNumber',
         'zoneId' => 'ZoneId',
     ];
@@ -207,6 +214,9 @@ class data extends Model
     {
         if (\is_array($this->nodeInfo)) {
             Model::validateArray($this->nodeInfo);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -339,6 +349,17 @@ class data extends Model
 
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->targetElasticNodeNumber) {
@@ -485,6 +506,17 @@ class data extends Model
 
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TargetElasticNodeNumber'])) {

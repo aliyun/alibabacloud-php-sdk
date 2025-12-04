@@ -199,6 +199,14 @@ class Starrocks extends OpenApiClient
             @$body['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dlfCatalogName) {
+            @$body['DlfCatalogName'] = $request->dlfCatalogName;
+        }
+
+        if (null !== $request->dlfCatalogType) {
+            @$body['DlfCatalogType'] = $request->dlfCatalogType;
+        }
+
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
         }
@@ -223,6 +231,10 @@ class Starrocks extends OpenApiClient
             @$body['KmsKeyId'] = $request->kmsKeyId;
         }
 
+        if (null !== $request->linkedRamUserName) {
+            @$body['LinkedRamUserName'] = $request->linkedRamUserName;
+        }
+
         if (null !== $request->observerNodeGroups) {
             @$body['ObserverNodeGroups'] = $request->observerNodeGroups;
         }
@@ -243,8 +255,16 @@ class Starrocks extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
+        }
+
         if (null !== $request->promotionOptionNo) {
             @$body['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
+
+        if (null !== $request->ramUserId) {
+            @$body['RamUserId'] = $request->ramUserId;
         }
 
         if (null !== $request->regionId) {

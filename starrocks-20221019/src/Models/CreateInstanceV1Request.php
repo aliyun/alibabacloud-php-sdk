@@ -45,6 +45,16 @@ class CreateInstanceV1Request extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $dlfCatalogName;
+
+    /**
+     * @var string
+     */
+    public $dlfCatalogType;
+
+    /**
      * @var int
      */
     public $duration;
@@ -75,6 +85,11 @@ class CreateInstanceV1Request extends Model
     public $kmsKeyId;
 
     /**
+     * @var string
+     */
+    public $linkedRamUserName;
+
+    /**
      * @var observerNodeGroups[]
      */
     public $observerNodeGroups;
@@ -102,7 +117,17 @@ class CreateInstanceV1Request extends Model
     /**
      * @var string
      */
+    public $principalType;
+
+    /**
+     * @var string
+     */
     public $promotionOptionNo;
+
+    /**
+     * @var string
+     */
+    public $ramUserId;
 
     /**
      * @var string
@@ -150,18 +175,23 @@ class CreateInstanceV1Request extends Model
         'autoRenew' => 'AutoRenew',
         'backendNodeGroups' => 'BackendNodeGroups',
         'clientToken' => 'ClientToken',
+        'dlfCatalogName' => 'DlfCatalogName',
+        'dlfCatalogType' => 'DlfCatalogType',
         'duration' => 'Duration',
         'encrypted' => 'Encrypted',
         'frontendNodeGroups' => 'FrontendNodeGroups',
         'gatewayType' => 'GatewayType',
         'instanceName' => 'InstanceName',
         'kmsKeyId' => 'KmsKeyId',
+        'linkedRamUserName' => 'LinkedRamUserName',
         'observerNodeGroups' => 'ObserverNodeGroups',
         'ossAccessingRoleName' => 'OssAccessingRoleName',
         'packageType' => 'PackageType',
         'payType' => 'PayType',
         'pricingCycle' => 'PricingCycle',
+        'principalType' => 'PrincipalType',
         'promotionOptionNo' => 'PromotionOptionNo',
+        'ramUserId' => 'RamUserId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'runMode' => 'RunMode',
@@ -229,6 +259,14 @@ class CreateInstanceV1Request extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->dlfCatalogName) {
+            $res['DlfCatalogName'] = $this->dlfCatalogName;
+        }
+
+        if (null !== $this->dlfCatalogType) {
+            $res['DlfCatalogType'] = $this->dlfCatalogType;
+        }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -260,6 +298,10 @@ class CreateInstanceV1Request extends Model
             $res['KmsKeyId'] = $this->kmsKeyId;
         }
 
+        if (null !== $this->linkedRamUserName) {
+            $res['LinkedRamUserName'] = $this->linkedRamUserName;
+        }
+
         if (null !== $this->observerNodeGroups) {
             if (\is_array($this->observerNodeGroups)) {
                 $res['ObserverNodeGroups'] = [];
@@ -287,8 +329,16 @@ class CreateInstanceV1Request extends Model
             $res['PricingCycle'] = $this->pricingCycle;
         }
 
+        if (null !== $this->principalType) {
+            $res['PrincipalType'] = $this->principalType;
+        }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
+        }
+
+        if (null !== $this->ramUserId) {
+            $res['RamUserId'] = $this->ramUserId;
         }
 
         if (null !== $this->regionId) {
@@ -379,6 +429,14 @@ class CreateInstanceV1Request extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['DlfCatalogName'])) {
+            $model->dlfCatalogName = $map['DlfCatalogName'];
+        }
+
+        if (isset($map['DlfCatalogType'])) {
+            $model->dlfCatalogType = $map['DlfCatalogType'];
+        }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
@@ -410,6 +468,10 @@ class CreateInstanceV1Request extends Model
             $model->kmsKeyId = $map['KmsKeyId'];
         }
 
+        if (isset($map['LinkedRamUserName'])) {
+            $model->linkedRamUserName = $map['LinkedRamUserName'];
+        }
+
         if (isset($map['ObserverNodeGroups'])) {
             if (!empty($map['ObserverNodeGroups'])) {
                 $model->observerNodeGroups = [];
@@ -437,8 +499,16 @@ class CreateInstanceV1Request extends Model
             $model->pricingCycle = $map['PricingCycle'];
         }
 
+        if (isset($map['PrincipalType'])) {
+            $model->principalType = $map['PrincipalType'];
+        }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
+        }
+
+        if (isset($map['RamUserId'])) {
+            $model->ramUserId = $map['RamUserId'];
         }
 
         if (isset($map['RegionId'])) {
