@@ -156,6 +156,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DisableArmsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DisableArmsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DowngradeApplicationApmServiceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DowngradeApplicationApmServiceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
@@ -6361,6 +6363,63 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param request - DisableArmsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableArmsResponse
+     *
+     * @param DisableArmsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableArmsResponse
+     */
+    public function disableArmsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableArms',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/arms/disableArms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableArmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DisableArmsRequest
+     *
+     * @returns DisableArmsResponse
+     *
+     * @param DisableArmsRequest $request
+     *
+     * @return DisableArmsResponse
+     */
+    public function disableArms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableArmsWithOptions($request, $headers, $runtime);
     }
 
     /**
