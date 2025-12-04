@@ -7,6 +7,10 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelRestartInstanceRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelRestartInstanceResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckModifyConfigNeedRestartRequest;
@@ -35,12 +39,18 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateRDSToClickhouseDbRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateRDSToClickhouseDbResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSLBRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSLBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSQLAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateSQLAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteBackupPolicyRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteDBClusterResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSLBRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSLBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSyndbRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSyndbResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountAuthorityRequest;
@@ -51,6 +61,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourcesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourcesResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupsRequest;
@@ -87,6 +99,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogRecordsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogTrendRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogTrendResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbTablesRequest;
@@ -101,6 +115,8 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountAuthorityRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterAccessWhiteListRequest;
@@ -291,6 +307,160 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateClusterPublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消预约重启.
+     *
+     * @param request - CancelRestartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelRestartInstanceResponse
+     *
+     * @param CancelRestartInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CancelRestartInstanceResponse
+     */
+    public function cancelRestartInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->restartTime) {
+            @$query['RestartTime'] = $request->restartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelRestartInstance',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelRestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消预约重启.
+     *
+     * @param request - CancelRestartInstanceRequest
+     *
+     * @returns CancelRestartInstanceResponse
+     *
+     * @param CancelRestartInstanceRequest $request
+     *
+     * @return CancelRestartInstanceResponse
+     */
+    public function cancelRestartInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelRestartInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1547,6 +1717,79 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Description
+     * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+     *
+     * @param request - CreateSLBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSLBResponse
+     *
+     * @param CreateSLBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateSLBResponse
+     */
+    public function createSLBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSLB',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSLBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Description
+     * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+     *
+     * @param request - CreateSLBRequest
+     *
+     * @returns CreateSLBResponse
+     *
+     * @param CreateSLBRequest $request
+     *
+     * @return CreateSLBResponse
+     */
+    public function createSLB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSLBWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
@@ -1794,6 +2037,79 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * 删除备份策略.
+     *
+     * @param request - DeleteBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupPolicyResponse
+     *
+     * @param DeleteBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackupPolicy',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除备份策略.
+     *
+     * @param request - DeleteBackupPolicyRequest
+     *
+     * @returns DeleteBackupPolicyResponse
+     *
+     * @param DeleteBackupPolicyRequest $request
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
      *
      * @remarks
@@ -1870,6 +2186,75 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Description
+     * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+     *
+     * @param request - DeleteSLBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSLBResponse
+     *
+     * @param DeleteSLBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteSLBResponse
+     */
+    public function deleteSLBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSLB',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSLBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Description
+     * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+     *
+     * @param request - DeleteSLBRequest
+     *
+     * @returns DeleteSLBResponse
+     *
+     * @param DeleteSLBRequest $request
+     *
+     * @return DeleteSLBResponse
+     */
+    public function deleteSLB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSLBWithOptions($request, $runtime);
     }
 
     /**
@@ -2275,6 +2660,87 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAllDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeAutoRenewAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutoRenewAttributeResponse
+     *
+     * @param DescribeAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAutoRenewAttributeResponse
+     */
+    public function describeAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterIds) {
+            @$query['DBClusterIds'] = $request->DBClusterIds;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAutoRenewAttribute',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeAutoRenewAttributeRequest
+     *
+     * @returns DescribeAutoRenewAttributeResponse
+     *
+     * @param DescribeAutoRenewAttributeRequest $request
+     *
+     * @return DescribeAutoRenewAttributeResponse
+     */
+    public function describeAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -3710,6 +4176,91 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeSlowLogTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSlowLogTrendResponse
+     *
+     * @param DescribeSlowLogTrendRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSlowLogTrendResponse
+     */
+    public function describeSlowLogTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->queryDurationMs) {
+            @$query['QueryDurationMs'] = $request->queryDurationMs;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSlowLogTrend',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSlowLogTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeSlowLogTrendRequest
+     *
+     * @returns DescribeSlowLogTrendResponse
+     *
+     * @param DescribeSlowLogTrendRequest $request
+     *
+     * @return DescribeSlowLogTrendResponse
+     */
+    public function describeSlowLogTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlowLogTrendWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeSynDbTablesRequest
@@ -4288,6 +4839,91 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ModifyAutoRenewAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAutoRenewAttributeResponse
+     *
+     * @param ModifyAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAutoRenewAttributeResponse
+     */
+    public function modifyAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterIds) {
+            @$query['DBClusterIds'] = $request->DBClusterIds;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->renewalStatus) {
+            @$query['RenewalStatus'] = $request->renewalStatus;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAutoRenewAttribute',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ModifyAutoRenewAttributeRequest
+     *
+     * @returns ModifyAutoRenewAttributeResponse
+     *
+     * @param ModifyAutoRenewAttributeRequest $request
+     *
+     * @return ModifyAutoRenewAttributeResponse
+     */
+    public function modifyAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**

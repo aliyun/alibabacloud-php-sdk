@@ -54,7 +54,8 @@ class CreateRDSToClickhouseDbResponseBody extends Model
                 $res['RepeatedDbs'] = [];
                 $n1 = 0;
                 foreach ($this->repeatedDbs as $item1) {
-                    $res['RepeatedDbs'][$n1++] = $item1;
+                    $res['RepeatedDbs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class CreateRDSToClickhouseDbResponseBody extends Model
                 $model->repeatedDbs = [];
                 $n1 = 0;
                 foreach ($map['RepeatedDbs'] as $item1) {
-                    $model->repeatedDbs[$n1++] = $item1;
+                    $model->repeatedDbs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

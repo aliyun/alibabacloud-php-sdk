@@ -69,7 +69,8 @@ class DescribeSynDbsResponseBody extends Model
                 $res['SynDbs'] = [];
                 $n1 = 0;
                 foreach ($this->synDbs as $item1) {
-                    $res['SynDbs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SynDbs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -106,7 +107,8 @@ class DescribeSynDbsResponseBody extends Model
                 $model->synDbs = [];
                 $n1 = 0;
                 foreach ($map['SynDbs'] as $item1) {
-                    $model->synDbs[$n1++] = synDbs::fromMap($item1);
+                    $model->synDbs[$n1] = synDbs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

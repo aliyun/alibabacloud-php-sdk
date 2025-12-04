@@ -33,7 +33,8 @@ class historyDetails extends Model
                 $res['HistoryDetail'] = [];
                 $n1 = 0;
                 foreach ($this->historyDetail as $item1) {
-                    $res['HistoryDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HistoryDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class historyDetails extends Model
                 $model->historyDetail = [];
                 $n1 = 0;
                 foreach ($map['HistoryDetail'] as $item1) {
-                    $model->historyDetail[$n1++] = historyDetail::fromMap($item1);
+                    $model->historyDetail[$n1] = historyDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

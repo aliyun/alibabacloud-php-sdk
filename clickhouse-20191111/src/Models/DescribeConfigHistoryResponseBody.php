@@ -39,7 +39,8 @@ class DescribeConfigHistoryResponseBody extends Model
                 $res['ConfigHistoryItems'] = [];
                 $n1 = 0;
                 foreach ($this->configHistoryItems as $item1) {
-                    $res['ConfigHistoryItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConfigHistoryItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeConfigHistoryResponseBody extends Model
                 $model->configHistoryItems = [];
                 $n1 = 0;
                 foreach ($map['ConfigHistoryItems'] as $item1) {
-                    $model->configHistoryItems[$n1++] = configHistoryItems::fromMap($item1);
+                    $model->configHistoryItems[$n1] = configHistoryItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
