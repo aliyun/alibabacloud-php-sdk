@@ -135,6 +135,8 @@ use AlibabaCloud\SDK\Eflo\V20220530\Models\RefundVccRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\RefundVccResponse;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\RetryVccRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\RetryVccResponse;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\SwitchVccConnectionRequest;
+use AlibabaCloud\SDK\Eflo\V20220530\Models\SwitchVccConnectionResponse;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UnassignLeniPrivateIpAddressRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UnassignLeniPrivateIpAddressResponse;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UnAssignPrivateIpAddressRequest;
@@ -1745,6 +1747,10 @@ class Eflo extends OpenApiClient
         $body = [];
         if (null !== $request->erId) {
             @$body['ErId'] = $request->erId;
+        }
+
+        if (null !== $request->erRouteMapId) {
+            @$body['ErRouteMapId'] = $request->erRouteMapId;
         }
 
         if (null !== $request->erRouteMapIds) {
@@ -5505,6 +5511,83 @@ class Eflo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->retryVccWithOptions($request, $runtime);
+    }
+
+    /**
+     * Switch the VCC connection instance or type.
+     *
+     * @param request - SwitchVccConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchVccConnectionResponse
+     *
+     * @param SwitchVccConnectionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchVccConnectionResponse
+     */
+    public function switchVccConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cenId) {
+            @$body['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->connectionType) {
+            @$body['ConnectionType'] = $request->connectionType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchVccConnection',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchVccConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Switch the VCC connection instance or type.
+     *
+     * @param request - SwitchVccConnectionRequest
+     *
+     * @returns SwitchVccConnectionResponse
+     *
+     * @param SwitchVccConnectionRequest $request
+     *
+     * @return SwitchVccConnectionResponse
+     */
+    public function switchVccConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchVccConnectionWithOptions($request, $runtime);
     }
 
     /**

@@ -14,6 +14,11 @@ class DeleteErRouteMapRequest extends Model
     public $erId;
 
     /**
+     * @var string
+     */
+    public $erRouteMapId;
+
+    /**
      * @var string[]
      */
     public $erRouteMapIds;
@@ -24,6 +29,7 @@ class DeleteErRouteMapRequest extends Model
     public $regionId;
     protected $_name = [
         'erId' => 'ErId',
+        'erRouteMapId' => 'ErRouteMapId',
         'erRouteMapIds' => 'ErRouteMapIds',
         'regionId' => 'RegionId',
     ];
@@ -41,6 +47,10 @@ class DeleteErRouteMapRequest extends Model
         $res = [];
         if (null !== $this->erId) {
             $res['ErId'] = $this->erId;
+        }
+
+        if (null !== $this->erRouteMapId) {
+            $res['ErRouteMapId'] = $this->erRouteMapId;
         }
 
         if (null !== $this->erRouteMapIds) {
@@ -71,6 +81,10 @@ class DeleteErRouteMapRequest extends Model
         $model = new self();
         if (isset($map['ErId'])) {
             $model->erId = $map['ErId'];
+        }
+
+        if (isset($map['ErRouteMapId'])) {
+            $model->erRouteMapId = $map['ErRouteMapId'];
         }
 
         if (isset($map['ErRouteMapIds'])) {
