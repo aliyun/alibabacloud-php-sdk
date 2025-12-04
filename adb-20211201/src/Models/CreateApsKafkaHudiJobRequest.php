@@ -37,6 +37,11 @@ class CreateApsKafkaHudiJobRequest extends Model
     /**
      * @var string
      */
+    public $dataFormatType;
+
+    /**
+     * @var string
+     */
     public $dataOutputFormat;
 
     /**
@@ -154,6 +159,7 @@ class CreateApsKafkaHudiJobRequest extends Model
         'advancedConfig' => 'AdvancedConfig',
         'columns' => 'Columns',
         'DBClusterId' => 'DBClusterId',
+        'dataFormatType' => 'DataFormatType',
         'dataOutputFormat' => 'DataOutputFormat',
         'datasourceId' => 'DatasourceId',
         'dbName' => 'DbName',
@@ -218,6 +224,10 @@ class CreateApsKafkaHudiJobRequest extends Model
 
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->dataFormatType) {
+            $res['DataFormatType'] = $this->dataFormatType;
         }
 
         if (null !== $this->dataOutputFormat) {
@@ -360,6 +370,10 @@ class CreateApsKafkaHudiJobRequest extends Model
 
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['DataFormatType'])) {
+            $model->dataFormatType = $map['DataFormatType'];
         }
 
         if (isset($map['DataOutputFormat'])) {

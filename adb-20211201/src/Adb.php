@@ -1925,6 +1925,10 @@ class Adb extends OpenApiClient
             @$body['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->dataFormatType) {
+            @$body['DataFormatType'] = $request->dataFormatType;
+        }
+
         if (null !== $request->dataOutputFormat) {
             @$body['DataOutputFormat'] = $request->dataOutputFormat;
         }
