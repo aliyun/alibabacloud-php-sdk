@@ -22,10 +22,16 @@ class JobStatusDetailValue extends Model
      * @var string
      */
     public $timeStamps;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
     protected $_name = [
         'comment' => 'comment',
         'jobResult' => 'jobResult',
         'timeStamps' => 'timeStamps',
+        'errorMessage' => 'errorMessage',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class JobStatusDetailValue extends Model
 
         if (null !== $this->timeStamps) {
             $res['timeStamps'] = $this->timeStamps;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class JobStatusDetailValue extends Model
 
         if (isset($map['timeStamps'])) {
             $model->timeStamps = $map['timeStamps'];
+        }
+
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
         }
 
         return $model;
