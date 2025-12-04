@@ -17,9 +17,15 @@ class privateIpSet extends Model
      * @var string
      */
     public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $privateIpStatus;
     protected $_name = [
         'primary' => 'Primary',
         'privateIpAddress' => 'PrivateIpAddress',
+        'privateIpStatus' => 'PrivateIpStatus',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class privateIpSet extends Model
 
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+
+        if (null !== $this->privateIpStatus) {
+            $res['PrivateIpStatus'] = $this->privateIpStatus;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class privateIpSet extends Model
 
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+
+        if (isset($map['PrivateIpStatus'])) {
+            $model->privateIpStatus = $map['PrivateIpStatus'];
         }
 
         return $model;

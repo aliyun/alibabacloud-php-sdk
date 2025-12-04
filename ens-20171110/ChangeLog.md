@@ -1,3 +1,7 @@
+2025-12-04 Version: 8.0.1
+- Update API DescribeNetworkInterfaces: add response parameters Body.NetworkInterfaceSets.$.PrivateIpSets.$.PrivateIpStatus.
+
+
 2025-11-26 Version: 8.0.0
 - Support API BatchEventMigrateInstance.
 - Support API BatchEventRebootInstance.
