@@ -5,15 +5,27 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesTaskStopRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesTaskStopResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsRequest;
@@ -26,6 +38,16 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
@@ -41,6 +63,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
@@ -49,6 +73,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -86,6 +113,219 @@ class RdsAi extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 发送对话消息.
+     *
+     * @param tmpReq - ChatMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatMessagesResponse
+     *
+     * @param ChatMessagesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ChatMessagesResponse
+     */
+    public function chatMessagesWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatMessagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputs) {
+            $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->inputsShrink) {
+            @$query['Inputs'] = $request->inputsShrink;
+        }
+
+        if (null !== $request->parentMessageId) {
+            @$query['ParentMessageId'] = $request->parentMessageId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatMessages',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield ChatMessagesResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 发送对话消息.
+     *
+     * @param tmpReq - ChatMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatMessagesResponse
+     *
+     * @param ChatMessagesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ChatMessagesResponse
+     */
+    public function chatMessagesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatMessagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputs) {
+            $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->inputsShrink) {
+            @$query['Inputs'] = $request->inputsShrink;
+        }
+
+        if (null !== $request->parentMessageId) {
+            @$query['ParentMessageId'] = $request->parentMessageId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatMessages',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发送对话消息.
+     *
+     * @param request - ChatMessagesRequest
+     *
+     * @returns ChatMessagesResponse
+     *
+     * @param ChatMessagesRequest $request
+     *
+     * @return ChatMessagesResponse
+     */
+    public function chatMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 停止对话.
+     *
+     * @param request - ChatMessagesTaskStopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatMessagesTaskStopResponse
+     *
+     * @param ChatMessagesTaskStopRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ChatMessagesTaskStopResponse
+     */
+    public function chatMessagesTaskStopWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatMessagesTaskStop',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatMessagesTaskStopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止对话.
+     *
+     * @param request - ChatMessagesTaskStopRequest
+     *
+     * @returns ChatMessagesTaskStopResponse
+     *
+     * @param ChatMessagesTaskStopRequest $request
+     *
+     * @return ChatMessagesTaskStopResponse
+     */
+    public function chatMessagesTaskStop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatMessagesTaskStopWithOptions($request, $runtime);
     }
 
     /**
@@ -204,6 +444,85 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 创建自定义agent.
+     *
+     * @param tmpReq - CreateCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param CreateCustomAgentRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tools) {
+            $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->enableTools) {
+            @$query['EnableTools'] = $request->enableTools;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->systemPrompt) {
+            @$query['SystemPrompt'] = $request->systemPrompt;
+        }
+
+        if (null !== $request->toolsShrink) {
+            @$query['Tools'] = $request->toolsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomAgent',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义agent.
+     *
+     * @param request - CreateCustomAgentRequest
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param CreateCustomAgentRequest $request
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除应用服务实例.
      *
      * @param request - DeleteAppInstanceRequest
@@ -266,6 +585,67 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Custom Agent.
+     *
+     * @param request - DeleteCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param DeleteCustomAgentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomAgent',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Custom Agent.
+     *
+     * @param request - DeleteCustomAgentRequest
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param DeleteCustomAgentRequest $request
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -400,6 +780,83 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询事件信息列表.
+     *
+     * @param request - DescribeEventsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventsListResponse
+     *
+     * @param DescribeEventsListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeEventsListResponse
+     */
+    public function describeEventsListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEventsList',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEventsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询事件信息列表.
+     *
+     * @param request - DescribeEventsListRequest
+     *
+     * @returns DescribeEventsListResponse
+     *
+     * @param DescribeEventsListRequest $request
+     *
+     * @return DescribeEventsListResponse
+     */
+    public function describeEventsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEventsListWithOptions($request, $runtime);
     }
 
     /**
@@ -766,6 +1223,331 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceStorageConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取会话列表.
+     *
+     * @param request - GetConversationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConversationsResponse
+     *
+     * @param GetConversationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetConversationsResponse
+     */
+    public function getConversationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->lastId) {
+            @$query['LastId'] = $request->lastId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->pinned) {
+            @$query['Pinned'] = $request->pinned;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConversations',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话列表.
+     *
+     * @param request - GetConversationsRequest
+     *
+     * @returns GetConversationsResponse
+     *
+     * @param GetConversationsRequest $request
+     *
+     * @return GetConversationsResponse
+     */
+    public function getConversations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConversationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询CustomAgent.
+     *
+     * @param request - GetCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomAgentResponse
+     *
+     * @param GetCustomAgentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCustomAgentResponse
+     */
+    public function getCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomAgent',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询CustomAgent.
+     *
+     * @param request - GetCustomAgentRequest
+     *
+     * @returns GetCustomAgentResponse
+     *
+     * @param GetCustomAgentRequest $request
+     *
+     * @return GetCustomAgentResponse
+     */
+    public function getCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取会话历史消息.
+     *
+     * @param request - GetMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMessagesResponse
+     *
+     * @param GetMessagesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetMessagesResponse
+     */
+    public function getMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->firstId) {
+            @$query['FirstId'] = $request->firstId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMessages',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话历史消息.
+     *
+     * @param request - GetMessagesRequest
+     *
+     * @returns GetMessagesResponse
+     *
+     * @param GetMessagesRequest $request
+     *
+     * @return GetMessagesResponse
+     */
+    public function getMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Custom Agent列表.
+     *
+     * @param request - ListCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentResponse
+     *
+     * @param ListCustomAgentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCustomAgentResponse
+     */
+    public function listCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgent',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Custom Agent列表.
+     *
+     * @param request - ListCustomAgentRequest
+     *
+     * @returns ListCustomAgentResponse
+     *
+     * @param ListCustomAgentRequest $request
+     *
+     * @return ListCustomAgentResponse
+     */
+    public function listCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取专属Agent可用工具.
+     *
+     * @param request - ListCustomAgentToolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentToolsResponse
+     *
+     * @param ListCustomAgentToolsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomAgentToolsResponse
+     */
+    public function listCustomAgentToolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgentTools',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取专属Agent可用工具.
+     *
+     * @param request - ListCustomAgentToolsRequest
+     *
+     * @returns ListCustomAgentToolsResponse
+     *
+     * @param ListCustomAgentToolsRequest $request
+     *
+     * @return ListCustomAgentToolsResponse
+     */
+    public function listCustomAgentTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAgentToolsWithOptions($request, $runtime);
     }
 
     /**
@@ -1221,6 +2003,75 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 消息终端用户反馈、点赞/点踩.
+     *
+     * @param request - ModifyMessagesFeedbacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMessagesFeedbacksResponse
+     *
+     * @param ModifyMessagesFeedbacksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyMessagesFeedbacksResponse
+     */
+    public function modifyMessagesFeedbacksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
+        }
+
+        if (null !== $request->rating) {
+            @$query['Rating'] = $request->rating;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMessagesFeedbacks',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMessagesFeedbacksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 消息终端用户反馈、点赞/点踩.
+     *
+     * @param request - ModifyMessagesFeedbacksRequest
+     *
+     * @returns ModifyMessagesFeedbacksResponse
+     *
+     * @param ModifyMessagesFeedbacksRequest $request
+     *
+     * @return ModifyMessagesFeedbacksResponse
+     */
+    public function modifyMessagesFeedbacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMessagesFeedbacksWithOptions($request, $runtime);
+    }
+
+    /**
      * 重置实例密码
      *
      * @param request - ResetInstancePasswordRequest
@@ -1470,5 +2321,88 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Custom Agent.
+     *
+     * @param tmpReq - UpdateCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomAgentResponse
+     *
+     * @param UpdateCustomAgentRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateCustomAgentResponse
+     */
+    public function updateCustomAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tools) {
+            $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->enableTools) {
+            @$query['EnableTools'] = $request->enableTools;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->systemPrompt) {
+            @$query['SystemPrompt'] = $request->systemPrompt;
+        }
+
+        if (null !== $request->toolsShrink) {
+            @$query['Tools'] = $request->toolsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomAgent',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Custom Agent.
+     *
+     * @param request - UpdateCustomAgentRequest
+     *
+     * @returns UpdateCustomAgentResponse
+     *
+     * @param UpdateCustomAgentRequest $request
+     *
+     * @return UpdateCustomAgentResponse
+     */
+    public function updateCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomAgentWithOptions($request, $runtime);
     }
 }
