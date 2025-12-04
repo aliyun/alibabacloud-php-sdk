@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DescribeMetricListRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetResourcesResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusShrinkRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetVmcoreDiagnosisTaskRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetVmcoreDiagnosisTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InitialSysomRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InitialSysomResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentForClusterRequest;
@@ -105,6 +109,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPluginsInstancesResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListVmcoreDiagnosisTaskRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListVmcoreDiagnosisTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisRequest;
@@ -370,6 +376,83 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->createAlertStrategyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建宕机诊断任务
+     *
+     * @param request - CreateVmcoreDiagnosisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVmcoreDiagnosisTaskResponse
+     *
+     * @param CreateVmcoreDiagnosisTaskRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateVmcoreDiagnosisTaskResponse
+     */
+    public function createVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->debuginfoCommonUrl) {
+            @$body['debuginfoCommonUrl'] = $request->debuginfoCommonUrl;
+        }
+
+        if (null !== $request->debuginfoUrl) {
+            @$body['debuginfoUrl'] = $request->debuginfoUrl;
+        }
+
+        if (null !== $request->dmesgUrl) {
+            @$body['dmesgUrl'] = $request->dmesgUrl;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['taskType'] = $request->taskType;
+        }
+
+        if (null !== $request->vmcoreUrl) {
+            @$body['vmcoreUrl'] = $request->vmcoreUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVmcoreDiagnosisTask',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/crashAgent/diagnosis/createDiagnosisTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVmcoreDiagnosisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建宕机诊断任务
+     *
+     * @param request - CreateVmcoreDiagnosisTaskRequest
+     *
+     * @returns CreateVmcoreDiagnosisTaskResponse
+     *
+     * @param CreateVmcoreDiagnosisTaskRequest $request
+     *
+     * @return CreateVmcoreDiagnosisTaskResponse
+     */
+    public function createVmcoreDiagnosisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2190,6 +2273,67 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 查询宕机诊断任务结果.
+     *
+     * @param request - GetVmcoreDiagnosisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVmcoreDiagnosisTaskResponse
+     *
+     * @param GetVmcoreDiagnosisTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetVmcoreDiagnosisTaskResponse
+     */
+    public function getVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVmcoreDiagnosisTask',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/crashAgent/diagnosis/queryTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVmcoreDiagnosisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询宕机诊断任务结果.
+     *
+     * @param request - GetVmcoreDiagnosisTaskRequest
+     *
+     * @returns GetVmcoreDiagnosisTaskResponse
+     *
+     * @param GetVmcoreDiagnosisTaskRequest $request
+     *
+     * @return GetVmcoreDiagnosisTaskResponse
+     */
+    public function getVmcoreDiagnosisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 初始化SysOM，确保角色存在.
      *
      * @param request - InitialSysomRequest
@@ -3897,6 +4041,67 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->listRegionsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 查询历史宕机诊断任务
+     *
+     * @param request - ListVmcoreDiagnosisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVmcoreDiagnosisTaskResponse
+     *
+     * @param ListVmcoreDiagnosisTaskRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListVmcoreDiagnosisTaskResponse
+     */
+    public function listVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->days) {
+            @$query['days'] = $request->days;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVmcoreDiagnosisTask',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/crashAgent/diagnosis/queryTaskList',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVmcoreDiagnosisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询历史宕机诊断任务
+     *
+     * @param request - ListVmcoreDiagnosisTaskRequest
+     *
+     * @returns ListVmcoreDiagnosisTaskResponse
+     *
+     * @param ListVmcoreDiagnosisTaskRequest $request
+     *
+     * @return ListVmcoreDiagnosisTaskResponse
+     */
+    public function listVmcoreDiagnosisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
