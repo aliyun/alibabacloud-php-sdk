@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesResponseBody\aliases\alias;
-use AlibabaCloud\Tea\Model;
 
 class aliases extends Model
 {
@@ -17,17 +17,24 @@ class aliases extends Model
         'alias' => 'Alias',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alias)) {
+            Model::validateArray($this->alias);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alias) {
-            $res['Alias'] = [];
-            if (null !== $this->alias && \is_array($this->alias)) {
-                $n = 0;
-                foreach ($this->alias as $item) {
-                    $res['Alias'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alias)) {
+                $res['Alias'] = [];
+                $n1 = 0;
+                foreach ($this->alias as $item1) {
+                    $res['Alias'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class aliases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aliases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             if (!empty($map['Alias'])) {
                 $model->alias = [];
-                $n = 0;
-                foreach ($map['Alias'] as $item) {
-                    $model->alias[$n++] = null !== $item ? alias::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Alias'] as $item1) {
+                    $model->alias[$n1] = alias::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

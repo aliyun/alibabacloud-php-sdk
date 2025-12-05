@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetKmsInstanceRequest extends Model
 {
     /**
-     * @description The ID of the KMS instance that you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example kst-bjj62f5ba3dnpb6v8****
-     *
      * @var string
      */
     public $kmsInstanceId;
@@ -22,9 +16,12 @@ class GetKmsInstanceRequest extends Model
         'kmsInstanceId' => 'KmsInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kmsInstanceId) {
@@ -34,11 +31,11 @@ class GetKmsInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetKmsInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

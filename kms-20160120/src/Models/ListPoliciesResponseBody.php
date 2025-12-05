@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesResponseBody\policies;
-use AlibabaCloud\Tea\Model;
 
 class ListPoliciesResponseBody extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description A list of permission policies.
-     *
      * @var policies
      */
     public $policies;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example b66ad557-9c00-4064-9c8d-b621c3263308
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -59,23 +41,33 @@ class ListPoliciesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->policies) {
+            $this->policies->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->policies) {
-            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
+            $res['Policies'] = null !== $this->policies ? $this->policies->toArray($noStream) : $this->policies;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -83,26 +75,30 @@ class ListPoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Policies'])) {
             $model->policies = policies::fromMap($map['Policies']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

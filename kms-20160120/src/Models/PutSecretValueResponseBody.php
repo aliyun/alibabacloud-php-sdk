@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\PutSecretValueResponseBody\versionStages;
-use AlibabaCloud\Tea\Model;
 
 class PutSecretValueResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example f94ec9d3-2d10-4922-9a5c-5dcd5ebcb5e8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The name of the secret.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
 
     /**
-     * @description The new version of the secret value.
-     *
-     * @example 00000000000000000000000000000000203
-     *
      * @var string
      */
     public $versionId;
 
     /**
-     * @description The stage labels that are used to mark the new version.
-     *
      * @var versionStages
      */
     public $versionStages;
@@ -49,44 +35,56 @@ class PutSecretValueResponseBody extends Model
         'versionStages' => 'VersionStages',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->versionStages) {
+            $this->versionStages->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
+
         if (null !== $this->versionStages) {
-            $res['VersionStages'] = null !== $this->versionStages ? $this->versionStages->toMap() : null;
+            $res['VersionStages'] = null !== $this->versionStages ? $this->versionStages->toArray($noStream) : $this->versionStages;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutSecretValueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }
+
         if (isset($map['VersionStages'])) {
             $model->versionStages = versionStages::fromMap($map['VersionStages']);
         }

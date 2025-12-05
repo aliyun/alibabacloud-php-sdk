@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListClientKeysResponseBody\clientKeys;
-use AlibabaCloud\Tea\Model;
 
 class ListClientKeysResponseBody extends Model
 {
     /**
-     * @description A list of client keys.
-     *
      * @var clientKeys[]
      */
     public $clientKeys;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 2312e45f-b2fa-4c34-ad94-3eca50932916
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListClientKeysResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clientKeys)) {
+            Model::validateArray($this->clientKeys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientKeys) {
-            $res['ClientKeys'] = [];
-            if (null !== $this->clientKeys && \is_array($this->clientKeys)) {
-                $n = 0;
-                foreach ($this->clientKeys as $item) {
-                    $res['ClientKeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clientKeys)) {
+                $res['ClientKeys'] = [];
+                $n1 = 0;
+                foreach ($this->clientKeys as $item1) {
+                    $res['ClientKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListClientKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClientKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientKeys'])) {
             if (!empty($map['ClientKeys'])) {
                 $model->clientKeys = [];
-                $n = 0;
-                foreach ($map['ClientKeys'] as $item) {
-                    $model->clientKeys[$n++] = null !== $item ? clientKeys::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClientKeys'] as $item1) {
+                    $model->clientKeys[$n1] = clientKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

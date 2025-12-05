@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListResourceTagsResponseBody\tags;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceTagsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 4162a6af-bc99-40b3-a552-89dcc8aaf7c8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The tags of the CMK.
-     *
      * @var tags
      */
     public $tags;
@@ -29,32 +23,40 @@ class ListResourceTagsResponseBody extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

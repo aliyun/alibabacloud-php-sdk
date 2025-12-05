@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetClientKeyRequest extends Model
 {
     /**
-     * @description The ID of the client key.
-     *
-     * This parameter is required.
-     *
-     * @example KAAP.66abf237-63f6-4625-b8cf-47e1086e****
-     *
      * @var string
      */
     public $clientKeyId;
@@ -22,9 +16,12 @@ class GetClientKeyRequest extends Model
         'clientKeyId' => 'ClientKeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientKeyId) {
@@ -34,11 +31,11 @@ class GetClientKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClientKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

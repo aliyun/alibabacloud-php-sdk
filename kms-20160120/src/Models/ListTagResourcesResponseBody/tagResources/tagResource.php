@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListTagResourcesResponseBody\tagResources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagResource extends Model
 {
     /**
-     * @description The resource ID.
-     *
-     * @example key-hzz62f1cb66fa42qo****
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource.
-     *
-     * @example key
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The key of the tag.
-     *
-     * @example disk-encryption
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The value of the tag.
-     *
-     * @example true
-     *
      * @var string
      */
     public $tagValue;
@@ -50,20 +34,26 @@ class tagResource extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -71,23 +61,26 @@ class tagResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

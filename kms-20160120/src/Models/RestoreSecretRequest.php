@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestoreSecretRequest extends Model
 {
     /**
-     * @description The name of the secret you want to restore.
-     *
-     * This parameter is required.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -22,9 +16,12 @@ class RestoreSecretRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secretName) {
@@ -34,11 +31,11 @@ class RestoreSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestoreSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

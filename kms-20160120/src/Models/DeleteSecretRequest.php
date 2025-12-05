@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecretRequest extends Model
 {
     /**
-     * @description Specifies whether to forcibly delete the secret. If this parameter is set to true, the secret cannot be recovered.
-     *
-     * Valid values:
-     *
-     *   **true**
-     *   **false** (default value)
-     *
-     * @example false
-     *
      * @var string
      */
     public $forceDeleteWithoutRecovery;
 
     /**
-     * @description Specifies the recovery period of the secret if you do not forcibly delete it. Default value: 30. Unit: Days.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $recoveryWindowInDays;
 
     /**
-     * @description The name of the secret.
-     *
-     * This parameter is required.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -47,17 +28,22 @@ class DeleteSecretRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forceDeleteWithoutRecovery) {
             $res['ForceDeleteWithoutRecovery'] = $this->forceDeleteWithoutRecovery;
         }
+
         if (null !== $this->recoveryWindowInDays) {
             $res['RecoveryWindowInDays'] = $this->recoveryWindowInDays;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -65,20 +51,22 @@ class DeleteSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForceDeleteWithoutRecovery'])) {
             $model->forceDeleteWithoutRecovery = $map['ForceDeleteWithoutRecovery'];
         }
+
         if (isset($map['RecoveryWindowInDays'])) {
             $model->recoveryWindowInDays = $map['RecoveryWindowInDays'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

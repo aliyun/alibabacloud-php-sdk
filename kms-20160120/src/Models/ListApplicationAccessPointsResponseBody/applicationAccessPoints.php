@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListApplicationAccessPointsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListApplicationAccessPointsResponseBody\applicationAccessPoints\applicationAccessPoint;
-use AlibabaCloud\Tea\Model;
 
 class applicationAccessPoints extends Model
 {
@@ -17,17 +17,24 @@ class applicationAccessPoints extends Model
         'applicationAccessPoint' => 'ApplicationAccessPoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applicationAccessPoint)) {
+            Model::validateArray($this->applicationAccessPoint);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationAccessPoint) {
-            $res['ApplicationAccessPoint'] = [];
-            if (null !== $this->applicationAccessPoint && \is_array($this->applicationAccessPoint)) {
-                $n = 0;
-                foreach ($this->applicationAccessPoint as $item) {
-                    $res['ApplicationAccessPoint'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applicationAccessPoint)) {
+                $res['ApplicationAccessPoint'] = [];
+                $n1 = 0;
+                foreach ($this->applicationAccessPoint as $item1) {
+                    $res['ApplicationAccessPoint'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class applicationAccessPoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationAccessPoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationAccessPoint'])) {
             if (!empty($map['ApplicationAccessPoint'])) {
                 $model->applicationAccessPoint = [];
-                $n = 0;
-                foreach ($map['ApplicationAccessPoint'] as $item) {
-                    $model->applicationAccessPoint[$n++] = null !== $item ? applicationAccessPoint::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApplicationAccessPoint'] as $item1) {
+                    $model->applicationAccessPoint[$n1] = applicationAccessPoint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

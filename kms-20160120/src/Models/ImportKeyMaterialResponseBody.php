@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportKeyMaterialResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example ec1017cf-ead4-f3ca-babc-c3b34f3dbecb
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ImportKeyMaterialResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ImportKeyMaterialResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportKeyMaterialResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

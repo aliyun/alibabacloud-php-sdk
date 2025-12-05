@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateNetworkRuleRequest extends Model
 {
     /**
-     * @description The description after the update.
-     *
-     * @example Creat by kst-hzz62ee817bvyyr5****
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the access control rule that you want to update.
-     *
-     * This parameter is required.
-     *
-     * @example networkrule_test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The private IP address or CIDR block after the update. Separate multiple items with commas (,).
-     *
-     * @example ["192.10.XX.XX","192.168.XX.XX/24"]
-     *
      * @var string
      */
     public $sourcePrivateIp;
@@ -42,17 +28,22 @@ class UpdateNetworkRuleRequest extends Model
         'sourcePrivateIp' => 'SourcePrivateIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->sourcePrivateIp) {
             $res['SourcePrivateIp'] = $this->sourcePrivateIp;
         }
@@ -60,20 +51,22 @@ class UpdateNetworkRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateNetworkRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SourcePrivateIp'])) {
             $model->sourcePrivateIp = $map['SourcePrivateIp'];
         }

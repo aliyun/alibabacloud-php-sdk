@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSecretResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 5b75d8b1-5b6a-4ec0-8e0c-c08befdfad47
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The name of the secret.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -30,14 +22,18 @@ class UpdateSecretResponseBody extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -45,17 +41,18 @@ class UpdateSecretResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSecretResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

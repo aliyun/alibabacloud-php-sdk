@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScheduleKeyDeletionRequest extends Model
 {
     /**
-     * @description The ID of the customer master key (CMK). The ID must be globally unique.
-     *
-     * This parameter is required.
-     *
-     * @example 7906979c-8e06-46a2-be2d-68e3ccbc****
-     *
      * @var string
      */
     public $keyId;
 
     /**
-     * @description The scheduled period after which the CMK is deleted. During this period, the CMK is in the PendingDeletion state. After this period ends, you cannot cancel the key deletion task.
-     *
-     * Valid values: 7 to 366.
-     *
-     * Unit: days.
-     *
-     * This parameter is required.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $pendingWindowInDays;
@@ -38,14 +22,18 @@ class ScheduleKeyDeletionRequest extends Model
         'pendingWindowInDays' => 'PendingWindowInDays',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
+
         if (null !== $this->pendingWindowInDays) {
             $res['PendingWindowInDays'] = $this->pendingWindowInDays;
         }
@@ -53,17 +41,18 @@ class ScheduleKeyDeletionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScheduleKeyDeletionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
+
         if (isset($map['PendingWindowInDays'])) {
             $model->pendingWindowInDays = $map['PendingWindowInDays'];
         }

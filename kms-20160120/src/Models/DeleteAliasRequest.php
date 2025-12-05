@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAliasRequest extends Model
 {
     /**
-     * @description The alias that you want to delete.
-     *
-     * The value must be 1 to 255 characters in length and must include the alias/ prefix.
-     *
-     * This parameter is required.
-     *
-     * @example alias/example
-     *
      * @var string
      */
     public $aliasName;
@@ -24,9 +16,12 @@ class DeleteAliasRequest extends Model
         'aliasName' => 'AliasName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
@@ -36,11 +31,11 @@ class DeleteAliasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAliasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyRequest extends Model
 {
     /**
-     * @description The name of the permission policy that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example policy_test
-     *
      * @var string
      */
     public $name;
@@ -22,9 +16,12 @@ class DeletePolicyRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class DeletePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

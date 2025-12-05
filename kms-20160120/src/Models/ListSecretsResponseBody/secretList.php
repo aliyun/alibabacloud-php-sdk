@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsResponseBody\secretList\secret;
-use AlibabaCloud\Tea\Model;
 
 class secretList extends Model
 {
@@ -17,17 +17,24 @@ class secretList extends Model
         'secret' => 'Secret',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->secret)) {
+            Model::validateArray($this->secret);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secret) {
-            $res['Secret'] = [];
-            if (null !== $this->secret && \is_array($this->secret)) {
-                $n = 0;
-                foreach ($this->secret as $item) {
-                    $res['Secret'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->secret)) {
+                $res['Secret'] = [];
+                $n1 = 0;
+                foreach ($this->secret as $item1) {
+                    $res['Secret'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class secretList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secretList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Secret'])) {
             if (!empty($map['Secret'])) {
                 $model->secret = [];
-                $n = 0;
-                foreach ($map['Secret'] as $item) {
-                    $model->secret[$n++] = null !== $item ? secret::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Secret'] as $item1) {
+                    $model->secret[$n1] = secret::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

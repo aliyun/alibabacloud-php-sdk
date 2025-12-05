@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponseBody\kmsInstance\bindVpcs;
-use AlibabaCloud\Tea\Model;
 
 class kmsInstance extends Model
 {
     /**
-     * @description A list of associated VPCs.
-     *
-     * >  If your self-managed applications are deployed in multiple VPCs in the same region, you can associate VPCs with the KMS instance beyond the VPC that you specify when you enable the KMS instance. The VPCs can belong to the same Alibaba Cloud account or different Alibaba Cloud accounts. After the configuration is complete, self-managed applications in the VPCs can access the specified KMS instance.
-     *
      * @var bindVpcs
      */
     public $bindVpcs;
 
     /**
-     * @description The content of the certificate authority (CA) certificate of the KMS instance.
-     *
-     * @example -----BEGIN CERTIFICATE-----\\r\\nMIIDuzCCAqOgAwIBAgIJALTKwWAjvbMiMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV****-----END CERTIFICATE-----
-     *
      * @var string
      */
     public $caCertificateChainPem;
@@ -33,49 +25,44 @@ class kmsInstance extends Model
     public $chargeType;
 
     /**
-     * @description The time when the KMS instance is created.
-     *
-     * @example 2023-09-05T12:44:20Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The expiration time of the KMS instance.
-     *
-     * @example 2023-10-05T16:00:00Z
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description The ID of the KMS instance.
-     *
-     * @example kst-bjj62f5ba3dnpb6v8****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the KMS instance.
-     *
-     * @example kst-bjj62f5ba3dnpb6v8****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The number of keys that can be created for the KMS instance.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $keyNum;
+
+    /**
+     * @var int
+     */
+    public $log;
+
+    /**
+     * @var int
+     */
+    public $logStorage;
+
+    /**
+     * @var string
+     */
+    public $productType;
 
     /**
      * @var string
@@ -83,80 +70,47 @@ class kmsInstance extends Model
     public $productVersion;
 
     /**
-     * @description The number of secrets that can be created for the KMS instance.
-     *
-     * @example 10
-     *
+     * @var string
+     */
+    public $saleStatus;
+
+    /**
      * @var string
      */
     public $secretNum;
 
     /**
-     * @description The computing performance of the KMS instance.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $spec;
 
     /**
-     * @description The time when the KMS instance is enabled.
-     *
-     * @example 2023-09-05T12:44:19Z
-     *
      * @var string
      */
     public $startDate;
 
     /**
-     * @description The status of the KMS instance. Valid values:
-     *
-     *   Uninitialized: The KMS instance is not enabled.
-     *   Connecting: The KMS instance is being connected.
-     *   Connected: The KMS instance is enabled.
-     *   Disconnected: The KMS instance is disconnected.
-     *   Error: The KMS instance is abnormal.
-     *
-     * @example Connected
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The virtual private cloud (VPC) with which the KMS instance is associated.
-     *
-     * @example vpc-bp19z7cwmltad5dff****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The access management quota for the KMS instance.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $vpcNum;
 
     /**
-     * @description The vSwitch in the VPC.
-     *
-     * @example vsw-bp1i512amda6d10a0****
-     *
-     * @var string
+     * @var string[]
      */
     public $vswitchIds;
 
     /**
-     * @description The zone with which the KMS instance is associated.
-     *
-     * @example "cn-hangzhou-k",       "cn-hangzhou-j"
-     *
-     * @var string
+     * @var string[]
      */
     public $zoneIds;
     protected $_name = [
@@ -168,7 +122,11 @@ class kmsInstance extends Model
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'keyNum' => 'KeyNum',
+        'log' => 'Log',
+        'logStorage' => 'LogStorage',
+        'productType' => 'ProductType',
         'productVersion' => 'ProductVersion',
+        'saleStatus' => 'SaleStatus',
         'secretNum' => 'SecretNum',
         'spec' => 'Spec',
         'startDate' => 'StartDate',
@@ -179,124 +137,228 @@ class kmsInstance extends Model
         'zoneIds' => 'ZoneIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->bindVpcs) {
+            $this->bindVpcs->validate();
+        }
+        if (\is_array($this->vswitchIds)) {
+            Model::validateArray($this->vswitchIds);
+        }
+        if (\is_array($this->zoneIds)) {
+            Model::validateArray($this->zoneIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindVpcs) {
-            $res['BindVpcs'] = null !== $this->bindVpcs ? $this->bindVpcs->toMap() : null;
+            $res['BindVpcs'] = null !== $this->bindVpcs ? $this->bindVpcs->toArray($noStream) : $this->bindVpcs;
         }
+
         if (null !== $this->caCertificateChainPem) {
             $res['CaCertificateChainPem'] = $this->caCertificateChainPem;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->keyNum) {
             $res['KeyNum'] = $this->keyNum;
         }
+
+        if (null !== $this->log) {
+            $res['Log'] = $this->log;
+        }
+
+        if (null !== $this->logStorage) {
+            $res['LogStorage'] = $this->logStorage;
+        }
+
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+
         if (null !== $this->productVersion) {
             $res['ProductVersion'] = $this->productVersion;
         }
+
+        if (null !== $this->saleStatus) {
+            $res['SaleStatus'] = $this->saleStatus;
+        }
+
         if (null !== $this->secretNum) {
             $res['SecretNum'] = $this->secretNum;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vpcNum) {
             $res['VpcNum'] = $this->vpcNum;
         }
+
         if (null !== $this->vswitchIds) {
-            $res['VswitchIds'] = $this->vswitchIds;
+            if (\is_array($this->vswitchIds)) {
+                $res['VswitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vswitchIds as $item1) {
+                    $res['VswitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->zoneIds) {
-            $res['ZoneIds'] = $this->zoneIds;
+            if (\is_array($this->zoneIds)) {
+                $res['ZoneIds'] = [];
+                $n1 = 0;
+                foreach ($this->zoneIds as $item1) {
+                    $res['ZoneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kmsInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindVpcs'])) {
             $model->bindVpcs = bindVpcs::fromMap($map['BindVpcs']);
         }
+
         if (isset($map['CaCertificateChainPem'])) {
             $model->caCertificateChainPem = $map['CaCertificateChainPem'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['KeyNum'])) {
             $model->keyNum = $map['KeyNum'];
         }
+
+        if (isset($map['Log'])) {
+            $model->log = $map['Log'];
+        }
+
+        if (isset($map['LogStorage'])) {
+            $model->logStorage = $map['LogStorage'];
+        }
+
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+
         if (isset($map['ProductVersion'])) {
             $model->productVersion = $map['ProductVersion'];
         }
+
+        if (isset($map['SaleStatus'])) {
+            $model->saleStatus = $map['SaleStatus'];
+        }
+
         if (isset($map['SecretNum'])) {
             $model->secretNum = $map['SecretNum'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VpcNum'])) {
             $model->vpcNum = $map['VpcNum'];
         }
+
         if (isset($map['VswitchIds'])) {
-            $model->vswitchIds = $map['VswitchIds'];
+            if (!empty($map['VswitchIds'])) {
+                $model->vswitchIds = [];
+                $n1 = 0;
+                foreach ($map['VswitchIds'] as $item1) {
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (isset($map['ZoneIds'])) {
-            $model->zoneIds = $map['ZoneIds'];
+            if (!empty($map['ZoneIds'])) {
+                $model->zoneIds = [];
+                $n1 = 0;
+                foreach ($map['ZoneIds'] as $item1) {
+                    $model->zoneIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateKeyVersionRequest extends Model
 {
     /**
-     * @description The ID of the CMK. The ID must be globally unique.
-     *
-     * >  You can also set the value to an alias that is bound to the CMK. For more information, see [Overview of aliases](https://help.aliyun.com/document_detail/68522.html).
-     *
-     * This parameter is required.
-     *
-     * @example 0b30658a-ed1a-4922-b8f7-a673ca9c****
-     *
      * @var string
      */
     public $keyId;
@@ -24,9 +16,12 @@ class CreateKeyVersionRequest extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
@@ -36,11 +31,11 @@ class CreateKeyVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateKeyVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

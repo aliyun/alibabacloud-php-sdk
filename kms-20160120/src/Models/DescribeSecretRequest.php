@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSecretRequest extends Model
 {
     /**
-     * @description Specifies whether to return the resource tags of the secret. Valid values:
-     *
-     *   true: The resource tags are returned.
-     *   false: The resource tags are not returned. This is the default value.
-     *
-     * @example true
-     *
      * @var string
      */
     public $fetchTags;
 
     /**
-     * @description The name of the secret.
-     *
-     * This parameter is required.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -35,14 +22,18 @@ class DescribeSecretRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fetchTags) {
             $res['FetchTags'] = $this->fetchTags;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -50,17 +41,18 @@ class DescribeSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FetchTags'])) {
             $model->fetchTags = $map['FetchTags'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

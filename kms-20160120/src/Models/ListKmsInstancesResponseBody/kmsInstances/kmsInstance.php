@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesResponseBody\kmsInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kmsInstance extends Model
 {
     /**
-     * @description The ARN of the KMS instance.
-     *
-     * @example acs:kms:pre-hangzhou:120708975881****:keystore/kst-phzz64c9f84eo32dbs****
-     *
      * @var string
      */
     public $kmsInstanceArn;
 
     /**
-     * @description The ID of the KMS instance.
-     *
-     * @example kst-phzz64c9f84eo32dbs****
-     *
      * @var string
      */
     public $kmsInstanceId;
@@ -30,14 +22,18 @@ class kmsInstance extends Model
         'kmsInstanceId' => 'KmsInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kmsInstanceArn) {
             $res['KmsInstanceArn'] = $this->kmsInstanceArn;
         }
+
         if (null !== $this->kmsInstanceId) {
             $res['KmsInstanceId'] = $this->kmsInstanceId;
         }
@@ -45,17 +41,18 @@ class kmsInstance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kmsInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KmsInstanceArn'])) {
             $model->kmsInstanceArn = $map['KmsInstanceArn'];
         }
+
         if (isset($map['KmsInstanceId'])) {
             $model->kmsInstanceId = $map['KmsInstanceId'];
         }

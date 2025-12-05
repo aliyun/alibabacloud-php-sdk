@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClientKeysRequest extends Model
 {
     /**
-     * @description The name of the application access point (AAP).
-     *
-     * @example aap_test
-     *
      * @var string
      */
     public $aapName;
@@ -20,9 +16,12 @@ class ListClientKeysRequest extends Model
         'aapName' => 'AapName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aapName) {
@@ -32,11 +31,11 @@ class ListClientKeysRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClientKeysRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

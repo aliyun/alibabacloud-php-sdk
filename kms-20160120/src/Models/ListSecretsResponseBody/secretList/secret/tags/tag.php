@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsResponseBody\secretList\secret\tags;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @example key1
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @example val1
-     *
      * @var string
      */
     public $tagValue;
@@ -26,14 +22,18 @@ class tag extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -41,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableKeyRequest extends Model
 {
     /**
-     * @description The ID of the CMK. The ID must be globally unique.
-     *
-     * This parameter is required.
-     *
-     * @example 1234abcd-12ab-34cd-56ef-12345678****
-     *
      * @var string
      */
     public $keyId;
@@ -22,9 +16,12 @@ class DisableKeyRequest extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
@@ -34,11 +31,11 @@ class DisableKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

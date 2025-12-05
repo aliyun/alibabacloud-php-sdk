@@ -4,23 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DecryptShrinkRequest extends Model
 {
     /**
-     * @description The ciphertext that you want to decrypt.
-     *
-     * You can generate the ciphertext by calling the following operations:
-     *
-     *   [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html)
-     *   [Encrypt](https://help.aliyun.com/document_detail/28949.html)
-     *   [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html)
-     *
-     * This parameter is required.
-     *
-     * @example DZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmaaSl+TztSIMe43nbTH/Z1Wr4XfLftKhAciUmDQXuMRl4WTvKhxjMThjK****
-     *
      * @var string
      */
     public $ciphertextBlob;
@@ -31,12 +19,6 @@ class DecryptShrinkRequest extends Model
     public $dryRun;
 
     /**
-     * @description The JSON string that consists of key-value pairs.
-     *
-     * >  If you specify the EncryptionContext parameter when you call the [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [Encrypt](https://help.aliyun.com/document_detail/28949.html), or [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html) operation, you must specify the same context when you call the Decrypt operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
-     *
-     * @example {"Example":"Example"}
-     *
      * @var string
      */
     public $encryptionContextShrink;
@@ -46,17 +28,22 @@ class DecryptShrinkRequest extends Model
         'encryptionContextShrink' => 'EncryptionContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->encryptionContextShrink) {
             $res['EncryptionContext'] = $this->encryptionContextShrink;
         }
@@ -64,20 +51,22 @@ class DecryptShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecryptShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EncryptionContext'])) {
             $model->encryptionContextShrink = $map['EncryptionContext'];
         }

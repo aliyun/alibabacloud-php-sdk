@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsResponseBody\secretList;
-use AlibabaCloud\Tea\Model;
 
 class ListSecretsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of returned secrets.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The list of secrets.
-     *
-     * @example 6a6287a0-ff34-4780-a790-fdfca900557f
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The time when the secret was updated.
-     *
      * @var secretList
      */
     public $secretList;
 
     /**
-     * @description The secret name.
-     *
-     * @example 55
-     *
      * @var int
      */
     public $totalCount;
@@ -59,23 +41,33 @@ class ListSecretsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->secretList) {
+            $this->secretList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretList) {
-            $res['SecretList'] = null !== $this->secretList ? $this->secretList->toMap() : null;
+            $res['SecretList'] = null !== $this->secretList ? $this->secretList->toArray($noStream) : $this->secretList;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -83,26 +75,30 @@ class ListSecretsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSecretsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretList'])) {
             $model->secretList = secretList::fromMap($map['SecretList']);
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

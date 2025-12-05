@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretShrinkRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extendedConfig extends Model
 {
     /**
-     * @description The custom data in the extended configuration of the secret.
-     *
-     * > *   If this parameter is specified, the existing extended configuration of the secret is updated.
-     * > *   This parameter is unavailable for generic secrets.
-     *
-     * @example {"DBName":"app1","Port":"3306"}
-     *
      * @var string
      */
     public $customData;
@@ -23,9 +16,12 @@ class extendedConfig extends Model
         'customData' => 'CustomData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customData) {
@@ -35,11 +31,11 @@ class extendedConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendedConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListApplicationAccessPointsResponseBody\applicationAccessPoints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicationAccessPoint extends Model
 {
     /**
-     * @description The authentication method.
-     *
-     * @example ClientKey
-     *
      * @var string
      */
     public $authenticationMethod;
 
     /**
-     * @description The name of the AAP.
-     *
-     * @example aap_test
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class applicationAccessPoint extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authenticationMethod) {
             $res['AuthenticationMethod'] = $this->authenticationMethod;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class applicationAccessPoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationAccessPoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthenticationMethod'])) {
             $model->authenticationMethod = $map['AuthenticationMethod'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

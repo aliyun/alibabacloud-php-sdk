@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReEncryptRequest extends Model
 {
     /**
-     * @description The ciphertext that you want to re-encrypt.
-     *
-     * You can set this parameter to the ciphertext that is returned after a symmetric or asymmetric encryption operation.
-     *
-     *   Symmetric encryption: the ciphertext returned after you call the [Encrypt](https://help.aliyun.com/document_detail/28949.html), [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html), or [GenerateAndExportDataKey](https://help.aliyun.com/document_detail/176804.html) operation
-     *   Asymmetric encryption: the public key-encrypted ciphertext returned after you call the [GenerateAndExportDataKey](https://help.aliyun.com/document_detail/176804.html) operation, or the ciphertext encrypted by using the public key of an asymmetric key pair outside KMS
-     *
-     * This parameter is required.
-     *
-     * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901q********
-     *
      * @var string
      */
     public $ciphertextBlob;
 
     /**
-     * @description A JSON string that consists of key-value pairs. This parameter specifies the EncryptionContext that is used to re-encrypt the decrypted data or data key.
-     *
-     * @example {"Example":"Example"}
-     *
      * @var mixed[]
      */
     public $destinationEncryptionContext;
 
     /**
-     * @description The ID of the symmetric CMK that is used to re-encrypt the ciphertext after the ciphertext is decrypted.
-     *
-     * This parameter is required.
-     *
-     * @example 1234abcd-12ab-34cd-56ef-12345678****
-     *
      * @var string
      */
     public $destinationKeyId;
@@ -50,53 +29,21 @@ class ReEncryptRequest extends Model
     public $dryRun;
 
     /**
-     * @description The encryption algorithm based on which the public key is used to encrypt the ciphertext specified by CiphertextBlob. For more information about encryption algorithms, see [AsymmetricDecrypt](https://help.aliyun.com/document_detail/148130.html).
-     *
-     * Valid values:
-     *
-     *   RSAES_OAEP_SHA_256
-     *   RSAES_OAEP_SHA_1
-     *   SM2PKE
-     *
-     * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
-     *
-     * @example RSAES_OAEP_SHA_256
-     *
      * @var string
      */
     public $sourceEncryptionAlgorithm;
 
     /**
-     * @description A JSON string that consists of key-value pairs. If you specify EncryptionContext when you call the [Encrypt](https://help.aliyun.com/document_detail/28949.html), [GenerateDataKey](https://help.aliyun.com/document_detail/28948.html), [GenerateDataKeyWithoutPlaintext](https://help.aliyun.com/document_detail/134043.html), or [GenerateAndExportDataKey](https://help.aliyun.com/document_detail/176804.html) operation to encrypt the data or data key, an equivalent value is required here. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
-     *
-     * >  If you set CiphertextBlob to the ciphertext that is returned after a symmetric encryption operation, specify this parameter.
-     *
-     * @example {"Example":"Example"}
-     *
      * @var mixed[]
      */
     public $sourceEncryptionContext;
 
     /**
-     * @description The ID of the CMK that is used to decrypt the ciphertext.
-     *
-     * This parameter is the globally unique ID of the CMK.
-     *
-     * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
-     *
-     * @example 5c438b18-05be-40ad-b6c2-3be6752c****
-     *
      * @var string
      */
     public $sourceKeyId;
 
     /**
-     * @description The ID of the CMK version that is used to decrypt the ciphertext.
-     *
-     * >  If you set CiphertextBlob to the public key-encrypted ciphertext that is returned after an asymmetric encryption operation, specify this parameter.
-     *
-     * @example 2ab1a983-7072-4bbc-a582-584b5bd8****
-     *
      * @var string
      */
     public $sourceKeyVersionId;
@@ -111,32 +58,58 @@ class ReEncryptRequest extends Model
         'sourceKeyVersionId' => 'SourceKeyVersionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->destinationEncryptionContext)) {
+            Model::validateArray($this->destinationEncryptionContext);
+        }
+        if (\is_array($this->sourceEncryptionContext)) {
+            Model::validateArray($this->sourceEncryptionContext);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
         }
+
         if (null !== $this->destinationEncryptionContext) {
-            $res['DestinationEncryptionContext'] = $this->destinationEncryptionContext;
+            if (\is_array($this->destinationEncryptionContext)) {
+                $res['DestinationEncryptionContext'] = [];
+                foreach ($this->destinationEncryptionContext as $key1 => $value1) {
+                    $res['DestinationEncryptionContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->destinationKeyId) {
             $res['DestinationKeyId'] = $this->destinationKeyId;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->sourceEncryptionAlgorithm) {
             $res['SourceEncryptionAlgorithm'] = $this->sourceEncryptionAlgorithm;
         }
+
         if (null !== $this->sourceEncryptionContext) {
-            $res['SourceEncryptionContext'] = $this->sourceEncryptionContext;
+            if (\is_array($this->sourceEncryptionContext)) {
+                $res['SourceEncryptionContext'] = [];
+                foreach ($this->sourceEncryptionContext as $key1 => $value1) {
+                    $res['SourceEncryptionContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sourceKeyId) {
             $res['SourceKeyId'] = $this->sourceKeyId;
         }
+
         if (null !== $this->sourceKeyVersionId) {
             $res['SourceKeyVersionId'] = $this->sourceKeyVersionId;
         }
@@ -144,35 +117,52 @@ class ReEncryptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReEncryptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
         }
+
         if (isset($map['DestinationEncryptionContext'])) {
-            $model->destinationEncryptionContext = $map['DestinationEncryptionContext'];
+            if (!empty($map['DestinationEncryptionContext'])) {
+                $model->destinationEncryptionContext = [];
+                foreach ($map['DestinationEncryptionContext'] as $key1 => $value1) {
+                    $model->destinationEncryptionContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['DestinationKeyId'])) {
             $model->destinationKeyId = $map['DestinationKeyId'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['SourceEncryptionAlgorithm'])) {
             $model->sourceEncryptionAlgorithm = $map['SourceEncryptionAlgorithm'];
         }
+
         if (isset($map['SourceEncryptionContext'])) {
-            $model->sourceEncryptionContext = $map['SourceEncryptionContext'];
+            if (!empty($map['SourceEncryptionContext'])) {
+                $model->sourceEncryptionContext = [];
+                foreach ($map['SourceEncryptionContext'] as $key1 => $value1) {
+                    $model->sourceEncryptionContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SourceKeyId'])) {
             $model->sourceKeyId = $map['SourceKeyId'];
         }
+
         if (isset($map['SourceKeyVersionId'])) {
             $model->sourceKeyVersionId = $map['SourceKeyVersionId'];
         }

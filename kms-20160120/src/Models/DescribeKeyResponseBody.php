@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyResponseBody\keyMetadata;
-use AlibabaCloud\Tea\Model;
 
 class DescribeKeyResponseBody extends Model
 {
     /**
-     * @description The metadata of the CMK.
-     *
      * @var keyMetadata
      */
     public $keyMetadata;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example f1fdfa9d-bd49-418b-942f-8f3e3ec00a4f
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->keyMetadata) {
+            $this->keyMetadata->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyMetadata) {
-            $res['KeyMetadata'] = null !== $this->keyMetadata ? $this->keyMetadata->toMap() : null;
+            $res['KeyMetadata'] = null !== $this->keyMetadata ? $this->keyMetadata->toArray($noStream) : $this->keyMetadata;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyMetadata'])) {
             $model->keyMetadata = keyMetadata::fromMap($map['KeyMetadata']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

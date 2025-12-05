@@ -4,36 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCertificateStatusRequest extends Model
 {
     /**
-     * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
-     *
-     * This parameter is required.
-     *
-     * @example 9a28de48-8d8b-484d-a766-dec4****
-     *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description The status of the certificate. Valid values:
-     *
-     *   INACTIVE: The certificate is disabled.
-     *
-     *   ACTIVE: The certificate is enabled.
-     *
-     *   REVOKED: The certificate is revoked.
-     *
-     * > If the certificate is in the REVOKED state, you can use the certificate only to verify a signature, but not to generate a signature.
-     *
-     * This parameter is required.
-     *
-     * @example INACTIVE
-     *
      * @var string
      */
     public $status;
@@ -42,14 +22,18 @@ class UpdateCertificateStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -57,17 +41,18 @@ class UpdateCertificateStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCertificateStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

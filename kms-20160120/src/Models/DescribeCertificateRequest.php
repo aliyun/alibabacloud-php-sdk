@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCertificateRequest extends Model
 {
     /**
-     * @description The ID of the certificate. The ID must be globally unique in Certificates Manager.
-     *
-     * This parameter is required.
-     *
-     * @example 9a28de48-8d8b-484d-a766-dec4****
-     *
      * @var string
      */
     public $certificateId;
@@ -22,9 +16,12 @@ class DescribeCertificateRequest extends Model
         'certificateId' => 'CertificateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
@@ -34,11 +31,11 @@ class DescribeCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

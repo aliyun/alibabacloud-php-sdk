@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesResponseBody\kmsInstances\kmsInstance;
-use AlibabaCloud\Tea\Model;
 
 class kmsInstances extends Model
 {
@@ -17,17 +17,24 @@ class kmsInstances extends Model
         'kmsInstance' => 'KmsInstance',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->kmsInstance)) {
+            Model::validateArray($this->kmsInstance);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kmsInstance) {
-            $res['KmsInstance'] = [];
-            if (null !== $this->kmsInstance && \is_array($this->kmsInstance)) {
-                $n = 0;
-                foreach ($this->kmsInstance as $item) {
-                    $res['KmsInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->kmsInstance)) {
+                $res['KmsInstance'] = [];
+                $n1 = 0;
+                foreach ($this->kmsInstance as $item1) {
+                    $res['KmsInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class kmsInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kmsInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KmsInstance'])) {
             if (!empty($map['KmsInstance'])) {
                 $model->kmsInstance = [];
-                $n = 0;
-                foreach ($map['KmsInstance'] as $item) {
-                    $model->kmsInstance[$n++] = null !== $item ? kmsInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KmsInstance'] as $item1) {
+                    $model->kmsInstance[$n1] = kmsInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

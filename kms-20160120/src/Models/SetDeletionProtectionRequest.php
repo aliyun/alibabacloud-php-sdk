@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDeletionProtectionRequest extends Model
 {
     /**
-     * @description The description of deletion protection.
-     *
-     * >  This parameter takes effect only when you set the EnableDeletionProtection parameter to true.
-     *
-     * @example This key is being used by XXX service. You are protected from deletion.
-     *
      * @var string
      */
     public $deletionProtectionDescription;
 
     /**
-     * @description Specifies whether to enable deletion protection. Valid values:
-     *
-     *   true: enables deletion protection.
-     *   false: disables deletion protection.
-     *
-     * This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableDeletionProtection;
@@ -39,12 +24,6 @@ class SetDeletionProtectionRequest extends Model
     public $keyId;
 
     /**
-     * @description The ARN of the CMK for which you want to set deletion protection.
-     *
-     * You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the CMK ARN.
-     *
-     * @example acs:kms:cn-hangzhou:123213123****:key/0225f411-b21d-46d1-be5b-93931c82****
-     *
      * @var string
      */
     public $protectedResourceArn;
@@ -55,20 +34,26 @@ class SetDeletionProtectionRequest extends Model
         'protectedResourceArn' => 'ProtectedResourceArn',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deletionProtectionDescription) {
             $res['DeletionProtectionDescription'] = $this->deletionProtectionDescription;
         }
+
         if (null !== $this->enableDeletionProtection) {
             $res['EnableDeletionProtection'] = $this->enableDeletionProtection;
         }
+
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
+
         if (null !== $this->protectedResourceArn) {
             $res['ProtectedResourceArn'] = $this->protectedResourceArn;
         }
@@ -76,23 +61,26 @@ class SetDeletionProtectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDeletionProtectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeletionProtectionDescription'])) {
             $model->deletionProtectionDescription = $map['DeletionProtectionDescription'];
         }
+
         if (isset($map['EnableDeletionProtection'])) {
             $model->enableDeletionProtection = $map['EnableDeletionProtection'];
         }
+
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
+
         if (isset($map['ProtectedResourceArn'])) {
             $model->protectedResourceArn = $map['ProtectedResourceArn'];
         }

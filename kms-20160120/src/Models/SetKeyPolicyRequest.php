@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetKeyPolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example key-hzz630494463ejqjx****
-     *
      * @var string
      */
     public $keyId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"Statement":[{"Action":["kms:*"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:*"]},"Resource":["*"],"Sid":"kms default key policy"},{"Action":["kms:List*","kms:Describe*","kms:Create*","kms:Enable*","kms:Disable*","kms:Get*","kms:Set*","kms:Update*","kms:Delete*","kms:Cancel*","kms:TagResource","kms:UntagResource","kms:ImportKeyMaterial","kms:ScheduleKeyDeletion"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:user/for_test_policy"]},"Resource":["*"]}],"Version":"1"}
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $policyName;
@@ -38,17 +28,22 @@ class SetKeyPolicyRequest extends Model
         'policyName' => 'PolicyName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
@@ -56,20 +51,22 @@ class SetKeyPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetKeyPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }

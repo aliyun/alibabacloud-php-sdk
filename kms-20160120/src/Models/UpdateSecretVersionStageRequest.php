@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSecretVersionStageRequest extends Model
 {
     /**
-     * @description The version from which you want to remove the specified stage label.
-     *
-     * >  You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
-     *
-     * @example 002
-     *
      * @var string
      */
     public $moveToVersion;
 
     /**
-     * @description The specified stage label. Valid values:
-     *
-     *   ACSCurrent
-     *   ACSPrevious
-     *   Custom stage label
-     *
-     * @example 001
-     *
      * @var string
      */
     public $removeFromVersion;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateSecretVersionStage**.
-     *
-     * This parameter is required.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
 
     /**
-     * @description The name of the secret.
-     *
-     * This parameter is required.
-     *
-     * @example ACSCurrent
-     *
      * @var string
      */
     public $versionStage;
@@ -60,20 +34,26 @@ class UpdateSecretVersionStageRequest extends Model
         'versionStage' => 'VersionStage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moveToVersion) {
             $res['MoveToVersion'] = $this->moveToVersion;
         }
+
         if (null !== $this->removeFromVersion) {
             $res['RemoveFromVersion'] = $this->removeFromVersion;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
+
         if (null !== $this->versionStage) {
             $res['VersionStage'] = $this->versionStage;
         }
@@ -81,23 +61,26 @@ class UpdateSecretVersionStageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSecretVersionStageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MoveToVersion'])) {
             $model->moveToVersion = $map['MoveToVersion'];
         }
+
         if (isset($map['RemoveFromVersion'])) {
             $model->removeFromVersion = $map['RemoveFromVersion'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
+
         if (isset($map['VersionStage'])) {
             $model->versionStage = $map['VersionStage'];
         }

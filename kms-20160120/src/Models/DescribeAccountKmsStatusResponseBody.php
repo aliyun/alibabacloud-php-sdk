@@ -4,34 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAccountKmsStatusResponseBody extends Model
 {
     /**
-     * @description The status of KMS within your Alibaba cloud account. Valid values:
-     *
-     *   Enabled: KMS is enabled.
-     *
-     *   NotEnabled: KMS is disabled.
-     *
-     *   InDebt: Your account is overdue, and KMS stops providing services.
-     *
-     * > If your Alibaba Cloud account is overdue, top up your account at the earliest opportunity to avoid impacts on your services.
-     *
-     *   Suspended: KMS is suspended.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $accountStatus;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3ac84333-d64d-4784-a8bc-997834a7ac6c
-     *
      * @var string
      */
     public $requestId;
@@ -40,14 +22,18 @@ class DescribeAccountKmsStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,17 +41,18 @@ class DescribeAccountKmsStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountKmsStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

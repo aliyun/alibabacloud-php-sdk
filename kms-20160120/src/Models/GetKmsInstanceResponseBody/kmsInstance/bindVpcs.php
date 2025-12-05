@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponseBody\kmsInstance;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponseBody\kmsInstance\bindVpcs\bindVpc;
-use AlibabaCloud\Tea\Model;
 
 class bindVpcs extends Model
 {
@@ -17,17 +17,24 @@ class bindVpcs extends Model
         'bindVpc' => 'BindVpc',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindVpc)) {
+            Model::validateArray($this->bindVpc);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindVpc) {
-            $res['BindVpc'] = [];
-            if (null !== $this->bindVpc && \is_array($this->bindVpc)) {
-                $n = 0;
-                foreach ($this->bindVpc as $item) {
-                    $res['BindVpc'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindVpc)) {
+                $res['BindVpc'] = [];
+                $n1 = 0;
+                foreach ($this->bindVpc as $item1) {
+                    $res['BindVpc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class bindVpcs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindVpcs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindVpc'])) {
             if (!empty($map['BindVpc'])) {
                 $model->bindVpc = [];
-                $n = 0;
-                foreach ($map['BindVpc'] as $item) {
-                    $model->bindVpc[$n++] = null !== $item ? bindVpc::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BindVpc'] as $item1) {
+                    $model->bindVpc[$n1] = bindVpc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

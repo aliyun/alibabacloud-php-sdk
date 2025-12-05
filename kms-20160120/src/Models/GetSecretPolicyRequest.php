@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSecretPolicyRequest extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example secret_test
-     *
      * @var string
      */
     public $secretName;
@@ -28,14 +22,18 @@ class GetSecretPolicyRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -43,17 +41,18 @@ class GetSecretPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSecretPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

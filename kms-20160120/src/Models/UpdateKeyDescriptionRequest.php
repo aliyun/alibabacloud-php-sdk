@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateKeyDescriptionRequest extends Model
 {
     /**
-     * @description The description of the CMK. This description includes the purpose of the CMK, such as the types of data that you want to protect and applications that can use the CMK.
-     *
-     * This parameter is required.
-     *
-     * @example key description example
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the CMK. The ID must be globally unique.
-     *
-     * This parameter is required.
-     *
-     * @example 1234abcd-12ab-34cd-56ef-12345678****
-     *
      * @var string
      */
     public $keyId;
@@ -34,14 +22,18 @@ class UpdateKeyDescriptionRequest extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -49,17 +41,18 @@ class UpdateKeyDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateKeyDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }

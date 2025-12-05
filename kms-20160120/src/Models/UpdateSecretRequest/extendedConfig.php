@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extendedConfig extends Model
 {
     /**
-     * @description The custom data in the extended configuration of the secret.
-     *
-     * > *   If this parameter is specified, the existing extended configuration of the secret is updated.
-     * > *   This parameter is unavailable for generic secrets.
-     *
-     * @example {"DBName":"app1","Port":"3306"}
-     *
      * @var mixed[]
      */
     public $customData;
@@ -23,28 +16,44 @@ class extendedConfig extends Model
         'customData' => 'CustomData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customData)) {
+            Model::validateArray($this->customData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customData) {
-            $res['CustomData'] = $this->customData;
+            if (\is_array($this->customData)) {
+                $res['CustomData'] = [];
+                foreach ($this->customData as $key1 => $value1) {
+                    $res['CustomData'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendedConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomData'])) {
-            $model->customData = $map['CustomData'];
+            if (!empty($map['CustomData'])) {
+                $model->customData = [];
+                foreach ($map['CustomData'] as $key1 => $value1) {
+                    $model->customData[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

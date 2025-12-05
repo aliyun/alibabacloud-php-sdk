@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesResponseBody\policies\policy;
-use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
@@ -17,17 +17,24 @@ class policies extends Model
         'policy' => 'Policy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->policy)) {
+            Model::validateArray($this->policy);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policy) {
-            $res['Policy'] = [];
-            if (null !== $this->policy && \is_array($this->policy)) {
-                $n = 0;
-                foreach ($this->policy as $item) {
-                    $res['Policy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policy)) {
+                $res['Policy'] = [];
+                $n1 = 0;
+                foreach ($this->policy as $item1) {
+                    $res['Policy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class policies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             if (!empty($map['Policy'])) {
                 $model->policy = [];
-                $n = 0;
-                foreach ($map['Policy'] as $item) {
-                    $model->policy[$n++] = null !== $item ? policy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Policy'] as $item1) {
+                    $model->policy[$n1] = policy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

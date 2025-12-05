@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAliasesByKeyIdRequest extends Model
 {
     /**
-     * @description The globally unique ID of the CMK.
-     *
-     * This parameter is required.
-     *
-     * @example 1234abcd-12ab-34cd-56ef-12345678****
-     *
      * @var string
      */
     public $keyId;
 
     /**
-     * @description The number of the page to return.
-     *
-     * Valid values: an integer that is greater than 0.
-     *
-     * Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Valid values: 0 to 101.
-     *
-     * Default value: 10
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -50,17 +28,22 @@ class ListAliasesByKeyIdRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -68,20 +51,22 @@ class ListAliasesByKeyIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAliasesByKeyIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

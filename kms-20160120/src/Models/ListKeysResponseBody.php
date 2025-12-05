@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeysResponseBody\keys;
-use AlibabaCloud\Tea\Model;
 
 class ListKeysResponseBody extends Model
 {
     /**
-     * @description An array that consists of the CMKs of the current Alibaba Cloud account in the current region.
-     *
      * @var keys
      */
     public $keys;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 8252db58-2036-408c-a3d5-56e656dc2551
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of CMKs.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalCount;
@@ -59,23 +41,33 @@ class ListKeysResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->keys) {
+            $this->keys->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keys) {
-            $res['Keys'] = null !== $this->keys ? $this->keys->toMap() : null;
+            $res['Keys'] = null !== $this->keys ? $this->keys->toArray($noStream) : $this->keys;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -83,26 +75,30 @@ class ListKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keys'])) {
             $model->keys = keys::fromMap($map['Keys']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretShrinkRequest\extendedConfig;
-use AlibabaCloud\Tea\Model;
 
 class UpdateSecretShrinkRequest extends Model
 {
@@ -15,21 +15,11 @@ class UpdateSecretShrinkRequest extends Model
     public $extendedConfig;
 
     /**
-     * @description The description of the secret.
-     *
-     * @example datainfo
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the secret.
-     *
-     * This parameter is required.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -39,17 +29,25 @@ class UpdateSecretShrinkRequest extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->extendedConfig) {
+            $this->extendedConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extendedConfig) {
-            $res['ExtendedConfig'] = null !== $this->extendedConfig ? $this->extendedConfig->toMap() : null;
+            $res['ExtendedConfig'] = null !== $this->extendedConfig ? $this->extendedConfig->toArray($noStream) : $this->extendedConfig;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -57,20 +55,22 @@ class UpdateSecretShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSecretShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtendedConfig'])) {
             $model->extendedConfig = extendedConfig::fromMap($map['ExtendedConfig']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

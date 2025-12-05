@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecretResponseBody extends Model
 {
     /**
-     * @description The time when the secret is scheduled to be deleted.
-     *
-     * @example 2022-09-15T07:02:14Z
-     *
      * @var string
      */
     public $plannedDeleteTime;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 38bbed2a-15e0-45ad-98d4-816ad2ccf4ea
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The name of the secret.
-     *
-     * @example secret001
-     *
      * @var string
      */
     public $secretName;
@@ -40,17 +28,22 @@ class DeleteSecretResponseBody extends Model
         'secretName' => 'SecretName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->plannedDeleteTime) {
             $res['PlannedDeleteTime'] = $this->plannedDeleteTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -58,20 +51,22 @@ class DeleteSecretResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecretResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlannedDeleteTime'])) {
             $model->plannedDeleteTime = $map['PlannedDeleteTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

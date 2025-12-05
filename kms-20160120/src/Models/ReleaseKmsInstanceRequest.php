@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseKmsInstanceRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var string
      */
     public $forceDeleteWithoutBackup;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example kst-hzz6****
-     *
      * @var string
      */
     public $kmsInstanceId;
@@ -28,14 +22,18 @@ class ReleaseKmsInstanceRequest extends Model
         'kmsInstanceId' => 'KmsInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forceDeleteWithoutBackup) {
             $res['ForceDeleteWithoutBackup'] = $this->forceDeleteWithoutBackup;
         }
+
         if (null !== $this->kmsInstanceId) {
             $res['KmsInstanceId'] = $this->kmsInstanceId;
         }
@@ -43,17 +41,18 @@ class ReleaseKmsInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseKmsInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForceDeleteWithoutBackup'])) {
             $model->forceDeleteWithoutBackup = $map['ForceDeleteWithoutBackup'];
         }
+
         if (isset($map['KmsInstanceId'])) {
             $model->kmsInstanceId = $map['KmsInstanceId'];
         }

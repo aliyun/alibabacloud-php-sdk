@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateKeyVersionResponseBody\keyVersion;
-use AlibabaCloud\Tea\Model;
 
 class CreateKeyVersionResponseBody extends Model
 {
     /**
-     * @description The metadata of the version.
-     *
      * @var keyVersion
      */
     public $keyVersion;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example b96f250a-4b75-498c-91be-22c6928f85be
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateKeyVersionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->keyVersion) {
+            $this->keyVersion->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyVersion) {
-            $res['KeyVersion'] = null !== $this->keyVersion ? $this->keyVersion->toMap() : null;
+            $res['KeyVersion'] = null !== $this->keyVersion ? $this->keyVersion->toArray($noStream) : $this->keyVersion;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateKeyVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateKeyVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyVersion'])) {
             $model->keyVersion = keyVersion::fromMap($map['KeyVersion']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

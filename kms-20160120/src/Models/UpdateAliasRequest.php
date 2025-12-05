@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAliasRequest extends Model
 {
     /**
-     * @description The alias that you want to bind.
-     *
-     * The value must be 1 to 255 characters in length and must include the alias/ prefix.
-     *
-     * This parameter is required.
-     *
-     * @example alias/example
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description The ID of the CMK. The ID must be globally unique.
-     *
-     * This parameter is required.
-     *
-     * @example 1234abcd-12ab-34cd-56ef-12345678****
-     *
      * @var string
      */
     public $keyId;
@@ -36,14 +22,18 @@ class UpdateAliasRequest extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -51,17 +41,18 @@ class UpdateAliasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAliasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }

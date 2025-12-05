@@ -4,78 +4,46 @@
 
 namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePolicyResponseBody extends Model
 {
     /**
-     * @description The network access rule that is associated with the permission policy.
-     *
-     * @example {"NetworkRules":["kst-hzz62ee817bvyyr5x****.efkd","kst-hzz62ee817bvyyr5x****.eyyp"]}
-     *
      * @var string
      */
     public $accessControlRules;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the permission policy.
-     *
-     * @example acs:kms:cn-hangzhou:119285303511****:policy/policy_test
-     *
      * @var string
      */
     public $arn;
 
     /**
-     * @description The description.
-     *
-     * @example policy  description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The scope of the permission policy.
-     *
-     * @example kst-hzz634e67d126u9p9****
-     *
      * @var string
      */
     public $kmsInstance;
 
     /**
-     * @description The name of the permission policy.
-     *
-     * @example policy_test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description A list of operations that can be performed.
-     *
-     * @example ["RbacPermission/Template/CryptoServiceKeyUser", "RbacPermission/Template/CryptoServiceSecretUser"]
-     *
      * @var string[]
      */
     public $permissions;
 
     /**
-     * @description The request ID.
-     *
-     * @example f455324b-e229-4066-9f58-9c1cf3fe83a9
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description A list of keys and secrets that are allowed to access.
-     *
-     * @example ["secret/acs/ram/user/ram-secret", "secret/acs/ram/user/acr-master", "key/key-hzz63d9c8d3dfv8cv****"]
-     *
      * @var string[]
      */
     public $resources;
@@ -90,73 +58,120 @@ class DescribePolicyResponseBody extends Model
         'resources' => 'Resources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->permissions)) {
+            Model::validateArray($this->permissions);
+        }
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessControlRules) {
             $res['AccessControlRules'] = $this->accessControlRules;
         }
+
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->kmsInstance) {
             $res['KmsInstance'] = $this->kmsInstance;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->permissions) {
-            $res['Permissions'] = $this->permissions;
+            if (\is_array($this->permissions)) {
+                $res['Permissions'] = [];
+                $n1 = 0;
+                foreach ($this->permissions as $item1) {
+                    $res['Permissions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = $this->resources;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1 = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessControlRules'])) {
             $model->accessControlRules = $map['AccessControlRules'];
         }
+
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['KmsInstance'])) {
             $model->kmsInstance = $map['KmsInstance'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
-                $model->permissions = $map['Permissions'];
+                $model->permissions = [];
+                $n1 = 0;
+                foreach ($map['Permissions'] as $item1) {
+                    $model->permissions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
-                $model->resources = $map['Resources'];
+                $model->resources = [];
+                $n1 = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
