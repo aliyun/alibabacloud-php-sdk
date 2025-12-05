@@ -109,6 +109,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportImageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
@@ -4214,6 +4216,71 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstancePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导入自定义镜像.
+     *
+     * @param request - ImportImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportImageResponse
+     *
+     * @param ImportImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ImportImageResponse
+     */
+    public function importImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageDescription) {
+            @$query['ImageDescription'] = $request->imageDescription;
+        }
+
+        if (null !== $request->imageFileURL) {
+            @$query['ImageFileURL'] = $request->imageFileURL;
+        }
+
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportImage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入自定义镜像.
+     *
+     * @param request - ImportImageRequest
+     *
+     * @returns ImportImageResponse
+     *
+     * @param ImportImageRequest $request
+     *
+     * @return ImportImageResponse
+     */
+    public function importImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importImageWithOptions($request, $runtime);
     }
 
     /**

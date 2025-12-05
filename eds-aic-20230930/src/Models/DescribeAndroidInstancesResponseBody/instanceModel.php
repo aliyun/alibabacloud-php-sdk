@@ -75,6 +75,11 @@ class instanceModel extends Model
     public $bindUserId;
 
     /**
+     * @var string
+     */
+    public $bizImageType;
+
+    /**
      * @var bizTags[]
      */
     public $bizTags;
@@ -276,6 +281,7 @@ class instanceModel extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bindUserId' => 'BindUserId',
+        'bizImageType' => 'BizImageType',
         'bizTags' => 'BizTags',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
@@ -388,6 +394,10 @@ class instanceModel extends Model
 
         if (null !== $this->bindUserId) {
             $res['BindUserId'] = $this->bindUserId;
+        }
+
+        if (null !== $this->bizImageType) {
+            $res['BizImageType'] = $this->bizImageType;
         }
 
         if (null !== $this->bizTags) {
@@ -620,6 +630,10 @@ class instanceModel extends Model
 
         if (isset($map['BindUserId'])) {
             $model->bindUserId = $map['BindUserId'];
+        }
+
+        if (isset($map['BizImageType'])) {
+            $model->bizImageType = $map['BizImageType'];
         }
 
         if (isset($map['BizTags'])) {
