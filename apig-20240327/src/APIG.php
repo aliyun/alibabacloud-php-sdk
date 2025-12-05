@@ -1343,6 +1343,10 @@ class APIG extends OpenApiClient
             @$body['gatewayId'] = $request->gatewayId;
         }
 
+        if (null !== $request->grayMcpServerConfigs) {
+            @$body['grayMcpServerConfigs'] = $request->grayMcpServerConfigs;
+        }
+
         if (null !== $request->match) {
             @$body['match'] = $request->match;
         }
@@ -6484,6 +6488,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->exposedUriPath) {
             @$body['exposedUriPath'] = $request->exposedUriPath;
+        }
+
+        if (null !== $request->grayMcpServerConfigs) {
+            @$body['grayMcpServerConfigs'] = $request->grayMcpServerConfigs;
         }
 
         if (null !== $request->match) {

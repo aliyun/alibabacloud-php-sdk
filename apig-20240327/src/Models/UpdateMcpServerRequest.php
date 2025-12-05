@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\assembledSources;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\backendConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\grayMcpServerConfigs;
 
 class UpdateMcpServerRequest extends Model
 {
@@ -41,6 +42,11 @@ class UpdateMcpServerRequest extends Model
     public $exposedUriPath;
 
     /**
+     * @var grayMcpServerConfigs[]
+     */
+    public $grayMcpServerConfigs;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -66,6 +72,7 @@ class UpdateMcpServerRequest extends Model
         'description' => 'description',
         'domainIds' => 'domainIds',
         'exposedUriPath' => 'exposedUriPath',
+        'grayMcpServerConfigs' => 'grayMcpServerConfigs',
         'match' => 'match',
         'mcpStatisticsEnable' => 'mcpStatisticsEnable',
         'protocol' => 'protocol',
@@ -82,6 +89,9 @@ class UpdateMcpServerRequest extends Model
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
+        }
+        if (\is_array($this->grayMcpServerConfigs)) {
+            Model::validateArray($this->grayMcpServerConfigs);
         }
         if (null !== $this->match) {
             $this->match->validate();
@@ -128,6 +138,17 @@ class UpdateMcpServerRequest extends Model
 
         if (null !== $this->exposedUriPath) {
             $res['exposedUriPath'] = $this->exposedUriPath;
+        }
+
+        if (null !== $this->grayMcpServerConfigs) {
+            if (\is_array($this->grayMcpServerConfigs)) {
+                $res['grayMcpServerConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->grayMcpServerConfigs as $item1) {
+                    $res['grayMcpServerConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->match) {
@@ -193,6 +214,17 @@ class UpdateMcpServerRequest extends Model
 
         if (isset($map['exposedUriPath'])) {
             $model->exposedUriPath = $map['exposedUriPath'];
+        }
+
+        if (isset($map['grayMcpServerConfigs'])) {
+            if (!empty($map['grayMcpServerConfigs'])) {
+                $model->grayMcpServerConfigs = [];
+                $n1 = 0;
+                foreach ($map['grayMcpServerConfigs'] as $item1) {
+                    $model->grayMcpServerConfigs[$n1] = grayMcpServerConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['match'])) {

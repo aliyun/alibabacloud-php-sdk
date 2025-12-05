@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerRequest\assembledSources;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerRequest\backendConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerRequest\grayMcpServerConfigs;
 
 class CreateMcpServerRequest extends Model
 {
@@ -46,6 +47,11 @@ class CreateMcpServerRequest extends Model
     public $gatewayId;
 
     /**
+     * @var grayMcpServerConfigs[]
+     */
+    public $grayMcpServerConfigs;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -77,6 +83,7 @@ class CreateMcpServerRequest extends Model
         'domainIds' => 'domainIds',
         'exposedUriPath' => 'exposedUriPath',
         'gatewayId' => 'gatewayId',
+        'grayMcpServerConfigs' => 'grayMcpServerConfigs',
         'match' => 'match',
         'mcpStatisticsEnable' => 'mcpStatisticsEnable',
         'name' => 'name',
@@ -94,6 +101,9 @@ class CreateMcpServerRequest extends Model
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
+        }
+        if (\is_array($this->grayMcpServerConfigs)) {
+            Model::validateArray($this->grayMcpServerConfigs);
         }
         if (null !== $this->match) {
             $this->match->validate();
@@ -144,6 +154,17 @@ class CreateMcpServerRequest extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->grayMcpServerConfigs) {
+            if (\is_array($this->grayMcpServerConfigs)) {
+                $res['grayMcpServerConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->grayMcpServerConfigs as $item1) {
+                    $res['grayMcpServerConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->match) {
@@ -217,6 +238,17 @@ class CreateMcpServerRequest extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['grayMcpServerConfigs'])) {
+            if (!empty($map['grayMcpServerConfigs'])) {
+                $model->grayMcpServerConfigs = [];
+                $n1 = 0;
+                foreach ($map['grayMcpServerConfigs'] as $item1) {
+                    $model->grayMcpServerConfigs[$n1] = grayMcpServerConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['match'])) {

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Backend;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponseBody\data\assembledSources;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponseBody\data\domainInfos;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponseBody\data\grayMcpServerConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponseBody\data\nacosMcpSyncInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch;
 
@@ -62,6 +63,11 @@ class data extends Model
      * @var string
      */
     public $gatewayId;
+
+    /**
+     * @var grayMcpServerConfigs[]
+     */
+    public $grayMcpServerConfigs;
 
     /**
      * @var HttpRouteMatch
@@ -128,6 +134,7 @@ class data extends Model
         'environmentId' => 'environmentId',
         'exposedUriPath' => 'exposedUriPath',
         'gatewayId' => 'gatewayId',
+        'grayMcpServerConfigs' => 'grayMcpServerConfigs',
         'match' => 'match',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpServerConfigPluginAttachmentId' => 'mcpServerConfigPluginAttachmentId',
@@ -154,6 +161,9 @@ class data extends Model
         }
         if (\is_array($this->domainInfos)) {
             Model::validateArray($this->domainInfos);
+        }
+        if (\is_array($this->grayMcpServerConfigs)) {
+            Model::validateArray($this->grayMcpServerConfigs);
         }
         if (null !== $this->match) {
             $this->match->validate();
@@ -226,6 +236,17 @@ class data extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->grayMcpServerConfigs) {
+            if (\is_array($this->grayMcpServerConfigs)) {
+                $res['grayMcpServerConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->grayMcpServerConfigs as $item1) {
+                    $res['grayMcpServerConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->match) {
@@ -342,6 +363,17 @@ class data extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['grayMcpServerConfigs'])) {
+            if (!empty($map['grayMcpServerConfigs'])) {
+                $model->grayMcpServerConfigs = [];
+                $n1 = 0;
+                foreach ($map['grayMcpServerConfigs'] as $item1) {
+                    $model->grayMcpServerConfigs[$n1] = grayMcpServerConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['match'])) {
