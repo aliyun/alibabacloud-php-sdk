@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveEnvRequest extends Model
 {
     /**
-     * @example 10YPA8H
-     *
      * @var string
      */
     public $envId;
@@ -20,9 +18,10 @@ class RemoveEnvRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envId) {
@@ -32,11 +31,11 @@ class RemoveEnvRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveEnvRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

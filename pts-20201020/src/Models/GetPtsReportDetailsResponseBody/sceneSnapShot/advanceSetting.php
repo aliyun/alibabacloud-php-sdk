@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\advanceSetting\domainBindingList;
-use AlibabaCloud\Tea\Model;
 
 class advanceSetting extends Model
 {
     /**
-     * @example 5
-     *
      * @var int
      */
     public $connectionTimeoutInSecond;
@@ -22,47 +20,51 @@ class advanceSetting extends Model
     public $domainBindingList;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $logRate;
 
     /**
-     * @example 429,404
-     *
      * @var string
      */
     public $successCode;
     protected $_name = [
         'connectionTimeoutInSecond' => 'ConnectionTimeoutInSecond',
-        'domainBindingList'         => 'DomainBindingList',
-        'logRate'                   => 'LogRate',
-        'successCode'               => 'SuccessCode',
+        'domainBindingList' => 'DomainBindingList',
+        'logRate' => 'LogRate',
+        'successCode' => 'SuccessCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainBindingList)) {
+            Model::validateArray($this->domainBindingList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionTimeoutInSecond) {
             $res['ConnectionTimeoutInSecond'] = $this->connectionTimeoutInSecond;
         }
+
         if (null !== $this->domainBindingList) {
-            $res['DomainBindingList'] = [];
-            if (null !== $this->domainBindingList && \is_array($this->domainBindingList)) {
-                $n = 0;
-                foreach ($this->domainBindingList as $item) {
-                    $res['DomainBindingList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainBindingList)) {
+                $res['DomainBindingList'] = [];
+                $n1 = 0;
+                foreach ($this->domainBindingList as $item1) {
+                    $res['DomainBindingList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->logRate) {
             $res['LogRate'] = $this->logRate;
         }
+
         if (null !== $this->successCode) {
             $res['SuccessCode'] = $this->successCode;
         }
@@ -70,29 +72,33 @@ class advanceSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return advanceSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionTimeoutInSecond'])) {
             $model->connectionTimeoutInSecond = $map['ConnectionTimeoutInSecond'];
         }
+
         if (isset($map['DomainBindingList'])) {
             if (!empty($map['DomainBindingList'])) {
                 $model->domainBindingList = [];
-                $n                        = 0;
-                foreach ($map['DomainBindingList'] as $item) {
-                    $model->domainBindingList[$n++] = null !== $item ? domainBindingList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainBindingList'] as $item1) {
+                    $model->domainBindingList[$n1] = domainBindingList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LogRate'])) {
             $model->logRate = $map['LogRate'];
         }
+
         if (isset($map['SuccessCode'])) {
             $model->successCode = $map['SuccessCode'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveEnvRequest\env;
-use AlibabaCloud\Tea\Model;
 
 class SaveEnvRequest extends Model
 {
@@ -19,23 +19,27 @@ class SaveEnvRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->env) {
+            $this->env->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
-            $res['Env'] = null !== $this->env ? $this->env->toMap() : null;
+            $res['Env'] = null !== $this->env ? $this->env->toArray($noStream) : $this->env;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveEnvRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

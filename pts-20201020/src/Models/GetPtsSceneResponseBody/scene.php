@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\advanceSetting;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\fileParameterList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\globalParameterList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\headers;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\relationList;
-use AlibabaCloud\Tea\Model;
 
 class scene extends Model
 {
@@ -20,8 +20,6 @@ class scene extends Model
     public $advanceSetting;
 
     /**
-     * @example 2021-02-26 15:30:30
-     *
      * @var string
      */
     public $createTime;
@@ -47,8 +45,6 @@ class scene extends Model
     public $loadConfig;
 
     /**
-     * @example 2021-03-26 15:30:30
-     *
      * @var string
      */
     public $modifiedTime;
@@ -59,8 +55,6 @@ class scene extends Model
     public $relationList;
 
     /**
-     * @example BGFJ7GV
-     *
      * @var string
      */
     public $sceneId;
@@ -71,86 +65,117 @@ class scene extends Model
     public $sceneName;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'advanceSetting'      => 'AdvanceSetting',
-        'createTime'          => 'CreateTime',
-        'fileParameterList'   => 'FileParameterList',
+        'advanceSetting' => 'AdvanceSetting',
+        'createTime' => 'CreateTime',
+        'fileParameterList' => 'FileParameterList',
         'globalParameterList' => 'GlobalParameterList',
-        'headers'             => 'Headers',
-        'loadConfig'          => 'LoadConfig',
-        'modifiedTime'        => 'ModifiedTime',
-        'relationList'        => 'RelationList',
-        'sceneId'             => 'SceneId',
-        'sceneName'           => 'SceneName',
-        'status'              => 'Status',
+        'headers' => 'Headers',
+        'loadConfig' => 'LoadConfig',
+        'modifiedTime' => 'ModifiedTime',
+        'relationList' => 'RelationList',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (null !== $this->advanceSetting) {
+            $this->advanceSetting->validate();
+        }
+        if (\is_array($this->fileParameterList)) {
+            Model::validateArray($this->fileParameterList);
+        }
+        if (\is_array($this->globalParameterList)) {
+            Model::validateArray($this->globalParameterList);
+        }
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (null !== $this->loadConfig) {
+            $this->loadConfig->validate();
+        }
+        if (\is_array($this->relationList)) {
+            Model::validateArray($this->relationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->advanceSetting) {
-            $res['AdvanceSetting'] = null !== $this->advanceSetting ? $this->advanceSetting->toMap() : null;
+            $res['AdvanceSetting'] = null !== $this->advanceSetting ? $this->advanceSetting->toArray($noStream) : $this->advanceSetting;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->fileParameterList) {
-            $res['FileParameterList'] = [];
-            if (null !== $this->fileParameterList && \is_array($this->fileParameterList)) {
-                $n = 0;
-                foreach ($this->fileParameterList as $item) {
-                    $res['FileParameterList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileParameterList)) {
+                $res['FileParameterList'] = [];
+                $n1 = 0;
+                foreach ($this->fileParameterList as $item1) {
+                    $res['FileParameterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->globalParameterList) {
-            $res['GlobalParameterList'] = [];
-            if (null !== $this->globalParameterList && \is_array($this->globalParameterList)) {
-                $n = 0;
-                foreach ($this->globalParameterList as $item) {
-                    $res['GlobalParameterList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->globalParameterList)) {
+                $res['GlobalParameterList'] = [];
+                $n1 = 0;
+                foreach ($this->globalParameterList as $item1) {
+                    $res['GlobalParameterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->headers) {
-            $res['Headers'] = [];
-            if (null !== $this->headers && \is_array($this->headers)) {
-                $n = 0;
-                foreach ($this->headers as $item) {
-                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                $n1 = 0;
+                foreach ($this->headers as $item1) {
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->loadConfig) {
-            $res['LoadConfig'] = null !== $this->loadConfig ? $this->loadConfig->toMap() : null;
+            $res['LoadConfig'] = null !== $this->loadConfig ? $this->loadConfig->toArray($noStream) : $this->loadConfig;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->relationList) {
-            $res['RelationList'] = [];
-            if (null !== $this->relationList && \is_array($this->relationList)) {
-                $n = 0;
-                foreach ($this->relationList as $item) {
-                    $res['RelationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relationList)) {
+                $res['RelationList'] = [];
+                $n1 = 0;
+                foreach ($this->relationList as $item1) {
+                    $res['RelationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -158,68 +183,82 @@ class scene extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scene
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdvanceSetting'])) {
             $model->advanceSetting = advanceSetting::fromMap($map['AdvanceSetting']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['FileParameterList'])) {
             if (!empty($map['FileParameterList'])) {
                 $model->fileParameterList = [];
-                $n                        = 0;
-                foreach ($map['FileParameterList'] as $item) {
-                    $model->fileParameterList[$n++] = null !== $item ? fileParameterList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileParameterList'] as $item1) {
+                    $model->fileParameterList[$n1] = fileParameterList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['GlobalParameterList'])) {
             if (!empty($map['GlobalParameterList'])) {
                 $model->globalParameterList = [];
-                $n                          = 0;
-                foreach ($map['GlobalParameterList'] as $item) {
-                    $model->globalParameterList[$n++] = null !== $item ? globalParameterList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GlobalParameterList'] as $item1) {
+                    $model->globalParameterList[$n1] = globalParameterList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
-                foreach ($map['Headers'] as $item) {
-                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Headers'] as $item1) {
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LoadConfig'])) {
             $model->loadConfig = loadConfig::fromMap($map['LoadConfig']);
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['RelationList'])) {
             if (!empty($map['RelationList'])) {
                 $model->relationList = [];
-                $n                   = 0;
-                foreach ($map['RelationList'] as $item) {
-                    $model->relationList[$n++] = null !== $item ? relationList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelationList'] as $item1) {
+                    $model->relationList[$n1] = relationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

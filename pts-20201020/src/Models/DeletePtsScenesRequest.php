@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePtsScenesRequest extends Model
 {
     /**
-     * @example ["XVB4DF","AFG3CV"]
-     *
      * @var string[]
      */
     public $sceneIds;
@@ -20,29 +18,45 @@ class DeletePtsScenesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->sceneIds)) {
+            Model::validateArray($this->sceneIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneIds) {
-            $res['SceneIds'] = $this->sceneIds;
+            if (\is_array($this->sceneIds)) {
+                $res['SceneIds'] = [];
+                $n1 = 0;
+                foreach ($this->sceneIds as $item1) {
+                    $res['SceneIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePtsScenesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SceneIds'])) {
             if (!empty($map['SceneIds'])) {
-                $model->sceneIds = $map['SceneIds'];
+                $model->sceneIds = [];
+                $n1 = 0;
+                foreach ($map['SceneIds'] as $item1) {
+                    $model->sceneIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

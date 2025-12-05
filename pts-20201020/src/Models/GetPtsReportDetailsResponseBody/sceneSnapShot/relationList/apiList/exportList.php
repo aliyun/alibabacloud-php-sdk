@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\relationList\apiList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exportList extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $count;
 
     /**
-     * @example userId
-     *
      * @var string
      */
     public $exportName;
 
     /**
-     * @example BODY_JSON
-     *
      * @var string
      */
     public $exportType;
 
     /**
-     * @example data.userId
-     *
      * @var string
      */
     public $exportValue;
     protected $_name = [
-        'count'       => 'Count',
-        'exportName'  => 'ExportName',
-        'exportType'  => 'ExportType',
+        'count' => 'Count',
+        'exportName' => 'ExportName',
+        'exportType' => 'ExportType',
         'exportValue' => 'ExportValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->exportName) {
             $res['ExportName'] = $this->exportName;
         }
+
         if (null !== $this->exportType) {
             $res['ExportType'] = $this->exportType;
         }
+
         if (null !== $this->exportValue) {
             $res['ExportValue'] = $this->exportValue;
         }
@@ -65,23 +61,26 @@ class exportList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exportList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['ExportName'])) {
             $model->exportName = $map['ExportName'];
         }
+
         if (isset($map['ExportType'])) {
             $model->exportType = $map['ExportType'];
         }
+
         if (isset($map['ExportValue'])) {
             $model->exportValue = $map['ExportValue'];
         }

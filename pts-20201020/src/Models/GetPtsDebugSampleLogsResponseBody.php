@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsDebugSampleLogsResponseBody\samplingLogs;
-use AlibabaCloud\Tea\Model;
 
 class GetPtsDebugSampleLogsResponseBody extends Model
 {
     /**
-     * @example 4001
-     *
      * @var string
      */
     public $code;
@@ -22,22 +20,16 @@ class GetPtsDebugSampleLogsResponseBody extends Model
     public $message;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example A8E16480-15C1-555A-922F-B736A005E52D
-     *
      * @var string
      */
     public $requestId;
@@ -48,63 +40,71 @@ class GetPtsDebugSampleLogsResponseBody extends Model
     public $samplingLogs;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'samplingLogs' => 'SamplingLogs',
-        'success'      => 'Success',
-        'totalCount'   => 'TotalCount',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->samplingLogs)) {
+            Model::validateArray($this->samplingLogs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->samplingLogs) {
-            $res['SamplingLogs'] = [];
-            if (null !== $this->samplingLogs && \is_array($this->samplingLogs)) {
-                $n = 0;
-                foreach ($this->samplingLogs as $item) {
-                    $res['SamplingLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->samplingLogs)) {
+                $res['SamplingLogs'] = [];
+                $n1 = 0;
+                foreach ($this->samplingLogs as $item1) {
+                    $res['SamplingLogs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -112,41 +112,49 @@ class GetPtsDebugSampleLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPtsDebugSampleLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SamplingLogs'])) {
             if (!empty($map['SamplingLogs'])) {
                 $model->samplingLogs = [];
-                $n                   = 0;
-                foreach ($map['SamplingLogs'] as $item) {
-                    $model->samplingLogs[$n++] = null !== $item ? samplingLogs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SamplingLogs'] as $item1) {
+                    $model->samplingLogs[$n1] = samplingLogs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

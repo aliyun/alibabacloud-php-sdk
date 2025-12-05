@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJMeterReportDetailsRequest extends Model
 {
     /**
-     * @example KS2YE3J2
-     *
      * @var string
      */
     public $reportId;
@@ -20,9 +18,10 @@ class GetJMeterReportDetailsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportId) {
@@ -32,11 +31,11 @@ class GetJMeterReportDetailsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJMeterReportDetailsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

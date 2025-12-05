@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class agentLocation extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $count;
@@ -30,28 +28,32 @@ class agentLocation extends Model
      */
     public $region;
     protected $_name = [
-        'count'    => 'Count',
-        'isp'      => 'Isp',
+        'count' => 'Count',
+        'isp' => 'Isp',
         'province' => 'Province',
-        'region'   => 'Region',
+        'region' => 'Region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -59,23 +61,26 @@ class agentLocation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agentLocation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

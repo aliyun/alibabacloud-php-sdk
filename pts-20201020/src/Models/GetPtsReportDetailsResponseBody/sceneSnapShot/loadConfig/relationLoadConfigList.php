@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\loadConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relationLoadConfigList extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $concurrencyBegin;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $concurrencyLimit;
@@ -28,14 +24,16 @@ class relationLoadConfigList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->concurrencyBegin) {
             $res['ConcurrencyBegin'] = $this->concurrencyBegin;
         }
+
         if (null !== $this->concurrencyLimit) {
             $res['ConcurrencyLimit'] = $this->concurrencyLimit;
         }
@@ -43,17 +41,18 @@ class relationLoadConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relationLoadConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConcurrencyBegin'])) {
             $model->concurrencyBegin = $map['ConcurrencyBegin'];
         }
+
         if (isset($map['ConcurrencyLimit'])) {
             $model->concurrencyLimit = $map['ConcurrencyLimit'];
         }

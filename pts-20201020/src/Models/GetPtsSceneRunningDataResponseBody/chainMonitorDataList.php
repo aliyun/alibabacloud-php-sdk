@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataResponseBody\chainMonitorDataList\checkPointResult;
-use AlibabaCloud\Tea\Model;
 
 class chainMonitorDataList extends Model
 {
     /**
-     * @example ANBDC8B
-     *
      * @var string
      */
     public $apiId;
@@ -22,8 +20,6 @@ class chainMonitorDataList extends Model
     public $apiName;
 
     /**
-     * @example 46
-     *
      * @var int
      */
     public $averageRt;
@@ -34,148 +30,144 @@ class chainMonitorDataList extends Model
     public $checkPointResult;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $concurrency;
 
     /**
-     * @example 78
-     *
      * @var int
      */
     public $configQps;
 
     /**
-     * @example 7890
-     *
      * @var int
      */
     public $count2XX;
 
     /**
-     * @example 456
-     *
      * @var int
      */
     public $failedCount;
 
     /**
-     * @example 15
-     *
      * @var float
      */
     public $failedQps;
 
     /**
-     * @example 56
-     *
      * @var int
      */
     public $maxRt;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $minRt;
 
     /**
-     * @example 78509
-     *
      * @var int
      */
     public $nodeId;
 
     /**
-     * @example 78
-     *
      * @var float
      */
     public $qps2XX;
 
     /**
-     * @example 23
-     *
      * @var float
      */
     public $realQps;
 
     /**
-     * @example 1278908899
-     *
      * @var int
      */
     public $timePoint;
     protected $_name = [
-        'apiId'            => 'ApiId',
-        'apiName'          => 'ApiName',
-        'averageRt'        => 'AverageRt',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'averageRt' => 'AverageRt',
         'checkPointResult' => 'CheckPointResult',
-        'concurrency'      => 'Concurrency',
-        'configQps'        => 'ConfigQps',
-        'count2XX'         => 'Count2XX',
-        'failedCount'      => 'FailedCount',
-        'failedQps'        => 'FailedQps',
-        'maxRt'            => 'MaxRt',
-        'minRt'            => 'MinRt',
-        'nodeId'           => 'NodeId',
-        'qps2XX'           => 'Qps2XX',
-        'realQps'          => 'RealQps',
-        'timePoint'        => 'TimePoint',
+        'concurrency' => 'Concurrency',
+        'configQps' => 'ConfigQps',
+        'count2XX' => 'Count2XX',
+        'failedCount' => 'FailedCount',
+        'failedQps' => 'FailedQps',
+        'maxRt' => 'MaxRt',
+        'minRt' => 'MinRt',
+        'nodeId' => 'NodeId',
+        'qps2XX' => 'Qps2XX',
+        'realQps' => 'RealQps',
+        'timePoint' => 'TimePoint',
     ];
 
     public function validate()
     {
+        if (null !== $this->checkPointResult) {
+            $this->checkPointResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->averageRt) {
             $res['AverageRt'] = $this->averageRt;
         }
+
         if (null !== $this->checkPointResult) {
-            $res['CheckPointResult'] = null !== $this->checkPointResult ? $this->checkPointResult->toMap() : null;
+            $res['CheckPointResult'] = null !== $this->checkPointResult ? $this->checkPointResult->toArray($noStream) : $this->checkPointResult;
         }
+
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
         }
+
         if (null !== $this->configQps) {
             $res['ConfigQps'] = $this->configQps;
         }
+
         if (null !== $this->count2XX) {
             $res['Count2XX'] = $this->count2XX;
         }
+
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
+
         if (null !== $this->failedQps) {
             $res['FailedQps'] = $this->failedQps;
         }
+
         if (null !== $this->maxRt) {
             $res['MaxRt'] = $this->maxRt;
         }
+
         if (null !== $this->minRt) {
             $res['MinRt'] = $this->minRt;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->qps2XX) {
             $res['Qps2XX'] = $this->qps2XX;
         }
+
         if (null !== $this->realQps) {
             $res['RealQps'] = $this->realQps;
         }
+
         if (null !== $this->timePoint) {
             $res['TimePoint'] = $this->timePoint;
         }
@@ -183,56 +175,70 @@ class chainMonitorDataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chainMonitorDataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['AverageRt'])) {
             $model->averageRt = $map['AverageRt'];
         }
+
         if (isset($map['CheckPointResult'])) {
             $model->checkPointResult = checkPointResult::fromMap($map['CheckPointResult']);
         }
+
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
+
         if (isset($map['ConfigQps'])) {
             $model->configQps = $map['ConfigQps'];
         }
+
         if (isset($map['Count2XX'])) {
             $model->count2XX = $map['Count2XX'];
         }
+
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
+
         if (isset($map['FailedQps'])) {
             $model->failedQps = $map['FailedQps'];
         }
+
         if (isset($map['MaxRt'])) {
             $model->maxRt = $map['MaxRt'];
         }
+
         if (isset($map['MinRt'])) {
             $model->minRt = $map['MinRt'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['Qps2XX'])) {
             $model->qps2XX = $map['Qps2XX'];
         }
+
         if (isset($map['RealQps'])) {
             $model->realQps = $map['RealQps'];
         }
+
         if (isset($map['TimePoint'])) {
             $model->timePoint = $map['TimePoint'];
         }

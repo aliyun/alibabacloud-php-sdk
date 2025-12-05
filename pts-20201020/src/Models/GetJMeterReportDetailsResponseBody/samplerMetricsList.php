@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterReportDetailsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class samplerMetricsList extends Model
 {
     /**
-     * @example 731
-     *
      * @var int
      */
     public $allCount;
@@ -21,118 +19,111 @@ class samplerMetricsList extends Model
     public $apiName;
 
     /**
-     * @example 44.2
-     *
      * @var float
      */
     public $avgRt;
 
     /**
-     * @example 12
-     *
      * @var float
      */
     public $avgTps;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $failCountReq;
 
     /**
-     * @example 78
-     *
      * @var float
      */
     public $maxRt;
 
     /**
-     * @example 11
-     *
      * @var float
      */
     public $minRt;
 
     /**
-     * @example 22.4
-     *
      * @var float
      */
     public $seg75Rt;
 
     /**
-     * @example 65
-     *
      * @var float
      */
     public $seg90Rt;
 
     /**
-     * @example 77
-     *
      * @var float
      */
     public $seg99Rt;
 
     /**
-     * @example 100
-     *
      * @var float
      */
     public $successRateReq;
     protected $_name = [
-        'allCount'       => 'AllCount',
-        'apiName'        => 'ApiName',
-        'avgRt'          => 'AvgRt',
-        'avgTps'         => 'AvgTps',
-        'failCountReq'   => 'FailCountReq',
-        'maxRt'          => 'MaxRt',
-        'minRt'          => 'MinRt',
-        'seg75Rt'        => 'Seg75Rt',
-        'seg90Rt'        => 'Seg90Rt',
-        'seg99Rt'        => 'Seg99Rt',
+        'allCount' => 'AllCount',
+        'apiName' => 'ApiName',
+        'avgRt' => 'AvgRt',
+        'avgTps' => 'AvgTps',
+        'failCountReq' => 'FailCountReq',
+        'maxRt' => 'MaxRt',
+        'minRt' => 'MinRt',
+        'seg75Rt' => 'Seg75Rt',
+        'seg90Rt' => 'Seg90Rt',
+        'seg99Rt' => 'Seg99Rt',
         'successRateReq' => 'SuccessRateReq',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allCount) {
             $res['AllCount'] = $this->allCount;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->avgRt) {
             $res['AvgRt'] = $this->avgRt;
         }
+
         if (null !== $this->avgTps) {
             $res['AvgTps'] = $this->avgTps;
         }
+
         if (null !== $this->failCountReq) {
             $res['FailCountReq'] = $this->failCountReq;
         }
+
         if (null !== $this->maxRt) {
             $res['MaxRt'] = $this->maxRt;
         }
+
         if (null !== $this->minRt) {
             $res['MinRt'] = $this->minRt;
         }
+
         if (null !== $this->seg75Rt) {
             $res['Seg75Rt'] = $this->seg75Rt;
         }
+
         if (null !== $this->seg90Rt) {
             $res['Seg90Rt'] = $this->seg90Rt;
         }
+
         if (null !== $this->seg99Rt) {
             $res['Seg99Rt'] = $this->seg99Rt;
         }
+
         if (null !== $this->successRateReq) {
             $res['SuccessRateReq'] = $this->successRateReq;
         }
@@ -140,44 +131,54 @@ class samplerMetricsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return samplerMetricsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllCount'])) {
             $model->allCount = $map['AllCount'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['AvgRt'])) {
             $model->avgRt = $map['AvgRt'];
         }
+
         if (isset($map['AvgTps'])) {
             $model->avgTps = $map['AvgTps'];
         }
+
         if (isset($map['FailCountReq'])) {
             $model->failCountReq = $map['FailCountReq'];
         }
+
         if (isset($map['MaxRt'])) {
             $model->maxRt = $map['MaxRt'];
         }
+
         if (isset($map['MinRt'])) {
             $model->minRt = $map['MinRt'];
         }
+
         if (isset($map['Seg75Rt'])) {
             $model->seg75Rt = $map['Seg75Rt'];
         }
+
         if (isset($map['Seg90Rt'])) {
             $model->seg90Rt = $map['Seg90Rt'];
         }
+
         if (isset($map['Seg99Rt'])) {
             $model->seg99Rt = $map['Seg99Rt'];
         }
+
         if (isset($map['SuccessRateReq'])) {
             $model->successRateReq = $map['SuccessRateReq'];
         }

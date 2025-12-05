@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\advanceSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainBindingList extends Model
 {
     /**
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -21,40 +19,58 @@ class domainBindingList extends Model
     public $ips;
     protected $_name = [
         'domain' => 'Domain',
-        'ips'    => 'Ips',
+        'ips' => 'Ips',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ips)) {
+            Model::validateArray($this->ips);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ips) {
-            $res['Ips'] = $this->ips;
+            if (\is_array($this->ips)) {
+                $res['Ips'] = [];
+                $n1 = 0;
+                foreach ($this->ips as $item1) {
+                    $res['Ips'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainBindingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Ips'])) {
             if (!empty($map['Ips'])) {
-                $model->ips = $map['Ips'];
+                $model->ips = [];
+                $n1 = 0;
+                foreach ($map['Ips'] as $item1) {
+                    $model->ips[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

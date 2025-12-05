@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustJMeterSceneSpeedResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\AdjustPtsSceneSpeedRequest;
@@ -65,6 +64,8 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsReportsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsReportsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsSceneResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\ListVpcConfigsRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\ListVpcConfigsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ModifyPtsSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ModifyPtsSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\RemoveEnvRequest;
@@ -99,11 +100,10 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\StopTestingJMeterSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\UpdatePtsSceneBaseLineShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PTS extends OpenApiClient
 {
@@ -128,17 +128,25 @@ class PTS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Adjusts the JMeter load.
+     *
+     * @param request - AdjustJMeterSceneSpeedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AdjustJMeterSceneSpeedResponse
+     *
      * @param AdjustJMeterSceneSpeedRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -146,33 +154,41 @@ class PTS extends OpenApiClient
      */
     public function adjustJMeterSceneSpeedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AdjustJMeterSceneSpeed',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AdjustJMeterSceneSpeed',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AdjustJMeterSceneSpeedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adjusts the JMeter load.
+     *
+     * @param request - AdjustJMeterSceneSpeedRequest
+     *
+     * @returns AdjustJMeterSceneSpeedResponse
+     *
      * @param AdjustJMeterSceneSpeedRequest $request
      *
      * @return AdjustJMeterSceneSpeedResponse
@@ -185,6 +201,17 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Adjusts the stress in a Performance Testing Service (PTS) scenario.
+     *
+     * @remarks
+     * In concurrency mode, only the concurrency of the first API is passed as that of a session.
+     * In requests per second (RPS) mode, the RPS of each API can be adjusted. Make sure that the RPS decreases in the API order in the same session.
+     *
+     * @param tmpReq - AdjustPtsSceneSpeedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AdjustPtsSceneSpeedResponse
+     *
      * @param AdjustPtsSceneSpeedRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -192,38 +219,51 @@ class PTS extends OpenApiClient
      */
     public function adjustPtsSceneSpeedWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AdjustPtsSceneSpeedShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->apiSpeedList)) {
-            $request->apiSpeedListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiSpeedList, 'ApiSpeedList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiSpeedList) {
+            $request->apiSpeedListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiSpeedList, 'ApiSpeedList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->apiSpeedListShrink)) {
-            $query['ApiSpeedList'] = $request->apiSpeedListShrink;
+        if (null !== $request->apiSpeedListShrink) {
+            @$query['ApiSpeedList'] = $request->apiSpeedListShrink;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AdjustPtsSceneSpeed',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AdjustPtsSceneSpeed',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AdjustPtsSceneSpeedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adjusts the stress in a Performance Testing Service (PTS) scenario.
+     *
+     * @remarks
+     * In concurrency mode, only the concurrency of the first API is passed as that of a session.
+     * In requests per second (RPS) mode, the RPS of each API can be adjusted. Make sure that the RPS decreases in the API order in the same session.
+     *
+     * @param request - AdjustPtsSceneSpeedRequest
+     *
+     * @returns AdjustPtsSceneSpeedResponse
+     *
      * @param AdjustPtsSceneSpeedRequest $request
      *
      * @return AdjustPtsSceneSpeedResponse
@@ -236,6 +276,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Creates a stress testing scenario.
+     *
+     * @param request - CreatePtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePtsSceneResponse
+     *
      * @param CreatePtsSceneRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -243,30 +290,37 @@ class PTS extends OpenApiClient
      */
     public function createPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a stress testing scenario.
+     *
+     * @param request - CreatePtsSceneRequest
+     *
+     * @returns CreatePtsSceneResponse
+     *
      * @param CreatePtsSceneRequest $request
      *
      * @return CreatePtsSceneResponse
@@ -279,6 +333,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * null.
+     *
+     * @param request - CreatePtsSceneBaseLineFromReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePtsSceneBaseLineFromReportResponse
+     *
      * @param CreatePtsSceneBaseLineFromReportRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -286,33 +347,41 @@ class PTS extends OpenApiClient
      */
     public function createPtsSceneBaseLineFromReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePtsSceneBaseLineFromReport',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePtsSceneBaseLineFromReport',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePtsSceneBaseLineFromReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * null.
+     *
+     * @param request - CreatePtsSceneBaseLineFromReportRequest
+     *
+     * @returns CreatePtsSceneBaseLineFromReportResponse
+     *
      * @param CreatePtsSceneBaseLineFromReportRequest $request
      *
      * @return CreatePtsSceneBaseLineFromReportResponse
@@ -325,6 +394,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Deletes a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - DeletePtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePtsSceneResponse
+     *
      * @param DeletePtsSceneRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -332,30 +408,37 @@ class PTS extends OpenApiClient
      */
     public function deletePtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - DeletePtsSceneRequest
+     *
+     * @returns DeletePtsSceneResponse
+     *
      * @param DeletePtsSceneRequest $request
      *
      * @return DeletePtsSceneResponse
@@ -368,6 +451,11 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * @param request - DeletePtsSceneBaseLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePtsSceneBaseLineResponse
+     *
      * @param DeletePtsSceneBaseLineRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -375,30 +463,35 @@ class PTS extends OpenApiClient
      */
     public function deletePtsSceneBaseLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePtsSceneBaseLine',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePtsSceneBaseLine',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeletePtsSceneBaseLineRequest
+     *
+     * @returns DeletePtsSceneBaseLineResponse
+     *
      * @param DeletePtsSceneBaseLineRequest $request
      *
      * @return DeletePtsSceneBaseLineResponse
@@ -411,6 +504,11 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * @param tmpReq - DeletePtsScenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePtsScenesResponse
+     *
      * @param DeletePtsScenesRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
@@ -418,35 +516,41 @@ class PTS extends OpenApiClient
      */
     public function deletePtsScenesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeletePtsScenesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sceneIds)) {
-            $request->sceneIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneIds, 'SceneIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sceneIds) {
+            $request->sceneIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneIds, 'SceneIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->sceneIdsShrink)) {
-            $query['SceneIds'] = $request->sceneIdsShrink;
+        if (null !== $request->sceneIdsShrink) {
+            @$query['SceneIds'] = $request->sceneIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePtsScenes',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePtsScenes',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePtsScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeletePtsScenesRequest
+     *
+     * @returns DeletePtsScenesResponse
+     *
      * @param DeletePtsScenesRequest $request
      *
      * @return DeletePtsScenesResponse
@@ -459,29 +563,40 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries all supported regions.
+     *
+     * @param request - GetAllRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAllRegionsResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return GetAllRegionsResponse
      */
     public function getAllRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetAllRegions',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAllRegions',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAllRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries all supported regions.
+     *
+     * @returns GetAllRegionsResponse
+     *
      * @return GetAllRegionsResponse
      */
     public function getAllRegions()
@@ -492,6 +607,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the operational logs of JMeter stress testers. By default, the operational logs of the stress tester identified as number 0 are queried and the total number of stress testers is returned.
+     *
+     * @param request - GetJMeterLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJMeterLogsResponse
+     *
      * @param GetJMeterLogsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -499,54 +621,69 @@ class PTS extends OpenApiClient
      */
     public function getJMeterLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentIndex)) {
-            $query['AgentIndex'] = $request->agentIndex;
+        if (null !== $request->agentIndex) {
+            @$query['AgentIndex'] = $request->agentIndex;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->thread)) {
-            $query['Thread'] = $request->thread;
+
+        if (null !== $request->thread) {
+            @$query['Thread'] = $request->thread;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJMeterLogs',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJMeterLogs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJMeterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the operational logs of JMeter stress testers. By default, the operational logs of the stress tester identified as number 0 are queried and the total number of stress testers is returned.
+     *
+     * @param request - GetJMeterLogsRequest
+     *
+     * @returns GetJMeterLogsResponse
+     *
      * @param GetJMeterLogsRequest $request
      *
      * @return GetJMeterLogsResponse
@@ -559,6 +696,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Obtains the details of a JMeter report.
+     *
+     * @param request - GetJMeterReportDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJMeterReportDetailsResponse
+     *
      * @param GetJMeterReportDetailsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -566,30 +710,37 @@ class PTS extends OpenApiClient
      */
     public function getJMeterReportDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJMeterReportDetails',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJMeterReportDetails',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJMeterReportDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Obtains the details of a JMeter report.
+     *
+     * @param request - GetJMeterReportDetailsRequest
+     *
+     * @returns GetJMeterReportDetailsResponse
+     *
      * @param GetJMeterReportDetailsRequest $request
      *
      * @return GetJMeterReportDetailsResponse
@@ -602,6 +753,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the metrics of JMeter samplers based on specified conditions.
+     *
+     * @param request - GetJMeterSampleMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJMeterSampleMetricsResponse
+     *
      * @param GetJMeterSampleMetricsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -609,39 +767,49 @@ class PTS extends OpenApiClient
      */
     public function getJMeterSampleMetricsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->samplerId)) {
-            $query['SamplerId'] = $request->samplerId;
+
+        if (null !== $request->samplerId) {
+            @$query['SamplerId'] = $request->samplerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJMeterSampleMetrics',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJMeterSampleMetrics',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJMeterSampleMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the metrics of JMeter samplers based on specified conditions.
+     *
+     * @param request - GetJMeterSampleMetricsRequest
+     *
+     * @returns GetJMeterSampleMetricsResponse
+     *
      * @param GetJMeterSampleMetricsRequest $request
      *
      * @return GetJMeterSampleMetricsResponse
@@ -654,6 +822,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the sampling logs of a JMeter sampler.
+     *
+     * @param request - GetJMeterSamplingLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJMeterSamplingLogsResponse
+     *
      * @param GetJMeterSamplingLogsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -661,66 +836,85 @@ class PTS extends OpenApiClient
      */
     public function getJMeterSamplingLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->maxRT)) {
-            $query['MaxRT'] = $request->maxRT;
+
+        if (null !== $request->maxRT) {
+            @$query['MaxRT'] = $request->maxRT;
         }
-        if (!Utils::isUnset($request->minRT)) {
-            $query['MinRT'] = $request->minRT;
+
+        if (null !== $request->minRT) {
+            @$query['MinRT'] = $request->minRT;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->responseCode)) {
-            $query['ResponseCode'] = $request->responseCode;
+
+        if (null !== $request->responseCode) {
+            @$query['ResponseCode'] = $request->responseCode;
         }
-        if (!Utils::isUnset($request->samplerId)) {
-            $query['SamplerId'] = $request->samplerId;
+
+        if (null !== $request->samplerId) {
+            @$query['SamplerId'] = $request->samplerId;
         }
-        if (!Utils::isUnset($request->success)) {
-            $query['Success'] = $request->success;
+
+        if (null !== $request->success) {
+            @$query['Success'] = $request->success;
         }
-        if (!Utils::isUnset($request->thread)) {
-            $query['Thread'] = $request->thread;
+
+        if (null !== $request->thread) {
+            @$query['Thread'] = $request->thread;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJMeterSamplingLogs',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJMeterSamplingLogs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJMeterSamplingLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the sampling logs of a JMeter sampler.
+     *
+     * @param request - GetJMeterSamplingLogsRequest
+     *
+     * @returns GetJMeterSamplingLogsResponse
+     *
      * @param GetJMeterSamplingLogsRequest $request
      *
      * @return GetJMeterSamplingLogsResponse
@@ -733,6 +927,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries data that is generated during the stress testing of a JMeter scenario based on the ID of the scenario.
+     *
+     * @param request - GetJMeterSceneRunningDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJMeterSceneRunningDataResponse
+     *
      * @param GetJMeterSceneRunningDataRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -740,30 +941,37 @@ class PTS extends OpenApiClient
      */
     public function getJMeterSceneRunningDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJMeterSceneRunningData',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJMeterSceneRunningData',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJMeterSceneRunningDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries data that is generated during the stress testing of a JMeter scenario based on the ID of the scenario.
+     *
+     * @param request - GetJMeterSceneRunningDataRequest
+     *
+     * @returns GetJMeterSceneRunningDataResponse
+     *
      * @param GetJMeterSceneRunningDataRequest $request
      *
      * @return GetJMeterSceneRunningDataResponse
@@ -776,6 +984,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries information about a JMeter scenario.
+     *
+     * @param request - GetOpenJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOpenJMeterSceneResponse
+     *
      * @param GetOpenJMeterSceneRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -783,30 +998,37 @@ class PTS extends OpenApiClient
      */
     public function getOpenJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOpenJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOpenJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries information about a JMeter scenario.
+     *
+     * @param request - GetOpenJMeterSceneRequest
+     *
+     * @returns GetOpenJMeterSceneResponse
+     *
      * @param GetOpenJMeterSceneRequest $request
      *
      * @return GetOpenJMeterSceneResponse
@@ -819,6 +1041,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the sampling logs for a Performance Testing Service (PTS) debugging task.
+     *
+     * @param request - GetPtsDebugSampleLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsDebugSampleLogsResponse
+     *
      * @param GetPtsDebugSampleLogsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -826,36 +1055,45 @@ class PTS extends OpenApiClient
      */
     public function getPtsDebugSampleLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsDebugSampleLogs',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsDebugSampleLogs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsDebugSampleLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the sampling logs for a Performance Testing Service (PTS) debugging task.
+     *
+     * @param request - GetPtsDebugSampleLogsRequest
+     *
+     * @returns GetPtsDebugSampleLogsResponse
+     *
      * @param GetPtsDebugSampleLogsRequest $request
      *
      * @return GetPtsDebugSampleLogsResponse
@@ -868,6 +1106,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the details of a report for a performance testing task in a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsReportDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsReportDetailsResponse
+     *
      * @param GetPtsReportDetailsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -875,33 +1120,41 @@ class PTS extends OpenApiClient
      */
     public function getPtsReportDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsReportDetails',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsReportDetails',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsReportDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a report for a performance testing task in a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsReportDetailsRequest
+     *
+     * @returns GetPtsReportDetailsResponse
+     *
      * @param GetPtsReportDetailsRequest $request
      *
      * @return GetPtsReportDetailsResponse
@@ -914,6 +1167,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries all reports of multiple scenarios that are generated during the stress testing in batch.
+     *
+     * @param request - GetPtsReportsBySceneIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsReportsBySceneIdResponse
+     *
      * @param GetPtsReportsBySceneIdRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -921,36 +1181,45 @@ class PTS extends OpenApiClient
      */
     public function getPtsReportsBySceneIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsReportsBySceneId',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsReportsBySceneId',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsReportsBySceneIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries all reports of multiple scenarios that are generated during the stress testing in batch.
+     *
+     * @param request - GetPtsReportsBySceneIdRequest
+     *
+     * @returns GetPtsReportsBySceneIdResponse
+     *
      * @param GetPtsReportsBySceneIdRequest $request
      *
      * @return GetPtsReportsBySceneIdResponse
@@ -963,6 +1232,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the structure and load settings of a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsSceneResponse
+     *
      * @param GetPtsSceneRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -970,30 +1246,37 @@ class PTS extends OpenApiClient
      */
     public function getPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the structure and load settings of a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsSceneRequest
+     *
+     * @returns GetPtsSceneResponse
+     *
      * @param GetPtsSceneRequest $request
      *
      * @return GetPtsSceneResponse
@@ -1006,6 +1289,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * null.
+     *
+     * @param request - GetPtsSceneBaseLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsSceneBaseLineResponse
+     *
      * @param GetPtsSceneBaseLineRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1013,30 +1303,37 @@ class PTS extends OpenApiClient
      */
     public function getPtsSceneBaseLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsSceneBaseLine',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsSceneBaseLine',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * null.
+     *
+     * @param request - GetPtsSceneBaseLineRequest
+     *
+     * @returns GetPtsSceneBaseLineResponse
+     *
      * @param GetPtsSceneBaseLineRequest $request
      *
      * @return GetPtsSceneBaseLineResponse
@@ -1049,6 +1346,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the runtime data of a stress testing or debugging scenario.
+     *
+     * @param request - GetPtsSceneRunningDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsSceneRunningDataResponse
+     *
      * @param GetPtsSceneRunningDataRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1056,33 +1360,41 @@ class PTS extends OpenApiClient
      */
     public function getPtsSceneRunningDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsSceneRunningData',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsSceneRunningData',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsSceneRunningDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the runtime data of a stress testing or debugging scenario.
+     *
+     * @param request - GetPtsSceneRunningDataRequest
+     *
+     * @returns GetPtsSceneRunningDataResponse
+     *
      * @param GetPtsSceneRunningDataRequest $request
      *
      * @return GetPtsSceneRunningDataResponse
@@ -1095,6 +1407,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the runtime status of a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsSceneRunningStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPtsSceneRunningStatusResponse
+     *
      * @param GetPtsSceneRunningStatusRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1102,30 +1421,37 @@ class PTS extends OpenApiClient
      */
     public function getPtsSceneRunningStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPtsSceneRunningStatus',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPtsSceneRunningStatus',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPtsSceneRunningStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the runtime status of a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - GetPtsSceneRunningStatusRequest
+     *
+     * @returns GetPtsSceneRunningStatusResponse
+     *
      * @param GetPtsSceneRunningStatusRequest $request
      *
      * @return GetPtsSceneRunningStatusResponse
@@ -1138,6 +1464,11 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * @param request - GetUserVpcSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserVpcSecurityGroupResponse
+     *
      * @param GetUserVpcSecurityGroupRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1145,39 +1476,47 @@ class PTS extends OpenApiClient
      */
     public function getUserVpcSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserVpcSecurityGroup',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserVpcSecurityGroup',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserVpcSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetUserVpcSecurityGroupRequest
+     *
+     * @returns GetUserVpcSecurityGroupResponse
+     *
      * @param GetUserVpcSecurityGroupRequest $request
      *
      * @return GetUserVpcSecurityGroupResponse
@@ -1190,6 +1529,11 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * @param request - GetUserVpcVSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserVpcVSwitchResponse
+     *
      * @param GetUserVpcVSwitchRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1197,39 +1541,47 @@ class PTS extends OpenApiClient
      */
     public function getUserVpcVSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserVpcVSwitch',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserVpcVSwitch',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserVpcVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetUserVpcVSwitchRequest
+     *
+     * @returns GetUserVpcVSwitchResponse
+     *
      * @param GetUserVpcVSwitchRequest $request
      *
      * @return GetUserVpcVSwitchResponse
@@ -1242,6 +1594,11 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * @param request - GetUserVpcsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserVpcsResponse
+     *
      * @param GetUserVpcsRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1249,39 +1606,47 @@ class PTS extends OpenApiClient
      */
     public function getUserVpcsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserVpcs',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserVpcs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetUserVpcsRequest
+     *
+     * @returns GetUserVpcsResponse
+     *
      * @param GetUserVpcsRequest $request
      *
      * @return GetUserVpcsResponse
@@ -1294,6 +1659,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries the information about JMeter environments.
+     *
+     * @param request - ListEnvsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnvsResponse
+     *
      * @param ListEnvsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -1301,39 +1673,49 @@ class PTS extends OpenApiClient
      */
     public function listEnvsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envId)) {
-            $query['EnvId'] = $request->envId;
+        if (null !== $request->envId) {
+            @$query['EnvId'] = $request->envId;
         }
-        if (!Utils::isUnset($request->envName)) {
-            $query['EnvName'] = $request->envName;
+
+        if (null !== $request->envName) {
+            @$query['EnvName'] = $request->envName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEnvs',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEnvs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about JMeter environments.
+     *
+     * @param request - ListEnvsRequest
+     *
+     * @returns ListEnvsResponse
+     *
      * @param ListEnvsRequest $request
      *
      * @return ListEnvsResponse
@@ -1346,6 +1728,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries JMeter reports based on specified conditions.
+     *
+     * @param request - ListJMeterReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJMeterReportsResponse
+     *
      * @param ListJMeterReportsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1353,48 +1742,61 @@ class PTS extends OpenApiClient
      */
     public function listJMeterReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJMeterReports',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJMeterReports',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJMeterReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries JMeter reports based on specified conditions.
+     *
+     * @param request - ListJMeterReportsRequest
+     *
+     * @returns ListJMeterReportsResponse
+     *
      * @param ListJMeterReportsRequest $request
      *
      * @return ListJMeterReportsResponse
@@ -1407,6 +1809,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries JMeter scenarios based on a specified condition.
+     *
+     * @param request - ListOpenJMeterScenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOpenJMeterScenesResponse
+     *
      * @param ListOpenJMeterScenesRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1414,39 +1823,49 @@ class PTS extends OpenApiClient
      */
     public function listOpenJMeterScenesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $query['SceneName'] = $request->sceneName;
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOpenJMeterScenes',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOpenJMeterScenes',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListOpenJMeterScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries JMeter scenarios based on a specified condition.
+     *
+     * @param request - ListOpenJMeterScenesRequest
+     *
+     * @returns ListOpenJMeterScenesResponse
+     *
      * @param ListOpenJMeterScenesRequest $request
      *
      * @return ListOpenJMeterScenesResponse
@@ -1459,6 +1878,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries Performance Testing Service (PTS) reports based on specified conditions.
+     *
+     * @param request - ListPtsReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPtsReportsResponse
+     *
      * @param ListPtsReportsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1466,48 +1892,61 @@ class PTS extends OpenApiClient
      */
     public function listPtsReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $body['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$body['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $body['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$body['ReportId'] = $request->reportId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListPtsReports',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPtsReports',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPtsReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries Performance Testing Service (PTS) reports based on specified conditions.
+     *
+     * @param request - ListPtsReportsRequest
+     *
+     * @returns ListPtsReportsResponse
+     *
      * @param ListPtsReportsRequest $request
      *
      * @return ListPtsReportsResponse
@@ -1520,6 +1959,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Queries Performance Testing Service (PTS) scenarios by page.
+     *
+     * @param request - ListPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPtsSceneResponse
+     *
      * @param ListPtsSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1527,36 +1973,45 @@ class PTS extends OpenApiClient
      */
     public function listPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries Performance Testing Service (PTS) scenarios by page.
+     *
+     * @param request - ListPtsSceneRequest
+     *
+     * @returns ListPtsSceneResponse
+     *
      * @param ListPtsSceneRequest $request
      *
      * @return ListPtsSceneResponse
@@ -1569,6 +2024,90 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * 获取vpc配置信息列表.
+     *
+     * @param request - ListVpcConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVpcConfigsResponse
+     *
+     * @param ListVpcConfigsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListVpcConfigsResponse
+     */
+    public function listVpcConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->configName) {
+            @$query['ConfigName'] = $request->configName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVpcConfigs',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVpcConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取vpc配置信息列表.
+     *
+     * @param request - ListVpcConfigsRequest
+     *
+     * @returns ListVpcConfigsResponse
+     *
+     * @param ListVpcConfigsRequest $request
+     *
+     * @return ListVpcConfigsResponse
+     */
+    public function listVpcConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVpcConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * null.
+     *
+     * @param request - ModifyPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPtsSceneResponse
+     *
      * @param ModifyPtsSceneRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1576,30 +2115,37 @@ class PTS extends OpenApiClient
      */
     public function modifyPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->scene)) {
-            $body['Scene'] = $request->scene;
+        if (null !== $request->scene) {
+            @$body['Scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * null.
+     *
+     * @param request - ModifyPtsSceneRequest
+     *
+     * @returns ModifyPtsSceneResponse
+     *
      * @param ModifyPtsSceneRequest $request
      *
      * @return ModifyPtsSceneResponse
@@ -1612,6 +2158,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Removes the JMeter environment that corresponds to a specific JMeter environment ID.
+     *
+     * @param request - RemoveEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveEnvResponse
+     *
      * @param RemoveEnvRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1619,30 +2172,37 @@ class PTS extends OpenApiClient
      */
     public function removeEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envId)) {
-            $query['EnvId'] = $request->envId;
+        if (null !== $request->envId) {
+            @$query['EnvId'] = $request->envId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveEnv',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveEnv',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes the JMeter environment that corresponds to a specific JMeter environment ID.
+     *
+     * @param request - RemoveEnvRequest
+     *
+     * @returns RemoveEnvResponse
+     *
      * @param RemoveEnvRequest $request
      *
      * @return RemoveEnvResponse
@@ -1655,6 +2215,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Removes a JMeter scenario.
+     *
+     * @param request - RemoveOpenJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveOpenJMeterSceneResponse
+     *
      * @param RemoveOpenJMeterSceneRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1662,30 +2229,37 @@ class PTS extends OpenApiClient
      */
     public function removeOpenJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveOpenJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveOpenJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes a JMeter scenario.
+     *
+     * @param request - RemoveOpenJMeterSceneRequest
+     *
+     * @returns RemoveOpenJMeterSceneResponse
+     *
      * @param RemoveOpenJMeterSceneRequest $request
      *
      * @return RemoveOpenJMeterSceneResponse
@@ -1698,6 +2272,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Creates or updates a JMeter environment.
+     *
+     * @param tmpReq - SaveEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveEnvResponse
+     *
      * @param SaveEnvRequest $tmpReq
      * @param RuntimeOptions $runtime
      *
@@ -1705,35 +2286,43 @@ class PTS extends OpenApiClient
      */
     public function saveEnvWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SaveEnvShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->env)) {
-            $request->envShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->env, 'Env', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->env) {
+            $request->envShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->env, 'Env', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->envShrink)) {
-            $query['Env'] = $request->envShrink;
+        if (null !== $request->envShrink) {
+            @$query['Env'] = $request->envShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveEnv',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveEnv',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates or updates a JMeter environment.
+     *
+     * @param request - SaveEnvRequest
+     *
+     * @returns SaveEnvResponse
+     *
      * @param SaveEnvRequest $request
      *
      * @return SaveEnvResponse
@@ -1746,6 +2335,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Creates or updates a JMeter scenario.
+     *
+     * @param tmpReq - SaveOpenJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveOpenJMeterSceneResponse
+     *
      * @param SaveOpenJMeterSceneRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -1753,35 +2349,43 @@ class PTS extends OpenApiClient
      */
     public function saveOpenJMeterSceneWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SaveOpenJMeterSceneShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->openJMeterScene)) {
-            $request->openJMeterSceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openJMeterScene, 'OpenJMeterScene', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->openJMeterScene) {
+            $request->openJMeterSceneShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openJMeterScene, 'OpenJMeterScene', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->openJMeterSceneShrink)) {
-            $query['OpenJMeterScene'] = $request->openJMeterSceneShrink;
+        if (null !== $request->openJMeterSceneShrink) {
+            @$query['OpenJMeterScene'] = $request->openJMeterSceneShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveOpenJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveOpenJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveOpenJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates or updates a JMeter scenario.
+     *
+     * @param request - SaveOpenJMeterSceneRequest
+     *
+     * @returns SaveOpenJMeterSceneResponse
+     *
      * @param SaveOpenJMeterSceneRequest $request
      *
      * @return SaveOpenJMeterSceneResponse
@@ -1794,6 +2398,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Saves or modifies a Performance Testing Service (PTS) scenario.
+     *
+     * @param tmpReq - SavePtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SavePtsSceneResponse
+     *
      * @param SavePtsSceneRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
@@ -1801,35 +2412,43 @@ class PTS extends OpenApiClient
      */
     public function savePtsSceneWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SavePtsSceneShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->scene)) {
-            $request->sceneShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scene, 'Scene', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scene) {
+            $request->sceneShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scene, 'Scene', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->sceneShrink)) {
-            $query['Scene'] = $request->sceneShrink;
+        if (null !== $request->sceneShrink) {
+            @$query['Scene'] = $request->sceneShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SavePtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SavePtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SavePtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Saves or modifies a Performance Testing Service (PTS) scenario.
+     *
+     * @param request - SavePtsSceneRequest
+     *
+     * @returns SavePtsSceneResponse
+     *
      * @param SavePtsSceneRequest $request
      *
      * @return SavePtsSceneResponse
@@ -1842,6 +2461,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Starts the debugging of a scenario to check whether the settings of the scenario take effect.
+     *
+     * @param request - StartDebugPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDebugPtsSceneResponse
+     *
      * @param StartDebugPtsSceneRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1849,30 +2475,37 @@ class PTS extends OpenApiClient
      */
     public function startDebugPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDebugPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDebugPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartDebugPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts the debugging of a scenario to check whether the settings of the scenario take effect.
+     *
+     * @param request - StartDebugPtsSceneRequest
+     *
+     * @returns StartDebugPtsSceneResponse
+     *
      * @param StartDebugPtsSceneRequest $request
      *
      * @return StartDebugPtsSceneResponse
@@ -1885,6 +2518,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Debugs a JMeter scenario.
+     *
+     * @param request - StartDebuggingJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDebuggingJMeterSceneResponse
+     *
      * @param StartDebuggingJMeterSceneRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1892,30 +2532,37 @@ class PTS extends OpenApiClient
      */
     public function startDebuggingJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDebuggingJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDebuggingJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartDebuggingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Debugs a JMeter scenario.
+     *
+     * @param request - StartDebuggingJMeterSceneRequest
+     *
+     * @returns StartDebuggingJMeterSceneResponse
+     *
      * @param StartDebuggingJMeterSceneRequest $request
      *
      * @return StartDebuggingJMeterSceneResponse
@@ -1928,6 +2575,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Starts a scenario by using its ID.
+     *
+     * @param request - StartPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartPtsSceneResponse
+     *
      * @param StartPtsSceneRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1935,30 +2589,37 @@ class PTS extends OpenApiClient
      */
     public function startPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts a scenario by using its ID.
+     *
+     * @param request - StartPtsSceneRequest
+     *
+     * @returns StartPtsSceneResponse
+     *
      * @param StartPtsSceneRequest $request
      *
      * @return StartPtsSceneResponse
@@ -1971,6 +2632,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Starts performance testing in a JMeter scenario.
+     *
+     * @param request - StartTestingJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartTestingJMeterSceneResponse
+     *
      * @param StartTestingJMeterSceneRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1978,30 +2646,37 @@ class PTS extends OpenApiClient
      */
     public function startTestingJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartTestingJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartTestingJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartTestingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts performance testing in a JMeter scenario.
+     *
+     * @param request - StartTestingJMeterSceneRequest
+     *
+     * @returns StartTestingJMeterSceneResponse
+     *
      * @param StartTestingJMeterSceneRequest $request
      *
      * @return StartTestingJMeterSceneResponse
@@ -2014,6 +2689,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Stops the scenario that is in debugging.
+     *
+     * @param request - StopDebugPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDebugPtsSceneResponse
+     *
      * @param StopDebugPtsSceneRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2021,33 +2703,41 @@ class PTS extends OpenApiClient
      */
     public function stopDebugPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDebugPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDebugPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopDebugPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops the scenario that is in debugging.
+     *
+     * @param request - StopDebugPtsSceneRequest
+     *
+     * @returns StopDebugPtsSceneResponse
+     *
      * @param StopDebugPtsSceneRequest $request
      *
      * @return StopDebugPtsSceneResponse
@@ -2060,6 +2750,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Stops the debugging of a JMeter scenario.
+     *
+     * @param request - StopDebuggingJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDebuggingJMeterSceneResponse
+     *
      * @param StopDebuggingJMeterSceneRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2067,30 +2764,37 @@ class PTS extends OpenApiClient
      */
     public function stopDebuggingJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDebuggingJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDebuggingJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopDebuggingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops the debugging of a JMeter scenario.
+     *
+     * @param request - StopDebuggingJMeterSceneRequest
+     *
+     * @returns StopDebuggingJMeterSceneResponse
+     *
      * @param StopDebuggingJMeterSceneRequest $request
      *
      * @return StopDebuggingJMeterSceneResponse
@@ -2103,6 +2807,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Stops a scenario by using its ID.
+     *
+     * @param request - StopPtsSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopPtsSceneResponse
+     *
      * @param StopPtsSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2110,30 +2821,37 @@ class PTS extends OpenApiClient
      */
     public function stopPtsSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopPtsScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopPtsScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopPtsSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops a scenario by using its ID.
+     *
+     * @param request - StopPtsSceneRequest
+     *
+     * @returns StopPtsSceneResponse
+     *
      * @param StopPtsSceneRequest $request
      *
      * @return StopPtsSceneResponse
@@ -2146,6 +2864,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * Stops performance testing by using a JMeter scenario.
+     *
+     * @param request - StopTestingJMeterSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTestingJMeterSceneResponse
+     *
      * @param StopTestingJMeterSceneRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2153,30 +2878,37 @@ class PTS extends OpenApiClient
      */
     public function stopTestingJMeterSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopTestingJMeterScene',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopTestingJMeterScene',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopTestingJMeterSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops performance testing by using a JMeter scenario.
+     *
+     * @param request - StopTestingJMeterSceneRequest
+     *
+     * @returns StopTestingJMeterSceneResponse
+     *
      * @param StopTestingJMeterSceneRequest $request
      *
      * @return StopTestingJMeterSceneResponse
@@ -2189,6 +2921,13 @@ class PTS extends OpenApiClient
     }
 
     /**
+     * null.
+     *
+     * @param tmpReq - UpdatePtsSceneBaseLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePtsSceneBaseLineResponse
+     *
      * @param UpdatePtsSceneBaseLineRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
@@ -2196,44 +2935,55 @@ class PTS extends OpenApiClient
      */
     public function updatePtsSceneBaseLineWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdatePtsSceneBaseLineShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->apiBaselines)) {
-            $request->apiBaselinesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiBaselines, 'ApiBaselines', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiBaselines) {
+            $request->apiBaselinesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiBaselines, 'ApiBaselines', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sceneBaseline)) {
-            $request->sceneBaselineShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneBaseline, 'SceneBaseline', 'json');
+
+        if (null !== $tmpReq->sceneBaseline) {
+            $request->sceneBaselineShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneBaseline, 'SceneBaseline', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->apiBaselinesShrink)) {
-            $query['ApiBaselines'] = $request->apiBaselinesShrink;
+        if (null !== $request->apiBaselinesShrink) {
+            @$query['ApiBaselines'] = $request->apiBaselinesShrink;
         }
-        if (!Utils::isUnset($request->sceneBaselineShrink)) {
-            $query['SceneBaseline'] = $request->sceneBaselineShrink;
+
+        if (null !== $request->sceneBaselineShrink) {
+            @$query['SceneBaseline'] = $request->sceneBaselineShrink;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePtsSceneBaseLine',
-            'version'     => '2020-10-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePtsSceneBaseLine',
+            'version' => '2020-10-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdatePtsSceneBaseLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * null.
+     *
+     * @param request - UpdatePtsSceneBaseLineRequest
+     *
+     * @returns UpdatePtsSceneBaseLineResponse
+     *
      * @param UpdatePtsSceneBaseLineRequest $request
      *
      * @return UpdatePtsSceneBaseLineResponse

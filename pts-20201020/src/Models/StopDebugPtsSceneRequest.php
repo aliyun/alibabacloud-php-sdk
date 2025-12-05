@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopDebugPtsSceneRequest extends Model
 {
     /**
-     * @example FVDC7HB
-     *
      * @var string
      */
     public $planId;
 
     /**
-     * @example RDDCF7
-     *
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'planId'  => 'PlanId',
+        'planId' => 'PlanId',
         'sceneId' => 'SceneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -43,17 +41,18 @@ class StopDebugPtsSceneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopDebugPtsSceneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

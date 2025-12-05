@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\relationList\apiList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headerList extends Model
 {
     /**
-     * @example userId
-     *
      * @var string
      */
     public $headerName;
 
     /**
-     * @example 1111
-     *
      * @var string
      */
     public $headerValue;
     protected $_name = [
-        'headerName'  => 'HeaderName',
+        'headerName' => 'HeaderName',
         'headerValue' => 'HeaderValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
         }
+
         if (null !== $this->headerValue) {
             $res['HeaderValue'] = $this->headerValue;
         }
@@ -43,17 +41,18 @@ class headerList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
         }
+
         if (isset($map['HeaderValue'])) {
             $model->headerValue = $map['HeaderValue'];
         }

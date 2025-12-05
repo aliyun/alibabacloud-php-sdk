@@ -4,49 +4,62 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePtsSceneBaseLineRequest extends Model
 {
     /**
-     * @example [{"avgRt":1,"avgTps":1,"failCountBiz":1,"failCountReq":182381,"id":362447,"maxRt":3051,"minRt":0,"name":"1-1","seg50Rt":1,"seg75Rt":1,"seg90Rt":1,"seg99Rt":3,"successRateBiz":1,"successRateReq":0,"timingConnAvg":0},{"avgRt":1.06,"avgTps":1,"failCountBiz":0,"failCountReq":151143,"id":362446,"maxRt":3068,"minRt":0,"name":"dd","seg50Rt":1,"seg75Rt":1,"seg90Rt":1,"seg99Rt":2,"successRateBiz":1,"successRateReq":0}]
-     *
      * @var mixed[]
      */
     public $apiBaselines;
 
     /**
-     * @example {"avgRt":1,"avgTps":1,"failCountBiz":1,"failCountReq":1,"seg90Rt":1,"seg99Rt":2,"successRateBiz":0.5,"successRateReq":1}
-     *
      * @var mixed[]
      */
     public $sceneBaseline;
 
     /**
-     * @example NB54CV
-     *
      * @var string
      */
     public $sceneId;
     protected $_name = [
-        'apiBaselines'  => 'ApiBaselines',
+        'apiBaselines' => 'ApiBaselines',
         'sceneBaseline' => 'SceneBaseline',
-        'sceneId'       => 'SceneId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->apiBaselines)) {
+            Model::validateArray($this->apiBaselines);
+        }
+        if (\is_array($this->sceneBaseline)) {
+            Model::validateArray($this->sceneBaseline);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiBaselines) {
-            $res['ApiBaselines'] = $this->apiBaselines;
+            if (\is_array($this->apiBaselines)) {
+                $res['ApiBaselines'] = [];
+                foreach ($this->apiBaselines as $key1 => $value1) {
+                    $res['ApiBaselines'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sceneBaseline) {
-            $res['SceneBaseline'] = $this->sceneBaseline;
+            if (\is_array($this->sceneBaseline)) {
+                $res['SceneBaseline'] = [];
+                foreach ($this->sceneBaseline as $key1 => $value1) {
+                    $res['SceneBaseline'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -54,20 +67,32 @@ class UpdatePtsSceneBaseLineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePtsSceneBaseLineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiBaselines'])) {
-            $model->apiBaselines = $map['ApiBaselines'];
+            if (!empty($map['ApiBaselines'])) {
+                $model->apiBaselines = [];
+                foreach ($map['ApiBaselines'] as $key1 => $value1) {
+                    $model->apiBaselines[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SceneBaseline'])) {
-            $model->sceneBaseline = $map['SceneBaseline'];
+            if (!empty($map['SceneBaseline'])) {
+                $model->sceneBaseline = [];
+                foreach ($map['SceneBaseline'] as $key1 => $value1) {
+                    $model->sceneBaseline[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

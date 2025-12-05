@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AdjustJMeterSceneSpeedRequest extends Model
 {
     /**
-     * @example DYYPZIH
-     *
      * @var string
      */
     public $reportId;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $speed;
     protected $_name = [
         'reportId' => 'ReportId',
-        'speed'    => 'Speed',
+        'speed' => 'Speed',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
+
         if (null !== $this->speed) {
             $res['Speed'] = $this->speed;
         }
@@ -43,17 +41,18 @@ class AdjustJMeterSceneSpeedRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AdjustJMeterSceneSpeedRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
+
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];
         }

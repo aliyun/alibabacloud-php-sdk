@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class globalParameterList extends Model
 {
     /**
-     * @example global
-     *
      * @var string
      */
     public $paramName;
 
     /**
-     * @example 11111
-     *
      * @var string
      */
     public $paramValue;
     protected $_name = [
-        'paramName'  => 'ParamName',
+        'paramName' => 'ParamName',
         'paramValue' => 'ParamValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
+
         if (null !== $this->paramValue) {
             $res['ParamValue'] = $this->paramValue;
         }
@@ -43,17 +41,18 @@ class globalParameterList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return globalParameterList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }
+
         if (isset($map['ParamValue'])) {
             $model->paramValue = $map['ParamValue'];
         }

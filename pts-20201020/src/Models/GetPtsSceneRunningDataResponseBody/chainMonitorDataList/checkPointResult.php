@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneRunningDataResponseBody\chainMonitorDataList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkPointResult extends Model
 {
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $failedBusinessCount;
 
     /**
-     * @example 78
-     *
      * @var float
      */
     public $failedBusinessQps;
 
     /**
-     * @example 908
-     *
      * @var int
      */
     public $succeedBusinessCount;
 
     /**
-     * @example 89
-     *
      * @var float
      */
     public $succeedBusinessQps;
     protected $_name = [
-        'failedBusinessCount'  => 'FailedBusinessCount',
-        'failedBusinessQps'    => 'FailedBusinessQps',
+        'failedBusinessCount' => 'FailedBusinessCount',
+        'failedBusinessQps' => 'FailedBusinessQps',
         'succeedBusinessCount' => 'SucceedBusinessCount',
-        'succeedBusinessQps'   => 'SucceedBusinessQps',
+        'succeedBusinessQps' => 'SucceedBusinessQps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedBusinessCount) {
             $res['FailedBusinessCount'] = $this->failedBusinessCount;
         }
+
         if (null !== $this->failedBusinessQps) {
             $res['FailedBusinessQps'] = $this->failedBusinessQps;
         }
+
         if (null !== $this->succeedBusinessCount) {
             $res['SucceedBusinessCount'] = $this->succeedBusinessCount;
         }
+
         if (null !== $this->succeedBusinessQps) {
             $res['SucceedBusinessQps'] = $this->succeedBusinessQps;
         }
@@ -65,23 +61,26 @@ class checkPointResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkPointResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedBusinessCount'])) {
             $model->failedBusinessCount = $map['FailedBusinessCount'];
         }
+
         if (isset($map['FailedBusinessQps'])) {
             $model->failedBusinessQps = $map['FailedBusinessQps'];
         }
+
         if (isset($map['SucceedBusinessCount'])) {
             $model->succeedBusinessCount = $map['SucceedBusinessCount'];
         }
+
         if (isset($map['SucceedBusinessQps'])) {
             $model->succeedBusinessQps = $map['SucceedBusinessQps'];
         }

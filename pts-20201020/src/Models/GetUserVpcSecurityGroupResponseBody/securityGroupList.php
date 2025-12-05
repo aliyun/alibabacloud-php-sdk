@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetUserVpcSecurityGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityGroupList extends Model
 {
@@ -14,48 +14,46 @@ class securityGroupList extends Model
     public $description;
 
     /**
-     * @example sg-bp16bt3zuugxpfjkasdfvthxth8
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @example my-security-group
-     *
      * @var string
      */
     public $securityGroupName;
 
     /**
-     * @example vpc-uf6tar2ohlasdhsatjln37h30bv
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'description'       => 'Description',
-        'securityGroupId'   => 'SecurityGroupId',
+        'description' => 'Description',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
-        'vpcId'             => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -63,23 +61,26 @@ class securityGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

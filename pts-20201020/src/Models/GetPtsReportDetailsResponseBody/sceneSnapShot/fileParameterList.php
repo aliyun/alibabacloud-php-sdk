@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileParameterList extends Model
 {
     /**
-     * @example city.csv
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example https://www.sss.ccv
-     *
      * @var string
      */
     public $fileOssAddress;
     protected $_name = [
-        'fileName'       => 'FileName',
+        'fileName' => 'FileName',
         'fileOssAddress' => 'FileOssAddress',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileOssAddress) {
             $res['FileOssAddress'] = $this->fileOssAddress;
         }
@@ -43,17 +41,18 @@ class fileParameterList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileParameterList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileOssAddress'])) {
             $model->fileOssAddress = $map['FileOssAddress'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePtsScenesShrinkRequest extends Model
 {
     /**
-     * @example ["XVB4DF","AFG3CV"]
-     *
      * @var string
      */
     public $sceneIdsShrink;
@@ -20,9 +18,10 @@ class DeletePtsScenesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneIdsShrink) {
@@ -32,11 +31,11 @@ class DeletePtsScenesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePtsScenesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

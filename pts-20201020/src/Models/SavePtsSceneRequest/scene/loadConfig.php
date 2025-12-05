@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene\loadConfig\apiLoadConfigList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene\loadConfig\configuration;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene\loadConfig\relationLoadConfigList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene\loadConfig\vpcLoadConfig;
-use AlibabaCloud\Tea\Model;
 
 class loadConfig extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $agentCount;
@@ -25,8 +23,6 @@ class loadConfig extends Model
     public $apiLoadConfigList;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoStep;
@@ -37,22 +33,16 @@ class loadConfig extends Model
     public $configuration;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $increment;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $keepTime;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxRunningTime;
@@ -63,8 +53,6 @@ class loadConfig extends Model
     public $relationLoadConfigList;
 
     /**
-     * @example concurrency_mode
-     *
      * @var string
      */
     public $testMode;
@@ -74,118 +62,153 @@ class loadConfig extends Model
      */
     public $vpcLoadConfig;
     protected $_name = [
-        'agentCount'             => 'AgentCount',
-        'apiLoadConfigList'      => 'ApiLoadConfigList',
-        'autoStep'               => 'AutoStep',
-        'configuration'          => 'Configuration',
-        'increment'              => 'Increment',
-        'keepTime'               => 'KeepTime',
-        'maxRunningTime'         => 'MaxRunningTime',
+        'agentCount' => 'AgentCount',
+        'apiLoadConfigList' => 'ApiLoadConfigList',
+        'autoStep' => 'AutoStep',
+        'configuration' => 'Configuration',
+        'increment' => 'Increment',
+        'keepTime' => 'KeepTime',
+        'maxRunningTime' => 'MaxRunningTime',
         'relationLoadConfigList' => 'RelationLoadConfigList',
-        'testMode'               => 'TestMode',
-        'vpcLoadConfig'          => 'VpcLoadConfig',
+        'testMode' => 'TestMode',
+        'vpcLoadConfig' => 'VpcLoadConfig',
     ];
 
     public function validate()
     {
+        if (\is_array($this->apiLoadConfigList)) {
+            Model::validateArray($this->apiLoadConfigList);
+        }
+        if (null !== $this->configuration) {
+            $this->configuration->validate();
+        }
+        if (\is_array($this->relationLoadConfigList)) {
+            Model::validateArray($this->relationLoadConfigList);
+        }
+        if (null !== $this->vpcLoadConfig) {
+            $this->vpcLoadConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentCount) {
             $res['AgentCount'] = $this->agentCount;
         }
+
         if (null !== $this->apiLoadConfigList) {
-            $res['ApiLoadConfigList'] = [];
-            if (null !== $this->apiLoadConfigList && \is_array($this->apiLoadConfigList)) {
-                $n = 0;
-                foreach ($this->apiLoadConfigList as $item) {
-                    $res['ApiLoadConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiLoadConfigList)) {
+                $res['ApiLoadConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->apiLoadConfigList as $item1) {
+                    $res['ApiLoadConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->autoStep) {
             $res['AutoStep'] = $this->autoStep;
         }
+
         if (null !== $this->configuration) {
-            $res['Configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
+            $res['Configuration'] = null !== $this->configuration ? $this->configuration->toArray($noStream) : $this->configuration;
         }
+
         if (null !== $this->increment) {
             $res['Increment'] = $this->increment;
         }
+
         if (null !== $this->keepTime) {
             $res['KeepTime'] = $this->keepTime;
         }
+
         if (null !== $this->maxRunningTime) {
             $res['MaxRunningTime'] = $this->maxRunningTime;
         }
+
         if (null !== $this->relationLoadConfigList) {
-            $res['RelationLoadConfigList'] = [];
-            if (null !== $this->relationLoadConfigList && \is_array($this->relationLoadConfigList)) {
-                $n = 0;
-                foreach ($this->relationLoadConfigList as $item) {
-                    $res['RelationLoadConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relationLoadConfigList)) {
+                $res['RelationLoadConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->relationLoadConfigList as $item1) {
+                    $res['RelationLoadConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->testMode) {
             $res['TestMode'] = $this->testMode;
         }
+
         if (null !== $this->vpcLoadConfig) {
-            $res['VpcLoadConfig'] = null !== $this->vpcLoadConfig ? $this->vpcLoadConfig->toMap() : null;
+            $res['VpcLoadConfig'] = null !== $this->vpcLoadConfig ? $this->vpcLoadConfig->toArray($noStream) : $this->vpcLoadConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loadConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentCount'])) {
             $model->agentCount = $map['AgentCount'];
         }
+
         if (isset($map['ApiLoadConfigList'])) {
             if (!empty($map['ApiLoadConfigList'])) {
                 $model->apiLoadConfigList = [];
-                $n                        = 0;
-                foreach ($map['ApiLoadConfigList'] as $item) {
-                    $model->apiLoadConfigList[$n++] = null !== $item ? apiLoadConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiLoadConfigList'] as $item1) {
+                    $model->apiLoadConfigList[$n1] = apiLoadConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AutoStep'])) {
             $model->autoStep = $map['AutoStep'];
         }
+
         if (isset($map['Configuration'])) {
             $model->configuration = configuration::fromMap($map['Configuration']);
         }
+
         if (isset($map['Increment'])) {
             $model->increment = $map['Increment'];
         }
+
         if (isset($map['KeepTime'])) {
             $model->keepTime = $map['KeepTime'];
         }
+
         if (isset($map['MaxRunningTime'])) {
             $model->maxRunningTime = $map['MaxRunningTime'];
         }
+
         if (isset($map['RelationLoadConfigList'])) {
             if (!empty($map['RelationLoadConfigList'])) {
                 $model->relationLoadConfigList = [];
-                $n                             = 0;
-                foreach ($map['RelationLoadConfigList'] as $item) {
-                    $model->relationLoadConfigList[$n++] = null !== $item ? relationLoadConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelationLoadConfigList'] as $item1) {
+                    $model->relationLoadConfigList[$n1] = relationLoadConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TestMode'])) {
             $model->testMode = $map['TestMode'];
         }
+
         if (isset($map['VpcLoadConfig'])) {
             $model->vpcLoadConfig = vpcLoadConfig::fromMap($map['VpcLoadConfig']);
         }

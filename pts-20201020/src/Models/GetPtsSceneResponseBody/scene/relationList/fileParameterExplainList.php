@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\relationList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileParameterExplainList extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $baseFile;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $cycleOnce;
 
     /**
-     * @example city.csv
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example userName,age
-     *
      * @var string
      */
     public $fileParamName;
     protected $_name = [
-        'baseFile'      => 'BaseFile',
-        'cycleOnce'     => 'CycleOnce',
-        'fileName'      => 'FileName',
+        'baseFile' => 'BaseFile',
+        'cycleOnce' => 'CycleOnce',
+        'fileName' => 'FileName',
         'fileParamName' => 'FileParamName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseFile) {
             $res['BaseFile'] = $this->baseFile;
         }
+
         if (null !== $this->cycleOnce) {
             $res['CycleOnce'] = $this->cycleOnce;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileParamName) {
             $res['FileParamName'] = $this->fileParamName;
         }
@@ -65,23 +61,26 @@ class fileParameterExplainList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileParameterExplainList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseFile'])) {
             $model->baseFile = $map['BaseFile'];
         }
+
         if (isset($map['CycleOnce'])) {
             $model->cycleOnce = $map['CycleOnce'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileParamName'])) {
             $model->fileParamName = $map['FileParamName'];
         }

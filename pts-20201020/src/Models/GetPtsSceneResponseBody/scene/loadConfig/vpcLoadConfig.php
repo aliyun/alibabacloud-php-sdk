@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\loadConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vpcLoadConfig extends Model
 {
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example sg-jkasgfieiajidsjakjscb
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @example vsw-skjfhlahsljkhsfalkjdoiw
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-akjhsdajgjsfggahjkga
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
-        'vSwitchId'       => 'VSwitchId',
-        'vpcId'           => 'VpcId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -65,23 +61,26 @@ class vpcLoadConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcLoadConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

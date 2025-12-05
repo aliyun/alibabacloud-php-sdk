@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\loadConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiLoadConfigList extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $rpsBegin;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $rpsLimit;
@@ -28,14 +24,16 @@ class apiLoadConfigList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rpsBegin) {
             $res['RpsBegin'] = $this->rpsBegin;
         }
+
         if (null !== $this->rpsLimit) {
             $res['RpsLimit'] = $this->rpsLimit;
         }
@@ -43,17 +41,18 @@ class apiLoadConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiLoadConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RpsBegin'])) {
             $model->rpsBegin = $map['RpsBegin'];
         }
+
         if (isset($map['RpsLimit'])) {
             $model->rpsLimit = $map['RpsLimit'];
         }

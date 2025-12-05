@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SavePtsSceneRequest\scene;
-use AlibabaCloud\Tea\Model;
 
 class SavePtsSceneRequest extends Model
 {
@@ -19,23 +19,27 @@ class SavePtsSceneRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->scene) {
+            $this->scene->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scene) {
-            $res['Scene'] = null !== $this->scene ? $this->scene->toMap() : null;
+            $res['Scene'] = null !== $this->scene ? $this->scene->toArray($noStream) : $this->scene;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SavePtsSceneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

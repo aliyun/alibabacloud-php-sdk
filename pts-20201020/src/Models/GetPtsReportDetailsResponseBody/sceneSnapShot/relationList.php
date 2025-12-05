@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\relationList\apiList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsReportDetailsResponseBody\sceneSnapShot\relationList\fileParameterExplainList;
-use AlibabaCloud\Tea\Model;
 
 class relationList extends Model
 {
@@ -21,8 +21,6 @@ class relationList extends Model
     public $fileParameterExplainList;
 
     /**
-     * @example HGBN4D
-     *
      * @var string
      */
     public $relationId;
@@ -32,40 +30,52 @@ class relationList extends Model
      */
     public $relationName;
     protected $_name = [
-        'apiList'                  => 'ApiList',
+        'apiList' => 'ApiList',
         'fileParameterExplainList' => 'FileParameterExplainList',
-        'relationId'               => 'RelationId',
-        'relationName'             => 'RelationName',
+        'relationId' => 'RelationId',
+        'relationName' => 'RelationName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->apiList)) {
+            Model::validateArray($this->apiList);
+        }
+        if (\is_array($this->fileParameterExplainList)) {
+            Model::validateArray($this->fileParameterExplainList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiList) {
-            $res['ApiList'] = [];
-            if (null !== $this->apiList && \is_array($this->apiList)) {
-                $n = 0;
-                foreach ($this->apiList as $item) {
-                    $res['ApiList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiList)) {
+                $res['ApiList'] = [];
+                $n1 = 0;
+                foreach ($this->apiList as $item1) {
+                    $res['ApiList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->fileParameterExplainList) {
-            $res['FileParameterExplainList'] = [];
-            if (null !== $this->fileParameterExplainList && \is_array($this->fileParameterExplainList)) {
-                $n = 0;
-                foreach ($this->fileParameterExplainList as $item) {
-                    $res['FileParameterExplainList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileParameterExplainList)) {
+                $res['FileParameterExplainList'] = [];
+                $n1 = 0;
+                foreach ($this->fileParameterExplainList as $item1) {
+                    $res['FileParameterExplainList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->relationId) {
             $res['RelationId'] = $this->relationId;
         }
+
         if (null !== $this->relationName) {
             $res['RelationName'] = $this->relationName;
         }
@@ -73,35 +83,40 @@ class relationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiList'])) {
             if (!empty($map['ApiList'])) {
                 $model->apiList = [];
-                $n              = 0;
-                foreach ($map['ApiList'] as $item) {
-                    $model->apiList[$n++] = null !== $item ? apiList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiList'] as $item1) {
+                    $model->apiList[$n1] = apiList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['FileParameterExplainList'])) {
             if (!empty($map['FileParameterExplainList'])) {
                 $model->fileParameterExplainList = [];
-                $n                               = 0;
-                foreach ($map['FileParameterExplainList'] as $item) {
-                    $model->fileParameterExplainList[$n++] = null !== $item ? fileParameterExplainList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileParameterExplainList'] as $item1) {
+                    $model->fileParameterExplainList[$n1] = fileParameterExplainList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RelationId'])) {
             $model->relationId = $map['RelationId'];
         }
+
         if (isset($map['RelationName'])) {
             $model->relationName = $map['RelationName'];
         }

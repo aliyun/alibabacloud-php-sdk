@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest\openJMeterScene;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionalCondition extends Model
 {
@@ -24,14 +24,16 @@ class regionalCondition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -39,17 +41,18 @@ class regionalCondition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionalCondition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models\GetPtsSceneResponseBody\scene\relationList\apiList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkPointList extends Model
 {
     /**
-     * @example userId
-     *
      * @var string
      */
     public $checkPoint;
 
     /**
-     * @example EXPORTED_PARAM
-     *
      * @var string
      */
     public $checkType;
 
     /**
-     * @example 111
-     *
      * @var string
      */
     public $expectValue;
 
     /**
-     * @example ctn
-     *
      * @var string
      */
     public $operator;
     protected $_name = [
-        'checkPoint'  => 'CheckPoint',
-        'checkType'   => 'CheckType',
+        'checkPoint' => 'CheckPoint',
+        'checkType' => 'CheckType',
         'expectValue' => 'ExpectValue',
-        'operator'    => 'Operator',
+        'operator' => 'Operator',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkPoint) {
             $res['CheckPoint'] = $this->checkPoint;
         }
+
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
+
         if (null !== $this->expectValue) {
             $res['ExpectValue'] = $this->expectValue;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -65,23 +61,26 @@ class checkPointList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkPointList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckPoint'])) {
             $model->checkPoint = $map['CheckPoint'];
         }
+
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
+
         if (isset($map['ExpectValue'])) {
             $model->expectValue = $map['ExpectValue'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

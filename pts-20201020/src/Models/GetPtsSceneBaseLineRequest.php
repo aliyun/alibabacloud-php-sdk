@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PTS\V20201020\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPtsSceneBaseLineRequest extends Model
 {
     /**
-     * @example NB54CV
-     *
      * @var string
      */
     public $sceneId;
@@ -20,9 +18,10 @@ class GetPtsSceneBaseLineRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneId) {
@@ -32,11 +31,11 @@ class GetPtsSceneBaseLineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPtsSceneBaseLineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
