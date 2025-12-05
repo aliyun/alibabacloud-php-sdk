@@ -191,6 +191,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAppInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAppInfosResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetAppPlayKeyRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetAppPlayKeyResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAttachedMediaInfoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAttachedMediaInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAuditHistoryRequest;
@@ -301,6 +303,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SetAppPlayKeyRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SetAppPlayKeyResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetAuditSecurityIpRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetAuditSecurityIpResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetCrossdomainContentRequest;
@@ -7905,6 +7909,75 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * 获取应用播放密钥.
+     *
+     * @param request - GetAppPlayKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppPlayKeyResponse
+     *
+     * @param GetAppPlayKeyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAppPlayKeyResponse
+     */
+    public function getAppPlayKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppPlayKey',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppPlayKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用播放密钥.
+     *
+     * @param request - GetAppPlayKeyRequest
+     *
+     * @returns GetAppPlayKeyResponse
+     *
+     * @param GetAppPlayKeyRequest $request
+     *
+     * @return GetAppPlayKeyResponse
+     */
+    public function getAppPlayKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppPlayKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
      *
      * @remarks
@@ -12049,6 +12122,79 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置应用播放密钥.
+     *
+     * @param request - SetAppPlayKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAppPlayKeyResponse
+     *
+     * @param SetAppPlayKeyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SetAppPlayKeyResponse
+     */
+    public function setAppPlayKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->playKey) {
+            @$query['PlayKey'] = $request->playKey;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAppPlayKey',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAppPlayKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置应用播放密钥.
+     *
+     * @param request - SetAppPlayKeyRequest
+     *
+     * @returns SetAppPlayKeyResponse
+     *
+     * @param SetAppPlayKeyRequest $request
+     *
+     * @return SetAppPlayKeyResponse
+     */
+    public function setAppPlayKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAppPlayKeyWithOptions($request, $runtime);
     }
 
     /**
