@@ -1,3 +1,10 @@
+2025-12-05 Version: 2.11.0
+- Support API ResumeTraffic.
+- Support API SuspendTraffic.
+- Update API ListApplications: add response parameters Body.Data.Applications.$.ResourceType.
+- Update API ListApplications: add response parameters Body.Data.Applications.$.Children.$.ResourceType.
+
+
 2025-12-04 Version: 2.10.0
 - Support API DisableArms.
 

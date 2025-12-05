@@ -121,6 +121,11 @@ class applications extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var int
      */
     public $runningInstances;
@@ -157,6 +162,7 @@ class applications extends Model
         'packageUrl' => 'PackageUrl',
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
         'runningInstances' => 'RunningInstances',
         'tags' => 'Tags',
         'vpcId' => 'VpcId',
@@ -269,6 +275,10 @@ class applications extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->runningInstances) {
@@ -394,6 +404,10 @@ class applications extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['RunningInstances'])) {

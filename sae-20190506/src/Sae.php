@@ -246,6 +246,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\RestartApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RestartApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RestartInstancesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RestartInstancesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ResumeTrafficRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ResumeTrafficResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RollbackApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\RollbackApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationRequest;
@@ -258,6 +260,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\StopWebApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StopWebApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendTrafficRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendTrafficResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UnbindNlbRequest;
@@ -9693,6 +9697,71 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 恢复实例的流量.
+     *
+     * @param request - ResumeTrafficRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeTrafficResponse
+     *
+     * @param ResumeTrafficRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeTrafficResponse
+     */
+    public function resumeTrafficWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeTraffic',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/instanceTrafficResume',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复实例的流量.
+     *
+     * @param request - ResumeTrafficRequest
+     *
+     * @returns ResumeTrafficResponse
+     *
+     * @param ResumeTrafficRequest $request
+     *
+     * @return ResumeTrafficResponse
+     */
+    public function resumeTraffic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeTrafficWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Rolls back an application.
      *
      * @param request - RollbackApplicationRequest
@@ -10100,6 +10169,71 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->suspendJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 将流量从实例中摘除.
+     *
+     * @param request - SuspendTrafficRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendTrafficResponse
+     *
+     * @param SuspendTrafficRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SuspendTrafficResponse
+     */
+    public function suspendTrafficWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SuspendTraffic',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/instanceTrafficSuspend',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SuspendTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将流量从实例中摘除.
+     *
+     * @param request - SuspendTrafficRequest
+     *
+     * @returns SuspendTrafficResponse
+     *
+     * @param SuspendTrafficRequest $request
+     *
+     * @return SuspendTrafficResponse
+     */
+    public function suspendTraffic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->suspendTrafficWithOptions($request, $headers, $runtime);
     }
 
     /**
