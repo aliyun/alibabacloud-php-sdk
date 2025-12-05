@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dybaseapi\V20170525\Models\QueryTokenForMnsQueueResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class messageTokenDTO extends Model
 {
@@ -33,32 +33,37 @@ class messageTokenDTO extends Model
      */
     public $securityToken;
     protected $_name = [
-        'accessKeyId'     => 'AccessKeyId',
+        'accessKeyId' => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
-        'createTime'      => 'CreateTime',
-        'expireTime'      => 'ExpireTime',
-        'securityToken'   => 'SecurityToken',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
+
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -66,26 +71,30 @@ class messageTokenDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return messageTokenDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
+
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

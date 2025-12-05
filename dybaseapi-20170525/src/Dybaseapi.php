@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dybaseapi\V20170525;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dybaseapi\V20170525\Models\QueryTokenForMnsQueueRequest;
 use AlibabaCloud\SDK\Dybaseapi\V20170525\Models\QueryTokenForMnsQueueResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dybaseapi extends OpenApiClient
 {
@@ -37,63 +35,78 @@ class Dybaseapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param QueryTokenForMnsQueueRequest $request QueryTokenForMnsQueueRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTokenForMnsQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTokenForMnsQueueResponse QueryTokenForMnsQueueResponse
+     * @returns QueryTokenForMnsQueueResponse
+     *
+     * @param QueryTokenForMnsQueueRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryTokenForMnsQueueResponse
      */
     public function queryTokenForMnsQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTokenForMnsQueue',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTokenForMnsQueue',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTokenForMnsQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTokenForMnsQueueRequest $request QueryTokenForMnsQueueRequest
+     * @param request - QueryTokenForMnsQueueRequest
      *
-     * @return QueryTokenForMnsQueueResponse QueryTokenForMnsQueueResponse
+     * @returns QueryTokenForMnsQueueResponse
+     *
+     * @param QueryTokenForMnsQueueRequest $request
+     *
+     * @return QueryTokenForMnsQueueResponse
      */
     public function queryTokenForMnsQueue($request)
     {
