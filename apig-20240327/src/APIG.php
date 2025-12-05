@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
@@ -57,6 +59,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
@@ -152,6 +155,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1711,6 +1716,73 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 创建服务版本.
+     *
+     * @param request - CreateServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceVersionResponse
+     *
+     * @param string                      $serviceId
+     * @param CreateServiceVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateServiceVersionResponse
+     */
+    public function createServiceVersionWithOptions($serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->labels) {
+            @$body['labels'] = $request->labels;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceVersion',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建服务版本.
+     *
+     * @param request - CreateServiceVersionRequest
+     *
+     * @returns CreateServiceVersionResponse
+     *
+     * @param string                      $serviceId
+     * @param CreateServiceVersionRequest $request
+     *
+     * @return CreateServiceVersionResponse
+     */
+    public function createServiceVersion($serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceVersionWithOptions($serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a consumer.
      *
      * @param headers - map
@@ -2447,6 +2519,59 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deleteServiceWithOptions($serviceId, $headers, $runtime);
+    }
+
+    /**
+     * 删除服务版本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceVersionResponse
+     *
+     * @param string         $serviceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteServiceVersionResponse
+     */
+    public function deleteServiceVersionWithOptions($serviceId, $name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceVersion',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '/versions/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除服务版本.
+     *
+     * @returns DeleteServiceVersionResponse
+     *
+     * @param string $serviceId
+     * @param string $name
+     *
+     * @return DeleteServiceVersionResponse
+     */
+    public function deleteServiceVersion($serviceId, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceVersionWithOptions($serviceId, $name, $headers, $runtime);
     }
 
     /**
@@ -6559,6 +6684,71 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updatePolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新服务版本.
+     *
+     * @param request - UpdateServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceVersionResponse
+     *
+     * @param string                      $serviceId
+     * @param string                      $name
+     * @param UpdateServiceVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateServiceVersionResponse
+     */
+    public function updateServiceVersionWithOptions($serviceId, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->labels) {
+            @$body['labels'] = $request->labels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateServiceVersion',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '/versions/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新服务版本.
+     *
+     * @param request - UpdateServiceVersionRequest
+     *
+     * @returns UpdateServiceVersionResponse
+     *
+     * @param string                      $serviceId
+     * @param string                      $name
+     * @param UpdateServiceVersionRequest $request
+     *
+     * @return UpdateServiceVersionResponse
+     */
+    public function updateServiceVersion($serviceId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceVersionWithOptions($serviceId, $name, $request, $headers, $runtime);
     }
 
     /**
