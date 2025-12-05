@@ -14,6 +14,11 @@ class HeaderFieldSessionAffinityConfig extends Model
     public $affinityHeaderFieldName;
 
     /**
+     * @var bool
+     */
+    public $disableSessionIdReuse;
+
+    /**
      * @var int
      */
     public $sessionConcurrencyPerInstance;
@@ -29,6 +34,7 @@ class HeaderFieldSessionAffinityConfig extends Model
     public $sessionTTLInSeconds;
     protected $_name = [
         'affinityHeaderFieldName' => 'affinityHeaderFieldName',
+        'disableSessionIdReuse' => 'disableSessionIdReuse',
         'sessionConcurrencyPerInstance' => 'sessionConcurrencyPerInstance',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
@@ -44,6 +50,10 @@ class HeaderFieldSessionAffinityConfig extends Model
         $res = [];
         if (null !== $this->affinityHeaderFieldName) {
             $res['affinityHeaderFieldName'] = $this->affinityHeaderFieldName;
+        }
+
+        if (null !== $this->disableSessionIdReuse) {
+            $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
         }
 
         if (null !== $this->sessionConcurrencyPerInstance) {
@@ -71,6 +81,10 @@ class HeaderFieldSessionAffinityConfig extends Model
         $model = new self();
         if (isset($map['affinityHeaderFieldName'])) {
             $model->affinityHeaderFieldName = $map['affinityHeaderFieldName'];
+        }
+
+        if (isset($map['disableSessionIdReuse'])) {
+            $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
         }
 
         if (isset($map['sessionConcurrencyPerInstance'])) {

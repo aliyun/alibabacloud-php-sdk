@@ -21,6 +21,11 @@ class ResidentResourceAllocation extends Model
     /**
      * @var string
      */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
     public $qualifier;
 
     /**
@@ -45,6 +50,7 @@ class ResidentResourceAllocation extends Model
     protected $_name = [
         'functionName' => 'functionName',
         'instanceCount' => 'instanceCount',
+        'instanceType' => 'instanceType',
         'qualifier' => 'qualifier',
         'totalCpuCores' => 'totalCpuCores',
         'totalDiskSize' => 'totalDiskSize',
@@ -66,6 +72,10 @@ class ResidentResourceAllocation extends Model
 
         if (null !== $this->instanceCount) {
             $res['instanceCount'] = $this->instanceCount;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
         }
 
         if (null !== $this->qualifier) {
@@ -105,6 +115,10 @@ class ResidentResourceAllocation extends Model
 
         if (isset($map['instanceCount'])) {
             $model->instanceCount = $map['instanceCount'];
+        }
+
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
         }
 
         if (isset($map['qualifier'])) {

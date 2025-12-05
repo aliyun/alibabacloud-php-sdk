@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class CreateSessionInput extends Model
 {
     /**
+     * @var bool
+     */
+    public $disableSessionIdReuse;
+
+    /**
      * @var NASConfig
      */
     public $nasConfig;
+
+    /**
+     * @var string
+     */
+    public $sessionId;
 
     /**
      * @var int
@@ -23,7 +33,9 @@ class CreateSessionInput extends Model
      */
     public $sessionTTLInSeconds;
     protected $_name = [
+        'disableSessionIdReuse' => 'disableSessionIdReuse',
         'nasConfig' => 'nasConfig',
+        'sessionId' => 'sessionId',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
     ];
@@ -39,8 +51,16 @@ class CreateSessionInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disableSessionIdReuse) {
+            $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
         if (null !== $this->nasConfig) {
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['sessionId'] = $this->sessionId;
         }
 
         if (null !== $this->sessionIdleTimeoutInSeconds) {
@@ -62,8 +82,16 @@ class CreateSessionInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['disableSessionIdReuse'])) {
+            $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
         if (isset($map['nasConfig'])) {
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
+        if (isset($map['sessionId'])) {
+            $model->sessionId = $map['sessionId'];
         }
 
         if (isset($map['sessionIdleTimeoutInSeconds'])) {

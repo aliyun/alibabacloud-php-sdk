@@ -19,6 +19,11 @@ class ScalingConfigStatus extends Model
     public $currentInstances;
 
     /**
+     * @var bool
+     */
+    public $enableOnDemandScaling;
+
+    /**
      * @var string
      */
     public $functionArn;
@@ -50,6 +55,7 @@ class ScalingConfigStatus extends Model
     protected $_name = [
         'currentError' => 'currentError',
         'currentInstances' => 'currentInstances',
+        'enableOnDemandScaling' => 'enableOnDemandScaling',
         'functionArn' => 'functionArn',
         'horizontalScalingPolicies' => 'horizontalScalingPolicies',
         'minInstances' => 'minInstances',
@@ -78,6 +84,10 @@ class ScalingConfigStatus extends Model
 
         if (null !== $this->currentInstances) {
             $res['currentInstances'] = $this->currentInstances;
+        }
+
+        if (null !== $this->enableOnDemandScaling) {
+            $res['enableOnDemandScaling'] = $this->enableOnDemandScaling;
         }
 
         if (null !== $this->functionArn) {
@@ -135,6 +145,10 @@ class ScalingConfigStatus extends Model
 
         if (isset($map['currentInstances'])) {
             $model->currentInstances = $map['currentInstances'];
+        }
+
+        if (isset($map['enableOnDemandScaling'])) {
+            $model->enableOnDemandScaling = $map['enableOnDemandScaling'];
         }
 
         if (isset($map['functionArn'])) {

@@ -19,6 +19,11 @@ class Session extends Model
     public $createdTime;
 
     /**
+     * @var bool
+     */
+    public $disableSessionIdReuse;
+
+    /**
      * @var string
      */
     public $functionName;
@@ -65,6 +70,7 @@ class Session extends Model
     protected $_name = [
         'containerId' => 'containerId',
         'createdTime' => 'createdTime',
+        'disableSessionIdReuse' => 'disableSessionIdReuse',
         'functionName' => 'functionName',
         'lastModifiedTime' => 'lastModifiedTime',
         'nasConfig' => 'nasConfig',
@@ -93,6 +99,10 @@ class Session extends Model
 
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
+        }
+
+        if (null !== $this->disableSessionIdReuse) {
+            $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
         }
 
         if (null !== $this->functionName) {
@@ -148,6 +158,10 @@ class Session extends Model
 
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
+        }
+
+        if (isset($map['disableSessionIdReuse'])) {
+            $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
         }
 
         if (isset($map['functionName'])) {

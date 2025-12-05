@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateSessionInput extends Model
 {
     /**
+     * @var bool
+     */
+    public $disableSessionIdReuse;
+
+    /**
      * @var int
      */
     public $sessionIdleTimeoutInSeconds;
@@ -18,6 +23,7 @@ class UpdateSessionInput extends Model
      */
     public $sessionTTLInSeconds;
     protected $_name = [
+        'disableSessionIdReuse' => 'disableSessionIdReuse',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
     ];
@@ -30,6 +36,10 @@ class UpdateSessionInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disableSessionIdReuse) {
+            $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
         if (null !== $this->sessionIdleTimeoutInSeconds) {
             $res['sessionIdleTimeoutInSeconds'] = $this->sessionIdleTimeoutInSeconds;
         }
@@ -49,6 +59,10 @@ class UpdateSessionInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['disableSessionIdReuse'])) {
+            $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
         if (isset($map['sessionIdleTimeoutInSeconds'])) {
             $model->sessionIdleTimeoutInSeconds = $map['sessionIdleTimeoutInSeconds'];
         }

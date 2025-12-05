@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CookieSessionAffinityConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $disableSessionIdReuse;
+
+    /**
      * @var int
      */
     public $sessionConcurrencyPerInstance;
@@ -23,6 +28,7 @@ class CookieSessionAffinityConfig extends Model
      */
     public $sessionTTLInSeconds;
     protected $_name = [
+        'disableSessionIdReuse' => 'disableSessionIdReuse',
         'sessionConcurrencyPerInstance' => 'sessionConcurrencyPerInstance',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
@@ -36,6 +42,10 @@ class CookieSessionAffinityConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disableSessionIdReuse) {
+            $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
         if (null !== $this->sessionConcurrencyPerInstance) {
             $res['sessionConcurrencyPerInstance'] = $this->sessionConcurrencyPerInstance;
         }
@@ -59,6 +69,10 @@ class CookieSessionAffinityConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['disableSessionIdReuse'])) {
+            $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
         if (isset($map['sessionConcurrencyPerInstance'])) {
             $model->sessionConcurrencyPerInstance = $map['sessionConcurrencyPerInstance'];
         }

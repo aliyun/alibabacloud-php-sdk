@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class PutScalingConfigInput extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableOnDemandScaling;
+
+    /**
      * @var ScalingPolicy[]
      */
     public $horizontalScalingPolicies;
@@ -28,6 +33,7 @@ class PutScalingConfigInput extends Model
      */
     public $scheduledPolicies;
     protected $_name = [
+        'enableOnDemandScaling' => 'enableOnDemandScaling',
         'horizontalScalingPolicies' => 'horizontalScalingPolicies',
         'minInstances' => 'minInstances',
         'residentPoolId' => 'residentPoolId',
@@ -48,6 +54,10 @@ class PutScalingConfigInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableOnDemandScaling) {
+            $res['enableOnDemandScaling'] = $this->enableOnDemandScaling;
+        }
+
         if (null !== $this->horizontalScalingPolicies) {
             if (\is_array($this->horizontalScalingPolicies)) {
                 $res['horizontalScalingPolicies'] = [];
@@ -89,6 +99,10 @@ class PutScalingConfigInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableOnDemandScaling'])) {
+            $model->enableOnDemandScaling = $map['enableOnDemandScaling'];
+        }
+
         if (isset($map['horizontalScalingPolicies'])) {
             if (!empty($map['horizontalScalingPolicies'])) {
                 $model->horizontalScalingPolicies = [];
