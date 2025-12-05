@@ -104,6 +104,15 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentDraftLockResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByIpHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByIpRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByIpResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByLabelHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByLabelRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByLabelResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByNameHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByNameRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentsByNameResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsResponse;
@@ -138,6 +147,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetUdfArtifactsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetUdfArtifactsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetUdfArtifactsResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetValidateDeploymentDraftResultHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetValidateDeploymentDraftResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\HotUpdateJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\HotUpdateJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListCustomConnectorsHeaders;
@@ -229,6 +240,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateDeploymentDraftAsyncHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateDeploymentDraftAsyncRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateDeploymentDraftAsyncResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementResponse;
@@ -2839,6 +2853,260 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 通过Ip获取已部署作业.
+     *
+     * @param request - GetDeploymentsByIpRequest
+     * @param headers - GetDeploymentsByIpHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeploymentsByIpResponse
+     *
+     * @param string                    $namespace_
+     * @param GetDeploymentsByIpRequest $request
+     * @param GetDeploymentsByIpHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDeploymentsByIpResponse
+     */
+    public function getDeploymentsByIpWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dstIp) {
+            @$query['dstIp'] = $request->dstIp;
+        }
+
+        if (null !== $request->dstPort) {
+            @$query['dstPort'] = $request->dstPort;
+        }
+
+        if (null !== $request->ignoreJobSummary) {
+            @$query['ignoreJobSummary'] = $request->ignoreJobSummary;
+        }
+
+        if (null !== $request->ignoreResourceSetting) {
+            @$query['ignoreResourceSetting'] = $request->ignoreResourceSetting;
+        }
+
+        if (null !== $request->srcIp) {
+            @$query['srcIp'] = $request->srcIp;
+        }
+
+        if (null !== $request->srcPort) {
+            @$query['srcPort'] = $request->srcPort;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeploymentsByIp',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/getDeployments/byIp',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeploymentsByIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过Ip获取已部署作业.
+     *
+     * @param request - GetDeploymentsByIpRequest
+     *
+     * @returns GetDeploymentsByIpResponse
+     *
+     * @param string                    $namespace_
+     * @param GetDeploymentsByIpRequest $request
+     *
+     * @return GetDeploymentsByIpResponse
+     */
+    public function getDeploymentsByIp($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDeploymentsByIpHeaders([]);
+
+        return $this->getDeploymentsByIpWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * 通过标签获取已部署作业.
+     *
+     * @param request - GetDeploymentsByLabelRequest
+     * @param headers - GetDeploymentsByLabelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeploymentsByLabelResponse
+     *
+     * @param string                       $namespace_
+     * @param GetDeploymentsByLabelRequest $request
+     * @param GetDeploymentsByLabelHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDeploymentsByLabelResponse
+     */
+    public function getDeploymentsByLabelWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ignoreJobSummary) {
+            @$query['ignoreJobSummary'] = $request->ignoreJobSummary;
+        }
+
+        if (null !== $request->ignoreResourceSetting) {
+            @$query['ignoreResourceSetting'] = $request->ignoreResourceSetting;
+        }
+
+        if (null !== $request->labelKey) {
+            @$query['labelKey'] = $request->labelKey;
+        }
+
+        if (null !== $request->labelValue) {
+            @$query['labelValue'] = $request->labelValue;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeploymentsByLabel',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/getDeployments/byLabel',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeploymentsByLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过标签获取已部署作业.
+     *
+     * @param request - GetDeploymentsByLabelRequest
+     *
+     * @returns GetDeploymentsByLabelResponse
+     *
+     * @param string                       $namespace_
+     * @param GetDeploymentsByLabelRequest $request
+     *
+     * @return GetDeploymentsByLabelResponse
+     */
+    public function getDeploymentsByLabel($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDeploymentsByLabelHeaders([]);
+
+        return $this->getDeploymentsByLabelWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * 通过名称获取已部署作业.
+     *
+     * @param request - GetDeploymentsByNameRequest
+     * @param headers - GetDeploymentsByNameHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeploymentsByNameResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $deploymentName
+     * @param GetDeploymentsByNameRequest $request
+     * @param GetDeploymentsByNameHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDeploymentsByNameResponse
+     */
+    public function getDeploymentsByNameWithOptions($namespace_, $deploymentName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ignoreJobSummary) {
+            @$query['ignoreJobSummary'] = $request->ignoreJobSummary;
+        }
+
+        if (null !== $request->ignoreResourceSetting) {
+            @$query['ignoreResourceSetting'] = $request->ignoreResourceSetting;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDeploymentsByName',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/name/' . Url::percentEncode($deploymentName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDeploymentsByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过名称获取已部署作业.
+     *
+     * @param request - GetDeploymentsByNameRequest
+     *
+     * @returns GetDeploymentsByNameResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $deploymentName
+     * @param GetDeploymentsByNameRequest $request
+     *
+     * @return GetDeploymentsByNameResponse
+     */
+    public function getDeploymentsByName($namespace_, $deploymentName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDeploymentsByNameHeaders([]);
+
+        return $this->getDeploymentsByNameWithOptions($namespace_, $deploymentName, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取运行事件.
      *
      * @param request - GetEventsRequest
@@ -3771,6 +4039,68 @@ class Ververica extends OpenApiClient
         $headers = new GetUdfArtifactsHeaders([]);
 
         return $this->getUdfArtifactsWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Get validate DeploymentDraft result.
+     *
+     * @param headers - GetValidateDeploymentDraftResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetValidateDeploymentDraftResultResponse
+     *
+     * @param string                                  $namespace_
+     * @param string                                  $ticketId
+     * @param GetValidateDeploymentDraftResultHeaders $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetValidateDeploymentDraftResultResponse
+     */
+    public function getValidateDeploymentDraftResultWithOptions($namespace_, $ticketId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetValidateDeploymentDraftResult',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/tickets/' . Url::percentEncode($ticketId) . '/async-validate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetValidateDeploymentDraftResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get validate DeploymentDraft result.
+     *
+     * @returns GetValidateDeploymentDraftResultResponse
+     *
+     * @param string $namespace_
+     * @param string $ticketId
+     *
+     * @return GetValidateDeploymentDraftResultResponse
+     */
+    public function getValidateDeploymentDraftResult($namespace_, $ticketId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetValidateDeploymentDraftResultHeaders([]);
+
+        return $this->getValidateDeploymentDraftResultWithOptions($namespace_, $ticketId, $headers, $runtime);
     }
 
     /**
@@ -6134,6 +6464,73 @@ class Ververica extends OpenApiClient
         $headers = new UpdateVariableHeaders([]);
 
         return $this->updateVariableWithOptions($namespace_, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * validate DeploymentDraft async.
+     *
+     * @param request - ValidateDeploymentDraftAsyncRequest
+     * @param headers - ValidateDeploymentDraftAsyncHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateDeploymentDraftAsyncResponse
+     *
+     * @param string                              $namespace_
+     * @param ValidateDeploymentDraftAsyncRequest $request
+     * @param ValidateDeploymentDraftAsyncHeaders $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ValidateDeploymentDraftAsyncResponse
+     */
+    public function validateDeploymentDraftAsyncWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateDeploymentDraftAsync',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/async-validate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateDeploymentDraftAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * validate DeploymentDraft async.
+     *
+     * @param request - ValidateDeploymentDraftAsyncRequest
+     *
+     * @returns ValidateDeploymentDraftAsyncResponse
+     *
+     * @param string                              $namespace_
+     * @param ValidateDeploymentDraftAsyncRequest $request
+     *
+     * @return ValidateDeploymentDraftAsyncResponse
+     */
+    public function validateDeploymentDraftAsync($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ValidateDeploymentDraftAsyncHeaders([]);
+
+        return $this->validateDeploymentDraftAsyncWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
