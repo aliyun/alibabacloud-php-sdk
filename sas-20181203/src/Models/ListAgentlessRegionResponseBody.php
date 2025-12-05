@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRegionResponseBody\vendorRegionList;
 
 class ListAgentlessRegionResponseBody extends Model
 {
@@ -17,15 +18,24 @@ class ListAgentlessRegionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var vendorRegionList[]
+     */
+    public $vendorRegionList;
     protected $_name = [
         'regionList' => 'RegionList',
         'requestId' => 'RequestId',
+        'vendorRegionList' => 'VendorRegionList',
     ];
 
     public function validate()
     {
         if (\is_array($this->regionList)) {
             Model::validateArray($this->regionList);
+        }
+        if (\is_array($this->vendorRegionList)) {
+            Model::validateArray($this->vendorRegionList);
         }
         parent::validate();
     }
@@ -46,6 +56,17 @@ class ListAgentlessRegionResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->vendorRegionList) {
+            if (\is_array($this->vendorRegionList)) {
+                $res['VendorRegionList'] = [];
+                $n1 = 0;
+                foreach ($this->vendorRegionList as $item1) {
+                    $res['VendorRegionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -72,6 +93,17 @@ class ListAgentlessRegionResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['VendorRegionList'])) {
+            if (!empty($map['VendorRegionList'])) {
+                $model->vendorRegionList = [];
+                $n1 = 0;
+                foreach ($map['VendorRegionList'] as $item1) {
+                    $model->vendorRegionList[$n1] = vendorRegionList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
