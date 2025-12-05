@@ -49,6 +49,11 @@ class CreateDatabaseRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $instanceMemberId;
+
+    /**
      * @var string
      */
     public $networkDomainId;
@@ -86,6 +91,7 @@ class CreateDatabaseRequest extends Model
         'databasePublicAddress' => 'DatabasePublicAddress',
         'databaseType' => 'DatabaseType',
         'instanceId' => 'InstanceId',
+        'instanceMemberId' => 'InstanceMemberId',
         'networkDomainId' => 'NetworkDomainId',
         'polarDBEndpointType' => 'PolarDBEndpointType',
         'regionId' => 'RegionId',
@@ -132,6 +138,10 @@ class CreateDatabaseRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceMemberId) {
+            $res['InstanceMemberId'] = $this->instanceMemberId;
         }
 
         if (null !== $this->networkDomainId) {
@@ -199,6 +209,10 @@ class CreateDatabaseRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceMemberId'])) {
+            $model->instanceMemberId = $map['InstanceMemberId'];
         }
 
         if (isset($map['NetworkDomainId'])) {

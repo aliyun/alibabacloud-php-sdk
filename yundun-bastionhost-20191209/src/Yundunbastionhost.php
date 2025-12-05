@@ -1495,6 +1495,10 @@ class Yundunbastionhost extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->instanceMemberId) {
+            @$query['InstanceMemberId'] = $request->instanceMemberId;
+        }
+
         if (null !== $request->networkDomainId) {
             @$query['NetworkDomainId'] = $request->networkDomainId;
         }
@@ -1732,6 +1736,10 @@ class Yundunbastionhost extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceMemberId) {
+            @$query['InstanceMemberId'] = $request->instanceMemberId;
         }
 
         if (null !== $request->instanceRegionId) {

@@ -39,6 +39,11 @@ class CreateHostRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $instanceMemberId;
+
+    /**
      * @var string
      */
     public $instanceRegionId;
@@ -74,6 +79,7 @@ class CreateHostRequest extends Model
         'hostPrivateAddress' => 'HostPrivateAddress',
         'hostPublicAddress' => 'HostPublicAddress',
         'instanceId' => 'InstanceId',
+        'instanceMemberId' => 'InstanceMemberId',
         'instanceRegionId' => 'InstanceRegionId',
         'networkDomainId' => 'NetworkDomainId',
         'OSType' => 'OSType',
@@ -112,6 +118,10 @@ class CreateHostRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceMemberId) {
+            $res['InstanceMemberId'] = $this->instanceMemberId;
         }
 
         if (null !== $this->instanceRegionId) {
@@ -171,6 +181,10 @@ class CreateHostRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceMemberId'])) {
+            $model->instanceMemberId = $map['InstanceMemberId'];
         }
 
         if (isset($map['InstanceRegionId'])) {
