@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class ListCustomAgentRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -23,7 +18,6 @@ class ListCustomAgentRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'apiId' => 'ApiId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
     ];
@@ -36,10 +30,6 @@ class ListCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -59,10 +49,6 @@ class ListCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

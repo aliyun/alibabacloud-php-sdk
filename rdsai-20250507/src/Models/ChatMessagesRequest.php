@@ -12,11 +12,6 @@ class ChatMessagesRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
-
-    /**
-     * @var string
-     */
     public $conversationId;
 
     /**
@@ -34,7 +29,6 @@ class ChatMessagesRequest extends Model
      */
     public $query;
     protected $_name = [
-        'apiId' => 'ApiId',
         'conversationId' => 'ConversationId',
         'inputs' => 'Inputs',
         'parentMessageId' => 'ParentMessageId',
@@ -52,10 +46,6 @@ class ChatMessagesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
@@ -83,10 +73,6 @@ class ChatMessagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }

@@ -11,14 +11,8 @@ class GetCustomAgentRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
-
-    /**
-     * @var string
-     */
     public $customAgentId;
     protected $_name = [
-        'apiId' => 'ApiId',
         'customAgentId' => 'CustomAgentId',
     ];
 
@@ -30,10 +24,6 @@ class GetCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->customAgentId) {
             $res['CustomAgentId'] = $this->customAgentId;
         }
@@ -49,10 +39,6 @@ class GetCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['CustomAgentId'])) {
             $model->customAgentId = $map['CustomAgentId'];
         }

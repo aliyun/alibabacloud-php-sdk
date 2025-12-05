@@ -46,7 +46,6 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
@@ -138,10 +137,6 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->conversationId) {
             @$query['ConversationId'] = $request->conversationId;
         }
@@ -211,10 +206,6 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->conversationId) {
             @$query['ConversationId'] = $request->conversationId;
         }
@@ -284,10 +275,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->taskId) {
             @$query['TaskId'] = $request->taskId;
         }
@@ -466,10 +453,6 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->enableTools) {
             @$query['EnableTools'] = $request->enableTools;
         }
@@ -604,10 +587,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->customAgentId) {
             @$query['CustomAgentId'] = $request->customAgentId;
         }
@@ -1242,10 +1221,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->lastId) {
             @$query['LastId'] = $request->lastId;
         }
@@ -1315,10 +1290,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->customAgentId) {
             @$query['CustomAgentId'] = $request->customAgentId;
         }
@@ -1376,10 +1347,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->conversationId) {
             @$query['ConversationId'] = $request->conversationId;
         }
@@ -1445,10 +1412,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -1501,22 +1464,13 @@ class RdsAi extends OpenApiClient
      *
      * @returns ListCustomAgentToolsResponse
      *
-     * @param ListCustomAgentToolsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return ListCustomAgentToolsResponse
      */
-    public function listCustomAgentToolsWithOptions($request, $runtime)
+    public function listCustomAgentToolsWithOptions($runtime)
     {
-        $request->validate();
-        $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
             'action' => 'ListCustomAgentTools',
             'version' => '2025-05-07',
@@ -1535,19 +1489,15 @@ class RdsAi extends OpenApiClient
     /**
      * 获取专属Agent可用工具.
      *
-     * @param request - ListCustomAgentToolsRequest
-     *
      * @returns ListCustomAgentToolsResponse
-     *
-     * @param ListCustomAgentToolsRequest $request
      *
      * @return ListCustomAgentToolsResponse
      */
-    public function listCustomAgentTools($request)
+    public function listCustomAgentTools()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listCustomAgentToolsWithOptions($request, $runtime);
+        return $this->listCustomAgentToolsWithOptions($runtime);
     }
 
     /**
@@ -2019,10 +1969,6 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->content) {
             @$query['Content'] = $request->content;
         }
@@ -2346,10 +2292,6 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
-        }
-
         if (null !== $request->customAgentId) {
             @$query['CustomAgentId'] = $request->customAgentId;
         }

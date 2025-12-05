@@ -11,11 +11,6 @@ class ModifyMessagesFeedbacksRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
@@ -28,7 +23,6 @@ class ModifyMessagesFeedbacksRequest extends Model
      */
     public $rating;
     protected $_name = [
-        'apiId' => 'ApiId',
         'content' => 'Content',
         'messageId' => 'MessageId',
         'rating' => 'Rating',
@@ -42,10 +36,6 @@ class ModifyMessagesFeedbacksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -69,10 +59,6 @@ class ModifyMessagesFeedbacksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }

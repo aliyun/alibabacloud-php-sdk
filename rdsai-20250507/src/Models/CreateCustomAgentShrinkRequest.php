@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class CreateCustomAgentShrinkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiId;
-
-    /**
      * @var bool
      */
     public $enableTools;
@@ -33,7 +28,6 @@ class CreateCustomAgentShrinkRequest extends Model
      */
     public $toolsShrink;
     protected $_name = [
-        'apiId' => 'ApiId',
         'enableTools' => 'EnableTools',
         'name' => 'Name',
         'systemPrompt' => 'SystemPrompt',
@@ -48,10 +42,6 @@ class CreateCustomAgentShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->enableTools) {
             $res['EnableTools'] = $this->enableTools;
         }
@@ -79,10 +69,6 @@ class CreateCustomAgentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['EnableTools'])) {
             $model->enableTools = $map['EnableTools'];
         }

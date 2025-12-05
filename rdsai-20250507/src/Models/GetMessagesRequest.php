@@ -11,11 +11,6 @@ class GetMessagesRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
-
-    /**
-     * @var string
-     */
     public $conversationId;
 
     /**
@@ -28,7 +23,6 @@ class GetMessagesRequest extends Model
      */
     public $limit;
     protected $_name = [
-        'apiId' => 'ApiId',
         'conversationId' => 'ConversationId',
         'firstId' => 'FirstId',
         'limit' => 'Limit',
@@ -42,10 +36,6 @@ class GetMessagesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
@@ -69,10 +59,6 @@ class GetMessagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }

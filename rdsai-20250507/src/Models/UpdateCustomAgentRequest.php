@@ -11,11 +11,6 @@ class UpdateCustomAgentRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
-
-    /**
-     * @var string
-     */
     public $customAgentId;
 
     /**
@@ -38,7 +33,6 @@ class UpdateCustomAgentRequest extends Model
      */
     public $tools;
     protected $_name = [
-        'apiId' => 'ApiId',
         'customAgentId' => 'CustomAgentId',
         'enableTools' => 'EnableTools',
         'name' => 'Name',
@@ -57,10 +51,6 @@ class UpdateCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
-        }
-
         if (null !== $this->customAgentId) {
             $res['CustomAgentId'] = $this->customAgentId;
         }
@@ -99,10 +89,6 @@ class UpdateCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
-        }
-
         if (isset($map['CustomAgentId'])) {
             $model->customAgentId = $map['CustomAgentId'];
         }
