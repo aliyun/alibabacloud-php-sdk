@@ -19,6 +19,11 @@ class paramList extends Model
     public $coverUrl;
 
     /**
+     * @var int
+     */
+    public $height;
+
+    /**
      * @var string
      */
     public $key;
@@ -29,15 +34,46 @@ class paramList extends Model
     public $mediaUrl;
 
     /**
+     * @var float
+     */
+    public $timelineIn;
+
+    /**
+     * @var float
+     */
+    public $timelineOut;
+
+    /**
      * @var string
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $width;
+
+    /**
+     * @var int
+     */
+    public $x;
+
+    /**
+     * @var int
+     */
+    public $y;
     protected $_name = [
         'content' => 'Content',
         'coverUrl' => 'CoverUrl',
+        'height' => 'Height',
         'key' => 'Key',
         'mediaUrl' => 'MediaUrl',
+        'timelineIn' => 'TimelineIn',
+        'timelineOut' => 'TimelineOut',
         'type' => 'Type',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -56,6 +92,10 @@ class paramList extends Model
             $res['CoverUrl'] = $this->coverUrl;
         }
 
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -64,8 +104,28 @@ class paramList extends Model
             $res['MediaUrl'] = $this->mediaUrl;
         }
 
+        if (null !== $this->timelineIn) {
+            $res['TimelineIn'] = $this->timelineIn;
+        }
+
+        if (null !== $this->timelineOut) {
+            $res['TimelineOut'] = $this->timelineOut;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
+        }
+
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
+        }
+
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -87,6 +147,10 @@ class paramList extends Model
             $model->coverUrl = $map['CoverUrl'];
         }
 
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
@@ -95,8 +159,28 @@ class paramList extends Model
             $model->mediaUrl = $map['MediaUrl'];
         }
 
+        if (isset($map['TimelineIn'])) {
+            $model->timelineIn = $map['TimelineIn'];
+        }
+
+        if (isset($map['TimelineOut'])) {
+            $model->timelineOut = $map['TimelineOut'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
+        }
+
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
+        }
+
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

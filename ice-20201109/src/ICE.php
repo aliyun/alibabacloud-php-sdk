@@ -889,7 +889,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 激活AI实时互动授权信息.
+     * Activates a specified license using the batch ID, authorization code, and device SN.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This API is used to activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
+     * **Note**: Ensure that the provided batch ID, authorization code, and device ID are correct. Incorrect information may cause the activation to fail.
      *
      * @param request - ActiveAiRtcLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -936,7 +941,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 激活AI实时互动授权信息.
+     * Activates a specified license using the batch ID, authorization code, and device SN.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * This API is used to activate a specific license for Real-time Conversational AI by providing a batch ID (`LicenseItemId`), authorization code (`AuthCode`), and device ID (`DeviceId`). Upon successful activation, the API returns a response containing the request ID, an error code, the request status, the HTTP status code, and the activated license information.
+     * **Note**: Ensure that the provided batch ID, authorization code, and device ID are correct. Incorrect information may cause the activation to fail.
      *
      * @param request - ActiveAiRtcLicenseRequest
      *
@@ -9047,7 +9057,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取AI实时互动授权码列表.
+     * Retrieves a list of Real-time Conversational AI authentication codes and their status for a specified batch.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * *   This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
+     * *   Pagination is supported via the `PageNo` and `PageSize` parameters.
+     * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
+     * *   `LicenseItemId` is a required parameter that specifies the batch to query.
      *
      * @param request - GetAiRtcAuthCodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9106,7 +9123,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取AI实时互动授权码列表.
+     * Retrieves a list of Real-time Conversational AI authentication codes and their status for a specified batch.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * *   This API retrieves a list of authorization codes for a specific batch ID. You can filter the results by status and type.
+     * *   Pagination is supported via the `PageNo` and `PageSize` parameters.
+     * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records.
+     * *   `LicenseItemId` is a required parameter that specifies the batch to query.
      *
      * @param request - GetAiRtcAuthCodeListRequest
      *
@@ -9124,7 +9148,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取AI实时互动授权批次列表.
+     * Retrieves a list of license batches for Real-time Conversational AI based on specified filter criteria.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * *   This API allows you to retrieve a list of license batches for Real-time Conversational AI using filters such as Batch ID, status, and type.
+     * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records. Set it to `false` if you do not need this total.
+     * *   If no filter criteria are provided, the API returns information for all license batches.
      *
      * @param request - GetAiRtcLicenseInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9183,7 +9213,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取AI实时互动授权批次列表.
+     * Retrieves a list of license batches for Real-time Conversational AI based on specified filter criteria.
+     *
+     * @remarks
+     * ## [](#)Usage notes
+     * *   This API allows you to retrieve a list of license batches for Real-time Conversational AI using filters such as Batch ID, status, and type.
+     * *   By default, the `NeedTotalCount` parameter is set to `true`, indicating that the response includes the total count of matching records. Set it to `false` if you do not need this total.
+     * *   If no filter criteria are provided, the API returns information for all license batches.
      *
      * @param request - GetAiRtcLicenseInfoListRequest
      *
@@ -24018,7 +24054,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交场景化批量合成任务
+     * Submits a batch job to render multiple videos by providing a list of editing project IDs.
+     *
+     * @remarks
+     *   After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
      *
      * @param request - SubmitSceneBatchEditingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24065,7 +24104,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交场景化批量合成任务
+     * Submits a batch job to render multiple videos by providing a list of editing project IDs.
+     *
+     * @remarks
+     *   After submitting a job, you can call ListBatchMediaProducingJob to retrieve all matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call GetBatchMediaProducingJob.
      *
      * @param request - SubmitSceneBatchEditingJobRequest
      *
@@ -24166,7 +24208,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交场景化时间线编排任务
+     * Arranges media assets, including videos, images, background music, and voiceovers, into a complete timeline based on media selection results, and creates an editing project for preview. Two scenarios are supported: image-text matching and highlight mashup.
+     *
+     * @remarks
+     *   After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+     * - The feature is in public preview and does not charge fees.
      *
      * @param request - SubmitSceneTimelineOrganizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24227,7 +24273,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交场景化时间线编排任务
+     * Arranges media assets, including videos, images, background music, and voiceovers, into a complete timeline based on media selection results, and creates an editing project for preview. Two scenarios are supported: image-text matching and highlight mashup.
+     *
+     * @remarks
+     *   After submitting a job, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve matching jobs. To get detailed information for a specific job, including its status, output media asset IDs, and URLs, call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+     * - The feature is in public preview and does not charge fees.
      *
      * @param request - SubmitSceneTimelineOrganizationJobRequest
      *
