@@ -45,7 +45,7 @@ class data extends Model
     public $beforeSize;
 
     /**
-     * @var string[]
+     * @var string
      */
     public $classForest;
 
@@ -142,9 +142,6 @@ class data extends Model
         if (\is_array($this->assetsFileList)) {
             Model::validateArray($this->assetsFileList);
         }
-        if (\is_array($this->classForest)) {
-            Model::validateArray($this->classForest);
-        }
         if (\is_array($this->enhanceMapping)) {
             Model::validateArray($this->enhanceMapping);
         }
@@ -205,14 +202,7 @@ class data extends Model
         }
 
         if (null !== $this->classForest) {
-            if (\is_array($this->classForest)) {
-                $res['ClassForest'] = [];
-                $n1 = 0;
-                foreach ($this->classForest as $item1) {
-                    $res['ClassForest'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ClassForest'] = $this->classForest;
         }
 
         if (null !== $this->enhanceMapping) {
@@ -356,14 +346,7 @@ class data extends Model
         }
 
         if (isset($map['ClassForest'])) {
-            if (!empty($map['ClassForest'])) {
-                $model->classForest = [];
-                $n1 = 0;
-                foreach ($map['ClassForest'] as $item1) {
-                    $model->classForest[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->classForest = $map['ClassForest'];
         }
 
         if (isset($map['EnhanceMapping'])) {
