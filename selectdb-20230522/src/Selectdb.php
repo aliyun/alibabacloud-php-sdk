@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateVirtualClusterRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateVirtualClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterBindingRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterBindingResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteElasticRuleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteElasticRuleResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteVirtualClusterRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteVirtualClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsRequest;
@@ -73,6 +77,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyVirtualClusterRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyVirtualClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ResetAccountPasswordRequest;
@@ -1025,6 +1031,79 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * 创建虚拟集群.
+     *
+     * @param request - CreateVirtualClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirtualClusterResponse
+     *
+     * @param CreateVirtualClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateVirtualClusterResponse
+     */
+    public function createVirtualClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->activeClusterId) {
+            @$query['ActiveClusterId'] = $request->activeClusterId;
+        }
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->standbyClusterId) {
+            @$query['StandbyClusterId'] = $request->standbyClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVirtualCluster',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVirtualClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建虚拟集群.
+     *
+     * @param request - CreateVirtualClusterRequest
+     *
+     * @returns CreateVirtualClusterResponse
+     *
+     * @param CreateVirtualClusterRequest $request
+     *
+     * @return CreateVirtualClusterResponse
+     */
+    public function createVirtualCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVirtualClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a cluster from an instance.
      *
      * @param request - DeleteDBClusterRequest
@@ -1310,6 +1389,71 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteElasticRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除虚拟集群.
+     *
+     * @param request - DeleteVirtualClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirtualClusterResponse
+     *
+     * @param DeleteVirtualClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteVirtualClusterResponse
+     */
+    public function deleteVirtualClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVirtualCluster',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVirtualClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除虚拟集群.
+     *
+     * @param request - DeleteVirtualClusterRequest
+     *
+     * @returns DeleteVirtualClusterResponse
+     *
+     * @param DeleteVirtualClusterRequest $request
+     *
+     * @return DeleteVirtualClusterResponse
+     */
+    public function deleteVirtualCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVirtualClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -2655,6 +2799,79 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改虚拟集群.
+     *
+     * @param request - ModifyVirtualClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVirtualClusterResponse
+     *
+     * @param ModifyVirtualClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyVirtualClusterResponse
+     */
+    public function modifyVirtualClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->activeClusterId) {
+            @$query['ActiveClusterId'] = $request->activeClusterId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->standbyClusterId) {
+            @$query['StandbyClusterId'] = $request->standbyClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyVirtualCluster',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyVirtualClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改虚拟集群.
+     *
+     * @param request - ModifyVirtualClusterRequest
+     *
+     * @returns ModifyVirtualClusterResponse
+     *
+     * @param ModifyVirtualClusterRequest $request
+     *
+     * @return ModifyVirtualClusterResponse
+     */
+    public function modifyVirtualCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVirtualClusterWithOptions($request, $runtime);
     }
 
     /**
