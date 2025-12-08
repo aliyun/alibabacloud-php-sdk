@@ -1,3 +1,7 @@
+2025-12-08 Version: 7.0.4
+- Update API DescribeInstance: add response parameters Body.ProcessStatus.
+
+
 2025-11-26 Version: 7.0.3
 - Generated php 2021-10-01 for waf-openapi.
 

@@ -42,6 +42,11 @@ class DescribeInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $processStatus;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -65,6 +70,7 @@ class DescribeInstanceResponseBody extends Model
         'inDebt' => 'InDebt',
         'instanceId' => 'InstanceId',
         'payType' => 'PayType',
+        'processStatus' => 'ProcessStatus',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'startTime' => 'StartTime',
@@ -104,6 +110,10 @@ class DescribeInstanceResponseBody extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->processStatus) {
+            $res['ProcessStatus'] = $this->processStatus;
         }
 
         if (null !== $this->regionId) {
@@ -155,6 +165,10 @@ class DescribeInstanceResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['ProcessStatus'])) {
+            $model->processStatus = $map['ProcessStatus'];
         }
 
         if (isset($map['RegionId'])) {
