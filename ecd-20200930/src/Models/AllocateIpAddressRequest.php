@@ -9,6 +9,21 @@ use AlibabaCloud\Dara\Model;
 class AllocateIpAddressRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var string
      */
     public $networkInterfaceId;
@@ -23,6 +38,9 @@ class AllocateIpAddressRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'bandwidth' => 'Bandwidth',
+        'internetChargeType' => 'InternetChargeType',
+        'name' => 'Name',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'officeSiteId' => 'OfficeSiteId',
         'regionId' => 'RegionId',
@@ -36,6 +54,18 @@ class AllocateIpAddressRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
@@ -59,6 +89,18 @@ class AllocateIpAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }

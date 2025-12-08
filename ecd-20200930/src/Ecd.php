@@ -1060,6 +1060,18 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
+        }
+
+        if (null !== $request->internetChargeType) {
+            @$query['InternetChargeType'] = $request->internetChargeType;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
         if (null !== $request->networkInterfaceId) {
             @$query['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
