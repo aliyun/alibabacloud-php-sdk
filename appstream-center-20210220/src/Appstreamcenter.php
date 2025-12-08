@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\ClientUserLogoutRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\ClientUserLogoutResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierShrinkRequest;
@@ -52,6 +54,79 @@ class Appstreamcenter extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 终端用户登出.
+     *
+     * @param request - ClientUserLogoutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClientUserLogoutResponse
+     *
+     * @param ClientUserLogoutRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ClientUserLogoutResponse
+     */
+    public function clientUserLogoutWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->profileRegion) {
+            @$query['ProfileRegion'] = $request->profileRegion;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClientUserLogout',
+            'version' => '2021-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClientUserLogoutResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 终端用户登出.
+     *
+     * @param request - ClientUserLogoutRequest
+     *
+     * @returns ClientUserLogoutResponse
+     *
+     * @param ClientUserLogoutRequest $request
+     *
+     * @return ClientUserLogoutResponse
+     */
+    public function clientUserLogout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clientUserLogoutWithOptions($request, $runtime);
     }
 
     /**
