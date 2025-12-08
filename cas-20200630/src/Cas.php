@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Cas\V20200630;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cas\V20200630\Models\AssignCertificateCountRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\AssignCertificateCountResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrRequest;
@@ -39,6 +41,8 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusRequest
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListAllEndEntityInstanceRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListAllEndEntityInstanceResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateRequest;
@@ -49,6 +53,8 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UpdatePcaCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UpdatePcaCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UploadPcaCertToCasResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -141,6 +147,67 @@ class Cas extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 分配证书使用数量.
+     *
+     * @param request - AssignCertificateCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignCertificateCountResponse
+     *
+     * @param AssignCertificateCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AssignCertificateCountResponse
+     */
+    public function assignCertificateCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certTotalCount) {
+            @$query['CertTotalCount'] = $request->certTotalCount;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssignCertificateCount',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssignCertificateCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分配证书使用数量.
+     *
+     * @param request - AssignCertificateCountRequest
+     *
+     * @returns AssignCertificateCountResponse
+     *
+     * @param AssignCertificateCountRequest $request
+     *
+     * @return AssignCertificateCountResponse
+     */
+    public function assignCertificateCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignCertificateCountWithOptions($request, $runtime);
     }
 
     /**
@@ -1800,6 +1867,83 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 查询终端实例.
+     *
+     * @param request - ListAllEndEntityInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllEndEntityInstanceResponse
+     *
+     * @param ListAllEndEntityInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAllEndEntityInstanceResponse
+     */
+    public function listAllEndEntityInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
+        }
+
+        if (null !== $request->recursiveChildren) {
+            @$query['RecursiveChildren'] = $request->recursiveChildren;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAllEndEntityInstance',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAllEndEntityInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询终端实例.
+     *
+     * @param request - ListAllEndEntityInstanceRequest
+     *
+     * @returns ListAllEndEntityInstanceResponse
+     *
+     * @param ListAllEndEntityInstanceRequest $request
+     *
+     * @return ListAllEndEntityInstanceResponse
+     */
+    public function listAllEndEntityInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAllEndEntityInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取证书列表.
      *
      * @param request - ListCertRequest
@@ -2174,6 +2318,81 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCACertificateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新证书属性.
+     *
+     * @param request - UpdatePcaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePcaCertificateResponse
+     *
+     * @param UpdatePcaCertificateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdatePcaCertificateResponse
+     */
+    public function updatePcaCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliasName) {
+            @$query['AliasName'] = $request->aliasName;
+        }
+
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePcaCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePcaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新证书属性.
+     *
+     * @param request - UpdatePcaCertificateRequest
+     *
+     * @returns UpdatePcaCertificateResponse
+     *
+     * @param UpdatePcaCertificateRequest $request
+     *
+     * @return UpdatePcaCertificateResponse
+     */
+    public function updatePcaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePcaCertificateWithOptions($request, $runtime);
     }
 
     /**
