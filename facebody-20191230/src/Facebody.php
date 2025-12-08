@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230;
 
 use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
 use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
@@ -64,10 +67,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionShrinkRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectVideoLivingFaceAdvanceRequest;
@@ -82,12 +81,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceBeautyAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceBeautyRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceBeautyResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceMakeupAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceMakeupRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceMakeupResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleResponse;
@@ -100,9 +93,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetRealPersonVerificationResultRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetRealPersonVerificationResultResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceResponse;
@@ -130,9 +120,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeExpressionResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeFaceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeHandGestureAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeHandGestureRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeHandGestureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceResponse;
@@ -162,48 +149,98 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param string  $bucketName
-     * @param mixed[] $form
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
      *
      * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $form, $runtime)
     {
-        $_request = new Request();
-        $boundary = FormUtil::getBoundary();
-        $_request->protocol = 'HTTPS';
-        $_request->method = 'POST';
-        $_request->pathname = '/';
-        $_request->headers = [
-            'host' => '' . @$form['host'],
-            'date' => Utils::getDateUTCString(),
-            'user-agent' => Utils::getUserAgent(''),
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
 
-        $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
-                'data' => [
-                    'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
-                ],
-            ]);
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
         }
 
-        $respMap = XML::parseXml($bodyStr, null);
-
-        return Dara::merge([
-        ], $respMap);
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -392,7 +429,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $addFaceReq->imageUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -602,7 +639,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $addFaceImageTemplateReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -781,7 +818,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$batchAddFacesReq->faces[$i0];
                     $tmpObj->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -930,7 +967,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $blurFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1075,7 +1112,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $bodyPostureReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1240,7 +1277,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $compareFaceReq->imageURLA = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1263,7 +1300,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $compareFaceReq->imageURLB = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1420,7 +1457,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $compareFaceWithMaskReq->imageURLA = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1443,7 +1480,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $compareFaceWithMaskReq->imageURLB = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1649,7 +1686,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$deepfakeFaceReq->tasks[$i0];
                     $tmpObj->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -2022,7 +2059,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $detectBodyCountReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -2167,7 +2204,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $detectCelebrityReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -2328,7 +2365,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $detectFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -2481,7 +2518,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$detectInfraredLivingFaceReq->tasks[$i0];
                     $tmpObj->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -2638,7 +2675,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$detectLivingFaceReq->tasks[$i0];
                     $tmpObj->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -2787,174 +2824,11 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $detectPedestrianReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->detectPedestrianWithOptions($detectPedestrianReq, $runtime);
-    }
-
-    /**
-     * 行人周界/区域入侵检测.
-     *
-     * @param tmpReq - DetectPedestrianIntrusionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DetectPedestrianIntrusionResponse
-     *
-     * @param DetectPedestrianIntrusionRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DetectPedestrianIntrusionResponse
-     */
-    public function detectPedestrianIntrusionWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new DetectPedestrianIntrusionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->detectRegion) {
-            $request->detectRegionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detectRegion, 'DetectRegion', 'json');
-        }
-
-        $body = [];
-        if (null !== $request->detectRegionShrink) {
-            @$body['DetectRegion'] = $request->detectRegionShrink;
-        }
-
-        if (null !== $request->imageURL) {
-            @$body['ImageURL'] = $request->imageURL;
-        }
-
-        if (null !== $request->regionType) {
-            @$body['RegionType'] = $request->regionType;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DetectPedestrianIntrusion',
-            'version' => '2019-12-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DetectPedestrianIntrusionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 行人周界/区域入侵检测.
-     *
-     * @param Request - DetectPedestrianIntrusionRequest
-     *
-     * @returns DetectPedestrianIntrusionResponse
-     *
-     * @param DetectPedestrianIntrusionRequest $request
-     *
-     * @return DetectPedestrianIntrusionResponse
-     */
-    public function detectPedestrianIntrusion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectPedestrianIntrusionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectPedestrianIntrusionAdvanceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DetectPedestrianIntrusionResponse
-     */
-    public function detectPedestrianIntrusionAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
-                'code' => 'InvalidCredentials',
-                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
-            ]);
-        }
-
-        $credentialModel = $this->_credential->getCredential();
-        $accessKeyId = $credentialModel->accessKeyId;
-        $accessKeySecret = $credentialModel->accessKeySecret;
-        $securityToken = $credentialModel->securityToken;
-        $credentialType = $credentialModel->type;
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-
-        if (null === $credentialType) {
-            $credentialType = 'access_key';
-        }
-
-        $authConfig = new Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken' => $securityToken,
-            'type' => $credentialType,
-            'endpoint' => $openPlatformEndpoint,
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
-        ]);
-        $authClient = new OpenApiClient($authConfig);
-        $authRequest = [
-            'Product' => 'facebody',
-            'RegionId' => $this->_regionId,
-        ];
-        $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
-        ]);
-        $authParams = new Params([
-            'action' => 'AuthorizeFileUpload',
-            'version' => '2019-12-19',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        $authResponse = [];
-        $fileObj = new FileField([]);
-        $ossHeader = [];
-        $tmpBody = [];
-        $useAccelerate = false;
-        $authResponseBody = [];
-        $detectPedestrianIntrusionReq = new DetectPedestrianIntrusionRequest([]);
-        Utils::convert($request, $detectPedestrianIntrusionReq);
-        if (null !== $request->imageURLObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
-            $authResponseBody = Utils::stringifyMapValue($tmpBody);
-            $fileObj = new FileField([
-                'filename' => @$authResponseBody['ObjectKey'],
-                'content' => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
-                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
-                'policy' => @$authResponseBody['EncodedPolicy'],
-                'Signature' => @$authResponseBody['Signature'],
-                'key' => @$authResponseBody['ObjectKey'],
-                'file' => $fileObj,
-                'success_action_status' => '201',
-            ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-            $detectPedestrianIntrusionReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
-        }
-
-        return $this->detectPedestrianIntrusionWithOptions($detectPedestrianIntrusionReq, $runtime);
     }
 
     /**
@@ -3095,7 +2969,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $detectVideoLivingFaceReq->videoUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -3240,7 +3114,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $enhanceFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -3393,7 +3267,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $extractFingerPrintReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -3550,321 +3424,11 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $faceBeautyReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->faceBeautyWithOptions($faceBeautyReq, $runtime);
-    }
-
-    /**
-     * @param Request - FaceMakeupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FaceMakeupResponse
-     *
-     * @param FaceMakeupRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return FaceMakeupResponse
-     */
-    public function faceMakeupWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->imageURL) {
-            @$body['ImageURL'] = $request->imageURL;
-        }
-
-        if (null !== $request->makeupType) {
-            @$body['MakeupType'] = $request->makeupType;
-        }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
-        }
-
-        if (null !== $request->strength) {
-            @$body['Strength'] = $request->strength;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'FaceMakeup',
-            'version' => '2019-12-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return FaceMakeupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param Request - FaceMakeupRequest
-     *
-     * @returns FaceMakeupResponse
-     *
-     * @param FaceMakeupRequest $request
-     *
-     * @return FaceMakeupResponse
-     */
-    public function faceMakeup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->faceMakeupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FaceMakeupAdvanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return FaceMakeupResponse
-     */
-    public function faceMakeupAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
-                'code' => 'InvalidCredentials',
-                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
-            ]);
-        }
-
-        $credentialModel = $this->_credential->getCredential();
-        $accessKeyId = $credentialModel->accessKeyId;
-        $accessKeySecret = $credentialModel->accessKeySecret;
-        $securityToken = $credentialModel->securityToken;
-        $credentialType = $credentialModel->type;
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-
-        if (null === $credentialType) {
-            $credentialType = 'access_key';
-        }
-
-        $authConfig = new Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken' => $securityToken,
-            'type' => $credentialType,
-            'endpoint' => $openPlatformEndpoint,
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
-        ]);
-        $authClient = new OpenApiClient($authConfig);
-        $authRequest = [
-            'Product' => 'facebody',
-            'RegionId' => $this->_regionId,
-        ];
-        $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
-        ]);
-        $authParams = new Params([
-            'action' => 'AuthorizeFileUpload',
-            'version' => '2019-12-19',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        $authResponse = [];
-        $fileObj = new FileField([]);
-        $ossHeader = [];
-        $tmpBody = [];
-        $useAccelerate = false;
-        $authResponseBody = [];
-        $faceMakeupReq = new FaceMakeupRequest([]);
-        Utils::convert($request, $faceMakeupReq);
-        if (null !== $request->imageURLObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
-            $authResponseBody = Utils::stringifyMapValue($tmpBody);
-            $fileObj = new FileField([
-                'filename' => @$authResponseBody['ObjectKey'],
-                'content' => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
-                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
-                'policy' => @$authResponseBody['EncodedPolicy'],
-                'Signature' => @$authResponseBody['Signature'],
-                'key' => @$authResponseBody['ObjectKey'],
-                'file' => $fileObj,
-                'success_action_status' => '201',
-            ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-            $faceMakeupReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
-        }
-
-        return $this->faceMakeupWithOptions($faceMakeupReq, $runtime);
-    }
-
-    /**
-     * @param Request - FaceTidyupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns FaceTidyupResponse
-     *
-     * @param FaceTidyupRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return FaceTidyupResponse
-     */
-    public function faceTidyupWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->imageURL) {
-            @$body['ImageURL'] = $request->imageURL;
-        }
-
-        if (null !== $request->shapeType) {
-            @$body['ShapeType'] = $request->shapeType;
-        }
-
-        if (null !== $request->strength) {
-            @$body['Strength'] = $request->strength;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'FaceTidyup',
-            'version' => '2019-12-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return FaceTidyupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param Request - FaceTidyupRequest
-     *
-     * @returns FaceTidyupResponse
-     *
-     * @param FaceTidyupRequest $request
-     *
-     * @return FaceTidyupResponse
-     */
-    public function faceTidyup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->faceTidyupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FaceTidyupAdvanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return FaceTidyupResponse
-     */
-    public function faceTidyupAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
-                'code' => 'InvalidCredentials',
-                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
-            ]);
-        }
-
-        $credentialModel = $this->_credential->getCredential();
-        $accessKeyId = $credentialModel->accessKeyId;
-        $accessKeySecret = $credentialModel->accessKeySecret;
-        $securityToken = $credentialModel->securityToken;
-        $credentialType = $credentialModel->type;
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-
-        if (null === $credentialType) {
-            $credentialType = 'access_key';
-        }
-
-        $authConfig = new Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken' => $securityToken,
-            'type' => $credentialType,
-            'endpoint' => $openPlatformEndpoint,
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
-        ]);
-        $authClient = new OpenApiClient($authConfig);
-        $authRequest = [
-            'Product' => 'facebody',
-            'RegionId' => $this->_regionId,
-        ];
-        $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
-        ]);
-        $authParams = new Params([
-            'action' => 'AuthorizeFileUpload',
-            'version' => '2019-12-19',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        $authResponse = [];
-        $fileObj = new FileField([]);
-        $ossHeader = [];
-        $tmpBody = [];
-        $useAccelerate = false;
-        $authResponseBody = [];
-        $faceTidyupReq = new FaceTidyupRequest([]);
-        Utils::convert($request, $faceTidyupReq);
-        if (null !== $request->imageURLObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
-            $authResponseBody = Utils::stringifyMapValue($tmpBody);
-            $fileObj = new FileField([
-                'filename' => @$authResponseBody['ObjectKey'],
-                'content' => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
-                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
-                'policy' => @$authResponseBody['EncodedPolicy'],
-                'Signature' => @$authResponseBody['Signature'],
-                'key' => @$authResponseBody['ObjectKey'],
-                'file' => $fileObj,
-                'success_action_status' => '201',
-            ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-            $faceTidyupReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
-        }
-
-        return $this->faceTidyupWithOptions($faceTidyupReq, $runtime);
     }
 
     /**
@@ -4070,7 +3634,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $generateHumanAnimeStyleReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -4223,7 +3787,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $generateHumanSketchStyleReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -4338,151 +3902,6 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRealPersonVerificationResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param Request - HandPostureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns HandPostureResponse
-     *
-     * @param HandPostureRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return HandPostureResponse
-     */
-    public function handPostureWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->imageURL) {
-            @$body['ImageURL'] = $request->imageURL;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'HandPosture',
-            'version' => '2019-12-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return HandPostureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param Request - HandPostureRequest
-     *
-     * @returns HandPostureResponse
-     *
-     * @param HandPostureRequest $request
-     *
-     * @return HandPostureResponse
-     */
-    public function handPosture($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->handPostureWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param HandPostureAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return HandPostureResponse
-     */
-    public function handPostureAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
-                'code' => 'InvalidCredentials',
-                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
-            ]);
-        }
-
-        $credentialModel = $this->_credential->getCredential();
-        $accessKeyId = $credentialModel->accessKeyId;
-        $accessKeySecret = $credentialModel->accessKeySecret;
-        $securityToken = $credentialModel->securityToken;
-        $credentialType = $credentialModel->type;
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-
-        if (null === $credentialType) {
-            $credentialType = 'access_key';
-        }
-
-        $authConfig = new Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken' => $securityToken,
-            'type' => $credentialType,
-            'endpoint' => $openPlatformEndpoint,
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
-        ]);
-        $authClient = new OpenApiClient($authConfig);
-        $authRequest = [
-            'Product' => 'facebody',
-            'RegionId' => $this->_regionId,
-        ];
-        $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
-        ]);
-        $authParams = new Params([
-            'action' => 'AuthorizeFileUpload',
-            'version' => '2019-12-19',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        $authResponse = [];
-        $fileObj = new FileField([]);
-        $ossHeader = [];
-        $tmpBody = [];
-        $useAccelerate = false;
-        $authResponseBody = [];
-        $handPostureReq = new HandPostureRequest([]);
-        Utils::convert($request, $handPostureReq);
-        if (null !== $request->imageURLObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
-            $authResponseBody = Utils::stringifyMapValue($tmpBody);
-            $fileObj = new FileField([
-                'filename' => @$authResponseBody['ObjectKey'],
-                'content' => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
-                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
-                'policy' => @$authResponseBody['EncodedPolicy'],
-                'Signature' => @$authResponseBody['Signature'],
-                'key' => @$authResponseBody['ObjectKey'],
-                'file' => $fileObj,
-                'success_action_status' => '201',
-            ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-            $handPostureReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
-        }
-
-        return $this->handPostureWithOptions($handPostureReq, $runtime);
     }
 
     /**
@@ -4631,7 +4050,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $liquifyFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -4934,7 +4353,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $mergeImageFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5087,7 +4506,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $monitorExaminationReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5232,7 +4651,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $pedestrianDetectAttributeReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5450,7 +4869,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$recognizeActionReq->URLList[$i0];
                     $tmpObj->URL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -5477,7 +4896,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $recognizeActionReq->videoUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5622,7 +5041,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $recognizeExpressionReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5803,168 +5222,11 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $recognizeFaceReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->recognizeFaceWithOptions($recognizeFaceReq, $runtime);
-    }
-
-    /**
-     * 静态手势识别.
-     *
-     * @param Request - RecognizeHandGestureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RecognizeHandGestureResponse
-     *
-     * @param RecognizeHandGestureRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeHandGestureResponse
-     */
-    public function recognizeHandGestureWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->appId) {
-            @$body['AppId'] = $request->appId;
-        }
-
-        if (null !== $request->gestureType) {
-            @$body['GestureType'] = $request->gestureType;
-        }
-
-        if (null !== $request->imageURL) {
-            @$body['ImageURL'] = $request->imageURL;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'RecognizeHandGesture',
-            'version' => '2019-12-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return RecognizeHandGestureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 静态手势识别.
-     *
-     * @param Request - RecognizeHandGestureRequest
-     *
-     * @returns RecognizeHandGestureResponse
-     *
-     * @param RecognizeHandGestureRequest $request
-     *
-     * @return RecognizeHandGestureResponse
-     */
-    public function recognizeHandGesture($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeHandGestureWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeHandGestureAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeHandGestureResponse
-     */
-    public function recognizeHandGestureAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        if (null === $this->_credential) {
-            throw new ClientException([
-                'code' => 'InvalidCredentials',
-                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
-            ]);
-        }
-
-        $credentialModel = $this->_credential->getCredential();
-        $accessKeyId = $credentialModel->accessKeyId;
-        $accessKeySecret = $credentialModel->accessKeySecret;
-        $securityToken = $credentialModel->securityToken;
-        $credentialType = $credentialModel->type;
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-
-        if (null === $credentialType) {
-            $credentialType = 'access_key';
-        }
-
-        $authConfig = new Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken' => $securityToken,
-            'type' => $credentialType,
-            'endpoint' => $openPlatformEndpoint,
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
-        ]);
-        $authClient = new OpenApiClient($authConfig);
-        $authRequest = [
-            'Product' => 'facebody',
-            'RegionId' => $this->_regionId,
-        ];
-        $authReq = new OpenApiRequest([
-            'query' => Utils::query($authRequest),
-        ]);
-        $authParams = new Params([
-            'action' => 'AuthorizeFileUpload',
-            'version' => '2019-12-19',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        $authResponse = [];
-        $fileObj = new FileField([]);
-        $ossHeader = [];
-        $tmpBody = [];
-        $useAccelerate = false;
-        $authResponseBody = [];
-        $recognizeHandGestureReq = new RecognizeHandGestureRequest([]);
-        Utils::convert($request, $recognizeHandGestureReq);
-        if (null !== $request->imageURLObject) {
-            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
-            $tmpBody = @$authResponse['body'];
-            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
-            $authResponseBody = Utils::stringifyMapValue($tmpBody);
-            $fileObj = new FileField([
-                'filename' => @$authResponseBody['ObjectKey'],
-                'content' => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
-                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
-                'policy' => @$authResponseBody['EncodedPolicy'],
-                'Signature' => @$authResponseBody['Signature'],
-                'key' => @$authResponseBody['ObjectKey'],
-                'file' => $fileObj,
-                'success_action_status' => '201',
-            ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-            $recognizeHandGestureReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
-        }
-
-        return $this->recognizeHandGestureWithOptions($recognizeHandGestureReq, $runtime);
     }
 
     /**
@@ -6113,7 +5375,7 @@ class Facebody extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$recognizePublicFaceReq->task[$i0];
                     $tmpObj->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -6274,7 +5536,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $retouchSkinReq->imageURL = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -6443,7 +5705,7 @@ class Facebody extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $searchFaceReq->imageUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 

@@ -1,3 +1,11 @@
+2025-12-08 Version: 5.0.0
+- Delete API DetectPedestrianIntrusion.
+- Delete API FaceMakeup.
+- Delete API FaceTidyup.
+- Delete API HandPosture.
+- Delete API RecognizeHandGesture.
+
+
 2025-09-05 Version: 4.1.3
 - Generated php 2019-12-30 for facebody.
 
