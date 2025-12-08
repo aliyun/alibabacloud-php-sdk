@@ -183,6 +183,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $scene;
+
+    /**
+     * @var string
+     */
     public $sessionType;
 
     /**
@@ -254,6 +259,7 @@ class data extends Model
         'productType' => 'ProductType',
         'protocolType' => 'ProtocolType',
         'resourceInstanceCategory' => 'ResourceInstanceCategory',
+        'scene' => 'Scene',
         'sessionType' => 'SessionType',
         'status' => 'Status',
         'supportedLanguageList' => 'SupportedLanguageList',
@@ -459,6 +465,10 @@ class data extends Model
 
         if (null !== $this->resourceInstanceCategory) {
             $res['ResourceInstanceCategory'] = $this->resourceInstanceCategory;
+        }
+
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
 
         if (null !== $this->sessionType) {
@@ -680,6 +690,10 @@ class data extends Model
 
         if (isset($map['ResourceInstanceCategory'])) {
             $model->resourceInstanceCategory = $map['ResourceInstanceCategory'];
+        }
+
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
 
         if (isset($map['SessionType'])) {
