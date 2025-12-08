@@ -3539,6 +3539,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->academicProxy) {
+            @$query['AcademicProxy'] = $request->academicProxy;
+        }
+
         if (null !== $request->adminAccess) {
             @$query['AdminAccess'] = $request->adminAccess;
         }
@@ -3557,6 +3561,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->autoReconnect) {
             @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->businessType) {
@@ -3603,6 +3611,10 @@ class Ecd extends OpenApiClient
             @$query['CpuDownGradeDuration'] = $request->cpuDownGradeDuration;
         }
 
+        if (null !== $request->cpuOverload) {
+            @$query['CpuOverload'] = $request->cpuOverload;
+        }
+
         if (null !== $request->cpuProcessors) {
             @$query['CpuProcessors'] = $request->cpuProcessors;
         }
@@ -3641,6 +3653,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->disconnectKeepSessionTime) {
             @$query['DisconnectKeepSessionTime'] = $request->disconnectKeepSessionTime;
+        }
+
+        if (null !== $request->diskOverload) {
+            @$query['DiskOverload'] = $request->diskOverload;
         }
 
         if (null !== $request->displayMode) {
@@ -3715,6 +3731,10 @@ class Ecd extends OpenApiClient
             @$query['MemoryDownGradeDuration'] = $request->memoryDownGradeDuration;
         }
 
+        if (null !== $request->memoryOverload) {
+            @$query['MemoryOverload'] = $request->memoryOverload;
+        }
+
         if (null !== $request->memoryProcessors) {
             @$query['MemoryProcessors'] = $request->memoryProcessors;
         }
@@ -3755,6 +3775,10 @@ class Ecd extends OpenApiClient
             @$query['MobileWyAssistant'] = $request->mobileWyAssistant;
         }
 
+        if (null !== $request->modelLibrary) {
+            @$query['ModelLibrary'] = $request->modelLibrary;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
         }
@@ -3773,6 +3797,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->noOperationDisconnectTime) {
             @$query['NoOperationDisconnectTime'] = $request->noOperationDisconnectTime;
+        }
+
+        if (null !== $request->portProxy) {
+            @$query['PortProxy'] = $request->portProxy;
         }
 
         if (null !== $request->printerRedirect) {
@@ -9021,8 +9049,16 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->academicProxy) {
+            @$query['AcademicProxy'] = $request->academicProxy;
+        }
+
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
+        }
+
+        if (null !== $request->modelLibrary) {
+            @$query['ModelLibrary'] = $request->modelLibrary;
         }
 
         if (null !== $request->pageNumber) {
@@ -9035,6 +9071,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->policyGroupId) {
             @$query['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->portProxy) {
+            @$query['PortProxy'] = $request->portProxy;
         }
 
         if (null !== $request->resourceType) {
@@ -12624,6 +12664,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->externalPolicyGroupIds) {
             @$query['ExternalPolicyGroupIds'] = $request->externalPolicyGroupIds;
         }
@@ -17584,6 +17628,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->academicProxy) {
+            @$query['AcademicProxy'] = $request->academicProxy;
+        }
+
         if (null !== $request->adminAccess) {
             @$query['AdminAccess'] = $request->adminAccess;
         }
@@ -17602,6 +17650,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->autoReconnect) {
             @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->businessType) {
@@ -17648,6 +17700,10 @@ class Ecd extends OpenApiClient
             @$query['CpuDownGradeDuration'] = $request->cpuDownGradeDuration;
         }
 
+        if (null !== $request->cpuOverload) {
+            @$query['CpuOverload'] = $request->cpuOverload;
+        }
+
         if (null !== $request->cpuProcessors) {
             @$query['CpuProcessors'] = $request->cpuProcessors;
         }
@@ -17686,6 +17742,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->disconnectKeepSessionTime) {
             @$query['DisconnectKeepSessionTime'] = $request->disconnectKeepSessionTime;
+        }
+
+        if (null !== $request->diskOverload) {
+            @$query['DiskOverload'] = $request->diskOverload;
         }
 
         if (null !== $request->displayMode) {
@@ -17760,6 +17820,10 @@ class Ecd extends OpenApiClient
             @$query['MemoryDownGradeDuration'] = $request->memoryDownGradeDuration;
         }
 
+        if (null !== $request->memoryOverload) {
+            @$query['MemoryOverload'] = $request->memoryOverload;
+        }
+
         if (null !== $request->memoryProcessors) {
             @$query['MemoryProcessors'] = $request->memoryProcessors;
         }
@@ -17800,6 +17864,10 @@ class Ecd extends OpenApiClient
             @$query['MobileWyAssistant'] = $request->mobileWyAssistant;
         }
 
+        if (null !== $request->modelLibrary) {
+            @$query['ModelLibrary'] = $request->modelLibrary;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
         }
@@ -17822,6 +17890,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->policyGroupId) {
             @$query['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->portProxy) {
+            @$query['PortProxy'] = $request->portProxy;
         }
 
         if (null !== $request->printerRedirect) {

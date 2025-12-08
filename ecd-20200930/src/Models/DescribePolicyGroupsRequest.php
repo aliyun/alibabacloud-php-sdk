@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribePolicyGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $externalPolicyGroupIds;
@@ -48,6 +53,7 @@ class DescribePolicyGroupsRequest extends Model
      */
     public $scope;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'externalPolicyGroupIds' => 'ExternalPolicyGroupIds',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -72,6 +78,10 @@ class DescribePolicyGroupsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->externalPolicyGroupIds) {
             if (\is_array($this->externalPolicyGroupIds)) {
                 $res['ExternalPolicyGroupIds'] = [];
@@ -129,6 +139,10 @@ class DescribePolicyGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['ExternalPolicyGroupIds'])) {
             if (!empty($map['ExternalPolicyGroupIds'])) {
                 $model->externalPolicyGroupIds = [];

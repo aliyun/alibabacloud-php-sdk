@@ -20,6 +20,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $academicProxy;
+
+    /**
+     * @var string
+     */
     public $adminAccess;
 
     /**
@@ -83,6 +88,11 @@ class describePolicyGroups extends Model
     public $cpuDownGradeDuration;
 
     /**
+     * @var string
+     */
+    public $cpuOverload;
+
+    /**
      * @var string[]
      */
     public $cpuProcessors;
@@ -131,6 +141,11 @@ class describePolicyGroups extends Model
      * @var deviceRules[]
      */
     public $deviceRules;
+
+    /**
+     * @var string
+     */
+    public $diskOverload;
 
     /**
      * @var string
@@ -238,6 +253,11 @@ class describePolicyGroups extends Model
     public $memoryDownGradeDuration;
 
     /**
+     * @var string
+     */
+    public $memoryOverload;
+
+    /**
      * @var string[]
      */
     public $memoryProcessors;
@@ -290,6 +310,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $modelLibrary;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -316,6 +341,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $policyStatus;
+
+    /**
+     * @var string
+     */
+    public $portProxy;
 
     /**
      * @var string
@@ -622,6 +652,7 @@ class describePolicyGroups extends Model
      */
     public $wyAssistant;
     protected $_name = [
+        'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
@@ -635,6 +666,7 @@ class describePolicyGroups extends Model
         'colorEnhancement' => 'ColorEnhancement',
         'cpdDriveClipboard' => 'CpdDriveClipboard',
         'cpuDownGradeDuration' => 'CpuDownGradeDuration',
+        'cpuOverload' => 'CpuOverload',
         'cpuProcessors' => 'CpuProcessors',
         'cpuProtectedMode' => 'CpuProtectedMode',
         'cpuRateLimit' => 'CpuRateLimit',
@@ -645,6 +677,7 @@ class describePolicyGroups extends Model
         'deviceConnectHint' => 'DeviceConnectHint',
         'deviceRedirects' => 'DeviceRedirects',
         'deviceRules' => 'DeviceRules',
+        'diskOverload' => 'DiskOverload',
         'displayMode' => 'DisplayMode',
         'domainList' => 'DomainList',
         'domainResolveRule' => 'DomainResolveRule',
@@ -666,6 +699,7 @@ class describePolicyGroups extends Model
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
+        'memoryOverload' => 'MemoryOverload',
         'memoryProcessors' => 'MemoryProcessors',
         'memoryProtectedMode' => 'MemoryProtectedMode',
         'memoryRateLimit' => 'MemoryRateLimit',
@@ -676,12 +710,14 @@ class describePolicyGroups extends Model
         'mobileShutdown' => 'MobileShutdown',
         'mobileWuyingKeeper' => 'MobileWuyingKeeper',
         'mobileWyAssistant' => 'MobileWyAssistant',
+        'modelLibrary' => 'ModelLibrary',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupType' => 'PolicyGroupType',
         'policyStatus' => 'PolicyStatus',
+        'portProxy' => 'PortProxy',
         'preemptLogin' => 'PreemptLogin',
         'preemptLoginUsers' => 'PreemptLoginUsers',
         'printerRedirection' => 'PrinterRedirection',
@@ -801,6 +837,10 @@ class describePolicyGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->academicProxy) {
+            $res['AcademicProxy'] = $this->academicProxy;
+        }
+
         if (null !== $this->adminAccess) {
             $res['AdminAccess'] = $this->adminAccess;
         }
@@ -874,6 +914,10 @@ class describePolicyGroups extends Model
             $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
         }
 
+        if (null !== $this->cpuOverload) {
+            $res['CpuOverload'] = $this->cpuOverload;
+        }
+
         if (null !== $this->cpuProcessors) {
             if (\is_array($this->cpuProcessors)) {
                 $res['CpuProcessors'] = [];
@@ -933,6 +977,10 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->diskOverload) {
+            $res['DiskOverload'] = $this->diskOverload;
         }
 
         if (null !== $this->displayMode) {
@@ -1026,6 +1074,10 @@ class describePolicyGroups extends Model
             $res['MemoryDownGradeDuration'] = $this->memoryDownGradeDuration;
         }
 
+        if (null !== $this->memoryOverload) {
+            $res['MemoryOverload'] = $this->memoryOverload;
+        }
+
         if (null !== $this->memoryProcessors) {
             if (\is_array($this->memoryProcessors)) {
                 $res['MemoryProcessors'] = [];
@@ -1073,6 +1125,10 @@ class describePolicyGroups extends Model
             $res['MobileWyAssistant'] = $this->mobileWyAssistant;
         }
 
+        if (null !== $this->modelLibrary) {
+            $res['ModelLibrary'] = $this->modelLibrary;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -1102,6 +1158,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->policyStatus) {
             $res['PolicyStatus'] = $this->policyStatus;
+        }
+
+        if (null !== $this->portProxy) {
+            $res['PortProxy'] = $this->portProxy;
         }
 
         if (null !== $this->preemptLogin) {
@@ -1408,6 +1468,10 @@ class describePolicyGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcademicProxy'])) {
+            $model->academicProxy = $map['AcademicProxy'];
+        }
+
         if (isset($map['AdminAccess'])) {
             $model->adminAccess = $map['AdminAccess'];
         }
@@ -1481,6 +1545,10 @@ class describePolicyGroups extends Model
             $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
         }
 
+        if (isset($map['CpuOverload'])) {
+            $model->cpuOverload = $map['CpuOverload'];
+        }
+
         if (isset($map['CpuProcessors'])) {
             if (!empty($map['CpuProcessors'])) {
                 $model->cpuProcessors = [];
@@ -1540,6 +1608,10 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DiskOverload'])) {
+            $model->diskOverload = $map['DiskOverload'];
         }
 
         if (isset($map['DisplayMode'])) {
@@ -1633,6 +1705,10 @@ class describePolicyGroups extends Model
             $model->memoryDownGradeDuration = $map['MemoryDownGradeDuration'];
         }
 
+        if (isset($map['MemoryOverload'])) {
+            $model->memoryOverload = $map['MemoryOverload'];
+        }
+
         if (isset($map['MemoryProcessors'])) {
             if (!empty($map['MemoryProcessors'])) {
                 $model->memoryProcessors = [];
@@ -1680,6 +1756,10 @@ class describePolicyGroups extends Model
             $model->mobileWyAssistant = $map['MobileWyAssistant'];
         }
 
+        if (isset($map['ModelLibrary'])) {
+            $model->modelLibrary = $map['ModelLibrary'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -1709,6 +1789,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['PolicyStatus'])) {
             $model->policyStatus = $map['PolicyStatus'];
+        }
+
+        if (isset($map['PortProxy'])) {
+            $model->portProxy = $map['PortProxy'];
         }
 
         if (isset($map['PreemptLogin'])) {

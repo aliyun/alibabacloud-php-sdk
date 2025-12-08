@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class DescribeCenterPolicyListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $academicProxy;
+
+    /**
      * @var int
      */
     public $businessType;
+
+    /**
+     * @var string
+     */
+    public $modelLibrary;
 
     /**
      * @var int
@@ -31,6 +41,11 @@ class DescribeCenterPolicyListRequest extends Model
     /**
      * @var string
      */
+    public $portProxy;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -38,10 +53,13 @@ class DescribeCenterPolicyListRequest extends Model
      */
     public $scope;
     protected $_name = [
+        'academicProxy' => 'AcademicProxy',
         'businessType' => 'BusinessType',
+        'modelLibrary' => 'ModelLibrary',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'policyGroupId' => 'PolicyGroupId',
+        'portProxy' => 'PortProxy',
         'resourceType' => 'ResourceType',
         'scope' => 'Scope',
     ];
@@ -57,8 +75,16 @@ class DescribeCenterPolicyListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->academicProxy) {
+            $res['AcademicProxy'] = $this->academicProxy;
+        }
+
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+
+        if (null !== $this->modelLibrary) {
+            $res['ModelLibrary'] = $this->modelLibrary;
         }
 
         if (null !== $this->pageNumber) {
@@ -80,6 +106,10 @@ class DescribeCenterPolicyListRequest extends Model
             }
         }
 
+        if (null !== $this->portProxy) {
+            $res['PortProxy'] = $this->portProxy;
+        }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -99,8 +129,16 @@ class DescribeCenterPolicyListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcademicProxy'])) {
+            $model->academicProxy = $map['AcademicProxy'];
+        }
+
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+
+        if (isset($map['ModelLibrary'])) {
+            $model->modelLibrary = $map['ModelLibrary'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -120,6 +158,10 @@ class DescribeCenterPolicyListRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PortProxy'])) {
+            $model->portProxy = $map['PortProxy'];
         }
 
         if (isset($map['ResourceType'])) {

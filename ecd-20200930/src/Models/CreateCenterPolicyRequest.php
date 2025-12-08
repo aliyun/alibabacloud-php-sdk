@@ -21,6 +21,11 @@ class CreateCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $academicProxy;
+
+    /**
+     * @var string
+     */
     public $adminAccess;
 
     /**
@@ -42,6 +47,11 @@ class CreateCenterPolicyRequest extends Model
      * @var string
      */
     public $autoReconnect;
+
+    /**
+     * @var string
+     */
+    public $businessChannel;
 
     /**
      * @var int
@@ -99,6 +109,11 @@ class CreateCenterPolicyRequest extends Model
     public $cpuDownGradeDuration;
 
     /**
+     * @var string
+     */
+    public $cpuOverload;
+
+    /**
      * @var string[]
      */
     public $cpuProcessors;
@@ -147,6 +162,11 @@ class CreateCenterPolicyRequest extends Model
      * @var int
      */
     public $disconnectKeepSessionTime;
+
+    /**
+     * @var string
+     */
+    public $diskOverload;
 
     /**
      * @var string
@@ -239,6 +259,11 @@ class CreateCenterPolicyRequest extends Model
     public $memoryDownGradeDuration;
 
     /**
+     * @var string
+     */
+    public $memoryOverload;
+
+    /**
      * @var string[]
      */
     public $memoryProcessors;
@@ -291,6 +316,11 @@ class CreateCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $modelLibrary;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -312,6 +342,11 @@ class CreateCenterPolicyRequest extends Model
      * @var int
      */
     public $noOperationDisconnectTime;
+
+    /**
+     * @var string
+     */
+    public $portProxy;
 
     /**
      * @var string
@@ -613,11 +648,13 @@ class CreateCenterPolicyRequest extends Model
      */
     public $wyAssistant;
     protected $_name = [
+        'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRule' => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
         'autoReconnect' => 'AutoReconnect',
+        'businessChannel' => 'BusinessChannel',
         'businessType' => 'BusinessType',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
@@ -629,6 +666,7 @@ class CreateCenterPolicyRequest extends Model
         'colorEnhancement' => 'ColorEnhancement',
         'cpdDriveClipboard' => 'CpdDriveClipboard',
         'cpuDownGradeDuration' => 'CpuDownGradeDuration',
+        'cpuOverload' => 'CpuOverload',
         'cpuProcessors' => 'CpuProcessors',
         'cpuProtectedMode' => 'CpuProtectedMode',
         'cpuRateLimit' => 'CpuRateLimit',
@@ -639,6 +677,7 @@ class CreateCenterPolicyRequest extends Model
         'deviceRules' => 'DeviceRules',
         'disconnectKeepSession' => 'DisconnectKeepSession',
         'disconnectKeepSessionTime' => 'DisconnectKeepSessionTime',
+        'diskOverload' => 'DiskOverload',
         'displayMode' => 'DisplayMode',
         'domainResolveRule' => 'DomainResolveRule',
         'domainResolveRuleType' => 'DomainResolveRuleType',
@@ -657,6 +696,7 @@ class CreateCenterPolicyRequest extends Model
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
+        'memoryOverload' => 'MemoryOverload',
         'memoryProcessors' => 'MemoryProcessors',
         'memoryProtectedMode' => 'MemoryProtectedMode',
         'memoryRateLimit' => 'MemoryRateLimit',
@@ -667,11 +707,13 @@ class CreateCenterPolicyRequest extends Model
         'mobileShutdown' => 'MobileShutdown',
         'mobileWuyingKeeper' => 'MobileWuyingKeeper',
         'mobileWyAssistant' => 'MobileWyAssistant',
+        'modelLibrary' => 'ModelLibrary',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
         'noOperationDisconnect' => 'NoOperationDisconnect',
         'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
+        'portProxy' => 'PortProxy',
         'printerRedirect' => 'PrinterRedirect',
         'qualityEnhancement' => 'QualityEnhancement',
         'recordEventDuration' => 'RecordEventDuration',
@@ -793,6 +835,10 @@ class CreateCenterPolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->academicProxy) {
+            $res['AcademicProxy'] = $this->academicProxy;
+        }
+
         if (null !== $this->adminAccess) {
             $res['AdminAccess'] = $this->adminAccess;
         }
@@ -825,6 +871,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->autoReconnect) {
             $res['AutoReconnect'] = $this->autoReconnect;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->businessType) {
@@ -883,6 +933,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->cpuDownGradeDuration) {
             $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
+        }
+
+        if (null !== $this->cpuOverload) {
+            $res['CpuOverload'] = $this->cpuOverload;
         }
 
         if (null !== $this->cpuProcessors) {
@@ -944,6 +998,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->disconnectKeepSessionTime) {
             $res['DisconnectKeepSessionTime'] = $this->disconnectKeepSessionTime;
+        }
+
+        if (null !== $this->diskOverload) {
+            $res['DiskOverload'] = $this->diskOverload;
         }
 
         if (null !== $this->displayMode) {
@@ -1025,6 +1083,10 @@ class CreateCenterPolicyRequest extends Model
             $res['MemoryDownGradeDuration'] = $this->memoryDownGradeDuration;
         }
 
+        if (null !== $this->memoryOverload) {
+            $res['MemoryOverload'] = $this->memoryOverload;
+        }
+
         if (null !== $this->memoryProcessors) {
             if (\is_array($this->memoryProcessors)) {
                 $res['MemoryProcessors'] = [];
@@ -1072,6 +1134,10 @@ class CreateCenterPolicyRequest extends Model
             $res['MobileWyAssistant'] = $this->mobileWyAssistant;
         }
 
+        if (null !== $this->modelLibrary) {
+            $res['ModelLibrary'] = $this->modelLibrary;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -1097,6 +1163,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->noOperationDisconnectTime) {
             $res['NoOperationDisconnectTime'] = $this->noOperationDisconnectTime;
+        }
+
+        if (null !== $this->portProxy) {
+            $res['PortProxy'] = $this->portProxy;
         }
 
         if (null !== $this->printerRedirect) {
@@ -1399,6 +1469,10 @@ class CreateCenterPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcademicProxy'])) {
+            $model->academicProxy = $map['AcademicProxy'];
+        }
+
         if (isset($map['AdminAccess'])) {
             $model->adminAccess = $map['AdminAccess'];
         }
@@ -1431,6 +1505,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['AutoReconnect'])) {
             $model->autoReconnect = $map['AutoReconnect'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['BusinessType'])) {
@@ -1489,6 +1567,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['CpuDownGradeDuration'])) {
             $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
+        }
+
+        if (isset($map['CpuOverload'])) {
+            $model->cpuOverload = $map['CpuOverload'];
         }
 
         if (isset($map['CpuProcessors'])) {
@@ -1550,6 +1632,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['DisconnectKeepSessionTime'])) {
             $model->disconnectKeepSessionTime = $map['DisconnectKeepSessionTime'];
+        }
+
+        if (isset($map['DiskOverload'])) {
+            $model->diskOverload = $map['DiskOverload'];
         }
 
         if (isset($map['DisplayMode'])) {
@@ -1631,6 +1717,10 @@ class CreateCenterPolicyRequest extends Model
             $model->memoryDownGradeDuration = $map['MemoryDownGradeDuration'];
         }
 
+        if (isset($map['MemoryOverload'])) {
+            $model->memoryOverload = $map['MemoryOverload'];
+        }
+
         if (isset($map['MemoryProcessors'])) {
             if (!empty($map['MemoryProcessors'])) {
                 $model->memoryProcessors = [];
@@ -1678,6 +1768,10 @@ class CreateCenterPolicyRequest extends Model
             $model->mobileWyAssistant = $map['MobileWyAssistant'];
         }
 
+        if (isset($map['ModelLibrary'])) {
+            $model->modelLibrary = $map['ModelLibrary'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -1703,6 +1797,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['NoOperationDisconnectTime'])) {
             $model->noOperationDisconnectTime = $map['NoOperationDisconnectTime'];
+        }
+
+        if (isset($map['PortProxy'])) {
+            $model->portProxy = $map['PortProxy'];
         }
 
         if (isset($map['PrinterRedirect'])) {
