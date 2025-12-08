@@ -37,6 +37,11 @@ class EnableVpcEndpointConnectionRequest extends Model
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $trafficControlMode;
     protected $_name = [
         'bandwidth' => 'Bandwidth',
         'clientToken' => 'ClientToken',
@@ -44,6 +49,7 @@ class EnableVpcEndpointConnectionRequest extends Model
         'endpointId' => 'EndpointId',
         'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
+        'trafficControlMode' => 'TrafficControlMode',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class EnableVpcEndpointConnectionRequest extends Model
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->trafficControlMode) {
+            $res['TrafficControlMode'] = $this->trafficControlMode;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class EnableVpcEndpointConnectionRequest extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['TrafficControlMode'])) {
+            $model->trafficControlMode = $map['TrafficControlMode'];
         }
 
         return $model;

@@ -1585,6 +1585,10 @@ class Privatelink extends OpenApiClient
             @$query['ServiceId'] = $request->serviceId;
         }
 
+        if (null !== $request->trafficControlMode) {
+            @$query['TrafficControlMode'] = $request->trafficControlMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3207,6 +3211,10 @@ class Privatelink extends OpenApiClient
 
         if (null !== $request->serviceId) {
             @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->trafficControlMode) {
+            @$query['TrafficControlMode'] = $request->trafficControlMode;
         }
 
         $req = new OpenApiRequest([

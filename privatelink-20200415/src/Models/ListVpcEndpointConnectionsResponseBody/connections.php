@@ -55,6 +55,11 @@ class connections extends Model
     public $serviceId;
 
     /**
+     * @var string
+     */
+    public $trafficControlMode;
+
+    /**
      * @var zones[]
      */
     public $zones;
@@ -68,6 +73,7 @@ class connections extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwner' => 'ResourceOwner',
         'serviceId' => 'ServiceId',
+        'trafficControlMode' => 'TrafficControlMode',
         'zones' => 'Zones',
     ];
 
@@ -116,6 +122,10 @@ class connections extends Model
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->trafficControlMode) {
+            $res['TrafficControlMode'] = $this->trafficControlMode;
         }
 
         if (null !== $this->zones) {
@@ -174,6 +184,10 @@ class connections extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['TrafficControlMode'])) {
+            $model->trafficControlMode = $map['TrafficControlMode'];
         }
 
         if (isset($map['Zones'])) {
