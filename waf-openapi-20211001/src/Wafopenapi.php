@@ -8985,7 +8985,39 @@ class Wafopenapi extends OpenApiClient
     public function describeHybridCloudSdkServersWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8994,7 +9026,7 @@ class Wafopenapi extends OpenApiClient
             'version' => '2021-10-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
