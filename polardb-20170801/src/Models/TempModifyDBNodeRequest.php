@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\TempModifyDBNodeRequest\DBNode;
 class TempModifyDBNodeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -47,6 +52,11 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -59,6 +69,7 @@ class TempModifyDBNodeRequest extends Model
      */
     public $restoreTime;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'DBClusterId' => 'DBClusterId',
         'DBNode' => 'DBNode',
@@ -66,6 +77,7 @@ class TempModifyDBNodeRequest extends Model
         'operationType' => 'OperationType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'promotionCode' => 'PromotionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'restoreTime' => 'RestoreTime',
@@ -82,6 +94,10 @@ class TempModifyDBNodeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -117,6 +133,10 @@ class TempModifyDBNodeRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -140,6 +160,10 @@ class TempModifyDBNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -173,6 +197,10 @@ class TempModifyDBNodeRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

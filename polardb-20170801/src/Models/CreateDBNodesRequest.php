@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesRequest\DBNode;
 class CreateDBNodesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -67,6 +72,11 @@ class CreateDBNodesRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -79,6 +89,7 @@ class CreateDBNodesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
@@ -90,6 +101,7 @@ class CreateDBNodesRequest extends Model
         'ownerId' => 'OwnerId',
         'plannedEndTime' => 'PlannedEndTime',
         'plannedStartTime' => 'PlannedStartTime',
+        'promotionCode' => 'PromotionCode',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -106,6 +118,10 @@ class CreateDBNodesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -157,6 +173,10 @@ class CreateDBNodesRequest extends Model
             $res['PlannedStartTime'] = $this->plannedStartTime;
         }
 
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -180,6 +200,10 @@ class CreateDBNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -229,6 +253,10 @@ class CreateDBNodesRequest extends Model
 
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ResourceGroupId'])) {

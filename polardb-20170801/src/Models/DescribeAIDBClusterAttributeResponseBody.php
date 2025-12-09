@@ -47,6 +47,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     public $DBVersion;
 
     /**
+     * @var string
+     */
+    public $ecsSecurityGroupId;
+
+    /**
      * @var endpointList[]
      */
     public $endpointList;
@@ -153,6 +158,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'DBClusterStatus' => 'DBClusterStatus',
         'DBNodes' => 'DBNodes',
         'DBVersion' => 'DBVersion',
+        'ecsSecurityGroupId' => 'EcsSecurityGroupId',
         'endpointList' => 'EndpointList',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
@@ -225,6 +231,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
+        }
+
+        if (null !== $this->ecsSecurityGroupId) {
+            $res['EcsSecurityGroupId'] = $this->ecsSecurityGroupId;
         }
 
         if (null !== $this->endpointList) {
@@ -365,6 +375,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
+        }
+
+        if (isset($map['EcsSecurityGroupId'])) {
+            $model->ecsSecurityGroupId = $map['EcsSecurityGroupId'];
         }
 
         if (isset($map['EndpointList'])) {

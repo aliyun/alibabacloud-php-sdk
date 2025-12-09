@@ -52,6 +52,11 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $customBucketPath;
+
+    /**
+     * @var string
+     */
     public $DBType;
 
     /**
@@ -182,6 +187,7 @@ class DescribePolarFsAttributeResponseBody extends Model
         'category' => 'Category',
         'clientDownloadPath' => 'ClientDownloadPath',
         'createTime' => 'CreateTime',
+        'customBucketPath' => 'CustomBucketPath',
         'DBType' => 'DBType',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
@@ -250,6 +256,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->customBucketPath) {
+            $res['CustomBucketPath'] = $this->customBucketPath;
         }
 
         if (null !== $this->DBType) {
@@ -393,6 +403,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CustomBucketPath'])) {
+            $model->customBucketPath = $map['CustomBucketPath'];
         }
 
         if (isset($map['DBType'])) {

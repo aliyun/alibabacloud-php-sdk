@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class TransformDBClusterPayTypeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -41,6 +46,11 @@ class TransformDBClusterPayTypeRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -63,12 +73,14 @@ class TransformDBClusterPayTypeRequest extends Model
      */
     public $usedTime;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'payType' => 'PayType',
         'period' => 'Period',
+        'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -84,6 +96,10 @@ class TransformDBClusterPayTypeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -106,6 +122,10 @@ class TransformDBClusterPayTypeRequest extends Model
 
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->regionId) {
@@ -139,6 +159,10 @@ class TransformDBClusterPayTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -161,6 +185,10 @@ class TransformDBClusterPayTypeRequest extends Model
 
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {

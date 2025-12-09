@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBClusterArchRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $DBClusterId;
@@ -21,6 +26,11 @@ class ModifyDBClusterArchRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -28,8 +38,10 @@ class ModifyDBClusterArchRequest extends Model
      */
     public $standbyAZ;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'DBClusterId' => 'DBClusterId',
         'hotStandbyCluster' => 'HotStandbyCluster',
+        'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'standbyAZ' => 'StandbyAZ',
     ];
@@ -42,12 +54,20 @@ class ModifyDBClusterArchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
         if (null !== $this->hotStandbyCluster) {
             $res['HotStandbyCluster'] = $this->hotStandbyCluster;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->regionId) {
@@ -69,12 +89,20 @@ class ModifyDBClusterArchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
 
         if (isset($map['HotStandbyCluster'])) {
             $model->hotStandbyCluster = $map['HotStandbyCluster'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {

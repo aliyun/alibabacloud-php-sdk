@@ -2539,6 +2539,10 @@ class Polardb extends OpenApiClient
             @$query['AutoRenew'] = $request->autoRenew;
         }
 
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->componentsShrink) {
             @$query['Components'] = $request->componentsShrink;
         }
@@ -2569,6 +2573,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->polarFSInstanceId) {
             @$query['PolarFSInstanceId'] = $request->polarFSInstanceId;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {
@@ -3032,6 +3040,10 @@ class Polardb extends OpenApiClient
             @$query['AutoRenew'] = $request->autoRenew;
         }
 
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->backupRetentionPolicyOnClusterDeletion) {
             @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
@@ -3138,6 +3150,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->period) {
             @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->provisionedIops) {
@@ -3783,6 +3799,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -3825,6 +3845,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->plannedStartTime) {
             @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceGroupId) {
@@ -4854,6 +4878,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4868,6 +4896,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->period) {
             @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -18960,12 +18992,20 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
         if (null !== $request->hotStandbyCluster) {
             @$query['HotStandbyCluster'] = $request->hotStandbyCluster;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {
@@ -20444,6 +20484,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->burstingEnabled) {
             @$query['BurstingEnabled'] = $request->burstingEnabled;
         }
@@ -20458,6 +20502,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->modifyType) {
             @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->provisionedIops) {
@@ -20525,6 +20573,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -20551,6 +20603,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->plannedStartTime) {
             @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -21071,6 +21127,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -21113,6 +21173,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->plannedStartTime) {
             @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -21508,6 +21572,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -21546,6 +21614,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->plannedStartTime) {
             @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -24212,6 +24284,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -24238,6 +24314,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -24311,6 +24391,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -24333,6 +24417,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->period) {
             @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {

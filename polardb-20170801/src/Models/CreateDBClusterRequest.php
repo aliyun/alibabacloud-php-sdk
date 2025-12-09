@@ -25,6 +25,11 @@ class CreateDBClusterRequest extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $backupRetentionPolicyOnClusterDeletion;
@@ -158,6 +163,11 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $period;
+
+    /**
+     * @var string
+     */
+    public $promotionCode;
 
     /**
      * @var int
@@ -317,6 +327,7 @@ class CreateDBClusterRequest extends Model
         'allowShutDown' => 'AllowShutDown',
         'architecture' => 'Architecture',
         'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'burstingEnabled' => 'BurstingEnabled',
         'clientToken' => 'ClientToken',
@@ -344,6 +355,7 @@ class CreateDBClusterRequest extends Model
         'parameterGroupId' => 'ParameterGroupId',
         'payType' => 'PayType',
         'period' => 'Period',
+        'promotionCode' => 'PromotionCode',
         'provisionedIops' => 'ProvisionedIops',
         'proxyClass' => 'ProxyClass',
         'proxyType' => 'ProxyType',
@@ -398,6 +410,10 @@ class CreateDBClusterRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
 
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
@@ -506,6 +522,10 @@ class CreateDBClusterRequest extends Model
 
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->provisionedIops) {
@@ -662,6 +682,10 @@ class CreateDBClusterRequest extends Model
             $model->autoRenew = $map['AutoRenew'];
         }
 
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
             $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
         }
@@ -768,6 +792,10 @@ class CreateDBClusterRequest extends Model
 
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ProvisionedIops'])) {

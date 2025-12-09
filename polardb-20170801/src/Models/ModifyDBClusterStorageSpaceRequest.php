@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBClusterStorageSpaceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -46,6 +51,11 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -63,6 +73,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
      */
     public $subCategory;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
@@ -70,6 +81,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
         'ownerId' => 'OwnerId',
         'plannedEndTime' => 'PlannedEndTime',
         'plannedStartTime' => 'PlannedStartTime',
+        'promotionCode' => 'PromotionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'storageSpace' => 'StorageSpace',
@@ -84,6 +96,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -110,6 +126,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
 
         if (null !== $this->plannedStartTime) {
             $res['PlannedStartTime'] = $this->plannedStartTime;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -139,6 +159,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -165,6 +189,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
 
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

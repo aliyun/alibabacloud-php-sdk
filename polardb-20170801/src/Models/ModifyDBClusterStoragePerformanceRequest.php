@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBClusterStoragePerformanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $burstingEnabled;
@@ -29,6 +34,11 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
     public $modifyType;
 
     /**
+     * @var string
+     */
+    public $promotionCode;
+
+    /**
      * @var int
      */
     public $provisionedIops;
@@ -43,10 +53,12 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
      */
     public $storageType;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'burstingEnabled' => 'BurstingEnabled',
         'clientToken' => 'ClientToken',
         'DBClusterId' => 'DBClusterId',
         'modifyType' => 'ModifyType',
+        'promotionCode' => 'PromotionCode',
         'provisionedIops' => 'ProvisionedIops',
         'resourceOwnerId' => 'ResourceOwnerId',
         'storageType' => 'StorageType',
@@ -60,6 +72,10 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->burstingEnabled) {
             $res['BurstingEnabled'] = $this->burstingEnabled;
         }
@@ -74,6 +90,10 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
 
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->provisionedIops) {
@@ -99,6 +119,10 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['BurstingEnabled'])) {
             $model->burstingEnabled = $map['BurstingEnabled'];
         }
@@ -113,6 +137,10 @@ class ModifyDBClusterStoragePerformanceRequest extends Model
 
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ProvisionedIops'])) {

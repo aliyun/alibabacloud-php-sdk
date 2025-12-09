@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateStoragePlanRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -27,6 +32,11 @@ class CreateStoragePlanRequest extends Model
      * @var string
      */
     public $period;
+
+    /**
+     * @var string
+     */
+    public $promotionCode;
 
     /**
      * @var string
@@ -53,10 +63,12 @@ class CreateStoragePlanRequest extends Model
      */
     public $usedTime;
     protected $_name = [
+        'autoUseCoupon' => 'AutoUseCoupon',
         'clientToken' => 'ClientToken',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'period' => 'Period',
+        'promotionCode' => 'PromotionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'storageClass' => 'StorageClass',
@@ -72,6 +84,10 @@ class CreateStoragePlanRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -86,6 +102,10 @@ class CreateStoragePlanRequest extends Model
 
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -119,6 +139,10 @@ class CreateStoragePlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -133,6 +157,10 @@ class CreateStoragePlanRequest extends Model
 
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

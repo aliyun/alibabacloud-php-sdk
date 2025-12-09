@@ -26,6 +26,11 @@ class CreateApplicationRequest extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -68,6 +73,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -98,6 +108,7 @@ class CreateApplicationRequest extends Model
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
         'components' => 'Components',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
@@ -106,6 +117,7 @@ class CreateApplicationRequest extends Model
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
+        'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'usedTime' => 'UsedTime',
@@ -138,6 +150,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
 
         if (null !== $this->components) {
@@ -184,6 +200,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->polarFSInstanceId) {
             $res['PolarFSInstanceId'] = $this->polarFSInstanceId;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->regionId) {
@@ -233,6 +253,10 @@ class CreateApplicationRequest extends Model
             $model->autoRenew = $map['AutoRenew'];
         }
 
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
@@ -277,6 +301,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['PolarFSInstanceId'])) {
             $model->polarFSInstanceId = $map['PolarFSInstanceId'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {

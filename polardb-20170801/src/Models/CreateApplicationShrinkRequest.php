@@ -24,6 +24,11 @@ class CreateApplicationShrinkRequest extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @var string
      */
     public $componentsShrink;
@@ -66,6 +71,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -96,6 +106,7 @@ class CreateApplicationShrinkRequest extends Model
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
         'componentsShrink' => 'Components',
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
@@ -104,6 +115,7 @@ class CreateApplicationShrinkRequest extends Model
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
+        'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'usedTime' => 'UsedTime',
@@ -130,6 +142,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
 
         if (null !== $this->componentsShrink) {
@@ -162,6 +178,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->polarFSInstanceId) {
             $res['PolarFSInstanceId'] = $this->polarFSInstanceId;
+        }
+
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->regionId) {
@@ -211,6 +231,10 @@ class CreateApplicationShrinkRequest extends Model
             $model->autoRenew = $map['AutoRenew'];
         }
 
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
         if (isset($map['Components'])) {
             $model->componentsShrink = $map['Components'];
         }
@@ -241,6 +265,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['PolarFSInstanceId'])) {
             $model->polarFSInstanceId = $map['PolarFSInstanceId'];
+        }
+
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {
