@@ -19,12 +19,18 @@ class ModifyEmgVulSubmitRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $userAgreement;
     protected $_name = [
         'lang' => 'Lang',
         'name' => 'Name',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'userAgreement' => 'UserAgreement',
     ];
 
@@ -42,6 +48,10 @@ class ModifyEmgVulSubmitRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->userAgreement) {
@@ -65,6 +75,10 @@ class ModifyEmgVulSubmitRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['UserAgreement'])) {

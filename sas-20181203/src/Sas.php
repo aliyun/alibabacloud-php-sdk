@@ -408,6 +408,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorAccountAKListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorAccountAKListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorProductTemplateConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorProductTemplateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorTrialConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudVendorTrialConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterBasicInfoRequest;
@@ -16019,6 +16021,67 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 获取厂商云产品接入模板
+     *
+     * @param request - DescribeCloudVendorProductTemplateConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudVendorProductTemplateConfigResponse
+     *
+     * @param DescribeCloudVendorProductTemplateConfigRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeCloudVendorProductTemplateConfigResponse
+     */
+    public function describeCloudVendorProductTemplateConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->vendor) {
+            @$query['Vendor'] = $request->vendor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudVendorProductTemplateConfig',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudVendorProductTemplateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取厂商云产品接入模板
+     *
+     * @param request - DescribeCloudVendorProductTemplateConfigRequest
+     *
+     * @returns DescribeCloudVendorProductTemplateConfigResponse
+     *
+     * @param DescribeCloudVendorProductTemplateConfigRequest $request
+     *
+     * @return DescribeCloudVendorProductTemplateConfigResponse
+     */
+    public function describeCloudVendorProductTemplateConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudVendorProductTemplateConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Query the trail configuration attributes of the corresponding AK configuration.
      *
      * @param request - DescribeCloudVendorTrialConfigRequest
@@ -19243,6 +19306,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->riskStatus) {
@@ -53487,6 +53554,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->userAgreement) {

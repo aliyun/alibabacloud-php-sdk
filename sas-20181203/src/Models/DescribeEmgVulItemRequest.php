@@ -29,6 +29,11 @@ class DescribeEmgVulItemRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $riskStatus;
@@ -47,6 +52,7 @@ class DescribeEmgVulItemRequest extends Model
         'currentPage' => 'CurrentPage',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'riskStatus' => 'RiskStatus',
         'scanType' => 'ScanType',
         'vulName' => 'VulName',
@@ -74,6 +80,10 @@ class DescribeEmgVulItemRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->riskStatus) {
@@ -113,6 +123,10 @@ class DescribeEmgVulItemRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RiskStatus'])) {
