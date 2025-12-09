@@ -293,6 +293,9 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingServerRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingServerResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingServerShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RecoverRenderingDataPackageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RecoverRenderingDataPackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RefreshRenderingInstanceStreamingRequest;
@@ -10182,6 +10185,69 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootRenderingInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 云应用服务实例主机重启.
+     *
+     * @param tmpReq - RebootRenderingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebootRenderingServerResponse
+     *
+     * @param RebootRenderingServerRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RebootRenderingServerResponse
+     */
+    public function rebootRenderingServerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RebootRenderingServerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RebootRenderingServer',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RebootRenderingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 云应用服务实例主机重启.
+     *
+     * @param request - RebootRenderingServerRequest
+     *
+     * @returns RebootRenderingServerResponse
+     *
+     * @param RebootRenderingServerRequest $request
+     *
+     * @return RebootRenderingServerResponse
+     */
+    public function rebootRenderingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootRenderingServerWithOptions($request, $runtime);
     }
 
     /**
