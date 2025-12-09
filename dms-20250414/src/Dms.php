@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseShrinkRequest;
@@ -40,6 +43,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
@@ -569,6 +574,85 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAirflowLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateDataAgentSession.
+     *
+     * @param tmpReq - CreateDataAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentSessionResponse
+     *
+     * @param CreateDataAgentSessionRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataAgentSessionResponse
+     */
+    public function createDataAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDataAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sessionConfig) {
+            $request->sessionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionConfig, 'SessionConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->file) {
+            @$query['File'] = $request->file;
+        }
+
+        if (null !== $request->sessionConfigShrink) {
+            @$query['SessionConfig'] = $request->sessionConfigShrink;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentSession',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateDataAgentSession.
+     *
+     * @param request - CreateDataAgentSessionRequest
+     *
+     * @returns CreateDataAgentSessionResponse
+     *
+     * @param CreateDataAgentSessionRequest $request
+     *
+     * @return CreateDataAgentSessionResponse
+     */
+    public function createDataAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -1278,6 +1362,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeDataAgentSession.
+     *
+     * @param request - DescribeDataAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataAgentSessionResponse
+     *
+     * @param DescribeDataAgentSessionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDataAgentSessionResponse
+     */
+    public function describeDataAgentSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataAgentSession',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeDataAgentSession.
+     *
+     * @param request - DescribeDataAgentSessionRequest
+     *
+     * @returns DescribeDataAgentSessionResponse
+     *
+     * @param DescribeDataAgentSessionRequest $request
+     *
+     * @return DescribeDataAgentSessionResponse
+     */
+    public function describeDataAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataAgentSessionWithOptions($request, $runtime);
     }
 
     /**
