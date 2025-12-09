@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ContainerConfiguration extends Model
 {
     /**
+     * @var string
+     */
+    public $acrInstanceId;
+
+    /**
      * @var string[]
      */
     public $command;
@@ -17,9 +22,16 @@ class ContainerConfiguration extends Model
      * @var string
      */
     public $image;
+
+    /**
+     * @var string
+     */
+    public $imageRegistryType;
     protected $_name = [
+        'acrInstanceId' => 'acrInstanceId',
         'command' => 'command',
         'image' => 'image',
+        'imageRegistryType' => 'imageRegistryType',
     ];
 
     public function validate()
@@ -33,6 +45,10 @@ class ContainerConfiguration extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->acrInstanceId) {
+            $res['acrInstanceId'] = $this->acrInstanceId;
+        }
+
         if (null !== $this->command) {
             if (\is_array($this->command)) {
                 $res['command'] = [];
@@ -48,6 +64,10 @@ class ContainerConfiguration extends Model
             $res['image'] = $this->image;
         }
 
+        if (null !== $this->imageRegistryType) {
+            $res['imageRegistryType'] = $this->imageRegistryType;
+        }
+
         return $res;
     }
 
@@ -59,6 +79,10 @@ class ContainerConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['acrInstanceId'])) {
+            $model->acrInstanceId = $map['acrInstanceId'];
+        }
+
         if (isset($map['command'])) {
             if (!empty($map['command'])) {
                 $model->command = [];
@@ -72,6 +96,10 @@ class ContainerConfiguration extends Model
 
         if (isset($map['image'])) {
             $model->image = $map['image'];
+        }
+
+        if (isset($map['imageRegistryType'])) {
+            $model->imageRegistryType = $map['imageRegistryType'];
         }
 
         return $model;

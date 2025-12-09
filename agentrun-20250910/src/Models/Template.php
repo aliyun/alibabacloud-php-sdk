@@ -41,7 +41,7 @@ class Template extends Model
     public $diskSize;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $environmentVariables;
 
@@ -116,7 +116,7 @@ class Template extends Model
     public $templateArn;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $templateConfiguration;
 
@@ -176,6 +176,9 @@ class Template extends Model
         if (null !== $this->credentialConfiguration) {
             $this->credentialConfiguration->validate();
         }
+        if (\is_array($this->environmentVariables)) {
+            Model::validateArray($this->environmentVariables);
+        }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
@@ -190,6 +193,9 @@ class Template extends Model
         }
         if (\is_array($this->ossConfiguration)) {
             Model::validateArray($this->ossConfiguration);
+        }
+        if (\is_array($this->templateConfiguration)) {
+            Model::validateArray($this->templateConfiguration);
         }
         parent::validate();
     }
@@ -222,7 +228,12 @@ class Template extends Model
         }
 
         if (null !== $this->environmentVariables) {
-            $res['environmentVariables'] = $this->environmentVariables;
+            if (\is_array($this->environmentVariables)) {
+                $res['environmentVariables'] = [];
+                foreach ($this->environmentVariables as $key1 => $value1) {
+                    $res['environmentVariables'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->executionRoleArn) {
@@ -289,7 +300,12 @@ class Template extends Model
         }
 
         if (null !== $this->templateConfiguration) {
-            $res['templateConfiguration'] = $this->templateConfiguration;
+            if (\is_array($this->templateConfiguration)) {
+                $res['templateConfiguration'] = [];
+                foreach ($this->templateConfiguration as $key1 => $value1) {
+                    $res['templateConfiguration'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->templateId) {
@@ -344,7 +360,12 @@ class Template extends Model
         }
 
         if (isset($map['environmentVariables'])) {
-            $model->environmentVariables = $map['environmentVariables'];
+            if (!empty($map['environmentVariables'])) {
+                $model->environmentVariables = [];
+                foreach ($map['environmentVariables'] as $key1 => $value1) {
+                    $model->environmentVariables[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['executionRoleArn'])) {
@@ -411,7 +432,12 @@ class Template extends Model
         }
 
         if (isset($map['templateConfiguration'])) {
-            $model->templateConfiguration = $map['templateConfiguration'];
+            if (!empty($map['templateConfiguration'])) {
+                $model->templateConfiguration = [];
+                foreach ($map['templateConfiguration'] as $key1 => $value1) {
+                    $model->templateConfiguration[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['templateId'])) {

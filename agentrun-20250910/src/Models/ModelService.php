@@ -29,14 +29,14 @@ class ModelService extends Model
     public $lastUpdatedAt;
 
     /**
-     * @var string
-     */
-    public $modeServiceId;
-
-    /**
      * @var ModelInfoConfig[]
      */
     public $modelInfoConfigs;
+
+    /**
+     * @var string
+     */
+    public $modelServiceId;
 
     /**
      * @var string
@@ -77,8 +77,8 @@ class ModelService extends Model
         'credentialName' => 'credentialName',
         'description' => 'description',
         'lastUpdatedAt' => 'lastUpdatedAt',
-        'modeServiceId' => 'modeServiceId',
         'modelInfoConfigs' => 'modelInfoConfigs',
+        'modelServiceId' => 'modelServiceId',
         'modelServiceName' => 'modelServiceName',
         'modelType' => 'modelType',
         'networkConfiguration' => 'networkConfiguration',
@@ -121,10 +121,6 @@ class ModelService extends Model
             $res['lastUpdatedAt'] = $this->lastUpdatedAt;
         }
 
-        if (null !== $this->modeServiceId) {
-            $res['modeServiceId'] = $this->modeServiceId;
-        }
-
         if (null !== $this->modelInfoConfigs) {
             if (\is_array($this->modelInfoConfigs)) {
                 $res['modelInfoConfigs'] = [];
@@ -134,6 +130,10 @@ class ModelService extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->modelServiceId) {
+            $res['modelServiceId'] = $this->modelServiceId;
         }
 
         if (null !== $this->modelServiceName) {
@@ -191,10 +191,6 @@ class ModelService extends Model
             $model->lastUpdatedAt = $map['lastUpdatedAt'];
         }
 
-        if (isset($map['modeServiceId'])) {
-            $model->modeServiceId = $map['modeServiceId'];
-        }
-
         if (isset($map['modelInfoConfigs'])) {
             if (!empty($map['modelInfoConfigs'])) {
                 $model->modelInfoConfigs = [];
@@ -204,6 +200,10 @@ class ModelService extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['modelServiceId'])) {
+            $model->modelServiceId = $map['modelServiceId'];
         }
 
         if (isset($map['modelServiceName'])) {
