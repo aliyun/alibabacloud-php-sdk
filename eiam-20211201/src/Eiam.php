@@ -366,6 +366,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandRequest;
@@ -12646,6 +12648,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新模板应用的SSO参数.
+     *
+     * @param request - UpdateApplicationSsoFormParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationSsoFormParamsResponse
+     *
+     * @param UpdateApplicationSsoFormParamsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateApplicationSsoFormParamsResponse
+     */
+    public function updateApplicationSsoFormParamsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTemplateParams) {
+            @$query['ApplicationTemplateParams'] = $request->applicationTemplateParams;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationSsoFormParams',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationSsoFormParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模板应用的SSO参数.
+     *
+     * @param request - UpdateApplicationSsoFormParamsRequest
+     *
+     * @returns UpdateApplicationSsoFormParamsResponse
+     *
+     * @param UpdateApplicationSsoFormParamsRequest $request
+     *
+     * @return UpdateApplicationSsoFormParamsResponse
+     */
+    public function updateApplicationSsoFormParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationSsoFormParamsWithOptions($request, $runtime);
     }
 
     /**
