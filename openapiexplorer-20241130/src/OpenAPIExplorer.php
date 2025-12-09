@@ -18,6 +18,7 @@ use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiDefinitionRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiDefinitionResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiMcpServerRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiMcpServerResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiMcpServerUserConfigResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetErrorCodeSolutionsRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetErrorCodeSolutionsResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetOwnRequestLogRequest;
@@ -34,6 +35,8 @@ use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServerSystemTool
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServerSystemToolsResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerUserConfigRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerUserConfigResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -44,7 +47,11 @@ class OpenAPIExplorer extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'central';
+        $this->_endpointMap = [
+            'ap-southeast-1' => 'openapi-mcp.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou' => 'openapi-mcp.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('openapiexplorer', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -181,6 +188,10 @@ class OpenAPIExplorer extends OpenApiClient
             @$body['enableAssumeRole'] = $request->enableAssumeRole;
         }
 
+        if (null !== $request->enableCustomVpcWhitelist) {
+            @$body['enableCustomVpcWhitelist'] = $request->enableCustomVpcWhitelist;
+        }
+
         if (null !== $request->instructions) {
             @$body['instructions'] = $request->instructions;
         }
@@ -201,12 +212,20 @@ class OpenAPIExplorer extends OpenApiClient
             @$body['prompts'] = $request->prompts;
         }
 
+        if (null !== $request->publicAccess) {
+            @$body['publicAccess'] = $request->publicAccess;
+        }
+
         if (null !== $request->systemTools) {
             @$body['systemTools'] = $request->systemTools;
         }
 
         if (null !== $request->terraformTools) {
             @$body['terraformTools'] = $request->terraformTools;
+        }
+
+        if (null !== $request->vpcWhitelists) {
+            @$body['vpcWhitelists'] = $request->vpcWhitelists;
         }
 
         $req = new OpenApiRequest([
@@ -347,6 +366,10 @@ class OpenAPIExplorer extends OpenApiClient
 
         if (null !== $request->apiVersion) {
             @$body['apiVersion'] = $request->apiVersion;
+        }
+
+        if (null !== $request->jsonApiParams) {
+            @$body['jsonApiParams'] = $request->jsonApiParams;
         }
 
         if (null !== $request->product) {
@@ -523,6 +546,54 @@ class OpenAPIExplorer extends OpenApiClient
         $headers = [];
 
         return $this->getApiMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询用户全局API MCP Server配置.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiMcpServerUserConfigResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetApiMcpServerUserConfigResponse
+     */
+    public function getApiMcpServerUserConfigWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetApiMcpServerUserConfig',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/userconfig/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiMcpServerUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户全局API MCP Server配置.
+     *
+     * @returns GetApiMcpServerUserConfigResponse
+     *
+     * @return GetApiMcpServerUserConfigResponse
+     */
+    public function getApiMcpServerUserConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiMcpServerUserConfigWithOptions($headers, $runtime);
     }
 
     /**
@@ -1082,6 +1153,10 @@ class OpenAPIExplorer extends OpenApiClient
             @$body['enableAssumeRole'] = $request->enableAssumeRole;
         }
 
+        if (null !== $request->enableCustomVpcWhitelist) {
+            @$body['enableCustomVpcWhitelist'] = $request->enableCustomVpcWhitelist;
+        }
+
         if (null !== $request->instructions) {
             @$body['instructions'] = $request->instructions;
         }
@@ -1098,12 +1173,20 @@ class OpenAPIExplorer extends OpenApiClient
             @$body['prompts'] = $request->prompts;
         }
 
+        if (null !== $request->publicAccess) {
+            @$body['publicAccess'] = $request->publicAccess;
+        }
+
         if (null !== $request->systemTools) {
             @$body['systemTools'] = $request->systemTools;
         }
 
         if (null !== $request->terraformTools) {
             @$body['terraformTools'] = $request->terraformTools;
+        }
+
+        if (null !== $request->vpcWhitelists) {
+            @$body['vpcWhitelists'] = $request->vpcWhitelists;
         }
 
         $req = new OpenApiRequest([
@@ -1143,5 +1226,70 @@ class OpenAPIExplorer extends OpenApiClient
         $headers = [];
 
         return $this->updateApiMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改用户全局API MCP Server配置.
+     *
+     * @param request - UpdateApiMcpServerUserConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApiMcpServerUserConfigResponse
+     *
+     * @param UpdateApiMcpServerUserConfigRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApiMcpServerUserConfigResponse
+     */
+    public function updateApiMcpServerUserConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enablePublicAccess) {
+            @$body['enablePublicAccess'] = $request->enablePublicAccess;
+        }
+
+        if (null !== $request->vpcWhitelists) {
+            @$body['vpcWhitelists'] = $request->vpcWhitelists;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApiMcpServerUserConfig',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/userconfig/update',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApiMcpServerUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改用户全局API MCP Server配置.
+     *
+     * @param request - UpdateApiMcpServerUserConfigRequest
+     *
+     * @returns UpdateApiMcpServerUserConfigResponse
+     *
+     * @param UpdateApiMcpServerUserConfigRequest $request
+     *
+     * @return UpdateApiMcpServerUserConfigResponse
+     */
+    public function updateApiMcpServerUserConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApiMcpServerUserConfigWithOptions($request, $headers, $runtime);
     }
 }

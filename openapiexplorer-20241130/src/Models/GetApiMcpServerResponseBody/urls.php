@@ -17,9 +17,21 @@ class urls extends Model
      * @var string
      */
     public $sse;
+
+    /**
+     * @var string
+     */
+    public $vpcMcp;
+
+    /**
+     * @var string
+     */
+    public $vpcSse;
     protected $_name = [
         'mcp' => 'mcp',
         'sse' => 'sse',
+        'vpcMcp' => 'vpcMcp',
+        'vpcSse' => 'vpcSse',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class urls extends Model
 
         if (null !== $this->sse) {
             $res['sse'] = $this->sse;
+        }
+
+        if (null !== $this->vpcMcp) {
+            $res['vpcMcp'] = $this->vpcMcp;
+        }
+
+        if (null !== $this->vpcSse) {
+            $res['vpcSse'] = $this->vpcSse;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class urls extends Model
 
         if (isset($map['sse'])) {
             $model->sse = $map['sse'];
+        }
+
+        if (isset($map['vpcMcp'])) {
+            $model->vpcMcp = $map['vpcMcp'];
+        }
+
+        if (isset($map['vpcSse'])) {
+            $model->vpcSse = $map['vpcSse'];
         }
 
         return $model;

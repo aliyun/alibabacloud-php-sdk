@@ -43,6 +43,11 @@ class UpdateApiMcpServerRequest extends Model
     public $enableAssumeRole;
 
     /**
+     * @var bool
+     */
+    public $enableCustomVpcWhitelist;
+
+    /**
      * @var string
      */
     public $instructions;
@@ -63,6 +68,11 @@ class UpdateApiMcpServerRequest extends Model
     public $prompts;
 
     /**
+     * @var string
+     */
+    public $publicAccess;
+
+    /**
      * @var string[]
      */
     public $systemTools;
@@ -71,6 +81,11 @@ class UpdateApiMcpServerRequest extends Model
      * @var terraformTools[]
      */
     public $terraformTools;
+
+    /**
+     * @var string[]
+     */
+    public $vpcWhitelists;
 
     /**
      * @var string
@@ -88,12 +103,15 @@ class UpdateApiMcpServerRequest extends Model
         'assumeRoleName' => 'assumeRoleName',
         'description' => 'description',
         'enableAssumeRole' => 'enableAssumeRole',
+        'enableCustomVpcWhitelist' => 'enableCustomVpcWhitelist',
         'instructions' => 'instructions',
         'language' => 'language',
         'oauthClientId' => 'oauthClientId',
         'prompts' => 'prompts',
+        'publicAccess' => 'publicAccess',
         'systemTools' => 'systemTools',
         'terraformTools' => 'terraformTools',
+        'vpcWhitelists' => 'vpcWhitelists',
         'clientToken' => 'clientToken',
         'id' => 'id',
     ];
@@ -114,6 +132,9 @@ class UpdateApiMcpServerRequest extends Model
         }
         if (\is_array($this->terraformTools)) {
             Model::validateArray($this->terraformTools);
+        }
+        if (\is_array($this->vpcWhitelists)) {
+            Model::validateArray($this->vpcWhitelists);
         }
         parent::validate();
     }
@@ -159,6 +180,10 @@ class UpdateApiMcpServerRequest extends Model
             $res['enableAssumeRole'] = $this->enableAssumeRole;
         }
 
+        if (null !== $this->enableCustomVpcWhitelist) {
+            $res['enableCustomVpcWhitelist'] = $this->enableCustomVpcWhitelist;
+        }
+
         if (null !== $this->instructions) {
             $res['instructions'] = $this->instructions;
         }
@@ -182,6 +207,10 @@ class UpdateApiMcpServerRequest extends Model
             }
         }
 
+        if (null !== $this->publicAccess) {
+            $res['publicAccess'] = $this->publicAccess;
+        }
+
         if (null !== $this->systemTools) {
             if (\is_array($this->systemTools)) {
                 $res['systemTools'] = [];
@@ -199,6 +228,17 @@ class UpdateApiMcpServerRequest extends Model
                 $n1 = 0;
                 foreach ($this->terraformTools as $item1) {
                     $res['terraformTools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->vpcWhitelists) {
+            if (\is_array($this->vpcWhitelists)) {
+                $res['vpcWhitelists'] = [];
+                $n1 = 0;
+                foreach ($this->vpcWhitelists as $item1) {
+                    $res['vpcWhitelists'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -261,6 +301,10 @@ class UpdateApiMcpServerRequest extends Model
             $model->enableAssumeRole = $map['enableAssumeRole'];
         }
 
+        if (isset($map['enableCustomVpcWhitelist'])) {
+            $model->enableCustomVpcWhitelist = $map['enableCustomVpcWhitelist'];
+        }
+
         if (isset($map['instructions'])) {
             $model->instructions = $map['instructions'];
         }
@@ -284,6 +328,10 @@ class UpdateApiMcpServerRequest extends Model
             }
         }
 
+        if (isset($map['publicAccess'])) {
+            $model->publicAccess = $map['publicAccess'];
+        }
+
         if (isset($map['systemTools'])) {
             if (!empty($map['systemTools'])) {
                 $model->systemTools = [];
@@ -301,6 +349,17 @@ class UpdateApiMcpServerRequest extends Model
                 $n1 = 0;
                 foreach ($map['terraformTools'] as $item1) {
                     $model->terraformTools[$n1] = terraformTools::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['vpcWhitelists'])) {
+            if (!empty($map['vpcWhitelists'])) {
+                $model->vpcWhitelists = [];
+                $n1 = 0;
+                foreach ($map['vpcWhitelists'] as $item1) {
+                    $model->vpcWhitelists[$n1] = $item1;
                     ++$n1;
                 }
             }

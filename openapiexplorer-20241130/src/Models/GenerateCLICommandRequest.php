@@ -26,6 +26,11 @@ class GenerateCLICommandRequest extends Model
     /**
      * @var string
      */
+    public $jsonApiParams;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -36,6 +41,7 @@ class GenerateCLICommandRequest extends Model
         'api' => 'api',
         'apiParams' => 'apiParams',
         'apiVersion' => 'apiVersion',
+        'jsonApiParams' => 'jsonApiParams',
         'product' => 'product',
         'regionId' => 'regionId',
     ];
@@ -66,6 +72,10 @@ class GenerateCLICommandRequest extends Model
 
         if (null !== $this->apiVersion) {
             $res['apiVersion'] = $this->apiVersion;
+        }
+
+        if (null !== $this->jsonApiParams) {
+            $res['jsonApiParams'] = $this->jsonApiParams;
         }
 
         if (null !== $this->product) {
@@ -102,6 +112,10 @@ class GenerateCLICommandRequest extends Model
 
         if (isset($map['apiVersion'])) {
             $model->apiVersion = $map['apiVersion'];
+        }
+
+        if (isset($map['jsonApiParams'])) {
+            $model->jsonApiParams = $map['jsonApiParams'];
         }
 
         if (isset($map['product'])) {

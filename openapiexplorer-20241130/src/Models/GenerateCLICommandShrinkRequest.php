@@ -26,6 +26,11 @@ class GenerateCLICommandShrinkRequest extends Model
     /**
      * @var string
      */
+    public $jsonApiParams;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -36,6 +41,7 @@ class GenerateCLICommandShrinkRequest extends Model
         'api' => 'api',
         'apiParamsShrink' => 'apiParams',
         'apiVersion' => 'apiVersion',
+        'jsonApiParams' => 'jsonApiParams',
         'product' => 'product',
         'regionId' => 'regionId',
     ];
@@ -58,6 +64,10 @@ class GenerateCLICommandShrinkRequest extends Model
 
         if (null !== $this->apiVersion) {
             $res['apiVersion'] = $this->apiVersion;
+        }
+
+        if (null !== $this->jsonApiParams) {
+            $res['jsonApiParams'] = $this->jsonApiParams;
         }
 
         if (null !== $this->product) {
@@ -89,6 +99,10 @@ class GenerateCLICommandShrinkRequest extends Model
 
         if (isset($map['apiVersion'])) {
             $model->apiVersion = $map['apiVersion'];
+        }
+
+        if (isset($map['jsonApiParams'])) {
+            $model->jsonApiParams = $map['jsonApiParams'];
         }
 
         if (isset($map['product'])) {

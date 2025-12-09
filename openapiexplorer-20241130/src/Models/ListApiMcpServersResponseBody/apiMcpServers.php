@@ -50,6 +50,11 @@ class apiMcpServers extends Model
     public $enableAssumeRole;
 
     /**
+     * @var bool
+     */
+    public $enableCustomVpcWhitelist;
+
+    /**
      * @var string
      */
     public $id;
@@ -82,6 +87,11 @@ class apiMcpServers extends Model
     /**
      * @var string
      */
+    public $publicAccess;
+
+    /**
+     * @var string
+     */
     public $sourceType;
 
     /**
@@ -108,6 +118,11 @@ class apiMcpServers extends Model
      * @var urls
      */
     public $urls;
+
+    /**
+     * @var string[]
+     */
+    public $vpcWhitelists;
     protected $_name = [
         'additionalApiDescriptions' => 'additionalApiDescriptions',
         'apis' => 'apis',
@@ -116,18 +131,21 @@ class apiMcpServers extends Model
         'createTime' => 'createTime',
         'description' => 'description',
         'enableAssumeRole' => 'enableAssumeRole',
+        'enableCustomVpcWhitelist' => 'enableCustomVpcWhitelist',
         'id' => 'id',
         'instructions' => 'instructions',
         'language' => 'language',
         'name' => 'name',
         'oauthClientId' => 'oauthClientId',
         'prompts' => 'prompts',
+        'publicAccess' => 'publicAccess',
         'sourceType' => 'sourceType',
         'systemMcpServerInfo' => 'systemMcpServerInfo',
         'systemTools' => 'systemTools',
         'terraformTools' => 'terraformTools',
         'updateTime' => 'updateTime',
         'urls' => 'urls',
+        'vpcWhitelists' => 'vpcWhitelists',
     ];
 
     public function validate()
@@ -152,6 +170,9 @@ class apiMcpServers extends Model
         }
         if (null !== $this->urls) {
             $this->urls->validate();
+        }
+        if (\is_array($this->vpcWhitelists)) {
+            Model::validateArray($this->vpcWhitelists);
         }
         parent::validate();
     }
@@ -201,6 +222,10 @@ class apiMcpServers extends Model
             $res['enableAssumeRole'] = $this->enableAssumeRole;
         }
 
+        if (null !== $this->enableCustomVpcWhitelist) {
+            $res['enableCustomVpcWhitelist'] = $this->enableCustomVpcWhitelist;
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -230,6 +255,10 @@ class apiMcpServers extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->publicAccess) {
+            $res['publicAccess'] = $this->publicAccess;
         }
 
         if (null !== $this->sourceType) {
@@ -268,6 +297,17 @@ class apiMcpServers extends Model
 
         if (null !== $this->urls) {
             $res['urls'] = null !== $this->urls ? $this->urls->toArray($noStream) : $this->urls;
+        }
+
+        if (null !== $this->vpcWhitelists) {
+            if (\is_array($this->vpcWhitelists)) {
+                $res['vpcWhitelists'] = [];
+                $n1 = 0;
+                foreach ($this->vpcWhitelists as $item1) {
+                    $res['vpcWhitelists'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -323,6 +363,10 @@ class apiMcpServers extends Model
             $model->enableAssumeRole = $map['enableAssumeRole'];
         }
 
+        if (isset($map['enableCustomVpcWhitelist'])) {
+            $model->enableCustomVpcWhitelist = $map['enableCustomVpcWhitelist'];
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
@@ -352,6 +396,10 @@ class apiMcpServers extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['publicAccess'])) {
+            $model->publicAccess = $map['publicAccess'];
         }
 
         if (isset($map['sourceType'])) {
@@ -390,6 +438,17 @@ class apiMcpServers extends Model
 
         if (isset($map['urls'])) {
             $model->urls = urls::fromMap($map['urls']);
+        }
+
+        if (isset($map['vpcWhitelists'])) {
+            if (!empty($map['vpcWhitelists'])) {
+                $model->vpcWhitelists = [];
+                $n1 = 0;
+                foreach ($map['vpcWhitelists'] as $item1) {
+                    $model->vpcWhitelists[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
