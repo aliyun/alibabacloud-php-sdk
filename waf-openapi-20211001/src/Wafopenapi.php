@@ -120,6 +120,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotRuleLabelsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotRuleLabelsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
@@ -5171,6 +5173,87 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBaseSystemRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页获取Bot管理规则标签信息.
+     *
+     * @param request - DescribeBotRuleLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBotRuleLabelsResponse
+     *
+     * @param DescribeBotRuleLabelsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBotRuleLabelsResponse
+     */
+    public function describeBotRuleLabelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->labelType) {
+            @$query['LabelType'] = $request->labelType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->subScene) {
+            @$query['SubScene'] = $request->subScene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBotRuleLabels',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBotRuleLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页获取Bot管理规则标签信息.
+     *
+     * @param request - DescribeBotRuleLabelsRequest
+     *
+     * @returns DescribeBotRuleLabelsResponse
+     *
+     * @param DescribeBotRuleLabelsRequest $request
+     *
+     * @return DescribeBotRuleLabelsResponse
+     */
+    public function describeBotRuleLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBotRuleLabelsWithOptions($request, $runtime);
     }
 
     /**

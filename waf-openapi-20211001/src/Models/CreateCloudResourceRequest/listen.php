@@ -57,6 +57,11 @@ class listen extends Model
     /**
      * @var string
      */
+    public $resourceRegionId;
+
+    /**
+     * @var string
+     */
     public $TLSVersion;
     protected $_name = [
         'certificates' => 'Certificates',
@@ -68,6 +73,7 @@ class listen extends Model
         'protocol' => 'Protocol',
         'resourceInstanceId' => 'ResourceInstanceId',
         'resourceProduct' => 'ResourceProduct',
+        'resourceRegionId' => 'ResourceRegionId',
         'TLSVersion' => 'TLSVersion',
     ];
 
@@ -135,6 +141,10 @@ class listen extends Model
             $res['ResourceProduct'] = $this->resourceProduct;
         }
 
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
+        }
+
         if (null !== $this->TLSVersion) {
             $res['TLSVersion'] = $this->TLSVersion;
         }
@@ -198,6 +208,10 @@ class listen extends Model
 
         if (isset($map['ResourceProduct'])) {
             $model->resourceProduct = $map['ResourceProduct'];
+        }
+
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
         }
 
         if (isset($map['TLSVersion'])) {
