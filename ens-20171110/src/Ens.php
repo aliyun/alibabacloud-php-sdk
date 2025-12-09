@@ -58,6 +58,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
@@ -2341,26 +2342,88 @@ class Ens extends OpenApiClient
      *   You can call this operation up to 10 times per second per account.
      * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
      *
-     * @param request - CreateClusterRequest
+     * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateClusterResponse
      *
-     * @param CreateClusterRequest $request
+     * @param CreateClusterRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return CreateClusterResponse
      */
-    public function createClusterWithOptions($request, $runtime)
+    public function createClusterWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateClusterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->controlPlaneConfig) {
+            $request->controlPlaneConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->controlPlaneConfig, 'ControlPlaneConfig', 'json');
+        }
+
+        if (null !== $tmpReq->podVswitchIds) {
+            $request->podVswitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->podVswitchIds, 'PodVswitchIds', 'json');
+        }
+
+        if (null !== $tmpReq->vswitchIds) {
+            $request->vswitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vswitchIds, 'VswitchIds', 'json');
+        }
+
         $query = [];
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
+        }
+
         if (null !== $request->clusterVersion) {
             @$query['ClusterVersion'] = $request->clusterVersion;
         }
 
+        if (null !== $request->containerCidr) {
+            @$query['ContainerCidr'] = $request->containerCidr;
+        }
+
+        if (null !== $request->controlPlaneConfigShrink) {
+            @$query['ControlPlaneConfig'] = $request->controlPlaneConfigShrink;
+        }
+
+        if (null !== $request->ensRegionId) {
+            @$query['EnsRegionId'] = $request->ensRegionId;
+        }
+
+        if (null !== $request->kubernetesVersion) {
+            @$query['KubernetesVersion'] = $request->kubernetesVersion;
+        }
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->podVswitchIdsShrink) {
+            @$query['PodVswitchIds'] = $request->podVswitchIdsShrink;
+        }
+
+        if (null !== $request->profile) {
+            @$query['Profile'] = $request->profile;
+        }
+
+        if (null !== $request->publicAccess) {
+            @$query['PublicAccess'] = $request->publicAccess;
+        }
+
+        if (null !== $request->serviceCidr) {
+            @$query['ServiceCidr'] = $request->serviceCidr;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchIdsShrink) {
+            @$query['VswitchIds'] = $request->vswitchIdsShrink;
         }
 
         $req = new OpenApiRequest([

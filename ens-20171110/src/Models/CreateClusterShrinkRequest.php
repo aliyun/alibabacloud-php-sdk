@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterRequest\controlPlaneConfig;
 
-class CreateClusterRequest extends Model
+class CreateClusterShrinkRequest extends Model
 {
     /**
      * @var string
@@ -25,9 +24,9 @@ class CreateClusterRequest extends Model
     public $containerCidr;
 
     /**
-     * @var controlPlaneConfig
+     * @var string
      */
-    public $controlPlaneConfig;
+    public $controlPlaneConfigShrink;
 
     /**
      * @var string
@@ -50,9 +49,9 @@ class CreateClusterRequest extends Model
     public $name;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $podVswitchIds;
+    public $podVswitchIdsShrink;
 
     /**
      * @var string
@@ -75,37 +74,28 @@ class CreateClusterRequest extends Model
     public $vpcId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $vswitchIds;
+    public $vswitchIdsShrink;
     protected $_name = [
         'clusterType' => 'ClusterType',
         'clusterVersion' => 'ClusterVersion',
         'containerCidr' => 'ContainerCidr',
-        'controlPlaneConfig' => 'ControlPlaneConfig',
+        'controlPlaneConfigShrink' => 'ControlPlaneConfig',
         'ensRegionId' => 'EnsRegionId',
         'kubernetesVersion' => 'KubernetesVersion',
         'loadBalancerId' => 'LoadBalancerId',
         'name' => 'Name',
-        'podVswitchIds' => 'PodVswitchIds',
+        'podVswitchIdsShrink' => 'PodVswitchIds',
         'profile' => 'Profile',
         'publicAccess' => 'PublicAccess',
         'serviceCidr' => 'ServiceCidr',
         'vpcId' => 'VpcId',
-        'vswitchIds' => 'VswitchIds',
+        'vswitchIdsShrink' => 'VswitchIds',
     ];
 
     public function validate()
     {
-        if (null !== $this->controlPlaneConfig) {
-            $this->controlPlaneConfig->validate();
-        }
-        if (\is_array($this->podVswitchIds)) {
-            Model::validateArray($this->podVswitchIds);
-        }
-        if (\is_array($this->vswitchIds)) {
-            Model::validateArray($this->vswitchIds);
-        }
         parent::validate();
     }
 
@@ -124,8 +114,8 @@ class CreateClusterRequest extends Model
             $res['ContainerCidr'] = $this->containerCidr;
         }
 
-        if (null !== $this->controlPlaneConfig) {
-            $res['ControlPlaneConfig'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
+        if (null !== $this->controlPlaneConfigShrink) {
+            $res['ControlPlaneConfig'] = $this->controlPlaneConfigShrink;
         }
 
         if (null !== $this->ensRegionId) {
@@ -144,15 +134,8 @@ class CreateClusterRequest extends Model
             $res['Name'] = $this->name;
         }
 
-        if (null !== $this->podVswitchIds) {
-            if (\is_array($this->podVswitchIds)) {
-                $res['PodVswitchIds'] = [];
-                $n1 = 0;
-                foreach ($this->podVswitchIds as $item1) {
-                    $res['PodVswitchIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->podVswitchIdsShrink) {
+            $res['PodVswitchIds'] = $this->podVswitchIdsShrink;
         }
 
         if (null !== $this->profile) {
@@ -171,15 +154,8 @@ class CreateClusterRequest extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
-        if (null !== $this->vswitchIds) {
-            if (\is_array($this->vswitchIds)) {
-                $res['VswitchIds'] = [];
-                $n1 = 0;
-                foreach ($this->vswitchIds as $item1) {
-                    $res['VswitchIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->vswitchIdsShrink) {
+            $res['VswitchIds'] = $this->vswitchIdsShrink;
         }
 
         return $res;
@@ -206,7 +182,7 @@ class CreateClusterRequest extends Model
         }
 
         if (isset($map['ControlPlaneConfig'])) {
-            $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['ControlPlaneConfig']);
+            $model->controlPlaneConfigShrink = $map['ControlPlaneConfig'];
         }
 
         if (isset($map['EnsRegionId'])) {
@@ -226,14 +202,7 @@ class CreateClusterRequest extends Model
         }
 
         if (isset($map['PodVswitchIds'])) {
-            if (!empty($map['PodVswitchIds'])) {
-                $model->podVswitchIds = [];
-                $n1 = 0;
-                foreach ($map['PodVswitchIds'] as $item1) {
-                    $model->podVswitchIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->podVswitchIdsShrink = $map['PodVswitchIds'];
         }
 
         if (isset($map['Profile'])) {
@@ -253,14 +222,7 @@ class CreateClusterRequest extends Model
         }
 
         if (isset($map['VswitchIds'])) {
-            if (!empty($map['VswitchIds'])) {
-                $model->vswitchIds = [];
-                $n1 = 0;
-                foreach ($map['VswitchIds'] as $item1) {
-                    $model->vswitchIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->vswitchIdsShrink = $map['VswitchIds'];
         }
 
         return $model;
