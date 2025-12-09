@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeDatabaseRequest;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogRequest;
@@ -78,6 +82,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeDatabaseRequest;
@@ -1335,6 +1342,138 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * GetChatContent.
+     *
+     * @param request - GetChatContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatContentResponse
+     *
+     * @param GetChatContentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetChatContentResponse
+     */
+    public function getChatContentWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->checkpoint) {
+            @$query['Checkpoint'] = $request->checkpoint;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatContent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield GetChatContentResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * GetChatContent.
+     *
+     * @param request - GetChatContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatContentResponse
+     *
+     * @param GetChatContentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetChatContentResponse
+     */
+    public function getChatContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->checkpoint) {
+            @$query['Checkpoint'] = $request->checkpoint;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatContent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetChatContent.
+     *
+     * @param request - GetChatContentRequest
+     *
+     * @returns GetChatContentResponse
+     *
+     * @param GetChatContentRequest $request
+     *
+     * @return GetChatContentResponse
+     */
+    public function getChatContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatContentWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取uc的数据库目录.
      *
      * @param request - GetDataLakeCatalogRequest
@@ -1770,6 +1909,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNotebookAndSubmitTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看Notebook任务运行结果.
+     *
+     * @param request - GetNotebookTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotebookTaskStatusResponse
+     *
+     * @param GetNotebookTaskStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetNotebookTaskStatusResponse
+     */
+    public function getNotebookTaskStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNotebookTaskStatus',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotebookTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看Notebook任务运行结果.
+     *
+     * @param request - GetNotebookTaskStatusRequest
+     *
+     * @returns GetNotebookTaskStatusResponse
+     *
+     * @param GetNotebookTaskStatusRequest $request
+     *
+     * @return GetNotebookTaskStatusResponse
+     */
+    public function getNotebookTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNotebookTaskStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2659,6 +2863,109 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataLakeTablebaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * SendChatMessage.
+     *
+     * @param tmpReq - SendChatMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendChatMessageResponse
+     *
+     * @param SendChatMessageRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SendChatMessageResponse
+     */
+    public function sendChatMessageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SendChatMessageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
+
+        if (null !== $tmpReq->sessionConfig) {
+            $request->sessionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionConfig, 'SessionConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->dataSourceShrink) {
+            @$query['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
+        }
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
+        }
+
+        if (null !== $request->question) {
+            @$query['Question'] = $request->question;
+        }
+
+        if (null !== $request->quotedMessage) {
+            @$query['QuotedMessage'] = $request->quotedMessage;
+        }
+
+        if (null !== $request->replyTo) {
+            @$query['ReplyTo'] = $request->replyTo;
+        }
+
+        if (null !== $request->sessionConfigShrink) {
+            @$query['SessionConfig'] = $request->sessionConfigShrink;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendChatMessage',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SendChatMessage.
+     *
+     * @param request - SendChatMessageRequest
+     *
+     * @returns SendChatMessageResponse
+     *
+     * @param SendChatMessageRequest $request
+     *
+     * @return SendChatMessageResponse
+     */
+    public function sendChatMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendChatMessageWithOptions($request, $runtime);
     }
 
     /**
