@@ -1,3 +1,6 @@
+2025-12-09 Version: 3.0.2
+- Generated php 2020-10-28 for mPaaS.
+
 2025-12-08 Version: 3.0.1
 - Generated php 2020-10-28 for mPaaS.
 
