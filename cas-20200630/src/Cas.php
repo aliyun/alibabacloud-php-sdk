@@ -51,6 +51,14 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\ListPcaCaCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListPcaCaCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\MoveResourceGroupResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdatePcaCertificateRequest;
@@ -2241,6 +2249,294 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRevokeCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取资源对应的标签.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源对应的标签.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 变更资源的资源组.
+     *
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MoveResourceGroup',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变更资源的资源组.
+     *
+     * @param request - MoveResourceGroupRequest
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增资源标签.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增资源标签.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除标签.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除标签.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
