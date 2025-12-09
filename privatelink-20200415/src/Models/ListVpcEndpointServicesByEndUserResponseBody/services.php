@@ -15,6 +15,11 @@ class services extends Model
     public $addressIpVersion;
 
     /**
+     * @var bool
+     */
+    public $autoAcceptEnabled;
+
+    /**
      * @var string
      */
     public $payer;
@@ -62,6 +67,11 @@ class services extends Model
     /**
      * @var bool
      */
+    public $vpcEndpointPolicySupported;
+
+    /**
+     * @var bool
+     */
     public $zoneAffinityEnabled;
 
     /**
@@ -70,6 +80,7 @@ class services extends Model
     public $zones;
     protected $_name = [
         'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
         'payer' => 'Payer',
         'resourceGroupId' => 'ResourceGroupId',
         'serviceDomain' => 'ServiceDomain',
@@ -79,6 +90,7 @@ class services extends Model
         'serviceSupportIPv6' => 'ServiceSupportIPv6',
         'serviceType' => 'ServiceType',
         'tags' => 'Tags',
+        'vpcEndpointPolicySupported' => 'VpcEndpointPolicySupported',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
         'zones' => 'Zones',
     ];
@@ -99,6 +111,10 @@ class services extends Model
         $res = [];
         if (null !== $this->addressIpVersion) {
             $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
+
+        if (null !== $this->autoAcceptEnabled) {
+            $res['AutoAcceptEnabled'] = $this->autoAcceptEnabled;
         }
 
         if (null !== $this->payer) {
@@ -144,6 +160,10 @@ class services extends Model
             }
         }
 
+        if (null !== $this->vpcEndpointPolicySupported) {
+            $res['VpcEndpointPolicySupported'] = $this->vpcEndpointPolicySupported;
+        }
+
         if (null !== $this->zoneAffinityEnabled) {
             $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
         }
@@ -172,6 +192,10 @@ class services extends Model
         $model = new self();
         if (isset($map['AddressIpVersion'])) {
             $model->addressIpVersion = $map['AddressIpVersion'];
+        }
+
+        if (isset($map['AutoAcceptEnabled'])) {
+            $model->autoAcceptEnabled = $map['AutoAcceptEnabled'];
         }
 
         if (isset($map['Payer'])) {
@@ -215,6 +239,10 @@ class services extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcEndpointPolicySupported'])) {
+            $model->vpcEndpointPolicySupported = $map['VpcEndpointPolicySupported'];
         }
 
         if (isset($map['ZoneAffinityEnabled'])) {

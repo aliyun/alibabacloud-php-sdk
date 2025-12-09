@@ -51,6 +51,11 @@ class UpdateVpcEndpointAttributeRequest extends Model
     /**
      * @var bool
      */
+    public $resetPolicy;
+
+    /**
+     * @var bool
+     */
     public $zoneAffinityEnabled;
     protected $_name = [
         'addressIpVersion' => 'AddressIpVersion',
@@ -61,6 +66,7 @@ class UpdateVpcEndpointAttributeRequest extends Model
         'endpointName' => 'EndpointName',
         'policyDocument' => 'PolicyDocument',
         'regionId' => 'RegionId',
+        'resetPolicy' => 'ResetPolicy',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
@@ -102,6 +108,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resetPolicy) {
+            $res['ResetPolicy'] = $this->resetPolicy;
         }
 
         if (null !== $this->zoneAffinityEnabled) {
@@ -149,6 +159,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResetPolicy'])) {
+            $model->resetPolicy = $map['ResetPolicy'];
         }
 
         if (isset($map['ZoneAffinityEnabled'])) {

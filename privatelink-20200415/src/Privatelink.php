@@ -3122,6 +3122,10 @@ class Privatelink extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resetPolicy) {
+            @$query['ResetPolicy'] = $request->resetPolicy;
+        }
+
         if (null !== $request->zoneAffinityEnabled) {
             @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
         }
