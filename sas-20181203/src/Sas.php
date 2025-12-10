@@ -46094,6 +46094,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudAssetQueryData) {
+            @$query['CloudAssetQueryData'] = $request->cloudAssetQueryData;
+        }
+
         if (null !== $request->cloudAssetTypes) {
             @$query['CloudAssetTypes'] = $request->cloudAssetTypes;
         }

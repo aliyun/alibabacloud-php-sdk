@@ -20,6 +20,11 @@ class DescribeSecureSuggestionResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $score;
+
+    /**
      * @var suggestions[]
      */
     public $suggestions;
@@ -31,6 +36,7 @@ class DescribeSecureSuggestionResponseBody extends Model
     protected $_name = [
         'calTime' => 'CalTime',
         'requestId' => 'RequestId',
+        'score' => 'Score',
         'suggestions' => 'Suggestions',
         'totalCount' => 'TotalCount',
     ];
@@ -52,6 +58,10 @@ class DescribeSecureSuggestionResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         if (null !== $this->suggestions) {
@@ -86,6 +96,10 @@ class DescribeSecureSuggestionResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         if (isset($map['Suggestions'])) {

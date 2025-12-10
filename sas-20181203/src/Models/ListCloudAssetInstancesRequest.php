@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesRequest\cloudAssetQueryData;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesRequest\cloudAssetTypes;
 
 class ListCloudAssetInstancesRequest extends Model
 {
+    /**
+     * @var cloudAssetQueryData[]
+     */
+    public $cloudAssetQueryData;
+
     /**
      * @var cloudAssetTypes[]
      */
@@ -39,6 +45,7 @@ class ListCloudAssetInstancesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'cloudAssetQueryData' => 'CloudAssetQueryData',
         'cloudAssetTypes' => 'CloudAssetTypes',
         'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
@@ -49,6 +56,9 @@ class ListCloudAssetInstancesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->cloudAssetQueryData)) {
+            Model::validateArray($this->cloudAssetQueryData);
+        }
         if (\is_array($this->cloudAssetTypes)) {
             Model::validateArray($this->cloudAssetTypes);
         }
@@ -58,6 +68,17 @@ class ListCloudAssetInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudAssetQueryData) {
+            if (\is_array($this->cloudAssetQueryData)) {
+                $res['CloudAssetQueryData'] = [];
+                $n1 = 0;
+                foreach ($this->cloudAssetQueryData as $item1) {
+                    $res['CloudAssetQueryData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->cloudAssetTypes) {
             if (\is_array($this->cloudAssetTypes)) {
                 $res['CloudAssetTypes'] = [];
@@ -100,6 +121,17 @@ class ListCloudAssetInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudAssetQueryData'])) {
+            if (!empty($map['CloudAssetQueryData'])) {
+                $model->cloudAssetQueryData = [];
+                $n1 = 0;
+                foreach ($map['CloudAssetQueryData'] as $item1) {
+                    $model->cloudAssetQueryData[$n1] = cloudAssetQueryData::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CloudAssetTypes'])) {
             if (!empty($map['CloudAssetTypes'])) {
                 $model->cloudAssetTypes = [];
