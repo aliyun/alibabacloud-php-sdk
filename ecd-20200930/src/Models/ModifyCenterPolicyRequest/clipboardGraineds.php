@@ -16,6 +16,11 @@ class clipboardGraineds extends Model
     /**
      * @var string
      */
+    public $clipboardSizeUnit;
+
+    /**
+     * @var string
+     */
     public $clipboardType;
 
     /**
@@ -24,6 +29,7 @@ class clipboardGraineds extends Model
     public $grainedType;
     protected $_name = [
         'clipboardSize' => 'ClipboardSize',
+        'clipboardSizeUnit' => 'ClipboardSizeUnit',
         'clipboardType' => 'ClipboardType',
         'grainedType' => 'GrainedType',
     ];
@@ -38,6 +44,10 @@ class clipboardGraineds extends Model
         $res = [];
         if (null !== $this->clipboardSize) {
             $res['ClipboardSize'] = $this->clipboardSize;
+        }
+
+        if (null !== $this->clipboardSizeUnit) {
+            $res['ClipboardSizeUnit'] = $this->clipboardSizeUnit;
         }
 
         if (null !== $this->clipboardType) {
@@ -61,6 +71,10 @@ class clipboardGraineds extends Model
         $model = new self();
         if (isset($map['ClipboardSize'])) {
             $model->clipboardSize = $map['ClipboardSize'];
+        }
+
+        if (isset($map['ClipboardSizeUnit'])) {
+            $model->clipboardSizeUnit = $map['ClipboardSizeUnit'];
         }
 
         if (isset($map['ClipboardType'])) {
