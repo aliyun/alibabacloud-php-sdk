@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest;
@@ -102,6 +104,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationRequest;
@@ -2191,6 +2195,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->continueDBClusterMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建AI节点.
+     *
+     * @param request - CreateAINodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAINodesResponse
+     *
+     * @param CreateAINodesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAINodesResponse
+     */
+    public function createAINodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodes) {
+            @$query['DBNodes'] = $request->DBNodes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAINodes',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAINodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建AI节点.
+     *
+     * @param request - CreateAINodesRequest
+     *
+     * @returns CreateAINodesResponse
+     *
+     * @param CreateAINodesRequest $request
+     *
+     * @return CreateAINodesResponse
+     */
+    public function createAINodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAINodesWithOptions($request, $runtime);
     }
 
     /**
@@ -5013,6 +5078,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAIDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除ai实例子节点.
+     *
+     * @param request - DeleteAINodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAINodesResponse
+     *
+     * @param DeleteAINodesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAINodesResponse
+     */
+    public function deleteAINodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeId) {
+            @$query['DBNodeId'] = $request->DBNodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAINodes',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAINodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ai实例子节点.
+     *
+     * @param request - DeleteAINodesRequest
+     *
+     * @returns DeleteAINodesResponse
+     *
+     * @param DeleteAINodesRequest $request
+     *
+     * @return DeleteAINodesResponse
+     */
+    public function deleteAINodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAINodesWithOptions($request, $runtime);
     }
 
     /**
