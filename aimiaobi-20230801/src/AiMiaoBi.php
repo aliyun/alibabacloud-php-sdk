@@ -676,9 +676,33 @@ class AiMiaoBi extends OpenApiClient
             $request->colorWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->colorWords, 'ColorWords', 'json');
         }
 
+        if (null !== $tmpReq->stickers) {
+            $request->stickersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stickers, 'Stickers', 'json');
+        }
+
         $body = [];
+        if (null !== $request->closeMusic) {
+            @$body['CloseMusic'] = $request->closeMusic;
+        }
+
+        if (null !== $request->closeSubtitle) {
+            @$body['CloseSubtitle'] = $request->closeSubtitle;
+        }
+
+        if (null !== $request->closeVoice) {
+            @$body['CloseVoice'] = $request->closeVoice;
+        }
+
         if (null !== $request->colorWordsShrink) {
             @$body['ColorWords'] = $request->colorWordsShrink;
+        }
+
+        if (null !== $request->customVoiceUrl) {
+            @$body['CustomVoiceUrl'] = $request->customVoiceUrl;
+        }
+
+        if (null !== $request->customVoiceVolume) {
+            @$body['CustomVoiceVolume'] = $request->customVoiceVolume;
         }
 
         if (null !== $request->height) {
@@ -691,6 +715,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->musicVolume) {
             @$body['MusicVolume'] = $request->musicVolume;
+        }
+
+        if (null !== $request->stickersShrink) {
+            @$body['Stickers'] = $request->stickersShrink;
         }
 
         if (null !== $request->subtitleFontSize) {
@@ -996,13 +1024,25 @@ class AiMiaoBi extends OpenApiClient
             $request->sourceVideosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceVideos, 'SourceVideos', 'json');
         }
 
+        if (null !== $tmpReq->videoRoles) {
+            $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'VideoRoles', 'json');
+        }
+
         $body = [];
         if (null !== $request->anlysisPrompt) {
             @$body['AnlysisPrompt'] = $request->anlysisPrompt;
         }
 
+        if (null !== $request->faceIdentitySimilarityMinScore) {
+            @$body['FaceIdentitySimilarityMinScore'] = $request->faceIdentitySimilarityMinScore;
+        }
+
         if (null !== $request->referenceVideoShrink) {
             @$body['ReferenceVideo'] = $request->referenceVideoShrink;
+        }
+
+        if (null !== $request->removeSubtitle) {
+            @$body['RemoveSubtitle'] = $request->removeSubtitle;
         }
 
         if (null !== $request->sourceVideosShrink) {
@@ -1011,6 +1051,14 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->splitInterval) {
             @$body['SplitInterval'] = $request->splitInterval;
+        }
+
+        if (null !== $request->videoRolesShrink) {
+            @$body['VideoRoles'] = $request->videoRolesShrink;
+        }
+
+        if (null !== $request->videoShotFaceIdentityCount) {
+            @$body['VideoShotFaceIdentityCount'] = $request->videoShotFaceIdentityCount;
         }
 
         if (null !== $request->workspaceId) {

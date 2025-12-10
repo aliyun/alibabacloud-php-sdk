@@ -9,9 +9,34 @@ use AlibabaCloud\Dara\Model;
 class AsyncCreateClipsTaskShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $closeMusic;
+
+    /**
+     * @var bool
+     */
+    public $closeSubtitle;
+
+    /**
+     * @var bool
+     */
+    public $closeVoice;
+
+    /**
      * @var string
      */
     public $colorWordsShrink;
+
+    /**
+     * @var string
+     */
+    public $customVoiceUrl;
+
+    /**
+     * @var int
+     */
+    public $customVoiceVolume;
 
     /**
      * @var int
@@ -27,6 +52,11 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
      * @var int
      */
     public $musicVolume;
+
+    /**
+     * @var string
+     */
+    public $stickersShrink;
 
     /**
      * @var int
@@ -58,10 +88,16 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'closeMusic' => 'CloseMusic',
+        'closeSubtitle' => 'CloseSubtitle',
+        'closeVoice' => 'CloseVoice',
         'colorWordsShrink' => 'ColorWords',
+        'customVoiceUrl' => 'CustomVoiceUrl',
+        'customVoiceVolume' => 'CustomVoiceVolume',
         'height' => 'Height',
         'musicUrl' => 'MusicUrl',
         'musicVolume' => 'MusicVolume',
+        'stickersShrink' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
         'voiceStyle' => 'VoiceStyle',
@@ -78,8 +114,28 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->closeMusic) {
+            $res['CloseMusic'] = $this->closeMusic;
+        }
+
+        if (null !== $this->closeSubtitle) {
+            $res['CloseSubtitle'] = $this->closeSubtitle;
+        }
+
+        if (null !== $this->closeVoice) {
+            $res['CloseVoice'] = $this->closeVoice;
+        }
+
         if (null !== $this->colorWordsShrink) {
             $res['ColorWords'] = $this->colorWordsShrink;
+        }
+
+        if (null !== $this->customVoiceUrl) {
+            $res['CustomVoiceUrl'] = $this->customVoiceUrl;
+        }
+
+        if (null !== $this->customVoiceVolume) {
+            $res['CustomVoiceVolume'] = $this->customVoiceVolume;
         }
 
         if (null !== $this->height) {
@@ -92,6 +148,10 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
 
         if (null !== $this->musicVolume) {
             $res['MusicVolume'] = $this->musicVolume;
+        }
+
+        if (null !== $this->stickersShrink) {
+            $res['Stickers'] = $this->stickersShrink;
         }
 
         if (null !== $this->subtitleFontSize) {
@@ -129,8 +189,28 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloseMusic'])) {
+            $model->closeMusic = $map['CloseMusic'];
+        }
+
+        if (isset($map['CloseSubtitle'])) {
+            $model->closeSubtitle = $map['CloseSubtitle'];
+        }
+
+        if (isset($map['CloseVoice'])) {
+            $model->closeVoice = $map['CloseVoice'];
+        }
+
         if (isset($map['ColorWords'])) {
             $model->colorWordsShrink = $map['ColorWords'];
+        }
+
+        if (isset($map['CustomVoiceUrl'])) {
+            $model->customVoiceUrl = $map['CustomVoiceUrl'];
+        }
+
+        if (isset($map['CustomVoiceVolume'])) {
+            $model->customVoiceVolume = $map['CustomVoiceVolume'];
         }
 
         if (isset($map['Height'])) {
@@ -143,6 +223,10 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
 
         if (isset($map['MusicVolume'])) {
             $model->musicVolume = $map['MusicVolume'];
+        }
+
+        if (isset($map['Stickers'])) {
+            $model->stickersShrink = $map['Stickers'];
         }
 
         if (isset($map['SubtitleFontSize'])) {

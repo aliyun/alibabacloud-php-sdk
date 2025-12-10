@@ -14,9 +14,19 @@ class AsyncUploadVideoShrinkRequest extends Model
     public $anlysisPrompt;
 
     /**
+     * @var float
+     */
+    public $faceIdentitySimilarityMinScore;
+
+    /**
      * @var string
      */
     public $referenceVideoShrink;
+
+    /**
+     * @var bool
+     */
+    public $removeSubtitle;
 
     /**
      * @var string
@@ -31,12 +41,26 @@ class AsyncUploadVideoShrinkRequest extends Model
     /**
      * @var string
      */
+    public $videoRolesShrink;
+
+    /**
+     * @var int
+     */
+    public $videoShotFaceIdentityCount;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'anlysisPrompt' => 'AnlysisPrompt',
+        'faceIdentitySimilarityMinScore' => 'FaceIdentitySimilarityMinScore',
         'referenceVideoShrink' => 'ReferenceVideo',
+        'removeSubtitle' => 'RemoveSubtitle',
         'sourceVideosShrink' => 'SourceVideos',
         'splitInterval' => 'SplitInterval',
+        'videoRolesShrink' => 'VideoRoles',
+        'videoShotFaceIdentityCount' => 'VideoShotFaceIdentityCount',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -52,8 +76,16 @@ class AsyncUploadVideoShrinkRequest extends Model
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
 
+        if (null !== $this->faceIdentitySimilarityMinScore) {
+            $res['FaceIdentitySimilarityMinScore'] = $this->faceIdentitySimilarityMinScore;
+        }
+
         if (null !== $this->referenceVideoShrink) {
             $res['ReferenceVideo'] = $this->referenceVideoShrink;
+        }
+
+        if (null !== $this->removeSubtitle) {
+            $res['RemoveSubtitle'] = $this->removeSubtitle;
         }
 
         if (null !== $this->sourceVideosShrink) {
@@ -62,6 +94,14 @@ class AsyncUploadVideoShrinkRequest extends Model
 
         if (null !== $this->splitInterval) {
             $res['SplitInterval'] = $this->splitInterval;
+        }
+
+        if (null !== $this->videoRolesShrink) {
+            $res['VideoRoles'] = $this->videoRolesShrink;
+        }
+
+        if (null !== $this->videoShotFaceIdentityCount) {
+            $res['VideoShotFaceIdentityCount'] = $this->videoShotFaceIdentityCount;
         }
 
         if (null !== $this->workspaceId) {
@@ -83,8 +123,16 @@ class AsyncUploadVideoShrinkRequest extends Model
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
 
+        if (isset($map['FaceIdentitySimilarityMinScore'])) {
+            $model->faceIdentitySimilarityMinScore = $map['FaceIdentitySimilarityMinScore'];
+        }
+
         if (isset($map['ReferenceVideo'])) {
             $model->referenceVideoShrink = $map['ReferenceVideo'];
+        }
+
+        if (isset($map['RemoveSubtitle'])) {
+            $model->removeSubtitle = $map['RemoveSubtitle'];
         }
 
         if (isset($map['SourceVideos'])) {
@@ -93,6 +141,14 @@ class AsyncUploadVideoShrinkRequest extends Model
 
         if (isset($map['SplitInterval'])) {
             $model->splitInterval = $map['SplitInterval'];
+        }
+
+        if (isset($map['VideoRoles'])) {
+            $model->videoRolesShrink = $map['VideoRoles'];
+        }
+
+        if (isset($map['VideoShotFaceIdentityCount'])) {
+            $model->videoShotFaceIdentityCount = $map['VideoShotFaceIdentityCount'];
         }
 
         if (isset($map['WorkspaceId'])) {

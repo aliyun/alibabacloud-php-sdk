@@ -6,10 +6,26 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\colorWords;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\stickers;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\timelines;
 
 class data extends Model
 {
+    /**
+     * @var bool
+     */
+    public $closeMusic;
+
+    /**
+     * @var bool
+     */
+    public $closeSubtitle;
+
+    /**
+     * @var bool
+     */
+    public $closeVoice;
+
     /**
      * @var colorWords[]
      */
@@ -19,6 +35,16 @@ class data extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $customVoiceUrl;
+
+    /**
+     * @var int
+     */
+    public $customVoiceVolume;
 
     /**
      * @var string
@@ -61,6 +87,11 @@ class data extends Model
     public $step;
 
     /**
+     * @var stickers[]
+     */
+    public $stickers;
+
+    /**
      * @var int
      */
     public $subtitleFontSize;
@@ -85,8 +116,13 @@ class data extends Model
      */
     public $voiceVolume;
     protected $_name = [
+        'closeMusic' => 'CloseMusic',
+        'closeSubtitle' => 'CloseSubtitle',
+        'closeVoice' => 'CloseVoice',
         'colorWords' => 'ColorWords',
         'content' => 'Content',
+        'customVoiceUrl' => 'CustomVoiceUrl',
+        'customVoiceVolume' => 'CustomVoiceVolume',
         'errorMessage' => 'ErrorMessage',
         'mediaCloudTimeline' => 'MediaCloudTimeline',
         'musicStyle' => 'MusicStyle',
@@ -95,6 +131,7 @@ class data extends Model
         'outputVideoUrl' => 'OutputVideoUrl',
         'status' => 'Status',
         'step' => 'Step',
+        'stickers' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
         'timelines' => 'Timelines',
@@ -107,6 +144,9 @@ class data extends Model
         if (\is_array($this->colorWords)) {
             Model::validateArray($this->colorWords);
         }
+        if (\is_array($this->stickers)) {
+            Model::validateArray($this->stickers);
+        }
         if (\is_array($this->timelines)) {
             Model::validateArray($this->timelines);
         }
@@ -116,6 +156,18 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->closeMusic) {
+            $res['CloseMusic'] = $this->closeMusic;
+        }
+
+        if (null !== $this->closeSubtitle) {
+            $res['CloseSubtitle'] = $this->closeSubtitle;
+        }
+
+        if (null !== $this->closeVoice) {
+            $res['CloseVoice'] = $this->closeVoice;
+        }
+
         if (null !== $this->colorWords) {
             if (\is_array($this->colorWords)) {
                 $res['ColorWords'] = [];
@@ -129,6 +181,14 @@ class data extends Model
 
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->customVoiceUrl) {
+            $res['CustomVoiceUrl'] = $this->customVoiceUrl;
+        }
+
+        if (null !== $this->customVoiceVolume) {
+            $res['CustomVoiceVolume'] = $this->customVoiceVolume;
         }
 
         if (null !== $this->errorMessage) {
@@ -161,6 +221,17 @@ class data extends Model
 
         if (null !== $this->step) {
             $res['Step'] = $this->step;
+        }
+
+        if (null !== $this->stickers) {
+            if (\is_array($this->stickers)) {
+                $res['Stickers'] = [];
+                $n1 = 0;
+                foreach ($this->stickers as $item1) {
+                    $res['Stickers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->subtitleFontSize) {
@@ -201,6 +272,18 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloseMusic'])) {
+            $model->closeMusic = $map['CloseMusic'];
+        }
+
+        if (isset($map['CloseSubtitle'])) {
+            $model->closeSubtitle = $map['CloseSubtitle'];
+        }
+
+        if (isset($map['CloseVoice'])) {
+            $model->closeVoice = $map['CloseVoice'];
+        }
+
         if (isset($map['ColorWords'])) {
             if (!empty($map['ColorWords'])) {
                 $model->colorWords = [];
@@ -214,6 +297,14 @@ class data extends Model
 
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['CustomVoiceUrl'])) {
+            $model->customVoiceUrl = $map['CustomVoiceUrl'];
+        }
+
+        if (isset($map['CustomVoiceVolume'])) {
+            $model->customVoiceVolume = $map['CustomVoiceVolume'];
         }
 
         if (isset($map['ErrorMessage'])) {
@@ -246,6 +337,17 @@ class data extends Model
 
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
+        }
+
+        if (isset($map['Stickers'])) {
+            if (!empty($map['Stickers'])) {
+                $model->stickers = [];
+                $n1 = 0;
+                foreach ($map['Stickers'] as $item1) {
+                    $model->stickers[$n1] = stickers::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SubtitleFontSize'])) {

@@ -6,13 +6,39 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\colorWords;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\stickers;
 
 class AsyncCreateClipsTaskRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $closeMusic;
+
+    /**
+     * @var bool
+     */
+    public $closeSubtitle;
+
+    /**
+     * @var bool
+     */
+    public $closeVoice;
+
+    /**
      * @var colorWords[]
      */
     public $colorWords;
+
+    /**
+     * @var string
+     */
+    public $customVoiceUrl;
+
+    /**
+     * @var int
+     */
+    public $customVoiceVolume;
 
     /**
      * @var int
@@ -28,6 +54,11 @@ class AsyncCreateClipsTaskRequest extends Model
      * @var int
      */
     public $musicVolume;
+
+    /**
+     * @var stickers[]
+     */
+    public $stickers;
 
     /**
      * @var int
@@ -59,10 +90,16 @@ class AsyncCreateClipsTaskRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'closeMusic' => 'CloseMusic',
+        'closeSubtitle' => 'CloseSubtitle',
+        'closeVoice' => 'CloseVoice',
         'colorWords' => 'ColorWords',
+        'customVoiceUrl' => 'CustomVoiceUrl',
+        'customVoiceVolume' => 'CustomVoiceVolume',
         'height' => 'Height',
         'musicUrl' => 'MusicUrl',
         'musicVolume' => 'MusicVolume',
+        'stickers' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
         'voiceStyle' => 'VoiceStyle',
@@ -76,12 +113,27 @@ class AsyncCreateClipsTaskRequest extends Model
         if (\is_array($this->colorWords)) {
             Model::validateArray($this->colorWords);
         }
+        if (\is_array($this->stickers)) {
+            Model::validateArray($this->stickers);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->closeMusic) {
+            $res['CloseMusic'] = $this->closeMusic;
+        }
+
+        if (null !== $this->closeSubtitle) {
+            $res['CloseSubtitle'] = $this->closeSubtitle;
+        }
+
+        if (null !== $this->closeVoice) {
+            $res['CloseVoice'] = $this->closeVoice;
+        }
+
         if (null !== $this->colorWords) {
             if (\is_array($this->colorWords)) {
                 $res['ColorWords'] = [];
@@ -91,6 +143,14 @@ class AsyncCreateClipsTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->customVoiceUrl) {
+            $res['CustomVoiceUrl'] = $this->customVoiceUrl;
+        }
+
+        if (null !== $this->customVoiceVolume) {
+            $res['CustomVoiceVolume'] = $this->customVoiceVolume;
         }
 
         if (null !== $this->height) {
@@ -103,6 +163,17 @@ class AsyncCreateClipsTaskRequest extends Model
 
         if (null !== $this->musicVolume) {
             $res['MusicVolume'] = $this->musicVolume;
+        }
+
+        if (null !== $this->stickers) {
+            if (\is_array($this->stickers)) {
+                $res['Stickers'] = [];
+                $n1 = 0;
+                foreach ($this->stickers as $item1) {
+                    $res['Stickers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->subtitleFontSize) {
@@ -140,6 +211,18 @@ class AsyncCreateClipsTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloseMusic'])) {
+            $model->closeMusic = $map['CloseMusic'];
+        }
+
+        if (isset($map['CloseSubtitle'])) {
+            $model->closeSubtitle = $map['CloseSubtitle'];
+        }
+
+        if (isset($map['CloseVoice'])) {
+            $model->closeVoice = $map['CloseVoice'];
+        }
+
         if (isset($map['ColorWords'])) {
             if (!empty($map['ColorWords'])) {
                 $model->colorWords = [];
@@ -149,6 +232,14 @@ class AsyncCreateClipsTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CustomVoiceUrl'])) {
+            $model->customVoiceUrl = $map['CustomVoiceUrl'];
+        }
+
+        if (isset($map['CustomVoiceVolume'])) {
+            $model->customVoiceVolume = $map['CustomVoiceVolume'];
         }
 
         if (isset($map['Height'])) {
@@ -161,6 +252,17 @@ class AsyncCreateClipsTaskRequest extends Model
 
         if (isset($map['MusicVolume'])) {
             $model->musicVolume = $map['MusicVolume'];
+        }
+
+        if (isset($map['Stickers'])) {
+            if (!empty($map['Stickers'])) {
+                $model->stickers = [];
+                $n1 = 0;
+                foreach ($map['Stickers'] as $item1) {
+                    $model->stickers[$n1] = stickers::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SubtitleFontSize'])) {
