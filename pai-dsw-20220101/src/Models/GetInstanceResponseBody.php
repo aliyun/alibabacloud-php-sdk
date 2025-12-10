@@ -176,6 +176,11 @@ class GetInstanceResponseBody extends Model
     public $paymentType;
 
     /**
+     * @var PodIp[]
+     */
+    public $podIps;
+
+    /**
      * @var int
      */
     public $priority;
@@ -311,6 +316,7 @@ class GetInstanceResponseBody extends Model
         'message' => 'Message',
         'nodeErrorRecovery' => 'NodeErrorRecovery',
         'paymentType' => 'PaymentType',
+        'podIps' => 'PodIps',
         'priority' => 'Priority',
         'proxyPath' => 'ProxyPath',
         'reasonCode' => 'ReasonCode',
@@ -371,6 +377,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->nodeErrorRecovery) {
             $this->nodeErrorRecovery->validate();
+        }
+        if (\is_array($this->podIps)) {
+            Model::validateArray($this->podIps);
         }
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
@@ -545,6 +554,17 @@ class GetInstanceResponseBody extends Model
 
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->podIps) {
+            if (\is_array($this->podIps)) {
+                $res['PodIps'] = [];
+                $n1 = 0;
+                foreach ($this->podIps as $item1) {
+                    $res['PodIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->priority) {
@@ -804,6 +824,17 @@ class GetInstanceResponseBody extends Model
 
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+
+        if (isset($map['PodIps'])) {
+            if (!empty($map['PodIps'])) {
+                $model->podIps = [];
+                $n1 = 0;
+                foreach ($map['PodIps'] as $item1) {
+                    $model->podIps[$n1] = PodIp::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Priority'])) {
