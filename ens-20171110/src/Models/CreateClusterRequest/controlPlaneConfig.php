@@ -21,6 +21,11 @@ class controlPlaneConfig extends Model
     /**
      * @var string
      */
+    public $loginPassword;
+
+    /**
+     * @var string
+     */
     public $nodePortRange;
 
     /**
@@ -45,6 +50,7 @@ class controlPlaneConfig extends Model
     protected $_name = [
         'imageId' => 'ImageId',
         'instanceSpec' => 'InstanceSpec',
+        'loginPassword' => 'LoginPassword',
         'nodePortRange' => 'NodePortRange',
         'runtime' => 'Runtime',
         'size' => 'Size',
@@ -66,6 +72,10 @@ class controlPlaneConfig extends Model
 
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
+        }
+
+        if (null !== $this->loginPassword) {
+            $res['LoginPassword'] = $this->loginPassword;
         }
 
         if (null !== $this->nodePortRange) {
@@ -105,6 +115,10 @@ class controlPlaneConfig extends Model
 
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
+        }
+
+        if (isset($map['LoginPassword'])) {
+            $model->loginPassword = $map['LoginPassword'];
         }
 
         if (isset($map['NodePortRange'])) {

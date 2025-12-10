@@ -37,7 +37,17 @@ class CreateEipInstanceRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $internetChargeType;
+
+    /**
+     * @var string
+     */
+    public $ipAddress;
 
     /**
      * @var string
@@ -59,7 +69,9 @@ class CreateEipInstanceRequest extends Model
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'instanceChargeType' => 'InstanceChargeType',
+        'instanceId' => 'InstanceId',
         'internetChargeType' => 'InternetChargeType',
+        'ipAddress' => 'IpAddress',
         'isp' => 'Isp',
         'name' => 'Name',
         'tag' => 'Tag',
@@ -96,8 +108,16 @@ class CreateEipInstanceRequest extends Model
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
+        }
+
+        if (null !== $this->ipAddress) {
+            $res['IpAddress'] = $this->ipAddress;
         }
 
         if (null !== $this->isp) {
@@ -150,8 +170,16 @@ class CreateEipInstanceRequest extends Model
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
+        }
+
+        if (isset($map['IpAddress'])) {
+            $model->ipAddress = $map['IpAddress'];
         }
 
         if (isset($map['Isp'])) {
