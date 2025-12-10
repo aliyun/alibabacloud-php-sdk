@@ -1,3 +1,7 @@
+2025-12-10 Version: 3.6.0
+- Support API RebootRenderingServer.
+
+
 2025-12-09 Version: 3.5.0
 - Support API RebootRenderingServer.
 
