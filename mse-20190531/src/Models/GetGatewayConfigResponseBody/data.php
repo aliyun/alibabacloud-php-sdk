@@ -113,6 +113,11 @@ class data extends Model
     public $keepaliveHeaderTimeout;
 
     /**
+     * @var bool
+     */
+    public $liteMetrics;
+
+    /**
      * @var string
      */
     public $logFilterConfig;
@@ -126,6 +131,11 @@ class data extends Model
      * @var string
      */
     public $pathWithEscapedSlashes;
+
+    /**
+     * @var bool
+     */
+    public $preserveExternalRequestID;
 
     /**
      * @var bool
@@ -187,9 +197,11 @@ class data extends Model
         'initialConnectionWindowSize' => 'InitialConnectionWindowSize',
         'initialStreamWindowSize' => 'InitialStreamWindowSize',
         'keepaliveHeaderTimeout' => 'KeepaliveHeaderTimeout',
+        'liteMetrics' => 'LiteMetrics',
         'logFilterConfig' => 'LogFilterConfig',
         'noSupportedConfigList' => 'NoSupportedConfigList',
         'pathWithEscapedSlashes' => 'PathWithEscapedSlashes',
+        'preserveExternalRequestID' => 'PreserveExternalRequestID',
         'preserveHeaderFormat' => 'PreserveHeaderFormat',
         'slsConfigDetails' => 'SlsConfigDetails',
         'supportWaf' => 'SupportWaf',
@@ -300,6 +312,10 @@ class data extends Model
             $res['KeepaliveHeaderTimeout'] = $this->keepaliveHeaderTimeout;
         }
 
+        if (null !== $this->liteMetrics) {
+            $res['LiteMetrics'] = $this->liteMetrics;
+        }
+
         if (null !== $this->logFilterConfig) {
             $res['LogFilterConfig'] = $this->logFilterConfig;
         }
@@ -310,6 +326,10 @@ class data extends Model
 
         if (null !== $this->pathWithEscapedSlashes) {
             $res['PathWithEscapedSlashes'] = $this->pathWithEscapedSlashes;
+        }
+
+        if (null !== $this->preserveExternalRequestID) {
+            $res['PreserveExternalRequestID'] = $this->preserveExternalRequestID;
         }
 
         if (null !== $this->preserveHeaderFormat) {
@@ -435,6 +455,10 @@ class data extends Model
             $model->keepaliveHeaderTimeout = $map['KeepaliveHeaderTimeout'];
         }
 
+        if (isset($map['LiteMetrics'])) {
+            $model->liteMetrics = $map['LiteMetrics'];
+        }
+
         if (isset($map['LogFilterConfig'])) {
             $model->logFilterConfig = $map['LogFilterConfig'];
         }
@@ -445,6 +469,10 @@ class data extends Model
 
         if (isset($map['PathWithEscapedSlashes'])) {
             $model->pathWithEscapedSlashes = $map['PathWithEscapedSlashes'];
+        }
+
+        if (isset($map['PreserveExternalRequestID'])) {
+            $model->preserveExternalRequestID = $map['PreserveExternalRequestID'];
         }
 
         if (isset($map['PreserveHeaderFormat'])) {
