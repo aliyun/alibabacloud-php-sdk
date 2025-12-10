@@ -12,13 +12,14 @@ class regionStatus extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'regionId' => 'RegionId',
-        'status'   => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class enabledServicePrincipal extends Model
      * @var string
      */
     public $enableTime;
+
     /**
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
-        'enableTime'       => 'EnableTime',
+        'enableTime' => 'EnableTime',
         'servicePrincipal' => 'ServicePrincipal',
     ];
 

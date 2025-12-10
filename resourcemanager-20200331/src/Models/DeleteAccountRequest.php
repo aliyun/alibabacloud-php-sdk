@@ -12,13 +12,14 @@ class DeleteAccountRequest extends Model
      * @var string[]
      */
     public $abandonableCheckId;
+
     /**
      * @var string
      */
     public $accountId;
     protected $_name = [
         'abandonableCheckId' => 'AbandonableCheckId',
-        'accountId'          => 'AccountId',
+        'accountId' => 'AccountId',
     ];
 
     public function validate()
@@ -35,9 +36,10 @@ class DeleteAccountRequest extends Model
         if (null !== $this->abandonableCheckId) {
             if (\is_array($this->abandonableCheckId)) {
                 $res['AbandonableCheckId'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->abandonableCheckId as $item1) {
-                    $res['AbandonableCheckId'][$n1++] = $item1;
+                    $res['AbandonableCheckId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,9 +62,10 @@ class DeleteAccountRequest extends Model
         if (isset($map['AbandonableCheckId'])) {
             if (!empty($map['AbandonableCheckId'])) {
                 $model->abandonableCheckId = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AbandonableCheckId'] as $item1) {
-                    $model->abandonableCheckId[$n1++] = $item1;
+                    $model->abandonableCheckId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,13 +12,14 @@ class DeleteAccountShrinkRequest extends Model
      * @var string
      */
     public $abandonableCheckIdShrink;
+
     /**
      * @var string
      */
     public $accountId;
     protected $_name = [
         'abandonableCheckIdShrink' => 'AbandonableCheckId',
-        'accountId'                => 'AccountId',
+        'accountId' => 'AccountId',
     ];
 
     public function validate()

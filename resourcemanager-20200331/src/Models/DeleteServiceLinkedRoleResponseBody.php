@@ -12,13 +12,14 @@ class DeleteServiceLinkedRoleResponseBody extends Model
      * @var string
      */
     public $deletionTaskId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deletionTaskId' => 'DeletionTaskId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

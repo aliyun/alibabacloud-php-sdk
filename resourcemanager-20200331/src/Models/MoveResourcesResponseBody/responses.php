@@ -12,43 +12,50 @@ class responses extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $service;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMsg'     => 'ErrorMsg',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
-        'resourceId'   => 'ResourceId',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'service'      => 'Service',
-        'status'       => 'Status',
+        'service' => 'Service',
+        'status' => 'Status',
     ];
 
     public function validate()

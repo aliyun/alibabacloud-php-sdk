@@ -12,22 +12,25 @@ class ListTagKeysRequest extends Model
      * @var string
      */
     public $keyFilter;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'keyFilter'    => 'KeyFilter',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'keyFilter' => 'KeyFilter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceType' => 'ResourceType',
     ];
 

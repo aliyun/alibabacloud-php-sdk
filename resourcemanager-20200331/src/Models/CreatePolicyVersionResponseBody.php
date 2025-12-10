@@ -13,13 +13,14 @@ class CreatePolicyVersionResponseBody extends Model
      * @var policyVersion
      */
     public $policyVersion;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'policyVersion' => 'PolicyVersion',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class ListTargetAttachmentsForControlPolicyRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'policyId'   => 'PolicyId',
+        'pageSize' => 'PageSize',
+        'policyId' => 'PolicyId',
     ];
 
     public function validate()

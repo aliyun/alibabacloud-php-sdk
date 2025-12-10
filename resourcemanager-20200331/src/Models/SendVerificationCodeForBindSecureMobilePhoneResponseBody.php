@@ -12,13 +12,14 @@ class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
      * @var string
      */
     public $expirationDate;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'expirationDate' => 'ExpirationDate',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class BindSecureMobilePhoneRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $secureMobilePhone;
+
     /**
      * @var string
      */
     public $verificationCode;
     protected $_name = [
-        'accountId'         => 'AccountId',
+        'accountId' => 'AccountId',
         'secureMobilePhone' => 'SecureMobilePhone',
-        'verificationCode'  => 'VerificationCode',
+        'verificationCode' => 'VerificationCode',
     ];
 
     public function validate()

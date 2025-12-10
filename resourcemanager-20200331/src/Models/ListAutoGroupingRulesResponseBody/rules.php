@@ -13,78 +13,92 @@ class rules extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $excludeRegionIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceTypesScope;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $regionIdsScope;
+
     /**
      * @var string
      */
     public $resourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $resourceIdsScope;
+
     /**
      * @var string
      */
     public $resourceTypesScope;
+
     /**
      * @var ruleContents[]
      */
     public $ruleContents;
+
     /**
      * @var string
      */
     public $ruleDesc;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'createTime'                   => 'CreateTime',
-        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'createTime' => 'CreateTime',
+        'excludeRegionIdsScope' => 'ExcludeRegionIdsScope',
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
-        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
-        'excludeResourceTypesScope'    => 'ExcludeResourceTypesScope',
-        'modifyTime'                   => 'ModifyTime',
-        'regionIdsScope'               => 'RegionIdsScope',
-        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
-        'resourceIdsScope'             => 'ResourceIdsScope',
-        'resourceTypesScope'           => 'ResourceTypesScope',
-        'ruleContents'                 => 'RuleContents',
-        'ruleDesc'                     => 'RuleDesc',
-        'ruleId'                       => 'RuleId',
-        'ruleName'                     => 'RuleName',
-        'ruleType'                     => 'RuleType',
+        'excludeResourceIdsScope' => 'ExcludeResourceIdsScope',
+        'excludeResourceTypesScope' => 'ExcludeResourceTypesScope',
+        'modifyTime' => 'ModifyTime',
+        'regionIdsScope' => 'RegionIdsScope',
+        'resourceGroupIdsScope' => 'ResourceGroupIdsScope',
+        'resourceIdsScope' => 'ResourceIdsScope',
+        'resourceTypesScope' => 'ResourceTypesScope',
+        'ruleContents' => 'RuleContents',
+        'ruleDesc' => 'RuleDesc',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()
@@ -141,9 +155,10 @@ class rules extends Model
         if (null !== $this->ruleContents) {
             if (\is_array($this->ruleContents)) {
                 $res['RuleContents'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ruleContents as $item1) {
-                    $res['RuleContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,9 +233,10 @@ class rules extends Model
         if (isset($map['RuleContents'])) {
             if (!empty($map['RuleContents'])) {
                 $model->ruleContents = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RuleContents'] as $item1) {
-                    $model->ruleContents[$n1++] = ruleContents::fromMap($item1);
+                    $model->ruleContents[$n1] = ruleContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

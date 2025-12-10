@@ -12,13 +12,14 @@ class PromoteResourceAccountRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $email;
     protected $_name = [
         'accountId' => 'AccountId',
-        'email'     => 'Email',
+        'email' => 'Email',
     ];
 
     public function validate()

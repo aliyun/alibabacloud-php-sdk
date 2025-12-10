@@ -13,38 +13,44 @@ class resourceGroup extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var regionStatuses
      */
     public $regionStatuses;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'accountId'      => 'AccountId',
-        'createDate'     => 'CreateDate',
-        'displayName'    => 'DisplayName',
-        'id'             => 'Id',
-        'name'           => 'Name',
+        'accountId' => 'AccountId',
+        'createDate' => 'CreateDate',
+        'displayName' => 'DisplayName',
+        'id' => 'Id',
+        'name' => 'Name',
         'regionStatuses' => 'RegionStatuses',
-        'status'         => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

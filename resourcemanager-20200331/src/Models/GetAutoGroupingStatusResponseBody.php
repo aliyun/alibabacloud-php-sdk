@@ -12,18 +12,20 @@ class GetAutoGroupingStatusResponseBody extends Model
      * @var bool
      */
     public $enableExistedResourcesTransfer;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'enableExistedResourcesTransfer' => 'EnableExistedResourcesTransfer',
-        'enableStatus'                   => 'EnableStatus',
-        'requestId'                      => 'RequestId',
+        'enableStatus' => 'EnableStatus',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

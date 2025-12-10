@@ -13,13 +13,14 @@ class GetAutoGroupingRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var rule
      */
     public $rule;
     protected $_name = [
         'requestId' => 'RequestId',
-        'rule'      => 'Rule',
+        'rule' => 'Rule',
     ];
 
     public function validate()

@@ -12,37 +12,43 @@ class policyAttachment extends Model
      * @var string
      */
     public $attachDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $principalName;
+
     /**
      * @var string
      */
     public $principalType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'attachDate'      => 'AttachDate',
-        'description'     => 'Description',
-        'policyName'      => 'PolicyName',
-        'policyType'      => 'PolicyType',
-        'principalName'   => 'PrincipalName',
-        'principalType'   => 'PrincipalType',
+        'attachDate' => 'AttachDate',
+        'description' => 'Description',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'principalName' => 'PrincipalName',
+        'principalType' => 'PrincipalType',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

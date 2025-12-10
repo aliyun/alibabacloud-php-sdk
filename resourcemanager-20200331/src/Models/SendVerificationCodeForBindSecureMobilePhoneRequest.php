@@ -12,12 +12,13 @@ class SendVerificationCodeForBindSecureMobilePhoneRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $secureMobilePhone;
     protected $_name = [
-        'accountId'         => 'AccountId',
+        'accountId' => 'AccountId',
         'secureMobilePhone' => 'SecureMobilePhone',
     ];
 

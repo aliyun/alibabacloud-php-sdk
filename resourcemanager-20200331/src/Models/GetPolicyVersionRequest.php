@@ -12,10 +12,12 @@ class GetPolicyVersionRequest extends Model
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class GetPolicyVersionRequest extends Model
     protected $_name = [
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
-        'versionId'  => 'VersionId',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

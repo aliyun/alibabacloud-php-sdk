@@ -13,6 +13,7 @@ class CancelHandshakeResponseBody extends Model
      * @var handshake
      */
     public $handshake;
+
     /**
      * @var string
      */

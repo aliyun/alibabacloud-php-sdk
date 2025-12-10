@@ -13,12 +13,13 @@ class GetResourceDirectoryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceDirectory
      */
     public $resourceDirectory;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceDirectory' => 'ResourceDirectory',
     ];
 

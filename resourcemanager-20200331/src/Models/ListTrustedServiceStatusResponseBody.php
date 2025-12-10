@@ -13,28 +13,32 @@ class ListTrustedServiceStatusResponseBody extends Model
      * @var enabledServicePrincipals
      */
     public $enabledServicePrincipals;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'enabledServicePrincipals' => 'EnabledServicePrincipals',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
-        'requestId'                => 'RequestId',
-        'totalCount'               => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

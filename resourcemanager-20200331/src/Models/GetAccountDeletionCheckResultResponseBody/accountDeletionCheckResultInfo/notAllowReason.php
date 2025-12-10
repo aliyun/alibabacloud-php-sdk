@@ -12,17 +12,19 @@ class notAllowReason extends Model
      * @var string
      */
     public $checkId;
+
     /**
      * @var string
      */
     public $checkName;
+
     /**
      * @var string
      */
     public $description;
     protected $_name = [
-        'checkId'     => 'CheckId',
-        'checkName'   => 'CheckName',
+        'checkId' => 'CheckId',
+        'checkName' => 'CheckName',
         'description' => 'Description',
     ];
 

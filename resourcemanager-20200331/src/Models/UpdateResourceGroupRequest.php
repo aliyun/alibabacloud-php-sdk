@@ -12,12 +12,13 @@ class UpdateResourceGroupRequest extends Model
      * @var string
      */
     public $newDisplayName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'newDisplayName'  => 'NewDisplayName',
+        'newDisplayName' => 'NewDisplayName',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

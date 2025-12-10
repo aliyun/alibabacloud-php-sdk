@@ -12,12 +12,13 @@ class CreateFolderRequest extends Model
      * @var string
      */
     public $folderName;
+
     /**
      * @var string
      */
     public $parentFolderId;
     protected $_name = [
-        'folderName'     => 'FolderName',
+        'folderName' => 'FolderName',
         'parentFolderId' => 'ParentFolderId',
     ];
 

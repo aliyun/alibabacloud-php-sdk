@@ -12,22 +12,25 @@ class folder extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderName;
+
     /**
      * @var string
      */
     public $parentFolderId;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'folderId'       => 'FolderId',
-        'folderName'     => 'FolderName',
+        'createTime' => 'CreateTime',
+        'folderId' => 'FolderId',
+        'folderName' => 'FolderName',
         'parentFolderId' => 'ParentFolderId',
     ];
 

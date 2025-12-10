@@ -12,16 +12,18 @@ class UpdateAccountRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $newAccountType;
+
     /**
      * @var string
      */
     public $newDisplayName;
     protected $_name = [
-        'accountId'      => 'AccountId',
+        'accountId' => 'AccountId',
         'newAccountType' => 'NewAccountType',
         'newDisplayName' => 'NewDisplayName',
     ];

@@ -12,18 +12,20 @@ class GetPayerForAccountResponseBody extends Model
      * @var string
      */
     public $payerAccountId;
+
     /**
      * @var string
      */
     public $payerAccountName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'payerAccountId'   => 'PayerAccountId',
+        'payerAccountId' => 'PayerAccountId',
         'payerAccountName' => 'PayerAccountName',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

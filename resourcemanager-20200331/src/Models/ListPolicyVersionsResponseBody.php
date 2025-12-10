@@ -13,13 +13,14 @@ class ListPolicyVersionsResponseBody extends Model
      * @var policyVersions
      */
     public $policyVersions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'policyVersions' => 'PolicyVersions',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

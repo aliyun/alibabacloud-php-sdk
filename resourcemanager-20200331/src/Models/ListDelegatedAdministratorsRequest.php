@@ -12,17 +12,19 @@ class ListDelegatedAdministratorsRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'servicePrincipal' => 'ServicePrincipal',
     ];
 

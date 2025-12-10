@@ -13,53 +13,62 @@ class role extends Model
      * @var string
      */
     public $arn;
+
     /**
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isServiceLinkedRole;
+
     /**
      * @var latestDeletionTask
      */
     public $latestDeletionTask;
+
     /**
      * @var int
      */
     public $maxSessionDuration;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $rolePrincipalName;
+
     /**
      * @var string
      */
     public $updateDate;
     protected $_name = [
-        'arn'                 => 'Arn',
-        'createDate'          => 'CreateDate',
-        'description'         => 'Description',
+        'arn' => 'Arn',
+        'createDate' => 'CreateDate',
+        'description' => 'Description',
         'isServiceLinkedRole' => 'IsServiceLinkedRole',
-        'latestDeletionTask'  => 'LatestDeletionTask',
-        'maxSessionDuration'  => 'MaxSessionDuration',
-        'roleId'              => 'RoleId',
-        'roleName'            => 'RoleName',
-        'rolePrincipalName'   => 'RolePrincipalName',
-        'updateDate'          => 'UpdateDate',
+        'latestDeletionTask' => 'LatestDeletionTask',
+        'maxSessionDuration' => 'MaxSessionDuration',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'rolePrincipalName' => 'RolePrincipalName',
+        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()

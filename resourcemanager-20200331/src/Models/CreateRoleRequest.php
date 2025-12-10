@@ -12,23 +12,26 @@ class CreateRoleRequest extends Model
      * @var string
      */
     public $assumeRolePolicyDocument;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $maxSessionDuration;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
         'assumeRolePolicyDocument' => 'AssumeRolePolicyDocument',
-        'description'              => 'Description',
-        'maxSessionDuration'       => 'MaxSessionDuration',
-        'roleName'                 => 'RoleName',
+        'description' => 'Description',
+        'maxSessionDuration' => 'MaxSessionDuration',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

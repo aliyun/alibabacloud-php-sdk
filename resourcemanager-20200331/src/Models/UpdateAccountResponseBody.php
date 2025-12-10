@@ -13,12 +13,13 @@ class UpdateAccountResponseBody extends Model
      * @var account
      */
     public $account;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'account'   => 'Account',
+        'account' => 'Account',
         'requestId' => 'RequestId',
     ];
 

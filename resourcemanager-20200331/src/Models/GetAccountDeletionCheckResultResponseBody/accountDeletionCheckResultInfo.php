@@ -14,23 +14,26 @@ class accountDeletionCheckResultInfo extends Model
      * @var abandonableChecks[]
      */
     public $abandonableChecks;
+
     /**
      * @var string
      */
     public $allowDelete;
+
     /**
      * @var notAllowReason[]
      */
     public $notAllowReason;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'abandonableChecks' => 'AbandonableChecks',
-        'allowDelete'       => 'AllowDelete',
-        'notAllowReason'    => 'NotAllowReason',
-        'status'            => 'Status',
+        'allowDelete' => 'AllowDelete',
+        'notAllowReason' => 'NotAllowReason',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -50,9 +53,10 @@ class accountDeletionCheckResultInfo extends Model
         if (null !== $this->abandonableChecks) {
             if (\is_array($this->abandonableChecks)) {
                 $res['AbandonableChecks'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->abandonableChecks as $item1) {
-                    $res['AbandonableChecks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AbandonableChecks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,9 +68,10 @@ class accountDeletionCheckResultInfo extends Model
         if (null !== $this->notAllowReason) {
             if (\is_array($this->notAllowReason)) {
                 $res['NotAllowReason'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->notAllowReason as $item1) {
-                    $res['NotAllowReason'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NotAllowReason'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,9 +94,10 @@ class accountDeletionCheckResultInfo extends Model
         if (isset($map['AbandonableChecks'])) {
             if (!empty($map['AbandonableChecks'])) {
                 $model->abandonableChecks = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AbandonableChecks'] as $item1) {
-                    $model->abandonableChecks[$n1++] = abandonableChecks::fromMap($item1);
+                    $model->abandonableChecks[$n1] = abandonableChecks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -103,9 +109,10 @@ class accountDeletionCheckResultInfo extends Model
         if (isset($map['NotAllowReason'])) {
             if (!empty($map['NotAllowReason'])) {
                 $model->notAllowReason = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NotAllowReason'] as $item1) {
-                    $model->notAllowReason[$n1++] = notAllowReason::fromMap($item1);
+                    $model->notAllowReason[$n1] = notAllowReason::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

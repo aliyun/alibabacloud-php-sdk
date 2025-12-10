@@ -12,6 +12,7 @@ class ListControlPolicyAttachmentsForTargetRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */

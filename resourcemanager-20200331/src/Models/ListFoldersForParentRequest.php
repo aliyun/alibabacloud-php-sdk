@@ -12,23 +12,26 @@ class ListFoldersForParentRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentFolderId;
+
     /**
      * @var string
      */
     public $queryKeyword;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'parentFolderId' => 'ParentFolderId',
-        'queryKeyword'   => 'QueryKeyword',
+        'queryKeyword' => 'QueryKeyword',
     ];
 
     public function validate()

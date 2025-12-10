@@ -12,28 +12,32 @@ class resourceDirectory extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $masterAccountId;
+
     /**
      * @var string
      */
     public $masterAccountName;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
+
     /**
      * @var string
      */
     public $rootFolderId;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'masterAccountId'     => 'MasterAccountId',
-        'masterAccountName'   => 'MasterAccountName',
+        'createTime' => 'CreateTime',
+        'masterAccountId' => 'MasterAccountId',
+        'masterAccountName' => 'MasterAccountName',
         'resourceDirectoryId' => 'ResourceDirectoryId',
-        'rootFolderId'        => 'RootFolderId',
+        'rootFolderId' => 'RootFolderId',
     ];
 
     public function validate()

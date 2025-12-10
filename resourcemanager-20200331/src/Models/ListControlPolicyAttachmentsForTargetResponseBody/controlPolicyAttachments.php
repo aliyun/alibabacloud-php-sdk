@@ -31,9 +31,10 @@ class controlPolicyAttachments extends Model
         if (null !== $this->controlPolicyAttachment) {
             if (\is_array($this->controlPolicyAttachment)) {
                 $res['ControlPolicyAttachment'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->controlPolicyAttachment as $item1) {
-                    $res['ControlPolicyAttachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ControlPolicyAttachment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class controlPolicyAttachments extends Model
         if (isset($map['ControlPolicyAttachment'])) {
             if (!empty($map['ControlPolicyAttachment'])) {
                 $model->controlPolicyAttachment = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ControlPolicyAttachment'] as $item1) {
-                    $model->controlPolicyAttachment[$n1++] = controlPolicyAttachment::fromMap($item1);
+                    $model->controlPolicyAttachment[$n1] = controlPolicyAttachment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

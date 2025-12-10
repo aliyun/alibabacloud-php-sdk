@@ -12,23 +12,26 @@ class EnableResourceDirectoryRequest extends Model
      * @var string
      */
     public $enableMode;
+
     /**
      * @var string
      */
     public $MAName;
+
     /**
      * @var string
      */
     public $MASecureMobilePhone;
+
     /**
      * @var string
      */
     public $verificationCode;
     protected $_name = [
-        'enableMode'          => 'EnableMode',
-        'MAName'              => 'MAName',
+        'enableMode' => 'EnableMode',
+        'MAName' => 'MAName',
         'MASecureMobilePhone' => 'MASecureMobilePhone',
-        'verificationCode'    => 'VerificationCode',
+        'verificationCode' => 'VerificationCode',
     ];
 
     public function validate()

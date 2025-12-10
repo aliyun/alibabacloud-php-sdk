@@ -13,13 +13,14 @@ class GetAccountDeletionStatusResponseBody extends Model
      * @var rdAccountDeletionStatus
      */
     public $rdAccountDeletionStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'rdAccountDeletionStatus' => 'RdAccountDeletionStatus',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

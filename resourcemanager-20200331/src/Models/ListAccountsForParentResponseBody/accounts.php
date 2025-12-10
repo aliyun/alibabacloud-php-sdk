@@ -31,9 +31,10 @@ class accounts extends Model
         if (null !== $this->account) {
             if (\is_array($this->account)) {
                 $res['Account'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->account as $item1) {
-                    $res['Account'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Account'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class accounts extends Model
         if (isset($map['Account'])) {
             if (!empty($map['Account'])) {
                 $model->account = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Account'] as $item1) {
-                    $model->account[$n1++] = account::fromMap($item1);
+                    $model->account[$n1] = account::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

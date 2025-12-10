@@ -13,27 +13,31 @@ class ListResourcesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'resources'  => 'Resources',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'resources' => 'Resources',
         'totalCount' => 'TotalCount',
     ];
 

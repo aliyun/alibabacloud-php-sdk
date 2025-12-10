@@ -12,16 +12,18 @@ class GetPolicyRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'language'   => 'Language',
+        'language' => 'Language',
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
     ];

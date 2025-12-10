@@ -12,6 +12,7 @@ class DetachControlPolicyRequest extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */

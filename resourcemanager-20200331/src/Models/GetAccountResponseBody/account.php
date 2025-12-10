@@ -13,78 +13,92 @@ class account extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $emailStatus;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $identityInformation;
+
     /**
      * @var string
      */
     public $joinMethod;
+
     /**
      * @var string
      */
     public $joinTime;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
+
     /**
      * @var string
      */
     public $resourceDirectoryPath;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'accountId'             => 'AccountId',
-        'accountName'           => 'AccountName',
-        'displayName'           => 'DisplayName',
-        'emailStatus'           => 'EmailStatus',
-        'folderId'              => 'FolderId',
-        'identityInformation'   => 'IdentityInformation',
-        'joinMethod'            => 'JoinMethod',
-        'joinTime'              => 'JoinTime',
-        'location'              => 'Location',
-        'modifyTime'            => 'ModifyTime',
-        'resourceDirectoryId'   => 'ResourceDirectoryId',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'displayName' => 'DisplayName',
+        'emailStatus' => 'EmailStatus',
+        'folderId' => 'FolderId',
+        'identityInformation' => 'IdentityInformation',
+        'joinMethod' => 'JoinMethod',
+        'joinTime' => 'JoinTime',
+        'location' => 'Location',
+        'modifyTime' => 'ModifyTime',
+        'resourceDirectoryId' => 'ResourceDirectoryId',
         'resourceDirectoryPath' => 'ResourceDirectoryPath',
-        'status'                => 'Status',
-        'tags'                  => 'Tags',
-        'type'                  => 'Type',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -153,9 +167,10 @@ class account extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -230,9 +245,10 @@ class account extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,13 +12,14 @@ class DisableControlPolicyResponseBody extends Model
      * @var string
      */
     public $enablementStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'enablementStatus' => 'EnablementStatus',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class tag extends Model
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
         'tagValue' => 'TagValue',
     ];
 

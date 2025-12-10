@@ -13,12 +13,13 @@ class GetResourceGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceGroup
      */
     public $resourceGroup;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceGroup' => 'ResourceGroup',
     ];
 

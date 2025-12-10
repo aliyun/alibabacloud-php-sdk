@@ -12,18 +12,20 @@ class CreateServiceLinkedRoleRequest extends Model
      * @var string
      */
     public $customSuffix;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
         'customSuffix' => 'CustomSuffix',
-        'description'  => 'Description',
-        'serviceName'  => 'ServiceName',
+        'description' => 'Description',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()

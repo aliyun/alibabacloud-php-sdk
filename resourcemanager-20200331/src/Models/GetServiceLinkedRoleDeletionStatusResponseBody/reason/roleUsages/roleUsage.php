@@ -13,12 +13,13 @@ class roleUsage extends Model
      * @var string
      */
     public $region;
+
     /**
      * @var resources
      */
     public $resources;
     protected $_name = [
-        'region'    => 'Region',
+        'region' => 'Region',
         'resources' => 'Resources',
     ];
 

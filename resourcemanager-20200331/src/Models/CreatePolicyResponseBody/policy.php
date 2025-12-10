@@ -12,28 +12,32 @@ class policy extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $defaultVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'createDate'     => 'CreateDate',
+        'createDate' => 'CreateDate',
         'defaultVersion' => 'DefaultVersion',
-        'description'    => 'Description',
-        'policyName'     => 'PolicyName',
-        'policyType'     => 'PolicyType',
+        'description' => 'Description',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()

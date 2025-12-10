@@ -76,11 +76,13 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableAssociatedTransferResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableAutoGroupingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableResourceGroupNotificationResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableAssociatedTransferResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableAutoGroupingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceGroupNotificationResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusRequest;
@@ -104,7 +106,11 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupAdminSettingResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupNotificationSettingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResourceCountsRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResourceCountsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetRoleRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetRoleResponse;
@@ -120,6 +126,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAssociatedTransferSettingResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRemediationsRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRemediationsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRulesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRulesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesRequest;
@@ -144,6 +152,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsWithAuthDetailsRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsWithAuthDetailsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListRolesRequest;
@@ -198,6 +208,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyRequest
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupAdminSettingRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupAdminSettingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateRoleRequest;
@@ -250,6 +262,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - AcceptHandshakeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AcceptHandshakeResponse
      *
      * @param AcceptHandshakeRequest $request
@@ -269,21 +282,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptHandshake',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptHandshake',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AcceptHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
+        return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -294,6 +304,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
      *
      * @param request - AcceptHandshakeRequest
+     *
      * @returns AcceptHandshakeResponse
      *
      * @param AcceptHandshakeRequest $request
@@ -317,6 +328,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - AttachControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachControlPolicyResponse
      *
      * @param AttachControlPolicyRequest $request
@@ -340,21 +352,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,6 +375,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
      *
      * @param request - AttachControlPolicyRequest
+     *
      * @returns AttachControlPolicyResponse
      *
      * @param AttachControlPolicyRequest $request
@@ -380,13 +390,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 为RAM身份授权.
+     * Attaches a permission policy to an object, which can be a RAM user, RAM user group, or RAM role. After you attach a permission policy to an object, the object has the operation permissions on the resources in a specific resource group or within a specific Alibaba Cloud account.
      *
      * @remarks
      * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
      *
      * @param request - AttachPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachPolicyResponse
      *
      * @param AttachPolicyRequest $request
@@ -422,30 +433,28 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 为RAM身份授权.
+     * Attaches a permission policy to an object, which can be a RAM user, RAM user group, or RAM role. After you attach a permission policy to an object, the object has the operation permissions on the resources in a specific resource group or within a specific Alibaba Cloud account.
      *
      * @remarks
      * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
      *
      * @param request - AttachPolicyRequest
+     *
      * @returns AttachPolicyResponse
      *
      * @param AttachPolicyRequest $request
@@ -469,6 +478,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - BindSecureMobilePhoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindSecureMobilePhoneResponse
      *
      * @param BindSecureMobilePhoneRequest $request
@@ -496,21 +506,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindSecureMobilePhone',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindSecureMobilePhone',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindSecureMobilePhoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -522,6 +529,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
      *
      * @param request - BindSecureMobilePhoneRequest
+     *
      * @returns BindSecureMobilePhoneResponse
      *
      * @param BindSecureMobilePhoneRequest $request
@@ -540,6 +548,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CancelChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelChangeAccountEmailResponse
      *
      * @param CancelChangeAccountEmailRequest $request
@@ -559,27 +568,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelChangeAccountEmail',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelChangeAccountEmail',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 取消修改邮箱.
      *
      * @param request - CancelChangeAccountEmailRequest
+     *
      * @returns CancelChangeAccountEmailResponse
      *
      * @param CancelChangeAccountEmailRequest $request
@@ -598,6 +605,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CancelCreateCloudAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelCreateCloudAccountResponse
      *
      * @param CancelCreateCloudAccountRequest $request
@@ -617,27 +625,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelCreateCloudAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelCreateCloudAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelCreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelCreateCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelCreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 取消创建云账号类型的成员.
      *
      * @param request - CancelCreateCloudAccountRequest
+     *
      * @returns CancelCreateCloudAccountResponse
      *
      * @param CancelCreateCloudAccountRequest $request
@@ -659,6 +665,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CancelHandshakeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelHandshakeResponse
      *
      * @param CancelHandshakeRequest $request
@@ -678,21 +685,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelHandshake',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelHandshake',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -702,6 +706,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
      *
      * @param request - CancelHandshakeRequest
+     *
      * @returns CancelHandshakeResponse
      *
      * @param CancelHandshakeRequest $request
@@ -720,6 +725,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CancelPromoteResourceAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelPromoteResourceAccountResponse
      *
      * @param CancelPromoteResourceAccountRequest $request
@@ -739,27 +745,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelPromoteResourceAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPromoteResourceAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelPromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelPromoteResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelPromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 取消升级资源账号.
      *
      * @param request - CancelPromoteResourceAccountRequest
+     *
      * @returns CancelPromoteResourceAccountResponse
      *
      * @param CancelPromoteResourceAccountRequest $request
@@ -778,6 +782,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeAccountEmailResponse
      *
      * @param ChangeAccountEmailRequest $request
@@ -801,27 +806,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeAccountEmail',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeAccountEmail',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 成员账号设置安全邮箱.
      *
      * @param request - ChangeAccountEmailRequest
+     *
      * @returns ChangeAccountEmailResponse
      *
      * @param ChangeAccountEmailRequest $request
@@ -844,6 +847,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CheckAccountDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckAccountDeleteResponse
      *
      * @param CheckAccountDeleteRequest $request
@@ -863,21 +867,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckAccountDelete',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckAccountDelete',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckAccountDeleteResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -888,6 +889,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
      *
      * @param request - CheckAccountDeleteRequest
+     *
      * @returns CheckAccountDeleteResponse
      *
      * @param CheckAccountDeleteRequest $request
@@ -909,6 +911,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateAutoGroupingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAutoGroupingRuleResponse
      *
      * @param CreateAutoGroupingRuleRequest $request
@@ -972,21 +975,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAutoGroupingRule',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAutoGroupingRule',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -996,6 +996,7 @@ class ResourceManager extends OpenApiClient
      * You can create up to 10 custom transfer rules. Each custom transfer rule can contain up to 10 content records.
      *
      * @param request - CreateAutoGroupingRuleRequest
+     *
      * @returns CreateAutoGroupingRuleResponse
      *
      * @param CreateAutoGroupingRuleRequest $request
@@ -1020,6 +1021,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateCloudAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudAccountResponse
      *
      * @param CreateCloudAccountRequest $request
@@ -1051,21 +1053,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1078,6 +1077,7 @@ class ResourceManager extends OpenApiClient
      * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
      *
      * @param request - CreateCloudAccountRequest
+     *
      * @returns CreateCloudAccountResponse
      *
      * @param CreateCloudAccountRequest $request
@@ -1097,6 +1097,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateControlPolicyResponse
      *
      * @param CreateControlPolicyRequest $request
@@ -1128,21 +1129,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1150,6 +1148,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
      *
      * @param request - CreateControlPolicyRequest
+     *
      * @returns CreateControlPolicyResponse
      *
      * @param CreateControlPolicyRequest $request
@@ -1170,6 +1169,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFolderResponse
      *
      * @param CreateFolderRequest $request
@@ -1193,21 +1193,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFolder',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFolder',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1216,6 +1213,7 @@ class ResourceManager extends OpenApiClient
      * In this example, a folder named `rdFolder` is created under the root folder.
      *
      * @param request - CreateFolderRequest
+     *
      * @returns CreateFolderResponse
      *
      * @param CreateFolderRequest $request
@@ -1230,10 +1228,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Creates a policy.
+     * Creates a permission policy.
      *
      * @param request - CreatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePolicyResponse
      *
      * @param CreatePolicyRequest $request
@@ -1261,27 +1260,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates a policy.
+     * Creates a permission policy.
      *
      * @param request - CreatePolicyRequest
+     *
      * @returns CreatePolicyResponse
      *
      * @param CreatePolicyRequest $request
@@ -1296,10 +1293,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 创建权限策略版本.
+     * Creates a version for a permission policy.
      *
      * @param request - CreatePolicyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePolicyVersionResponse
      *
      * @param CreatePolicyVersionRequest $request
@@ -1327,27 +1325,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicyVersion',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicyVersion',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建权限策略版本.
+     * Creates a version for a permission policy.
      *
      * @param request - CreatePolicyVersionRequest
+     *
      * @returns CreatePolicyVersionResponse
      *
      * @param CreatePolicyVersionRequest $request
@@ -1369,6 +1365,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateResourceAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceAccountResponse
      *
      * @param CreateResourceAccountRequest $request
@@ -1408,21 +1405,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourceAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1432,6 +1426,7 @@ class ResourceManager extends OpenApiClient
      * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
      *
      * @param request - CreateResourceAccountRequest
+     *
      * @returns CreateResourceAccountResponse
      *
      * @param CreateResourceAccountRequest $request
@@ -1449,10 +1444,11 @@ class ResourceManager extends OpenApiClient
      * Creates a resource group.
      *
      * @remarks
-     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+     * > A maximum of 30 resource groups can be created within an Alibaba Cloud account.
      *
      * @param request - CreateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceGroupResponse
      *
      * @param CreateResourceGroupRequest $request
@@ -1480,30 +1476,28 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceGroup',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourceGroup',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a resource group.
      *
      * @remarks
-     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+     * > A maximum of 30 resource groups can be created within an Alibaba Cloud account.
      *
      * @param request - CreateResourceGroupRequest
+     *
      * @returns CreateResourceGroupResponse
      *
      * @param CreateResourceGroupRequest $request
@@ -1522,6 +1516,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - CreateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRoleResponse
      *
      * @param CreateRoleRequest $request
@@ -1553,27 +1548,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a RAM role.
      *
      * @param request - CreateRoleRequest
+     *
      * @returns CreateRoleResponse
      *
      * @param CreateRoleRequest $request
@@ -1588,10 +1581,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 创建服务关联角色.
+     * Creates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -1619,27 +1613,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建服务关联角色.
+     * Creates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
+     *
      * @returns CreateServiceLinkedRoleResponse
      *
      * @param CreateServiceLinkedRoleRequest $request
@@ -1658,6 +1650,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeclineHandshakeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeclineHandshakeResponse
      *
      * @param DeclineHandshakeRequest $request
@@ -1677,27 +1670,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeclineHandshake',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeclineHandshake',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeclineHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Rejects an invitation.
      *
      * @param request - DeclineHandshakeRequest
+     *
      * @returns DeclineHandshakeResponse
      *
      * @param DeclineHandshakeRequest $request
@@ -1719,6 +1710,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param tmpReq - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $tmpReq
@@ -1748,21 +1740,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1772,6 +1761,7 @@ class ResourceManager extends OpenApiClient
      * The ID of the member that you want to delete.
      *
      * @param request - DeleteAccountRequest
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -1790,6 +1780,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeleteAutoGroupingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAutoGroupingRuleResponse
      *
      * @param DeleteAutoGroupingRuleRequest $request
@@ -1809,27 +1800,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAutoGroupingRule',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAutoGroupingRule',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a transfer rule.
      *
      * @param request - DeleteAutoGroupingRuleRequest
+     *
      * @returns DeleteAutoGroupingRuleResponse
      *
      * @param DeleteAutoGroupingRuleRequest $request
@@ -1852,6 +1841,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeleteControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteControlPolicyResponse
      *
      * @param DeleteControlPolicyRequest $request
@@ -1871,21 +1861,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1896,6 +1883,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
      *
      * @param request - DeleteControlPolicyRequest
+     *
      * @returns DeleteControlPolicyResponse
      *
      * @param DeleteControlPolicyRequest $request
@@ -1915,6 +1903,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeleteFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFolderResponse
      *
      * @param DeleteFolderRequest $request
@@ -1934,21 +1923,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFolder',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFolder',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1956,6 +1942,7 @@ class ResourceManager extends OpenApiClient
      * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
      *
      * @param request - DeleteFolderRequest
+     *
      * @returns DeleteFolderResponse
      *
      * @param DeleteFolderRequest $request
@@ -1970,15 +1957,16 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除权限策略.
+     * Deletes a permission policy.
      *
      * @remarks
      * >
-     * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-     * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+     * *   Before you delete a permission policy, you must delete its all non-default versions. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+     * *   Before you delete a permission policy, you must make sure that the policy is not attached to a RAM user, a RAM user group, or a RAM role. For information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
      *
      * @param request - DeletePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePolicyResponse
      *
      * @param DeletePolicyRequest $request
@@ -1998,32 +1986,30 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除权限策略.
+     * Deletes a permission policy.
      *
      * @remarks
      * >
-     * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-     * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+     * *   Before you delete a permission policy, you must delete its all non-default versions. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+     * *   Before you delete a permission policy, you must make sure that the policy is not attached to a RAM user, a RAM user group, or a RAM role. For information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
      *
      * @param request - DeletePolicyRequest
+     *
      * @returns DeletePolicyResponse
      *
      * @param DeletePolicyRequest $request
@@ -2038,13 +2024,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除权限策略版本.
+     * Deletes a version of a permission policy.
      *
      * @remarks
-     * >  The default version of a permission policy cannot be deleted.
+     * >  The default version of a policy cannot be deleted.
      *
      * @param request - DeletePolicyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePolicyVersionResponse
      *
      * @param DeletePolicyVersionRequest $request
@@ -2068,30 +2055,28 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicyVersion',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicyVersion',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除权限策略版本.
+     * Deletes a version of a permission policy.
      *
      * @remarks
-     * >  The default version of a permission policy cannot be deleted.
+     * >  The default version of a policy cannot be deleted.
      *
      * @param request - DeletePolicyVersionRequest
+     *
      * @returns DeletePolicyVersionResponse
      *
      * @param DeletePolicyVersionRequest $request
@@ -2114,6 +2099,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeleteResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceGroupResponse
      *
      * @param DeleteResourceGroupRequest $request
@@ -2133,21 +2119,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceGroup',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteResourceGroup',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2158,6 +2141,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
      *
      * @param request - DeleteResourceGroupRequest
+     *
      * @returns DeleteResourceGroupResponse
      *
      * @param DeleteResourceGroupRequest $request
@@ -2172,10 +2156,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a RAM role.
      *
      * @param request - DeleteRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRoleResponse
      *
      * @param DeleteRoleRequest $request
@@ -2195,27 +2180,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除角色.
+     * Deletes a RAM role.
      *
      * @param request - DeleteRoleRequest
+     *
      * @returns DeleteRoleResponse
      *
      * @param DeleteRoleRequest $request
@@ -2230,10 +2213,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除服务关联角色.
+     * Deletes a service-linked role.
      *
      * @param request - DeleteServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceLinkedRoleResponse
      *
      * @param DeleteServiceLinkedRoleRequest $request
@@ -2253,27 +2237,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceLinkedRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServiceLinkedRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除服务关联角色.
+     * Deletes a service-linked role.
      *
      * @param request - DeleteServiceLinkedRoleRequest
+     *
      * @returns DeleteServiceLinkedRoleResponse
      *
      * @param DeleteServiceLinkedRoleRequest $request
@@ -2296,6 +2278,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DeregisterDelegatedAdministratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeregisterDelegatedAdministratorResponse
      *
      * @param DeregisterDelegatedAdministratorRequest $request
@@ -2319,21 +2302,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeregisterDelegatedAdministrator',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeregisterDelegatedAdministrator',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeregisterDelegatedAdministratorResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2344,6 +2324,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
      *
      * @param request - DeregisterDelegatedAdministratorRequest
+     *
      * @returns DeregisterDelegatedAdministratorResponse
      *
      * @param DeregisterDelegatedAdministratorRequest $request
@@ -2365,6 +2346,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DestroyResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DestroyResourceDirectoryResponse
      *
      * @param RuntimeOptions $runtime
@@ -2373,23 +2355,20 @@ class ResourceManager extends OpenApiClient
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DestroyResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DestroyResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DestroyResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2397,6 +2376,7 @@ class ResourceManager extends OpenApiClient
      * Before you disable a resource directory, make sure that the following requirements are met:
      * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
      * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+     *
      * @returns DestroyResourceDirectoryResponse
      *
      * @return DestroyResourceDirectoryResponse
@@ -2418,6 +2398,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DetachControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachControlPolicyResponse
      *
      * @param DetachControlPolicyRequest $request
@@ -2441,21 +2422,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2467,6 +2445,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
      *
      * @param request - DetachControlPolicyRequest
+     *
      * @returns DetachControlPolicyResponse
      *
      * @param DetachControlPolicyRequest $request
@@ -2481,10 +2460,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 为RAM身份移除权限.
+     * Detaches a permission policy from an object. After you detach a policy from an object, the object does not have the operation permissions on the current resource group or the resources within the current account.
      *
      * @param request - DetachPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachPolicyResponse
      *
      * @param DetachPolicyRequest $request
@@ -2520,27 +2500,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 为RAM身份移除权限.
+     * Detaches a permission policy from an object. After you detach a policy from an object, the object does not have the operation permissions on the current resource group or the resources within the current account.
      *
      * @param request - DetachPolicyRequest
+     *
      * @returns DetachPolicyResponse
      *
      * @param DetachPolicyRequest $request
@@ -2559,6 +2537,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DisableAssociatedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAssociatedTransferResponse
      *
      * @param RuntimeOptions $runtime
@@ -2567,23 +2546,20 @@ class ResourceManager extends OpenApiClient
      */
     public function disableAssociatedTransferWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableAssociatedTransfer',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAssociatedTransfer',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableAssociatedTransferResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2605,6 +2581,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DisableAutoGroupingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAutoGroupingResponse
      *
      * @param RuntimeOptions $runtime
@@ -2613,23 +2590,20 @@ class ResourceManager extends OpenApiClient
      */
     public function disableAutoGroupingWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableAutoGrouping',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAutoGrouping',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableAutoGroupingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2655,6 +2629,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - DisableControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableControlPolicyResponse
      *
      * @param RuntimeOptions $runtime
@@ -2663,23 +2638,20 @@ class ResourceManager extends OpenApiClient
      */
     public function disableControlPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2688,6 +2660,7 @@ class ResourceManager extends OpenApiClient
      * @remarks
      * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
      * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+     *
      * @returns DisableControlPolicyResponse
      *
      * @return DisableControlPolicyResponse
@@ -2700,10 +2673,55 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 关闭资源组通知.
+     *
+     * @param request - DisableResourceGroupNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableResourceGroupNotificationResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableResourceGroupNotificationResponse
+     */
+    public function disableResourceGroupNotificationWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DisableResourceGroupNotification',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableResourceGroupNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭资源组通知.
+     *
+     * @returns DisableResourceGroupNotificationResponse
+     *
+     * @return DisableResourceGroupNotificationResponse
+     */
+    public function disableResourceGroupNotification()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableResourceGroupNotificationWithOptions($runtime);
+    }
+
+    /**
      * Enables the Transfer Associated Resources feature.
      *
      * @param request - EnableAssociatedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAssociatedTransferResponse
      *
      * @param RuntimeOptions $runtime
@@ -2712,23 +2730,20 @@ class ResourceManager extends OpenApiClient
      */
     public function enableAssociatedTransferWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableAssociatedTransfer',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAssociatedTransfer',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableAssociatedTransferResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2750,6 +2765,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - EnableAutoGroupingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAutoGroupingResponse
      *
      * @param RuntimeOptions $runtime
@@ -2758,23 +2774,20 @@ class ResourceManager extends OpenApiClient
      */
     public function enableAutoGroupingWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableAutoGrouping',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAutoGrouping',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableAutoGroupingResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2799,6 +2812,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - EnableControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableControlPolicyResponse
      *
      * @param RuntimeOptions $runtime
@@ -2807,23 +2821,20 @@ class ResourceManager extends OpenApiClient
      */
     public function enableControlPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2831,6 +2842,7 @@ class ResourceManager extends OpenApiClient
      *
      * @remarks
      * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+     *
      * @returns EnableControlPolicyResponse
      *
      * @return EnableControlPolicyResponse
@@ -2851,6 +2863,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - EnableResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableResourceDirectoryResponse
      *
      * @param EnableResourceDirectoryRequest $request
@@ -2882,21 +2895,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2907,6 +2917,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the current account is used to enable a resource directory.
      *
      * @param request - EnableResourceDirectoryRequest
+     *
      * @returns EnableResourceDirectoryResponse
      *
      * @param EnableResourceDirectoryRequest $request
@@ -2921,11 +2932,56 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 开通资源组通知.
+     *
+     * @param request - EnableResourceGroupNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableResourceGroupNotificationResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableResourceGroupNotificationResponse
+     */
+    public function enableResourceGroupNotificationWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'EnableResourceGroupNotification',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableResourceGroupNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开通资源组通知.
+     *
+     * @returns EnableResourceGroupNotificationResponse
+     *
+     * @return EnableResourceGroupNotificationResponse
+     */
+    public function enableResourceGroupNotification()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableResourceGroupNotificationWithOptions($runtime);
+    }
+
+    /**
      * @remarks
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
      *
      * @param request - GetAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAccountResponse
      *
      * @param GetAccountRequest $request
@@ -2949,21 +3005,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2971,6 +3024,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
      *
      * @param request - GetAccountRequest
+     *
      * @returns GetAccountResponse
      *
      * @param GetAccountRequest $request
@@ -2993,6 +3047,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetAccountDeletionCheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAccountDeletionCheckResultResponse
      *
      * @param GetAccountDeletionCheckResultRequest $request
@@ -3012,21 +3067,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountDeletionCheckResult',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountDeletionCheckResult',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAccountDeletionCheckResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3037,6 +3089,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
      *
      * @param request - GetAccountDeletionCheckResultRequest
+     *
      * @returns GetAccountDeletionCheckResultResponse
      *
      * @param GetAccountDeletionCheckResultRequest $request
@@ -3058,6 +3111,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetAccountDeletionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAccountDeletionStatusResponse
      *
      * @param GetAccountDeletionStatusRequest $request
@@ -3077,21 +3131,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountDeletionStatus',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountDeletionStatus',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAccountDeletionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,6 +3152,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
      *
      * @param request - GetAccountDeletionStatusRequest
+     *
      * @returns GetAccountDeletionStatusResponse
      *
      * @param GetAccountDeletionStatusRequest $request
@@ -3119,6 +3171,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetAutoGroupingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoGroupingRuleResponse
      *
      * @param GetAutoGroupingRuleRequest $request
@@ -3138,27 +3191,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoGroupingRule',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoGroupingRule',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about a transfer rule.
      *
      * @param request - GetAutoGroupingRuleRequest
+     *
      * @returns GetAutoGroupingRuleResponse
      *
      * @param GetAutoGroupingRuleRequest $request
@@ -3177,6 +3228,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetAutoGroupingStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoGroupingStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -3185,23 +3237,20 @@ class ResourceManager extends OpenApiClient
      */
     public function getAutoGroupingStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetAutoGroupingStatus',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoGroupingStatus',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAutoGroupingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAutoGroupingStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAutoGroupingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3224,6 +3273,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetControlPolicyResponse
      *
      * @param GetControlPolicyRequest $request
@@ -3247,21 +3297,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3269,6 +3316,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
      *
      * @param request - GetControlPolicyRequest
+     *
      * @returns GetControlPolicyResponse
      *
      * @param GetControlPolicyRequest $request
@@ -3287,6 +3335,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetControlPolicyEnablementStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetControlPolicyEnablementStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -3295,23 +3344,20 @@ class ResourceManager extends OpenApiClient
      */
     public function getControlPolicyEnablementStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetControlPolicyEnablementStatus',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetControlPolicyEnablementStatus',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetControlPolicyEnablementStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3334,6 +3380,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFolderResponse
      *
      * @param GetFolderRequest $request
@@ -3353,21 +3400,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFolder',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFolder',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3375,6 +3419,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the information of the folder `fd-Jyl5U7****` is queried.
      *
      * @param request - GetFolderRequest
+     *
      * @returns GetFolderResponse
      *
      * @param GetFolderRequest $request
@@ -3396,6 +3441,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetHandshakeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHandshakeResponse
      *
      * @param GetHandshakeRequest $request
@@ -3415,21 +3461,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHandshake',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHandshake',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3439,6 +3482,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
      *
      * @param request - GetHandshakeRequest
+     *
      * @returns GetHandshakeResponse
      *
      * @param GetHandshakeRequest $request
@@ -3455,6 +3499,7 @@ class ResourceManager extends OpenApiClient
     /**
      * @param request - GetPayerForAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPayerForAccountResponse
      *
      * @param GetPayerForAccountRequest $request
@@ -3474,25 +3519,23 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPayerForAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPayerForAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPayerForAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetPayerForAccountRequest
+     *
      * @returns GetPayerForAccountResponse
      *
      * @param GetPayerForAccountRequest $request
@@ -3507,10 +3550,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Queries the information of a policy.
+     * Queries the information about a permission policy.
      *
      * @param request - GetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPolicyResponse
      *
      * @param GetPolicyRequest $request
@@ -3538,27 +3582,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the information of a policy.
+     * Queries the information about a permission policy.
      *
      * @param request - GetPolicyRequest
+     *
      * @returns GetPolicyResponse
      *
      * @param GetPolicyRequest $request
@@ -3573,10 +3615,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 获取权限策略的指定版本.
+     * Queries the information about a version of a permission policy.
      *
      * @param request - GetPolicyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPolicyVersionResponse
      *
      * @param GetPolicyVersionRequest $request
@@ -3604,27 +3647,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicyVersion',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicyVersion',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取权限策略的指定版本.
+     * Queries the information about a version of a permission policy.
      *
      * @param request - GetPolicyVersionRequest
+     *
      * @returns GetPolicyVersionResponse
      *
      * @param GetPolicyVersionRequest $request
@@ -3646,6 +3687,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - GetResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceDirectoryResponse
      *
      * @param RuntimeOptions $runtime
@@ -3654,23 +3696,20 @@ class ResourceManager extends OpenApiClient
      */
     public function getResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3678,6 +3717,7 @@ class ResourceManager extends OpenApiClient
      *
      * @remarks
      * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+     *
      * @returns GetResourceDirectoryResponse
      *
      * @return GetResourceDirectoryResponse
@@ -3690,13 +3730,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the information of the resource group whose ID is `rg-9gLOoK****` is queried.
-     *
-     * @remarks
-     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/159973.html).
+     * Queries the information of a resource group.
      *
      * @param request - GetResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceGroupResponse
      *
      * @param GetResourceGroupRequest $request
@@ -3720,30 +3758,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceGroup',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceGroup',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * In this example, the information of the resource group whose ID is `rg-9gLOoK****` is queried.
-     *
-     * @remarks
-     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/159973.html).
+     * Queries the information of a resource group.
      *
      * @param request - GetResourceGroupRequest
+     *
      * @returns GetResourceGroupResponse
      *
      * @param GetResourceGroupRequest $request
@@ -3758,10 +3791,168 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Queries the information of a RAM role.
+     * 查询资源组管理员配置.
+     *
+     * @param request - GetResourceGroupAdminSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupAdminSettingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceGroupAdminSettingResponse
+     */
+    public function getResourceGroupAdminSettingWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetResourceGroupAdminSetting',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceGroupAdminSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源组管理员配置.
+     *
+     * @returns GetResourceGroupAdminSettingResponse
+     *
+     * @return GetResourceGroupAdminSettingResponse
+     */
+    public function getResourceGroupAdminSetting()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceGroupAdminSettingWithOptions($runtime);
+    }
+
+    /**
+     * 查询资源组通知设置.
+     *
+     * @param request - GetResourceGroupNotificationSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupNotificationSettingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceGroupNotificationSettingResponse
+     */
+    public function getResourceGroupNotificationSettingWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetResourceGroupNotificationSetting',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceGroupNotificationSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源组通知设置.
+     *
+     * @returns GetResourceGroupNotificationSettingResponse
+     *
+     * @return GetResourceGroupNotificationSettingResponse
+     */
+    public function getResourceGroupNotificationSetting()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceGroupNotificationSettingWithOptions($runtime);
+    }
+
+    /**
+     * Queries the number of resources in a visible resource group.
+     *
+     * @param request - GetResourceGroupResourceCountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupResourceCountsResponse
+     *
+     * @param GetResourceGroupResourceCountsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetResourceGroupResourceCountsResponse
+     */
+    public function getResourceGroupResourceCountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupByKey) {
+            @$query['GroupByKey'] = $request->groupByKey;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceGroupResourceCounts',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceGroupResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of resources in a visible resource group.
+     *
+     * @param request - GetResourceGroupResourceCountsRequest
+     *
+     * @returns GetResourceGroupResourceCountsResponse
+     *
+     * @param GetResourceGroupResourceCountsRequest $request
+     *
+     * @return GetResourceGroupResourceCountsResponse
+     */
+    public function getResourceGroupResourceCounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceGroupResourceCountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a RAM role.
      *
      * @param request - GetRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRoleResponse
      *
      * @param GetRoleRequest $request
@@ -3785,27 +3976,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the information of a RAM role.
+     * Queries the information about a RAM role.
      *
      * @param request - GetRoleRequest
+     *
      * @returns GetRoleResponse
      *
      * @param GetRoleRequest $request
@@ -3820,10 +4009,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Query the status of the deletion task for a service linked role.
+     * Queries the status of the task that is used to delete a service-linked role.
      *
      * @param request - GetServiceLinkedRoleDeletionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetServiceLinkedRoleDeletionStatusResponse
      *
      * @param GetServiceLinkedRoleDeletionStatusRequest $request
@@ -3843,27 +4033,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceLinkedRoleDeletionStatus',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceLinkedRoleDeletionStatus',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Query the status of the deletion task for a service linked role.
+     * Queries the status of the task that is used to delete a service-linked role.
      *
      * @param request - GetServiceLinkedRoleDeletionStatusRequest
+     *
      * @returns GetServiceLinkedRoleDeletionStatusResponse
      *
      * @param GetServiceLinkedRoleDeletionStatusRequest $request
@@ -3887,6 +4075,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - InitResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitResourceDirectoryResponse
      *
      * @param RuntimeOptions $runtime
@@ -3895,23 +4084,20 @@ class ResourceManager extends OpenApiClient
      */
     public function initResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'InitResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3921,6 +4107,7 @@ class ResourceManager extends OpenApiClient
      * >
      * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
      * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+     *
      * @returns InitResourceDirectoryResponse
      *
      * @return InitResourceDirectoryResponse
@@ -3940,6 +4127,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - InviteAccountToResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InviteAccountToResourceDirectoryResponse
      *
      * @param InviteAccountToResourceDirectoryRequest $request
@@ -3971,21 +4159,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InviteAccountToResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InviteAccountToResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InviteAccountToResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3995,6 +4180,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
      *
      * @param request - InviteAccountToResourceDirectoryRequest
+     *
      * @returns InviteAccountToResourceDirectoryResponse
      *
      * @param InviteAccountToResourceDirectoryRequest $request
@@ -4016,6 +4202,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAccountsResponse
      *
      * @param ListAccountsRequest $request
@@ -4047,21 +4234,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccounts',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccounts',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4071,6 +4255,7 @@ class ResourceManager extends OpenApiClient
      * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
      *
      * @param request - ListAccountsRequest
+     *
      * @returns ListAccountsResponse
      *
      * @param ListAccountsRequest $request
@@ -4089,6 +4274,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListAccountsForParentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAccountsForParentResponse
      *
      * @param ListAccountsForParentRequest $request
@@ -4128,27 +4314,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountsForParent',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountsForParent',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAccountsForParentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information of members in a folder.
      *
      * @param request - ListAccountsForParentRequest
+     *
      * @returns ListAccountsForParentResponse
      *
      * @param ListAccountsForParentRequest $request
@@ -4165,6 +4349,7 @@ class ResourceManager extends OpenApiClient
     /**
      * @param request - ListAncestorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAncestorsResponse
      *
      * @param ListAncestorsRequest $request
@@ -4184,25 +4369,23 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAncestors',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAncestors',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAncestorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListAncestorsRequest
+     *
      * @returns ListAncestorsResponse
      *
      * @param ListAncestorsRequest $request
@@ -4221,6 +4404,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListAssociatedTransferSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAssociatedTransferSettingResponse
      *
      * @param RuntimeOptions $runtime
@@ -4229,23 +4413,20 @@ class ResourceManager extends OpenApiClient
      */
     public function listAssociatedTransferSettingWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListAssociatedTransferSetting',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAssociatedTransferSetting',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAssociatedTransferSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4263,10 +4444,100 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 列出自动分组修正记录.
+     *
+     * @param request - ListAutoGroupingRemediationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutoGroupingRemediationsResponse
+     *
+     * @param ListAutoGroupingRemediationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListAutoGroupingRemediationsResponse
+     */
+    public function listAutoGroupingRemediationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->earliestRemediationTime) {
+            @$query['EarliestRemediationTime'] = $request->earliestRemediationTime;
+        }
+
+        if (null !== $request->latestRemediationTime) {
+            @$query['LatestRemediationTime'] = $request->latestRemediationTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
+        }
+
+        if (null !== $request->targetResourceGroupId) {
+            @$query['TargetResourceGroupId'] = $request->targetResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAutoGroupingRemediations',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAutoGroupingRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出自动分组修正记录.
+     *
+     * @param request - ListAutoGroupingRemediationsRequest
+     *
+     * @returns ListAutoGroupingRemediationsResponse
+     *
+     * @param ListAutoGroupingRemediationsRequest $request
+     *
+     * @return ListAutoGroupingRemediationsResponse
+     */
+    public function listAutoGroupingRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAutoGroupingRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of transfer rules.
      *
      * @param request - ListAutoGroupingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAutoGroupingRulesResponse
      *
      * @param ListAutoGroupingRulesRequest $request
@@ -4302,27 +4573,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAutoGroupingRules',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAutoGroupingRules',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAutoGroupingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAutoGroupingRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAutoGroupingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of transfer rules.
      *
      * @param request - ListAutoGroupingRulesRequest
+     *
      * @returns ListAutoGroupingRulesResponse
      *
      * @param ListAutoGroupingRulesRequest $request
@@ -4344,6 +4613,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListControlPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListControlPoliciesResponse
      *
      * @param ListControlPoliciesRequest $request
@@ -4375,21 +4645,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListControlPolicies',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListControlPolicies',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListControlPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4399,6 +4666,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
      *
      * @param request - ListControlPoliciesRequest
+     *
      * @returns ListControlPoliciesResponse
      *
      * @param ListControlPoliciesRequest $request
@@ -4418,6 +4686,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListControlPolicyAttachmentsForTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListControlPolicyAttachmentsForTargetResponse
      *
      * @param ListControlPolicyAttachmentsForTargetRequest $request
@@ -4441,21 +4710,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListControlPolicyAttachmentsForTarget',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListControlPolicyAttachmentsForTarget',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4463,6 +4729,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
      *
      * @param request - ListControlPolicyAttachmentsForTargetRequest
+     *
      * @returns ListControlPolicyAttachmentsForTargetResponse
      *
      * @param ListControlPolicyAttachmentsForTargetRequest $request
@@ -4484,6 +4751,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListDelegatedAdministratorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDelegatedAdministratorsResponse
      *
      * @param ListDelegatedAdministratorsRequest $request
@@ -4511,21 +4779,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDelegatedAdministrators',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDelegatedAdministrators',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDelegatedAdministratorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4535,6 +4800,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
      *
      * @param request - ListDelegatedAdministratorsRequest
+     *
      * @returns ListDelegatedAdministratorsResponse
      *
      * @param ListDelegatedAdministratorsRequest $request
@@ -4556,6 +4822,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListDelegatedServicesForAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDelegatedServicesForAccountResponse
      *
      * @param ListDelegatedServicesForAccountRequest $request
@@ -4575,21 +4842,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDelegatedServicesForAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDelegatedServicesForAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDelegatedServicesForAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4599,6 +4863,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
      *
      * @param request - ListDelegatedServicesForAccountRequest
+     *
      * @returns ListDelegatedServicesForAccountResponse
      *
      * @param ListDelegatedServicesForAccountRequest $request
@@ -4618,6 +4883,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListFoldersForParentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFoldersForParentResponse
      *
      * @param ListFoldersForParentRequest $request
@@ -4649,21 +4915,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFoldersForParent',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFoldersForParent',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFoldersForParentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4671,6 +4934,7 @@ class ResourceManager extends OpenApiClient
      * >  You can view the information of only the first-level subfolders of a folder.
      *
      * @param request - ListFoldersForParentRequest
+     *
      * @returns ListFoldersForParentResponse
      *
      * @param ListFoldersForParentRequest $request
@@ -4692,6 +4956,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListHandshakesForAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHandshakesForAccountResponse
      *
      * @param ListHandshakesForAccountRequest $request
@@ -4715,21 +4980,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHandshakesForAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHandshakesForAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHandshakesForAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4739,6 +5001,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
      *
      * @param request - ListHandshakesForAccountRequest
+     *
      * @returns ListHandshakesForAccountResponse
      *
      * @param ListHandshakesForAccountRequest $request
@@ -4757,6 +5020,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListHandshakesForResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHandshakesForResourceDirectoryResponse
      *
      * @param ListHandshakesForResourceDirectoryRequest $request
@@ -4780,27 +5044,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHandshakesForResourceDirectory',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHandshakesForResourceDirectory',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHandshakesForResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries invitations in a resource directory.
      *
      * @param request - ListHandshakesForResourceDirectoryRequest
+     *
      * @returns ListHandshakesForResourceDirectoryResponse
      *
      * @param ListHandshakesForResourceDirectoryRequest $request
@@ -4815,10 +5077,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Queries policies.
+     * Queries a list of permission policies.
      *
      * @param request - ListPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPoliciesResponse
      *
      * @param ListPoliciesRequest $request
@@ -4850,27 +5113,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicies',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicies',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries policies.
+     * Queries a list of permission policies.
      *
      * @param request - ListPoliciesRequest
+     *
      * @returns ListPoliciesResponse
      *
      * @param ListPoliciesRequest $request
@@ -4889,12 +5150,13 @@ class ResourceManager extends OpenApiClient
      *
      * @remarks
      * You can view the following information:
-     * *   Policy attachment records under an Alibaba Cloud account or a resource group
-     * *   Policies attached to RAM users, RAM user groups, or RAM roles
-     * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group
+     * *   Policy attachment records within an Alibaba Cloud account or a resource group
+     * *   Permission policies attached to RAM users, RAM user groups, or RAM roles
+     * *   RAM users, RAM user groups, or RAM roles to which permission policies are attached within an Alibaba Cloud account or a resource group
      *
      * @param request - ListPolicyAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPolicyAttachmentsResponse
      *
      * @param ListPolicyAttachmentsRequest $request
@@ -4942,21 +5204,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicyAttachments',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicyAttachments',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicyAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicyAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicyAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4964,11 +5223,12 @@ class ResourceManager extends OpenApiClient
      *
      * @remarks
      * You can view the following information:
-     * *   Policy attachment records under an Alibaba Cloud account or a resource group
-     * *   Policies attached to RAM users, RAM user groups, or RAM roles
-     * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group
+     * *   Policy attachment records within an Alibaba Cloud account or a resource group
+     * *   Permission policies attached to RAM users, RAM user groups, or RAM roles
+     * *   RAM users, RAM user groups, or RAM roles to which permission policies are attached within an Alibaba Cloud account or a resource group
      *
      * @param request - ListPolicyAttachmentsRequest
+     *
      * @returns ListPolicyAttachmentsResponse
      *
      * @param ListPolicyAttachmentsRequest $request
@@ -4983,10 +5243,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查看权限策略版本列表.
+     * Queries a list of versions of a policy.
      *
      * @param request - ListPolicyVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPolicyVersionsResponse
      *
      * @param ListPolicyVersionsRequest $request
@@ -5010,27 +5271,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicyVersions',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicyVersions',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicyVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看权限策略版本列表.
+     * Queries a list of versions of a policy.
      *
      * @param request - ListPolicyVersionsRequest
+     *
      * @returns ListPolicyVersionsResponse
      *
      * @param ListPolicyVersionsRequest $request
@@ -5051,6 +5310,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceGroupsResponse
      *
      * @param ListResourceGroupsRequest $request
@@ -5102,21 +5362,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceGroups',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceGroups',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5125,6 +5382,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
      *
      * @param request - ListResourceGroupsRequest
+     *
      * @returns ListResourceGroupsResponse
      *
      * @param ListResourceGroupsRequest $request
@@ -5139,6 +5397,99 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 列出资源组与用户授权信息.
+     *
+     * @param request - ListResourceGroupsWithAuthDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceGroupsWithAuthDetailsResponse
+     *
+     * @param ListResourceGroupsWithAuthDetailsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListResourceGroupsWithAuthDetailsResponse
+     */
+    public function listResourceGroupsWithAuthDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceGroupsWithAuthDetails',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourceGroupsWithAuthDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源组与用户授权信息.
+     *
+     * @param request - ListResourceGroupsWithAuthDetailsRequest
+     *
+     * @returns ListResourceGroupsWithAuthDetailsResponse
+     *
+     * @param ListResourceGroupsWithAuthDetailsRequest $request
+     *
+     * @return ListResourceGroupsWithAuthDetailsResponse
+     */
+    public function listResourceGroupsWithAuthDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceGroupsWithAuthDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries resources that can be accessed by the current account in resource groups.
      *
      * @remarks
@@ -5147,6 +5498,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -5194,21 +5546,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResources',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResources',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5219,6 +5568,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
      *
      * @param request - ListResourcesRequest
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -5233,10 +5583,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Queries RAM roles.
+     * Queries a list of RAM roles.
      *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -5264,27 +5615,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRoles',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRoles',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries RAM roles.
+     * Queries a list of RAM roles.
      *
      * @param request - ListRolesRequest
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -5306,6 +5655,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -5337,21 +5687,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5361,6 +5708,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
      *
      * @param request - ListTagKeysRequest
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -5382,6 +5730,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -5417,21 +5766,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5441,6 +5787,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -5462,6 +5809,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -5497,21 +5845,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5521,6 +5866,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
      *
      * @param request - ListTagValuesRequest
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -5542,6 +5888,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListTargetAttachmentsForControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTargetAttachmentsForControlPolicyResponse
      *
      * @param ListTargetAttachmentsForControlPolicyRequest $request
@@ -5569,21 +5916,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTargetAttachmentsForControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTargetAttachmentsForControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5593,6 +5937,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
      *
      * @param request - ListTargetAttachmentsForControlPolicyRequest
+     *
      * @returns ListTargetAttachmentsForControlPolicyResponse
      *
      * @param ListTargetAttachmentsForControlPolicyRequest $request
@@ -5613,6 +5958,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ListTrustedServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTrustedServiceStatusResponse
      *
      * @param ListTrustedServiceStatusRequest $request
@@ -5640,21 +5986,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTrustedServiceStatus',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTrustedServiceStatus',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrustedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5663,6 +6006,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
      *
      * @param request - ListTrustedServiceStatusRequest
+     *
      * @returns ListTrustedServiceStatusResponse
      *
      * @param ListTrustedServiceStatusRequest $request
@@ -5681,6 +6025,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - MoveAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveAccountResponse
      *
      * @param MoveAccountRequest $request
@@ -5704,27 +6049,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 移动账号.
      *
      * @param request - MoveAccountRequest
+     *
      * @returns MoveAccountResponse
      *
      * @param MoveAccountRequest $request
@@ -5747,6 +6090,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - MoveResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourcesResponse
      *
      * @param MoveResourcesRequest $request
@@ -5770,21 +6114,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResources',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResources',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5795,6 +6136,7 @@ class ResourceManager extends OpenApiClient
      * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
      *
      * @param request - MoveResourcesRequest
+     *
      * @returns MoveResourcesResponse
      *
      * @param MoveResourcesRequest $request
@@ -5813,6 +6155,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - PromoteResourceAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PromoteResourceAccountResponse
      *
      * @param PromoteResourceAccountRequest $request
@@ -5836,27 +6179,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PromoteResourceAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PromoteResourceAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PromoteResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return PromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 升级资源账号.
      *
      * @param request - PromoteResourceAccountRequest
+     *
      * @returns PromoteResourceAccountResponse
      *
      * @param PromoteResourceAccountRequest $request
@@ -5881,6 +6222,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - RegisterDelegatedAdministratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterDelegatedAdministratorResponse
      *
      * @param RegisterDelegatedAdministratorRequest $request
@@ -5904,21 +6246,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDelegatedAdministrator',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterDelegatedAdministrator',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterDelegatedAdministratorResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5931,6 +6270,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
      *
      * @param request - RegisterDelegatedAdministratorRequest
+     *
      * @returns RegisterDelegatedAdministratorResponse
      *
      * @param RegisterDelegatedAdministratorRequest $request
@@ -5950,6 +6290,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - RemoveCloudAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveCloudAccountResponse
      *
      * @param RemoveCloudAccountRequest $request
@@ -5969,21 +6310,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveCloudAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveCloudAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5991,6 +6329,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
      *
      * @param request - RemoveCloudAccountRequest
+     *
      * @returns RemoveCloudAccountResponse
      *
      * @param RemoveCloudAccountRequest $request
@@ -6009,6 +6348,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ResendCreateCloudAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResendCreateCloudAccountEmailResponse
      *
      * @param ResendCreateCloudAccountEmailRequest $request
@@ -6028,27 +6368,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResendCreateCloudAccountEmail',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResendCreateCloudAccountEmail',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResendCreateCloudAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResendCreateCloudAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResendCreateCloudAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 重新发送创建云账号的邮箱验证
      *
      * @param request - ResendCreateCloudAccountEmailRequest
+     *
      * @returns ResendCreateCloudAccountEmailResponse
      *
      * @param ResendCreateCloudAccountEmailRequest $request
@@ -6067,6 +6405,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - ResendPromoteResourceAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResendPromoteResourceAccountEmailResponse
      *
      * @param ResendPromoteResourceAccountEmailRequest $request
@@ -6086,27 +6425,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResendPromoteResourceAccountEmail',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResendPromoteResourceAccountEmail',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResendPromoteResourceAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResendPromoteResourceAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResendPromoteResourceAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 重新发送升级资源账号的邮箱验证
      *
      * @param request - ResendPromoteResourceAccountEmailRequest
+     *
      * @returns ResendPromoteResourceAccountEmailResponse
      *
      * @param ResendPromoteResourceAccountEmailRequest $request
@@ -6125,6 +6462,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - RetryChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetryChangeAccountEmailResponse
      *
      * @param RetryChangeAccountEmailRequest $request
@@ -6144,27 +6482,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetryChangeAccountEmail',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetryChangeAccountEmail',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 重新发送确认邮件.
      *
      * @param request - RetryChangeAccountEmailRequest
+     *
      * @returns RetryChangeAccountEmailResponse
      *
      * @param RetryChangeAccountEmailRequest $request
@@ -6187,6 +6523,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
      *
      * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
@@ -6210,21 +6547,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendVerificationCodeForBindSecureMobilePhone',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendVerificationCodeForBindSecureMobilePhone',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6235,6 +6569,7 @@ class ResourceManager extends OpenApiClient
      * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
      *
      * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
+     *
      * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
      *
      * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
@@ -6256,6 +6591,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - SendVerificationCodeForEnableRDRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendVerificationCodeForEnableRDResponse
      *
      * @param SendVerificationCodeForEnableRDRequest $request
@@ -6275,21 +6611,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendVerificationCodeForEnableRD',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendVerificationCodeForEnableRD',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendVerificationCodeForEnableRDResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6299,6 +6632,7 @@ class ResourceManager extends OpenApiClient
      * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
      *
      * @param request - SendVerificationCodeForEnableRDRequest
+     *
      * @returns SendVerificationCodeForEnableRDResponse
      *
      * @param SendVerificationCodeForEnableRDRequest $request
@@ -6313,10 +6647,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 设置权限策略默认版本.
+     * Sets a default version for a permission policy.
      *
      * @param request - SetDefaultPolicyVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDefaultPolicyVersionResponse
      *
      * @param SetDefaultPolicyVersionRequest $request
@@ -6340,27 +6675,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDefaultPolicyVersion',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDefaultPolicyVersion',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultPolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 设置权限策略默认版本.
+     * Sets a default version for a permission policy.
      *
      * @param request - SetDefaultPolicyVersionRequest
+     *
      * @returns SetDefaultPolicyVersionResponse
      *
      * @param SetDefaultPolicyVersionRequest $request
@@ -6382,6 +6715,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - SetMemberDeletionPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetMemberDeletionPermissionResponse
      *
      * @param SetMemberDeletionPermissionRequest $request
@@ -6401,21 +6735,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetMemberDeletionPermission',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetMemberDeletionPermission',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetMemberDeletionPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6425,6 +6756,7 @@ class ResourceManager extends OpenApiClient
      * Members of the resource account type can be deleted only after the member deletion feature is enabled.
      *
      * @param request - SetMemberDeletionPermissionRequest
+     *
      * @returns SetMemberDeletionPermissionResponse
      *
      * @param SetMemberDeletionPermissionRequest $request
@@ -6446,6 +6778,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -6473,21 +6806,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6497,6 +6827,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -6518,6 +6849,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -6549,21 +6881,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6573,6 +6902,7 @@ class ResourceManager extends OpenApiClient
      * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -6595,6 +6925,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAccountResponse
      *
      * @param UpdateAccountRequest $request
@@ -6622,21 +6953,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccount',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAccount',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6647,6 +6975,7 @@ class ResourceManager extends OpenApiClient
      * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
      *
      * @param request - UpdateAccountRequest
+     *
      * @returns UpdateAccountResponse
      *
      * @param UpdateAccountRequest $request
@@ -6668,6 +6997,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateAssociatedTransferSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAssociatedTransferSettingResponse
      *
      * @param UpdateAssociatedTransferSettingRequest $request
@@ -6691,21 +7021,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAssociatedTransferSetting',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAssociatedTransferSetting',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAssociatedTransferSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6715,6 +7042,7 @@ class ResourceManager extends OpenApiClient
      * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](https://help.aliyun.com/document_detail/606232.html).
      *
      * @param request - UpdateAssociatedTransferSettingRequest
+     *
      * @returns UpdateAssociatedTransferSettingResponse
      *
      * @param UpdateAssociatedTransferSettingRequest $request
@@ -6733,6 +7061,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateAutoGroupingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoGroupingConfigResponse
      *
      * @param UpdateAutoGroupingConfigRequest $request
@@ -6752,27 +7081,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoGroupingConfig',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoGroupingConfig',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAutoGroupingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAutoGroupingConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAutoGroupingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates the configuration of the Automatic Resource Transfer feature. You can update only the configuration of the Transfer Existing Associated Resources feature.
      *
      * @param request - UpdateAutoGroupingConfigRequest
+     *
      * @returns UpdateAutoGroupingConfigResponse
      *
      * @param UpdateAutoGroupingConfigRequest $request
@@ -6791,6 +7118,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateAutoGroupingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoGroupingRuleResponse
      *
      * @param UpdateAutoGroupingRuleRequest $request
@@ -6854,27 +7182,25 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoGroupingRule',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoGroupingRule',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates a transfer rule.
      *
      * @param request - UpdateAutoGroupingRuleRequest
+     *
      * @returns UpdateAutoGroupingRuleResponse
      *
      * @param UpdateAutoGroupingRuleRequest $request
@@ -6894,6 +7220,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateControlPolicyResponse
      *
      * @param UpdateControlPolicyRequest $request
@@ -6925,21 +7252,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateControlPolicy',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateControlPolicy',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6947,6 +7271,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
      *
      * @param request - UpdateControlPolicyRequest
+     *
      * @returns UpdateControlPolicyResponse
      *
      * @param UpdateControlPolicyRequest $request
@@ -6963,6 +7288,7 @@ class ResourceManager extends OpenApiClient
     /**
      * @param request - UpdateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFolderResponse
      *
      * @param UpdateFolderRequest $request
@@ -6986,25 +7312,23 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFolder',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFolder',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateFolderRequest
+     *
      * @returns UpdateFolderResponse
      *
      * @param UpdateFolderRequest $request
@@ -7024,6 +7348,7 @@ class ResourceManager extends OpenApiClient
      *
      * @param request - UpdateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateResourceGroupResponse
      *
      * @param UpdateResourceGroupRequest $request
@@ -7047,21 +7372,18 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResourceGroup',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateResourceGroup',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7069,6 +7391,7 @@ class ResourceManager extends OpenApiClient
      * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
      *
      * @param request - UpdateResourceGroupRequest
+     *
      * @returns UpdateResourceGroupResponse
      *
      * @param UpdateResourceGroupRequest $request
@@ -7083,13 +7406,71 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Updates the information of a Resource Access Management (RAM) role.
+     * 更新资源组管理员配置.
+     *
+     * @param request - UpdateResourceGroupAdminSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceGroupAdminSettingResponse
+     *
+     * @param UpdateResourceGroupAdminSettingRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateResourceGroupAdminSettingResponse
+     */
+    public function updateResourceGroupAdminSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->creatorAsAdmin) {
+            @$query['CreatorAsAdmin'] = $request->creatorAsAdmin;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateResourceGroupAdminSetting',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateResourceGroupAdminSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新资源组管理员配置.
+     *
+     * @param request - UpdateResourceGroupAdminSettingRequest
+     *
+     * @returns UpdateResourceGroupAdminSettingResponse
+     *
+     * @param UpdateResourceGroupAdminSettingRequest $request
+     *
+     * @return UpdateResourceGroupAdminSettingResponse
+     */
+    public function updateResourceGroupAdminSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateResourceGroupAdminSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the information about a Resource Access Management (RAM) role.
      *
      * @remarks
      * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRoleResponse
      *
      * @param UpdateRoleRequest $request
@@ -7121,30 +7502,28 @@ class ResourceManager extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRole',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRole',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Updates the information of a Resource Access Management (RAM) role.
+     * Updates the information about a Resource Access Management (RAM) role.
      *
      * @remarks
      * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
+     *
      * @returns UpdateRoleResponse
      *
      * @param UpdateRoleRequest $request

@@ -13,13 +13,14 @@ class ListAssociatedTransferSettingResponseBody extends Model
      * @var associatedTransferSetting
      */
     public $associatedTransferSetting;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'associatedTransferSetting' => 'AssociatedTransferSetting',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

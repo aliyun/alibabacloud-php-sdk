@@ -12,43 +12,50 @@ class policy extends Model
      * @var int
      */
     public $attachmentCount;
+
     /**
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $defaultVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $updateDate;
     protected $_name = [
         'attachmentCount' => 'AttachmentCount',
-        'createDate'      => 'CreateDate',
-        'defaultVersion'  => 'DefaultVersion',
-        'description'     => 'Description',
-        'policyDocument'  => 'PolicyDocument',
-        'policyName'      => 'PolicyName',
-        'policyType'      => 'PolicyType',
-        'updateDate'      => 'UpdateDate',
+        'createDate' => 'CreateDate',
+        'defaultVersion' => 'DefaultVersion',
+        'description' => 'Description',
+        'policyDocument' => 'PolicyDocument',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()

@@ -31,9 +31,10 @@ class policyAttachments extends Model
         if (null !== $this->policyAttachment) {
             if (\is_array($this->policyAttachment)) {
                 $res['PolicyAttachment'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->policyAttachment as $item1) {
-                    $res['PolicyAttachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PolicyAttachment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class policyAttachments extends Model
         if (isset($map['PolicyAttachment'])) {
             if (!empty($map['PolicyAttachment'])) {
                 $model->policyAttachment = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['PolicyAttachment'] as $item1) {
-                    $model->policyAttachment[$n1++] = policyAttachment::fromMap($item1);
+                    $model->policyAttachment[$n1] = policyAttachment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

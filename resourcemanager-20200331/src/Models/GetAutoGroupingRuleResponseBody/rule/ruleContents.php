@@ -12,17 +12,19 @@ class ruleContents extends Model
      * @var string
      */
     public $autoGroupingScopeCondition;
+
     /**
      * @var string
      */
     public $ruleContentId;
+
     /**
      * @var string
      */
     public $targetResourceGroupCondition;
     protected $_name = [
-        'autoGroupingScopeCondition'   => 'AutoGroupingScopeCondition',
-        'ruleContentId'                => 'RuleContentId',
+        'autoGroupingScopeCondition' => 'AutoGroupingScopeCondition',
+        'ruleContentId' => 'RuleContentId',
         'targetResourceGroupCondition' => 'TargetResourceGroupCondition',
     ];
 

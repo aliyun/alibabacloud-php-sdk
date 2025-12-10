@@ -12,13 +12,14 @@ class DeletePolicyVersionRequest extends Model
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
         'policyName' => 'PolicyName',
-        'versionId'  => 'VersionId',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

@@ -13,6 +13,7 @@ class AcceptHandshakeResponseBody extends Model
      * @var handshake
      */
     public $handshake;
+
     /**
      * @var string
      */

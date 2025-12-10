@@ -13,12 +13,13 @@ class CreateFolderResponseBody extends Model
      * @var folder
      */
     public $folder;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'folder'    => 'Folder',
+        'folder' => 'Folder',
         'requestId' => 'RequestId',
     ];
 

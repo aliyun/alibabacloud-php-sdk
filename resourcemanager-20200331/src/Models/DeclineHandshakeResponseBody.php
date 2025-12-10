@@ -13,6 +13,7 @@ class DeclineHandshakeResponseBody extends Model
      * @var handshake
      */
     public $handshake;
+
     /**
      * @var string
      */

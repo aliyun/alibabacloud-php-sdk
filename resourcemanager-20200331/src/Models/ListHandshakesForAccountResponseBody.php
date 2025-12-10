@@ -13,18 +13,22 @@ class ListHandshakesForAccountResponseBody extends Model
      * @var handshakes
      */
     public $handshakes;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class ListHandshakesForAccountResponseBody extends Model
     protected $_name = [
         'handshakes' => 'Handshakes',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

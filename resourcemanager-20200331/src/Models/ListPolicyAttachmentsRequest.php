@@ -12,42 +12,49 @@ class ListPolicyAttachmentsRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $principalName;
+
     /**
      * @var string
      */
     public $principalType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'language'        => 'Language',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'policyName'      => 'PolicyName',
-        'policyType'      => 'PolicyType',
-        'principalName'   => 'PrincipalName',
-        'principalType'   => 'PrincipalType',
+        'language' => 'Language',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'principalName' => 'PrincipalName',
+        'principalType' => 'PrincipalType',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

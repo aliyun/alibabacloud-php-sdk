@@ -13,18 +13,20 @@ class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
      * @var reason
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'reason'    => 'Reason',
+        'reason' => 'Reason',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

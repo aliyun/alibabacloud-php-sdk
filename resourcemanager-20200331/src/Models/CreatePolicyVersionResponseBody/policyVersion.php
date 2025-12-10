@@ -12,18 +12,20 @@ class policyVersion extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var bool
      */
     public $isDefaultVersion;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'createDate'       => 'CreateDate',
+        'createDate' => 'CreateDate',
         'isDefaultVersion' => 'IsDefaultVersion',
-        'versionId'        => 'VersionId',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

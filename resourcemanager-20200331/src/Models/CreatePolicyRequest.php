@@ -12,18 +12,20 @@ class CreatePolicyRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $policyName;
     protected $_name = [
-        'description'    => 'Description',
+        'description' => 'Description',
         'policyDocument' => 'PolicyDocument',
-        'policyName'     => 'PolicyName',
+        'policyName' => 'PolicyName',
     ];
 
     public function validate()

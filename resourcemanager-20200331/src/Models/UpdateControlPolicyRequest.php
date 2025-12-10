@@ -12,23 +12,26 @@ class UpdateControlPolicyRequest extends Model
      * @var string
      */
     public $newDescription;
+
     /**
      * @var string
      */
     public $newPolicyDocument;
+
     /**
      * @var string
      */
     public $newPolicyName;
+
     /**
      * @var string
      */
     public $policyId;
     protected $_name = [
-        'newDescription'    => 'NewDescription',
+        'newDescription' => 'NewDescription',
         'newPolicyDocument' => 'NewPolicyDocument',
-        'newPolicyName'     => 'NewPolicyName',
-        'policyId'          => 'PolicyId',
+        'newPolicyName' => 'NewPolicyName',
+        'policyId' => 'PolicyId',
     ];
 
     public function validate()

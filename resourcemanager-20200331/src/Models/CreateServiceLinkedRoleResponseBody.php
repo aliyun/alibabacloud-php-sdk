@@ -13,13 +13,14 @@ class CreateServiceLinkedRoleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var role
      */
     public $role;
     protected $_name = [
         'requestId' => 'RequestId',
-        'role'      => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()

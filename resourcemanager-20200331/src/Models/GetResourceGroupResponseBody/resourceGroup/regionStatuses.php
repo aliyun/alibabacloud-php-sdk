@@ -31,9 +31,10 @@ class regionStatuses extends Model
         if (null !== $this->regionStatus) {
             if (\is_array($this->regionStatus)) {
                 $res['RegionStatus'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->regionStatus as $item1) {
-                    $res['RegionStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegionStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class regionStatuses extends Model
         if (isset($map['RegionStatus'])) {
             if (!empty($map['RegionStatus'])) {
                 $model->regionStatus = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RegionStatus'] as $item1) {
-                    $model->regionStatus[$n1++] = regionStatus::fromMap($item1);
+                    $model->regionStatus[$n1] = regionStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

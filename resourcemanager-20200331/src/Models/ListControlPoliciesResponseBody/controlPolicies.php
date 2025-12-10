@@ -31,9 +31,10 @@ class controlPolicies extends Model
         if (null !== $this->controlPolicy) {
             if (\is_array($this->controlPolicy)) {
                 $res['ControlPolicy'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->controlPolicy as $item1) {
-                    $res['ControlPolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ControlPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class controlPolicies extends Model
         if (isset($map['ControlPolicy'])) {
             if (!empty($map['ControlPolicy'])) {
                 $model->controlPolicy = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ControlPolicy'] as $item1) {
-                    $model->controlPolicy[$n1++] = controlPolicy::fromMap($item1);
+                    $model->controlPolicy[$n1] = controlPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

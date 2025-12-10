@@ -13,12 +13,13 @@ class GetPolicyResponseBody extends Model
      * @var policy
      */
     public $policy;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policy'    => 'Policy',
+        'policy' => 'Policy',
         'requestId' => 'RequestId',
     ];
 

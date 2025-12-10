@@ -12,28 +12,32 @@ class ruleSettings extends Model
      * @var string
      */
     public $associatedResourceType;
+
     /**
      * @var string
      */
     public $associatedService;
+
     /**
      * @var string
      */
     public $masterResourceType;
+
     /**
      * @var string
      */
     public $masterService;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'associatedResourceType' => 'AssociatedResourceType',
-        'associatedService'      => 'AssociatedService',
-        'masterResourceType'     => 'MasterResourceType',
-        'masterService'          => 'MasterService',
-        'status'                 => 'Status',
+        'associatedService' => 'AssociatedService',
+        'masterResourceType' => 'MasterResourceType',
+        'masterService' => 'MasterService',
+        'status' => 'Status',
     ];
 
     public function validate()

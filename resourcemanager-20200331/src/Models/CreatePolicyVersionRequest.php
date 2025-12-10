@@ -12,18 +12,20 @@ class CreatePolicyVersionRequest extends Model
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var bool
      */
     public $setAsDefault;
     protected $_name = [
         'policyDocument' => 'PolicyDocument',
-        'policyName'     => 'PolicyName',
-        'setAsDefault'   => 'SetAsDefault',
+        'policyName' => 'PolicyName',
+        'setAsDefault' => 'SetAsDefault',
     ];
 
     public function validate()

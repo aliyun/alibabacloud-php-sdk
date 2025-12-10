@@ -12,12 +12,13 @@ class MoveAccountRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $destinationFolderId;
     protected $_name = [
-        'accountId'           => 'AccountId',
+        'accountId' => 'AccountId',
         'destinationFolderId' => 'DestinationFolderId',
     ];
 

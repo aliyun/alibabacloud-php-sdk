@@ -13,13 +13,14 @@ class GetAccountDeletionCheckResultResponseBody extends Model
      * @var accountDeletionCheckResultInfo
      */
     public $accountDeletionCheckResultInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accountDeletionCheckResultInfo' => 'AccountDeletionCheckResultInfo',
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

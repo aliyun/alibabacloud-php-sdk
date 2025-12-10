@@ -12,33 +12,38 @@ class resource extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $service;
     protected $_name = [
-        'createDate'      => 'CreateDate',
-        'regionId'        => 'RegionId',
+        'createDate' => 'CreateDate',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'service'         => 'Service',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'service' => 'Service',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class ListDelegatedServicesForAccountResponseBody extends Model
      * @var delegatedServices
      */
     public $delegatedServices;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'delegatedServices' => 'DelegatedServices',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class ListPolicyVersionsRequest extends Model
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */

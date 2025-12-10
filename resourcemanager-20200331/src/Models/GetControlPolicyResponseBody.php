@@ -13,13 +13,14 @@ class GetControlPolicyResponseBody extends Model
      * @var controlPolicy
      */
     public $controlPolicy;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'controlPolicy' => 'ControlPolicy',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

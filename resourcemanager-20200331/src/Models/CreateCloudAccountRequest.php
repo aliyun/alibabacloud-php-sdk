@@ -12,21 +12,24 @@ class CreateCloudAccountRequest extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $parentFolderId;
+
     /**
      * @var string
      */
     public $payerAccountId;
     protected $_name = [
-        'displayName'    => 'DisplayName',
-        'email'          => 'Email',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
         'parentFolderId' => 'ParentFolderId',
         'payerAccountId' => 'PayerAccountId',
     ];

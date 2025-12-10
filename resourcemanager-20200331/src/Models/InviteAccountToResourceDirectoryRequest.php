@@ -13,23 +13,26 @@ class InviteAccountToResourceDirectoryRequest extends Model
      * @var string
      */
     public $note;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $targetEntity;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'note'         => 'Note',
-        'tag'          => 'Tag',
+        'note' => 'Note',
+        'tag' => 'Tag',
         'targetEntity' => 'TargetEntity',
-        'targetType'   => 'TargetType',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -50,9 +53,10 @@ class InviteAccountToResourceDirectoryRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,9 +87,10 @@ class InviteAccountToResourceDirectoryRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,23 +12,26 @@ class UpdateRoleRequest extends Model
      * @var string
      */
     public $newAssumeRolePolicyDocument;
+
     /**
      * @var string
      */
     public $newDescription;
+
     /**
      * @var int
      */
     public $newMaxSessionDuration;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
         'newAssumeRolePolicyDocument' => 'NewAssumeRolePolicyDocument',
-        'newDescription'              => 'NewDescription',
-        'newMaxSessionDuration'       => 'NewMaxSessionDuration',
-        'roleName'                    => 'RoleName',
+        'newDescription' => 'NewDescription',
+        'newMaxSessionDuration' => 'NewMaxSessionDuration',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

@@ -31,9 +31,10 @@ class enabledServicePrincipals extends Model
         if (null !== $this->enabledServicePrincipal) {
             if (\is_array($this->enabledServicePrincipal)) {
                 $res['EnabledServicePrincipal'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->enabledServicePrincipal as $item1) {
-                    $res['EnabledServicePrincipal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnabledServicePrincipal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class enabledServicePrincipals extends Model
         if (isset($map['EnabledServicePrincipal'])) {
             if (!empty($map['EnabledServicePrincipal'])) {
                 $model->enabledServicePrincipal = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['EnabledServicePrincipal'] as $item1) {
-                    $model->enabledServicePrincipal[$n1++] = enabledServicePrincipal::fromMap($item1);
+                    $model->enabledServicePrincipal[$n1] = enabledServicePrincipal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

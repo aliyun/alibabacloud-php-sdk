@@ -31,9 +31,10 @@ class roles extends Model
         if (null !== $this->role) {
             if (\is_array($this->role)) {
                 $res['Role'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->role as $item1) {
-                    $res['Role'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Role'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class roles extends Model
         if (isset($map['Role'])) {
             if (!empty($map['Role'])) {
                 $model->role = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Role'] as $item1) {
-                    $model->role[$n1++] = role::fromMap($item1);
+                    $model->role[$n1] = role::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

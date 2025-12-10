@@ -13,48 +13,56 @@ class ListResourceGroupsRequest extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var bool
      */
     public $includeTags;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $resourceGroupIds;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'displayName'      => 'DisplayName',
-        'includeTags'      => 'IncludeTags',
-        'name'             => 'Name',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resourceGroupId'  => 'ResourceGroupId',
+        'displayName' => 'DisplayName',
+        'includeTags' => 'IncludeTags',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupIds' => 'ResourceGroupIds',
-        'status'           => 'Status',
-        'tag'              => 'Tag',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -98,9 +106,10 @@ class ListResourceGroupsRequest extends Model
         if (null !== $this->resourceGroupIds) {
             if (\is_array($this->resourceGroupIds)) {
                 $res['ResourceGroupIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->resourceGroupIds as $item1) {
-                    $res['ResourceGroupIds'][$n1++] = $item1;
+                    $res['ResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,9 +121,10 @@ class ListResourceGroupsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,9 +167,10 @@ class ListResourceGroupsRequest extends Model
         if (isset($map['ResourceGroupIds'])) {
             if (!empty($map['ResourceGroupIds'])) {
                 $model->resourceGroupIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ResourceGroupIds'] as $item1) {
-                    $model->resourceGroupIds[$n1++] = $item1;
+                    $model->resourceGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,9 +182,10 @@ class ListResourceGroupsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

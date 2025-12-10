@@ -12,12 +12,13 @@ class DeregisterDelegatedAdministratorRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
-        'accountId'        => 'AccountId',
+        'accountId' => 'AccountId',
         'servicePrincipal' => 'ServicePrincipal',
     ];
 

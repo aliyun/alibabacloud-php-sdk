@@ -31,9 +31,10 @@ class targetAttachments extends Model
         if (null !== $this->targetAttachment) {
             if (\is_array($this->targetAttachment)) {
                 $res['TargetAttachment'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->targetAttachment as $item1) {
-                    $res['TargetAttachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TargetAttachment'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class targetAttachments extends Model
         if (isset($map['TargetAttachment'])) {
             if (!empty($map['TargetAttachment'])) {
                 $model->targetAttachment = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['TargetAttachment'] as $item1) {
-                    $model->targetAttachment[$n1++] = targetAttachment::fromMap($item1);
+                    $model->targetAttachment[$n1] = targetAttachment::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

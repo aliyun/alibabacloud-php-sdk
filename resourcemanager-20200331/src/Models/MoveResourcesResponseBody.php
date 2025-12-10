@@ -13,6 +13,7 @@ class MoveResourcesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var responses[]
      */
@@ -40,9 +41,10 @@ class MoveResourcesResponseBody extends Model
         if (null !== $this->responses) {
             if (\is_array($this->responses)) {
                 $res['Responses'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->responses as $item1) {
-                    $res['Responses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Responses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,9 +67,10 @@ class MoveResourcesResponseBody extends Model
         if (isset($map['Responses'])) {
             if (!empty($map['Responses'])) {
                 $model->responses = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Responses'] as $item1) {
-                    $model->responses[$n1++] = responses::fromMap($item1);
+                    $model->responses[$n1] = responses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

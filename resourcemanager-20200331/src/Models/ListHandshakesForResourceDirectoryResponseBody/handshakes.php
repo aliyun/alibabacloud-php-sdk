@@ -31,9 +31,10 @@ class handshakes extends Model
         if (null !== $this->handshake) {
             if (\is_array($this->handshake)) {
                 $res['Handshake'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->handshake as $item1) {
-                    $res['Handshake'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Handshake'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class handshakes extends Model
         if (isset($map['Handshake'])) {
             if (!empty($map['Handshake'])) {
                 $model->handshake = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Handshake'] as $item1) {
-                    $model->handshake[$n1++] = handshake::fromMap($item1);
+                    $model->handshake[$n1] = handshake::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

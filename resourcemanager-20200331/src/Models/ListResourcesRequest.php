@@ -13,43 +13,50 @@ class ListResourcesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var resourceTypes[]
      */
     public $resourceTypes;
+
     /**
      * @var string
      */
     public $service;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'region'          => 'Region',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'resourceTypes'   => 'ResourceTypes',
-        'service'         => 'Service',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'resourceTypes' => 'ResourceTypes',
+        'service' => 'Service',
     ];
 
     public function validate()
@@ -90,9 +97,10 @@ class ListResourcesRequest extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
-                    $res['ResourceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,9 +147,10 @@ class ListResourcesRequest extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
-                    $model->resourceTypes[$n1++] = resourceTypes::fromMap($item1);
+                    $model->resourceTypes[$n1] = resourceTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

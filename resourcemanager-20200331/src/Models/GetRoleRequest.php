@@ -12,6 +12,7 @@ class GetRoleRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */

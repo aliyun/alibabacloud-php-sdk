@@ -12,12 +12,13 @@ class latestDeletionTask extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $deletionTaskId;
     protected $_name = [
-        'createDate'     => 'CreateDate',
+        'createDate' => 'CreateDate',
         'deletionTaskId' => 'DeletionTaskId',
     ];
 

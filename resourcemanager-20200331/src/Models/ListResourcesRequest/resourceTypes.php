@@ -12,13 +12,14 @@ class resourceTypes extends Model
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $service;
     protected $_name = [
         'resourceType' => 'ResourceType',
-        'service'      => 'Service',
+        'service' => 'Service',
     ];
 
     public function validate()

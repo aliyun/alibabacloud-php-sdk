@@ -12,23 +12,26 @@ class SetMemberDeletionPermissionResponseBody extends Model
      * @var string
      */
     public $managementAccountId;
+
     /**
      * @var string
      */
     public $memberDeletionStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
     protected $_name = [
-        'managementAccountId'  => 'ManagementAccountId',
+        'managementAccountId' => 'ManagementAccountId',
         'memberDeletionStatus' => 'MemberDeletionStatus',
-        'requestId'            => 'RequestId',
-        'resourceDirectoryId'  => 'ResourceDirectoryId',
+        'requestId' => 'RequestId',
+        'resourceDirectoryId' => 'ResourceDirectoryId',
     ];
 
     public function validate()

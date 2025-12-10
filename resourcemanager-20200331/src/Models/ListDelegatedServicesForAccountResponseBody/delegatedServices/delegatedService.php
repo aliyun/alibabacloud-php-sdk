@@ -12,18 +12,20 @@ class delegatedService extends Model
      * @var string
      */
     public $delegationEnabledTime;
+
     /**
      * @var string
      */
     public $servicePrincipal;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'delegationEnabledTime' => 'DelegationEnabledTime',
-        'servicePrincipal'      => 'ServicePrincipal',
-        'status'                => 'Status',
+        'servicePrincipal' => 'ServicePrincipal',
+        'status' => 'Status',
     ];
 
     public function validate()

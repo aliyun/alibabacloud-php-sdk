@@ -13,13 +13,14 @@ class UpdateAssociatedTransferSettingRequest extends Model
      * @var string
      */
     public $enableExistingResourcesTransfer;
+
     /**
      * @var ruleSettings[]
      */
     public $ruleSettings;
     protected $_name = [
         'enableExistingResourcesTransfer' => 'EnableExistingResourcesTransfer',
-        'ruleSettings'                    => 'RuleSettings',
+        'ruleSettings' => 'RuleSettings',
     ];
 
     public function validate()
@@ -40,9 +41,10 @@ class UpdateAssociatedTransferSettingRequest extends Model
         if (null !== $this->ruleSettings) {
             if (\is_array($this->ruleSettings)) {
                 $res['RuleSettings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ruleSettings as $item1) {
-                    $res['RuleSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,9 +67,10 @@ class UpdateAssociatedTransferSettingRequest extends Model
         if (isset($map['RuleSettings'])) {
             if (!empty($map['RuleSettings'])) {
                 $model->ruleSettings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RuleSettings'] as $item1) {
-                    $model->ruleSettings[$n1++] = ruleSettings::fromMap($item1);
+                    $model->ruleSettings[$n1] = ruleSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

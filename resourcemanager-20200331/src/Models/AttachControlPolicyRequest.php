@@ -12,6 +12,7 @@ class AttachControlPolicyRequest extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */

@@ -13,28 +13,32 @@ class ListPolicyAttachmentsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var policyAttachments
      */
     public $policyAttachments;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'policyAttachments' => 'PolicyAttachments',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

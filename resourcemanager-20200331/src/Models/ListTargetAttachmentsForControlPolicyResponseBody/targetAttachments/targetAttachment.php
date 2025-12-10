@@ -12,21 +12,24 @@ class targetAttachment extends Model
      * @var string
      */
     public $attachDate;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetName;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
         'attachDate' => 'AttachDate',
-        'targetId'   => 'TargetId',
+        'targetId' => 'TargetId',
         'targetName' => 'TargetName',
         'targetType' => 'TargetType',
     ];

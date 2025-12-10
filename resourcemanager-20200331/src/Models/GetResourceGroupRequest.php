@@ -12,12 +12,13 @@ class GetResourceGroupRequest extends Model
      * @var bool
      */
     public $includeTags;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'includeTags'     => 'IncludeTags',
+        'includeTags' => 'IncludeTags',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

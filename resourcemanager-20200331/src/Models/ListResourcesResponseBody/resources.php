@@ -31,9 +31,10 @@ class resources extends Model
         if (null !== $this->resource) {
             if (\is_array($this->resource)) {
                 $res['Resource'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->resource as $item1) {
-                    $res['Resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class resources extends Model
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Resource'] as $item1) {
-                    $model->resource[$n1++] = resource::fromMap($item1);
+                    $model->resource[$n1] = resource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

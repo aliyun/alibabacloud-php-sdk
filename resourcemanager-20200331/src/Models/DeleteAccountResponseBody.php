@@ -12,13 +12,14 @@ class DeleteAccountResponseBody extends Model
      * @var string
      */
     public $deletionType;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deletionType' => 'DeletionType',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

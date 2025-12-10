@@ -12,43 +12,50 @@ class resourceDirectory extends Model
      * @var string
      */
     public $controlPolicyStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $identityInformation;
+
     /**
      * @var string
      */
     public $masterAccountId;
+
     /**
      * @var string
      */
     public $masterAccountName;
+
     /**
      * @var string
      */
     public $memberDeletionStatus;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
+
     /**
      * @var string
      */
     public $rootFolderId;
     protected $_name = [
-        'controlPolicyStatus'  => 'ControlPolicyStatus',
-        'createTime'           => 'CreateTime',
-        'identityInformation'  => 'IdentityInformation',
-        'masterAccountId'      => 'MasterAccountId',
-        'masterAccountName'    => 'MasterAccountName',
+        'controlPolicyStatus' => 'ControlPolicyStatus',
+        'createTime' => 'CreateTime',
+        'identityInformation' => 'IdentityInformation',
+        'masterAccountId' => 'MasterAccountId',
+        'masterAccountName' => 'MasterAccountName',
         'memberDeletionStatus' => 'MemberDeletionStatus',
-        'resourceDirectoryId'  => 'ResourceDirectoryId',
-        'rootFolderId'         => 'RootFolderId',
+        'resourceDirectoryId' => 'ResourceDirectoryId',
+        'rootFolderId' => 'RootFolderId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class CreateControlPolicyRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $effectScope;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $policyName;
     protected $_name = [
-        'description'    => 'Description',
-        'effectScope'    => 'EffectScope',
+        'description' => 'Description',
+        'effectScope' => 'EffectScope',
         'policyDocument' => 'PolicyDocument',
-        'policyName'     => 'PolicyName',
+        'policyName' => 'PolicyName',
     ];
 
     public function validate()

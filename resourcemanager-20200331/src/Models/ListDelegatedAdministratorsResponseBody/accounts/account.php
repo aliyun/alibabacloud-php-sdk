@@ -12,28 +12,32 @@ class account extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $delegationEnabledTime;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $joinMethod;
+
     /**
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
-        'accountId'             => 'AccountId',
+        'accountId' => 'AccountId',
         'delegationEnabledTime' => 'DelegationEnabledTime',
-        'displayName'           => 'DisplayName',
-        'joinMethod'            => 'JoinMethod',
-        'servicePrincipal'      => 'ServicePrincipal',
+        'displayName' => 'DisplayName',
+        'joinMethod' => 'JoinMethod',
+        'servicePrincipal' => 'ServicePrincipal',
     ];
 
     public function validate()

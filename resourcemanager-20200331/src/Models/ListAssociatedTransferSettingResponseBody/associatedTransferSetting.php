@@ -13,23 +13,26 @@ class associatedTransferSetting extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $enableExistingResourcesTransfer;
+
     /**
      * @var ruleSettings[]
      */
     public $ruleSettings;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'accountId'                       => 'AccountId',
+        'accountId' => 'AccountId',
         'enableExistingResourcesTransfer' => 'EnableExistingResourcesTransfer',
-        'ruleSettings'                    => 'RuleSettings',
-        'status'                          => 'Status',
+        'ruleSettings' => 'RuleSettings',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -54,9 +57,10 @@ class associatedTransferSetting extends Model
         if (null !== $this->ruleSettings) {
             if (\is_array($this->ruleSettings)) {
                 $res['RuleSettings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ruleSettings as $item1) {
-                    $res['RuleSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RuleSettings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,9 +91,10 @@ class associatedTransferSetting extends Model
         if (isset($map['RuleSettings'])) {
             if (!empty($map['RuleSettings'])) {
                 $model->ruleSettings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RuleSettings'] as $item1) {
-                    $model->ruleSettings[$n1++] = ruleSettings::fromMap($item1);
+                    $model->ruleSettings[$n1] = ruleSettings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

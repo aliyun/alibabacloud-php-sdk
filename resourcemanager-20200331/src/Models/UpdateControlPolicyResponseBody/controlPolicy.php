@@ -12,43 +12,50 @@ class controlPolicy extends Model
      * @var string
      */
     public $attachmentCount;
+
     /**
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $effectScope;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $updateDate;
     protected $_name = [
         'attachmentCount' => 'AttachmentCount',
-        'createDate'      => 'CreateDate',
-        'description'     => 'Description',
-        'effectScope'     => 'EffectScope',
-        'policyId'        => 'PolicyId',
-        'policyName'      => 'PolicyName',
-        'policyType'      => 'PolicyType',
-        'updateDate'      => 'UpdateDate',
+        'createDate' => 'CreateDate',
+        'description' => 'Description',
+        'effectScope' => 'EffectScope',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()

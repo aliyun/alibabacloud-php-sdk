@@ -13,12 +13,13 @@ class reason extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var roleUsages
      */
     public $roleUsages;
     protected $_name = [
-        'message'    => 'Message',
+        'message' => 'Message',
         'roleUsages' => 'RoleUsages',
     ];
 

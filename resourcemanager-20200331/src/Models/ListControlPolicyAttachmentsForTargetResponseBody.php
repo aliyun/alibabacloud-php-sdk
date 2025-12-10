@@ -13,13 +13,14 @@ class ListControlPolicyAttachmentsForTargetResponseBody extends Model
      * @var controlPolicyAttachments
      */
     public $controlPolicyAttachments;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'controlPolicyAttachments' => 'ControlPolicyAttachments',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

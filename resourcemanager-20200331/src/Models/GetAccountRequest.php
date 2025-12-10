@@ -12,12 +12,13 @@ class GetAccountRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var bool
      */
     public $includeTags;
     protected $_name = [
-        'accountId'   => 'AccountId',
+        'accountId' => 'AccountId',
         'includeTags' => 'IncludeTags',
     ];
 

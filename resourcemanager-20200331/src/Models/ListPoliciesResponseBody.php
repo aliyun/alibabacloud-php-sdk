@@ -13,27 +13,31 @@ class ListPoliciesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var policies
      */
     public $policies;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

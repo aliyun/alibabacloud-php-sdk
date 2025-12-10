@@ -31,9 +31,10 @@ class folders extends Model
         if (null !== $this->folder) {
             if (\is_array($this->folder)) {
                 $res['Folder'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->folder as $item1) {
-                    $res['Folder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Folder'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class folders extends Model
         if (isset($map['Folder'])) {
             if (!empty($map['Folder'])) {
                 $model->folder = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Folder'] as $item1) {
-                    $model->folder[$n1++] = folder::fromMap($item1);
+                    $model->folder[$n1] = folder::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

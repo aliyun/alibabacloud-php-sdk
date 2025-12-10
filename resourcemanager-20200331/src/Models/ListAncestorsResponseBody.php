@@ -13,12 +13,13 @@ class ListAncestorsResponseBody extends Model
      * @var folders
      */
     public $folders;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'folders'   => 'Folders',
+        'folders' => 'Folders',
         'requestId' => 'RequestId',
     ];
 

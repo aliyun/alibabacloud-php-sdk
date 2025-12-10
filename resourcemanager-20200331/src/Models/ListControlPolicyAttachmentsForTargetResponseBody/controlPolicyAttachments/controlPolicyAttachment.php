@@ -12,33 +12,38 @@ class controlPolicyAttachment extends Model
      * @var string
      */
     public $attachDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $effectScope;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'attachDate'  => 'AttachDate',
+        'attachDate' => 'AttachDate',
         'description' => 'Description',
         'effectScope' => 'EffectScope',
-        'policyId'    => 'PolicyId',
-        'policyName'  => 'PolicyName',
-        'policyType'  => 'PolicyType',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ListAutoGroupingRulesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'ruleId'     => 'RuleId',
-        'ruleName'   => 'RuleName',
-        'ruleType'   => 'RuleType',
+        'nextToken' => 'NextToken',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()

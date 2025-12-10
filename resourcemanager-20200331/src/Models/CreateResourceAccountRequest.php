@@ -13,33 +13,38 @@ class CreateResourceAccountRequest extends Model
      * @var string
      */
     public $accountNamePrefix;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $parentFolderId;
+
     /**
      * @var string
      */
     public $payerAccountId;
+
     /**
      * @var string
      */
     public $resellAccountType;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'accountNamePrefix' => 'AccountNamePrefix',
-        'displayName'       => 'DisplayName',
-        'parentFolderId'    => 'ParentFolderId',
-        'payerAccountId'    => 'PayerAccountId',
+        'displayName' => 'DisplayName',
+        'parentFolderId' => 'ParentFolderId',
+        'payerAccountId' => 'PayerAccountId',
         'resellAccountType' => 'ResellAccountType',
-        'tag'               => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -76,9 +81,10 @@ class CreateResourceAccountRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,9 +123,10 @@ class CreateResourceAccountRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

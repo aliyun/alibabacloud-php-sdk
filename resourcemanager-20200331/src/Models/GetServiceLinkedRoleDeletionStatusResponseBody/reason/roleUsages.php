@@ -31,9 +31,10 @@ class roleUsages extends Model
         if (null !== $this->roleUsage) {
             if (\is_array($this->roleUsage)) {
                 $res['RoleUsage'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->roleUsage as $item1) {
-                    $res['RoleUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RoleUsage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class roleUsages extends Model
         if (isset($map['RoleUsage'])) {
             if (!empty($map['RoleUsage'])) {
                 $model->roleUsage = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RoleUsage'] as $item1) {
-                    $model->roleUsage[$n1++] = roleUsage::fromMap($item1);
+                    $model->roleUsage[$n1] = roleUsage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,53 +12,62 @@ class account extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $joinMethod;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'accountId'           => 'AccountId',
-        'accountName'         => 'AccountName',
-        'displayName'         => 'DisplayName',
-        'folderId'            => 'FolderId',
-        'joinMethod'          => 'JoinMethod',
-        'modifyTime'          => 'ModifyTime',
-        'recordId'            => 'RecordId',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'displayName' => 'DisplayName',
+        'folderId' => 'FolderId',
+        'joinMethod' => 'JoinMethod',
+        'modifyTime' => 'ModifyTime',
+        'recordId' => 'RecordId',
         'resourceDirectoryId' => 'ResourceDirectoryId',
-        'status'              => 'Status',
-        'type'                => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

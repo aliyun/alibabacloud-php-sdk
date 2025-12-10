@@ -12,18 +12,20 @@ class ListRolesRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'language'   => 'Language',
+        'language' => 'Language',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

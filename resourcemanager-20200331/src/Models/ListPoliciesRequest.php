@@ -12,22 +12,25 @@ class ListPoliciesRequest extends Model
      * @var string
      */
     public $language;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'language'   => 'Language',
+        'language' => 'Language',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'policyType' => 'PolicyType',
     ];
 

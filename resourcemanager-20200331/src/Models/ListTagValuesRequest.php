@@ -12,28 +12,32 @@ class ListTagValuesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $valueFilter;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
-        'valueFilter'  => 'ValueFilter',
+        'tagKey' => 'TagKey',
+        'valueFilter' => 'ValueFilter',
     ];
 
     public function validate()

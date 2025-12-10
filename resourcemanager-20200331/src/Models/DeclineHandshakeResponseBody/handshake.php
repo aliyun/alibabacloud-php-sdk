@@ -12,58 +12,68 @@ class handshake extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $handshakeId;
+
     /**
      * @var string
      */
     public $masterAccountId;
+
     /**
      * @var string
      */
     public $masterAccountName;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $resourceDirectoryId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetEntity;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'expireTime'          => 'ExpireTime',
-        'handshakeId'         => 'HandshakeId',
-        'masterAccountId'     => 'MasterAccountId',
-        'masterAccountName'   => 'MasterAccountName',
-        'modifyTime'          => 'ModifyTime',
-        'note'                => 'Note',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'handshakeId' => 'HandshakeId',
+        'masterAccountId' => 'MasterAccountId',
+        'masterAccountName' => 'MasterAccountName',
+        'modifyTime' => 'ModifyTime',
+        'note' => 'Note',
         'resourceDirectoryId' => 'ResourceDirectoryId',
-        'status'              => 'Status',
-        'targetEntity'        => 'TargetEntity',
-        'targetType'          => 'TargetType',
+        'status' => 'Status',
+        'targetEntity' => 'TargetEntity',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
