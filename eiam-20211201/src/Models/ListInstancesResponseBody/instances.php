@@ -32,12 +32,24 @@ class instances extends Model
     /**
      * @var string
      */
+    public $managedServiceCode;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'createTime' => 'CreateTime',
         'defaultEndpoint' => 'DefaultEndpoint',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
+        'managedServiceCode' => 'ManagedServiceCode',
+        'serviceManaged' => 'ServiceManaged',
         'status' => 'Status',
     ];
 
@@ -66,6 +78,14 @@ class instances extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->managedServiceCode) {
+            $res['ManagedServiceCode'] = $this->managedServiceCode;
+        }
+
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
 
         if (null !== $this->status) {
@@ -97,6 +117,14 @@ class instances extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ManagedServiceCode'])) {
+            $model->managedServiceCode = $map['ManagedServiceCode'];
+        }
+
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
 
         if (isset($map['Status'])) {
