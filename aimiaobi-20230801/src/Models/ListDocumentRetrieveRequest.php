@@ -66,6 +66,11 @@ class ListDocumentRetrieveRequest extends Model
     /**
      * @var string
      */
+    public $subjectClassify;
+
+    /**
+     * @var string
+     */
     public $wordSize;
 
     /**
@@ -84,6 +89,7 @@ class ListDocumentRetrieveRequest extends Model
         'source' => 'Source',
         'startDate' => 'StartDate',
         'subContentType' => 'SubContentType',
+        'subjectClassify' => 'SubjectClassify',
         'wordSize' => 'WordSize',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -138,6 +144,10 @@ class ListDocumentRetrieveRequest extends Model
 
         if (null !== $this->subContentType) {
             $res['SubContentType'] = $this->subContentType;
+        }
+
+        if (null !== $this->subjectClassify) {
+            $res['SubjectClassify'] = $this->subjectClassify;
         }
 
         if (null !== $this->wordSize) {
@@ -201,6 +211,10 @@ class ListDocumentRetrieveRequest extends Model
 
         if (isset($map['SubContentType'])) {
             $model->subContentType = $map['SubContentType'];
+        }
+
+        if (isset($map['SubjectClassify'])) {
+            $model->subjectClassify = $map['SubjectClassify'];
         }
 
         if (isset($map['WordSize'])) {

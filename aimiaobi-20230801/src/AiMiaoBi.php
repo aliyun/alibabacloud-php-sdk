@@ -7701,44 +7701,19 @@ class AiMiaoBi extends OpenApiClient
     public function listDocumentRetrieveWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->contentType) {
-            @$query['ContentType'] = $request->contentType;
+            @$body['ContentType'] = $request->contentType;
         }
 
         if (null !== $request->elementScope) {
-            @$query['ElementScope'] = $request->elementScope;
+            @$body['ElementScope'] = $request->elementScope;
         }
 
         if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+            @$body['EndDate'] = $request->endDate;
         }
 
-        if (null !== $request->office) {
-            @$query['Office'] = $request->office;
-        }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
-        }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
-        }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
-        }
-
-        if (null !== $request->subContentType) {
-            @$query['SubContentType'] = $request->subContentType;
-        }
-
-        if (null !== $request->wordSize) {
-            @$query['WordSize'] = $request->wordSize;
-        }
-
-        $body = [];
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }
@@ -7747,8 +7722,36 @@ class AiMiaoBi extends OpenApiClient
             @$body['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->office) {
+            @$body['Office'] = $request->office;
+        }
+
         if (null !== $request->query) {
             @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->subContentType) {
+            @$body['SubContentType'] = $request->subContentType;
+        }
+
+        if (null !== $request->subjectClassify) {
+            @$body['SubjectClassify'] = $request->subjectClassify;
+        }
+
+        if (null !== $request->wordSize) {
+            @$body['WordSize'] = $request->wordSize;
         }
 
         if (null !== $request->workspaceId) {
@@ -7756,7 +7759,6 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
