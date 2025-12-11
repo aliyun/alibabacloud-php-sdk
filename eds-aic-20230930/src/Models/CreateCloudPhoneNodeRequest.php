@@ -67,6 +67,11 @@ class CreateCloudPhoneNodeRequest extends Model
     public $instanceType;
 
     /**
+     * @var bool
+     */
+    public $isSingleImgDisk;
+
+    /**
      * @var string
      */
     public $networkId;
@@ -172,6 +177,7 @@ class CreateCloudPhoneNodeRequest extends Model
         'downBandwidthLimit' => 'DownBandwidthLimit',
         'imageId' => 'ImageId',
         'instanceType' => 'InstanceType',
+        'isSingleImgDisk' => 'IsSingleImgDisk',
         'networkId' => 'NetworkId',
         'networkInfo' => 'NetworkInfo',
         'networkType' => 'NetworkType',
@@ -252,6 +258,10 @@ class CreateCloudPhoneNodeRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->isSingleImgDisk) {
+            $res['IsSingleImgDisk'] = $this->isSingleImgDisk;
         }
 
         if (null !== $this->networkId) {
@@ -390,6 +400,10 @@ class CreateCloudPhoneNodeRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['IsSingleImgDisk'])) {
+            $model->isSingleImgDisk = $map['IsSingleImgDisk'];
         }
 
         if (isset($map['NetworkId'])) {

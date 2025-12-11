@@ -65,6 +65,11 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
     public $instanceType;
 
     /**
+     * @var bool
+     */
+    public $isSingleImgDisk;
+
+    /**
      * @var string
      */
     public $networkId;
@@ -170,6 +175,7 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
         'downBandwidthLimit' => 'DownBandwidthLimit',
         'imageId' => 'ImageId',
         'instanceType' => 'InstanceType',
+        'isSingleImgDisk' => 'IsSingleImgDisk',
         'networkId' => 'NetworkId',
         'networkInfoShrink' => 'NetworkInfo',
         'networkType' => 'NetworkType',
@@ -244,6 +250,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->isSingleImgDisk) {
+            $res['IsSingleImgDisk'] = $this->isSingleImgDisk;
         }
 
         if (null !== $this->networkId) {
@@ -382,6 +392,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['IsSingleImgDisk'])) {
+            $model->isSingleImgDisk = $map['IsSingleImgDisk'];
         }
 
         if (isset($map['NetworkId'])) {

@@ -1074,6 +1074,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceType'] = $request->instanceType;
         }
 
+        if (null !== $request->isSingleImgDisk) {
+            @$query['IsSingleImgDisk'] = $request->isSingleImgDisk;
+        }
+
         if (null !== $request->networkId) {
             @$query['NetworkId'] = $request->networkId;
         }
