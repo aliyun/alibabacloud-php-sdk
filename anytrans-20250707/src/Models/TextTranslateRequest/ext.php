@@ -33,6 +33,11 @@ class ext extends Model
     public $examples;
 
     /**
+     * @var string
+     */
+    public $prefix;
+
+    /**
      * @var string[]
      */
     public $sensitives;
@@ -51,6 +56,7 @@ class ext extends Model
         'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
+        'prefix' => 'prefix',
         'sensitives' => 'sensitives',
         'terminologies' => 'terminologies',
         'textTransform' => 'textTransform',
@@ -100,6 +106,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->prefix) {
+            $res['prefix'] = $this->prefix;
         }
 
         if (null !== $this->sensitives) {
@@ -160,6 +170,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['prefix'])) {
+            $model->prefix = $map['prefix'];
         }
 
         if (isset($map['sensitives'])) {
