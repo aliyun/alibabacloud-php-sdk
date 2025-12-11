@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSourceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
@@ -60,6 +62,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceVersionResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
@@ -84,6 +87,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
@@ -1720,7 +1724,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建服务版本.
+     * Creates a service version.
      *
      * @param request - CreateServiceVersionRequest
      * @param headers - map
@@ -1767,7 +1771,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建服务版本.
+     * Creates a service version.
      *
      * @param request - CreateServiceVersionRequest
      *
@@ -1784,6 +1788,83 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createServiceVersionWithOptions($serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建服务来源.
+     *
+     * @param request - CreateSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSourceResponse
+     *
+     * @param CreateSourceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSourceResponse
+     */
+    public function createSourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->k8sSourceConfig) {
+            @$body['k8sSourceConfig'] = $request->k8sSourceConfig;
+        }
+
+        if (null !== $request->nacosSourceConfig) {
+            @$body['nacosSourceConfig'] = $request->nacosSourceConfig;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSource',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/sources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建服务来源.
+     *
+     * @param request - CreateSourceRequest
+     *
+     * @returns CreateSourceResponse
+     *
+     * @param CreateSourceRequest $request
+     *
+     * @return CreateSourceResponse
+     */
+    public function createSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSourceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2526,7 +2607,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务版本.
+     * Deletes a service version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2561,7 +2642,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务版本.
+     * Deletes a service version.
      *
      * @returns DeleteServiceVersionResponse
      *
@@ -2576,6 +2657,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deleteServiceVersionWithOptions($serviceId, $name, $headers, $runtime);
+    }
+
+    /**
+     * 删除服务来源.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSourceResponse
+     *
+     * @param string         $sourceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteSourceResponse
+     */
+    public function deleteSourceWithOptions($sourceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSource',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/sources/' . Url::percentEncode($sourceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除服务来源.
+     *
+     * @returns DeleteSourceResponse
+     *
+     * @param string $sourceId
+     *
+     * @return DeleteSourceResponse
+     */
+    public function deleteSource($sourceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSourceWithOptions($sourceId, $headers, $runtime);
     }
 
     /**
@@ -3619,6 +3751,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getServiceWithOptions($serviceId, $headers, $runtime);
+    }
+
+    /**
+     * 获取服务来源.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSourceResponse
+     *
+     * @param string         $sourceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSourceResponse
+     */
+    public function getSourceWithOptions($sourceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSource',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/sources/' . Url::percentEncode($sourceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务来源.
+     *
+     * @returns GetSourceResponse
+     *
+     * @param string $sourceId
+     *
+     * @return GetSourceResponse
+     */
+    public function getSource($sourceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSourceWithOptions($sourceId, $headers, $runtime);
     }
 
     /**
@@ -6695,7 +6878,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新服务版本.
+     * Updates a service version.
      *
      * @param request - UpdateServiceVersionRequest
      * @param headers - map
@@ -6739,7 +6922,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新服务版本.
+     * Updates a service version.
      *
      * @param request - UpdateServiceVersionRequest
      *
