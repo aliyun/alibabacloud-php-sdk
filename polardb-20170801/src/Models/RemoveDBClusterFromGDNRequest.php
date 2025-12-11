@@ -47,6 +47,11 @@ class RemoveDBClusterFromGDNRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $targetDBClusterId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'force' => 'Force',
@@ -56,6 +61,7 @@ class RemoveDBClusterFromGDNRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
+        'targetDBClusterId' => 'TargetDBClusterId',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class RemoveDBClusterFromGDNRequest extends Model
 
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+
+        if (null !== $this->targetDBClusterId) {
+            $res['TargetDBClusterId'] = $this->targetDBClusterId;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class RemoveDBClusterFromGDNRequest extends Model
 
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+
+        if (isset($map['TargetDBClusterId'])) {
+            $model->targetDBClusterId = $map['TargetDBClusterId'];
         }
 
         return $model;

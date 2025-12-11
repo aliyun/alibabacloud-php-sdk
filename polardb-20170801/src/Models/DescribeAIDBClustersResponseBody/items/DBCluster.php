@@ -67,6 +67,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $modelType;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -125,6 +130,7 @@ class DBCluster extends Model
         'expired' => 'Expired',
         'kubeClusterId' => 'KubeClusterId',
         'lockMode' => 'LockMode',
+        'modelType' => 'ModelType',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
         'relativeDBClusterId' => 'RelativeDBClusterId',
@@ -190,6 +196,10 @@ class DBCluster extends Model
 
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
 
         if (null !== $this->payType) {
@@ -285,6 +295,10 @@ class DBCluster extends Model
 
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
 
         if (isset($map['PayType'])) {

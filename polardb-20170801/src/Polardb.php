@@ -5535,6 +5535,10 @@ class Polardb extends OpenApiClient
             @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
 
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -23275,6 +23279,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->targetDBClusterId) {
+            @$query['TargetDBClusterId'] = $request->targetDBClusterId;
         }
 
         $req = new OpenApiRequest([

@@ -99,6 +99,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $modelType;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -168,6 +173,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'lockMode' => 'LockMode',
         'maxQPM' => 'MaxQPM',
         'modelName' => 'ModelName',
+        'modelType' => 'ModelType',
         'payType' => 'PayType',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
@@ -278,6 +284,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
 
         if (null !== $this->payType) {
@@ -422,6 +432,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
 
         if (isset($map['PayType'])) {

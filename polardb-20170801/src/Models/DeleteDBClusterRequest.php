@@ -16,6 +16,11 @@ class DeleteDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -39,6 +44,7 @@ class DeleteDBClusterRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
+        'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -56,6 +62,10 @@ class DeleteDBClusterRequest extends Model
         $res = [];
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
             $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
+        }
+
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
         }
 
         if (null !== $this->DBClusterId) {
@@ -91,6 +101,10 @@ class DeleteDBClusterRequest extends Model
         $model = new self();
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
             $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
+        }
+
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
         }
 
         if (isset($map['DBClusterId'])) {
