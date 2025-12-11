@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListResponseBody\smsS
 class smsSignList extends Model
 {
     /**
+     * @var int
+     */
+    public $appIcpRecordId;
+
+    /**
      * @var string
      */
     public $auditStatus;
@@ -45,10 +50,16 @@ class smsSignList extends Model
     public $signName;
 
     /**
+     * @var int
+     */
+    public $trademarkId;
+
+    /**
      * @var bool
      */
     public $authorizationLetterAuditPass;
     protected $_name = [
+        'appIcpRecordId' => 'AppIcpRecordId',
         'auditStatus' => 'AuditStatus',
         'authorizationLetterId' => 'AuthorizationLetterId',
         'businessType' => 'BusinessType',
@@ -56,6 +67,7 @@ class smsSignList extends Model
         'orderId' => 'OrderId',
         'reason' => 'Reason',
         'signName' => 'SignName',
+        'trademarkId' => 'TrademarkId',
         'authorizationLetterAuditPass' => 'authorizationLetterAuditPass',
     ];
 
@@ -70,6 +82,10 @@ class smsSignList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appIcpRecordId) {
+            $res['AppIcpRecordId'] = $this->appIcpRecordId;
+        }
+
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
         }
@@ -98,6 +114,10 @@ class smsSignList extends Model
             $res['SignName'] = $this->signName;
         }
 
+        if (null !== $this->trademarkId) {
+            $res['TrademarkId'] = $this->trademarkId;
+        }
+
         if (null !== $this->authorizationLetterAuditPass) {
             $res['authorizationLetterAuditPass'] = $this->authorizationLetterAuditPass;
         }
@@ -113,6 +133,10 @@ class smsSignList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppIcpRecordId'])) {
+            $model->appIcpRecordId = $map['AppIcpRecordId'];
+        }
+
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
         }
@@ -139,6 +163,10 @@ class smsSignList extends Model
 
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
+        }
+
+        if (isset($map['TrademarkId'])) {
+            $model->trademarkId = $map['TrademarkId'];
         }
 
         if (isset($map['authorizationLetterAuditPass'])) {

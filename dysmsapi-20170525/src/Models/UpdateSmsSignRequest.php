@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateSmsSignRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $appIcpRecordId;
+
+    /**
      * @var string
      */
     public $applySceneContent;
@@ -67,7 +72,13 @@ class UpdateSmsSignRequest extends Model
      * @var bool
      */
     public $thirdParty;
+
+    /**
+     * @var int
+     */
+    public $trademarkId;
     protected $_name = [
+        'appIcpRecordId' => 'AppIcpRecordId',
         'applySceneContent' => 'ApplySceneContent',
         'authorizationLetterId' => 'AuthorizationLetterId',
         'moreData' => 'MoreData',
@@ -80,6 +91,7 @@ class UpdateSmsSignRequest extends Model
         'signSource' => 'SignSource',
         'signType' => 'SignType',
         'thirdParty' => 'ThirdParty',
+        'trademarkId' => 'TrademarkId',
     ];
 
     public function validate()
@@ -93,6 +105,10 @@ class UpdateSmsSignRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appIcpRecordId) {
+            $res['AppIcpRecordId'] = $this->appIcpRecordId;
+        }
+
         if (null !== $this->applySceneContent) {
             $res['ApplySceneContent'] = $this->applySceneContent;
         }
@@ -148,6 +164,10 @@ class UpdateSmsSignRequest extends Model
             $res['ThirdParty'] = $this->thirdParty;
         }
 
+        if (null !== $this->trademarkId) {
+            $res['TrademarkId'] = $this->trademarkId;
+        }
+
         return $res;
     }
 
@@ -159,6 +179,10 @@ class UpdateSmsSignRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppIcpRecordId'])) {
+            $model->appIcpRecordId = $map['AppIcpRecordId'];
+        }
+
         if (isset($map['ApplySceneContent'])) {
             $model->applySceneContent = $map['ApplySceneContent'];
         }
@@ -212,6 +236,10 @@ class UpdateSmsSignRequest extends Model
 
         if (isset($map['ThirdParty'])) {
             $model->thirdParty = $map['ThirdParty'];
+        }
+
+        if (isset($map['TrademarkId'])) {
+            $model->trademarkId = $map['TrademarkId'];
         }
 
         return $model;

@@ -1077,6 +1077,10 @@ class Dysmsapi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appIcpRecordId) {
+            @$query['AppIcpRecordId'] = $request->appIcpRecordId;
+        }
+
         if (null !== $request->applySceneContent) {
             @$query['ApplySceneContent'] = $request->applySceneContent;
         }
@@ -1123,6 +1127,10 @@ class Dysmsapi extends OpenApiClient
 
         if (null !== $request->thirdParty) {
             @$query['ThirdParty'] = $request->thirdParty;
+        }
+
+        if (null !== $request->trademarkId) {
+            @$query['TrademarkId'] = $request->trademarkId;
         }
 
         $req = new OpenApiRequest([
@@ -5231,6 +5239,10 @@ class Dysmsapi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appIcpRecordId) {
+            @$query['AppIcpRecordId'] = $request->appIcpRecordId;
+        }
+
         if (null !== $request->applySceneContent) {
             @$query['ApplySceneContent'] = $request->applySceneContent;
         }
@@ -5277,6 +5289,10 @@ class Dysmsapi extends OpenApiClient
 
         if (null !== $request->thirdParty) {
             @$query['ThirdParty'] = $request->thirdParty;
+        }
+
+        if (null !== $request->trademarkId) {
+            @$query['TrademarkId'] = $request->trademarkId;
         }
 
         $req = new OpenApiRequest([

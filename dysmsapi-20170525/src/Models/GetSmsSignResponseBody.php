@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponseBody\signIspReg
 class GetSmsSignResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $appIcpRecordId;
+
+    /**
      * @var string
      */
     public $applyScene;
@@ -109,7 +114,13 @@ class GetSmsSignResponseBody extends Model
      * @var bool
      */
     public $thirdParty;
+
+    /**
+     * @var int
+     */
+    public $trademarkId;
     protected $_name = [
+        'appIcpRecordId' => 'AppIcpRecordId',
         'applyScene' => 'ApplyScene',
         'auditInfo' => 'AuditInfo',
         'authorizationLetterAuditPass' => 'AuthorizationLetterAuditPass',
@@ -130,6 +141,7 @@ class GetSmsSignResponseBody extends Model
         'signTag' => 'SignTag',
         'signUsage' => 'SignUsage',
         'thirdParty' => 'ThirdParty',
+        'trademarkId' => 'TrademarkId',
     ];
 
     public function validate()
@@ -149,6 +161,10 @@ class GetSmsSignResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appIcpRecordId) {
+            $res['AppIcpRecordId'] = $this->appIcpRecordId;
+        }
+
         if (null !== $this->applyScene) {
             $res['ApplyScene'] = $this->applyScene;
         }
@@ -243,6 +259,10 @@ class GetSmsSignResponseBody extends Model
             $res['ThirdParty'] = $this->thirdParty;
         }
 
+        if (null !== $this->trademarkId) {
+            $res['TrademarkId'] = $this->trademarkId;
+        }
+
         return $res;
     }
 
@@ -254,6 +274,10 @@ class GetSmsSignResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppIcpRecordId'])) {
+            $model->appIcpRecordId = $map['AppIcpRecordId'];
+        }
+
         if (isset($map['ApplyScene'])) {
             $model->applyScene = $map['ApplyScene'];
         }
@@ -346,6 +370,10 @@ class GetSmsSignResponseBody extends Model
 
         if (isset($map['ThirdParty'])) {
             $model->thirdParty = $map['ThirdParty'];
+        }
+
+        if (isset($map['TrademarkId'])) {
+            $model->trademarkId = $map['TrademarkId'];
         }
 
         return $model;
