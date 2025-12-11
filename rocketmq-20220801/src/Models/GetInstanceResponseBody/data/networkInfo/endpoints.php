@@ -11,6 +11,11 @@ class endpoints extends Model
     /**
      * @var string
      */
+    public $endpointId;
+
+    /**
+     * @var string
+     */
     public $endpointType;
 
     /**
@@ -23,6 +28,7 @@ class endpoints extends Model
      */
     public $ipWhitelist;
     protected $_name = [
+        'endpointId' => 'endpointId',
         'endpointType' => 'endpointType',
         'endpointUrl' => 'endpointUrl',
         'ipWhitelist' => 'ipWhitelist',
@@ -39,6 +45,10 @@ class endpoints extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endpointId) {
+            $res['endpointId'] = $this->endpointId;
+        }
+
         if (null !== $this->endpointType) {
             $res['endpointType'] = $this->endpointType;
         }
@@ -69,6 +79,10 @@ class endpoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['endpointId'])) {
+            $model->endpointId = $map['endpointId'];
+        }
+
         if (isset($map['endpointType'])) {
             $model->endpointType = $map['endpointType'];
         }
