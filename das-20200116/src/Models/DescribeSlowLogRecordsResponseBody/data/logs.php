@@ -122,6 +122,11 @@ class logs extends Model
     /**
      * @var string
      */
+    public $opType;
+
+    /**
+     * @var string
+     */
     public $originTime;
 
     /**
@@ -281,6 +286,7 @@ class logs extends Model
         'logicalIOReads' => 'LogicalIOReads',
         'namespace' => 'Namespace',
         'nodeId' => 'NodeId',
+        'opType' => 'OpType',
         'originTime' => 'OriginTime',
         'physicalIOReads' => 'PhysicalIOReads',
         'psql' => 'Psql',
@@ -408,6 +414,10 @@ class logs extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->opType) {
+            $res['OpType'] = $this->opType;
         }
 
         if (null !== $this->originTime) {
@@ -619,6 +629,10 @@ class logs extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['OpType'])) {
+            $model->opType = $map['OpType'];
         }
 
         if (isset($map['OriginTime'])) {
