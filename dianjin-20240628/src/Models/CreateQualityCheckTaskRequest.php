@@ -37,6 +37,11 @@ class CreateQualityCheckTaskRequest extends Model
     /**
      * @var string
      */
+    public $sceneCode;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'conversationList' => 'conversationList',
@@ -44,6 +49,7 @@ class CreateQualityCheckTaskRequest extends Model
         'metaData' => 'metaData',
         'qualityGroup' => 'qualityGroup',
         'requestId' => 'requestId',
+        'sceneCode' => 'sceneCode',
         'type' => 'type',
     ];
 
@@ -96,6 +102,10 @@ class CreateQualityCheckTaskRequest extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->sceneCode) {
+            $res['sceneCode'] = $this->sceneCode;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -141,6 +151,10 @@ class CreateQualityCheckTaskRequest extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['sceneCode'])) {
+            $model->sceneCode = $map['sceneCode'];
         }
 
         if (isset($map['type'])) {
