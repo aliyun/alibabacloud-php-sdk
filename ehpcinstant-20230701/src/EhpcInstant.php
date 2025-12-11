@@ -49,6 +49,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlanActivitiesRespon
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlansShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorEventsRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorEventsResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorEventsShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsShrinkRequest;
@@ -1343,6 +1346,77 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listActionPlansWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Executor的事件信息.
+     *
+     * @param tmpReq - ListExecutorEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExecutorEventsResponse
+     *
+     * @param ListExecutorEventsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListExecutorEventsResponse
+     */
+    public function listExecutorEventsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListExecutorEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExecutorEvents',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExecutorEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Executor的事件信息.
+     *
+     * @param request - ListExecutorEventsRequest
+     *
+     * @returns ListExecutorEventsResponse
+     *
+     * @param ListExecutorEventsRequest $request
+     *
+     * @return ListExecutorEventsResponse
+     */
+    public function listExecutorEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExecutorEventsWithOptions($request, $runtime);
     }
 
     /**
