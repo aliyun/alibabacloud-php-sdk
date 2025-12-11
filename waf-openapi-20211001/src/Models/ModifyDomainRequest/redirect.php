@@ -43,6 +43,16 @@ class redirect extends Model
     /**
      * @var bool
      */
+    public $http2Origin;
+
+    /**
+     * @var int
+     */
+    public $http2OriginMaxConcurrency;
+
+    /**
+     * @var bool
+     */
     public $keepalive;
 
     /**
@@ -131,6 +141,8 @@ class redirect extends Model
         'cnameEnabled' => 'CnameEnabled',
         'connectTimeout' => 'ConnectTimeout',
         'focusHttpBackend' => 'FocusHttpBackend',
+        'http2Origin' => 'Http2Origin',
+        'http2OriginMaxConcurrency' => 'Http2OriginMaxConcurrency',
         'keepalive' => 'Keepalive',
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
@@ -213,6 +225,14 @@ class redirect extends Model
 
         if (null !== $this->focusHttpBackend) {
             $res['FocusHttpBackend'] = $this->focusHttpBackend;
+        }
+
+        if (null !== $this->http2Origin) {
+            $res['Http2Origin'] = $this->http2Origin;
+        }
+
+        if (null !== $this->http2OriginMaxConcurrency) {
+            $res['Http2OriginMaxConcurrency'] = $this->http2OriginMaxConcurrency;
         }
 
         if (null !== $this->keepalive) {
@@ -344,6 +364,14 @@ class redirect extends Model
 
         if (isset($map['FocusHttpBackend'])) {
             $model->focusHttpBackend = $map['FocusHttpBackend'];
+        }
+
+        if (isset($map['Http2Origin'])) {
+            $model->http2Origin = $map['Http2Origin'];
+        }
+
+        if (isset($map['Http2OriginMaxConcurrency'])) {
+            $model->http2OriginMaxConcurrency = $map['Http2OriginMaxConcurrency'];
         }
 
         if (isset($map['Keepalive'])) {
