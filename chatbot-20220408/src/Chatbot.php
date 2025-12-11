@@ -3756,32 +3756,34 @@ class Chatbot extends OpenApiClient
             @$query['AgentKey'] = $request->agentKey;
         }
 
+        $body = [];
         if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+            @$body['Email'] = $request->email;
         }
 
         if (null !== $request->expireTime) {
-            @$query['ExpireTime'] = $request->expireTime;
+            @$body['ExpireTime'] = $request->expireTime;
         }
 
         if (null !== $request->extraInfo) {
-            @$query['ExtraInfo'] = $request->extraInfo;
+            @$body['ExtraInfo'] = $request->extraInfo;
         }
 
         if (null !== $request->foreignId) {
-            @$query['ForeignId'] = $request->foreignId;
+            @$body['ForeignId'] = $request->foreignId;
         }
 
         if (null !== $request->nick) {
-            @$query['Nick'] = $request->nick;
+            @$body['Nick'] = $request->nick;
         }
 
         if (null !== $request->telephone) {
-            @$query['Telephone'] = $request->telephone;
+            @$body['Telephone'] = $request->telephone;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateUserAccessToken',
@@ -4150,16 +4152,18 @@ class Chatbot extends OpenApiClient
             @$query['AgentKey'] = $request->agentKey;
         }
 
+        $body = [];
         if (null !== $request->from) {
-            @$query['From'] = $request->from;
+            @$body['From'] = $request->from;
         }
 
         if (null !== $request->userAccessToken) {
-            @$query['UserAccessToken'] = $request->userAccessToken;
+            @$body['UserAccessToken'] = $request->userAccessToken;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InitIMConnect',
