@@ -44,6 +44,11 @@ class ListAutoScalingRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string[]
+     */
+    public $scaleTypes;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -55,11 +60,15 @@ class ListAutoScalingRecordsRequest extends Model
         'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'scaleTypes' => 'ScaleTypes',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->scaleTypes)) {
+            Model::validateArray($this->scaleTypes);
+        }
         parent::validate();
     }
 
@@ -92,6 +101,17 @@ class ListAutoScalingRecordsRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->scaleTypes) {
+            if (\is_array($this->scaleTypes)) {
+                $res['ScaleTypes'] = [];
+                $n1 = 0;
+                foreach ($this->scaleTypes as $item1) {
+                    $res['ScaleTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->securityToken) {
@@ -135,6 +155,17 @@ class ListAutoScalingRecordsRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['ScaleTypes'])) {
+            if (!empty($map['ScaleTypes'])) {
+                $model->scaleTypes = [];
+                $n1 = 0;
+                foreach ($map['ScaleTypes'] as $item1) {
+                    $model->scaleTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SecurityToken'])) {

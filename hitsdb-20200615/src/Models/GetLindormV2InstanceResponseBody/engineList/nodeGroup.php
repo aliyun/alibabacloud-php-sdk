@@ -24,6 +24,11 @@ class nodeGroup extends Model
     public $enableAttachLocalDisk;
 
     /**
+     * @var bool
+     */
+    public $isScaleSpecGroup;
+
+    /**
      * @var int
      */
     public $localDiskCapacity;
@@ -66,6 +71,7 @@ class nodeGroup extends Model
         'category' => 'Category',
         'cpuCoreCount' => 'CpuCoreCount',
         'enableAttachLocalDisk' => 'EnableAttachLocalDisk',
+        'isScaleSpecGroup' => 'IsScaleSpecGroup',
         'localDiskCapacity' => 'LocalDiskCapacity',
         'localDiskCategory' => 'LocalDiskCategory',
         'memorySizeGiB' => 'MemorySizeGiB',
@@ -94,6 +100,10 @@ class nodeGroup extends Model
 
         if (null !== $this->enableAttachLocalDisk) {
             $res['EnableAttachLocalDisk'] = $this->enableAttachLocalDisk;
+        }
+
+        if (null !== $this->isScaleSpecGroup) {
+            $res['IsScaleSpecGroup'] = $this->isScaleSpecGroup;
         }
 
         if (null !== $this->localDiskCapacity) {
@@ -149,6 +159,10 @@ class nodeGroup extends Model
 
         if (isset($map['EnableAttachLocalDisk'])) {
             $model->enableAttachLocalDisk = $map['EnableAttachLocalDisk'];
+        }
+
+        if (isset($map['IsScaleSpecGroup'])) {
+            $model->isScaleSpecGroup = $map['IsScaleSpecGroup'];
         }
 
         if (isset($map['LocalDiskCapacity'])) {

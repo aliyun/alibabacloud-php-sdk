@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListAutoScalingConfigsRequest extends Model
+class ListAutoScalingRecordsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,6 +24,16 @@ class ListAutoScalingConfigsRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -34,9 +44,9 @@ class ListAutoScalingConfigsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $scaleTypes;
+    public $scaleTypesShrink;
 
     /**
      * @var string
@@ -46,17 +56,16 @@ class ListAutoScalingConfigsRequest extends Model
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'scaleTypes' => 'ScaleTypes',
+        'scaleTypesShrink' => 'ScaleTypes',
         'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
     {
-        if (\is_array($this->scaleTypes)) {
-            Model::validateArray($this->scaleTypes);
-        }
         parent::validate();
     }
 
@@ -75,6 +84,14 @@ class ListAutoScalingConfigsRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -83,15 +100,8 @@ class ListAutoScalingConfigsRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->scaleTypes) {
-            if (\is_array($this->scaleTypes)) {
-                $res['ScaleTypes'] = [];
-                $n1 = 0;
-                foreach ($this->scaleTypes as $item1) {
-                    $res['ScaleTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->scaleTypesShrink) {
+            $res['ScaleTypes'] = $this->scaleTypesShrink;
         }
 
         if (null !== $this->securityToken) {
@@ -121,6 +131,14 @@ class ListAutoScalingConfigsRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -130,14 +148,7 @@ class ListAutoScalingConfigsRequest extends Model
         }
 
         if (isset($map['ScaleTypes'])) {
-            if (!empty($map['ScaleTypes'])) {
-                $model->scaleTypes = [];
-                $n1 = 0;
-                foreach ($map['ScaleTypes'] as $item1) {
-                    $model->scaleTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->scaleTypesShrink = $map['ScaleTypes'];
         }
 
         if (isset($map['SecurityToken'])) {

@@ -88,6 +88,11 @@ class CreateAutoScalingConfigRequest extends Model
      * @var string
      */
     public $specId;
+
+    /**
+     * @var int
+     */
+    public $storageCapacityMax;
     protected $_name = [
         'configName' => 'ConfigName',
         'effectiveTimeEnd' => 'EffectiveTimeEnd',
@@ -105,6 +110,7 @@ class CreateAutoScalingConfigRequest extends Model
         'scaleType' => 'ScaleType',
         'securityToken' => 'SecurityToken',
         'specId' => 'SpecId',
+        'storageCapacityMax' => 'StorageCapacityMax',
     ];
 
     public function validate()
@@ -189,6 +195,10 @@ class CreateAutoScalingConfigRequest extends Model
             $res['SpecId'] = $this->specId;
         }
 
+        if (null !== $this->storageCapacityMax) {
+            $res['StorageCapacityMax'] = $this->storageCapacityMax;
+        }
+
         return $res;
     }
 
@@ -269,6 +279,10 @@ class CreateAutoScalingConfigRequest extends Model
 
         if (isset($map['SpecId'])) {
             $model->specId = $map['SpecId'];
+        }
+
+        if (isset($map['StorageCapacityMax'])) {
+            $model->storageCapacityMax = $map['StorageCapacityMax'];
         }
 
         return $model;

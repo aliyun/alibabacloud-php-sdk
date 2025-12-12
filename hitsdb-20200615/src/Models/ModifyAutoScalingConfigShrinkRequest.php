@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsResponseBody\data;
+namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsResponseBody\data\scaleConfigs\scaleRuleList;
 
-class scaleConfigs extends Model
+class ModifyAutoScalingConfigShrinkRequest extends Model
 {
     /**
      * @var string
@@ -55,14 +54,39 @@ class scaleConfigs extends Model
     public $nodesMin;
 
     /**
-     * @var scaleRuleList[]
+     * @var string
      */
-    public $scaleRuleList;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $scaleRuleListShrink;
 
     /**
      * @var string
      */
     public $scaleType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var string
@@ -83,17 +107,19 @@ class scaleConfigs extends Model
         'instanceId' => 'InstanceId',
         'nodesMax' => 'NodesMax',
         'nodesMin' => 'NodesMin',
-        'scaleRuleList' => 'ScaleRuleList',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scaleRuleListShrink' => 'ScaleRuleList',
         'scaleType' => 'ScaleType',
+        'securityToken' => 'SecurityToken',
         'specId' => 'SpecId',
         'storageCapacityMax' => 'StorageCapacityMax',
     ];
 
     public function validate()
     {
-        if (\is_array($this->scaleRuleList)) {
-            Model::validateArray($this->scaleRuleList);
-        }
         parent::validate();
     }
 
@@ -136,19 +162,32 @@ class scaleConfigs extends Model
             $res['NodesMin'] = $this->nodesMin;
         }
 
-        if (null !== $this->scaleRuleList) {
-            if (\is_array($this->scaleRuleList)) {
-                $res['ScaleRuleList'] = [];
-                $n1 = 0;
-                foreach ($this->scaleRuleList as $item1) {
-                    $res['ScaleRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->scaleRuleListShrink) {
+            $res['ScaleRuleList'] = $this->scaleRuleListShrink;
         }
 
         if (null !== $this->scaleType) {
             $res['ScaleType'] = $this->scaleType;
+        }
+
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         if (null !== $this->specId) {
@@ -206,19 +245,32 @@ class scaleConfigs extends Model
             $model->nodesMin = $map['NodesMin'];
         }
 
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
         if (isset($map['ScaleRuleList'])) {
-            if (!empty($map['ScaleRuleList'])) {
-                $model->scaleRuleList = [];
-                $n1 = 0;
-                foreach ($map['ScaleRuleList'] as $item1) {
-                    $model->scaleRuleList[$n1] = scaleRuleList::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->scaleRuleListShrink = $map['ScaleRuleList'];
         }
 
         if (isset($map['ScaleType'])) {
             $model->scaleType = $map['ScaleType'];
+        }
+
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         if (isset($map['SpecId'])) {

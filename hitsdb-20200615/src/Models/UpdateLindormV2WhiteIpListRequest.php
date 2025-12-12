@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2WhiteIpListRequest\whiteIpGroupList;
 
-class ListAutoScalingConfigsRequest extends Model
+class UpdateLindormV2WhiteIpListRequest extends Model
 {
     /**
      * @var string
@@ -26,6 +27,11 @@ class ListAutoScalingConfigsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -34,28 +40,29 @@ class ListAutoScalingConfigsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string[]
-     */
-    public $scaleTypes;
-
-    /**
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var whiteIpGroupList[]
+     */
+    public $whiteIpGroupList;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'scaleTypes' => 'ScaleTypes',
         'securityToken' => 'SecurityToken',
+        'whiteIpGroupList' => 'WhiteIpGroupList',
     ];
 
     public function validate()
     {
-        if (\is_array($this->scaleTypes)) {
-            Model::validateArray($this->scaleTypes);
+        if (\is_array($this->whiteIpGroupList)) {
+            Model::validateArray($this->whiteIpGroupList);
         }
         parent::validate();
     }
@@ -75,6 +82,10 @@ class ListAutoScalingConfigsRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -83,19 +94,19 @@ class ListAutoScalingConfigsRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->scaleTypes) {
-            if (\is_array($this->scaleTypes)) {
-                $res['ScaleTypes'] = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+
+        if (null !== $this->whiteIpGroupList) {
+            if (\is_array($this->whiteIpGroupList)) {
+                $res['WhiteIpGroupList'] = [];
                 $n1 = 0;
-                foreach ($this->scaleTypes as $item1) {
-                    $res['ScaleTypes'][$n1] = $item1;
+                foreach ($this->whiteIpGroupList as $item1) {
+                    $res['WhiteIpGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -121,6 +132,10 @@ class ListAutoScalingConfigsRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -129,19 +144,19 @@ class ListAutoScalingConfigsRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['ScaleTypes'])) {
-            if (!empty($map['ScaleTypes'])) {
-                $model->scaleTypes = [];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+
+        if (isset($map['WhiteIpGroupList'])) {
+            if (!empty($map['WhiteIpGroupList'])) {
+                $model->whiteIpGroupList = [];
                 $n1 = 0;
-                foreach ($map['ScaleTypes'] as $item1) {
-                    $model->scaleTypes[$n1] = $item1;
+                foreach ($map['WhiteIpGroupList'] as $item1) {
+                    $model->whiteIpGroupList[$n1] = whiteIpGroupList::fromMap($item1);
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

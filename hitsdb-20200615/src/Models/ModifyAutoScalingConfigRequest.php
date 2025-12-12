@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigRequest\scaleRuleList;
 
 class ModifyAutoScalingConfigRequest extends Model
 {
@@ -74,6 +75,11 @@ class ModifyAutoScalingConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var scaleRuleList[]
+     */
+    public $scaleRuleList;
+
+    /**
      * @var string
      */
     public $scaleType;
@@ -87,6 +93,11 @@ class ModifyAutoScalingConfigRequest extends Model
      * @var string
      */
     public $specId;
+
+    /**
+     * @var int
+     */
+    public $storageCapacityMax;
     protected $_name = [
         'configId' => 'ConfigId',
         'configName' => 'ConfigName',
@@ -101,13 +112,18 @@ class ModifyAutoScalingConfigRequest extends Model
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'scaleRuleList' => 'ScaleRuleList',
         'scaleType' => 'ScaleType',
         'securityToken' => 'SecurityToken',
         'specId' => 'SpecId',
+        'storageCapacityMax' => 'StorageCapacityMax',
     ];
 
     public function validate()
     {
+        if (\is_array($this->scaleRuleList)) {
+            Model::validateArray($this->scaleRuleList);
+        }
         parent::validate();
     }
 
@@ -166,6 +182,17 @@ class ModifyAutoScalingConfigRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->scaleRuleList) {
+            if (\is_array($this->scaleRuleList)) {
+                $res['ScaleRuleList'] = [];
+                $n1 = 0;
+                foreach ($this->scaleRuleList as $item1) {
+                    $res['ScaleRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->scaleType) {
             $res['ScaleType'] = $this->scaleType;
         }
@@ -176,6 +203,10 @@ class ModifyAutoScalingConfigRequest extends Model
 
         if (null !== $this->specId) {
             $res['SpecId'] = $this->specId;
+        }
+
+        if (null !== $this->storageCapacityMax) {
+            $res['StorageCapacityMax'] = $this->storageCapacityMax;
         }
 
         return $res;
@@ -241,6 +272,17 @@ class ModifyAutoScalingConfigRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
+        if (isset($map['ScaleRuleList'])) {
+            if (!empty($map['ScaleRuleList'])) {
+                $model->scaleRuleList = [];
+                $n1 = 0;
+                foreach ($map['ScaleRuleList'] as $item1) {
+                    $model->scaleRuleList[$n1] = scaleRuleList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ScaleType'])) {
             $model->scaleType = $map['ScaleType'];
         }
@@ -251,6 +293,10 @@ class ModifyAutoScalingConfigRequest extends Model
 
         if (isset($map['SpecId'])) {
             $model->specId = $map['SpecId'];
+        }
+
+        if (isset($map['StorageCapacityMax'])) {
+            $model->storageCapacityMax = $map['StorageCapacityMax'];
         }
 
         return $model;

@@ -76,8 +76,10 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StreamEngineInfoRequest
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StreamEngineInfoResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingConfigsShrinkRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsShrinkRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRulesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRulesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsRequest;
@@ -88,6 +90,7 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\MigrateSingleZoneToMultiZoneRequest
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\MigrateSingleZoneToMultiZoneResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingConfigShrinkRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingRuleRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyAutoScalingRuleResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
@@ -132,6 +135,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterReq
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2WhiteIpListRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2WhiteIpListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormV2StreamEngineRequest;
@@ -314,6 +319,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建弹性伸缩配置.
+     *
      * @param tmpReq - CreateAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -398,6 +405,10 @@ class Hitsdb extends OpenApiClient
             @$query['SpecId'] = $request->specId;
         }
 
+        if (null !== $request->storageCapacityMax) {
+            @$query['StorageCapacityMax'] = $request->storageCapacityMax;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -417,6 +428,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建弹性伸缩配置.
+     *
      * @param request - CreateAutoScalingConfigRequest
      *
      * @returns CreateAutoScalingConfigResponse
@@ -433,6 +446,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建弹性伸缩规则.
+     *
      * @param request - CreateAutoScalingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -554,6 +569,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建弹性伸缩规则.
+     *
      * @param request - CreateAutoScalingRuleRequest
      *
      * @returns CreateAutoScalingRuleResponse
@@ -3232,19 +3249,27 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param request - ListAutoScalingConfigsRequest
+     * 查询弹性伸缩配置.
+     *
+     * @param tmpReq - ListAutoScalingConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAutoScalingConfigsResponse
      *
-     * @param ListAutoScalingConfigsRequest $request
+     * @param ListAutoScalingConfigsRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return ListAutoScalingConfigsResponse
      */
-    public function listAutoScalingConfigsWithOptions($request, $runtime)
+    public function listAutoScalingConfigsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAutoScalingConfigsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scaleTypes) {
+            $request->scaleTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scaleTypes, 'ScaleTypes', 'json');
+        }
+
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
@@ -3264,6 +3289,10 @@ class Hitsdb extends OpenApiClient
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scaleTypesShrink) {
+            @$query['ScaleTypes'] = $request->scaleTypesShrink;
         }
 
         if (null !== $request->securityToken) {
@@ -3289,6 +3318,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询弹性伸缩配置.
+     *
      * @param request - ListAutoScalingConfigsRequest
      *
      * @returns ListAutoScalingConfigsResponse
@@ -3305,19 +3336,27 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param request - ListAutoScalingRecordsRequest
+     * 查询伸缩记录.
+     *
+     * @param tmpReq - ListAutoScalingRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAutoScalingRecordsResponse
      *
-     * @param ListAutoScalingRecordsRequest $request
+     * @param ListAutoScalingRecordsRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return ListAutoScalingRecordsResponse
      */
-    public function listAutoScalingRecordsWithOptions($request, $runtime)
+    public function listAutoScalingRecordsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAutoScalingRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scaleTypes) {
+            $request->scaleTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scaleTypes, 'ScaleTypes', 'json');
+        }
+
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
@@ -3347,6 +3386,10 @@ class Hitsdb extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        if (null !== $request->scaleTypesShrink) {
+            @$query['ScaleTypes'] = $request->scaleTypesShrink;
+        }
+
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -3370,6 +3413,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询伸缩记录.
+     *
      * @param request - ListAutoScalingRecordsRequest
      *
      * @returns ListAutoScalingRecordsResponse
@@ -3730,19 +3775,27 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param request - ModifyAutoScalingConfigRequest
+     * 修改弹性伸缩配置.
+     *
+     * @param tmpReq - ModifyAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyAutoScalingConfigResponse
      *
-     * @param ModifyAutoScalingConfigRequest $request
+     * @param ModifyAutoScalingConfigRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return ModifyAutoScalingConfigResponse
      */
-    public function modifyAutoScalingConfigWithOptions($request, $runtime)
+    public function modifyAutoScalingConfigWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyAutoScalingConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scaleRuleList) {
+            $request->scaleRuleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scaleRuleList, 'ScaleRuleList', 'json');
+        }
+
         $query = [];
         if (null !== $request->configId) {
             @$query['ConfigId'] = $request->configId;
@@ -3796,6 +3849,10 @@ class Hitsdb extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        if (null !== $request->scaleRuleListShrink) {
+            @$query['ScaleRuleList'] = $request->scaleRuleListShrink;
+        }
+
         if (null !== $request->scaleType) {
             @$query['ScaleType'] = $request->scaleType;
         }
@@ -3806,6 +3863,10 @@ class Hitsdb extends OpenApiClient
 
         if (null !== $request->specId) {
             @$query['SpecId'] = $request->specId;
+        }
+
+        if (null !== $request->storageCapacityMax) {
+            @$query['StorageCapacityMax'] = $request->storageCapacityMax;
         }
 
         $req = new OpenApiRequest([
@@ -3827,6 +3888,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 修改弹性伸缩配置.
+     *
      * @param request - ModifyAutoScalingConfigRequest
      *
      * @returns ModifyAutoScalingConfigResponse
@@ -3843,6 +3906,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 修改弹性伸缩规则.
+     *
      * @param request - ModifyAutoScalingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3968,6 +4033,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 修改弹性伸缩规则.
+     *
      * @param request - ModifyAutoScalingRuleRequest
      *
      * @returns ModifyAutoScalingRuleResponse
@@ -5824,6 +5891,91 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLindormV2InstanceParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改Lindorm新版实例白名单分组列表.
+     *
+     * @param request - UpdateLindormV2WhiteIpListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLindormV2WhiteIpListResponse
+     *
+     * @param UpdateLindormV2WhiteIpListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateLindormV2WhiteIpListResponse
+     */
+    public function updateLindormV2WhiteIpListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->whiteIpGroupList) {
+            @$query['WhiteIpGroupList'] = $request->whiteIpGroupList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLindormV2WhiteIpList',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLindormV2WhiteIpListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改Lindorm新版实例白名单分组列表.
+     *
+     * @param request - UpdateLindormV2WhiteIpListRequest
+     *
+     * @returns UpdateLindormV2WhiteIpListResponse
+     *
+     * @param UpdateLindormV2WhiteIpListRequest $request
+     *
+     * @return UpdateLindormV2WhiteIpListResponse
+     */
+    public function updateLindormV2WhiteIpList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLindormV2WhiteIpListWithOptions($request, $runtime);
     }
 
     /**

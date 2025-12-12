@@ -87,6 +87,11 @@ class CreateAutoScalingConfigShrinkRequest extends Model
      * @var string
      */
     public $specId;
+
+    /**
+     * @var int
+     */
+    public $storageCapacityMax;
     protected $_name = [
         'configName' => 'ConfigName',
         'effectiveTimeEnd' => 'EffectiveTimeEnd',
@@ -104,6 +109,7 @@ class CreateAutoScalingConfigShrinkRequest extends Model
         'scaleType' => 'ScaleType',
         'securityToken' => 'SecurityToken',
         'specId' => 'SpecId',
+        'storageCapacityMax' => 'StorageCapacityMax',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class CreateAutoScalingConfigShrinkRequest extends Model
 
         if (null !== $this->specId) {
             $res['SpecId'] = $this->specId;
+        }
+
+        if (null !== $this->storageCapacityMax) {
+            $res['StorageCapacityMax'] = $this->storageCapacityMax;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class CreateAutoScalingConfigShrinkRequest extends Model
 
         if (isset($map['SpecId'])) {
             $model->specId = $map['SpecId'];
+        }
+
+        if (isset($map['StorageCapacityMax'])) {
+            $model->storageCapacityMax = $map['StorageCapacityMax'];
         }
 
         return $model;
