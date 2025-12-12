@@ -34,6 +34,11 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -54,6 +59,11 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $softwareVersion;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -63,10 +73,12 @@ class DescribePropertySoftwareDetailRequest extends Model
         'installTimeEnd' => 'InstallTimeEnd',
         'installTimeStart' => 'InstallTimeStart',
         'name' => 'Name',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'path' => 'Path',
         'remark' => 'Remark',
         'softwareVersion' => 'SoftwareVersion',
+        'useNextToken' => 'UseNextToken',
         'uuid' => 'Uuid',
     ];
 
@@ -98,6 +110,10 @@ class DescribePropertySoftwareDetailRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -112,6 +128,10 @@ class DescribePropertySoftwareDetailRequest extends Model
 
         if (null !== $this->softwareVersion) {
             $res['SoftwareVersion'] = $this->softwareVersion;
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->uuid) {
@@ -149,6 +169,10 @@ class DescribePropertySoftwareDetailRequest extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -163,6 +187,10 @@ class DescribePropertySoftwareDetailRequest extends Model
 
         if (isset($map['SoftwareVersion'])) {
             $model->softwareVersion = $map['SoftwareVersion'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['Uuid'])) {

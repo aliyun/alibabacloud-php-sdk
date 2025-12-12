@@ -19,6 +19,11 @@ class DescribePropertyCronDetailRequest extends Model
     public $extend;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -34,6 +39,11 @@ class DescribePropertyCronDetailRequest extends Model
     public $source;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $user;
@@ -45,9 +55,11 @@ class DescribePropertyCronDetailRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'extend' => 'Extend',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
         'source' => 'Source',
+        'useNextToken' => 'UseNextToken',
         'user' => 'User',
         'uuid' => 'Uuid',
     ];
@@ -68,6 +80,10 @@ class DescribePropertyCronDetailRequest extends Model
             $res['Extend'] = $this->extend;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -78,6 +94,10 @@ class DescribePropertyCronDetailRequest extends Model
 
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->user) {
@@ -107,6 +127,10 @@ class DescribePropertyCronDetailRequest extends Model
             $model->extend = $map['Extend'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -117,6 +141,10 @@ class DescribePropertyCronDetailRequest extends Model
 
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['User'])) {

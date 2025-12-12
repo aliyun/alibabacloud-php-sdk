@@ -30,6 +30,11 @@ class GetAssetsPropertyDetailRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -45,6 +50,11 @@ class GetAssetsPropertyDetailRequest extends Model
     public $searchCriteriaList;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -53,9 +63,11 @@ class GetAssetsPropertyDetailRequest extends Model
         'currentPage' => 'CurrentPage',
         'itemName' => 'ItemName',
         'lang' => 'Lang',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
         'searchCriteriaList' => 'SearchCriteriaList',
+        'useNextToken' => 'UseNextToken',
         'uuid' => 'Uuid',
     ];
 
@@ -86,6 +98,10 @@ class GetAssetsPropertyDetailRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -103,6 +119,10 @@ class GetAssetsPropertyDetailRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->uuid) {
@@ -136,6 +156,10 @@ class GetAssetsPropertyDetailRequest extends Model
             $model->lang = $map['Lang'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -153,6 +177,10 @@ class GetAssetsPropertyDetailRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['Uuid'])) {

@@ -34,6 +34,11 @@ class DescribePropertyUserDetailRequest extends Model
     public $lastLoginTimeStart;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -42,6 +47,11 @@ class DescribePropertyUserDetailRequest extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @var bool
+     */
+    public $useNextToken;
 
     /**
      * @var string
@@ -58,8 +68,10 @@ class DescribePropertyUserDetailRequest extends Model
         'isRoot' => 'IsRoot',
         'lastLoginTimeEnd' => 'LastLoginTimeEnd',
         'lastLoginTimeStart' => 'LastLoginTimeStart',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
+        'useNextToken' => 'UseNextToken',
         'user' => 'User',
         'uuid' => 'Uuid',
     ];
@@ -92,12 +104,20 @@ class DescribePropertyUserDetailRequest extends Model
             $res['LastLoginTimeStart'] = $this->lastLoginTimeStart;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->user) {
@@ -139,12 +159,20 @@ class DescribePropertyUserDetailRequest extends Model
             $model->lastLoginTimeStart = $map['LastLoginTimeStart'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['User'])) {

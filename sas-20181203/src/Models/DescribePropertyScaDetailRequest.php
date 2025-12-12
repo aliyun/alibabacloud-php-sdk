@@ -34,6 +34,11 @@ class DescribePropertyScaDetailRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -99,6 +104,11 @@ class DescribePropertyScaDetailRequest extends Model
     public $searchItemSub;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $user;
@@ -113,6 +123,7 @@ class DescribePropertyScaDetailRequest extends Model
         'currentPage' => 'CurrentPage',
         'lang' => 'Lang',
         'name' => 'Name',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'pid' => 'Pid',
         'port' => 'Port',
@@ -126,6 +137,7 @@ class DescribePropertyScaDetailRequest extends Model
         'searchInfoSub' => 'SearchInfoSub',
         'searchItem' => 'SearchItem',
         'searchItemSub' => 'SearchItemSub',
+        'useNextToken' => 'UseNextToken',
         'user' => 'User',
         'uuid' => 'Uuid',
     ];
@@ -156,6 +168,10 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageSize) {
@@ -210,6 +226,10 @@ class DescribePropertyScaDetailRequest extends Model
             $res['SearchItemSub'] = $this->searchItemSub;
         }
 
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
+        }
+
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
@@ -247,6 +267,10 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageSize'])) {
@@ -299,6 +323,10 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (isset($map['SearchItemSub'])) {
             $model->searchItemSub = $map['SearchItemSub'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['User'])) {

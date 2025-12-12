@@ -25529,6 +25529,10 @@ class Sas extends OpenApiClient
             @$query['Extend'] = $request->extend;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -25539,6 +25543,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->user) {
@@ -25683,6 +25691,10 @@ class Sas extends OpenApiClient
             @$query['Extend'] = $request->extend;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -25701,6 +25713,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->resourceDirectoryAccountId) {
             @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->uuid) {
@@ -25845,6 +25861,10 @@ class Sas extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -25863,6 +25883,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->resourceDirectoryAccountId) {
             @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->user) {
@@ -26015,6 +26039,10 @@ class Sas extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -26065,6 +26093,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->searchItemSub) {
             @$query['SearchItemSub'] = $request->searchItemSub;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->user) {
@@ -26367,6 +26399,10 @@ class Sas extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -26381,6 +26417,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->softwareVersion) {
             @$query['SoftwareVersion'] = $request->softwareVersion;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->uuid) {
@@ -26657,12 +26697,20 @@ class Sas extends OpenApiClient
             @$query['LastLoginTimeStart'] = $request->lastLoginTimeStart;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
 
         if (null !== $request->remark) {
             @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->user) {
@@ -36282,6 +36330,10 @@ class Sas extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -36292,6 +36344,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->searchCriteriaList) {
             @$query['SearchCriteriaList'] = $request->searchCriteriaList;
+        }
+
+        if (null !== $request->useNextToken) {
+            @$query['UseNextToken'] = $request->useNextToken;
         }
 
         if (null !== $request->uuid) {
@@ -53536,7 +53592,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Runs a scan task for urgent vulnerabilities.
+     * Scans for urgent vulnerabilities.
      *
      * @param request - ModifyEmgVulSubmitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53587,7 +53643,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Runs a scan task for urgent vulnerabilities.
+     * Scans for urgent vulnerabilities.
      *
      * @param request - ModifyEmgVulSubmitRequest
      *

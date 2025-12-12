@@ -29,6 +29,11 @@ class DescribePropertyProcDetailRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -54,6 +59,11 @@ class DescribePropertyProcDetailRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $user;
@@ -67,11 +77,13 @@ class DescribePropertyProcDetailRequest extends Model
         'currentPage' => 'CurrentPage',
         'extend' => 'Extend',
         'name' => 'Name',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'procTimeEnd' => 'ProcTimeEnd',
         'procTimeStart' => 'ProcTimeStart',
         'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'useNextToken' => 'UseNextToken',
         'user' => 'User',
         'uuid' => 'Uuid',
     ];
@@ -100,6 +112,10 @@ class DescribePropertyProcDetailRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -118,6 +134,10 @@ class DescribePropertyProcDetailRequest extends Model
 
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->user) {
@@ -155,6 +175,10 @@ class DescribePropertyProcDetailRequest extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -173,6 +197,10 @@ class DescribePropertyProcDetailRequest extends Model
 
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['User'])) {

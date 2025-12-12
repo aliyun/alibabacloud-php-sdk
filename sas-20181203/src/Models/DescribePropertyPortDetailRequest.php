@@ -24,6 +24,11 @@ class DescribePropertyPortDetailRequest extends Model
     public $extend;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -49,6 +54,11 @@ class DescribePropertyPortDetailRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
+     * @var bool
+     */
+    public $useNextToken;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -56,11 +66,13 @@ class DescribePropertyPortDetailRequest extends Model
         'bindIp' => 'BindIp',
         'currentPage' => 'CurrentPage',
         'extend' => 'Extend',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'port' => 'Port',
         'procName' => 'ProcName',
         'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'useNextToken' => 'UseNextToken',
         'uuid' => 'Uuid',
     ];
 
@@ -84,6 +96,10 @@ class DescribePropertyPortDetailRequest extends Model
             $res['Extend'] = $this->extend;
         }
 
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -102,6 +118,10 @@ class DescribePropertyPortDetailRequest extends Model
 
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         if (null !== $this->uuid) {
@@ -131,6 +151,10 @@ class DescribePropertyPortDetailRequest extends Model
             $model->extend = $map['Extend'];
         }
 
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -149,6 +173,10 @@ class DescribePropertyPortDetailRequest extends Model
 
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         if (isset($map['Uuid'])) {
