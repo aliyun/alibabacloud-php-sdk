@@ -1060,6 +1060,14 @@ class Cloudauth extends OpenApiClient
             @$query['Platform'] = $request->platform;
         }
 
+        if (null !== $request->returnPicCount) {
+            @$query['ReturnPicCount'] = $request->returnPicCount;
+        }
+
+        if (null !== $request->returnVideoLength) {
+            @$query['ReturnVideoLength'] = $request->returnVideoLength;
+        }
+
         if (null !== $request->sceneName) {
             @$query['SceneName'] = $request->sceneName;
         }
@@ -8227,6 +8235,14 @@ class Cloudauth extends OpenApiClient
 
         if (null !== $request->platform) {
             @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->returnPicCount) {
+            @$query['ReturnPicCount'] = $request->returnPicCount;
+        }
+
+        if (null !== $request->returnVideoLength) {
+            @$query['ReturnVideoLength'] = $request->returnVideoLength;
         }
 
         if (null !== $request->sceneId) {

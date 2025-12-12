@@ -51,6 +51,16 @@ class scenes extends Model
     /**
      * @var int
      */
+    public $returnPicCount;
+
+    /**
+     * @var int
+     */
+    public $returnVideoLength;
+
+    /**
+     * @var int
+     */
     public $sceneId;
 
     /**
@@ -81,6 +91,8 @@ class scenes extends Model
         'miniProgramName' => 'MiniProgramName',
         'modifier' => 'Modifier',
         'platform' => 'Platform',
+        'returnPicCount' => 'ReturnPicCount',
+        'returnVideoLength' => 'ReturnVideoLength',
         'sceneId' => 'SceneId',
         'sceneName' => 'SceneName',
         'status' => 'Status',
@@ -126,6 +138,14 @@ class scenes extends Model
 
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->returnPicCount) {
+            $res['ReturnPicCount'] = $this->returnPicCount;
+        }
+
+        if (null !== $this->returnVideoLength) {
+            $res['ReturnVideoLength'] = $this->returnVideoLength;
         }
 
         if (null !== $this->sceneId) {
@@ -189,6 +209,14 @@ class scenes extends Model
 
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['ReturnPicCount'])) {
+            $model->returnPicCount = $map['ReturnPicCount'];
+        }
+
+        if (isset($map['ReturnVideoLength'])) {
+            $model->returnVideoLength = $map['ReturnVideoLength'];
         }
 
         if (isset($map['SceneId'])) {

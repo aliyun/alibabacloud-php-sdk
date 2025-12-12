@@ -34,6 +34,16 @@ class CreateAntCloudAuthSceneRequest extends Model
     public $platform;
 
     /**
+     * @var int
+     */
+    public $returnPicCount;
+
+    /**
+     * @var int
+     */
+    public $returnVideoLength;
+
+    /**
      * @var string
      */
     public $sceneName;
@@ -48,6 +58,8 @@ class CreateAntCloudAuthSceneRequest extends Model
         'checkFileName' => 'CheckFileName',
         'miniProgramName' => 'MiniProgramName',
         'platform' => 'Platform',
+        'returnPicCount' => 'ReturnPicCount',
+        'returnVideoLength' => 'ReturnVideoLength',
         'sceneName' => 'SceneName',
         'storeImage' => 'StoreImage',
     ];
@@ -78,6 +90,14 @@ class CreateAntCloudAuthSceneRequest extends Model
 
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->returnPicCount) {
+            $res['ReturnPicCount'] = $this->returnPicCount;
+        }
+
+        if (null !== $this->returnVideoLength) {
+            $res['ReturnVideoLength'] = $this->returnVideoLength;
         }
 
         if (null !== $this->sceneName) {
@@ -117,6 +137,14 @@ class CreateAntCloudAuthSceneRequest extends Model
 
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['ReturnPicCount'])) {
+            $model->returnPicCount = $map['ReturnPicCount'];
+        }
+
+        if (isset($map['ReturnVideoLength'])) {
+            $model->returnVideoLength = $map['ReturnVideoLength'];
         }
 
         if (isset($map['SceneName'])) {
