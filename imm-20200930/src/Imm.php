@@ -9053,6 +9053,10 @@ class Imm extends OpenApiClient
             @$query['Query'] = $request->query;
         }
 
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
+        }
+
         if (null !== $request->withFieldsShrink) {
             @$query['WithFields'] = $request->withFieldsShrink;
         }

@@ -39,6 +39,11 @@ class SemanticQueryRequest extends Model
     public $query;
 
     /**
+     * @var string
+     */
+    public $sourceURI;
+
+    /**
      * @var string[]
      */
     public $withFields;
@@ -49,6 +54,7 @@ class SemanticQueryRequest extends Model
         'nextToken' => 'NextToken',
         'projectName' => 'ProjectName',
         'query' => 'Query',
+        'sourceURI' => 'SourceURI',
         'withFields' => 'WithFields',
     ];
 
@@ -95,6 +101,10 @@ class SemanticQueryRequest extends Model
 
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->sourceURI) {
+            $res['SourceURI'] = $this->sourceURI;
         }
 
         if (null !== $this->withFields) {
@@ -148,6 +158,10 @@ class SemanticQueryRequest extends Model
 
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+
+        if (isset($map['SourceURI'])) {
+            $model->sourceURI = $map['SourceURI'];
         }
 
         if (isset($map['WithFields'])) {
