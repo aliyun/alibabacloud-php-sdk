@@ -7,6 +7,12 @@ namespace AlibabaCloud\SDK\Clickhouse\V20191111;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelAppointmentElectZookeeperLeaderRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelAppointmentElectZookeeperLeaderResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelAppointmentRestartInstanceNodeListRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelAppointmentRestartInstanceNodeListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelRestartInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CancelRestartInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ChangeResourceGroupRequest;
@@ -57,6 +63,10 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountAuthorityRequest
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeActiveOperationMaintainConfRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeActiveOperationMaintainConfResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourcesRequest;
@@ -83,12 +93,18 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterNetInfoItemsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterNetInfoItemsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterNodeInfosRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterNodeInfosResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClustersResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterStatusSetRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterStatusSetResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBConfigResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeEventMetaInfoRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeEventMetaInfoResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeOSSStorageRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeOSSStorageResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListRequest;
@@ -109,12 +125,22 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTablesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTransferHistoryRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTransferHistoryResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeUserEncryptionKeyListRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ElectZookeeperLeaderRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ElectZookeeperLeaderResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\KillProcessRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\KillProcessResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountAuthorityRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyActiveOperationMaintainConfRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyActiveOperationMaintainConfResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyRequest;
@@ -141,10 +167,17 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ReleaseClusterPublicConnectionR
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ReleaseClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceNodeListRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceNodeListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceNodeListShrinkRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -307,6 +340,253 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateClusterPublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消运维事件任务
+     *
+     * @param request - CancelActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelActiveOperationTasks',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消运维事件任务
+     *
+     * @param request - CancelActiveOperationTasksRequest
+     *
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消预约Zookeeper切主.
+     *
+     * @param request - CancelAppointmentElectZookeeperLeaderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAppointmentElectZookeeperLeaderResponse
+     *
+     * @param CancelAppointmentElectZookeeperLeaderRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return CancelAppointmentElectZookeeperLeaderResponse
+     */
+    public function cancelAppointmentElectZookeeperLeaderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAppointmentElectZookeeperLeader',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAppointmentElectZookeeperLeaderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消预约Zookeeper切主.
+     *
+     * @param request - CancelAppointmentElectZookeeperLeaderRequest
+     *
+     * @returns CancelAppointmentElectZookeeperLeaderResponse
+     *
+     * @param CancelAppointmentElectZookeeperLeaderRequest $request
+     *
+     * @return CancelAppointmentElectZookeeperLeaderResponse
+     */
+    public function cancelAppointmentElectZookeeperLeader($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAppointmentElectZookeeperLeaderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消预约重启节点列表.
+     *
+     * @param request - CancelAppointmentRestartInstanceNodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAppointmentRestartInstanceNodeListResponse
+     *
+     * @param CancelAppointmentRestartInstanceNodeListRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return CancelAppointmentRestartInstanceNodeListResponse
+     */
+    public function cancelAppointmentRestartInstanceNodeListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAppointmentRestartInstanceNodeList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAppointmentRestartInstanceNodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消预约重启节点列表.
+     *
+     * @param request - CancelAppointmentRestartInstanceNodeListRequest
+     *
+     * @returns CancelAppointmentRestartInstanceNodeListResponse
+     *
+     * @param CancelAppointmentRestartInstanceNodeListRequest $request
+     *
+     * @return CancelAppointmentRestartInstanceNodeListResponse
+     */
+    public function cancelAppointmentRestartInstanceNodeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAppointmentRestartInstanceNodeListWithOptions($request, $runtime);
     }
 
     /**
@@ -2501,6 +2781,192 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * 主动运维.
+     *
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationMaintainConf',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 主动运维.
+     *
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     *
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationMaintainConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowCancel) {
+            @$query['AllowCancel'] = $request->allowCancel;
+        }
+
+        if (null !== $request->allowChange) {
+            @$query['AllowChange'] = $request->allowChange;
+        }
+
+        if (null !== $request->changeLevel) {
+            @$query['ChangeLevel'] = $request->changeLevel;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->insName) {
+            @$query['InsName'] = $request->insName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationTasks',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeActiveOperationTasksRequest
+     *
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAllDataSourceRequest
@@ -3484,6 +3950,91 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * 获取实例节点信息.
+     *
+     * @param request - DescribeDBClusterNodeInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterNodeInfosResponse
+     *
+     * @param DescribeDBClusterNodeInfosRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBClusterNodeInfosResponse
+     */
+    public function describeDBClusterNodeInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterNodeInfos',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterNodeInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例节点信息.
+     *
+     * @param request - DescribeDBClusterNodeInfosRequest
+     *
+     * @returns DescribeDBClusterNodeInfosResponse
+     *
+     * @param DescribeDBClusterNodeInfosRequest $request
+     *
+     * @return DescribeDBClusterNodeInfosResponse
+     */
+    public function describeDBClusterNodeInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterNodeInfosWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries performance data about an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
@@ -3574,6 +4125,75 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClusterPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeDBClusterStatusSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterStatusSetResponse
+     *
+     * @param DescribeDBClusterStatusSetRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBClusterStatusSetResponse
+     */
+    public function describeDBClusterStatusSetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterStatusSet',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterStatusSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeDBClusterStatusSetRequest
+     *
+     * @returns DescribeDBClusterStatusSetResponse
+     *
+     * @param DescribeDBClusterStatusSetRequest $request
+     *
+     * @return DescribeDBClusterStatusSetResponse
+     */
+    public function describeDBClusterStatusSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterStatusSetWithOptions($request, $runtime);
     }
 
     /**
@@ -3752,6 +4372,71 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeEventMetaInfo.
+     *
+     * @param request - DescribeEventMetaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventMetaInfoResponse
+     *
+     * @param DescribeEventMetaInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEventMetaInfoResponse
+     */
+    public function describeEventMetaInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->sourceCode) {
+            @$query['SourceCode'] = $request->sourceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEventMetaInfo',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEventMetaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeEventMetaInfo.
+     *
+     * @param request - DescribeEventMetaInfoRequest
+     *
+     * @returns DescribeEventMetaInfoResponse
+     *
+     * @param DescribeEventMetaInfoRequest $request
+     *
+     * @return DescribeEventMetaInfoResponse
+     */
+    public function describeEventMetaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEventMetaInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -4575,6 +5260,160 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeUserEncryptionKeyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserEncryptionKeyListResponse
+     *
+     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserEncryptionKeyList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeUserEncryptionKeyListRequest
+     *
+     * @returns DescribeUserEncryptionKeyListResponse
+     *
+     * @param DescribeUserEncryptionKeyListRequest $request
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Zookeeper主动切主.
+     *
+     * @param request - ElectZookeeperLeaderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ElectZookeeperLeaderResponse
+     *
+     * @param ElectZookeeperLeaderRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ElectZookeeperLeaderResponse
+     */
+    public function electZookeeperLeaderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->disableWrite) {
+            @$query['DisableWrite'] = $request->disableWrite;
+        }
+
+        if (null !== $request->electTime) {
+            @$query['ElectTime'] = $request->electTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ElectZookeeperLeader',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ElectZookeeperLeaderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Zookeeper主动切主.
+     *
+     * @param request - ElectZookeeperLeaderRequest
+     *
+     * @returns ElectZookeeperLeaderResponse
+     *
+     * @param ElectZookeeperLeaderRequest $request
+     *
+     * @return ElectZookeeperLeaderResponse
+     */
+    public function electZookeeperLeader($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->electZookeeperLeaderWithOptions($request, $runtime);
+    }
+
+    /**
      * Terminates an ongoing task.
      *
      * @param request - KillProcessRequest
@@ -4653,6 +5492,95 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->killProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -4839,6 +5767,180 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改主动运维设置.
+     *
+     * @param request - ModifyActiveOperationMaintainConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyActiveOperationMaintainConfResponse
+     *
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyActiveOperationMaintainConfResponse
+     */
+    public function modifyActiveOperationMaintainConfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cycleTime) {
+            @$query['CycleTime'] = $request->cycleTime;
+        }
+
+        if (null !== $request->cycleType) {
+            @$query['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->maintainEndTime) {
+            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+
+        if (null !== $request->maintainStartTime) {
+            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyActiveOperationMaintainConf',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改主动运维设置.
+     *
+     * @param request - ModifyActiveOperationMaintainConfRequest
+     *
+     * @returns ModifyActiveOperationMaintainConfResponse
+     *
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     *
+     * @return ModifyActiveOperationMaintainConfResponse
+     */
+    public function modifyActiveOperationMaintainConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationMaintainConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ModifyActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->immediateStart) {
+            @$query['ImmediateStart'] = $request->immediateStart;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyActiveOperationTasks',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ModifyActiveOperationTasksRequest
+     *
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     *
+     * @return ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -6046,6 +7148,190 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * 批量重启实例节点.
+     *
+     * @param tmpReq - RestartInstanceNodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartInstanceNodeListResponse
+     *
+     * @param RestartInstanceNodeListRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RestartInstanceNodeListResponse
+     */
+    public function restartInstanceNodeListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RestartInstanceNodeListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeList) {
+            $request->nodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeList, 'NodeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->nodeListShrink) {
+            @$query['NodeList'] = $request->nodeListShrink;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->restartTime) {
+            @$query['RestartTime'] = $request->restartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartInstanceNodeList',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartInstanceNodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量重启实例节点.
+     *
+     * @param request - RestartInstanceNodeListRequest
+     *
+     * @returns RestartInstanceNodeListResponse
+     *
+     * @param RestartInstanceNodeListRequest $request
+     *
+     * @return RestartInstanceNodeListResponse
+     */
+    public function restartInstanceNodeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartInstanceNodeListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
      *
      * @remarks
@@ -6172,6 +7458,95 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transferVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes tags from ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2019-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes tags from ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
