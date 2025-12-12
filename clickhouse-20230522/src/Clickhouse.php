@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20230522;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\AttachWhitelistTemplateToInstanceRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\AttachWhitelistTemplateToInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteEndpointRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteEndpointResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountAuthorityRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsRequest;
@@ -57,8 +61,16 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogTrendRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogTrendResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DetachWhitelistTemplateToInstanceRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DetachWhitelistTemplateToInstanceResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\GetWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\GetWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\KillProcessRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\KillProcessResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListInstanceLinkedWhitelistTemplatesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListInstanceLinkedWhitelistTemplatesResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListWhitelistTemplatesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListWhitelistTemplatesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityShrinkRequest;
@@ -84,6 +96,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\StartDBInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\StartDBInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\StopDBInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\StopDBInstanceResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpdateWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpdateWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpgradeMinorVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -169,6 +183,71 @@ class Clickhouse extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 白名单模板关联实例.
+     *
+     * @param request - AttachWhitelistTemplateToInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachWhitelistTemplateToInstanceResponse
+     *
+     * @param AttachWhitelistTemplateToInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return AttachWhitelistTemplateToInstanceResponse
+     */
+    public function attachWhitelistTemplateToInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachWhitelistTemplateToInstance',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachWhitelistTemplateToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 白名单模板关联实例.
+     *
+     * @param request - AttachWhitelistTemplateToInstanceRequest
+     *
+     * @returns AttachWhitelistTemplateToInstanceResponse
+     *
+     * @param AttachWhitelistTemplateToInstanceRequest $request
+     *
+     * @return AttachWhitelistTemplateToInstanceResponse
+     */
+    public function attachWhitelistTemplateToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachWhitelistTemplateToInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1020,6 +1099,71 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除白名单模板
+     *
+     * @param request - DeleteWhitelistTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWhitelistTemplateResponse
+     *
+     * @param DeleteWhitelistTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteWhitelistTemplateResponse
+     */
+    public function deleteWhitelistTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWhitelistTemplate',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除白名单模板
+     *
+     * @param request - DeleteWhitelistTemplateRequest
+     *
+     * @returns DeleteWhitelistTemplateResponse
+     *
+     * @param DeleteWhitelistTemplateRequest $request
+     *
+     * @return DeleteWhitelistTemplateResponse
+     */
+    public function deleteWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWhitelistTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2001,6 +2145,132 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * 取消白名单模板和实例关联关系.
+     *
+     * @param request - DetachWhitelistTemplateToInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachWhitelistTemplateToInstanceResponse
+     *
+     * @param DetachWhitelistTemplateToInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DetachWhitelistTemplateToInstanceResponse
+     */
+    public function detachWhitelistTemplateToInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachWhitelistTemplateToInstance',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachWhitelistTemplateToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消白名单模板和实例关联关系.
+     *
+     * @param request - DetachWhitelistTemplateToInstanceRequest
+     *
+     * @returns DetachWhitelistTemplateToInstanceResponse
+     *
+     * @param DetachWhitelistTemplateToInstanceRequest $request
+     *
+     * @return DetachWhitelistTemplateToInstanceResponse
+     */
+    public function detachWhitelistTemplateToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachWhitelistTemplateToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询白名单模板详情.
+     *
+     * @param request - GetWhitelistTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWhitelistTemplateResponse
+     *
+     * @param GetWhitelistTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetWhitelistTemplateResponse
+     */
+    public function getWhitelistTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWhitelistTemplate',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询白名单模板详情.
+     *
+     * @param request - GetWhitelistTemplateRequest
+     *
+     * @returns GetWhitelistTemplateResponse
+     *
+     * @param GetWhitelistTemplateRequest $request
+     *
+     * @return GetWhitelistTemplateResponse
+     */
+    public function getWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWhitelistTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Terminates an ongoing query.
      *
      * @param request - KillProcessRequest
@@ -2067,6 +2337,136 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->killProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例关联的白名单模板清单.
+     *
+     * @param request - ListInstanceLinkedWhitelistTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceLinkedWhitelistTemplatesResponse
+     *
+     * @param ListInstanceLinkedWhitelistTemplatesRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListInstanceLinkedWhitelistTemplatesResponse
+     */
+    public function listInstanceLinkedWhitelistTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceLinkedWhitelistTemplates',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceLinkedWhitelistTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例关联的白名单模板清单.
+     *
+     * @param request - ListInstanceLinkedWhitelistTemplatesRequest
+     *
+     * @returns ListInstanceLinkedWhitelistTemplatesResponse
+     *
+     * @param ListInstanceLinkedWhitelistTemplatesRequest $request
+     *
+     * @return ListInstanceLinkedWhitelistTemplatesResponse
+     */
+    public function listInstanceLinkedWhitelistTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceLinkedWhitelistTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询白名单模板清单.
+     *
+     * @param request - ListWhitelistTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWhitelistTemplatesResponse
+     *
+     * @param ListWhitelistTemplatesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListWhitelistTemplatesResponse
+     */
+    public function listWhitelistTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWhitelistTemplates',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWhitelistTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询白名单模板清单.
+     *
+     * @param request - ListWhitelistTemplatesRequest
+     *
+     * @returns ListWhitelistTemplatesResponse
+     *
+     * @param ListWhitelistTemplatesRequest $request
+     *
+     * @return ListWhitelistTemplatesResponse
+     */
+    public function listWhitelistTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWhitelistTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2925,6 +3325,75 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新白名单模板
+     *
+     * @param request - UpdateWhitelistTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWhitelistTemplateResponse
+     *
+     * @param UpdateWhitelistTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateWhitelistTemplateResponse
+     */
+    public function updateWhitelistTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWhitelistTemplate',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新白名单模板
+     *
+     * @param request - UpdateWhitelistTemplateRequest
+     *
+     * @returns UpdateWhitelistTemplateResponse
+     *
+     * @param UpdateWhitelistTemplateRequest $request
+     *
+     * @return UpdateWhitelistTemplateResponse
+     */
+    public function updateWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWhitelistTemplateWithOptions($request, $runtime);
     }
 
     /**
