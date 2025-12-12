@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\JudgeNodeMetaDesc\expressionMetaDesc;
 
 class JudgeNodeMetaDesc extends Model
 {
@@ -17,6 +18,11 @@ class JudgeNodeMetaDesc extends Model
      * @var int
      */
     public $dataType;
+
+    /**
+     * @var expressionMetaDesc
+     */
+    public $expressionMetaDesc;
 
     /**
      * @var string
@@ -40,6 +46,7 @@ class JudgeNodeMetaDesc extends Model
     protected $_name = [
         'actualValue' => 'ActualValue',
         'dataType' => 'DataType',
+        'expressionMetaDesc' => 'ExpressionMetaDesc',
         'field' => 'Field',
         'fieldType' => 'FieldType',
         'symbol' => 'Symbol',
@@ -48,6 +55,9 @@ class JudgeNodeMetaDesc extends Model
 
     public function validate()
     {
+        if (null !== $this->expressionMetaDesc) {
+            $this->expressionMetaDesc->validate();
+        }
         parent::validate();
     }
 
@@ -60,6 +70,10 @@ class JudgeNodeMetaDesc extends Model
 
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
+        }
+
+        if (null !== $this->expressionMetaDesc) {
+            $res['ExpressionMetaDesc'] = null !== $this->expressionMetaDesc ? $this->expressionMetaDesc->toArray($noStream) : $this->expressionMetaDesc;
         }
 
         if (null !== $this->field) {
@@ -95,6 +109,10 @@ class JudgeNodeMetaDesc extends Model
 
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
+        }
+
+        if (isset($map['ExpressionMetaDesc'])) {
+            $model->expressionMetaDesc = expressionMetaDesc::fromMap($map['ExpressionMetaDesc']);
         }
 
         if (isset($map['Field'])) {
