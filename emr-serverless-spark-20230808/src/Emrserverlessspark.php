@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
@@ -2083,6 +2085,71 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取任务配置.
+     *
+     * @param request - GetRunConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRunConfigurationResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $runId
+     * @param GetRunConfigurationRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRunConfigurationResponse
+     */
+    public function getRunConfigurationWithOptions($workspaceId, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRunConfiguration',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/runs/' . Url::percentEncode($runId) . '/action/getRunConfiguration',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRunConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务配置.
+     *
+     * @param request - GetRunConfigurationRequest
+     *
+     * @returns GetRunConfigurationResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $runId
+     * @param GetRunConfigurationRequest $request
+     *
+     * @return GetRunConfigurationResponse
+     */
+    public function getRunConfiguration($workspaceId, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRunConfigurationWithOptions($workspaceId, $runId, $request, $headers, $runtime);
     }
 
     /**
