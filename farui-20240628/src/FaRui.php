@@ -18,6 +18,9 @@ use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileAdvanceRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\CreateTextFileResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractExtractRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractExtractResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractExtractShrinkRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationResponse;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractResultGenerationShrinkRequest;
@@ -341,6 +344,89 @@ class FaRui extends OpenApiClient
         }
 
         return $this->createTextFileWithOptions($WorkspaceId, $createTextFileReq, $headers, $runtime);
+    }
+
+    /**
+     * 合同抽取.
+     *
+     * @param tmpReq - RunContractExtractRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunContractExtractResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunContractExtractRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunContractExtractResponse
+     */
+    public function runContractExtractWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunContractExtractShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fieldsToExtract) {
+            $request->fieldsToExtractShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fieldsToExtract, 'fieldsToExtract', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['appId'] = $request->appId;
+        }
+
+        if (null !== $request->fieldsToExtractShrink) {
+            @$body['fieldsToExtract'] = $request->fieldsToExtractShrink;
+        }
+
+        if (null !== $request->fileOssUrl) {
+            @$body['fileOssUrl'] = $request->fileOssUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunContractExtract',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/pop/contract/extraction',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunContractExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 合同抽取.
+     *
+     * @param Request - RunContractExtractRequest
+     *
+     * @returns RunContractExtractResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunContractExtractRequest $request
+     *
+     * @return RunContractExtractResponse
+     */
+    public function runContractExtract($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runContractExtractWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
