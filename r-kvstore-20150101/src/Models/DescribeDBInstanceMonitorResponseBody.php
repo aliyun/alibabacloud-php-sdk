@@ -6,31 +6,19 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateAccountResponseBody extends Model
+class DescribeDBInstanceMonitorResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $accountName;
-
-    /**
-     * @var string
-     */
-    public $acountName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $interval;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'accountName' => 'AccountName',
-        'acountName' => 'AcountName',
-        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
         'requestId' => 'RequestId',
     ];
 
@@ -42,16 +30,8 @@ class CreateAccountResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
-
-        if (null !== $this->acountName) {
-            $res['AcountName'] = $this->acountName;
-        }
-
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
 
         if (null !== $this->requestId) {
@@ -69,16 +49,8 @@ class CreateAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
-
-        if (isset($map['AcountName'])) {
-            $model->acountName = $map['AcountName'];
-        }
-
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
 
         if (isset($map['RequestId'])) {

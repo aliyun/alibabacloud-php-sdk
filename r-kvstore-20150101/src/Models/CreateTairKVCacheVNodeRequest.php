@@ -62,6 +62,11 @@ class CreateTairKVCacheVNodeRequest extends Model
     /**
      * @var string
      */
+    public $elasticTimeRange;
+
+    /**
+     * @var string
+     */
     public $instanceClass;
 
     /**
@@ -117,6 +122,11 @@ class CreateTairKVCacheVNodeRequest extends Model
     /**
      * @var string
      */
+    public $VNodeType;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -139,6 +149,7 @@ class CreateTairKVCacheVNodeRequest extends Model
         'computeUnitNum' => 'ComputeUnitNum',
         'couponNo' => 'CouponNo',
         'dryRun' => 'DryRun',
+        'elasticTimeRange' => 'ElasticTimeRange',
         'instanceClass' => 'InstanceClass',
         'instanceName' => 'InstanceName',
         'ownerAccount' => 'OwnerAccount',
@@ -150,6 +161,7 @@ class CreateTairKVCacheVNodeRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
         'tag' => 'Tag',
+        'VNodeType' => 'VNodeType',
         'vSwitchId' => 'VSwitchId',
         'vkName' => 'VkName',
         'zoneId' => 'ZoneId',
@@ -206,6 +218,10 @@ class CreateTairKVCacheVNodeRequest extends Model
             $res['DryRun'] = $this->dryRun;
         }
 
+        if (null !== $this->elasticTimeRange) {
+            $res['ElasticTimeRange'] = $this->elasticTimeRange;
+        }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
@@ -255,6 +271,10 @@ class CreateTairKVCacheVNodeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->VNodeType) {
+            $res['VNodeType'] = $this->VNodeType;
         }
 
         if (null !== $this->vSwitchId) {
@@ -320,6 +340,10 @@ class CreateTairKVCacheVNodeRequest extends Model
             $model->dryRun = $map['DryRun'];
         }
 
+        if (isset($map['ElasticTimeRange'])) {
+            $model->elasticTimeRange = $map['ElasticTimeRange'];
+        }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
@@ -369,6 +393,10 @@ class CreateTairKVCacheVNodeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VNodeType'])) {
+            $model->VNodeType = $map['VNodeType'];
         }
 
         if (isset($map['VSwitchId'])) {

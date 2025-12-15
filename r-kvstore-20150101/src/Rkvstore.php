@@ -51,6 +51,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationMaintenanceConfigRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationMaintenanceConfigResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskCountRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskCountResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksRequest;
@@ -75,6 +79,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDbInstanceConnectivityRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDbInstanceConnectivityResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceMonitorRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceMonitorResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoRequest;
@@ -93,10 +101,16 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRela
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryEventsRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryEventsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryEventsStatRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryEventsStatResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryMonitorValuesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryMonitorValuesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksStatRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAutoRenewalAttributeRequest;
@@ -143,8 +157,12 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityGroupConfiguratio
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeServiceLinkedRoleExistsRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeServiceLinkedRoleExistsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTagsRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest;
@@ -157,6 +175,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstances
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstancesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DestroyInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DestroyInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushExpireKeysRequest;
@@ -181,6 +201,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationMaintainConfigRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationMaintainConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksRequest;
@@ -195,6 +217,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceAutoUpgradeReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceAutoUpgradeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceMonitorRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceMonitorResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyEventInfoRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyEventInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupNameRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupNameResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyGlobalSecurityIPGroupRelationRequest;
@@ -241,6 +267,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTairKVCacheCustomInstanceAt
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTairKVCacheCustomInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTaskInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTaskInfoResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RebootProxyRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RebootProxyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseInstancePublicConnectionRequest;
@@ -289,6 +317,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UnlockDBInstanceWriteResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UpgradeProxyRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\UpgradeProxyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -306,11 +336,9 @@ class Rkvstore extends OpenApiClient
             'cn-wulanchabu' => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou' => 'r-kvstore.aliyuncs.com',
             'cn-shanghai' => 'r-kvstore.aliyuncs.com',
-            'cn-shenzhen' => 'r-kvstore.aliyuncs.com',
             'cn-heyuan' => 'r-kvstore.aliyuncs.com',
             'cn-hangzhou-finance' => 'r-kvstore.aliyuncs.com',
             'ap-northeast-2-pop' => 'r-kvstore.aliyuncs.com',
-            'cn-beijing-finance-1' => 'r-kvstore.aliyuncs.com',
             'cn-beijing-finance-pop' => 'r-kvstore.aliyuncs.com',
             'cn-beijing-gov-1' => 'r-kvstore.aliyuncs.com',
             'cn-beijing-nu16-b01' => 'r-kvstore.aliyuncs.com',
@@ -2209,7 +2237,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建Tair VNode实例.
+     * Creates a Tair VNode instance.
      *
      * @param request - CreateTairKVCacheVNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2265,6 +2293,10 @@ class Rkvstore extends OpenApiClient
             @$query['DryRun'] = $request->dryRun;
         }
 
+        if (null !== $request->elasticTimeRange) {
+            @$query['ElasticTimeRange'] = $request->elasticTimeRange;
+        }
+
         if (null !== $request->instanceClass) {
             @$query['InstanceClass'] = $request->instanceClass;
         }
@@ -2309,6 +2341,10 @@ class Rkvstore extends OpenApiClient
             @$query['Tag'] = $request->tag;
         }
 
+        if (null !== $request->VNodeType) {
+            @$query['VNodeType'] = $request->VNodeType;
+        }
+
         if (null !== $request->vSwitchId) {
             @$query['VSwitchId'] = $request->vSwitchId;
         }
@@ -2340,7 +2376,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建Tair VNode实例.
+     * Creates a Tair VNode instance.
      *
      * @param request - CreateTairKVCacheVNodeRequest
      *
@@ -2451,7 +2487,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 删除指定备份集.
+     * Deletes a specified backup set. However, you can delete only backup sets that are manually backed up.
      *
      * @param request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2510,7 +2546,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 删除指定备份集.
+     * Deletes a specified backup set. However, you can delete only backup sets that are manually backed up.
      *
      * @param request - DeleteBackupRequest
      *
@@ -2987,6 +3023,79 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * Queries the O\\\\\\&M task configurations of an instance.
+     *
+     * @param request - DescribeActiveOperationMaintenanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationMaintenanceConfigResponse
+     *
+     * @param DescribeActiveOperationMaintenanceConfigRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeActiveOperationMaintenanceConfigResponse
+     */
+    public function describeActiveOperationMaintenanceConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationMaintenanceConfig',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationMaintenanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the O\\\\\\&M task configurations of an instance.
+     *
+     * @param request - DescribeActiveOperationMaintenanceConfigRequest
+     *
+     * @returns DescribeActiveOperationMaintenanceConfigResponse
+     *
+     * @param DescribeActiveOperationMaintenanceConfigRequest $request
+     *
+     * @return DescribeActiveOperationMaintenanceConfigResponse
+     */
+    public function describeActiveOperationMaintenanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationMaintenanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
@@ -3083,6 +3192,83 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActiveOperationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of O\\\\\\&M tasks on a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - DescribeActiveOperationTaskCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationTaskCountResponse
+     *
+     * @param DescribeActiveOperationTaskCountRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeActiveOperationTaskCountResponse
+     */
+    public function describeActiveOperationTaskCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationTaskCount',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of O\\\\\\&M tasks on a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - DescribeActiveOperationTaskCountRequest
+     *
+     * @returns DescribeActiveOperationTaskCountResponse
+     *
+     * @param DescribeActiveOperationTaskCountRequest $request
+     *
+     * @return DescribeActiveOperationTaskCountResponse
+     */
+    public function describeActiveOperationTaskCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTaskCountWithOptions($request, $runtime);
     }
 
     /**
@@ -4157,6 +4343,83 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * Queries the collection frequency of monitoring data for a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - DescribeDBInstanceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceMonitorResponse
+     *
+     * @param DescribeDBInstanceMonitorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBInstanceMonitorResponse
+     */
+    public function describeDBInstanceMonitorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceMonitor',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the collection frequency of monitoring data for a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - DescribeDBInstanceMonitorRequest
+     *
+     * @returns DescribeDBInstanceMonitorResponse
+     *
+     * @param DescribeDBInstanceMonitorRequest $request
+     *
+     * @return DescribeDBInstanceMonitorResponse
+     */
+    public function describeDBInstanceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the network information of an ApsaraDB for Redis instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
@@ -4175,6 +4438,10 @@ class Rkvstore extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
         }
 
         if (null !== $request->ownerAccount) {
@@ -4310,6 +4577,87 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBNodeDirectVipInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Checks the connectivity between the client IP address and the instance.
+     *
+     * @param request - DescribeDbInstanceConnectivityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDbInstanceConnectivityResponse
+     *
+     * @param DescribeDbInstanceConnectivityRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDbInstanceConnectivityResponse
+     */
+    public function describeDbInstanceConnectivityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->srcIp) {
+            @$query['SrcIp'] = $request->srcIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDbInstanceConnectivity',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDbInstanceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks the connectivity between the client IP address and the instance.
+     *
+     * @param request - DescribeDbInstanceConnectivityRequest
+     *
+     * @returns DescribeDbInstanceConnectivityResponse
+     *
+     * @param DescribeDbInstanceConnectivityRequest $request
+     *
+     * @return DescribeDbInstanceConnectivityResponse
+     */
+    public function describeDbInstanceConnectivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDbInstanceConnectivityWithOptions($request, $runtime);
     }
 
     /**
@@ -4807,7 +5155,43 @@ class Rkvstore extends OpenApiClient
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->globalSecurityGroupId) {
+            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4816,7 +5200,7 @@ class Rkvstore extends OpenApiClient
             'version' => '2015-01-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -4860,7 +5244,39 @@ class Rkvstore extends OpenApiClient
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4869,7 +5285,7 @@ class Rkvstore extends OpenApiClient
             'version' => '2015-01-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -4895,6 +5311,228 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeHistoryEvents.
+     *
+     * @param request - DescribeHistoryEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryEventsResponse
+     *
+     * @param DescribeHistoryEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeHistoryEventsResponse
+     */
+    public function describeHistoryEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->archiveStatus) {
+            @$query['ArchiveStatus'] = $request->archiveStatus;
+        }
+
+        if (null !== $request->eventCategory) {
+            @$query['EventCategory'] = $request->eventCategory;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventLevel) {
+            @$query['EventLevel'] = $request->eventLevel;
+        }
+
+        if (null !== $request->eventStatus) {
+            @$query['EventStatus'] = $request->eventStatus;
+        }
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryEvents',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeHistoryEvents.
+     *
+     * @param request - DescribeHistoryEventsRequest
+     *
+     * @returns DescribeHistoryEventsResponse
+     *
+     * @param DescribeHistoryEventsRequest $request
+     *
+     * @return DescribeHistoryEventsResponse
+     */
+    public function describeHistoryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the statistics of historical events.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryEventsStatResponse
+     *
+     * @param DescribeHistoryEventsStatRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHistoryEventsStatResponse
+     */
+    public function describeHistoryEventsStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->archiveStatus) {
+            @$query['ArchiveStatus'] = $request->archiveStatus;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryEventsStat',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryEventsStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the statistics of historical events.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     *
+     * @returns DescribeHistoryEventsStatResponse
+     *
+     * @param DescribeHistoryEventsStatRequest $request
+     *
+     * @return DescribeHistoryEventsStatResponse
+     */
+    public function describeHistoryEventsStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryEventsStatWithOptions($request, $runtime);
     }
 
     /**
@@ -5119,6 +5757,103 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHistoryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the task statistics in the task center.
+     *
+     * @param request - DescribeHistoryTasksStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryTasksStatResponse
+     *
+     * @param DescribeHistoryTasksStatRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromExecTime) {
+            @$query['FromExecTime'] = $request->fromExecTime;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->toExecTime) {
+            @$query['ToExecTime'] = $request->toExecTime;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryTasksStat',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the task statistics in the task center.
+     *
+     * @param request - DescribeHistoryTasksStatRequest
+     *
+     * @returns DescribeHistoryTasksStatResponse
+     *
+     * @param DescribeHistoryTasksStatRequest $request
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksStatWithOptions($request, $runtime);
     }
 
     /**
@@ -6287,7 +7022,43 @@ class Rkvstore extends OpenApiClient
     public function describeParameterGroupTemplateListWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->characterType) {
+            @$query['CharacterType'] = $request->characterType;
+        }
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -6296,7 +7067,7 @@ class Rkvstore extends OpenApiClient
             'version' => '2015-01-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -7285,6 +8056,93 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * Queries whether the related service-linked role is created for Tair (Redis OSS-compatible) in the current account.
+     *
+     * @remarks
+     * You can call this operation to query whether the service-lined role AliyunServiceRoleForKvstore is created for Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
+     *
+     * @param request - DescribeServiceLinkedRoleExistsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceLinkedRoleExistsResponse
+     *
+     * @param DescribeServiceLinkedRoleExistsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeServiceLinkedRoleExistsResponse
+     */
+    public function describeServiceLinkedRoleExistsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeServiceLinkedRoleExists',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeServiceLinkedRoleExistsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries whether the related service-linked role is created for Tair (Redis OSS-compatible) in the current account.
+     *
+     * @remarks
+     * You can call this operation to query whether the service-lined role AliyunServiceRoleForKvstore is created for Tair (Redis OSS-compatible). For more information, see [Service-linked role of Tair (Redis OSS-compatible)](https://help.aliyun.com/document_detail/184337.html).
+     *
+     * @param request - DescribeServiceLinkedRoleExistsRequest
+     *
+     * @returns DescribeServiceLinkedRoleExistsResponse
+     *
+     * @param DescribeServiceLinkedRoleExistsRequest $request
+     *
+     * @return DescribeServiceLinkedRoleExistsResponse
+     */
+    public function describeServiceLinkedRoleExists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceLinkedRoleExistsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the slow query logs of a Tair (Redis OSS-compatible) instance that are generated within a specified period of time.
      *
      * @remarks
@@ -7405,6 +8263,87 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries all tags in a region.
+     *
+     * @param request - DescribeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTags',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries all tags in a region.
+     *
+     * @param request - DescribeTagsRequest
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -7754,6 +8693,95 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * Permanently destroys instances and their data backups in the recycle bin.
+     *
+     * @remarks
+     * Before you call this operation, instances must be available in the recycle bin. For more information, see [Instance recycle bin](https://help.aliyun.com/document_detail/86114.html).
+     * > Calling this operation permanently deletes the instances and their data backups in the recycle bin.
+     * **
+     * **Warning** After you destroy the instance, data in the instance is permanently deleted and can no longer be restored. Proceed with caution.
+     *
+     * @param request - DestroyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DestroyInstanceResponse
+     *
+     * @param DestroyInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DestroyInstanceResponse
+     */
+    public function destroyInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DestroyInstance',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DestroyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Permanently destroys instances and their data backups in the recycle bin.
+     *
+     * @remarks
+     * Before you call this operation, instances must be available in the recycle bin. For more information, see [Instance recycle bin](https://help.aliyun.com/document_detail/86114.html).
+     * > Calling this operation permanently deletes the instances and their data backups in the recycle bin.
+     * **
+     * **Warning** After you destroy the instance, data in the instance is permanently deleted and can no longer be restored. Proceed with caution.
+     *
+     * @param request - DestroyInstanceRequest
+     *
+     * @returns DestroyInstanceResponse
+     *
+     * @param DestroyInstanceRequest $request
+     *
+     * @return DestroyInstanceResponse
+     */
+    public function destroyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->destroyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Adjusts the bandwidth of a Tair (Redis OSS-compatible) instance. Only the pay-as-you-go billing method is supported for bandwidth adjustment. You need to specify the InstanceId, NodeId (optional), Bandwidth, and ChargeType parameters.
      *
      * @remarks
@@ -7784,6 +8812,10 @@ class Rkvstore extends OpenApiClient
 
         if (null !== $request->autoRenewPeriod) {
             @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+
+        if (null !== $request->bandWidthBurst) {
+            @$query['BandWidthBurst'] = $request->bandWidthBurst;
         }
 
         if (null !== $request->bandwidth) {
@@ -8874,6 +9906,99 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * ModifyActiveOperationMaintainConf.
+     *
+     * @param request - ModifyActiveOperationMaintainConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyActiveOperationMaintainConfigResponse
+     *
+     * @param ModifyActiveOperationMaintainConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyActiveOperationMaintainConfigResponse
+     */
+    public function modifyActiveOperationMaintainConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cycleTime) {
+            @$query['CycleTime'] = $request->cycleTime;
+        }
+
+        if (null !== $request->cycleType) {
+            @$query['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->maintainEndTime) {
+            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+
+        if (null !== $request->maintainStartTime) {
+            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyActiveOperationMaintainConfig',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyActiveOperationMaintainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyActiveOperationMaintainConf.
+     *
+     * @param request - ModifyActiveOperationMaintainConfigRequest
+     *
+     * @returns ModifyActiveOperationMaintainConfigResponse
+     *
+     * @param ModifyActiveOperationMaintainConfigRequest $request
+     *
+     * @return ModifyActiveOperationMaintainConfigResponse
+     */
+    public function modifyActiveOperationMaintainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationMaintainConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the scheduled switchover time of an O&M task.
      *
      * @remarks
@@ -9143,7 +10268,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改备份集过期时间.
+     * Extends the expiration time of manual backup data.
      *
      * @param request - ModifyBackupExpireTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9206,7 +10331,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改备份集过期时间.
+     * Extends the expiration time of manual backup data.
      *
      * @param request - ModifyBackupExpireTimeRequest
      *
@@ -9494,6 +10619,160 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceConnectionStringWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the monitoring granularity of a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - ModifyDBInstanceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceMonitorResponse
+     *
+     * @param ModifyDBInstanceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDBInstanceMonitorResponse
+     */
+    public function modifyDBInstanceMonitorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceMonitor',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the monitoring granularity of a Tair (Redis OSS-compatible) instance.
+     *
+     * @param request - ModifyDBInstanceMonitorRequest
+     *
+     * @returns ModifyDBInstanceMonitorResponse
+     *
+     * @param ModifyDBInstanceMonitorRequest $request
+     *
+     * @return ModifyDBInstanceMonitorResponse
+     */
+    public function modifyDBInstanceMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 事件中心修改事件信息.
+     *
+     * @param request - ModifyEventInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEventInfoResponse
+     *
+     * @param ModifyEventInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyEventInfoResponse
+     */
+    public function modifyEventInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionParams) {
+            @$query['ActionParams'] = $request->actionParams;
+        }
+
+        if (null !== $request->eventAction) {
+            @$query['EventAction'] = $request->eventAction;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyEventInfo',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyEventInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 事件中心修改事件信息.
+     *
+     * @param request - ModifyEventInfoRequest
+     *
+     * @returns ModifyEventInfoResponse
+     *
+     * @param ModifyEventInfoRequest $request
+     *
+     * @return ModifyEventInfoResponse
+     */
+    public function modifyEventInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEventInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -11692,6 +12971,101 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * Restarts the proxy node of a running Tair (Redis OSS-compatible) instance.
+     *
+     * @remarks
+     * This operation supports only instances that use the read/write splitting architecture or the cluster architecture in proxy mode. For more information, see [Restart or rebuild proxy nodes](https://help.aliyun.com/document_detail/164224.html).
+     *
+     * @param request - RebootProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebootProxyResponse
+     *
+     * @param RebootProxyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RebootProxyResponse
+     */
+    public function rebootProxyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->proxyList) {
+            @$query['ProxyList'] = $request->proxyList;
+        }
+
+        if (null !== $request->proxyNodeList) {
+            @$query['ProxyNodeList'] = $request->proxyNodeList;
+        }
+
+        if (null !== $request->rebootMode) {
+            @$query['RebootMode'] = $request->rebootMode;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RebootProxy',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RebootProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts the proxy node of a running Tair (Redis OSS-compatible) instance.
+     *
+     * @remarks
+     * This operation supports only instances that use the read/write splitting architecture or the cluster architecture in proxy mode. For more information, see [Restart or rebuild proxy nodes](https://help.aliyun.com/document_detail/164224.html).
+     *
+     * @param request - RebootProxyRequest
+     *
+     * @returns RebootProxyResponse
+     *
+     * @param RebootProxyRequest $request
+     *
+     * @return RebootProxyResponse
+     */
+    public function rebootProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootProxyWithOptions($request, $runtime);
+    }
+
+    /**
      * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
      *
      * @remarks
@@ -13506,7 +14880,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 转换本地盘到云原生
+     * Converts an instance use local disks to a cloud-native instance.
      *
      * @param request - TransformToEcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13597,7 +14971,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 转换本地盘到云原生
+     * Converts an instance use local disks to a cloud-native instance.
      *
      * @param request - TransformToEcsRequest
      *
@@ -13889,5 +15263,102 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the proxy node of a cluster instance to the latest version.
+     *
+     * @remarks
+     * The procedure and impacts for updating the minor version of an instance varies based on the instance architecture. For more information, see [Update the minor version of an instance](https://help.aliyun.com/document_detail/56450.html).
+     * >
+     * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to query the current minor version of the proxy node.
+     * *   The connection to the instance is interrupted during the update. We recommend that perform an update during off-peak hours. Make sure your application can reconnect to the instance after the update. For more information, see [Minor version update](https://help.aliyun.com/document_detail/56450.html).
+     *
+     * @param request - UpgradeProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeProxyResponse
+     *
+     * @param UpgradeProxyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpgradeProxyResponse
+     */
+    public function upgradeProxyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->proxyInstanceIds) {
+            @$query['ProxyInstanceIds'] = $request->proxyInstanceIds;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeProxy',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the proxy node of a cluster instance to the latest version.
+     *
+     * @remarks
+     * The procedure and impacts for updating the minor version of an instance varies based on the instance architecture. For more information, see [Update the minor version of an instance](https://help.aliyun.com/document_detail/56450.html).
+     * >
+     * *   Before you call this operation, you can call the [DescribeEngineVersion](https://help.aliyun.com/document_detail/473781.html) operation to query the current minor version of the proxy node.
+     * *   The connection to the instance is interrupted during the update. We recommend that perform an update during off-peak hours. Make sure your application can reconnect to the instance after the update. For more information, see [Minor version update](https://help.aliyun.com/document_detail/56450.html).
+     *
+     * @param request - UpgradeProxyRequest
+     *
+     * @returns UpgradeProxyResponse
+     *
+     * @param UpgradeProxyRequest $request
+     *
+     * @return UpgradeProxyResponse
+     */
+    public function upgradeProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeProxyWithOptions($request, $runtime);
     }
 }

@@ -102,6 +102,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $replicaNum;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -152,6 +157,7 @@ class DBInstanceAttribute extends Model
         'networkType' => 'NetworkType',
         'privateIp' => 'PrivateIp',
         'regionId' => 'RegionId',
+        'replicaNum' => 'ReplicaNum',
         'resourceGroupId' => 'ResourceGroupId',
         'storage' => 'Storage',
         'tags' => 'Tags',
@@ -242,6 +248,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->replicaNum) {
+            $res['ReplicaNum'] = $this->replicaNum;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -353,6 +363,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ReplicaNum'])) {
+            $model->replicaNum = $map['ReplicaNum'];
         }
 
         if (isset($map['ResourceGroupId'])) {

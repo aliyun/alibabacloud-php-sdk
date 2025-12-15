@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeGlobalSecurityIPGroupRequest extends Model
+class UpgradeProxyRequest extends Model
 {
     /**
      * @var string
      */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $globalSecurityGroupId;
+    public $instanceId;
 
     /**
      * @var string
@@ -31,12 +26,7 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $proxyInstanceIds;
 
     /**
      * @var string
@@ -52,16 +42,20 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var int
+     */
+    public $switchTimeMode;
     protected $_name = [
-        'engine' => 'Engine',
-        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
+        'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
-        'regionId' => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'proxyInstanceIds' => 'ProxyInstanceIds',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
+        'switchTimeMode' => 'SwitchTimeMode',
     ];
 
     public function validate()
@@ -72,12 +66,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-
-        if (null !== $this->globalSecurityGroupId) {
-            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->ownerAccount) {
@@ -88,12 +78,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->proxyInstanceIds) {
+            $res['ProxyInstanceIds'] = $this->proxyInstanceIds;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -108,6 +94,10 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $res['SecurityToken'] = $this->securityToken;
         }
 
+        if (null !== $this->switchTimeMode) {
+            $res['SwitchTimeMode'] = $this->switchTimeMode;
+        }
+
         return $res;
     }
 
@@ -119,12 +109,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-
-        if (isset($map['GlobalSecurityGroupId'])) {
-            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -135,12 +121,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['ProxyInstanceIds'])) {
+            $model->proxyInstanceIds = $map['ProxyInstanceIds'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -153,6 +135,10 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+
+        if (isset($map['SwitchTimeMode'])) {
+            $model->switchTimeMode = $map['SwitchTimeMode'];
         }
 
         return $model;

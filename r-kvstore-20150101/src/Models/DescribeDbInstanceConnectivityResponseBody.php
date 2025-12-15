@@ -6,31 +6,31 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateAccountResponseBody extends Model
+class DescribeDbInstanceConnectivityResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $accountName;
+    public $connCheckErrorCode;
 
     /**
      * @var string
      */
-    public $acountName;
+    public $connCheckErrorMessage;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $connCheckResult;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'accountName' => 'AccountName',
-        'acountName' => 'AcountName',
-        'instanceId' => 'InstanceId',
+        'connCheckErrorCode' => 'ConnCheckErrorCode',
+        'connCheckErrorMessage' => 'ConnCheckErrorMessage',
+        'connCheckResult' => 'ConnCheckResult',
         'requestId' => 'RequestId',
     ];
 
@@ -42,16 +42,16 @@ class CreateAccountResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->connCheckErrorCode) {
+            $res['ConnCheckErrorCode'] = $this->connCheckErrorCode;
         }
 
-        if (null !== $this->acountName) {
-            $res['AcountName'] = $this->acountName;
+        if (null !== $this->connCheckErrorMessage) {
+            $res['ConnCheckErrorMessage'] = $this->connCheckErrorMessage;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->connCheckResult) {
+            $res['ConnCheckResult'] = $this->connCheckResult;
         }
 
         if (null !== $this->requestId) {
@@ -69,16 +69,16 @@ class CreateAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['ConnCheckErrorCode'])) {
+            $model->connCheckErrorCode = $map['ConnCheckErrorCode'];
         }
 
-        if (isset($map['AcountName'])) {
-            $model->acountName = $map['AcountName'];
+        if (isset($map['ConnCheckErrorMessage'])) {
+            $model->connCheckErrorMessage = $map['ConnCheckErrorMessage'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ConnCheckResult'])) {
+            $model->connCheckResult = $map['ConnCheckResult'];
         }
 
         if (isset($map['RequestId'])) {

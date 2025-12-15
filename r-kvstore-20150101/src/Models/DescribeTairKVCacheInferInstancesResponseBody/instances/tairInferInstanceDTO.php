@@ -40,9 +40,19 @@ class tairInferInstanceDTO extends Model
     public $destroyTime;
 
     /**
+     * @var int
+     */
+    public $elasticVNodeCount;
+
+    /**
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $fixedVNodeCount;
 
     /**
      * @var string
@@ -135,7 +145,9 @@ class tairInferInstanceDTO extends Model
         'computeUnitNum' => 'ComputeUnitNum',
         'createTime' => 'CreateTime',
         'destroyTime' => 'DestroyTime',
+        'elasticVNodeCount' => 'ElasticVNodeCount',
         'endTime' => 'EndTime',
+        'fixedVNodeCount' => 'FixedVNodeCount',
         'instanceClass' => 'InstanceClass',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -190,8 +202,16 @@ class tairInferInstanceDTO extends Model
             $res['DestroyTime'] = $this->destroyTime;
         }
 
+        if (null !== $this->elasticVNodeCount) {
+            $res['ElasticVNodeCount'] = $this->elasticVNodeCount;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->fixedVNodeCount) {
+            $res['FixedVNodeCount'] = $this->fixedVNodeCount;
         }
 
         if (null !== $this->instanceClass) {
@@ -297,8 +317,16 @@ class tairInferInstanceDTO extends Model
             $model->destroyTime = $map['DestroyTime'];
         }
 
+        if (isset($map['ElasticVNodeCount'])) {
+            $model->elasticVNodeCount = $map['ElasticVNodeCount'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['FixedVNodeCount'])) {
+            $model->fixedVNodeCount = $map['FixedVNodeCount'];
         }
 
         if (isset($map['InstanceClass'])) {

@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeGlobalSecurityIPGroupRequest extends Model
+class DescribeActiveOperationTaskCountRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $globalSecurityGroupId;
-
     /**
      * @var string
      */
@@ -36,11 +26,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
 
     /**
@@ -53,12 +38,9 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'engine' => 'Engine',
-        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
@@ -72,14 +54,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-
-        if (null !== $this->globalSecurityGroupId) {
-            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
-        }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -90,10 +64,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -119,14 +89,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-
-        if (isset($map['GlobalSecurityGroupId'])) {
-            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
-        }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -137,10 +99,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

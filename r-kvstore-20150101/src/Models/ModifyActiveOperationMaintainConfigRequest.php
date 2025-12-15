@@ -6,17 +6,27 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeGlobalSecurityIPGroupRequest extends Model
+class ModifyActiveOperationMaintainConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $engine;
+    public $cycleTime;
 
     /**
      * @var string
      */
-    public $globalSecurityGroupId;
+    public $cycleType;
+
+    /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
 
     /**
      * @var string
@@ -27,16 +37,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var string
@@ -52,16 +52,22 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'engine' => 'Engine',
-        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
+        'cycleTime' => 'CycleTime',
+        'cycleType' => 'CycleType',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
-        'regionId' => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -72,12 +78,20 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->cycleTime) {
+            $res['CycleTime'] = $this->cycleTime;
         }
 
-        if (null !== $this->globalSecurityGroupId) {
-            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
+        if (null !== $this->cycleType) {
+            $res['CycleType'] = $this->cycleType;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->ownerAccount) {
@@ -86,14 +100,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -108,6 +114,10 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $res['SecurityToken'] = $this->securityToken;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -119,12 +129,20 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['CycleTime'])) {
+            $model->cycleTime = $map['CycleTime'];
         }
 
-        if (isset($map['GlobalSecurityGroupId'])) {
-            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
+        if (isset($map['CycleType'])) {
+            $model->cycleType = $map['CycleType'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -133,14 +151,6 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -153,6 +163,10 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
 
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

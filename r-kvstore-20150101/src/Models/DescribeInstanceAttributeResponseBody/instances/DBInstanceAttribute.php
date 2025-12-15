@@ -57,6 +57,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $computingType;
+
+    /**
+     * @var string
+     */
     public $config;
 
     /**
@@ -298,6 +303,7 @@ class DBInstanceAttribute extends Model
         'capacity' => 'Capacity',
         'chargeType' => 'ChargeType',
         'cloudType' => 'CloudType',
+        'computingType' => 'ComputingType',
         'config' => 'Config',
         'connectionDomain' => 'ConnectionDomain',
         'connections' => 'Connections',
@@ -392,6 +398,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->cloudType) {
             $res['CloudType'] = $this->cloudType;
+        }
+
+        if (null !== $this->computingType) {
+            $res['ComputingType'] = $this->computingType;
         }
 
         if (null !== $this->config) {
@@ -627,6 +637,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['CloudType'])) {
             $model->cloudType = $map['CloudType'];
+        }
+
+        if (isset($map['ComputingType'])) {
+            $model->computingType = $map['ComputingType'];
         }
 
         if (isset($map['Config'])) {

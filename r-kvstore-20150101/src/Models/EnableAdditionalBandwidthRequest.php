@@ -24,6 +24,11 @@ class EnableAdditionalBandwidthRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @var bool
+     */
+    public $bandWidthBurst;
+
+    /**
      * @var string
      */
     public $bandwidth;
@@ -86,6 +91,7 @@ class EnableAdditionalBandwidthRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
+        'bandWidthBurst' => 'BandWidthBurst',
         'bandwidth' => 'Bandwidth',
         'chargeType' => 'ChargeType',
         'couponNo' => 'CouponNo',
@@ -118,6 +124,10 @@ class EnableAdditionalBandwidthRequest extends Model
 
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+
+        if (null !== $this->bandWidthBurst) {
+            $res['BandWidthBurst'] = $this->bandWidthBurst;
         }
 
         if (null !== $this->bandwidth) {
@@ -189,6 +199,10 @@ class EnableAdditionalBandwidthRequest extends Model
 
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
+
+        if (isset($map['BandWidthBurst'])) {
+            $model->bandWidthBurst = $map['BandWidthBurst'];
         }
 
         if (isset($map['Bandwidth'])) {

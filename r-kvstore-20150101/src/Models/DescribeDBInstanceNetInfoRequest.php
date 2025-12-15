@@ -16,6 +16,11 @@ class DescribeDBInstanceNetInfoRequest extends Model
     /**
      * @var string
      */
+    public $netType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -39,6 +44,7 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public $securityToken;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'netType' => 'NetType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -56,6 +62,10 @@ class DescribeDBInstanceNetInfoRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -91,6 +101,10 @@ class DescribeDBInstanceNetInfoRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeGlobalSecurityIPGroupRequest extends Model
+class RebootProxyRequest extends Model
 {
     /**
      * @var string
      */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $globalSecurityGroupId;
+    public $instanceId;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $proxyList;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $proxyNodeList;
+
+    /**
+     * @var string
+     */
+    public $rebootMode;
 
     /**
      * @var string
@@ -53,12 +53,12 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'engine' => 'Engine',
-        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
+        'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
-        'regionId' => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'proxyList' => 'ProxyList',
+        'proxyNodeList' => 'ProxyNodeList',
+        'rebootMode' => 'RebootMode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
@@ -72,12 +72,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-
-        if (null !== $this->globalSecurityGroupId) {
-            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->ownerAccount) {
@@ -88,12 +84,16 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->proxyList) {
+            $res['ProxyList'] = $this->proxyList;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->proxyNodeList) {
+            $res['ProxyNodeList'] = $this->proxyNodeList;
+        }
+
+        if (null !== $this->rebootMode) {
+            $res['RebootMode'] = $this->rebootMode;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -119,12 +119,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-
-        if (isset($map['GlobalSecurityGroupId'])) {
-            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -135,12 +131,16 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ProxyList'])) {
+            $model->proxyList = $map['ProxyList'];
         }
 
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['ProxyNodeList'])) {
+            $model->proxyNodeList = $map['ProxyNodeList'];
+        }
+
+        if (isset($map['RebootMode'])) {
+            $model->rebootMode = $map['RebootMode'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
