@@ -81,6 +81,10 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAccountsReques
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAncestorsRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAncestorsResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAuthorizedAccountsRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAuthorizedAccountsResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAuthorizedFoldersRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAuthorizedFoldersResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPoliciesRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPoliciesResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPolicyAttachmentsForTargetRequest;
@@ -2721,6 +2725,140 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAncestorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of members who have the permission to query member information in a resource directory.
+     *
+     * @remarks
+     * The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+     *
+     * @param request - ListAuthorizedAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedAccountsResponse
+     *
+     * @param ListAuthorizedAccountsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAuthorizedAccountsResponse
+     */
+    public function listAuthorizedAccountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedAccounts',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of members who have the permission to query member information in a resource directory.
+     *
+     * @remarks
+     * The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+     *
+     * @param request - ListAuthorizedAccountsRequest
+     *
+     * @returns ListAuthorizedAccountsResponse
+     *
+     * @param ListAuthorizedAccountsRequest $request
+     *
+     * @return ListAuthorizedAccountsResponse
+     */
+    public function listAuthorizedAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of folders that have permissions to query subfolder information in a resource directory.
+     *
+     * @remarks
+     * The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+     *
+     * @param request - ListAuthorizedFoldersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedFoldersResponse
+     *
+     * @param ListAuthorizedFoldersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAuthorizedFoldersResponse
+     */
+    public function listAuthorizedFoldersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedFolders',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of folders that have permissions to query subfolder information in a resource directory.
+     *
+     * @remarks
+     * The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+     *
+     * @param request - ListAuthorizedFoldersRequest
+     *
+     * @returns ListAuthorizedFoldersResponse
+     *
+     * @param ListAuthorizedFoldersRequest $request
+     *
+     * @return ListAuthorizedFoldersResponse
+     */
+    public function listAuthorizedFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedFoldersWithOptions($request, $runtime);
     }
 
     /**
