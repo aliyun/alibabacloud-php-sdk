@@ -79,6 +79,11 @@ class UpdateInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $disassociateMigrationOptions;
+
+    /**
+     * @var bool
+     */
     public $disassociateSpot;
 
     /**
@@ -130,6 +135,11 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var mixed[]
+     */
+    public $migrationOptions;
 
     /**
      * @var string
@@ -188,6 +198,7 @@ class UpdateInstanceRequest extends Model
         'disassociateDriver' => 'DisassociateDriver',
         'disassociateEnvironmentVariables' => 'DisassociateEnvironmentVariables',
         'disassociateForwardInfos' => 'DisassociateForwardInfos',
+        'disassociateMigrationOptions' => 'DisassociateMigrationOptions',
         'disassociateSpot' => 'DisassociateSpot',
         'disassociateUserCommand' => 'DisassociateUserCommand',
         'disassociateVpc' => 'DisassociateVpc',
@@ -199,6 +210,7 @@ class UpdateInstanceRequest extends Model
         'imageId' => 'ImageId',
         'imageUrl' => 'ImageUrl',
         'instanceName' => 'InstanceName',
+        'migrationOptions' => 'MigrationOptions',
         'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
@@ -232,6 +244,9 @@ class UpdateInstanceRequest extends Model
         }
         if (\is_array($this->environmentVariables)) {
             Model::validateArray($this->environmentVariables);
+        }
+        if (\is_array($this->migrationOptions)) {
+            Model::validateArray($this->migrationOptions);
         }
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
@@ -313,6 +328,10 @@ class UpdateInstanceRequest extends Model
             $res['DisassociateForwardInfos'] = $this->disassociateForwardInfos;
         }
 
+        if (null !== $this->disassociateMigrationOptions) {
+            $res['DisassociateMigrationOptions'] = $this->disassociateMigrationOptions;
+        }
+
         if (null !== $this->disassociateSpot) {
             $res['DisassociateSpot'] = $this->disassociateSpot;
         }
@@ -360,6 +379,15 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->migrationOptions) {
+            if (\is_array($this->migrationOptions)) {
+                $res['MigrationOptions'] = [];
+                foreach ($this->migrationOptions as $key1 => $value1) {
+                    $res['MigrationOptions'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->oversoldType) {
@@ -471,6 +499,10 @@ class UpdateInstanceRequest extends Model
             $model->disassociateForwardInfos = $map['DisassociateForwardInfos'];
         }
 
+        if (isset($map['DisassociateMigrationOptions'])) {
+            $model->disassociateMigrationOptions = $map['DisassociateMigrationOptions'];
+        }
+
         if (isset($map['DisassociateSpot'])) {
             $model->disassociateSpot = $map['DisassociateSpot'];
         }
@@ -518,6 +550,15 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['MigrationOptions'])) {
+            if (!empty($map['MigrationOptions'])) {
+                $model->migrationOptions = [];
+                foreach ($map['MigrationOptions'] as $key1 => $value1) {
+                    $model->migrationOptions[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['OversoldType'])) {

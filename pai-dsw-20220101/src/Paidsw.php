@@ -322,6 +322,10 @@ class Paidsw extends OpenApiClient
             @$body['Labels'] = $request->labels;
         }
 
+        if (null !== $request->migrationOptions) {
+            @$body['MigrationOptions'] = $request->migrationOptions;
+        }
+
         if (null !== $request->oversoldType) {
             @$body['OversoldType'] = $request->oversoldType;
         }
@@ -2425,6 +2429,10 @@ class Paidsw extends OpenApiClient
             @$body['DisassociateForwardInfos'] = $request->disassociateForwardInfos;
         }
 
+        if (null !== $request->disassociateMigrationOptions) {
+            @$body['DisassociateMigrationOptions'] = $request->disassociateMigrationOptions;
+        }
+
         if (null !== $request->disassociateSpot) {
             @$body['DisassociateSpot'] = $request->disassociateSpot;
         }
@@ -2467,6 +2475,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->migrationOptions) {
+            @$body['MigrationOptions'] = $request->migrationOptions;
         }
 
         if (null !== $request->oversoldType) {

@@ -30,6 +30,11 @@ class ListInstancesResponseBody extends Model
     public $message;
 
     /**
+     * @var mixed[]
+     */
+    public $migrationOptions;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -48,6 +53,7 @@ class ListInstancesResponseBody extends Model
         'httpStatusCode' => 'HttpStatusCode',
         'instances' => 'Instances',
         'message' => 'Message',
+        'migrationOptions' => 'MigrationOptions',
         'requestId' => 'RequestId',
         'success' => 'Success',
         'totalCount' => 'TotalCount',
@@ -57,6 +63,9 @@ class ListInstancesResponseBody extends Model
     {
         if (\is_array($this->instances)) {
             Model::validateArray($this->instances);
+        }
+        if (\is_array($this->migrationOptions)) {
+            Model::validateArray($this->migrationOptions);
         }
         parent::validate();
     }
@@ -85,6 +94,15 @@ class ListInstancesResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->migrationOptions) {
+            if (\is_array($this->migrationOptions)) {
+                $res['MigrationOptions'] = [];
+                foreach ($this->migrationOptions as $key1 => $value1) {
+                    $res['MigrationOptions'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -131,6 +149,15 @@ class ListInstancesResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['MigrationOptions'])) {
+            if (!empty($map['MigrationOptions'])) {
+                $model->migrationOptions = [];
+                foreach ($map['MigrationOptions'] as $key1 => $value1) {
+                    $model->migrationOptions[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['RequestId'])) {

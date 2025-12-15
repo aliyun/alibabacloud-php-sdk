@@ -94,6 +94,11 @@ class CreateInstanceRequest extends Model
     public $labels;
 
     /**
+     * @var mixed[]
+     */
+    public $migrationOptions;
+
+    /**
      * @var string
      */
     public $oversoldType;
@@ -163,6 +168,7 @@ class CreateInstanceRequest extends Model
         'imageUrl' => 'ImageUrl',
         'instanceName' => 'InstanceName',
         'labels' => 'Labels',
+        'migrationOptions' => 'MigrationOptions',
         'oversoldType' => 'OversoldType',
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
@@ -201,6 +207,9 @@ class CreateInstanceRequest extends Model
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
+        }
+        if (\is_array($this->migrationOptions)) {
+            Model::validateArray($this->migrationOptions);
         }
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
@@ -305,6 +314,15 @@ class CreateInstanceRequest extends Model
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->migrationOptions) {
+            if (\is_array($this->migrationOptions)) {
+                $res['MigrationOptions'] = [];
+                foreach ($this->migrationOptions as $key1 => $value1) {
+                    $res['MigrationOptions'][$key1] = $value1;
                 }
             }
         }
@@ -453,6 +471,15 @@ class CreateInstanceRequest extends Model
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1] = labels::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MigrationOptions'])) {
+            if (!empty($map['MigrationOptions'])) {
+                $model->migrationOptions = [];
+                foreach ($map['MigrationOptions'] as $key1 => $value1) {
+                    $model->migrationOptions[$key1] = $value1;
                 }
             }
         }

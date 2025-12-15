@@ -166,6 +166,11 @@ class GetInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @var mixed[]
+     */
+    public $migrationOptions;
+
+    /**
      * @var nodeErrorRecovery
      */
     public $nodeErrorRecovery;
@@ -314,6 +319,7 @@ class GetInstanceResponseBody extends Model
         'labels' => 'Labels',
         'latestSnapshot' => 'LatestSnapshot',
         'message' => 'Message',
+        'migrationOptions' => 'MigrationOptions',
         'nodeErrorRecovery' => 'NodeErrorRecovery',
         'paymentType' => 'PaymentType',
         'podIps' => 'PodIps',
@@ -374,6 +380,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->latestSnapshot) {
             $this->latestSnapshot->validate();
+        }
+        if (\is_array($this->migrationOptions)) {
+            Model::validateArray($this->migrationOptions);
         }
         if (null !== $this->nodeErrorRecovery) {
             $this->nodeErrorRecovery->validate();
@@ -546,6 +555,15 @@ class GetInstanceResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->migrationOptions) {
+            if (\is_array($this->migrationOptions)) {
+                $res['MigrationOptions'] = [];
+                foreach ($this->migrationOptions as $key1 => $value1) {
+                    $res['MigrationOptions'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->nodeErrorRecovery) {
@@ -816,6 +834,15 @@ class GetInstanceResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['MigrationOptions'])) {
+            if (!empty($map['MigrationOptions'])) {
+                $model->migrationOptions = [];
+                foreach ($map['MigrationOptions'] as $key1 => $value1) {
+                    $model->migrationOptions[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['NodeErrorRecovery'])) {
