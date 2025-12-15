@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingResponseBody;
+namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalRerankerResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
-    /**
-     * @var int
-     */
-    public $image;
-
     /**
      * @var int
      */
@@ -22,16 +17,9 @@ class usage extends Model
      * @var int
      */
     public $textToken;
-
-    /**
-     * @var int
-     */
-    public $tokenCount;
     protected $_name = [
-        'image' => 'image',
         'imageToken' => 'image_token',
         'textToken' => 'text_token',
-        'tokenCount' => 'token_count',
     ];
 
     public function validate()
@@ -42,20 +30,12 @@ class usage extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->image) {
-            $res['image'] = $this->image;
-        }
-
         if (null !== $this->imageToken) {
             $res['image_token'] = $this->imageToken;
         }
 
         if (null !== $this->textToken) {
             $res['text_token'] = $this->textToken;
-        }
-
-        if (null !== $this->tokenCount) {
-            $res['token_count'] = $this->tokenCount;
         }
 
         return $res;
@@ -69,20 +49,12 @@ class usage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['image'])) {
-            $model->image = $map['image'];
-        }
-
         if (isset($map['image_token'])) {
             $model->imageToken = $map['image_token'];
         }
 
         if (isset($map['text_token'])) {
             $model->textToken = $map['text_token'];
-        }
-
-        if (isset($map['token_count'])) {
-            $model->tokenCount = $map['token_count'];
         }
 
         return $model;

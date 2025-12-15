@@ -5,28 +5,28 @@
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingRequest\input;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionRequest\image;
 
-class GetMultiModalEmbeddingRequest extends Model
+class GetImageObjectDetectionRequest extends Model
 {
     /**
-     * @var input[]
+     * @var image
      */
-    public $input;
+    public $image;
 
     /**
      * @var mixed[]
      */
     public $options;
     protected $_name = [
-        'input' => 'input',
+        'image' => 'image',
         'options' => 'options',
     ];
 
     public function validate()
     {
-        if (\is_array($this->input)) {
-            Model::validateArray($this->input);
+        if (null !== $this->image) {
+            $this->image->validate();
         }
         if (\is_array($this->options)) {
             Model::validateArray($this->options);
@@ -37,15 +37,8 @@ class GetMultiModalEmbeddingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->input) {
-            if (\is_array($this->input)) {
-                $res['input'] = [];
-                $n1 = 0;
-                foreach ($this->input as $item1) {
-                    $res['input'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->image) {
+            $res['image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
 
         if (null !== $this->options) {
@@ -68,15 +61,8 @@ class GetMultiModalEmbeddingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['input'])) {
-            if (!empty($map['input'])) {
-                $model->input = [];
-                $n1 = 0;
-                foreach ($map['input'] as $item1) {
-                    $model->input[$n1] = input::fromMap($item1);
-                    ++$n1;
-                }
-            }
+        if (isset($map['image'])) {
+            $model->image = image::fromMap($map['image']);
         }
 
         if (isset($map['options'])) {

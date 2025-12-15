@@ -16,6 +16,11 @@ class usage extends Model
     /**
      * @var int
      */
+    public $semanticTokenCount;
+
+    /**
+     * @var int
+     */
     public $tableCount;
 
     /**
@@ -24,6 +29,7 @@ class usage extends Model
     public $tokenCount;
     protected $_name = [
         'imageCount' => 'image_count',
+        'semanticTokenCount' => 'semantic_token_count',
         'tableCount' => 'table_count',
         'tokenCount' => 'token_count',
     ];
@@ -38,6 +44,10 @@ class usage extends Model
         $res = [];
         if (null !== $this->imageCount) {
             $res['image_count'] = $this->imageCount;
+        }
+
+        if (null !== $this->semanticTokenCount) {
+            $res['semantic_token_count'] = $this->semanticTokenCount;
         }
 
         if (null !== $this->tableCount) {
@@ -61,6 +71,10 @@ class usage extends Model
         $model = new self();
         if (isset($map['image_count'])) {
             $model->imageCount = $map['image_count'];
+        }
+
+        if (isset($map['semantic_token_count'])) {
+            $model->semanticTokenCount = $map['semantic_token_count'];
         }
 
         if (isset($map['table_count'])) {

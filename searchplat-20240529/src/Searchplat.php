@@ -25,8 +25,12 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalRerankerRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalRerankerResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionHeaders;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionResponse;
@@ -746,6 +750,75 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * 图片主体检测.
+     *
+     * @param request - GetImageObjectDetectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageObjectDetectionResponse
+     *
+     * @param string                         $workspaceName
+     * @param string                         $serviceId
+     * @param GetImageObjectDetectionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetImageObjectDetectionResponse
+     */
+    public function getImageObjectDetectionWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->image) {
+            @$body['image'] = $request->image;
+        }
+
+        if (null !== $request->options) {
+            @$body['options'] = $request->options;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageObjectDetection',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/image-object-detection/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageObjectDetectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 图片主体检测.
+     *
+     * @param request - GetImageObjectDetectionRequest
+     *
+     * @returns GetImageObjectDetectionResponse
+     *
+     * @param string                         $workspaceName
+     * @param string                         $serviceId
+     * @param GetImageObjectDetectionRequest $request
+     *
+     * @return GetImageObjectDetectionResponse
+     */
+    public function getImageObjectDetection($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getImageObjectDetectionWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 多模态向量化.
      *
      * @param request - GetMultiModalEmbeddingRequest
@@ -768,6 +841,10 @@ class Searchplat extends OpenApiClient
         $body = [];
         if (null !== $request->input) {
             @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->options) {
+            @$body['options'] = $request->options;
         }
 
         $req = new OpenApiRequest([
@@ -808,6 +885,79 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getMultiModalEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 多模态 Reranker.
+     *
+     * @param request - GetMultiModalRerankerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMultiModalRerankerResponse
+     *
+     * @param string                       $workspaceName
+     * @param string                       $serviceId
+     * @param GetMultiModalRerankerRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMultiModalRerankerResponse
+     */
+    public function getMultiModalRerankerWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docs) {
+            @$body['docs'] = $request->docs;
+        }
+
+        if (null !== $request->options) {
+            @$body['options'] = $request->options;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMultiModalReranker',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/multi-modal-reranker/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMultiModalRerankerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态 Reranker.
+     *
+     * @param request - GetMultiModalRerankerRequest
+     *
+     * @returns GetMultiModalRerankerResponse
+     *
+     * @param string                       $workspaceName
+     * @param string                       $serviceId
+     * @param GetMultiModalRerankerRequest $request
+     *
+     * @return GetMultiModalRerankerResponse
+     */
+    public function getMultiModalReranker($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMultiModalRerankerWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**

@@ -27,7 +27,7 @@
   "require": {
     "php": ">5.5",
     "alibabacloud/darabonba": "^1.0.0",
-    "alibabacloud/gateway-pop": "^0.0.8",
+    "alibabacloud/gateway-pop": "^0.1.3",
     "alibabacloud/openapi-core": "^1.0.0"
   },
   "prefer-stable": true
