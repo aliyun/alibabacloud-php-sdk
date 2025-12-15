@@ -41,6 +41,11 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $eni;
+
+    /**
+     * @var string
+     */
     public $instanceVersion;
 
     /**
@@ -124,6 +129,7 @@ class GetSupabaseProjectResponseBody extends Model
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'eni' => 'Eni',
         'instanceVersion' => 'InstanceVersion',
         'payType' => 'PayType',
         'privateConnectUrl' => 'PrivateConnectUrl',
@@ -172,6 +178,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->eni) {
+            $res['Eni'] = $this->eni;
         }
 
         if (null !== $this->instanceVersion) {
@@ -271,6 +281,10 @@ class GetSupabaseProjectResponseBody extends Model
 
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+
+        if (isset($map['Eni'])) {
+            $model->eni = $map['Eni'];
         }
 
         if (isset($map['InstanceVersion'])) {
