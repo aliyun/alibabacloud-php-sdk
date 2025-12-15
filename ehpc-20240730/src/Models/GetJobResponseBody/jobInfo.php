@@ -231,7 +231,8 @@ class jobInfo extends Model
                 $res['Variables'] = [];
                 $n1 = 0;
                 foreach ($this->variables as $item1) {
-                    $res['Variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Variables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -328,7 +329,8 @@ class jobInfo extends Model
                 $model->variables = [];
                 $n1 = 0;
                 foreach ($map['Variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                    $model->variables[$n1] = variables::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

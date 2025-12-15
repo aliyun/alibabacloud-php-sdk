@@ -43,7 +43,8 @@ class CreateUsersRequest extends Model
                 $res['User'] = [];
                 $n1 = 0;
                 foreach ($this->user as $item1) {
-                    $res['User'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['User'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class CreateUsersRequest extends Model
                 $model->user = [];
                 $n1 = 0;
                 foreach ($map['User'] as $item1) {
-                    $model->user[$n1++] = user::fromMap($item1);
+                    $model->user[$n1] = user::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

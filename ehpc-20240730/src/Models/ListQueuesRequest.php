@@ -42,7 +42,8 @@ class ListQueuesRequest extends Model
                 $res['QueueNames'] = [];
                 $n1 = 0;
                 foreach ($this->queueNames as $item1) {
-                    $res['QueueNames'][$n1++] = $item1;
+                    $res['QueueNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListQueuesRequest extends Model
                 $model->queueNames = [];
                 $n1 = 0;
                 foreach ($map['QueueNames'] as $item1) {
-                    $model->queueNames[$n1++] = $item1;
+                    $model->queueNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

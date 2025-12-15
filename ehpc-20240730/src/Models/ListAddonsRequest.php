@@ -50,7 +50,8 @@ class ListAddonsRequest extends Model
                 $res['AddonIds'] = [];
                 $n1 = 0;
                 foreach ($this->addonIds as $item1) {
-                    $res['AddonIds'][$n1++] = $item1;
+                    $res['AddonIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class ListAddonsRequest extends Model
                 $model->addonIds = [];
                 $n1 = 0;
                 foreach ($map['AddonIds'] as $item1) {
-                    $model->addonIds[$n1++] = $item1;
+                    $model->addonIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

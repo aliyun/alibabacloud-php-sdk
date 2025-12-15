@@ -49,7 +49,8 @@ class ListSharedStoragesResponseBody extends Model
                 $res['SharedStorages'] = [];
                 $n1 = 0;
                 foreach ($this->sharedStorages as $item1) {
-                    $res['SharedStorages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SharedStorages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class ListSharedStoragesResponseBody extends Model
                 $model->sharedStorages = [];
                 $n1 = 0;
                 foreach ($map['SharedStorages'] as $item1) {
-                    $model->sharedStorages[$n1++] = sharedStorages::fromMap($item1);
+                    $model->sharedStorages[$n1] = sharedStorages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

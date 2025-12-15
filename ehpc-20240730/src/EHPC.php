@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\ListNodesShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListQueuesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListQueuesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListQueuesShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListRegionsRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSharedStoragesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSharedStoragesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSoftwaresRequest;
@@ -2553,6 +2555,75 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listQueuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询产品支持的地域列表。
+     *
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->specCode) {
+            @$query['SpecCode'] = $request->specCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRegions',
+            'version' => '2024-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询产品支持的地域列表。
+     *
+     * @param request - ListRegionsRequest
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegionsWithOptions($request, $runtime);
     }
 
     /**

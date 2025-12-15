@@ -117,7 +117,8 @@ class NodeTemplate extends Model
                 $res['DataDisks'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisks as $item1) {
-                    $res['DataDisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +187,8 @@ class NodeTemplate extends Model
                 $model->dataDisks = [];
                 $n1 = 0;
                 foreach ($map['DataDisks'] as $item1) {
-                    $model->dataDisks[$n1++] = dataDisks::fromMap($item1);
+                    $model->dataDisks[$n1] = dataDisks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

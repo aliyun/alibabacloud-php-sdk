@@ -33,7 +33,8 @@ class additionalPackages extends Model
                 $res['AdditionalPackageInfos'] = [];
                 $n1 = 0;
                 foreach ($this->additionalPackageInfos as $item1) {
-                    $res['AdditionalPackageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdditionalPackageInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class additionalPackages extends Model
                 $model->additionalPackageInfos = [];
                 $n1 = 0;
                 foreach ($map['AdditionalPackageInfos'] as $item1) {
-                    $model->additionalPackageInfos[$n1++] = additionalPackageInfos::fromMap($item1);
+                    $model->additionalPackageInfos[$n1] = additionalPackageInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

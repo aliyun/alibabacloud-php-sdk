@@ -53,7 +53,8 @@ class ListClustersRequest extends Model
                 $res['ClusterIds'] = [];
                 $n1 = 0;
                 foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1++] = $item1;
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListClustersRequest extends Model
                 $res['ClusterNames'] = [];
                 $n1 = 0;
                 foreach ($this->clusterNames as $item1) {
-                    $res['ClusterNames'][$n1++] = $item1;
+                    $res['ClusterNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class ListClustersRequest extends Model
                 $model->clusterIds = [];
                 $n1 = 0;
                 foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1++] = $item1;
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class ListClustersRequest extends Model
                 $model->clusterNames = [];
                 $n1 = 0;
                 foreach ($map['ClusterNames'] as $item1) {
-                    $model->clusterNames[$n1++] = $item1;
+                    $model->clusterNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

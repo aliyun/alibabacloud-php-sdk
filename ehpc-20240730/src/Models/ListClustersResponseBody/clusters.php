@@ -194,7 +194,8 @@ class clusters extends Model
                 $res['AdditionalPackages'] = [];
                 $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
-                    $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdditionalPackages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,7 +205,8 @@ class clusters extends Model
                 $res['Addons'] = [];
                 $n1 = 0;
                 foreach ($this->addons as $item1) {
-                    $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +224,8 @@ class clusters extends Model
                 $res['ClusterCredentials'] = [];
                 $n1 = 0;
                 foreach ($this->clusterCredentials as $item1) {
-                    $res['ClusterCredentials'][$n1++] = $item1;
+                    $res['ClusterCredentials'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -319,7 +322,8 @@ class clusters extends Model
                 $model->additionalPackages = [];
                 $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
-                    $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
+                    $model->additionalPackages[$n1] = additionalPackages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +333,8 @@ class clusters extends Model
                 $model->addons = [];
                 $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
-                    $model->addons[$n1++] = addons::fromMap($item1);
+                    $model->addons[$n1] = addons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +352,8 @@ class clusters extends Model
                 $model->clusterCredentials = [];
                 $n1 = 0;
                 foreach ($map['ClusterCredentials'] as $item1) {
-                    $model->clusterCredentials[$n1++] = $item1;
+                    $model->clusterCredentials[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class resourcesSpec extends Model
                 $res['EcsResources'] = [];
                 $n1 = 0;
                 foreach ($this->ecsResources as $item1) {
-                    $res['EcsResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EcsResources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class resourcesSpec extends Model
                 $model->ecsResources = [];
                 $n1 = 0;
                 foreach ($map['EcsResources'] as $item1) {
-                    $model->ecsResources[$n1++] = AddonNodeTemplate::fromMap($item1);
+                    $model->ecsResources[$n1] = AddonNodeTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

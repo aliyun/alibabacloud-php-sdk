@@ -87,7 +87,8 @@ class fileSystemList extends Model
                 $res['MountTargetList'] = [];
                 $n1 = 0;
                 foreach ($this->mountTargetList as $item1) {
-                    $res['MountTargetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MountTargetList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class fileSystemList extends Model
                 $model->mountTargetList = [];
                 $n1 = 0;
                 foreach ($map['MountTargetList'] as $item1) {
-                    $model->mountTargetList[$n1++] = mountTargetList::fromMap($item1);
+                    $model->mountTargetList[$n1] = mountTargetList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

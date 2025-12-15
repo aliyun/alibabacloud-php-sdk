@@ -61,7 +61,8 @@ class servicesSpec extends Model
                 $res['InputParams'] = [];
                 $n1 = 0;
                 foreach ($this->inputParams as $item1) {
-                    $res['InputParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InputParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class servicesSpec extends Model
                 $res['NetworkACL'] = [];
                 $n1 = 0;
                 foreach ($this->networkACL as $item1) {
-                    $res['NetworkACL'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NetworkACL'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +106,8 @@ class servicesSpec extends Model
                 $model->inputParams = [];
                 $n1 = 0;
                 foreach ($map['InputParams'] as $item1) {
-                    $model->inputParams[$n1++] = inputParams::fromMap($item1);
+                    $model->inputParams[$n1] = inputParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +117,8 @@ class servicesSpec extends Model
                 $model->networkACL = [];
                 $n1 = 0;
                 foreach ($map['NetworkACL'] as $item1) {
-                    $model->networkACL[$n1++] = networkACL::fromMap($item1);
+                    $model->networkACL[$n1] = networkACL::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

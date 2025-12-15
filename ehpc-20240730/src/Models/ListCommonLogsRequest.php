@@ -98,7 +98,8 @@ class ListCommonLogsRequest extends Model
                 $res['ActionName'] = [];
                 $n1 = 0;
                 foreach ($this->actionName as $item1) {
-                    $res['ActionName'][$n1++] = $item1;
+                    $res['ActionName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class ListCommonLogsRequest extends Model
                 $model->actionName = [];
                 $n1 = 0;
                 foreach ($map['ActionName'] as $item1) {
-                    $model->actionName[$n1++] = $item1;
+                    $model->actionName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

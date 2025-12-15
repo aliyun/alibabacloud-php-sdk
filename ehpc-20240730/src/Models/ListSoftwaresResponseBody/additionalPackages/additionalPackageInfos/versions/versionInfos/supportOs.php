@@ -33,7 +33,8 @@ class supportOs extends Model
                 $res['SupportOsInfos'] = [];
                 $n1 = 0;
                 foreach ($this->supportOsInfos as $item1) {
-                    $res['SupportOsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportOsInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class supportOs extends Model
                 $model->supportOsInfos = [];
                 $n1 = 0;
                 foreach ($map['SupportOsInfos'] as $item1) {
-                    $model->supportOsInfos[$n1++] = supportOsInfos::fromMap($item1);
+                    $model->supportOsInfos[$n1] = supportOsInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class GetCommonLogDetailResponseBody extends Model
                 $res['LogDetail'] = [];
                 $n1 = 0;
                 foreach ($this->logDetail as $item1) {
-                    $res['LogDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class GetCommonLogDetailResponseBody extends Model
                 $model->logDetail = [];
                 $n1 = 0;
                 foreach ($map['LogDetail'] as $item1) {
-                    $model->logDetail[$n1++] = logDetail::fromMap($item1);
+                    $model->logDetail[$n1] = logDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

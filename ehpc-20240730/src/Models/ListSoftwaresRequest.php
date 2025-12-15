@@ -75,7 +75,8 @@ class ListSoftwaresRequest extends Model
                 $res['OsInfos'] = [];
                 $n1 = 0;
                 foreach ($this->osInfos as $item1) {
-                    $res['OsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OsInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class ListSoftwaresRequest extends Model
                 $model->osInfos = [];
                 $n1 = 0;
                 foreach ($map['OsInfos'] as $item1) {
-                    $model->osInfos[$n1++] = osInfos::fromMap($item1);
+                    $model->osInfos[$n1] = osInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

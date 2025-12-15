@@ -33,7 +33,8 @@ class versions extends Model
                 $res['VersionInfos'] = [];
                 $n1 = 0;
                 foreach ($this->versionInfos as $item1) {
-                    $res['VersionInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VersionInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class versions extends Model
                 $model->versionInfos = [];
                 $n1 = 0;
                 foreach ($map['VersionInfos'] as $item1) {
-                    $model->versionInfos[$n1++] = versionInfos::fromMap($item1);
+                    $model->versionInfos[$n1] = versionInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

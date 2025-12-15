@@ -179,7 +179,8 @@ class CreateClusterRequest extends Model
                 $res['AdditionalPackages'] = [];
                 $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
-                    $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdditionalPackages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +190,8 @@ class CreateClusterRequest extends Model
                 $res['Addons'] = [];
                 $n1 = 0;
                 foreach ($this->addons as $item1) {
-                    $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +257,8 @@ class CreateClusterRequest extends Model
                 $res['Queues'] = [];
                 $n1 = 0;
                 foreach ($this->queues as $item1) {
-                    $res['Queues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Queues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +276,8 @@ class CreateClusterRequest extends Model
                 $res['SharedStorages'] = [];
                 $n1 = 0;
                 foreach ($this->sharedStorages as $item1) {
-                    $res['SharedStorages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SharedStorages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +287,8 @@ class CreateClusterRequest extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +309,8 @@ class CreateClusterRequest extends Model
                 $model->additionalPackages = [];
                 $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
-                    $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
+                    $model->additionalPackages[$n1] = additionalPackages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -314,7 +320,8 @@ class CreateClusterRequest extends Model
                 $model->addons = [];
                 $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
-                    $model->addons[$n1++] = addons::fromMap($item1);
+                    $model->addons[$n1] = addons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -380,7 +387,8 @@ class CreateClusterRequest extends Model
                 $model->queues = [];
                 $n1 = 0;
                 foreach ($map['Queues'] as $item1) {
-                    $model->queues[$n1++] = QueueTemplate::fromMap($item1);
+                    $model->queues[$n1] = QueueTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -398,7 +406,8 @@ class CreateClusterRequest extends Model
                 $model->sharedStorages = [];
                 $n1 = 0;
                 foreach ($map['SharedStorages'] as $item1) {
-                    $model->sharedStorages[$n1++] = SharedStorageTemplate::fromMap($item1);
+                    $model->sharedStorages[$n1] = SharedStorageTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -408,7 +417,8 @@ class CreateClusterRequest extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

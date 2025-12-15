@@ -33,7 +33,8 @@ class users extends Model
                 $res['UserInfo'] = [];
                 $n1 = 0;
                 foreach ($this->userInfo as $item1) {
-                    $res['UserInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class users extends Model
                 $model->userInfo = [];
                 $n1 = 0;
                 foreach ($map['UserInfo'] as $item1) {
-                    $model->userInfo[$n1++] = userInfo::fromMap($item1);
+                    $model->userInfo[$n1] = userInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -102,7 +102,8 @@ class jobFilter extends Model
                 $res['Diagnosis'] = [];
                 $n1 = 0;
                 foreach ($this->diagnosis as $item1) {
-                    $res['Diagnosis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Diagnosis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class jobFilter extends Model
                 $res['Nodes'] = [];
                 $n1 = 0;
                 foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = $item1;
+                    $res['Nodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class jobFilter extends Model
                 $res['Queues'] = [];
                 $n1 = 0;
                 foreach ($this->queues as $item1) {
-                    $res['Queues'][$n1++] = $item1;
+                    $res['Queues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +147,8 @@ class jobFilter extends Model
                 $res['Users'] = [];
                 $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = $item1;
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -173,7 +177,8 @@ class jobFilter extends Model
                 $model->diagnosis = [];
                 $n1 = 0;
                 foreach ($map['Diagnosis'] as $item1) {
-                    $model->diagnosis[$n1++] = diagnosis::fromMap($item1);
+                    $model->diagnosis[$n1] = diagnosis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +196,8 @@ class jobFilter extends Model
                 $model->nodes = [];
                 $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = $item1;
+                    $model->nodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +207,8 @@ class jobFilter extends Model
                 $model->queues = [];
                 $n1 = 0;
                 foreach ($map['Queues'] as $item1) {
-                    $model->queues[$n1++] = $item1;
+                    $model->queues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +222,8 @@ class jobFilter extends Model
                 $model->users = [];
                 $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = $item1;
+                    $model->users[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

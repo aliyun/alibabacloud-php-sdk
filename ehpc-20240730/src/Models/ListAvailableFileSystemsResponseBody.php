@@ -57,7 +57,8 @@ class ListAvailableFileSystemsResponseBody extends Model
                 $res['FileSystemList'] = [];
                 $n1 = 0;
                 foreach ($this->fileSystemList as $item1) {
-                    $res['FileSystemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FileSystemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListAvailableFileSystemsResponseBody extends Model
                 $model->fileSystemList = [];
                 $n1 = 0;
                 foreach ($map['FileSystemList'] as $item1) {
-                    $model->fileSystemList[$n1++] = fileSystemList::fromMap($item1);
+                    $model->fileSystemList[$n1] = fileSystemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

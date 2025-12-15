@@ -93,7 +93,8 @@ class ListNodesRequest extends Model
                 $res['Hostnames'] = [];
                 $n1 = 0;
                 foreach ($this->hostnames as $item1) {
-                    $res['Hostnames'][$n1++] = $item1;
+                    $res['Hostnames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class ListNodesRequest extends Model
                 $res['PrivateIpAddress'] = [];
                 $n1 = 0;
                 foreach ($this->privateIpAddress as $item1) {
-                    $res['PrivateIpAddress'][$n1++] = $item1;
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +123,8 @@ class ListNodesRequest extends Model
                 $res['QueueNames'] = [];
                 $n1 = 0;
                 foreach ($this->queueNames as $item1) {
-                    $res['QueueNames'][$n1++] = $item1;
+                    $res['QueueNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class ListNodesRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +168,8 @@ class ListNodesRequest extends Model
                 $model->hostnames = [];
                 $n1 = 0;
                 foreach ($map['Hostnames'] as $item1) {
-                    $model->hostnames[$n1++] = $item1;
+                    $model->hostnames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +187,8 @@ class ListNodesRequest extends Model
                 $model->privateIpAddress = [];
                 $n1 = 0;
                 foreach ($map['PrivateIpAddress'] as $item1) {
-                    $model->privateIpAddress[$n1++] = $item1;
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +198,8 @@ class ListNodesRequest extends Model
                 $model->queueNames = [];
                 $n1 = 0;
                 foreach ($map['QueueNames'] as $item1) {
-                    $model->queueNames[$n1++] = $item1;
+                    $model->queueNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,7 +217,8 @@ class ListNodesRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

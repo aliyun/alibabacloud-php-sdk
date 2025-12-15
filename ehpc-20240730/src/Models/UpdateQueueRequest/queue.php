@@ -133,7 +133,8 @@ class queue extends Model
                 $res['ComputeNodes'] = [];
                 $n1 = 0;
                 foreach ($this->computeNodes as $item1) {
-                    $res['ComputeNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ComputeNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class queue extends Model
                 $res['KeepAliveNodes'] = [];
                 $n1 = 0;
                 foreach ($this->keepAliveNodes as $item1) {
-                    $res['KeepAliveNodes'][$n1++] = $item1;
+                    $res['KeepAliveNodes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +203,8 @@ class queue extends Model
                 $res['VSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +229,8 @@ class queue extends Model
                 $model->computeNodes = [];
                 $n1 = 0;
                 foreach ($map['ComputeNodes'] as $item1) {
-                    $model->computeNodes[$n1++] = NodeTemplate::fromMap($item1);
+                    $model->computeNodes[$n1] = NodeTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +264,8 @@ class queue extends Model
                 $model->keepAliveNodes = [];
                 $n1 = 0;
                 foreach ($map['KeepAliveNodes'] as $item1) {
-                    $model->keepAliveNodes[$n1++] = $item1;
+                    $model->keepAliveNodes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -294,7 +299,8 @@ class queue extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

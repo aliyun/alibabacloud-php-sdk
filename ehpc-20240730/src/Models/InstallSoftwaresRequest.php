@@ -39,7 +39,8 @@ class InstallSoftwaresRequest extends Model
                 $res['AdditionalPackages'] = [];
                 $n1 = 0;
                 foreach ($this->additionalPackages as $item1) {
-                    $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AdditionalPackages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class InstallSoftwaresRequest extends Model
                 $model->additionalPackages = [];
                 $n1 = 0;
                 foreach ($map['AdditionalPackages'] as $item1) {
-                    $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
+                    $model->additionalPackages[$n1] = additionalPackages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

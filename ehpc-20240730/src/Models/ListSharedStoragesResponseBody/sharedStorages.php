@@ -63,7 +63,8 @@ class sharedStorages extends Model
                 $res['MountInfo'] = [];
                 $n1 = 0;
                 foreach ($this->mountInfo as $item1) {
-                    $res['MountInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MountInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class sharedStorages extends Model
                 $model->mountInfo = [];
                 $n1 = 0;
                 foreach ($map['MountInfo'] as $item1) {
-                    $model->mountInfo[$n1++] = mountInfo::fromMap($item1);
+                    $model->mountInfo[$n1] = mountInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

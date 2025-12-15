@@ -119,7 +119,8 @@ class addon extends Model
                 $res['ServicesSpec'] = [];
                 $n1 = 0;
                 foreach ($this->servicesSpec as $item1) {
-                    $res['ServicesSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ServicesSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +177,8 @@ class addon extends Model
                 $model->servicesSpec = [];
                 $n1 = 0;
                 foreach ($map['ServicesSpec'] as $item1) {
-                    $model->servicesSpec[$n1++] = servicesSpec::fromMap($item1);
+                    $model->servicesSpec[$n1] = servicesSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
