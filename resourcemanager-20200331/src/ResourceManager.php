@@ -150,6 +150,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyAttachmentsReque
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyAttachmentsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupCapabilityRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupCapabilityResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsWithAuthDetailsRequest;
@@ -168,6 +170,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForCo
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\LookupResourceGroupEventsRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\LookupResourceGroupEventsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveResourcesRequest;
@@ -2673,7 +2677,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 关闭资源组通知.
+     * Disables group event notification.
      *
      * @param request - DisableResourceGroupNotificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2703,7 +2707,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 关闭资源组通知.
+     * Disables group event notification.
      *
      * @returns DisableResourceGroupNotificationResponse
      *
@@ -2932,7 +2936,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开通资源组通知.
+     * Enables group event notification.
      *
      * @param request - EnableResourceGroupNotificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2962,7 +2966,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开通资源组通知.
+     * Enables group event notification.
      *
      * @returns EnableResourceGroupNotificationResponse
      *
@@ -3791,7 +3795,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组管理员配置.
+     * Queries the configurations of a resource group administrator.
      *
      * @param request - GetResourceGroupAdminSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3821,7 +3825,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组管理员配置.
+     * Queries the configurations of a resource group administrator.
      *
      * @returns GetResourceGroupAdminSettingResponse
      *
@@ -3835,7 +3839,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组通知设置.
+     * Queries the notification settings of a resource group.
      *
      * @param request - GetResourceGroupNotificationSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3865,7 +3869,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组通知设置.
+     * Queries the notification settings of a resource group.
      *
      * @returns GetResourceGroupNotificationSettingResponse
      *
@@ -4444,7 +4448,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出自动分组修正记录.
+     * Queries a list of automatic grouping remediation records.
      *
      * @param request - ListAutoGroupingRemediationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4515,7 +4519,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出自动分组修正记录.
+     * Queries a list of automatic grouping remediation records.
      *
      * @param request - ListAutoGroupingRemediationsRequest
      *
@@ -5304,6 +5308,71 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 列出资源组能力项.
+     *
+     * @param request - ListResourceGroupCapabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceGroupCapabilityResponse
+     *
+     * @param ListResourceGroupCapabilityRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListResourceGroupCapabilityResponse
+     */
+    public function listResourceGroupCapabilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
+        }
+
+        if (null !== $request->supportResourceGroupEvent) {
+            @$query['SupportResourceGroupEvent'] = $request->supportResourceGroupEvent;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceGroupCapability',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourceGroupCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源组能力项.
+     *
+     * @param request - ListResourceGroupCapabilityRequest
+     *
+     * @returns ListResourceGroupCapabilityResponse
+     *
+     * @param ListResourceGroupCapabilityRequest $request
+     *
+     * @return ListResourceGroupCapabilityResponse
+     */
+    public function listResourceGroupCapability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceGroupCapabilityWithOptions($request, $runtime);
+    }
+
+    /**
      * @remarks
      * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
      * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
@@ -6018,6 +6087,91 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTrustedServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资源组事件.
+     *
+     * @param request - LookupResourceGroupEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LookupResourceGroupEventsResponse
+     *
+     * @param LookupResourceGroupEventsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return LookupResourceGroupEventsResponse
+     */
+    public function lookupResourceGroupEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventCategory) {
+            @$query['EventCategory'] = $request->eventCategory;
+        }
+
+        if (null !== $request->lookupAttributes) {
+            @$query['LookupAttributes'] = $request->lookupAttributes;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupDisplayName) {
+            @$query['ResourceGroupDisplayName'] = $request->resourceGroupDisplayName;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LookupResourceGroupEvents',
+            'version' => '2020-03-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LookupResourceGroupEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源组事件.
+     *
+     * @param request - LookupResourceGroupEventsRequest
+     *
+     * @returns LookupResourceGroupEventsResponse
+     *
+     * @param LookupResourceGroupEventsRequest $request
+     *
+     * @return LookupResourceGroupEventsResponse
+     */
+    public function lookupResourceGroupEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lookupResourceGroupEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -7406,7 +7560,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 更新资源组管理员配置.
+     * Updates the configurations of a resource group administrator.
      *
      * @param request - UpdateResourceGroupAdminSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7445,7 +7599,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 更新资源组管理员配置.
+     * Updates the configurations of a resource group administrator.
      *
      * @param request - UpdateResourceGroupAdminSettingRequest
      *
