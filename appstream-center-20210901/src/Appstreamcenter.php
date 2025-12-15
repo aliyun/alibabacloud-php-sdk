@@ -701,11 +701,6 @@ class Appstreamcenter extends OpenApiClient
     public function createWuyingServerWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->savingPlanId) {
-            @$query['SavingPlanId'] = $request->savingPlanId;
-        }
-
         $body = [];
         if (null !== $request->amount) {
             @$body['Amount'] = $request->amount;
@@ -734,6 +729,10 @@ class Appstreamcenter extends OpenApiClient
         $bodyFlat = [];
         if (null !== $request->dataDisk) {
             @$bodyFlat['DataDisk'] = $request->dataDisk;
+        }
+
+        if (null !== $request->hostName) {
+            @$body['HostName'] = $request->hostName;
         }
 
         if (null !== $request->idempotenceToken) {
@@ -766,6 +765,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->promotionId) {
             @$body['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->savingPlanId) {
+            @$body['SavingPlanId'] = $request->savingPlanId;
         }
 
         if (null !== $request->serverInstanceType) {
@@ -803,7 +806,6 @@ class Appstreamcenter extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
