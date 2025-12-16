@@ -27,11 +27,17 @@ class ModifyNetworkRuleAttributeRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $module;
     protected $_name = [
         'config' => 'Config',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort' => 'FrontendPort',
         'instanceId' => 'InstanceId',
+        'module' => 'Module',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ModifyNetworkRuleAttributeRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->module) {
+            $res['Module'] = $this->module;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ModifyNetworkRuleAttributeRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Module'])) {
+            $model->module = $map['Module'];
         }
 
         return $model;

@@ -12023,6 +12023,10 @@ class Ddoscoo extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

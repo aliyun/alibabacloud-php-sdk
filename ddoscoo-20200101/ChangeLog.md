@@ -1,3 +1,7 @@
+2025-12-16 Version: 2.7.1
+- Update API ModifyNetworkRuleAttribute: add request parameters Module.
+
+
 2025-11-25 Version: 2.7.0
 - Support API DescribeCdnLinkageRules.
 
