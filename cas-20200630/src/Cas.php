@@ -35,14 +35,22 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCACertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCACertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCertificatePrivateKeyRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCertificatePrivateKeyResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateForSerialNumberRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateForSerialNumberResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusForSerialNumberRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusForSerialNumberResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribePcaAndExternalCACertificateListRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\DescribePcaAndExternalCACertificateListResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListAllEndEntityInstanceRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListAllEndEntityInstanceResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListCACertificateLogRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListCACertificateLogResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateRequest;
@@ -1606,6 +1614,10 @@ class Cas extends OpenApiClient
             @$query['Identifier'] = $request->identifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1737,6 +1749,68 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 获取客户端证书.
+     *
+     * @deprecated openAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead
+     *
+     * @param request - DescribeClientCertificateForSerialNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClientCertificateForSerialNumberResponse
+     *
+     * @param DescribeClientCertificateForSerialNumberRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeClientCertificateForSerialNumberResponse
+     */
+    public function describeClientCertificateForSerialNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClientCertificateForSerialNumber',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClientCertificateForSerialNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    // Deprecated
+    /**
+     * 获取客户端证书.
+     *
+     * @deprecated openAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead
+     *
+     * @param request - DescribeClientCertificateForSerialNumberRequest
+     *
+     * @returns DescribeClientCertificateForSerialNumberResponse
+     *
+     * @param DescribeClientCertificateForSerialNumberRequest $request
+     *
+     * @return DescribeClientCertificateForSerialNumberResponse
+     */
+    public function describeClientCertificateForSerialNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClientCertificateForSerialNumberWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
      *
      * @remarks
@@ -1801,6 +1875,129 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeClientCertificateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取客户端证书状态
+     *
+     * @param request - DescribeClientCertificateStatusForSerialNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClientCertificateStatusForSerialNumberResponse
+     *
+     * @param DescribeClientCertificateStatusForSerialNumberRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return DescribeClientCertificateStatusForSerialNumberResponse
+     */
+    public function describeClientCertificateStatusForSerialNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClientCertificateStatusForSerialNumber',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClientCertificateStatusForSerialNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取客户端证书状态
+     *
+     * @param request - DescribeClientCertificateStatusForSerialNumberRequest
+     *
+     * @returns DescribeClientCertificateStatusForSerialNumberResponse
+     *
+     * @param DescribeClientCertificateStatusForSerialNumberRequest $request
+     *
+     * @return DescribeClientCertificateStatusForSerialNumberResponse
+     */
+    public function describeClientCertificateStatusForSerialNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClientCertificateStatusForSerialNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书.
+     *
+     * @deprecated openAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead
+     *
+     * @param request - DescribePcaAndExternalCACertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePcaAndExternalCACertificateListResponse
+     *
+     * @param DescribePcaAndExternalCACertificateListRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribePcaAndExternalCACertificateListResponse
+     */
+    public function describePcaAndExternalCACertificateListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePcaAndExternalCACertificateList',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePcaAndExternalCACertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    // Deprecated
+    /**
+     * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书.
+     *
+     * @deprecated openAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead
+     *
+     * @param request - DescribePcaAndExternalCACertificateListRequest
+     *
+     * @returns DescribePcaAndExternalCACertificateListResponse
+     *
+     * @param DescribePcaAndExternalCACertificateListRequest $request
+     *
+     * @return DescribePcaAndExternalCACertificateListResponse
+     */
+    public function describePcaAndExternalCACertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePcaAndExternalCACertificateListWithOptions($request, $runtime);
     }
 
     /**
@@ -1949,6 +2146,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAllEndEntityInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取证书日志.
+     *
+     * @param request - ListCACertificateLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCACertificateLogResponse
+     *
+     * @param ListCACertificateLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCACertificateLogResponse
+     */
+    public function listCACertificateLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCACertificateLog',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCACertificateLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取证书日志.
+     *
+     * @param request - ListCACertificateLogRequest
+     *
+     * @returns ListCACertificateLogResponse
+     *
+     * @param ListCACertificateLogRequest $request
+     *
+     * @return ListCACertificateLogResponse
+     */
+    public function listCACertificateLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCACertificateLogWithOptions($request, $runtime);
     }
 
     /**

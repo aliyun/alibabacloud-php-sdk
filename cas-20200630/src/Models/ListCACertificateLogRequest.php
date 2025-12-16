@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeCertificatePrivateKeyRequest extends Model
+class ListCACertificateLogRequest extends Model
 {
     /**
      * @var string
      */
-    public $encryptedCode;
-
-    /**
-     * @var string
-     */
     public $identifier;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'encryptedCode' => 'EncryptedCode',
         'identifier' => 'Identifier',
-        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -36,16 +24,8 @@ class DescribeCertificatePrivateKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->encryptedCode) {
-            $res['EncryptedCode'] = $this->encryptedCode;
-        }
-
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
-        }
-
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -59,16 +39,8 @@ class DescribeCertificatePrivateKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EncryptedCode'])) {
-            $model->encryptedCode = $map['EncryptedCode'];
-        }
-
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
-        }
-
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

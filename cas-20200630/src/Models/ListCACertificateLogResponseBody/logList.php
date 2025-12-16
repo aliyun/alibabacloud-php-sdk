@@ -2,16 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cas\V20200630\Models;
+namespace AlibabaCloud\SDK\Cas\V20200630\Models\ListCACertificateLogResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeCertificatePrivateKeyRequest extends Model
+class logList extends Model
 {
     /**
      * @var string
      */
-    public $encryptedCode;
+    public $content;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -21,11 +26,12 @@ class DescribeCertificatePrivateKeyRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $opType;
     protected $_name = [
-        'encryptedCode' => 'EncryptedCode',
+        'content' => 'Content',
+        'createTime' => 'CreateTime',
         'identifier' => 'Identifier',
-        'resourceGroupId' => 'ResourceGroupId',
+        'opType' => 'OpType',
     ];
 
     public function validate()
@@ -36,16 +42,20 @@ class DescribeCertificatePrivateKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->encryptedCode) {
-            $res['EncryptedCode'] = $this->encryptedCode;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->opType) {
+            $res['OpType'] = $this->opType;
         }
 
         return $res;
@@ -59,16 +69,20 @@ class DescribeCertificatePrivateKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EncryptedCode'])) {
-            $model->encryptedCode = $map['EncryptedCode'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
 
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['OpType'])) {
+            $model->opType = $map['OpType'];
         }
 
         return $model;
