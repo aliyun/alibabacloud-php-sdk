@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionEuCrea
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionEuCreateResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterResponse;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetPassThroughAuthInfoRequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetPassThroughAuthInfoResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineRequest;
@@ -250,6 +252,71 @@ class BailianModelOnChip extends OpenApiClient
         $headers = [];
 
         return $this->deviceRegisterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 云端获取透传鉴权信息.
+     *
+     * @param request - GetPassThroughAuthInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPassThroughAuthInfoResponse
+     *
+     * @param GetPassThroughAuthInfoRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPassThroughAuthInfoResponse
+     */
+    public function getPassThroughAuthInfoWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['appId'] = $request->appId;
+        }
+
+        if (null !== $request->deviceName) {
+            @$body['deviceName'] = $request->deviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPassThroughAuthInfo',
+            'version' => '2024-08-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/api/auth/v1/token/getPassThroughAuthInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPassThroughAuthInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 云端获取透传鉴权信息.
+     *
+     * @param request - GetPassThroughAuthInfoRequest
+     *
+     * @returns GetPassThroughAuthInfoResponse
+     *
+     * @param GetPassThroughAuthInfoRequest $request
+     *
+     * @return GetPassThroughAuthInfoResponse
+     */
+    public function getPassThroughAuthInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPassThroughAuthInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
