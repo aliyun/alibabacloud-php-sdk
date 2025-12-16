@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppImageSecretRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppImageSecretResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRequest;
@@ -177,6 +179,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppImageSecretRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppImageSecretResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
@@ -329,6 +333,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceCapacityRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceCapacityResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceStatusRequest;
@@ -470,6 +476,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsRequest;
@@ -2878,6 +2886,75 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建边缘容器应用的镜像秘钥.
+     *
+     * @param Request - CreateEdgeContainerAppImageSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEdgeContainerAppImageSecretResponse
+     *
+     * @param CreateEdgeContainerAppImageSecretRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateEdgeContainerAppImageSecretResponse
+     */
+    public function createEdgeContainerAppImageSecretWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->registry) {
+            @$query['Registry'] = $request->registry;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEdgeContainerAppImageSecret',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEdgeContainerAppImageSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建边缘容器应用的镜像秘钥.
+     *
+     * @param Request - CreateEdgeContainerAppImageSecretRequest
+     *
+     * @returns CreateEdgeContainerAppImageSecretResponse
+     *
+     * @param CreateEdgeContainerAppImageSecretRequest $request
+     *
+     * @return CreateEdgeContainerAppImageSecretResponse
+     */
+    public function createEdgeContainerAppImageSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeContainerAppImageSecretWithOptions($request, $runtime);
     }
 
     /**
@@ -6919,6 +6996,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除边缘容器应用的镜像秘钥.
+     *
+     * @param Request - DeleteEdgeContainerAppImageSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEdgeContainerAppImageSecretResponse
+     *
+     * @param DeleteEdgeContainerAppImageSecretRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteEdgeContainerAppImageSecretResponse
+     */
+    public function deleteEdgeContainerAppImageSecretWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEdgeContainerAppImageSecret',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEdgeContainerAppImageSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除边缘容器应用的镜像秘钥.
+     *
+     * @param Request - DeleteEdgeContainerAppImageSecretRequest
+     *
+     * @returns DeleteEdgeContainerAppImageSecretResponse
+     *
+     * @param DeleteEdgeContainerAppImageSecretRequest $request
+     *
+     * @return DeleteEdgeContainerAppImageSecretResponse
+     */
+    public function deleteEdgeContainerAppImageSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEdgeContainerAppImageSecretWithOptions($request, $runtime);
     }
 
     /**
@@ -11449,6 +11587,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 获取边缘容器应用的资源容量.
+     *
+     * @param Request - GetEdgeContainerAppResourceCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEdgeContainerAppResourceCapacityResponse
+     *
+     * @param GetEdgeContainerAppResourceCapacityRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetEdgeContainerAppResourceCapacityResponse
+     */
+    public function getEdgeContainerAppResourceCapacityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEdgeContainerAppResourceCapacity',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEdgeContainerAppResourceCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取边缘容器应用的资源容量.
+     *
+     * @param Request - GetEdgeContainerAppResourceCapacityRequest
+     *
+     * @returns GetEdgeContainerAppResourceCapacityResponse
+     *
+     * @param GetEdgeContainerAppResourceCapacityRequest $request
+     *
+     * @return GetEdgeContainerAppResourceCapacityResponse
+     */
+    public function getEdgeContainerAppResourceCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppResourceCapacityWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtain the resource reservation configuration of the edge container.
      *
      * @param Request - GetEdgeContainerAppResourceReserveRequest
@@ -15457,6 +15652,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listESAIPInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取边缘容器应用的镜像秘钥列表.
+     *
+     * @param Request - ListEdgeContainerAppImageSecretsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEdgeContainerAppImageSecretsResponse
+     *
+     * @param ListEdgeContainerAppImageSecretsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListEdgeContainerAppImageSecretsResponse
+     */
+    public function listEdgeContainerAppImageSecretsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEdgeContainerAppImageSecrets',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEdgeContainerAppImageSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取边缘容器应用的镜像秘钥列表.
+     *
+     * @param Request - ListEdgeContainerAppImageSecretsRequest
+     *
+     * @returns ListEdgeContainerAppImageSecretsResponse
+     *
+     * @param ListEdgeContainerAppImageSecretsRequest $request
+     *
+     * @return ListEdgeContainerAppImageSecretsResponse
+     */
+    public function listEdgeContainerAppImageSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEdgeContainerAppImageSecretsWithOptions($request, $runtime);
     }
 
     /**

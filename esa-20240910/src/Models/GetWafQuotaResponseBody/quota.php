@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\captcha;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\list_;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\managedRulesGroup;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\page;
@@ -12,6 +13,11 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\scenePol
 
 class quota extends Model
 {
+    /**
+     * @var captcha
+     */
+    public $captcha;
+
     /**
      * @var list_
      */
@@ -32,6 +38,7 @@ class quota extends Model
      */
     public $scenePolicy;
     protected $_name = [
+        'captcha' => 'Captcha',
         'list' => 'List',
         'managedRulesGroup' => 'ManagedRulesGroup',
         'page' => 'Page',
@@ -40,6 +47,9 @@ class quota extends Model
 
     public function validate()
     {
+        if (null !== $this->captcha) {
+            $this->captcha->validate();
+        }
         if (null !== $this->list) {
             $this->list->validate();
         }
@@ -58,6 +68,10 @@ class quota extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->captcha) {
+            $res['Captcha'] = null !== $this->captcha ? $this->captcha->toArray($noStream) : $this->captcha;
+        }
+
         if (null !== $this->list) {
             $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
@@ -85,6 +99,10 @@ class quota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Captcha'])) {
+            $model->captcha = captcha::fromMap($map['Captcha']);
+        }
+
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
