@@ -21,6 +21,10 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateRouteStrategyRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateRouteStrategyResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateSchedulerxCalendarRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateSchedulerxCalendarResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateSchedulerxNotificationPolicyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateSchedulerxNotificationPolicyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateWorkflowResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteAppGroupRequest;
@@ -31,6 +35,10 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteRouteStrategyResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteSchedulerxCalendarRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteSchedulerxCalendarResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteSchedulerxNotificationPolicyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteSchedulerxNotificationPolicyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteWorkflowResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DescribeRegionsRequest;
@@ -79,13 +87,23 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkflowInstanceResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkFlowsRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListWorkFlowsResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxCalendarRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxCalendarResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxJobSyncShrinkRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxNotificationPolicyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ManageSchedulerxNotificationPolicyResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxCalendarRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxCalendarResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateDetailResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxNotificationPolicyRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxNotificationPolicyResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RerunJobRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RerunJobResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\RetryJobInstanceRequest;
@@ -922,6 +940,144 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * Creates a calendar.
+     *
+     * @param request - CreateSchedulerxCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSchedulerxCalendarResponse
+     *
+     * @param CreateSchedulerxCalendarRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateSchedulerxCalendarResponse
+     */
+    public function createSchedulerxCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->calendarName) {
+            @$body['CalendarName'] = $request->calendarName;
+        }
+
+        if (null !== $request->monthDaysContent) {
+            @$body['MonthDaysContent'] = $request->monthDaysContent;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->year) {
+            @$body['Year'] = $request->year;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSchedulerxCalendar',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSchedulerxCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a calendar.
+     *
+     * @param request - CreateSchedulerxCalendarRequest
+     *
+     * @returns CreateSchedulerxCalendarResponse
+     *
+     * @param CreateSchedulerxCalendarRequest $request
+     *
+     * @return CreateSchedulerxCalendarResponse
+     */
+    public function createSchedulerxCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSchedulerxCalendarWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a notification policy.
+     *
+     * @param request - CreateSchedulerxNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSchedulerxNotificationPolicyResponse
+     *
+     * @param CreateSchedulerxNotificationPolicyRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateSchedulerxNotificationPolicyResponse
+     */
+    public function createSchedulerxNotificationPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channelTimeRange) {
+            @$body['ChannelTimeRange'] = $request->channelTimeRange;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->policyName) {
+            @$body['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSchedulerxNotificationPolicy',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSchedulerxNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a notification policy.
+     *
+     * @param request - CreateSchedulerxNotificationPolicyRequest
+     *
+     * @returns CreateSchedulerxNotificationPolicyResponse
+     *
+     * @param CreateSchedulerxNotificationPolicyRequest $request
+     *
+     * @return CreateSchedulerxNotificationPolicyResponse
+     */
+    public function createSchedulerxNotificationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSchedulerxNotificationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
      *
      * @param request - CreateWorkflowRequest
@@ -1137,7 +1293,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1180,7 +1336,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -1264,6 +1420,132 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRouteStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a calendar.
+     *
+     * @param request - DeleteSchedulerxCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSchedulerxCalendarResponse
+     *
+     * @param DeleteSchedulerxCalendarRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteSchedulerxCalendarResponse
+     */
+    public function deleteSchedulerxCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->calendarName) {
+            @$body['CalendarName'] = $request->calendarName;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->year) {
+            @$body['Year'] = $request->year;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSchedulerxCalendar',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSchedulerxCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a calendar.
+     *
+     * @param request - DeleteSchedulerxCalendarRequest
+     *
+     * @returns DeleteSchedulerxCalendarResponse
+     *
+     * @param DeleteSchedulerxCalendarRequest $request
+     *
+     * @return DeleteSchedulerxCalendarResponse
+     */
+    public function deleteSchedulerxCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSchedulerxCalendarWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a notification policy.
+     *
+     * @param request - DeleteSchedulerxNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSchedulerxNotificationPolicyResponse
+     *
+     * @param DeleteSchedulerxNotificationPolicyRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteSchedulerxNotificationPolicyResponse
+     */
+    public function deleteSchedulerxNotificationPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->policyName) {
+            @$body['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSchedulerxNotificationPolicy',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSchedulerxNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a notification policy.
+     *
+     * @param request - DeleteSchedulerxNotificationPolicyRequest
+     *
+     * @returns DeleteSchedulerxNotificationPolicyResponse
+     *
+     * @param DeleteSchedulerxNotificationPolicyRequest $request
+     *
+     * @return DeleteSchedulerxNotificationPolicyResponse
+     */
+    public function deleteSchedulerxNotificationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSchedulerxNotificationPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -2031,7 +2313,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 查询概览数据信息.
+     * Retrieves job scheduling data for Professional Edition applications.
      *
      * @param request - GetOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2098,7 +2380,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 查询概览数据信息.
+     * Retrieves job scheduling data for Professional Edition applications.
      *
      * @param request - GetOverviewRequest
      *
@@ -2445,7 +2727,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * Queries historical scripts of a job.
      *
      * @param request - ListJobScriptHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2500,7 +2782,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * Queries historical scripts of a job.
      *
      * @param request - ListJobScriptHistoryRequest
      *
@@ -2668,6 +2950,91 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * Queries the information of a workflow.
+     *
+     * @param request - ListWorkFlowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkFlowsResponse
+     *
+     * @param ListWorkFlowsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkFlowsResponse
+     */
+    public function listWorkFlowsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespaceSource) {
+            @$query['NamespaceSource'] = $request->namespaceSource;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workflowName) {
+            @$query['WorkflowName'] = $request->workflowName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkFlows',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information of a workflow.
+     *
+     * @param request - ListWorkFlowsRequest
+     *
+     * @returns ListWorkFlowsResponse
+     *
+     * @param ListWorkFlowsRequest $request
+     *
+     * @return ListWorkFlowsResponse
+     */
+    public function listWorkFlows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkFlowsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the execution history of a workflow. You can call this operation only in the professional edition.
      *
      * @param request - ListWorkflowInstanceRequest
@@ -2721,7 +3088,80 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 同步任务
+     * Updates a calendar.
+     *
+     * @param request - ManageSchedulerxCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManageSchedulerxCalendarResponse
+     *
+     * @param ManageSchedulerxCalendarRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ManageSchedulerxCalendarResponse
+     */
+    public function manageSchedulerxCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->calendarName) {
+            @$body['CalendarName'] = $request->calendarName;
+        }
+
+        if (null !== $request->incremental) {
+            @$body['Incremental'] = $request->incremental;
+        }
+
+        if (null !== $request->monthDaysContent) {
+            @$body['MonthDaysContent'] = $request->monthDaysContent;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->year) {
+            @$body['Year'] = $request->year;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ManageSchedulerxCalendar',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ManageSchedulerxCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a calendar.
+     *
+     * @param request - ManageSchedulerxCalendarRequest
+     *
+     * @returns ManageSchedulerxCalendarResponse
+     *
+     * @param ManageSchedulerxCalendarRequest $request
+     *
+     * @return ManageSchedulerxCalendarResponse
+     */
+    public function manageSchedulerxCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->manageSchedulerxCalendarWithOptions($request, $runtime);
+    }
+
+    /**
+     * Synchronizes tasks across namespaces.
      *
      * @param tmpReq - ManageSchedulerxJobSyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2790,7 +3230,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 同步任务
+     * Synchronizes tasks across namespaces.
      *
      * @param request - ManageSchedulerxJobSyncRequest
      *
@@ -2808,7 +3248,157 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取机器详细信息.
+     * Updates a notification policy.
+     *
+     * @param request - ManageSchedulerxNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManageSchedulerxNotificationPolicyResponse
+     *
+     * @param ManageSchedulerxNotificationPolicyRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ManageSchedulerxNotificationPolicyResponse
+     */
+    public function manageSchedulerxNotificationPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channelTimeRange) {
+            @$body['ChannelTimeRange'] = $request->channelTimeRange;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->policyName) {
+            @$body['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ManageSchedulerxNotificationPolicy',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ManageSchedulerxNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a notification policy.
+     *
+     * @param request - ManageSchedulerxNotificationPolicyRequest
+     *
+     * @returns ManageSchedulerxNotificationPolicyResponse
+     *
+     * @param ManageSchedulerxNotificationPolicyRequest $request
+     *
+     * @return ManageSchedulerxNotificationPolicyResponse
+     */
+    public function manageSchedulerxNotificationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->manageSchedulerxNotificationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the information of a calendar.
+     *
+     * @param request - ReadSchedulerxCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadSchedulerxCalendarResponse
+     *
+     * @param ReadSchedulerxCalendarRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ReadSchedulerxCalendarResponse
+     */
+    public function readSchedulerxCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->calendarName) {
+            @$query['CalendarName'] = $request->calendarName;
+        }
+
+        if (null !== $request->fetchCalendarDetail) {
+            @$query['FetchCalendarDetail'] = $request->fetchCalendarDetail;
+        }
+
+        if (null !== $request->fetchSystemCalendar) {
+            @$query['FetchSystemCalendar'] = $request->fetchSystemCalendar;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->year) {
+            @$query['Year'] = $request->year;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadSchedulerxCalendar',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadSchedulerxCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the information of a calendar.
+     *
+     * @param request - ReadSchedulerxCalendarRequest
+     *
+     * @returns ReadSchedulerxCalendarResponse
+     *
+     * @param ReadSchedulerxCalendarRequest $request
+     *
+     * @return ReadSchedulerxCalendarResponse
+     */
+    public function readSchedulerxCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readSchedulerxCalendarWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries detailed information of the workers specified by a job.
      *
      * @param request - ReadSchedulerxDesignateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2867,7 +3457,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取机器详细信息.
+     * Queries detailed information of the workers specified by a job.
      *
      * @param request - ReadSchedulerxDesignateDetailRequest
      *
@@ -2885,7 +3475,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器基本信息.
+     * Queries the basic information of specified workers.
      *
      * @param request - ReadSchedulerxDesignateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2940,7 +3530,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器基本信息.
+     * Queries the basic information of specified workers.
      *
      * @param request - ReadSchedulerxDesignateInfoRequest
      *
@@ -2955,6 +3545,75 @@ class Schedulerx2 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->readSchedulerxDesignateInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries notification policies.
+     *
+     * @param request - ReadSchedulerxNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadSchedulerxNotificationPolicyResponse
+     *
+     * @param ReadSchedulerxNotificationPolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ReadSchedulerxNotificationPolicyResponse
+     */
+    public function readSchedulerxNotificationPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReadSchedulerxNotificationPolicy',
+            'version' => '2019-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadSchedulerxNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries notification policies.
+     *
+     * @param request - ReadSchedulerxNotificationPolicyRequest
+     *
+     * @returns ReadSchedulerxNotificationPolicyResponse
+     *
+     * @param ReadSchedulerxNotificationPolicyRequest $request
+     *
+     * @return ReadSchedulerxNotificationPolicyResponse
+     */
+    public function readSchedulerxNotificationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->readSchedulerxNotificationPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -3424,6 +4083,10 @@ class Schedulerx2 extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableLog) {
+            @$query['EnableLog'] = $request->enableLog;
+        }
+
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
         }
@@ -3696,7 +4359,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新任务执行脚本.
+     * Updates the execution script of a job.
      *
      * @param request - UpdateJobScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3759,7 +4422,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新任务执行脚本.
+     * Updates the execution script of a job.
      *
      * @param request - UpdateJobScriptRequest
      *
@@ -3777,7 +4440,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新命名空间.
+     * Updates a namespace.
      *
      * @param request - UpdateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3828,7 +4491,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * 更新命名空间.
+     * Updates a namespace.
      *
      * @param request - UpdateNamespaceRequest
      *

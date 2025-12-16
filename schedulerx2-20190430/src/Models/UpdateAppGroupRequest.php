@@ -19,6 +19,11 @@ class UpdateAppGroupRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableLog;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -55,6 +60,7 @@ class UpdateAppGroupRequest extends Model
     protected $_name = [
         'appVersion' => 'AppVersion',
         'description' => 'Description',
+        'enableLog' => 'EnableLog',
         'groupId' => 'GroupId',
         'maxConcurrency' => 'MaxConcurrency',
         'monitorConfigJson' => 'MonitorConfigJson',
@@ -78,6 +84,10 @@ class UpdateAppGroupRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableLog) {
+            $res['EnableLog'] = $this->enableLog;
         }
 
         if (null !== $this->groupId) {
@@ -125,6 +135,10 @@ class UpdateAppGroupRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableLog'])) {
+            $model->enableLog = $map['EnableLog'];
         }
 
         if (isset($map['GroupId'])) {

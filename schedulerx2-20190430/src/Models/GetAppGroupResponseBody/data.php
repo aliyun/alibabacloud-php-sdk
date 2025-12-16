@@ -34,6 +34,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableLog;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -68,6 +73,7 @@ class data extends Model
         'appVersion' => 'AppVersion',
         'curJobs' => 'CurJobs',
         'description' => 'Description',
+        'enableLog' => 'EnableLog',
         'groupId' => 'GroupId',
         'maxJobs' => 'MaxJobs',
         'monitorConfigJson' => 'MonitorConfigJson',
@@ -102,6 +108,10 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableLog) {
+            $res['EnableLog'] = $this->enableLog;
         }
 
         if (null !== $this->groupId) {
@@ -157,6 +167,10 @@ class data extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableLog'])) {
+            $model->enableLog = $map['EnableLog'];
         }
 
         if (isset($map['GroupId'])) {

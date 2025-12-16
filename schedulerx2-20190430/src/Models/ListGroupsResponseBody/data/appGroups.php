@@ -34,6 +34,11 @@ class appGroups extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableLog;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -48,6 +53,7 @@ class appGroups extends Model
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
         'description' => 'Description',
+        'enableLog' => 'EnableLog',
         'groupId' => 'GroupId',
         'namespace' => 'Namespace',
     ];
@@ -78,6 +84,10 @@ class appGroups extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableLog) {
+            $res['EnableLog'] = $this->enableLog;
         }
 
         if (null !== $this->groupId) {
@@ -117,6 +127,10 @@ class appGroups extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableLog'])) {
+            $model->enableLog = $map['EnableLog'];
         }
 
         if (isset($map['GroupId'])) {
