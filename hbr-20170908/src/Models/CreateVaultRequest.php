@@ -24,6 +24,11 @@ class CreateVaultRequest extends Model
     public $kmsKeyId;
 
     /**
+     * @var bool
+     */
+    public $replication;
+
+    /**
      * @var string
      */
     public $vaultName;
@@ -51,6 +56,7 @@ class CreateVaultRequest extends Model
         'description' => 'Description',
         'encryptType' => 'EncryptType',
         'kmsKeyId' => 'KmsKeyId',
+        'replication' => 'Replication',
         'vaultName' => 'VaultName',
         'vaultRegionId' => 'VaultRegionId',
         'vaultStorageClass' => 'VaultStorageClass',
@@ -76,6 +82,10 @@ class CreateVaultRequest extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->replication) {
+            $res['Replication'] = $this->replication;
         }
 
         if (null !== $this->vaultName) {
@@ -119,6 +129,10 @@ class CreateVaultRequest extends Model
 
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
+        if (isset($map['Replication'])) {
+            $model->replication = $map['Replication'];
         }
 
         if (isset($map['VaultName'])) {

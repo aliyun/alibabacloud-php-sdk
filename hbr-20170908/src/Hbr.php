@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateRestoreJobResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateRestoreJobShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateTempFileUploadUrlRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateTempFileUploadUrlResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultReplicationRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultReplicationResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteAirEcsInstanceRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmDiskRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmDiskResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmEcsInstanceRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmEcsInstanceResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultReplicationRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultReplicationResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsRequest;
@@ -1928,6 +1932,10 @@ class Hbr extends OpenApiClient
             @$query['KmsKeyId'] = $request->kmsKeyId;
         }
 
+        if (null !== $request->replication) {
+            @$query['Replication'] = $request->replication;
+        }
+
         if (null !== $request->vaultName) {
             @$query['VaultName'] = $request->vaultName;
         }
@@ -1988,6 +1996,71 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVaultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建备份库复制.
+     *
+     * @param request - CreateVaultReplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVaultReplicationResponse
+     *
+     * @param CreateVaultReplicationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateVaultReplicationResponse
+     */
+    public function createVaultReplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->replicationSourceRegionId) {
+            @$query['ReplicationSourceRegionId'] = $request->replicationSourceRegionId;
+        }
+
+        if (null !== $request->replicationSourceVaultId) {
+            @$query['ReplicationSourceVaultId'] = $request->replicationSourceVaultId;
+        }
+
+        if (null !== $request->replicationTargetVaultId) {
+            @$query['ReplicationTargetVaultId'] = $request->replicationTargetVaultId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVaultReplication',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVaultReplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建备份库复制.
+     *
+     * @param request - CreateVaultReplicationRequest
+     *
+     * @returns CreateVaultReplicationResponse
+     *
+     * @param CreateVaultReplicationRequest $request
+     *
+     * @return CreateVaultReplicationResponse
+     */
+    public function createVaultReplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVaultReplicationWithOptions($request, $runtime);
     }
 
     /**
@@ -2885,6 +2958,71 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVaultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关闭备份库复制.
+     *
+     * @param request - DeleteVaultReplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVaultReplicationResponse
+     *
+     * @param DeleteVaultReplicationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteVaultReplicationResponse
+     */
+    public function deleteVaultReplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->replicationSourceRegionId) {
+            @$query['ReplicationSourceRegionId'] = $request->replicationSourceRegionId;
+        }
+
+        if (null !== $request->replicationSourceVaultId) {
+            @$query['ReplicationSourceVaultId'] = $request->replicationSourceVaultId;
+        }
+
+        if (null !== $request->replicationTargetVaultId) {
+            @$query['ReplicationTargetVaultId'] = $request->replicationTargetVaultId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVaultReplication',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVaultReplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭备份库复制.
+     *
+     * @param request - DeleteVaultReplicationRequest
+     *
+     * @returns DeleteVaultReplicationResponse
+     *
+     * @param DeleteVaultReplicationRequest $request
+     *
+     * @return DeleteVaultReplicationResponse
+     */
+    public function deleteVaultReplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVaultReplicationWithOptions($request, $runtime);
     }
 
     /**
@@ -4638,6 +4776,10 @@ class Hbr extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->replication) {
+            @$query['Replication'] = $request->replication;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -4652,6 +4794,10 @@ class Hbr extends OpenApiClient
 
         if (null !== $request->vaultName) {
             @$query['VaultName'] = $request->vaultName;
+        }
+
+        if (null !== $request->vaultOwnerId) {
+            @$query['VaultOwnerId'] = $request->vaultOwnerId;
         }
 
         if (null !== $request->vaultRegionId) {

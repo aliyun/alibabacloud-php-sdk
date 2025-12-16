@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vault
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\backupPlanStatistics;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\replicationProgress;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\rsTargetAccountIds;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\sourceTypes;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\tags;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\trialInfo;
@@ -114,6 +115,11 @@ class vault extends Model
     public $replicationProgress;
 
     /**
+     * @var int
+     */
+    public $replicationSourceOwnerId;
+
+    /**
      * @var string
      */
     public $replicationSourceRegionId;
@@ -131,7 +137,22 @@ class vault extends Model
     /**
      * @var string
      */
+    public $replicationStatus;
+
+    /**
+     * @var int
+     */
+    public $replicationTargetOwnerId;
+
+    /**
+     * @var string
+     */
     public $replicationTargetRegionId;
+
+    /**
+     * @var string
+     */
+    public $replicationTargetVaultId;
 
     /**
      * @var string
@@ -142,6 +163,11 @@ class vault extends Model
      * @var int
      */
     public $retention;
+
+    /**
+     * @var rsTargetAccountIds
+     */
+    public $rsTargetAccountIds;
 
     /**
      * @var bool
@@ -194,6 +220,11 @@ class vault extends Model
     public $vaultName;
 
     /**
+     * @var int
+     */
+    public $vaultOwnerId;
+
+    /**
      * @var string
      */
     public $vaultRegionId;
@@ -238,12 +269,17 @@ class vault extends Model
         'redundancyType' => 'RedundancyType',
         'replication' => 'Replication',
         'replicationProgress' => 'ReplicationProgress',
+        'replicationSourceOwnerId' => 'ReplicationSourceOwnerId',
         'replicationSourceRegionId' => 'ReplicationSourceRegionId',
         'replicationSourceVault' => 'ReplicationSourceVault',
         'replicationSourceVaultId' => 'ReplicationSourceVaultId',
+        'replicationStatus' => 'ReplicationStatus',
+        'replicationTargetOwnerId' => 'ReplicationTargetOwnerId',
         'replicationTargetRegionId' => 'ReplicationTargetRegionId',
+        'replicationTargetVaultId' => 'ReplicationTargetVaultId',
         'resourceGroupId' => 'ResourceGroupId',
         'retention' => 'Retention',
+        'rsTargetAccountIds' => 'RsTargetAccountIds',
         'searchEnabled' => 'SearchEnabled',
         'snapshotCount' => 'SnapshotCount',
         'sourceTypes' => 'SourceTypes',
@@ -254,6 +290,7 @@ class vault extends Model
         'updatedTime' => 'UpdatedTime',
         'vaultId' => 'VaultId',
         'vaultName' => 'VaultName',
+        'vaultOwnerId' => 'VaultOwnerId',
         'vaultRegionId' => 'VaultRegionId',
         'vaultStatusMessage' => 'VaultStatusMessage',
         'vaultStorageClass' => 'VaultStorageClass',
@@ -268,6 +305,9 @@ class vault extends Model
         }
         if (null !== $this->replicationProgress) {
             $this->replicationProgress->validate();
+        }
+        if (null !== $this->rsTargetAccountIds) {
+            $this->rsTargetAccountIds->validate();
         }
         if (null !== $this->sourceTypes) {
             $this->sourceTypes->validate();
@@ -364,6 +404,10 @@ class vault extends Model
             $res['ReplicationProgress'] = null !== $this->replicationProgress ? $this->replicationProgress->toArray($noStream) : $this->replicationProgress;
         }
 
+        if (null !== $this->replicationSourceOwnerId) {
+            $res['ReplicationSourceOwnerId'] = $this->replicationSourceOwnerId;
+        }
+
         if (null !== $this->replicationSourceRegionId) {
             $res['ReplicationSourceRegionId'] = $this->replicationSourceRegionId;
         }
@@ -376,8 +420,20 @@ class vault extends Model
             $res['ReplicationSourceVaultId'] = $this->replicationSourceVaultId;
         }
 
+        if (null !== $this->replicationStatus) {
+            $res['ReplicationStatus'] = $this->replicationStatus;
+        }
+
+        if (null !== $this->replicationTargetOwnerId) {
+            $res['ReplicationTargetOwnerId'] = $this->replicationTargetOwnerId;
+        }
+
         if (null !== $this->replicationTargetRegionId) {
             $res['ReplicationTargetRegionId'] = $this->replicationTargetRegionId;
+        }
+
+        if (null !== $this->replicationTargetVaultId) {
+            $res['ReplicationTargetVaultId'] = $this->replicationTargetVaultId;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -386,6 +442,10 @@ class vault extends Model
 
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
+        }
+
+        if (null !== $this->rsTargetAccountIds) {
+            $res['RsTargetAccountIds'] = null !== $this->rsTargetAccountIds ? $this->rsTargetAccountIds->toArray($noStream) : $this->rsTargetAccountIds;
         }
 
         if (null !== $this->searchEnabled) {
@@ -426,6 +486,10 @@ class vault extends Model
 
         if (null !== $this->vaultName) {
             $res['VaultName'] = $this->vaultName;
+        }
+
+        if (null !== $this->vaultOwnerId) {
+            $res['VaultOwnerId'] = $this->vaultOwnerId;
         }
 
         if (null !== $this->vaultRegionId) {
@@ -539,6 +603,10 @@ class vault extends Model
             $model->replicationProgress = replicationProgress::fromMap($map['ReplicationProgress']);
         }
 
+        if (isset($map['ReplicationSourceOwnerId'])) {
+            $model->replicationSourceOwnerId = $map['ReplicationSourceOwnerId'];
+        }
+
         if (isset($map['ReplicationSourceRegionId'])) {
             $model->replicationSourceRegionId = $map['ReplicationSourceRegionId'];
         }
@@ -551,8 +619,20 @@ class vault extends Model
             $model->replicationSourceVaultId = $map['ReplicationSourceVaultId'];
         }
 
+        if (isset($map['ReplicationStatus'])) {
+            $model->replicationStatus = $map['ReplicationStatus'];
+        }
+
+        if (isset($map['ReplicationTargetOwnerId'])) {
+            $model->replicationTargetOwnerId = $map['ReplicationTargetOwnerId'];
+        }
+
         if (isset($map['ReplicationTargetRegionId'])) {
             $model->replicationTargetRegionId = $map['ReplicationTargetRegionId'];
+        }
+
+        if (isset($map['ReplicationTargetVaultId'])) {
+            $model->replicationTargetVaultId = $map['ReplicationTargetVaultId'];
         }
 
         if (isset($map['ResourceGroupId'])) {
@@ -561,6 +641,10 @@ class vault extends Model
 
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
+        }
+
+        if (isset($map['RsTargetAccountIds'])) {
+            $model->rsTargetAccountIds = rsTargetAccountIds::fromMap($map['RsTargetAccountIds']);
         }
 
         if (isset($map['SearchEnabled'])) {
@@ -601,6 +685,10 @@ class vault extends Model
 
         if (isset($map['VaultName'])) {
             $model->vaultName = $map['VaultName'];
+        }
+
+        if (isset($map['VaultOwnerId'])) {
+            $model->vaultOwnerId = $map['VaultOwnerId'];
         }
 
         if (isset($map['VaultRegionId'])) {

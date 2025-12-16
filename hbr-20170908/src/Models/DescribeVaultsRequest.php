@@ -20,6 +20,11 @@ class DescribeVaultsRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $replication;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -45,6 +50,11 @@ class DescribeVaultsRequest extends Model
     public $vaultName;
 
     /**
+     * @var int
+     */
+    public $vaultOwnerId;
+
+    /**
      * @var string
      */
     public $vaultRegionId;
@@ -56,11 +66,13 @@ class DescribeVaultsRequest extends Model
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'replication' => 'Replication',
         'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
         'tag' => 'Tag',
         'vaultId' => 'VaultId',
         'vaultName' => 'VaultName',
+        'vaultOwnerId' => 'VaultOwnerId',
         'vaultRegionId' => 'VaultRegionId',
         'vaultType' => 'VaultType',
     ];
@@ -82,6 +94,10 @@ class DescribeVaultsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->replication) {
+            $res['Replication'] = $this->replication;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -111,6 +127,10 @@ class DescribeVaultsRequest extends Model
             $res['VaultName'] = $this->vaultName;
         }
 
+        if (null !== $this->vaultOwnerId) {
+            $res['VaultOwnerId'] = $this->vaultOwnerId;
+        }
+
         if (null !== $this->vaultRegionId) {
             $res['VaultRegionId'] = $this->vaultRegionId;
         }
@@ -138,6 +158,10 @@ class DescribeVaultsRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['Replication'])) {
+            $model->replication = $map['Replication'];
+        }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -163,6 +187,10 @@ class DescribeVaultsRequest extends Model
 
         if (isset($map['VaultName'])) {
             $model->vaultName = $map['VaultName'];
+        }
+
+        if (isset($map['VaultOwnerId'])) {
+            $model->vaultOwnerId = $map['VaultOwnerId'];
         }
 
         if (isset($map['VaultRegionId'])) {
