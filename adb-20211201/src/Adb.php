@@ -143,6 +143,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAuditLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAuditLogRecordsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAutoRenewalAttributeRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAutoRenewalAttributeResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAutoRenewalAttributeShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAvailableAdvicesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAvailableAdvicesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeBackupPolicyRequest;
@@ -415,6 +418,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsWorkloadNameRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsWorkloadNameResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAutoRenewalAttributeRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClickhouseEngineRequest;
@@ -6151,6 +6156,101 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAuditLogRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自动续费参数.
+     *
+     * @param tmpReq - DescribeAutoRenewalAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutoRenewalAttributeResponse
+     *
+     * @param DescribeAutoRenewalAttributeRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAutoRenewalAttributeResponse
+     */
+    public function describeAutoRenewalAttributeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeAutoRenewalAttributeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->DBClusterId) {
+            $request->DBClusterIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBClusterId, 'DBClusterId', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterIdShrink) {
+            @$query['DBClusterId'] = $request->DBClusterIdShrink;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAutoRenewalAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自动续费参数.
+     *
+     * @param request - DescribeAutoRenewalAttributeRequest
+     *
+     * @returns DescribeAutoRenewalAttributeResponse
+     *
+     * @param DescribeAutoRenewalAttributeRequest $request
+     *
+     * @return DescribeAutoRenewalAttributeResponse
+     */
+    public function describeAutoRenewalAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAutoRenewalAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -16715,6 +16815,95 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAuditLogConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改自动续费配置.
+     *
+     * @param request - ModifyAutoRenewalAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAutoRenewalAttributeResponse
+     *
+     * @param ModifyAutoRenewalAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyAutoRenewalAttributeResponse
+     */
+    public function modifyAutoRenewalAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenewalPeriod) {
+            @$query['AutoRenewalPeriod'] = $request->autoRenewalPeriod;
+        }
+
+        if (null !== $request->autoRenewalPeriodUnit) {
+            @$query['AutoRenewalPeriodUnit'] = $request->autoRenewalPeriodUnit;
+        }
+
+        if (null !== $request->autoRenewalStatus) {
+            @$query['AutoRenewalStatus'] = $request->autoRenewalStatus;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAutoRenewalAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改自动续费配置.
+     *
+     * @param request - ModifyAutoRenewalAttributeRequest
+     *
+     * @returns ModifyAutoRenewalAttributeResponse
+     *
+     * @param ModifyAutoRenewalAttributeRequest $request
+     *
+     * @return ModifyAutoRenewalAttributeResponse
+     */
+    public function modifyAutoRenewalAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAutoRenewalAttributeWithOptions($request, $runtime);
     }
 
     /**

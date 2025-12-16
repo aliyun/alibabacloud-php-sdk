@@ -1,0 +1,160 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Adb\V20211201\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ModifyAutoRenewalAttributeRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $autoRenewalPeriod;
+
+    /**
+     * @var string
+     */
+    public $autoRenewalPeriodUnit;
+
+    /**
+     * @var string
+     */
+    public $autoRenewalStatus;
+
+    /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+    protected $_name = [
+        'autoRenewalPeriod' => 'AutoRenewalPeriod',
+        'autoRenewalPeriodUnit' => 'AutoRenewalPeriodUnit',
+        'autoRenewalStatus' => 'AutoRenewalStatus',
+        'DBClusterId' => 'DBClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->autoRenewalPeriod) {
+            $res['AutoRenewalPeriod'] = $this->autoRenewalPeriod;
+        }
+
+        if (null !== $this->autoRenewalPeriodUnit) {
+            $res['AutoRenewalPeriodUnit'] = $this->autoRenewalPeriodUnit;
+        }
+
+        if (null !== $this->autoRenewalStatus) {
+            $res['AutoRenewalStatus'] = $this->autoRenewalStatus;
+        }
+
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AutoRenewalPeriod'])) {
+            $model->autoRenewalPeriod = $map['AutoRenewalPeriod'];
+        }
+
+        if (isset($map['AutoRenewalPeriodUnit'])) {
+            $model->autoRenewalPeriodUnit = $map['AutoRenewalPeriodUnit'];
+        }
+
+        if (isset($map['AutoRenewalStatus'])) {
+            $model->autoRenewalStatus = $map['AutoRenewalStatus'];
+        }
+
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        return $model;
+    }
+}
