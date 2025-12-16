@@ -29,6 +29,11 @@ class sessionConfig extends Model
     public $language;
 
     /**
+     * @var string[]
+     */
+    public $mcpServerIds;
+
+    /**
      * @var string
      */
     public $mode;
@@ -37,11 +42,15 @@ class sessionConfig extends Model
         'customAgentStage' => 'CustomAgentStage',
         'enableSearch' => 'EnableSearch',
         'language' => 'Language',
+        'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mcpServerIds)) {
+            Model::validateArray($this->mcpServerIds);
+        }
         parent::validate();
     }
 
@@ -62,6 +71,17 @@ class sessionConfig extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->mcpServerIds) {
+            if (\is_array($this->mcpServerIds)) {
+                $res['McpServerIds'] = [];
+                $n1 = 0;
+                foreach ($this->mcpServerIds as $item1) {
+                    $res['McpServerIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->mode) {
@@ -93,6 +113,17 @@ class sessionConfig extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['McpServerIds'])) {
+            if (!empty($map['McpServerIds'])) {
+                $model->mcpServerIds = [];
+                $n1 = 0;
+                foreach ($map['McpServerIds'] as $item1) {
+                    $model->mcpServerIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Mode'])) {
