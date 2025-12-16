@@ -26,11 +26,17 @@ class UpdateCloudAppInfoShrinkRequest extends Model
     /**
      * @var string
      */
+    public $pkgLabelsShrink;
+
+    /**
+     * @var string
+     */
     public $stablePatchId;
     protected $_name = [
         'appId' => 'AppId',
         'description' => 'Description',
         'patchShrink' => 'Patch',
+        'pkgLabelsShrink' => 'PkgLabels',
         'stablePatchId' => 'StablePatchId',
     ];
 
@@ -52,6 +58,10 @@ class UpdateCloudAppInfoShrinkRequest extends Model
 
         if (null !== $this->patchShrink) {
             $res['Patch'] = $this->patchShrink;
+        }
+
+        if (null !== $this->pkgLabelsShrink) {
+            $res['PkgLabels'] = $this->pkgLabelsShrink;
         }
 
         if (null !== $this->stablePatchId) {
@@ -79,6 +89,10 @@ class UpdateCloudAppInfoShrinkRequest extends Model
 
         if (isset($map['Patch'])) {
             $model->patchShrink = $map['Patch'];
+        }
+
+        if (isset($map['PkgLabels'])) {
+            $model->pkgLabelsShrink = $map['PkgLabels'];
         }
 
         if (isset($map['StablePatchId'])) {

@@ -383,6 +383,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadPublicKeyRequest;
@@ -12427,6 +12428,10 @@ class Vs extends OpenApiClient
             $request->patchShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->patch, 'Patch', 'json');
         }
 
+        if (null !== $tmpReq->pkgLabels) {
+            $request->pkgLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pkgLabels, 'PkgLabels', 'json');
+        }
+
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
@@ -12436,16 +12441,22 @@ class Vs extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
-        if (null !== $request->patchShrink) {
-            @$query['Patch'] = $request->patchShrink;
+        if (null !== $request->pkgLabelsShrink) {
+            @$query['PkgLabels'] = $request->pkgLabelsShrink;
         }
 
         if (null !== $request->stablePatchId) {
             @$query['StablePatchId'] = $request->stablePatchId;
         }
 
+        $body = [];
+        if (null !== $request->patchShrink) {
+            @$body['Patch'] = $request->patchShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateCloudAppInfo',
@@ -12836,19 +12847,25 @@ class Vs extends OpenApiClient
     /**
      * 应用上架.
      *
-     * @param request - UploadCloudAppRequest
+     * @param tmpReq - UploadCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UploadCloudAppResponse
      *
-     * @param UploadCloudAppRequest $request
+     * @param UploadCloudAppRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return UploadCloudAppResponse
      */
-    public function uploadCloudAppWithOptions($request, $runtime)
+    public function uploadCloudAppWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UploadCloudAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pkgLabels) {
+            $request->pkgLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pkgLabels, 'PkgLabels', 'json');
+        }
+
         $query = [];
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
@@ -12872,6 +12889,10 @@ class Vs extends OpenApiClient
 
         if (null !== $request->pkgFormat) {
             @$query['PkgFormat'] = $request->pkgFormat;
+        }
+
+        if (null !== $request->pkgLabelsShrink) {
+            @$query['PkgLabels'] = $request->pkgLabelsShrink;
         }
 
         if (null !== $request->pkgType) {

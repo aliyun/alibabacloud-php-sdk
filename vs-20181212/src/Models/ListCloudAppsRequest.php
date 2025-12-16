@@ -29,6 +29,11 @@ class ListCloudAppsRequest extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $latestVersionOnly;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -41,21 +46,34 @@ class ListCloudAppsRequest extends Model
     /**
      * @var string
      */
+    public $pkgLabel;
+
+    /**
+     * @var string
+     */
     public $pkgType;
 
     /**
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'appId' => 'AppId',
         'appName' => 'AppName',
         'appVersion' => 'AppVersion',
         'endTime' => 'EndTime',
+        'latestVersionOnly' => 'LatestVersionOnly',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'pkgLabel' => 'PkgLabel',
         'pkgType' => 'PkgType',
         'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -82,6 +100,10 @@ class ListCloudAppsRequest extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->latestVersionOnly) {
+            $res['LatestVersionOnly'] = $this->latestVersionOnly;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -90,12 +112,20 @@ class ListCloudAppsRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->pkgLabel) {
+            $res['PkgLabel'] = $this->pkgLabel;
+        }
+
         if (null !== $this->pkgType) {
             $res['PkgType'] = $this->pkgType;
         }
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -125,6 +155,10 @@ class ListCloudAppsRequest extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['LatestVersionOnly'])) {
+            $model->latestVersionOnly = $map['LatestVersionOnly'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -133,12 +167,20 @@ class ListCloudAppsRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['PkgLabel'])) {
+            $model->pkgLabel = $map['PkgLabel'];
+        }
+
         if (isset($map['PkgType'])) {
             $model->pkgType = $map['PkgType'];
         }
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

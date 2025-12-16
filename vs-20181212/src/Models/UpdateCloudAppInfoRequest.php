@@ -25,6 +25,11 @@ class UpdateCloudAppInfoRequest extends Model
     public $patch;
 
     /**
+     * @var string[]
+     */
+    public $pkgLabels;
+
+    /**
      * @var string
      */
     public $stablePatchId;
@@ -32,6 +37,7 @@ class UpdateCloudAppInfoRequest extends Model
         'appId' => 'AppId',
         'description' => 'Description',
         'patch' => 'Patch',
+        'pkgLabels' => 'PkgLabels',
         'stablePatchId' => 'StablePatchId',
     ];
 
@@ -39,6 +45,9 @@ class UpdateCloudAppInfoRequest extends Model
     {
         if (null !== $this->patch) {
             $this->patch->validate();
+        }
+        if (\is_array($this->pkgLabels)) {
+            Model::validateArray($this->pkgLabels);
         }
         parent::validate();
     }
@@ -56,6 +65,17 @@ class UpdateCloudAppInfoRequest extends Model
 
         if (null !== $this->patch) {
             $res['Patch'] = null !== $this->patch ? $this->patch->toArray($noStream) : $this->patch;
+        }
+
+        if (null !== $this->pkgLabels) {
+            if (\is_array($this->pkgLabels)) {
+                $res['PkgLabels'] = [];
+                $n1 = 0;
+                foreach ($this->pkgLabels as $item1) {
+                    $res['PkgLabels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->stablePatchId) {
@@ -83,6 +103,17 @@ class UpdateCloudAppInfoRequest extends Model
 
         if (isset($map['Patch'])) {
             $model->patch = patch::fromMap($map['Patch']);
+        }
+
+        if (isset($map['PkgLabels'])) {
+            if (!empty($map['PkgLabels'])) {
+                $model->pkgLabels = [];
+                $n1 = 0;
+                foreach ($map['PkgLabels'] as $item1) {
+                    $model->pkgLabels[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StablePatchId'])) {

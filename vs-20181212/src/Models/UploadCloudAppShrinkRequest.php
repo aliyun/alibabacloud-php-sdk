@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UploadCloudAppRequest extends Model
+class UploadCloudAppShrinkRequest extends Model
 {
     /**
      * @var string
@@ -39,9 +39,9 @@ class UploadCloudAppRequest extends Model
     public $pkgFormat;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $pkgLabels;
+    public $pkgLabelsShrink;
 
     /**
      * @var string
@@ -54,15 +54,12 @@ class UploadCloudAppRequest extends Model
         'downloadUrl' => 'DownloadUrl',
         'md5' => 'Md5',
         'pkgFormat' => 'PkgFormat',
-        'pkgLabels' => 'PkgLabels',
+        'pkgLabelsShrink' => 'PkgLabels',
         'pkgType' => 'PkgType',
     ];
 
     public function validate()
     {
-        if (\is_array($this->pkgLabels)) {
-            Model::validateArray($this->pkgLabels);
-        }
         parent::validate();
     }
 
@@ -93,15 +90,8 @@ class UploadCloudAppRequest extends Model
             $res['PkgFormat'] = $this->pkgFormat;
         }
 
-        if (null !== $this->pkgLabels) {
-            if (\is_array($this->pkgLabels)) {
-                $res['PkgLabels'] = [];
-                $n1 = 0;
-                foreach ($this->pkgLabels as $item1) {
-                    $res['PkgLabels'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->pkgLabelsShrink) {
+            $res['PkgLabels'] = $this->pkgLabelsShrink;
         }
 
         if (null !== $this->pkgType) {
@@ -144,14 +134,7 @@ class UploadCloudAppRequest extends Model
         }
 
         if (isset($map['PkgLabels'])) {
-            if (!empty($map['PkgLabels'])) {
-                $model->pkgLabels = [];
-                $n1 = 0;
-                foreach ($map['PkgLabels'] as $item1) {
-                    $model->pkgLabels[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->pkgLabelsShrink = $map['PkgLabels'];
         }
 
         if (isset($map['PkgType'])) {
