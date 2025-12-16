@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteSceneConfigResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteWhitelistSettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteWhitelistSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeAntAndCloudAuthUserStatusResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeAuthVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeAuthVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCloudauthstSceneListRequest;
@@ -146,6 +148,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitAuthVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitAuthVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
@@ -2798,6 +2802,67 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAntAndCloudAuthUserStatusWithOptions($runtime);
+    }
+
+    /**
+     * 获取结果.
+     *
+     * @param Request - DescribeAuthVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuthVerifyResponse
+     *
+     * @param DescribeAuthVerifyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAuthVerifyResponse
+     */
+    public function describeAuthVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->certifyId) {
+            @$body['CertifyId'] = $request->certifyId;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAuthVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAuthVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取结果.
+     *
+     * @param Request - DescribeAuthVerifyRequest
+     *
+     * @returns DescribeAuthVerifyResponse
+     *
+     * @param DescribeAuthVerifyRequest $request
+     *
+     * @return DescribeAuthVerifyResponse
+     */
+    public function describeAuthVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAuthVerifyWithOptions($request, $runtime);
     }
 
     /**
@@ -6132,6 +6197,99 @@ class Cloudauth extends OpenApiClient
         }
 
         return $this->id3MetaVerifyWithOCRWithOptions($id3MetaVerifyWithOCRReq, $runtime);
+    }
+
+    /**
+     * 服务端初始化.
+     *
+     * @param Request - InitAuthVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitAuthVerifyResponse
+     *
+     * @param InitAuthVerifyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InitAuthVerifyResponse
+     */
+    public function initAuthVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->callbackToken) {
+            @$body['CallbackToken'] = $request->callbackToken;
+        }
+
+        if (null !== $request->callbackUrl) {
+            @$body['CallbackUrl'] = $request->callbackUrl;
+        }
+
+        if (null !== $request->cardPageNumber) {
+            @$body['CardPageNumber'] = $request->cardPageNumber;
+        }
+
+        if (null !== $request->cardType) {
+            @$body['CardType'] = $request->cardType;
+        }
+
+        if (null !== $request->docScanMode) {
+            @$body['DocScanMode'] = $request->docScanMode;
+        }
+
+        if (null !== $request->idSpoof) {
+            @$body['IdSpoof'] = $request->idSpoof;
+        }
+
+        if (null !== $request->metaInfo) {
+            @$body['MetaInfo'] = $request->metaInfo;
+        }
+
+        if (null !== $request->outerOrderNo) {
+            @$body['OuterOrderNo'] = $request->outerOrderNo;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InitAuthVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitAuthVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 服务端初始化.
+     *
+     * @param Request - InitAuthVerifyRequest
+     *
+     * @returns InitAuthVerifyResponse
+     *
+     * @param InitAuthVerifyRequest $request
+     *
+     * @return InitAuthVerifyResponse
+     */
+    public function initAuthVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initAuthVerifyWithOptions($request, $runtime);
     }
 
     /**
