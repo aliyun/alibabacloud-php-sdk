@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\document\metadata;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\document\multimodalMedias;
 
 class document extends Model
@@ -50,6 +51,11 @@ class document extends Model
     public $extend3;
 
     /**
+     * @var metadata
+     */
+    public $metadata;
+
+    /**
      * @var string
      */
     public $multimodalIndexName;
@@ -92,6 +98,7 @@ class document extends Model
         'extend1' => 'Extend1',
         'extend2' => 'Extend2',
         'extend3' => 'Extend3',
+        'metadata' => 'Metadata',
         'multimodalIndexName' => 'MultimodalIndexName',
         'multimodalMedias' => 'MultimodalMedias',
         'pubTime' => 'PubTime',
@@ -103,6 +110,9 @@ class document extends Model
 
     public function validate()
     {
+        if (null !== $this->metadata) {
+            $this->metadata->validate();
+        }
         if (\is_array($this->multimodalMedias)) {
             Model::validateArray($this->multimodalMedias);
         }
@@ -142,6 +152,10 @@ class document extends Model
 
         if (null !== $this->extend3) {
             $res['Extend3'] = $this->extend3;
+        }
+
+        if (null !== $this->metadata) {
+            $res['Metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
         }
 
         if (null !== $this->multimodalIndexName) {
@@ -220,6 +234,10 @@ class document extends Model
 
         if (isset($map['Extend3'])) {
             $model->extend3 = $map['Extend3'];
+        }
+
+        if (isset($map['Metadata'])) {
+            $model->metadata = metadata::fromMap($map['Metadata']);
         }
 
         if (isset($map['MultimodalIndexName'])) {

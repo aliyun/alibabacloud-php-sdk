@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetDocumentResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetDocumentResponseBody\data\metadata;
 
 class data extends Model
 {
@@ -26,7 +27,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $docType;
+
+    /**
+     * @var string
+     */
     public $docUuid;
+
+    /**
+     * @var metadata
+     */
+    public $metadata;
 
     /**
      * @var string
@@ -37,6 +48,11 @@ class data extends Model
      * @var string
      */
     public $sourceFrom;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var string
@@ -56,9 +72,12 @@ class data extends Model
         'content' => 'Content',
         'disableHandleMultimodalMedia' => 'DisableHandleMultimodalMedia',
         'docId' => 'DocId',
+        'docType' => 'DocType',
         'docUuid' => 'DocUuid',
+        'metadata' => 'Metadata',
         'pubTime' => 'PubTime',
         'sourceFrom' => 'SourceFrom',
+        'status' => 'Status',
         'summary' => 'Summary',
         'title' => 'Title',
         'url' => 'Url',
@@ -66,6 +85,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->metadata) {
+            $this->metadata->validate();
+        }
         parent::validate();
     }
 
@@ -84,8 +106,16 @@ class data extends Model
             $res['DocId'] = $this->docId;
         }
 
+        if (null !== $this->docType) {
+            $res['DocType'] = $this->docType;
+        }
+
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
+        }
+
+        if (null !== $this->metadata) {
+            $res['Metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
         }
 
         if (null !== $this->pubTime) {
@@ -94,6 +124,10 @@ class data extends Model
 
         if (null !== $this->sourceFrom) {
             $res['SourceFrom'] = $this->sourceFrom;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->summary) {
@@ -131,8 +165,16 @@ class data extends Model
             $model->docId = $map['DocId'];
         }
 
+        if (isset($map['DocType'])) {
+            $model->docType = $map['DocType'];
+        }
+
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
+        }
+
+        if (isset($map['Metadata'])) {
+            $model->metadata = metadata::fromMap($map['Metadata']);
         }
 
         if (isset($map['PubTime'])) {
@@ -141,6 +183,10 @@ class data extends Model
 
         if (isset($map['SourceFrom'])) {
             $model->sourceFrom = $map['SourceFrom'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Summary'])) {

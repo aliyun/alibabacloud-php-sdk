@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDatasetDocumentRequest extends Model
+class GetDatasetDocumentShrinkRequest extends Model
 {
     /**
      * @var int
@@ -29,9 +29,9 @@ class GetDatasetDocumentRequest extends Model
     public $docUuid;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $includeFields;
+    public $includeFieldsShrink;
 
     /**
      * @var string
@@ -42,15 +42,12 @@ class GetDatasetDocumentRequest extends Model
         'datasetName' => 'DatasetName',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
-        'includeFields' => 'IncludeFields',
+        'includeFieldsShrink' => 'IncludeFields',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->includeFields)) {
-            Model::validateArray($this->includeFields);
-        }
         parent::validate();
     }
 
@@ -73,15 +70,8 @@ class GetDatasetDocumentRequest extends Model
             $res['DocUuid'] = $this->docUuid;
         }
 
-        if (null !== $this->includeFields) {
-            if (\is_array($this->includeFields)) {
-                $res['IncludeFields'] = [];
-                $n1 = 0;
-                foreach ($this->includeFields as $item1) {
-                    $res['IncludeFields'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->includeFieldsShrink) {
+            $res['IncludeFields'] = $this->includeFieldsShrink;
         }
 
         if (null !== $this->workspaceId) {
@@ -116,14 +106,7 @@ class GetDatasetDocumentRequest extends Model
         }
 
         if (isset($map['IncludeFields'])) {
-            if (!empty($map['IncludeFields'])) {
-                $model->includeFields = [];
-                $n1 = 0;
-                foreach ($map['IncludeFields'] as $item1) {
-                    $model->includeFields[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->includeFieldsShrink = $map['IncludeFields'];
         }
 
         if (isset($map['WorkspaceId'])) {

@@ -150,6 +150,7 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiv
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetDocumentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetDocumentShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
@@ -4960,19 +4961,25 @@ class AiMiaoBi extends OpenApiClient
     /**
      * 获取数据集文档.
      *
-     * @param request - GetDatasetDocumentRequest
+     * @param tmpReq - GetDatasetDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDatasetDocumentResponse
      *
-     * @param GetDatasetDocumentRequest $request
+     * @param GetDatasetDocumentRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return GetDatasetDocumentResponse
      */
-    public function getDatasetDocumentWithOptions($request, $runtime)
+    public function getDatasetDocumentWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetDatasetDocumentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->includeFields) {
+            $request->includeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeFields, 'IncludeFields', 'json');
+        }
+
         $body = [];
         if (null !== $request->datasetId) {
             @$body['DatasetId'] = $request->datasetId;
@@ -4988,6 +4995,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->docUuid) {
             @$body['DocUuid'] = $request->docUuid;
+        }
+
+        if (null !== $request->includeFieldsShrink) {
+            @$body['IncludeFields'] = $request->includeFieldsShrink;
         }
 
         if (null !== $request->workspaceId) {
