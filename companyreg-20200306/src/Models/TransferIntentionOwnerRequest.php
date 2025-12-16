@@ -19,6 +19,11 @@ class TransferIntentionOwnerRequest extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $employeeCode;
+
+    /**
      * @var int
      */
     public $personId;
@@ -30,6 +35,7 @@ class TransferIntentionOwnerRequest extends Model
     protected $_name = [
         'bizId' => 'BizId',
         'bizType' => 'BizType',
+        'employeeCode' => 'EmployeeCode',
         'personId' => 'PersonId',
         'remark' => 'Remark',
     ];
@@ -48,6 +54,10 @@ class TransferIntentionOwnerRequest extends Model
 
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->employeeCode) {
+            $res['EmployeeCode'] = $this->employeeCode;
         }
 
         if (null !== $this->personId) {
@@ -75,6 +85,10 @@ class TransferIntentionOwnerRequest extends Model
 
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['EmployeeCode'])) {
+            $model->employeeCode = $map['EmployeeCode'];
         }
 
         if (isset($map['PersonId'])) {

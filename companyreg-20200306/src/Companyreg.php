@@ -177,6 +177,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 服务单授权.
+     *
      * @param request - BindProduceAuthorizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -222,6 +224,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 服务单授权.
+     *
      * @param request - BindProduceAuthorizationRequest
      *
      * @returns BindProduceAuthorizationResponse
@@ -2517,6 +2521,10 @@ class Companyreg extends OpenApiClient
             @$query['BizType'] = $request->bizType;
         }
 
+        if (null !== $request->employeeCode) {
+            @$query['EmployeeCode'] = $request->employeeCode;
+        }
+
         if (null !== $request->personId) {
             @$query['PersonId'] = $request->personId;
         }
@@ -2584,6 +2592,10 @@ class Companyreg extends OpenApiClient
 
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->employeeCode) {
+            @$query['EmployeeCode'] = $request->employeeCode;
         }
 
         if (null !== $request->personId) {
