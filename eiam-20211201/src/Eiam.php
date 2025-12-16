@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeRequest;
@@ -354,6 +356,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAdvancedConfigRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAdvancedConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAuthorizationTypeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAuthorizationTypeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationClientSecretExpirationTimeRequest;
@@ -5517,6 +5521,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取应用高阶配置.
+     *
+     * @param request - GetApplicationAdvancedConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationAdvancedConfigResponse
+     *
+     * @param GetApplicationAdvancedConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetApplicationAdvancedConfigResponse
+     */
+    public function getApplicationAdvancedConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationAdvancedConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationAdvancedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用高阶配置.
+     *
+     * @param request - GetApplicationAdvancedConfigRequest
+     *
+     * @returns GetApplicationAdvancedConfigResponse
+     *
+     * @param GetApplicationAdvancedConfigRequest $request
+     *
+     * @return GetApplicationAdvancedConfigResponse
+     */
+    public function getApplicationAdvancedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationAdvancedConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -12230,6 +12295,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unlockUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用高阶配置.
+     *
+     * @param request - UpdateApplicationAdvancedConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationAdvancedConfigResponse
+     *
+     * @param UpdateApplicationAdvancedConfigRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateApplicationAdvancedConfigResponse
+     */
+    public function updateApplicationAdvancedConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scimServerAdvancedConfig) {
+            @$query['ScimServerAdvancedConfig'] = $request->scimServerAdvancedConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationAdvancedConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationAdvancedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用高阶配置.
+     *
+     * @param request - UpdateApplicationAdvancedConfigRequest
+     *
+     * @returns UpdateApplicationAdvancedConfigResponse
+     *
+     * @param UpdateApplicationAdvancedConfigRequest $request
+     *
+     * @return UpdateApplicationAdvancedConfigResponse
+     */
+    public function updateApplicationAdvancedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationAdvancedConfigWithOptions($request, $runtime);
     }
 
     /**
