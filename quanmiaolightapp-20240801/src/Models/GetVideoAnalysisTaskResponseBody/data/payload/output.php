@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\addDatasetDocumentsResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoAnalysisResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoCalculatorResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoCaptionResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoGenerateResult;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoGenerateResults;
@@ -16,6 +18,11 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRespo
 class output extends Model
 {
     /**
+     * @var addDatasetDocumentsResult
+     */
+    public $addDatasetDocumentsResult;
+
+    /**
      * @var string
      */
     public $resultJsonFileUrl;
@@ -24,6 +31,11 @@ class output extends Model
      * @var videoAnalysisResult
      */
     public $videoAnalysisResult;
+
+    /**
+     * @var videoCalculatorResult
+     */
+    public $videoCalculatorResult;
 
     /**
      * @var videoCaptionResult
@@ -55,8 +67,10 @@ class output extends Model
      */
     public $videoTitleGenerateResult;
     protected $_name = [
+        'addDatasetDocumentsResult' => 'addDatasetDocumentsResult',
         'resultJsonFileUrl' => 'resultJsonFileUrl',
         'videoAnalysisResult' => 'videoAnalysisResult',
+        'videoCalculatorResult' => 'videoCalculatorResult',
         'videoCaptionResult' => 'videoCaptionResult',
         'videoGenerateResult' => 'videoGenerateResult',
         'videoGenerateResults' => 'videoGenerateResults',
@@ -67,8 +81,14 @@ class output extends Model
 
     public function validate()
     {
+        if (null !== $this->addDatasetDocumentsResult) {
+            $this->addDatasetDocumentsResult->validate();
+        }
         if (null !== $this->videoAnalysisResult) {
             $this->videoAnalysisResult->validate();
+        }
+        if (null !== $this->videoCalculatorResult) {
+            $this->videoCalculatorResult->validate();
         }
         if (null !== $this->videoCaptionResult) {
             $this->videoCaptionResult->validate();
@@ -94,12 +114,20 @@ class output extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addDatasetDocumentsResult) {
+            $res['addDatasetDocumentsResult'] = null !== $this->addDatasetDocumentsResult ? $this->addDatasetDocumentsResult->toArray($noStream) : $this->addDatasetDocumentsResult;
+        }
+
         if (null !== $this->resultJsonFileUrl) {
             $res['resultJsonFileUrl'] = $this->resultJsonFileUrl;
         }
 
         if (null !== $this->videoAnalysisResult) {
             $res['videoAnalysisResult'] = null !== $this->videoAnalysisResult ? $this->videoAnalysisResult->toArray($noStream) : $this->videoAnalysisResult;
+        }
+
+        if (null !== $this->videoCalculatorResult) {
+            $res['videoCalculatorResult'] = null !== $this->videoCalculatorResult ? $this->videoCalculatorResult->toArray($noStream) : $this->videoCalculatorResult;
         }
 
         if (null !== $this->videoCaptionResult) {
@@ -144,12 +172,20 @@ class output extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['addDatasetDocumentsResult'])) {
+            $model->addDatasetDocumentsResult = addDatasetDocumentsResult::fromMap($map['addDatasetDocumentsResult']);
+        }
+
         if (isset($map['resultJsonFileUrl'])) {
             $model->resultJsonFileUrl = $map['resultJsonFileUrl'];
         }
 
         if (isset($map['videoAnalysisResult'])) {
             $model->videoAnalysisResult = videoAnalysisResult::fromMap($map['videoAnalysisResult']);
+        }
+
+        if (isset($map['videoCalculatorResult'])) {
+            $model->videoCalculatorResult = videoCalculatorResult::fromMap($map['videoCalculatorResult']);
         }
 
         if (isset($map['videoCaptionResult'])) {

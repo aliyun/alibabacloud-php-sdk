@@ -11,6 +11,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $addDocumentParamShrink;
+
+    /**
+     * @var string
+     */
     public $autoRoleRecognitionVideoUrl;
 
     /**
@@ -118,6 +123,7 @@ class RunVideoAnalysisShrinkRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'addDocumentParamShrink' => 'addDocumentParam',
         'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
         'excludeGenerateOptionsShrink' => 'excludeGenerateOptions',
         'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
@@ -150,6 +156,10 @@ class RunVideoAnalysisShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addDocumentParamShrink) {
+            $res['addDocumentParam'] = $this->addDocumentParamShrink;
+        }
+
         if (null !== $this->autoRoleRecognitionVideoUrl) {
             $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
         }
@@ -249,6 +259,10 @@ class RunVideoAnalysisShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['addDocumentParam'])) {
+            $model->addDocumentParamShrink = $map['addDocumentParam'];
+        }
+
         if (isset($map['autoRoleRecognitionVideoUrl'])) {
             $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
         }

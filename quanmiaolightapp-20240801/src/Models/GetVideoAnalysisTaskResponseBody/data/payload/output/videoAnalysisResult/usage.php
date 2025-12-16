@@ -11,6 +11,11 @@ class usage extends Model
     /**
      * @var int
      */
+    public $imageTokens;
+
+    /**
+     * @var int
+     */
     public $inputTokens;
 
     /**
@@ -23,6 +28,7 @@ class usage extends Model
      */
     public $totalTokens;
     protected $_name = [
+        'imageTokens' => 'imageTokens',
         'inputTokens' => 'inputTokens',
         'outputTokens' => 'outputTokens',
         'totalTokens' => 'totalTokens',
@@ -36,6 +42,10 @@ class usage extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->imageTokens) {
+            $res['imageTokens'] = $this->imageTokens;
+        }
+
         if (null !== $this->inputTokens) {
             $res['inputTokens'] = $this->inputTokens;
         }
@@ -59,6 +69,10 @@ class usage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['imageTokens'])) {
+            $model->imageTokens = $map['imageTokens'];
+        }
+
         if (isset($map['inputTokens'])) {
             $model->inputTokens = $map['inputTokens'];
         }

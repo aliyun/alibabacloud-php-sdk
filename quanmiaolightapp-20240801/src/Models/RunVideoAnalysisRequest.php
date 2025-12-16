@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\addDocumentParam;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\frameSampleMethod;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\textProcessTasks;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoCaptionInfo;
@@ -12,6 +13,11 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\v
 
 class RunVideoAnalysisRequest extends Model
 {
+    /**
+     * @var addDocumentParam
+     */
+    public $addDocumentParam;
+
     /**
      * @var string
      */
@@ -122,6 +128,7 @@ class RunVideoAnalysisRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'addDocumentParam' => 'addDocumentParam',
         'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
         'excludeGenerateOptions' => 'excludeGenerateOptions',
         'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
@@ -148,6 +155,9 @@ class RunVideoAnalysisRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->addDocumentParam) {
+            $this->addDocumentParam->validate();
+        }
         if (\is_array($this->excludeGenerateOptions)) {
             Model::validateArray($this->excludeGenerateOptions);
         }
@@ -172,6 +182,10 @@ class RunVideoAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addDocumentParam) {
+            $res['addDocumentParam'] = null !== $this->addDocumentParam ? $this->addDocumentParam->toArray($noStream) : $this->addDocumentParam;
+        }
+
         if (null !== $this->autoRoleRecognitionVideoUrl) {
             $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
         }
@@ -299,6 +313,10 @@ class RunVideoAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['addDocumentParam'])) {
+            $model->addDocumentParam = addDocumentParam::fromMap($map['addDocumentParam']);
+        }
+
         if (isset($map['autoRoleRecognitionVideoUrl'])) {
             $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
         }

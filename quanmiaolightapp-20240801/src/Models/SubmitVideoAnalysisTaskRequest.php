@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\addDocumentParam;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\frameSampleMethod;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\textProcessTasks;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\videoCaptionInfo;
@@ -12,6 +13,11 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRe
 
 class SubmitVideoAnalysisTaskRequest extends Model
 {
+    /**
+     * @var addDocumentParam
+     */
+    public $addDocumentParam;
+
     /**
      * @var string
      */
@@ -117,6 +123,7 @@ class SubmitVideoAnalysisTaskRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
+        'addDocumentParam' => 'addDocumentParam',
         'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
         'deduplicationId' => 'deduplicationId',
         'excludeGenerateOptions' => 'excludeGenerateOptions',
@@ -142,6 +149,9 @@ class SubmitVideoAnalysisTaskRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->addDocumentParam) {
+            $this->addDocumentParam->validate();
+        }
         if (\is_array($this->excludeGenerateOptions)) {
             Model::validateArray($this->excludeGenerateOptions);
         }
@@ -166,6 +176,10 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addDocumentParam) {
+            $res['addDocumentParam'] = null !== $this->addDocumentParam ? $this->addDocumentParam->toArray($noStream) : $this->addDocumentParam;
+        }
+
         if (null !== $this->autoRoleRecognitionVideoUrl) {
             $res['autoRoleRecognitionVideoUrl'] = $this->autoRoleRecognitionVideoUrl;
         }
@@ -289,6 +303,10 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['addDocumentParam'])) {
+            $model->addDocumentParam = addDocumentParam::fromMap($map['addDocumentParam']);
+        }
+
         if (isset($map['autoRoleRecognitionVideoUrl'])) {
             $model->autoRoleRecognitionVideoUrl = $map['autoRoleRecognitionVideoUrl'];
         }

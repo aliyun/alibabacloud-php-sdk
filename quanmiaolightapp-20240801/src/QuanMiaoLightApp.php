@@ -3472,6 +3472,10 @@ class QuanMiaoLightApp extends OpenApiClient
         $tmpReq->validate();
         $request = new RunVideoAnalysisShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addDocumentParam) {
+            $request->addDocumentParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addDocumentParam, 'addDocumentParam', 'json');
+        }
+
         if (null !== $tmpReq->excludeGenerateOptions) {
             $request->excludeGenerateOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeGenerateOptions, 'excludeGenerateOptions', 'json');
         }
@@ -3497,6 +3501,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->addDocumentParamShrink) {
+            @$body['addDocumentParam'] = $request->addDocumentParamShrink;
+        }
+
         if (null !== $request->autoRoleRecognitionVideoUrl) {
             @$body['autoRoleRecognitionVideoUrl'] = $request->autoRoleRecognitionVideoUrl;
         }
@@ -3637,6 +3645,10 @@ class QuanMiaoLightApp extends OpenApiClient
         $tmpReq->validate();
         $request = new RunVideoAnalysisShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addDocumentParam) {
+            $request->addDocumentParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addDocumentParam, 'addDocumentParam', 'json');
+        }
+
         if (null !== $tmpReq->excludeGenerateOptions) {
             $request->excludeGenerateOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeGenerateOptions, 'excludeGenerateOptions', 'json');
         }
@@ -3662,6 +3674,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->addDocumentParamShrink) {
+            @$body['addDocumentParam'] = $request->addDocumentParamShrink;
+        }
+
         if (null !== $request->autoRoleRecognitionVideoUrl) {
             @$body['autoRoleRecognitionVideoUrl'] = $request->autoRoleRecognitionVideoUrl;
         }
@@ -4367,6 +4383,10 @@ class QuanMiaoLightApp extends OpenApiClient
         $tmpReq->validate();
         $request = new SubmitVideoAnalysisTaskShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addDocumentParam) {
+            $request->addDocumentParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addDocumentParam, 'addDocumentParam', 'json');
+        }
+
         if (null !== $tmpReq->excludeGenerateOptions) {
             $request->excludeGenerateOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeGenerateOptions, 'excludeGenerateOptions', 'json');
         }
@@ -4392,6 +4412,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->addDocumentParamShrink) {
+            @$body['addDocumentParam'] = $request->addDocumentParamShrink;
+        }
+
         if (null !== $request->autoRoleRecognitionVideoUrl) {
             @$body['autoRoleRecognitionVideoUrl'] = $request->autoRoleRecognitionVideoUrl;
         }
