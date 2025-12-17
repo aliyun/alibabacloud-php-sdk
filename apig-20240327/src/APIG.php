@@ -159,6 +159,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
@@ -6875,6 +6877,101 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updatePolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新服务
+     *
+     * @param request - UpdateServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceResponse
+     *
+     * @param string               $serviceId
+     * @param UpdateServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateServiceResponse
+     */
+    public function updateServiceWithOptions($serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->addresses) {
+            @$body['addresses'] = $request->addresses;
+        }
+
+        if (null !== $request->agentServiceConfig) {
+            @$body['agentServiceConfig'] = $request->agentServiceConfig;
+        }
+
+        if (null !== $request->aiServiceConfig) {
+            @$body['aiServiceConfig'] = $request->aiServiceConfig;
+        }
+
+        if (null !== $request->dnsServers) {
+            @$body['dnsServers'] = $request->dnsServers;
+        }
+
+        if (null !== $request->healthCheckConfig) {
+            @$body['healthCheckConfig'] = $request->healthCheckConfig;
+        }
+
+        if (null !== $request->healthyPanicThreshold) {
+            @$body['healthyPanicThreshold'] = $request->healthyPanicThreshold;
+        }
+
+        if (null !== $request->outlierDetectionConfig) {
+            @$body['outlierDetectionConfig'] = $request->outlierDetectionConfig;
+        }
+
+        if (null !== $request->ports) {
+            @$body['ports'] = $request->ports;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateService',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新服务
+     *
+     * @param request - UpdateServiceRequest
+     *
+     * @returns UpdateServiceResponse
+     *
+     * @param string               $serviceId
+     * @param UpdateServiceRequest $request
+     *
+     * @return UpdateServiceResponse
+     */
+    public function updateService($serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceWithOptions($serviceId, $request, $headers, $runtime);
     }
 
     /**
