@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DeactivateScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeactivateScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteAlarmRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteAlarmResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteDiagnoseReportRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteDiagnoseReportResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteEciScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteEciScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteLifecycleHookRequest;
@@ -3138,6 +3140,59 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAlarmWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteDiagnoseReport.
+     *
+     * @param request - DeleteDiagnoseReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDiagnoseReportResponse
+     *
+     * @param DeleteDiagnoseReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDiagnoseReportResponse
+     */
+    public function deleteDiagnoseReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDiagnoseReport',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteDiagnoseReport.
+     *
+     * @param request - DeleteDiagnoseReportRequest
+     *
+     * @returns DeleteDiagnoseReportResponse
+     *
+     * @param DeleteDiagnoseReportRequest $request
+     *
+     * @return DeleteDiagnoseReportResponse
+     */
+    public function deleteDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiagnoseReportWithOptions($request, $runtime);
     }
 
     /**
