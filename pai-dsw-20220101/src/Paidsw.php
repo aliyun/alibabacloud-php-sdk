@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceShutdownTimerRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateSanityCheckTaskRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateSanityCheckTaskResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsResponse;
@@ -39,6 +41,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetMetricsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetMetricsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetSanityCheckTaskRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetSanityCheckTaskResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserCommandRequest;
@@ -556,6 +560,69 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->createInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建一个健康检查任务
+     *
+     * @param request - CreateSanityCheckTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSanityCheckTaskResponse
+     *
+     * @param string                       $CheckType
+     * @param CreateSanityCheckTaskRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSanityCheckTaskResponse
+     */
+    public function createSanityCheckTaskWithOptions($CheckType, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSanityCheckTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/sanitychecks/' . Url::percentEncode($CheckType) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSanityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个健康检查任务
+     *
+     * @param request - CreateSanityCheckTaskRequest
+     *
+     * @returns CreateSanityCheckTaskResponse
+     *
+     * @param string                       $CheckType
+     * @param CreateSanityCheckTaskRequest $request
+     *
+     * @return CreateSanityCheckTaskResponse
+     */
+    public function createSanityCheckTask($CheckType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSanityCheckTaskWithOptions($CheckType, $request, $headers, $runtime);
     }
 
     /**
@@ -1511,6 +1578,71 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->getResourceGroupStatisticsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询健康检查任务结果.
+     *
+     * @param request - GetSanityCheckTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSanityCheckTaskResponse
+     *
+     * @param string                    $CheckType
+     * @param string                    $TaskId
+     * @param GetSanityCheckTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSanityCheckTaskResponse
+     */
+    public function getSanityCheckTaskWithOptions($CheckType, $TaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSanityCheckTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/sanitychecks/' . Url::percentEncode($CheckType) . '/' . Url::percentEncode($TaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSanityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询健康检查任务结果.
+     *
+     * @param request - GetSanityCheckTaskRequest
+     *
+     * @returns GetSanityCheckTaskResponse
+     *
+     * @param string                    $CheckType
+     * @param string                    $TaskId
+     * @param GetSanityCheckTaskRequest $request
+     *
+     * @return GetSanityCheckTaskResponse
+     */
+    public function getSanityCheckTask($CheckType, $TaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSanityCheckTaskWithOptions($CheckType, $TaskId, $request, $headers, $runtime);
     }
 
     /**
