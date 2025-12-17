@@ -11,6 +11,11 @@ class eipInfoModel extends Model
     /**
      * @var string
      */
+    public $eipId;
+
+    /**
+     * @var string
+     */
     public $ipAddress;
 
     /**
@@ -23,6 +28,7 @@ class eipInfoModel extends Model
      */
     public $serverPortRange;
     protected $_name = [
+        'eipId' => 'EipId',
         'ipAddress' => 'IpAddress',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'serverPortRange' => 'ServerPortRange',
@@ -36,6 +42,10 @@ class eipInfoModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eipId) {
+            $res['EipId'] = $this->eipId;
+        }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
@@ -59,6 +69,10 @@ class eipInfoModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipId'])) {
+            $model->eipId = $map['EipId'];
+        }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
