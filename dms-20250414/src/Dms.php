@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
@@ -3012,6 +3014,91 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataLakeTablebaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListFileUpload.
+     *
+     * @param request - ListFileUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileUploadResponse
+     *
+     * @param ListFileUploadRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListFileUploadResponse
+     */
+    public function listFileUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->fileCategory) {
+            @$query['FileCategory'] = $request->fileCategory;
+        }
+
+        if (null !== $request->fileFrom) {
+            @$query['FileFrom'] = $request->fileFrom;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sortColumn) {
+            @$query['SortColumn'] = $request->sortColumn;
+        }
+
+        if (null !== $request->sortDirection) {
+            @$query['SortDirection'] = $request->sortDirection;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFileUpload',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListFileUpload.
+     *
+     * @param request - ListFileUploadRequest
+     *
+     * @returns ListFileUploadResponse
+     *
+     * @param ListFileUploadRequest $request
+     *
+     * @return ListFileUploadResponse
+     */
+    public function listFileUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileUploadWithOptions($request, $runtime);
     }
 
     /**
