@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DownloadVerifyRecordIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DownloadVerifyRecordIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
@@ -307,6 +309,8 @@ class Cloudauthintl extends OpenApiClient
      * @remarks
      * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
      *
+     * @deprecated openAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead
+     *
      * @param Request - AddressVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -383,11 +387,14 @@ class Cloudauthintl extends OpenApiClient
         return AddressVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Address Verification.
      *
      * @remarks
      * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+     *
+     * @deprecated openAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead
      *
      * @param Request - AddressVerifyIntlRequest
      *
@@ -1878,6 +1885,79 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * Console Export Records.
+     *
+     * @param Request - DownloadVerifyRecordIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadVerifyRecordIntlResponse
+     *
+     * @param DownloadVerifyRecordIntlRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DownloadVerifyRecordIntlResponse
+     */
+    public function downloadVerifyRecordIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
+        }
+
+        if (null !== $request->downloadMode) {
+            @$query['DownloadMode'] = $request->downloadMode;
+        }
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadVerifyRecordIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadVerifyRecordIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Console Export Records.
+     *
+     * @param Request - DownloadVerifyRecordIntlRequest
+     *
+     * @returns DownloadVerifyRecordIntlResponse
+     *
+     * @param DownloadVerifyRecordIntlRequest $request
+     *
+     * @return DownloadVerifyRecordIntlResponse
+     */
+    public function downloadVerifyRecordIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadVerifyRecordIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * This topic describes how to integrate with ID Verification using only the server-side API.
      *
      * @param Request - EkycVerifyRequest
@@ -2100,32 +2180,34 @@ class Cloudauthintl extends OpenApiClient
             @$query['SceneCode'] = $request->sceneCode;
         }
 
-        if (null !== $request->sourceAFacePicture) {
-            @$query['SourceAFacePicture'] = $request->sourceAFacePicture;
-        }
-
         if (null !== $request->sourceAFacePictureUrl) {
             @$query['SourceAFacePictureUrl'] = $request->sourceAFacePictureUrl;
-        }
-
-        if (null !== $request->sourceBFacePicture) {
-            @$query['SourceBFacePicture'] = $request->sourceBFacePicture;
         }
 
         if (null !== $request->sourceBFacePictureUrl) {
             @$query['SourceBFacePictureUrl'] = $request->sourceBFacePictureUrl;
         }
 
-        if (null !== $request->sourceCFacePicture) {
-            @$query['SourceCFacePicture'] = $request->sourceCFacePicture;
-        }
-
         if (null !== $request->sourceCFacePictureUrl) {
             @$query['SourceCFacePictureUrl'] = $request->sourceCFacePictureUrl;
         }
 
+        $body = [];
+        if (null !== $request->sourceAFacePicture) {
+            @$body['SourceAFacePicture'] = $request->sourceAFacePicture;
+        }
+
+        if (null !== $request->sourceBFacePicture) {
+            @$body['SourceBFacePicture'] = $request->sourceBFacePicture;
+        }
+
+        if (null !== $request->sourceCFacePicture) {
+            @$body['SourceCFacePicture'] = $request->sourceCFacePicture;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FaceCrossCompareIntl',
@@ -2438,6 +2520,8 @@ class Cloudauthintl extends OpenApiClient
     /**
      * Anti-Fraud Callback Interface.
      *
+     * @deprecated OpenAPI FraudResultCallBack is deprecated
+     *
      * @param Request - FraudResultCallBackRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2486,8 +2570,11 @@ class Cloudauthintl extends OpenApiClient
         return FraudResultCallBackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Anti-Fraud Callback Interface.
+     *
+     * @deprecated OpenAPI FraudResultCallBack is deprecated
      *
      * @param Request - FraudResultCallBackRequest
      *
