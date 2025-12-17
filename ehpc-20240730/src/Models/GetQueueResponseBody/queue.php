@@ -20,6 +20,11 @@ class queue extends Model
     public $computeNodes;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var bool
      */
     public $enableScaleIn;
@@ -85,12 +90,18 @@ class queue extends Model
     public $reservedNodePoolId;
 
     /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
         'allocationStrategy' => 'AllocationStrategy',
         'computeNodes' => 'ComputeNodes',
+        'createTime' => 'CreateTime',
         'enableScaleIn' => 'EnableScaleIn',
         'enableScaleOut' => 'EnableScaleOut',
         'hostnamePrefix' => 'HostnamePrefix',
@@ -104,6 +115,7 @@ class queue extends Model
         'queueName' => 'QueueName',
         'ramRole' => 'RamRole',
         'reservedNodePoolId' => 'ReservedNodePoolId',
+        'updateTime' => 'UpdateTime',
         'vSwitchIds' => 'VSwitchIds',
     ];
 
@@ -137,6 +149,10 @@ class queue extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->enableScaleIn) {
@@ -198,6 +214,10 @@ class queue extends Model
             $res['ReservedNodePoolId'] = $this->reservedNodePoolId;
         }
 
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
@@ -233,6 +253,10 @@ class queue extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['EnableScaleIn'])) {
@@ -292,6 +316,10 @@ class queue extends Model
 
         if (isset($map['ReservedNodePoolId'])) {
             $model->reservedNodePoolId = $map['ReservedNodePoolId'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         if (isset($map['VSwitchIds'])) {
