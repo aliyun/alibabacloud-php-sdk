@@ -36,6 +36,11 @@ class ModelProxy extends Model
     /**
      * @var string
      */
+    public $executionRoleArn;
+
+    /**
+     * @var string
+     */
     public $functionName;
 
     /**
@@ -108,6 +113,7 @@ class ModelProxy extends Model
         'credentialName' => 'credentialName',
         'description' => 'description',
         'endpoint' => 'endpoint',
+        'executionRoleArn' => 'executionRoleArn',
         'functionName' => 'functionName',
         'lastUpdatedAt' => 'lastUpdatedAt',
         'litellmVersion' => 'litellmVersion',
@@ -159,6 +165,10 @@ class ModelProxy extends Model
 
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->executionRoleArn) {
+            $res['executionRoleArn'] = $this->executionRoleArn;
         }
 
         if (null !== $this->functionName) {
@@ -246,6 +256,10 @@ class ModelProxy extends Model
 
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
+        }
+
+        if (isset($map['executionRoleArn'])) {
+            $model->executionRoleArn = $map['executionRoleArn'];
         }
 
         if (isset($map['functionName'])) {

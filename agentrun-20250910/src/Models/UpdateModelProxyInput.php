@@ -24,6 +24,11 @@ class UpdateModelProxyInput extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $executionRoleArn;
+
+    /**
      * @var LogConfiguration
      */
     public $logConfiguration;
@@ -41,6 +46,7 @@ class UpdateModelProxyInput extends Model
         'armsConfiguration' => 'armsConfiguration',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'executionRoleArn' => 'executionRoleArn',
         'logConfiguration' => 'logConfiguration',
         'networkConfiguration' => 'networkConfiguration',
         'proxyConfig' => 'proxyConfig',
@@ -78,6 +84,10 @@ class UpdateModelProxyInput extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->executionRoleArn) {
+            $res['executionRoleArn'] = $this->executionRoleArn;
+        }
+
         if (null !== $this->logConfiguration) {
             $res['logConfiguration'] = null !== $this->logConfiguration ? $this->logConfiguration->toArray($noStream) : $this->logConfiguration;
         }
@@ -111,6 +121,10 @@ class UpdateModelProxyInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['executionRoleArn'])) {
+            $model->executionRoleArn = $map['executionRoleArn'];
         }
 
         if (isset($map['logConfiguration'])) {

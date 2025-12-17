@@ -31,6 +31,11 @@ class CreateModelProxyInput extends Model
     /**
      * @var string
      */
+    public $executionRoleArn;
+
+    /**
+     * @var string
+     */
     public $litellmVersion;
 
     /**
@@ -77,6 +82,7 @@ class CreateModelProxyInput extends Model
         'cpu' => 'cpu',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'executionRoleArn' => 'executionRoleArn',
         'litellmVersion' => 'litellmVersion',
         'logConfiguration' => 'logConfiguration',
         'memory' => 'memory',
@@ -122,6 +128,10 @@ class CreateModelProxyInput extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->executionRoleArn) {
+            $res['executionRoleArn'] = $this->executionRoleArn;
         }
 
         if (null !== $this->litellmVersion) {
@@ -185,6 +195,10 @@ class CreateModelProxyInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['executionRoleArn'])) {
+            $model->executionRoleArn = $map['executionRoleArn'];
         }
 
         if (isset($map['litellmVersion'])) {
