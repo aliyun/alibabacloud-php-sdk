@@ -253,6 +253,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalDesktopRecordsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalDesktopRecordsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalTimerBatchesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalTimerBatchesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalTimerRecordsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalTimerRecordsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImageModifiedRecordsRequest;
@@ -1784,6 +1788,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @remarks
+     *   The cloud computers for which you want to change their policies must be in the Running state.
+     * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+     * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+     *
      * @param request - BatchModifyEntitlementRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1845,6 +1854,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @remarks
+     *   The cloud computers for which you want to change their policies must be in the Running state.
+     * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+     * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+     *
      * @param request - BatchModifyEntitlementRequest
      *
      * @returns BatchModifyEntitlementResponse
@@ -11686,6 +11700,176 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询全局定时任务Batch记录.
+     *
+     * @param request - DescribeGlobalTimerBatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGlobalTimerBatchesResponse
+     *
+     * @param DescribeGlobalTimerBatchesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeGlobalTimerBatchesResponse
+     */
+    public function describeGlobalTimerBatchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        if (null !== $request->timerType) {
+            @$query['TimerType'] = $request->timerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGlobalTimerBatches',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGlobalTimerBatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询全局定时任务Batch记录.
+     *
+     * @param request - DescribeGlobalTimerBatchesRequest
+     *
+     * @returns DescribeGlobalTimerBatchesResponse
+     *
+     * @param DescribeGlobalTimerBatchesRequest $request
+     *
+     * @return DescribeGlobalTimerBatchesResponse
+     */
+    public function describeGlobalTimerBatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalTimerBatchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution records of scheduled tasks on cloud computers.
+     *
+     * @param request - DescribeGlobalTimerRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGlobalTimerRecordsResponse
+     *
+     * @param DescribeGlobalTimerRecordsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeGlobalTimerRecordsResponse
+     */
+    public function describeGlobalTimerRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        if (null !== $request->desktopIds) {
+            @$query['DesktopIds'] = $request->desktopIds;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resultCategory) {
+            @$query['ResultCategory'] = $request->resultCategory;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        if (null !== $request->timerResult) {
+            @$query['TimerResult'] = $request->timerResult;
+        }
+
+        if (null !== $request->timerTypes) {
+            @$query['TimerTypes'] = $request->timerTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGlobalTimerRecords',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGlobalTimerRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution records of scheduled tasks on cloud computers.
+     *
+     * @param request - DescribeGlobalTimerRecordsRequest
+     *
+     * @returns DescribeGlobalTimerRecordsResponse
+     *
+     * @param DescribeGlobalTimerRecordsRequest $request
+     *
+     * @return DescribeGlobalTimerRecordsResponse
+     */
+    public function describeGlobalTimerRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalTimerRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the applications and their processes of an end user.
      *
      * @param request - DescribeGuestApplicationsRequest
@@ -20734,6 +20918,10 @@ class Ecd extends OpenApiClient
     /**
      * Modifies a custom cloud computer template.
      *
+     * @remarks
+     * *
+     * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+     *
      * @param request - ModifyTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -20855,6 +21043,10 @@ class Ecd extends OpenApiClient
 
     /**
      * Modifies a custom cloud computer template.
+     *
+     * @remarks
+     * *
+     * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
      *
      * @param request - ModifyTemplateRequest
      *
