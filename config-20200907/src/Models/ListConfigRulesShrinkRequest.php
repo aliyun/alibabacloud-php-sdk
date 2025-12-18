@@ -56,6 +56,11 @@ class ListConfigRulesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
     public $tagShrink;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
@@ -67,6 +72,7 @@ class ListConfigRulesShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'resourceTypes' => 'ResourceTypes',
         'riskLevel' => 'RiskLevel',
+        'sortBy' => 'SortBy',
         'tagShrink' => 'Tag',
     ];
 
@@ -112,6 +118,10 @@ class ListConfigRulesShrinkRequest extends Model
 
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
 
         if (null !== $this->tagShrink) {
@@ -163,6 +173,10 @@ class ListConfigRulesShrinkRequest extends Model
 
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
 
         if (isset($map['Tag'])) {

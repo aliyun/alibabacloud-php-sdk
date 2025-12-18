@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDeliveryChannelResponse extends Model
+class GetResourceConfigurationSampleResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateDeliveryChannelResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateDeliveryChannelResponseBody
+     * @var GetResourceConfigurationSampleResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class CreateDeliveryChannelResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CreateDeliveryChannelResponseBody::fromMap($map['body']);
+            $model->body = GetResourceConfigurationSampleResponseBody::fromMap($map['body']);
         }
 
         return $model;

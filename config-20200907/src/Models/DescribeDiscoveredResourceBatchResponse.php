@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateDeliveryChannelResponse extends Model
+class DescribeDiscoveredResourceBatchResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateDeliveryChannelResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateDeliveryChannelResponseBody
+     * @var DescribeDiscoveredResourceBatchResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateDeliveryChannelResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateDeliveryChannelResponseBody::fromMap($map['body']);
+            $model->body = DescribeDiscoveredResourceBatchResponseBody::fromMap($map['body']);
         }
 
         return $model;

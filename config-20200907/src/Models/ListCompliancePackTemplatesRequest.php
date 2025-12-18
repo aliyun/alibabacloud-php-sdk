@@ -14,6 +14,11 @@ class ListCompliancePackTemplatesRequest extends Model
     public $compliancePackTemplateId;
 
     /**
+     * @var string
+     */
+    public $filterType;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +32,18 @@ class ListCompliancePackTemplatesRequest extends Model
      * @var string
      */
     public $resourceTypes;
+
+    /**
+     * @var int
+     */
+    public $ruleRiskLevel;
     protected $_name = [
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
+        'filterType' => 'FilterType',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceTypes' => 'ResourceTypes',
+        'ruleRiskLevel' => 'RuleRiskLevel',
     ];
 
     public function validate()
@@ -46,6 +58,10 @@ class ListCompliancePackTemplatesRequest extends Model
             $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
 
+        if (null !== $this->filterType) {
+            $res['FilterType'] = $this->filterType;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -56,6 +72,10 @@ class ListCompliancePackTemplatesRequest extends Model
 
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
+        }
+
+        if (null !== $this->ruleRiskLevel) {
+            $res['RuleRiskLevel'] = $this->ruleRiskLevel;
         }
 
         return $res;
@@ -73,6 +93,10 @@ class ListCompliancePackTemplatesRequest extends Model
             $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
 
+        if (isset($map['FilterType'])) {
+            $model->filterType = $map['FilterType'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -83,6 +107,10 @@ class ListCompliancePackTemplatesRequest extends Model
 
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];
+        }
+
+        if (isset($map['RuleRiskLevel'])) {
+            $model->ruleRiskLevel = $map['RuleRiskLevel'];
         }
 
         return $model;

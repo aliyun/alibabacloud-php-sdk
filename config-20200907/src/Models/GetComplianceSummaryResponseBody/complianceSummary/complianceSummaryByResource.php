@@ -21,6 +21,21 @@ class complianceSummaryByResource extends Model
     /**
      * @var int
      */
+    public $highRiskRuleNonCompliantResourceCount;
+
+    /**
+     * @var int
+     */
+    public $lowRiskRuleNonCompliantResourceCount;
+
+    /**
+     * @var int
+     */
+    public $mediumRiskRuleNonCompliantResourceCount;
+
+    /**
+     * @var int
+     */
     public $nonCompliantCount;
 
     /**
@@ -30,6 +45,9 @@ class complianceSummaryByResource extends Model
     protected $_name = [
         'complianceSummaryTimestamp' => 'ComplianceSummaryTimestamp',
         'compliantCount' => 'CompliantCount',
+        'highRiskRuleNonCompliantResourceCount' => 'HighRiskRuleNonCompliantResourceCount',
+        'lowRiskRuleNonCompliantResourceCount' => 'LowRiskRuleNonCompliantResourceCount',
+        'mediumRiskRuleNonCompliantResourceCount' => 'MediumRiskRuleNonCompliantResourceCount',
         'nonCompliantCount' => 'NonCompliantCount',
         'totalCount' => 'TotalCount',
     ];
@@ -48,6 +66,18 @@ class complianceSummaryByResource extends Model
 
         if (null !== $this->compliantCount) {
             $res['CompliantCount'] = $this->compliantCount;
+        }
+
+        if (null !== $this->highRiskRuleNonCompliantResourceCount) {
+            $res['HighRiskRuleNonCompliantResourceCount'] = $this->highRiskRuleNonCompliantResourceCount;
+        }
+
+        if (null !== $this->lowRiskRuleNonCompliantResourceCount) {
+            $res['LowRiskRuleNonCompliantResourceCount'] = $this->lowRiskRuleNonCompliantResourceCount;
+        }
+
+        if (null !== $this->mediumRiskRuleNonCompliantResourceCount) {
+            $res['MediumRiskRuleNonCompliantResourceCount'] = $this->mediumRiskRuleNonCompliantResourceCount;
         }
 
         if (null !== $this->nonCompliantCount) {
@@ -75,6 +105,18 @@ class complianceSummaryByResource extends Model
 
         if (isset($map['CompliantCount'])) {
             $model->compliantCount = $map['CompliantCount'];
+        }
+
+        if (isset($map['HighRiskRuleNonCompliantResourceCount'])) {
+            $model->highRiskRuleNonCompliantResourceCount = $map['HighRiskRuleNonCompliantResourceCount'];
+        }
+
+        if (isset($map['LowRiskRuleNonCompliantResourceCount'])) {
+            $model->lowRiskRuleNonCompliantResourceCount = $map['LowRiskRuleNonCompliantResourceCount'];
+        }
+
+        if (isset($map['MediumRiskRuleNonCompliantResourceCount'])) {
+            $model->mediumRiskRuleNonCompliantResourceCount = $map['MediumRiskRuleNonCompliantResourceCount'];
         }
 
         if (isset($map['NonCompliantCount'])) {

@@ -61,6 +61,11 @@ class aggregator extends Model
     public $folderId;
 
     /**
+     * @var string
+     */
+    public $folderName;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -75,6 +80,7 @@ class aggregator extends Model
         'aggregatorType' => 'AggregatorType',
         'description' => 'Description',
         'folderId' => 'FolderId',
+        'folderName' => 'FolderName',
         'tags' => 'Tags',
     ];
 
@@ -137,6 +143,10 @@ class aggregator extends Model
 
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
+        }
+
+        if (null !== $this->folderName) {
+            $res['FolderName'] = $this->folderName;
         }
 
         if (null !== $this->tags) {
@@ -206,6 +216,10 @@ class aggregator extends Model
 
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
+        }
+
+        if (isset($map['FolderName'])) {
+            $model->folderName = $map['FolderName'];
         }
 
         if (isset($map['Tags'])) {

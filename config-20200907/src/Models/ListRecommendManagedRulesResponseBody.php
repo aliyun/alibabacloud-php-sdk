@@ -5,33 +5,37 @@
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRecommendManagedRulesResponseBody\recommendedManagedRules;
 
-class CreateDeliveryChannelResponseBody extends Model
+class ListRecommendManagedRulesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var recommendedManagedRules
      */
-    public $deliveryChannelId;
+    public $recommendedManagedRules;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'deliveryChannelId' => 'DeliveryChannelId',
+        'recommendedManagedRules' => 'RecommendedManagedRules',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->recommendedManagedRules) {
+            $this->recommendedManagedRules->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->deliveryChannelId) {
-            $res['DeliveryChannelId'] = $this->deliveryChannelId;
+        if (null !== $this->recommendedManagedRules) {
+            $res['RecommendedManagedRules'] = null !== $this->recommendedManagedRules ? $this->recommendedManagedRules->toArray($noStream) : $this->recommendedManagedRules;
         }
 
         if (null !== $this->requestId) {
@@ -49,8 +53,8 @@ class CreateDeliveryChannelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeliveryChannelId'])) {
-            $model->deliveryChannelId = $map['DeliveryChannelId'];
+        if (isset($map['RecommendedManagedRules'])) {
+            $model->recommendedManagedRules = recommendedManagedRules::fromMap($map['RecommendedManagedRules']);
         }
 
         if (isset($map['RequestId'])) {

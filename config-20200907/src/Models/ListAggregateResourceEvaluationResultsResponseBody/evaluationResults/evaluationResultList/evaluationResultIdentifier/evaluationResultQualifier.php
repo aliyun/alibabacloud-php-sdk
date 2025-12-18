@@ -44,6 +44,11 @@ class evaluationResultQualifier extends Model
     public $resourceName;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -55,6 +60,7 @@ class evaluationResultQualifier extends Model
         'regionId' => 'RegionId',
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'resourceType' => 'ResourceType',
     ];
 
@@ -92,6 +98,10 @@ class evaluationResultQualifier extends Model
 
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->resourceType) {
@@ -135,6 +145,10 @@ class evaluationResultQualifier extends Model
 
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['ResourceType'])) {

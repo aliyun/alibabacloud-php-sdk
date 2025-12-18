@@ -60,6 +60,11 @@ class ListAggregateConfigRulesRequest extends Model
     public $riskLevel;
 
     /**
+     * @var string
+     */
+    public $sortBy;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -74,6 +79,7 @@ class ListAggregateConfigRulesRequest extends Model
         'pageSize' => 'PageSize',
         'resourceTypes' => 'ResourceTypes',
         'riskLevel' => 'RiskLevel',
+        'sortBy' => 'SortBy',
         'tag' => 'Tag',
     ];
 
@@ -126,6 +132,10 @@ class ListAggregateConfigRulesRequest extends Model
 
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
 
         if (null !== $this->tag) {
@@ -188,6 +198,10 @@ class ListAggregateConfigRulesRequest extends Model
 
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
 
         if (isset($map['Tag'])) {

@@ -25,6 +25,11 @@ class ListAggregateCompliancePacksRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $riskLevel;
+
+    /**
      * @var string
      */
     public $status;
@@ -37,6 +42,7 @@ class ListAggregateCompliancePacksRequest extends Model
         'aggregatorId' => 'AggregatorId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
         'status' => 'Status',
         'tag' => 'Tag',
     ];
@@ -62,6 +68,10 @@ class ListAggregateCompliancePacksRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         if (null !== $this->status) {
@@ -100,6 +110,10 @@ class ListAggregateCompliancePacksRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         if (isset($map['Status'])) {

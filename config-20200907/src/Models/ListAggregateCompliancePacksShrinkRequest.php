@@ -24,6 +24,11 @@ class ListAggregateCompliancePacksShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $riskLevel;
+
+    /**
      * @var string
      */
     public $status;
@@ -36,6 +41,7 @@ class ListAggregateCompliancePacksShrinkRequest extends Model
         'aggregatorId' => 'AggregatorId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
         'status' => 'Status',
         'tagShrink' => 'Tag',
     ];
@@ -58,6 +64,10 @@ class ListAggregateCompliancePacksShrinkRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         if (null !== $this->status) {
@@ -89,6 +99,10 @@ class ListAggregateCompliancePacksShrinkRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         if (isset($map['Status'])) {

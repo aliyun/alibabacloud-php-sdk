@@ -15,9 +15,24 @@ class configRuleComplianceResult extends Model
     public $compliancePackId;
 
     /**
+     * @var int
+     */
+    public $compliantCount;
+
+    /**
      * @var configRuleCompliances[]
      */
     public $configRuleCompliances;
+
+    /**
+     * @var int
+     */
+    public $ignoredCount;
+
+    /**
+     * @var int
+     */
+    public $insufficientDataCount;
 
     /**
      * @var int
@@ -27,11 +42,20 @@ class configRuleComplianceResult extends Model
     /**
      * @var int
      */
+    public $notApplicableCount;
+
+    /**
+     * @var int
+     */
     public $totalCount;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
+        'compliantCount' => 'CompliantCount',
         'configRuleCompliances' => 'ConfigRuleCompliances',
+        'ignoredCount' => 'IgnoredCount',
+        'insufficientDataCount' => 'InsufficientDataCount',
         'nonCompliantCount' => 'NonCompliantCount',
+        'notApplicableCount' => 'NotApplicableCount',
         'totalCount' => 'TotalCount',
     ];
 
@@ -50,6 +74,10 @@ class configRuleComplianceResult extends Model
             $res['CompliancePackId'] = $this->compliancePackId;
         }
 
+        if (null !== $this->compliantCount) {
+            $res['CompliantCount'] = $this->compliantCount;
+        }
+
         if (null !== $this->configRuleCompliances) {
             if (\is_array($this->configRuleCompliances)) {
                 $res['ConfigRuleCompliances'] = [];
@@ -61,8 +89,20 @@ class configRuleComplianceResult extends Model
             }
         }
 
+        if (null !== $this->ignoredCount) {
+            $res['IgnoredCount'] = $this->ignoredCount;
+        }
+
+        if (null !== $this->insufficientDataCount) {
+            $res['InsufficientDataCount'] = $this->insufficientDataCount;
+        }
+
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
+        }
+
+        if (null !== $this->notApplicableCount) {
+            $res['NotApplicableCount'] = $this->notApplicableCount;
         }
 
         if (null !== $this->totalCount) {
@@ -84,6 +124,10 @@ class configRuleComplianceResult extends Model
             $model->compliancePackId = $map['CompliancePackId'];
         }
 
+        if (isset($map['CompliantCount'])) {
+            $model->compliantCount = $map['CompliantCount'];
+        }
+
         if (isset($map['ConfigRuleCompliances'])) {
             if (!empty($map['ConfigRuleCompliances'])) {
                 $model->configRuleCompliances = [];
@@ -95,8 +139,20 @@ class configRuleComplianceResult extends Model
             }
         }
 
+        if (isset($map['IgnoredCount'])) {
+            $model->ignoredCount = $map['IgnoredCount'];
+        }
+
+        if (isset($map['InsufficientDataCount'])) {
+            $model->insufficientDataCount = $map['InsufficientDataCount'];
+        }
+
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
+        }
+
+        if (isset($map['NotApplicableCount'])) {
+            $model->notApplicableCount = $map['NotApplicableCount'];
         }
 
         if (isset($map['TotalCount'])) {

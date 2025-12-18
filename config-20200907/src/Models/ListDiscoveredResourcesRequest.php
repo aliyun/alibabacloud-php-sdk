@@ -46,6 +46,11 @@ class ListDiscoveredResourcesRequest extends Model
     /**
      * @var string
      */
+    public $resourceName;
+
+    /**
+     * @var string
+     */
     public $resourceTypes;
 
     /**
@@ -60,6 +65,7 @@ class ListDiscoveredResourcesRequest extends Model
         'regions' => 'Regions',
         'resourceDeleted' => 'ResourceDeleted',
         'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
         'resourceTypes' => 'ResourceTypes',
         'startUpdateTimestamp' => 'StartUpdateTimestamp',
     ];
@@ -98,6 +104,10 @@ class ListDiscoveredResourcesRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         if (null !== $this->resourceTypes) {
@@ -145,6 +155,10 @@ class ListDiscoveredResourcesRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         if (isset($map['ResourceTypes'])) {

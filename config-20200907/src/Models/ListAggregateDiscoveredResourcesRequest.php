@@ -54,6 +54,11 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceName;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -77,6 +82,7 @@ class ListAggregateDiscoveredResourcesRequest extends Model
         'resourceAccountId' => 'ResourceAccountId',
         'resourceDeleted' => 'ResourceDeleted',
         'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
         'resourceOwnerId' => 'ResourceOwnerId',
         'resourceTypes' => 'ResourceTypes',
         'startUpdateTimestamp' => 'StartUpdateTimestamp',
@@ -124,6 +130,10 @@ class ListAggregateDiscoveredResourcesRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         if (null !== $this->resourceOwnerId) {
@@ -183,6 +193,10 @@ class ListAggregateDiscoveredResourcesRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         if (isset($map['ResourceOwnerId'])) {

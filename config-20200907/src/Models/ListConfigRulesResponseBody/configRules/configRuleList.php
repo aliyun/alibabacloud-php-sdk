@@ -54,6 +54,11 @@ class configRuleList extends Model
     /**
      * @var string
      */
+    public $createDate;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -89,6 +94,7 @@ class configRuleList extends Model
         'configRuleName' => 'ConfigRuleName',
         'configRuleState' => 'ConfigRuleState',
         'createBy' => 'CreateBy',
+        'createDate' => 'CreateDate',
         'description' => 'Description',
         'resourceTypesScope' => 'ResourceTypesScope',
         'riskLevel' => 'RiskLevel',
@@ -144,6 +150,10 @@ class configRuleList extends Model
 
         if (null !== $this->createBy) {
             $res['CreateBy'] = null !== $this->createBy ? $this->createBy->toArray($noStream) : $this->createBy;
+        }
+
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
 
         if (null !== $this->description) {
@@ -218,6 +228,10 @@ class configRuleList extends Model
 
         if (isset($map['CreateBy'])) {
             $model->createBy = createBy::fromMap($map['CreateBy']);
+        }
+
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
 
         if (isset($map['Description'])) {

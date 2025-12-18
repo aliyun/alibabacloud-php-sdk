@@ -37,6 +37,16 @@ class ListResourceEvaluationResultsRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var int
+     */
+    public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $sortBy;
     protected $_name = [
         'complianceType' => 'ComplianceType',
         'maxResults' => 'MaxResults',
@@ -44,6 +54,8 @@ class ListResourceEvaluationResultsRequest extends Model
         'region' => 'Region',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
+        'riskLevel' => 'RiskLevel',
+        'sortBy' => 'SortBy',
     ];
 
     public function validate()
@@ -76,6 +88,14 @@ class ListResourceEvaluationResultsRequest extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
 
         return $res;
@@ -111,6 +131,14 @@ class ListResourceEvaluationResultsRequest extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
 
         return $model;

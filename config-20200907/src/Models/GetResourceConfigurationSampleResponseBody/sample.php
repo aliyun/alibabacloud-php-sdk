@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesResponseBody\discoveredResourceProfiles;
+namespace AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationSampleResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class discoveredResourceProfileList extends Model
+class sample extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $accountId;
 
@@ -21,22 +21,22 @@ class discoveredResourceProfileList extends Model
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var int
-     */
-    public $resourceCreationTime;
-
-    /**
-     * @var int
-     */
-    public $resourceDeleted;
+    public $configuration;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $resourceCreationTime;
+
+    /**
+     * @var string
+     */
+    public $resourceDeleted;
 
     /**
      * @var string
@@ -64,40 +64,22 @@ class discoveredResourceProfileList extends Model
     public $tags;
 
     /**
-     * @var int
-     */
-    public $updateTime;
-
-    /**
      * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var int
      */
     public $version;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
     protected $_name = [
         'accountId' => 'AccountId',
         'availabilityZone' => 'AvailabilityZone',
+        'configuration' => 'Configuration',
         'region' => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
         'resourceDeleted' => 'ResourceDeleted',
-        'resourceGroupId' => 'ResourceGroupId',
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceStatus' => 'ResourceStatus',
         'resourceType' => 'ResourceType',
         'tags' => 'Tags',
-        'updateTime' => 'UpdateTime',
-        'vSwitchId' => 'VSwitchId',
         'version' => 'Version',
-        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -116,6 +98,10 @@ class discoveredResourceProfileList extends Model
             $res['AvailabilityZone'] = $this->availabilityZone;
         }
 
+        if (null !== $this->configuration) {
+            $res['Configuration'] = $this->configuration;
+        }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -126,10 +112,6 @@ class discoveredResourceProfileList extends Model
 
         if (null !== $this->resourceDeleted) {
             $res['ResourceDeleted'] = $this->resourceDeleted;
-        }
-
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceId) {
@@ -152,20 +134,8 @@ class discoveredResourceProfileList extends Model
             $res['Tags'] = $this->tags;
         }
 
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -187,6 +157,10 @@ class discoveredResourceProfileList extends Model
             $model->availabilityZone = $map['AvailabilityZone'];
         }
 
+        if (isset($map['Configuration'])) {
+            $model->configuration = $map['Configuration'];
+        }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
@@ -197,10 +171,6 @@ class discoveredResourceProfileList extends Model
 
         if (isset($map['ResourceDeleted'])) {
             $model->resourceDeleted = $map['ResourceDeleted'];
-        }
-
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceId'])) {
@@ -223,20 +193,8 @@ class discoveredResourceProfileList extends Model
             $model->tags = $map['Tags'];
         }
 
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

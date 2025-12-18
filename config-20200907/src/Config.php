@@ -42,8 +42,6 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigDeliveryChannelResponse
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateDeliveryChannelRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesRequest;
@@ -68,12 +66,18 @@ use AlibabaCloud\SDK\Config\V20200907\Models\DeleteConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeDiscoveredResourceBatchRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeDiscoveredResourceBatchResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeIntegratedServiceStatusRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeIntegratedServiceStatusResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DescribeRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DescribeRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DryRunConfigRuleRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DryRunConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesShrinkRequest;
@@ -174,9 +178,13 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByResourc
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceGroupByResourceTypeResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationSampleRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationSampleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceInventoryResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceTypePropertiesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceTypePropertiesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreAggregateEvaluationResultsRequest;
@@ -199,6 +207,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRecommendManagedRulesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRecommendManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationExecutionsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationExecutionsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsRequest;
@@ -222,6 +232,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationStatisticsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleOperatorsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesShrinkRequest;
@@ -233,6 +244,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListPreManagedRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListPreManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListPreManagedRulesShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRecommendManagedRulesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListRecommendManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationExecutionsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationExecutionsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsRequest;
@@ -262,6 +275,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationR
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartConfigRuleEvaluationByResourceRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\StartConfigRuleEvaluationByResourceResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartConfigRuleEvaluationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartConfigRuleEvaluationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartConfigurationRecorderResponse;
@@ -296,8 +311,6 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigurationRecorderRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigurationRecorderResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateDeliveryChannelRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateDeliveryChannelResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationRequest;
@@ -1979,115 +1992,6 @@ class Config extends OpenApiClient
         return $this->createConfigRuleWithOptions($request, $runtime);
     }
 
-    // Deprecated
-    /**
-     * Creates a delivery channel.
-     *
-     * @remarks
-     * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *
-     * @deprecated openAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead
-     *
-     * @param request - CreateDeliveryChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDeliveryChannelResponse
-     *
-     * @param CreateDeliveryChannelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateDeliveryChannelResponse
-     */
-    public function createDeliveryChannelWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->configurationItemChangeNotification) {
-            @$body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
-        }
-
-        if (null !== $request->configurationSnapshot) {
-            @$body['ConfigurationSnapshot'] = $request->configurationSnapshot;
-        }
-
-        if (null !== $request->deliveryChannelAssumeRoleArn) {
-            @$body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
-        }
-
-        if (null !== $request->deliveryChannelCondition) {
-            @$body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
-        }
-
-        if (null !== $request->deliveryChannelName) {
-            @$body['DeliveryChannelName'] = $request->deliveryChannelName;
-        }
-
-        if (null !== $request->deliveryChannelTargetArn) {
-            @$body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
-        }
-
-        if (null !== $request->deliveryChannelType) {
-            @$body['DeliveryChannelType'] = $request->deliveryChannelType;
-        }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
-        }
-
-        if (null !== $request->nonCompliantNotification) {
-            @$body['NonCompliantNotification'] = $request->nonCompliantNotification;
-        }
-
-        if (null !== $request->oversizedDataOSSTargetArn) {
-            @$body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CreateDeliveryChannel',
-            'version' => '2020-09-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Creates a delivery channel.
-     *
-     * @remarks
-     * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *
-     * @deprecated openAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead
-     *
-     * @param request - CreateDeliveryChannelRequest
-     *
-     * @returns CreateDeliveryChannelResponse
-     *
-     * @param CreateDeliveryChannelRequest $request
-     *
-     * @return CreateDeliveryChannelResponse
-     */
-    public function createDeliveryChannel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDeliveryChannelWithOptions($request, $runtime);
-    }
-
     /**
      * Creates a remediation template for a rule.
      *
@@ -2943,6 +2847,128 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 批量获取资源详情.
+     *
+     * @param request - DescribeDiscoveredResourceBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDiscoveredResourceBatchResponse
+     *
+     * @param DescribeDiscoveredResourceBatchRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDiscoveredResourceBatchResponse
+     */
+    public function describeDiscoveredResourceBatchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDiscoveredResourceBatch',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDiscoveredResourceBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量获取资源详情.
+     *
+     * @param request - DescribeDiscoveredResourceBatchRequest
+     *
+     * @returns DescribeDiscoveredResourceBatchResponse
+     *
+     * @param DescribeDiscoveredResourceBatchRequest $request
+     *
+     * @return DescribeDiscoveredResourceBatchResponse
+     */
+    public function describeDiscoveredResourceBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiscoveredResourceBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户集成云产品的授权状态
+     *
+     * @param request - DescribeIntegratedServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIntegratedServiceStatusResponse
+     *
+     * @param DescribeIntegratedServiceStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeIntegratedServiceStatusResponse
+     */
+    public function describeIntegratedServiceStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeIntegratedServiceStatus',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户集成云产品的授权状态
+     *
+     * @param request - DescribeIntegratedServiceStatusRequest
+     *
+     * @returns DescribeIntegratedServiceStatusResponse
+     *
+     * @param DescribeIntegratedServiceStatusRequest $request
+     *
+     * @return DescribeIntegratedServiceStatusResponse
+     */
+    public function describeIntegratedServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIntegratedServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
      *
      * @param request - DescribeRemediationRequest
@@ -3143,6 +3169,67 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachConfigRuleToCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * 试运行事前合规预检的规则.
+     *
+     * @param request - DryRunConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DryRunConfigRuleResponse
+     *
+     * @param DryRunConfigRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DryRunConfigRuleResponse
+     */
+    public function dryRunConfigRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configurationItem) {
+            @$body['ConfigurationItem'] = $request->configurationItem;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DryRunConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DryRunConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 试运行事前合规预检的规则.
+     *
+     * @param request - DryRunConfigRuleRequest
+     *
+     * @returns DryRunConfigRuleResponse
+     *
+     * @param DryRunConfigRuleRequest $request
+     *
+     * @return DryRunConfigRuleResponse
+     */
+    public function dryRunConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dryRunConfigRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -6313,6 +6400,67 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 获取资源配置样例.
+     *
+     * @param request - GetResourceConfigurationSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceConfigurationSampleResponse
+     *
+     * @param GetResourceConfigurationSampleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetResourceConfigurationSampleResponse
+     */
+    public function getResourceConfigurationSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mockOnly) {
+            @$query['MockOnly'] = $request->mockOnly;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceConfigurationSample',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceConfigurationSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源配置样例.
+     *
+     * @param request - GetResourceConfigurationSampleRequest
+     *
+     * @returns GetResourceConfigurationSampleResponse
+     *
+     * @param GetResourceConfigurationSampleRequest $request
+     *
+     * @return GetResourceConfigurationSampleResponse
+     */
+    public function getResourceConfigurationSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceConfigurationSampleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configuration timeline of a resource.
      *
      * @remarks
@@ -6425,6 +6573,59 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceInventoryWithOptions($runtime);
+    }
+
+    /**
+     * 获取资源类型的属性配置.
+     *
+     * @param request - GetResourceTypePropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceTypePropertiesResponse
+     *
+     * @param GetResourceTypePropertiesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetResourceTypePropertiesResponse
+     */
+    public function getResourceTypePropertiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceTypeProperties',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceTypePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源类型的属性配置.
+     *
+     * @param request - GetResourceTypePropertiesRequest
+     *
+     * @returns GetResourceTypePropertiesResponse
+     *
+     * @param GetResourceTypePropertiesRequest $request
+     *
+     * @return GetResourceTypePropertiesResponse
+     */
+    public function getResourceTypeProperties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceTypePropertiesWithOptions($request, $runtime);
     }
 
     /**
@@ -6696,6 +6897,10 @@ class Config extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
         }
 
         if (null !== $request->status) {
@@ -7038,6 +7243,10 @@ class Config extends OpenApiClient
             @$query['RiskLevel'] = $request->riskLevel;
         }
 
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
         if (null !== $request->tagShrink) {
             @$query['Tag'] = $request->tagShrink;
         }
@@ -7137,6 +7346,10 @@ class Config extends OpenApiClient
             @$query['ResourceId'] = $request->resourceId;
         }
 
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
+        }
+
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -7186,6 +7399,99 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAggregateDiscoveredResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取推荐的托管规则列表-多账号.
+     *
+     * @param request - ListAggregateRecommendManagedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAggregateRecommendManagedRulesResponse
+     *
+     * @param ListAggregateRecommendManagedRulesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListAggregateRecommendManagedRulesResponse
+     */
+    public function listAggregateRecommendManagedRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
+        }
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$query['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$query['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$query['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionIdsScope) {
+            @$query['RegionIdsScope'] = $request->regionIdsScope;
+        }
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$query['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+
+        if (null !== $request->resourceIdsScope) {
+            @$query['ResourceIdsScope'] = $request->resourceIdsScope;
+        }
+
+        if (null !== $request->selectedManagedRuleIdentifiers) {
+            @$query['SelectedManagedRuleIdentifiers'] = $request->selectedManagedRuleIdentifiers;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAggregateRecommendManagedRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAggregateRecommendManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取推荐的托管规则列表-多账号.
+     *
+     * @param request - ListAggregateRecommendManagedRulesRequest
+     *
+     * @returns ListAggregateRecommendManagedRulesResponse
+     *
+     * @param ListAggregateRecommendManagedRulesRequest $request
+     *
+     * @return ListAggregateRecommendManagedRulesResponse
+     */
+    public function listAggregateRecommendManagedRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateRecommendManagedRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -7384,6 +7690,14 @@ class Config extends OpenApiClient
 
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
 
         $req = new OpenApiRequest([
@@ -7700,6 +8014,10 @@ class Config extends OpenApiClient
             @$query['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
         }
 
+        if (null !== $request->filterType) {
+            @$query['FilterType'] = $request->filterType;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -7710,6 +8028,10 @@ class Config extends OpenApiClient
 
         if (null !== $request->resourceTypes) {
             @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
+        if (null !== $request->ruleRiskLevel) {
+            @$query['RuleRiskLevel'] = $request->ruleRiskLevel;
         }
 
         $req = new OpenApiRequest([
@@ -7783,6 +8105,10 @@ class Config extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
         }
 
         if (null !== $request->status) {
@@ -7993,6 +8319,50 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 规则支持的操作符列表.
+     *
+     * @param request - ListConfigRuleOperatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConfigRuleOperatorsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListConfigRuleOperatorsResponse
+     */
+    public function listConfigRuleOperatorsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListConfigRuleOperators',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConfigRuleOperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 规则支持的操作符列表.
+     *
+     * @returns ListConfigRuleOperatorsResponse
+     *
+     * @return ListConfigRuleOperatorsResponse
+     */
+    public function listConfigRuleOperators()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigRuleOperatorsWithOptions($runtime);
+    }
+
+    /**
      * Queries the rules of the current account.
      *
      * @remarks
@@ -8052,6 +8422,10 @@ class Config extends OpenApiClient
 
         if (null !== $request->riskLevel) {
             @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
 
         if (null !== $request->tagShrink) {
@@ -8143,6 +8517,10 @@ class Config extends OpenApiClient
 
         if (null !== $request->resourceId) {
             @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
 
         if (null !== $request->resourceTypes) {
@@ -8411,6 +8789,95 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 获取推荐的托管规则列表.
+     *
+     * @param request - ListRecommendManagedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecommendManagedRulesResponse
+     *
+     * @param ListRecommendManagedRulesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListRecommendManagedRulesResponse
+     */
+    public function listRecommendManagedRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->excludeRegionIdsScope) {
+            @$query['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$query['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$query['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionIdsScope) {
+            @$query['RegionIdsScope'] = $request->regionIdsScope;
+        }
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$query['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+
+        if (null !== $request->resourceIdsScope) {
+            @$query['ResourceIdsScope'] = $request->resourceIdsScope;
+        }
+
+        if (null !== $request->selectedManagedRuleIdentifiers) {
+            @$query['SelectedManagedRuleIdentifiers'] = $request->selectedManagedRuleIdentifiers;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecommendManagedRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecommendManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取推荐的托管规则列表.
+     *
+     * @param request - ListRecommendManagedRulesRequest
+     *
+     * @returns ListRecommendManagedRulesResponse
+     *
+     * @param ListRecommendManagedRulesRequest $request
+     *
+     * @return ListRecommendManagedRulesResponse
+     */
+    public function listRecommendManagedRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecommendManagedRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the remediation records of a rule.
      *
      * @remarks
@@ -8673,6 +9140,14 @@ class Config extends OpenApiClient
 
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
 
         $req = new OpenApiRequest([
@@ -9474,6 +9949,63 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startConfigRuleEvaluationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 触发单资源重新评估.
+     *
+     * @param request - StartConfigRuleEvaluationByResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartConfigRuleEvaluationByResourceResponse
+     *
+     * @param StartConfigRuleEvaluationByResourceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return StartConfigRuleEvaluationByResourceResponse
+     */
+    public function startConfigRuleEvaluationByResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartConfigRuleEvaluationByResource',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartConfigRuleEvaluationByResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发单资源重新评估.
+     *
+     * @param request - StartConfigRuleEvaluationByResourceRequest
+     *
+     * @returns StartConfigRuleEvaluationByResourceResponse
+     *
+     * @param StartConfigRuleEvaluationByResourceRequest $request
+     *
+     * @return StartConfigRuleEvaluationByResourceResponse
+     */
+    public function startConfigRuleEvaluationByResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startConfigRuleEvaluationByResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -10904,119 +11436,6 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConfigurationRecorderWithOptions($request, $runtime);
-    }
-
-    // Deprecated
-    /**
-     * Modifies a delivery channel.
-     *
-     * @remarks
-     * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-     *
-     * @deprecated openAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead
-     *
-     * @param request - UpdateDeliveryChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateDeliveryChannelResponse
-     *
-     * @param UpdateDeliveryChannelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateDeliveryChannelResponse
-     */
-    public function updateDeliveryChannelWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->configurationItemChangeNotification) {
-            @$body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
-        }
-
-        if (null !== $request->configurationSnapshot) {
-            @$body['ConfigurationSnapshot'] = $request->configurationSnapshot;
-        }
-
-        if (null !== $request->deliveryChannelAssumeRoleArn) {
-            @$body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
-        }
-
-        if (null !== $request->deliveryChannelCondition) {
-            @$body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
-        }
-
-        if (null !== $request->deliveryChannelId) {
-            @$body['DeliveryChannelId'] = $request->deliveryChannelId;
-        }
-
-        if (null !== $request->deliveryChannelName) {
-            @$body['DeliveryChannelName'] = $request->deliveryChannelName;
-        }
-
-        if (null !== $request->deliveryChannelTargetArn) {
-            @$body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
-        }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
-        }
-
-        if (null !== $request->nonCompliantNotification) {
-            @$body['NonCompliantNotification'] = $request->nonCompliantNotification;
-        }
-
-        if (null !== $request->oversizedDataOSSTargetArn) {
-            @$body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
-        }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'UpdateDeliveryChannel',
-            'version' => '2020-09-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Modifies a delivery channel.
-     *
-     * @remarks
-     * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-     *
-     * @deprecated openAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead
-     *
-     * @param request - UpdateDeliveryChannelRequest
-     *
-     * @returns UpdateDeliveryChannelResponse
-     *
-     * @param UpdateDeliveryChannelRequest $request
-     *
-     * @return UpdateDeliveryChannelResponse
-     */
-    public function updateDeliveryChannel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDeliveryChannelWithOptions($request, $runtime);
     }
 
     /**
