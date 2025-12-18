@@ -2,6 +2,10 @@
 - Update API ListLists: add response parameters Body.ItemsUsage.
 
 
+2025-12-18 Version: 2.32.1
+- Update API ListLists: add response parameters Body.ItemsUsage.
+
+
 2025-12-16 Version: 2.32.0
 - Support API CreateEdgeContainerAppImageSecret.
 - Support API DeleteEdgeContainerAppImageSecret.
