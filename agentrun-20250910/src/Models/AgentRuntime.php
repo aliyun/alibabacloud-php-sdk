@@ -56,6 +56,11 @@ class AgentRuntime extends Model
     /**
      * @var string
      */
+    public $credentialName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -132,6 +137,7 @@ class AgentRuntime extends Model
         'containerConfiguration' => 'containerConfiguration',
         'cpu' => 'cpu',
         'createdAt' => 'createdAt',
+        'credentialName' => 'credentialName',
         'description' => 'description',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
@@ -211,6 +217,10 @@ class AgentRuntime extends Model
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
         }
 
         if (null !== $this->description) {
@@ -319,6 +329,10 @@ class AgentRuntime extends Model
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
         }
 
         if (isset($map['description'])) {
