@@ -93,6 +93,11 @@ class DBInstances extends Model
     /**
      * @var string
      */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
     public $expireTime;
 
     /**
@@ -256,6 +261,7 @@ class DBInstances extends Model
         'dnNodeClassCode' => 'DnNodeClassCode',
         'dnNodeCount' => 'DnNodeCount',
         'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
         'id' => 'Id',
@@ -377,6 +383,10 @@ class DBInstances extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
 
         if (null !== $this->expireTime) {
@@ -600,6 +610,10 @@ class DBInstances extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
 
         if (isset($map['ExpireTime'])) {

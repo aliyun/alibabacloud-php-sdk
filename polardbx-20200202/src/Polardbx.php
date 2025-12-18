@@ -1368,6 +1368,10 @@ class Polardbx extends OpenApiClient
             @$query['DNNodeCount'] = $request->DNNodeCount;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->dnClass) {
             @$query['DnClass'] = $request->dnClass;
         }
@@ -2330,6 +2334,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2371,6 +2377,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - DeleteDBInstanceRequest
      *
      * @returns DeleteDBInstanceResponse

@@ -46,6 +46,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $dnClass;
 
     /**
@@ -155,6 +160,7 @@ class CreateDBInstanceRequest extends Model
         'DBNodeClass' => 'DBNodeClass',
         'DBNodeCount' => 'DBNodeCount',
         'DNNodeCount' => 'DNNodeCount',
+        'description' => 'Description',
         'dnClass' => 'DnClass',
         'dnStorageSpace' => 'DnStorageSpace',
         'engineVersion' => 'EngineVersion',
@@ -215,6 +221,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->DNNodeCount) {
             $res['DNNodeCount'] = $this->DNNodeCount;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->dnClass) {
@@ -343,6 +353,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['DNNodeCount'])) {
             $model->DNNodeCount = $map['DNNodeCount'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DnClass'])) {
