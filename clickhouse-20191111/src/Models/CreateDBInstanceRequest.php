@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateDBInstanceRequest\tags;
 
 class CreateDBInstanceRequest extends Model
 {
@@ -119,6 +120,11 @@ class CreateDBInstanceRequest extends Model
     public $sourceDBClusterId;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $usedTime;
@@ -180,6 +186,7 @@ class CreateDBInstanceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceDBClusterId' => 'SourceDBClusterId',
+        'tags' => 'Tags',
         'usedTime' => 'UsedTime',
         'VPCId' => 'VPCId',
         'vSwitchBak' => 'VSwitchBak',
@@ -192,6 +199,9 @@ class CreateDBInstanceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -284,6 +294,17 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->sourceDBClusterId) {
             $res['SourceDBClusterId'] = $this->sourceDBClusterId;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->usedTime) {
@@ -415,6 +436,17 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['SourceDBClusterId'])) {
             $model->sourceDBClusterId = $map['SourceDBClusterId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UsedTime'])) {

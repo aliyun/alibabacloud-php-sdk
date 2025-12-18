@@ -1,3 +1,7 @@
+2025-12-18 Version: 4.2.1
+- Update API CreateDBInstance: add request parameters Tags.
+
+
 2025-12-12 Version: 4.2.0
 - Support API CancelActiveOperationTasks.
 - Support API CancelAppointmentElectZookeeperLeader.

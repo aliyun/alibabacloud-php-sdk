@@ -1551,6 +1551,10 @@ class Clickhouse extends OpenApiClient
             @$query['SourceDBClusterId'] = $request->sourceDBClusterId;
         }
 
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         if (null !== $request->usedTime) {
             @$query['UsedTime'] = $request->usedTime;
         }
