@@ -1,3 +1,7 @@
+2025-12-18 Version: 6.3.0
+- Support API ModifyCfwInstance.
+
+
 2025-11-26 Version: 6.2.0
 - Support API AddAclBackupData.
 - Support API AddDomainResolveRealtimeTask.

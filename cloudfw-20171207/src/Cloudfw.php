@@ -431,6 +431,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyCfwInstanceRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyCfwInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityRequest;
@@ -17305,6 +17307,67 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAddressBookWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新用户版本信息.
+     *
+     * @param request - ModifyCfwInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCfwInstanceResponse
+     *
+     * @param ModifyCfwInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyCfwInstanceResponse
+     */
+    public function modifyCfwInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->updateList) {
+            @$query['UpdateList'] = $request->updateList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCfwInstance',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCfwInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用户版本信息.
+     *
+     * @param request - ModifyCfwInstanceRequest
+     *
+     * @returns ModifyCfwInstanceResponse
+     *
+     * @param ModifyCfwInstanceRequest $request
+     *
+     * @return ModifyCfwInstanceResponse
+     */
+    public function modifyCfwInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCfwInstanceWithOptions($request, $runtime);
     }
 
     /**
