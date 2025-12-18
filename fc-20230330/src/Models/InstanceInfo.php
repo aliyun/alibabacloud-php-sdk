@@ -31,6 +31,11 @@ class InstanceInfo extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -42,6 +47,7 @@ class InstanceInfo extends Model
         'destroyedTimeMs' => 'destroyedTimeMs',
         'instanceId' => 'instanceId',
         'qualifier' => 'qualifier',
+        'resourceType' => 'resourceType',
         'status' => 'status',
         'versionId' => 'versionId',
     ];
@@ -68,6 +74,10 @@ class InstanceInfo extends Model
 
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
         }
 
         if (null !== $this->status) {
@@ -103,6 +113,10 @@ class InstanceInfo extends Model
 
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
+        }
+
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
         }
 
         if (isset($map['status'])) {

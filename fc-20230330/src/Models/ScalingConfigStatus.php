@@ -21,6 +21,11 @@ class ScalingConfigStatus extends Model
     /**
      * @var bool
      */
+    public $enableMixMode;
+
+    /**
+     * @var bool
+     */
     public $enableOnDemandScaling;
 
     /**
@@ -41,6 +46,11 @@ class ScalingConfigStatus extends Model
     /**
      * @var string
      */
+    public $requestDispatchPolicy;
+
+    /**
+     * @var string
+     */
     public $residentPoolId;
 
     /**
@@ -55,10 +65,12 @@ class ScalingConfigStatus extends Model
     protected $_name = [
         'currentError' => 'currentError',
         'currentInstances' => 'currentInstances',
+        'enableMixMode' => 'enableMixMode',
         'enableOnDemandScaling' => 'enableOnDemandScaling',
         'functionArn' => 'functionArn',
         'horizontalScalingPolicies' => 'horizontalScalingPolicies',
         'minInstances' => 'minInstances',
+        'requestDispatchPolicy' => 'requestDispatchPolicy',
         'residentPoolId' => 'residentPoolId',
         'scheduledPolicies' => 'scheduledPolicies',
         'targetInstances' => 'targetInstances',
@@ -86,6 +98,10 @@ class ScalingConfigStatus extends Model
             $res['currentInstances'] = $this->currentInstances;
         }
 
+        if (null !== $this->enableMixMode) {
+            $res['enableMixMode'] = $this->enableMixMode;
+        }
+
         if (null !== $this->enableOnDemandScaling) {
             $res['enableOnDemandScaling'] = $this->enableOnDemandScaling;
         }
@@ -107,6 +123,10 @@ class ScalingConfigStatus extends Model
 
         if (null !== $this->minInstances) {
             $res['minInstances'] = $this->minInstances;
+        }
+
+        if (null !== $this->requestDispatchPolicy) {
+            $res['requestDispatchPolicy'] = $this->requestDispatchPolicy;
         }
 
         if (null !== $this->residentPoolId) {
@@ -147,6 +167,10 @@ class ScalingConfigStatus extends Model
             $model->currentInstances = $map['currentInstances'];
         }
 
+        if (isset($map['enableMixMode'])) {
+            $model->enableMixMode = $map['enableMixMode'];
+        }
+
         if (isset($map['enableOnDemandScaling'])) {
             $model->enableOnDemandScaling = $map['enableOnDemandScaling'];
         }
@@ -168,6 +192,10 @@ class ScalingConfigStatus extends Model
 
         if (isset($map['minInstances'])) {
             $model->minInstances = $map['minInstances'];
+        }
+
+        if (isset($map['requestDispatchPolicy'])) {
+            $model->requestDispatchPolicy = $map['requestDispatchPolicy'];
         }
 
         if (isset($map['residentPoolId'])) {

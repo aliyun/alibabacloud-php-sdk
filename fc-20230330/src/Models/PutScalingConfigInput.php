@@ -11,6 +11,11 @@ class PutScalingConfigInput extends Model
     /**
      * @var bool
      */
+    public $enableMixMode;
+
+    /**
+     * @var bool
+     */
     public $enableOnDemandScaling;
 
     /**
@@ -26,6 +31,11 @@ class PutScalingConfigInput extends Model
     /**
      * @var string
      */
+    public $requestDispatchPolicy;
+
+    /**
+     * @var string
+     */
     public $residentPoolId;
 
     /**
@@ -33,9 +43,11 @@ class PutScalingConfigInput extends Model
      */
     public $scheduledPolicies;
     protected $_name = [
+        'enableMixMode' => 'enableMixMode',
         'enableOnDemandScaling' => 'enableOnDemandScaling',
         'horizontalScalingPolicies' => 'horizontalScalingPolicies',
         'minInstances' => 'minInstances',
+        'requestDispatchPolicy' => 'requestDispatchPolicy',
         'residentPoolId' => 'residentPoolId',
         'scheduledPolicies' => 'scheduledPolicies',
     ];
@@ -54,6 +66,10 @@ class PutScalingConfigInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableMixMode) {
+            $res['enableMixMode'] = $this->enableMixMode;
+        }
+
         if (null !== $this->enableOnDemandScaling) {
             $res['enableOnDemandScaling'] = $this->enableOnDemandScaling;
         }
@@ -71,6 +87,10 @@ class PutScalingConfigInput extends Model
 
         if (null !== $this->minInstances) {
             $res['minInstances'] = $this->minInstances;
+        }
+
+        if (null !== $this->requestDispatchPolicy) {
+            $res['requestDispatchPolicy'] = $this->requestDispatchPolicy;
         }
 
         if (null !== $this->residentPoolId) {
@@ -99,6 +119,10 @@ class PutScalingConfigInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableMixMode'])) {
+            $model->enableMixMode = $map['enableMixMode'];
+        }
+
         if (isset($map['enableOnDemandScaling'])) {
             $model->enableOnDemandScaling = $map['enableOnDemandScaling'];
         }
@@ -116,6 +140,10 @@ class PutScalingConfigInput extends Model
 
         if (isset($map['minInstances'])) {
             $model->minInstances = $map['minInstances'];
+        }
+
+        if (isset($map['requestDispatchPolicy'])) {
+            $model->requestDispatchPolicy = $map['requestDispatchPolicy'];
         }
 
         if (isset($map['residentPoolId'])) {
