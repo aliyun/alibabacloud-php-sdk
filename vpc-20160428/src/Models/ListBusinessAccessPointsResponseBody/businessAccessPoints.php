@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessAccessPointsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessAccessPointsResponseBody\businessAccessPoints\opticalModuleModels;
 
 class businessAccessPoints extends Model
 {
@@ -34,6 +35,11 @@ class businessAccessPoints extends Model
     public $longitude;
 
     /**
+     * @var opticalModuleModels[]
+     */
+    public $opticalModuleModels;
+
+    /**
      * @var string
      */
     public $supportLineOperator;
@@ -48,12 +54,16 @@ class businessAccessPoints extends Model
         'cloudBoxInstanceIds' => 'CloudBoxInstanceIds',
         'latitude' => 'Latitude',
         'longitude' => 'Longitude',
+        'opticalModuleModels' => 'OpticalModuleModels',
         'supportLineOperator' => 'SupportLineOperator',
         'supportPortTypes' => 'SupportPortTypes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->opticalModuleModels)) {
+            Model::validateArray($this->opticalModuleModels);
+        }
         parent::validate();
     }
 
@@ -78,6 +88,17 @@ class businessAccessPoints extends Model
 
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
+        }
+
+        if (null !== $this->opticalModuleModels) {
+            if (\is_array($this->opticalModuleModels)) {
+                $res['OpticalModuleModels'] = [];
+                $n1 = 0;
+                foreach ($this->opticalModuleModels as $item1) {
+                    $res['OpticalModuleModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->supportLineOperator) {
@@ -117,6 +138,17 @@ class businessAccessPoints extends Model
 
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
+        }
+
+        if (isset($map['OpticalModuleModels'])) {
+            if (!empty($map['OpticalModuleModels'])) {
+                $model->opticalModuleModels = [];
+                $n1 = 0;
+                foreach ($map['OpticalModuleModels'] as $item1) {
+                    $model->opticalModuleModels[$n1] = opticalModuleModels::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SupportLineOperator'])) {

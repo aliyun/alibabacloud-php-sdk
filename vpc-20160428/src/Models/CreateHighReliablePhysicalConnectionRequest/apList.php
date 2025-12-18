@@ -41,6 +41,11 @@ class apList extends Model
     /**
      * @var string
      */
+    public $opticalModuleModel;
+
+    /**
+     * @var string
+     */
     public $peerLocation;
 
     /**
@@ -64,6 +69,7 @@ class apList extends Model
         'description' => 'Description',
         'lineOperator' => 'LineOperator',
         'name' => 'Name',
+        'opticalModuleModel' => 'OpticalModuleModel',
         'peerLocation' => 'PeerLocation',
         'portNum' => 'PortNum',
         'regionId' => 'RegionId',
@@ -100,6 +106,10 @@ class apList extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->opticalModuleModel) {
+            $res['OpticalModuleModel'] = $this->opticalModuleModel;
         }
 
         if (null !== $this->peerLocation) {
@@ -151,6 +161,10 @@ class apList extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OpticalModuleModel'])) {
+            $model->opticalModuleModel = $map['OpticalModuleModel'];
         }
 
         if (isset($map['PeerLocation'])) {

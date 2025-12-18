@@ -97,6 +97,11 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $opticalModuleModel;
+
+    /**
+     * @var string
+     */
     public $orderMode;
 
     /**
@@ -216,6 +221,7 @@ class physicalConnectionType extends Model
         'lineOperator' => 'LineOperator',
         'loaStatus' => 'LoaStatus',
         'name' => 'Name',
+        'opticalModuleModel' => 'OpticalModuleModel',
         'orderMode' => 'OrderMode',
         'parentPhysicalConnectionAliUid' => 'ParentPhysicalConnectionAliUid',
         'parentPhysicalConnectionId' => 'ParentPhysicalConnectionId',
@@ -316,6 +322,10 @@ class physicalConnectionType extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->opticalModuleModel) {
+            $res['OpticalModuleModel'] = $this->opticalModuleModel;
         }
 
         if (null !== $this->orderMode) {
@@ -479,6 +489,10 @@ class physicalConnectionType extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OpticalModuleModel'])) {
+            $model->opticalModuleModel = $map['OpticalModuleModel'];
         }
 
         if (isset($map['OrderMode'])) {

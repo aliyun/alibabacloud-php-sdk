@@ -8200,6 +8200,10 @@ class Vpc extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->opticalModuleModel) {
+            @$query['OpticalModuleModel'] = $request->opticalModuleModel;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }

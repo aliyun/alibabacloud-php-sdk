@@ -47,6 +47,11 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @var string
      */
+    public $opticalModuleModel;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -111,6 +116,7 @@ class CreatePhysicalConnectionRequest extends Model
         'deviceAdvancedCapacity' => 'DeviceAdvancedCapacity',
         'lineOperator' => 'LineOperator',
         'name' => 'Name',
+        'opticalModuleModel' => 'OpticalModuleModel',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'peerLocation' => 'PeerLocation',
@@ -172,6 +178,10 @@ class CreatePhysicalConnectionRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->opticalModuleModel) {
+            $res['OpticalModuleModel'] = $this->opticalModuleModel;
         }
 
         if (null !== $this->ownerAccount) {
@@ -273,6 +283,10 @@ class CreatePhysicalConnectionRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OpticalModuleModel'])) {
+            $model->opticalModuleModel = $map['OpticalModuleModel'];
         }
 
         if (isset($map['OwnerAccount'])) {
