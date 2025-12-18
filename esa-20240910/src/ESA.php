@@ -13202,7 +13202,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query a Single Origin Rule Configuration.
+     * Queries the configurations of a single origin rule.
      *
      * @param Request - GetOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13237,7 +13237,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query a Single Origin Rule Configuration.
+     * Queries the configurations of a single origin rule.
      *
      * @param Request - GetOriginRuleRequest
      *

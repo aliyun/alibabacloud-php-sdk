@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsResponseBody\lists;
 class ListListsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $itemsUsage;
+
+    /**
      * @var lists[]
      */
     public $lists;
@@ -39,6 +44,7 @@ class ListListsResponseBody extends Model
      */
     public $usage;
     protected $_name = [
+        'itemsUsage' => 'ItemsUsage',
         'lists' => 'Lists',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -58,6 +64,10 @@ class ListListsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->itemsUsage) {
+            $res['ItemsUsage'] = $this->itemsUsage;
+        }
+
         if (null !== $this->lists) {
             if (\is_array($this->lists)) {
                 $res['Lists'] = [];
@@ -100,6 +110,10 @@ class ListListsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ItemsUsage'])) {
+            $model->itemsUsage = $map['ItemsUsage'];
+        }
+
         if (isset($map['Lists'])) {
             if (!empty($map['Lists'])) {
                 $model->lists = [];
