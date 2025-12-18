@@ -151,6 +151,10 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMLastAliyunResourceSyncResultRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMLastAliyunResourceSyncResultResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportDetailRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportDetailResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportListRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportListResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceMissingIndexListRequest;
@@ -6351,6 +6355,134 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHDMLastAliyunResourceSyncResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例组日报详情.
+     *
+     * @param request - GetInstanceGroupInspectReportDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceGroupInspectReportDetailResponse
+     *
+     * @param GetInstanceGroupInspectReportDetailRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetInstanceGroupInspectReportDetailResponse
+     */
+    public function getInstanceGroupInspectReportDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->reportId) {
+            @$body['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceGroupInspectReportDetail',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceGroupInspectReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例组日报详情.
+     *
+     * @param request - GetInstanceGroupInspectReportDetailRequest
+     *
+     * @returns GetInstanceGroupInspectReportDetailResponse
+     *
+     * @param GetInstanceGroupInspectReportDetailRequest $request
+     *
+     * @return GetInstanceGroupInspectReportDetailResponse
+     */
+    public function getInstanceGroupInspectReportDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceGroupInspectReportDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例组的报告信息.
+     *
+     * @param request - GetInstanceGroupInspectReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceGroupInspectReportListResponse
+     *
+     * @param GetInstanceGroupInspectReportListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetInstanceGroupInspectReportListResponse
+     */
+    public function getInstanceGroupInspectReportListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceGroupInspectReportList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceGroupInspectReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例组的报告信息.
+     *
+     * @param request - GetInstanceGroupInspectReportListRequest
+     *
+     * @returns GetInstanceGroupInspectReportListResponse
+     *
+     * @param GetInstanceGroupInspectReportListRequest $request
+     *
+     * @return GetInstanceGroupInspectReportListResponse
+     */
+    public function getInstanceGroupInspectReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceGroupInspectReportListWithOptions($request, $runtime);
     }
 
     /**
