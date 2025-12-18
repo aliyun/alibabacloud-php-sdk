@@ -438,6 +438,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObjectShrinkRequest;
@@ -12018,6 +12024,144 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步部门信息。
+     *
+     * @param tmpReq - SyncDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDepartmentResponse
+     *
+     * @param SyncDepartmentRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncDepartmentResponse
+     */
+    public function syncDepartmentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SyncDepartmentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->syncDepartmentCommand) {
+            $request->syncDepartmentCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncDepartmentCommand, 'SyncDepartmentCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->syncDepartmentCommandShrink) {
+            @$body['SyncDepartmentCommand'] = $request->syncDepartmentCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncDepartment',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步部门信息。
+     *
+     * @param request - SyncDepartmentRequest
+     *
+     * @returns SyncDepartmentResponse
+     *
+     * @param SyncDepartmentRequest $request
+     *
+     * @return SyncDepartmentResponse
+     */
+    public function syncDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步部门成员信息.
+     *
+     * @param tmpReq - SyncDepartmentUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDepartmentUserResponse
+     *
+     * @param SyncDepartmentUserRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SyncDepartmentUserResponse
+     */
+    public function syncDepartmentUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SyncDepartmentUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->syncDepartmentUserCommand) {
+            $request->syncDepartmentUserCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncDepartmentUserCommand, 'SyncDepartmentUserCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->syncDepartmentUserCommandShrink) {
+            @$body['SyncDepartmentUserCommand'] = $request->syncDepartmentUserCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncDepartmentUser',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncDepartmentUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步部门成员信息.
+     *
+     * @param request - SyncDepartmentUserRequest
+     *
+     * @returns SyncDepartmentUserResponse
+     *
+     * @param SyncDepartmentUserRequest $request
+     *
+     * @return SyncDepartmentUserResponse
+     */
+    public function syncDepartmentUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDepartmentUserWithOptions($request, $runtime);
     }
 
     /**
