@@ -370,6 +370,10 @@ class RdsAi extends OpenApiClient
             @$query['DatabasePassword'] = $request->databasePassword;
         }
 
+        if (null !== $request->initializeWithExistingData) {
+            @$query['InitializeWithExistingData'] = $request->initializeWithExistingData;
+        }
+
         if (null !== $request->instanceClass) {
             @$query['InstanceClass'] = $request->instanceClass;
         }

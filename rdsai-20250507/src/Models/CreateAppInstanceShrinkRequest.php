@@ -49,6 +49,11 @@ class CreateAppInstanceShrinkRequest extends Model
     public $databasePassword;
 
     /**
+     * @var bool
+     */
+    public $initializeWithExistingData;
+
+    /**
      * @var string
      */
     public $instanceClass;
@@ -86,6 +91,7 @@ class CreateAppInstanceShrinkRequest extends Model
         'dashboardPassword' => 'DashboardPassword',
         'dashboardUsername' => 'DashboardUsername',
         'databasePassword' => 'DatabasePassword',
+        'initializeWithExistingData' => 'InitializeWithExistingData',
         'instanceClass' => 'InstanceClass',
         'publicEndpointEnabled' => 'PublicEndpointEnabled',
         'publicNetworkAccessEnabled' => 'PublicNetworkAccessEnabled',
@@ -132,6 +138,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (null !== $this->databasePassword) {
             $res['DatabasePassword'] = $this->databasePassword;
+        }
+
+        if (null !== $this->initializeWithExistingData) {
+            $res['InitializeWithExistingData'] = $this->initializeWithExistingData;
         }
 
         if (null !== $this->instanceClass) {
@@ -199,6 +209,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (isset($map['DatabasePassword'])) {
             $model->databasePassword = $map['DatabasePassword'];
+        }
+
+        if (isset($map['InitializeWithExistingData'])) {
+            $model->initializeWithExistingData = $map['InitializeWithExistingData'];
         }
 
         if (isset($map['InstanceClass'])) {
