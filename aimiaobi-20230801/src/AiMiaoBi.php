@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncWritingBiddingDocRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncWritingBiddingDocResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\BindPptArtifactRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\BindPptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
@@ -186,6 +188,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlReques
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartAuditResultRequest;
@@ -202,6 +206,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyShrinkRequest;
@@ -296,6 +302,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAiHelperWritingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAiHelperWritingResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAiHelperWritingShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookBrainmapRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookBrainmapResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionRequest;
@@ -340,6 +349,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationSh
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunPptOutlineGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunPptOutlineGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunQuickWritingShrinkRequest;
@@ -1169,6 +1180,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->asyncWritingBiddingDocWithOptions($request, $runtime);
+    }
+
+    /**
+     * 绑定PPT作品信息.
+     *
+     * @param request - BindPptArtifactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindPptArtifactResponse
+     *
+     * @param BindPptArtifactRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return BindPptArtifactResponse
+     */
+    public function bindPptArtifactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->artifactId) {
+            @$body['ArtifactId'] = $request->artifactId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindPptArtifact',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindPptArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定PPT作品信息.
+     *
+     * @param request - BindPptArtifactRequest
+     *
+     * @returns BindPptArtifactResponse
+     *
+     * @param BindPptArtifactRequest $request
+     *
+     * @return BindPptArtifactResponse
+     */
+    public function bindPptArtifact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindPptArtifactWithOptions($request, $runtime);
     }
 
     /**
@@ -6021,6 +6097,63 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 获取PPT组件的配置.
+     *
+     * @param request - GetPptConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPptConfigResponse
+     *
+     * @param GetPptConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetPptConfigResponse
+     */
+    public function getPptConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPptConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPptConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取PPT组件的配置.
+     *
+     * @param request - GetPptConfigRequest
+     *
+     * @returns GetPptConfigResponse
+     *
+     * @param GetPptConfigRequest $request
+     *
+     * @return GetPptConfigResponse
+     */
+    public function getPptConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPptConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取当前用户的配置.
      *
      * @param request - GetPropertiesRequest
@@ -6528,6 +6661,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importInterveneFileAsyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * 初始化PPT创建操作.
+     *
+     * @param request - InitiatePptCreationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitiatePptCreationResponse
+     *
+     * @param InitiatePptCreationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InitiatePptCreationResponse
+     */
+    public function initiatePptCreationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->outline) {
+            @$body['Outline'] = $request->outline;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InitiatePptCreation',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitiatePptCreationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 初始化PPT创建操作.
+     *
+     * @param request - InitiatePptCreationRequest
+     *
+     * @returns InitiatePptCreationResponse
+     *
+     * @param InitiatePptCreationRequest $request
+     *
+     * @return InitiatePptCreationResponse
+     */
+    public function initiatePptCreation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initiatePptCreationWithOptions($request, $runtime);
     }
 
     /**
@@ -9855,6 +10053,174 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 妙笔：AI助手写作.
+     *
+     * @param tmpReq - RunAiHelperWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunAiHelperWritingResponse
+     *
+     * @param RunAiHelperWritingRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunAiHelperWritingResponse
+     */
+    public function runAiHelperWritingWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunAiHelperWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->writingParams) {
+            $request->writingParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->writingParams, 'WritingParams', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->distributeWriting) {
+            @$body['DistributeWriting'] = $request->distributeWriting;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->promptMode) {
+            @$body['PromptMode'] = $request->promptMode;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->writingParamsShrink) {
+            @$body['WritingParams'] = $request->writingParamsShrink;
+        }
+
+        if (null !== $request->writingScene) {
+            @$body['WritingScene'] = $request->writingScene;
+        }
+
+        if (null !== $request->writingStyle) {
+            @$body['WritingStyle'] = $request->writingStyle;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunAiHelperWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunAiHelperWritingResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 妙笔：AI助手写作.
+     *
+     * @param tmpReq - RunAiHelperWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunAiHelperWritingResponse
+     *
+     * @param RunAiHelperWritingRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunAiHelperWritingResponse
+     */
+    public function runAiHelperWritingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunAiHelperWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->writingParams) {
+            $request->writingParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->writingParams, 'WritingParams', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->distributeWriting) {
+            @$body['DistributeWriting'] = $request->distributeWriting;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->promptMode) {
+            @$body['PromptMode'] = $request->promptMode;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->writingParamsShrink) {
+            @$body['WritingParams'] = $request->writingParamsShrink;
+        }
+
+        if (null !== $request->writingScene) {
+            @$body['WritingScene'] = $request->writingScene;
+        }
+
+        if (null !== $request->writingStyle) {
+            @$body['WritingStyle'] = $request->writingStyle;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunAiHelperWriting',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunAiHelperWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 妙笔：AI助手写作.
+     *
+     * @param request - RunAiHelperWritingRequest
+     *
+     * @returns RunAiHelperWritingResponse
+     *
+     * @param RunAiHelperWritingRequest $request
+     *
+     * @return RunAiHelperWritingResponse
+     */
+    public function runAiHelperWriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runAiHelperWritingWithOptions($request, $runtime);
+    }
+
+    /**
      * 妙读生成书籍脑图.
      *
      * @param request - RunBookBrainmapRequest
@@ -12956,6 +13322,122 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runMultiDocIntroductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 流式输出PPT大纲.
+     *
+     * @param request - RunPptOutlineGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPptOutlineGenerationResponse
+     *
+     * @param RunPptOutlineGenerationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunPptOutlineGenerationResponse
+     */
+    public function runPptOutlineGenerationWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunPptOutlineGeneration',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunPptOutlineGenerationResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 流式输出PPT大纲.
+     *
+     * @param request - RunPptOutlineGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPptOutlineGenerationResponse
+     *
+     * @param RunPptOutlineGenerationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunPptOutlineGenerationResponse
+     */
+    public function runPptOutlineGenerationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunPptOutlineGeneration',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunPptOutlineGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 流式输出PPT大纲.
+     *
+     * @param request - RunPptOutlineGenerationRequest
+     *
+     * @returns RunPptOutlineGenerationResponse
+     *
+     * @param RunPptOutlineGenerationRequest $request
+     *
+     * @return RunPptOutlineGenerationResponse
+     */
+    public function runPptOutlineGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runPptOutlineGenerationWithOptions($request, $runtime);
     }
 
     /**
