@@ -34,6 +34,11 @@ class UnifiedSearchInput extends Model
     public $location;
 
     /**
+     * @var LocationInfo
+     */
+    public $locationInfo;
+
+    /**
      * @var string
      */
     public $query;
@@ -48,6 +53,7 @@ class UnifiedSearchInput extends Model
         'contents' => 'contents',
         'engineType' => 'engineType',
         'location' => 'location',
+        'locationInfo' => 'locationInfo',
         'query' => 'query',
         'timeRange' => 'timeRange',
     ];
@@ -59,6 +65,9 @@ class UnifiedSearchInput extends Model
         }
         if (null !== $this->contents) {
             $this->contents->validate();
+        }
+        if (null !== $this->locationInfo) {
+            $this->locationInfo->validate();
         }
         parent::validate();
     }
@@ -89,6 +98,10 @@ class UnifiedSearchInput extends Model
 
         if (null !== $this->location) {
             $res['location'] = $this->location;
+        }
+
+        if (null !== $this->locationInfo) {
+            $res['locationInfo'] = null !== $this->locationInfo ? $this->locationInfo->toArray($noStream) : $this->locationInfo;
         }
 
         if (null !== $this->query) {
@@ -133,6 +146,10 @@ class UnifiedSearchInput extends Model
 
         if (isset($map['location'])) {
             $model->location = $map['location'];
+        }
+
+        if (isset($map['locationInfo'])) {
+            $model->locationInfo = LocationInfo::fromMap($map['locationInfo']);
         }
 
         if (isset($map['query'])) {
