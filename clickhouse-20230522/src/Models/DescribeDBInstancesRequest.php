@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesRequest\tags;
 
 class DescribeDBInstancesRequest extends Model
 {
@@ -42,6 +43,11 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'DBInstanceIds' => 'DBInstanceIds',
         'DBInstanceStatus' => 'DBInstanceStatus',
@@ -50,10 +56,14 @@ class DescribeDBInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -86,6 +96,17 @@ class DescribeDBInstancesRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -125,6 +146,17 @@ class DescribeDBInstancesRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

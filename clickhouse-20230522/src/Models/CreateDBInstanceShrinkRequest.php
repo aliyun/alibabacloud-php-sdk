@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBInstanceShrinkRequest\tags;
 
 class CreateDBInstanceShrinkRequest extends Model
 {
@@ -104,6 +105,11 @@ class CreateDBInstanceShrinkRequest extends Model
     public $storageType;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -137,6 +143,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'sourceDBInstanceId' => 'SourceDBInstanceId',
         'storageQuota' => 'StorageQuota',
         'storageType' => 'StorageType',
+        'tags' => 'Tags',
         'vpcId' => 'VpcId',
         'vswitchId' => 'VswitchId',
         'zoneId' => 'ZoneId',
@@ -144,6 +151,9 @@ class CreateDBInstanceShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -224,6 +234,17 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcId) {
@@ -323,6 +344,17 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VpcId'])) {

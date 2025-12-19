@@ -651,6 +651,10 @@ class Clickhouse extends OpenApiClient
             @$query['StorageType'] = $request->storageType;
         }
 
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         if (null !== $request->vpcId) {
             @$query['VpcId'] = $request->vpcId;
         }
@@ -1725,6 +1729,10 @@ class Clickhouse extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
