@@ -15,6 +15,11 @@ class DescribeManagedInstancesRequest extends Model
     public $activationId;
 
     /**
+     * @var string
+     */
+    public $connected;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -95,6 +100,7 @@ class DescribeManagedInstancesRequest extends Model
     public $tag;
     protected $_name = [
         'activationId' => 'ActivationId',
+        'connected' => 'Connected',
         'instanceId' => 'InstanceId',
         'instanceIp' => 'InstanceIp',
         'instanceName' => 'InstanceName',
@@ -129,6 +135,10 @@ class DescribeManagedInstancesRequest extends Model
         $res = [];
         if (null !== $this->activationId) {
             $res['ActivationId'] = $this->activationId;
+        }
+
+        if (null !== $this->connected) {
+            $res['Connected'] = $this->connected;
         }
 
         if (null !== $this->instanceId) {
@@ -222,6 +232,10 @@ class DescribeManagedInstancesRequest extends Model
         $model = new self();
         if (isset($map['ActivationId'])) {
             $model->activationId = $map['ActivationId'];
+        }
+
+        if (isset($map['Connected'])) {
+            $model->connected = $map['Connected'];
         }
 
         if (isset($map['InstanceId'])) {

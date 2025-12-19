@@ -20091,6 +20091,10 @@ class Ecs extends OpenApiClient
             @$query['ActivationId'] = $request->activationId;
         }
 
+        if (null !== $request->connected) {
+            @$query['Connected'] = $request->connected;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
