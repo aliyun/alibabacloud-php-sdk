@@ -62,6 +62,7 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesShrinkRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaWorkloadsRequest;
@@ -2341,21 +2342,31 @@ class PaiStudio extends OpenApiClient
     /**
      * 获取资源节点列表.
      *
-     * @param request - ListNodesRequest
+     * @param tmpReq - ListNodesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNodesResponse
      *
-     * @param ListNodesRequest $request
+     * @param ListNodesRequest $tmpReq
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
      *
      * @return ListNodesResponse
      */
-    public function listNodesWithOptions($request, $headers, $runtime)
+    public function listNodesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->healthCount) {
+            $request->healthCountShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthCount, 'HealthCount', 'json');
+        }
+
+        if (null !== $tmpReq->healthRate) {
+            $request->healthRateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthRate, 'HealthRate', 'json');
+        }
+
         $query = [];
         if (null !== $request->acceleratorType) {
             @$query['AcceleratorType'] = $request->acceleratorType;
@@ -2381,12 +2392,24 @@ class PaiStudio extends OpenApiClient
             @$query['GPUType'] = $request->GPUType;
         }
 
+        if (null !== $request->healthCountShrink) {
+            @$query['HealthCount'] = $request->healthCountShrink;
+        }
+
+        if (null !== $request->healthRateShrink) {
+            @$query['HealthRate'] = $request->healthRateShrink;
+        }
+
         if (null !== $request->hyperNode) {
             @$query['HyperNode'] = $request->hyperNode;
         }
 
         if (null !== $request->hyperZone) {
             @$query['HyperZone'] = $request->hyperZone;
+        }
+
+        if (null !== $request->layoutMode) {
+            @$query['LayoutMode'] = $request->layoutMode;
         }
 
         if (null !== $request->machineGroupIds) {

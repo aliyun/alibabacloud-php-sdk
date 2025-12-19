@@ -194,6 +194,11 @@ class Node extends Model
     public $selfQuotaWorkloadNum;
 
     /**
+     * @var string[]
+     */
+    public $subNodes;
+
+    /**
      * @var string
      */
     public $systemReservedCPU;
@@ -250,6 +255,7 @@ class Node extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupName' => 'ResourceGroupName',
         'selfQuotaWorkloadNum' => 'SelfQuotaWorkloadNum',
+        'subNodes' => 'SubNodes',
         'systemReservedCPU' => 'SystemReservedCPU',
         'systemReservedMemory' => 'SystemReservedMemory',
         'users' => 'Users',
@@ -260,6 +266,9 @@ class Node extends Model
     {
         if (\is_array($this->boundQuotas)) {
             Model::validateArray($this->boundQuotas);
+        }
+        if (\is_array($this->subNodes)) {
+            Model::validateArray($this->subNodes);
         }
         if (\is_array($this->users)) {
             Model::validateArray($this->users);
@@ -423,6 +432,17 @@ class Node extends Model
 
         if (null !== $this->selfQuotaWorkloadNum) {
             $res['SelfQuotaWorkloadNum'] = $this->selfQuotaWorkloadNum;
+        }
+
+        if (null !== $this->subNodes) {
+            if (\is_array($this->subNodes)) {
+                $res['SubNodes'] = [];
+                $n1 = 0;
+                foreach ($this->subNodes as $item1) {
+                    $res['SubNodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->systemReservedCPU) {
@@ -612,6 +632,17 @@ class Node extends Model
 
         if (isset($map['SelfQuotaWorkloadNum'])) {
             $model->selfQuotaWorkloadNum = $map['SelfQuotaWorkloadNum'];
+        }
+
+        if (isset($map['SubNodes'])) {
+            if (!empty($map['SubNodes'])) {
+                $model->subNodes = [];
+                $n1 = 0;
+                foreach ($map['SubNodes'] as $item1) {
+                    $model->subNodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SystemReservedCPU'])) {

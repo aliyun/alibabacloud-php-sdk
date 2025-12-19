@@ -5,10 +5,8 @@
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest\healthCount;
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest\healthRate;
 
-class ListNodesRequest extends Model
+class ListNodesShrinkRequest extends Model
 {
     /**
      * @var string
@@ -41,14 +39,14 @@ class ListNodesRequest extends Model
     public $GPUType;
 
     /**
-     * @var healthCount
+     * @var string
      */
-    public $healthCount;
+    public $healthCountShrink;
 
     /**
-     * @var healthRate
+     * @var string
      */
-    public $healthRate;
+    public $healthRateShrink;
 
     /**
      * @var string
@@ -151,8 +149,8 @@ class ListNodesRequest extends Model
         'filterByQuotaId' => 'FilterByQuotaId',
         'filterByResourceGroupIds' => 'FilterByResourceGroupIds',
         'GPUType' => 'GPUType',
-        'healthCount' => 'HealthCount',
-        'healthRate' => 'HealthRate',
+        'healthCountShrink' => 'HealthCount',
+        'healthRateShrink' => 'HealthRate',
         'hyperNode' => 'HyperNode',
         'hyperZone' => 'HyperZone',
         'layoutMode' => 'LayoutMode',
@@ -176,12 +174,6 @@ class ListNodesRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->healthCount) {
-            $this->healthCount->validate();
-        }
-        if (null !== $this->healthRate) {
-            $this->healthRate->validate();
-        }
         parent::validate();
     }
 
@@ -212,12 +204,12 @@ class ListNodesRequest extends Model
             $res['GPUType'] = $this->GPUType;
         }
 
-        if (null !== $this->healthCount) {
-            $res['HealthCount'] = null !== $this->healthCount ? $this->healthCount->toArray($noStream) : $this->healthCount;
+        if (null !== $this->healthCountShrink) {
+            $res['HealthCount'] = $this->healthCountShrink;
         }
 
-        if (null !== $this->healthRate) {
-            $res['HealthRate'] = null !== $this->healthRate ? $this->healthRate->toArray($noStream) : $this->healthRate;
+        if (null !== $this->healthRateShrink) {
+            $res['HealthRate'] = $this->healthRateShrink;
         }
 
         if (null !== $this->hyperNode) {
@@ -332,11 +324,11 @@ class ListNodesRequest extends Model
         }
 
         if (isset($map['HealthCount'])) {
-            $model->healthCount = healthCount::fromMap($map['HealthCount']);
+            $model->healthCountShrink = $map['HealthCount'];
         }
 
         if (isset($map['HealthRate'])) {
-            $model->healthRate = healthRate::fromMap($map['HealthRate']);
+            $model->healthRateShrink = $map['HealthRate'];
         }
 
         if (isset($map['HyperNode'])) {
