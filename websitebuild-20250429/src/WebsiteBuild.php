@@ -7,6 +7,10 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateRequest;
@@ -17,6 +21,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
@@ -31,10 +37,19 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
@@ -151,6 +166,160 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindAppDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建建站实例.
+     *
+     * @param request - CreateAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppInstanceResponse
+     *
+     * @param CreateAppInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAppInstanceResponse
+     */
+    public function createAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deployArea) {
+            @$query['DeployArea'] = $request->deployArea;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建建站实例.
+     *
+     * @param request - CreateAppInstanceRequest
+     *
+     * @returns CreateAppInstanceResponse
+     *
+     * @param CreateAppInstanceRequest $request
+     *
+     * @return CreateAppInstanceResponse
+     */
+    public function createAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 免登ticket.
+     *
+     * @param request - CreateAppInstanceTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppInstanceTicketResponse
+     *
+     * @param CreateAppInstanceTicketRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAppInstanceTicketResponse
+     */
+    public function createAppInstanceTicketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppInstanceTicket',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppInstanceTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 免登ticket.
+     *
+     * @param request - CreateAppInstanceTicketRequest
+     *
+     * @returns CreateAppInstanceTicketResponse
+     *
+     * @param CreateAppInstanceTicketRequest $request
+     *
+     * @return CreateAppInstanceTicketResponse
+     */
+    public function createAppInstanceTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppInstanceTicketWithOptions($request, $runtime);
     }
 
     /**
@@ -480,6 +649,63 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dispatchConsoleAPIForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用实例详情.
+     *
+     * @param request - GetAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInstanceResponse
+     *
+     * @param GetAppInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAppInstanceResponse
+     */
+    public function getAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用实例详情.
+     *
+     * @param request - GetAppInstanceRequest
+     *
+     * @returns GetAppInstanceResponse
+     *
+     * @param GetAppInstanceRequest $request
+     *
+     * @return GetAppInstanceResponse
+     */
+    public function getAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -946,6 +1172,194 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 建站实例列表查询.
+     *
+     * @param tmpReq - ListAppInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppInstancesResponse
+     *
+     * @param ListAppInstancesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAppInstancesResponse
+     */
+    public function listAppInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAppInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->endTimeBegin) {
+            @$query['EndTimeBegin'] = $request->endTimeBegin;
+        }
+
+        if (null !== $request->endTimeEnd) {
+            @$query['EndTimeEnd'] = $request->endTimeEnd;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppInstances',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 建站实例列表查询.
+     *
+     * @param request - ListAppInstancesRequest
+     *
+     * @returns ListAppInstancesResponse
+     *
+     * @param ListAppInstancesRequest $request
+     *
+     * @return ListAppInstancesResponse
+     */
+    public function listAppInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 建站实例变配.
+     *
+     * @param request - ModifyAppInstanceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppInstanceSpecResponse
+     *
+     * @param ModifyAppInstanceSpecRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAppInstanceSpecResponse
+     */
+    public function modifyAppInstanceSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deployArea) {
+            @$query['DeployArea'] = $request->deployArea;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppInstanceSpec',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 建站实例变配.
+     *
+     * @param request - ModifyAppInstanceSpecRequest
+     *
+     * @returns ModifyAppInstanceSpecResponse
+     *
+     * @param ModifyAppInstanceSpecRequest $request
+     *
+     * @return ModifyAppInstanceSpecResponse
+     */
+    public function modifyAppInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppInstanceSpecWithOptions($request, $runtime);
+    }
+
+    /**
      * 合作伙伴操作应用.
      *
      * @param request - OperateAppInstanceForPartnerRequest
@@ -1073,6 +1487,148 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateAppServiceForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 刷新ticket.
+     *
+     * @param request - RefreshAppInstanceTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshAppInstanceTicketResponse
+     *
+     * @param RefreshAppInstanceTicketRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RefreshAppInstanceTicketResponse
+     */
+    public function refreshAppInstanceTicketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshAppInstanceTicket',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshAppInstanceTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 刷新ticket.
+     *
+     * @param request - RefreshAppInstanceTicketRequest
+     *
+     * @returns RefreshAppInstanceTicketResponse
+     *
+     * @param RefreshAppInstanceTicketRequest $request
+     *
+     * @return RefreshAppInstanceTicketResponse
+     */
+    public function refreshAppInstanceTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshAppInstanceTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * 建站实例续费.
+     *
+     * @param request - RenewAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewAppInstanceResponse
+     *
+     * @param RenewAppInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RenewAppInstanceResponse
+     */
+    public function renewAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 建站实例续费.
+     *
+     * @param request - RenewAppInstanceRequest
+     *
+     * @returns RenewAppInstanceResponse
+     *
+     * @param RenewAppInstanceRequest $request
+     *
+     * @return RenewAppInstanceResponse
+     */
+    public function renewAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewAppInstanceWithOptions($request, $runtime);
     }
 
     /**
