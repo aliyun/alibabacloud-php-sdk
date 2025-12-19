@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetLinkageAttributesTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetLinkageAttributesTemplateResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetLinkageAttributesTemplateShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetOperationParamsRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetOperationParamsResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordRequest;
@@ -59,6 +61,9 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\InitAppFailOverResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListFoCreatedAppsResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListOperationsRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListOperationsResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListServicesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest;
@@ -1252,6 +1257,67 @@ class BPStudio extends OpenApiClient
     }
 
     /**
+     * 查看某操作的输入参数.
+     *
+     * @param request - GetOperationParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationParamsResponse
+     *
+     * @param GetOperationParamsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetOperationParamsResponse
+     */
+    public function getOperationParamsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->operation) {
+            @$body['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->serviceType) {
+            @$body['ServiceType'] = $request->serviceType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOperationParams',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOperationParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看某操作的输入参数.
+     *
+     * @param request - GetOperationParamsRequest
+     *
+     * @returns GetOperationParamsResponse
+     *
+     * @param GetOperationParamsRequest $request
+     *
+     * @return GetOperationParamsResponse
+     */
+    public function getOperationParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOperationParamsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the zones where the specified disaster recovery service can be switched.
      *
      * @remarks
@@ -1834,6 +1900,107 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFoCreatedAppsWithOptions($runtime);
+    }
+
+    /**
+     * 查看某服务支持的操作.
+     *
+     * @param request - ListOperationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOperationsResponse
+     *
+     * @param ListOperationsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListOperationsResponse
+     */
+    public function listOperationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOperations',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看某服务支持的操作.
+     *
+     * @param request - ListOperationsRequest
+     *
+     * @returns ListOperationsResponse
+     *
+     * @param ListOperationsRequest $request
+     *
+     * @return ListOperationsResponse
+     */
+    public function listOperations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看支持的服务列表.
+     *
+     * @param request - ListServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServicesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListServicesResponse
+     */
+    public function listServicesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListServices',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看支持的服务列表.
+     *
+     * @returns ListServicesResponse
+     *
+     * @return ListServicesResponse
+     */
+    public function listServices()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServicesWithOptions($runtime);
     }
 
     /**
