@@ -59,6 +59,10 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeVSwitchesRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeVSwitchesResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeZonesRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\EnDisableScalingRulesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\EnDisableScalingRulesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryRequest;
@@ -93,6 +97,9 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceDeploySchemeRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceDeploySchemeResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceDeploySchemeShrinkRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2125,6 +2132,152 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * DescribeVSwitches.
+     *
+     * @param request - DescribeVSwitchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVSwitchesResponse
+     *
+     * @param DescribeVSwitchesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVSwitches',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeVSwitches.
+     *
+     * @param request - DescribeVSwitchesRequest
+     *
+     * @returns DescribeVSwitchesResponse
+     *
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeZones.
+     *
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeZones',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeZones.
+     *
+     * @param request - DescribeZonesRequest
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
      * Uses the scheduled scaling policy.
      *
      * @param request - EnDisableScalingRulesRequest
@@ -3353,6 +3506,81 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * UpgradeDBInstanceDeployScheme.
+     *
+     * @param tmpReq - UpgradeDBInstanceDeploySchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeDBInstanceDeploySchemeResponse
+     *
+     * @param UpgradeDBInstanceDeploySchemeRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpgradeDBInstanceDeploySchemeResponse
+     */
+    public function upgradeDBInstanceDeploySchemeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpgradeDBInstanceDeploySchemeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->multiZone) {
+            $request->multiZoneShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->multiZone, 'MultiZone', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->multiZoneShrink) {
+            @$query['MultiZone'] = $request->multiZoneShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeDBInstanceDeployScheme',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeDBInstanceDeploySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpgradeDBInstanceDeployScheme.
+     *
+     * @param request - UpgradeDBInstanceDeploySchemeRequest
+     *
+     * @returns UpgradeDBInstanceDeploySchemeResponse
+     *
+     * @param UpgradeDBInstanceDeploySchemeRequest $request
+     *
+     * @return UpgradeDBInstanceDeploySchemeResponse
+     */
+    public function upgradeDBInstanceDeployScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeDBInstanceDeploySchemeWithOptions($request, $runtime);
     }
 
     /**
