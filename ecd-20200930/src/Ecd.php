@@ -291,6 +291,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGr
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordFileRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRefundPriceRequest;
@@ -13274,6 +13276,107 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePriceForRenewDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询录屏文件列表.
+     *
+     * @param request - DescribeRecordFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRecordFileResponse
+     *
+     * @param DescribeRecordFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRecordFileResponse
+     */
+    public function describeRecordFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderSort) {
+            @$query['OrderSort'] = $request->orderSort;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->recordType) {
+            @$query['RecordType'] = $request->recordType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRecordFile',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRecordFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询录屏文件列表.
+     *
+     * @param request - DescribeRecordFileRequest
+     *
+     * @returns DescribeRecordFileResponse
+     *
+     * @param DescribeRecordFileRequest $request
+     *
+     * @return DescribeRecordFileResponse
+     */
+    public function describeRecordFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRecordFileWithOptions($request, $runtime);
     }
 
     /**
