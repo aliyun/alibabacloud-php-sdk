@@ -12,6 +12,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $apiLabels;
 
     /**
@@ -103,6 +108,11 @@ class items extends Model
      * @var string
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $liveId;
 
     /**
      * @var string
@@ -269,6 +279,7 @@ class items extends Model
      */
     public $voiceService;
     protected $_name = [
+        'accountId' => 'AccountId',
         'apiLabels' => 'ApiLabels',
         'apiRequestTime' => 'ApiRequestTime',
         'apiRiskLevel' => 'ApiRiskLevel',
@@ -288,6 +299,7 @@ class items extends Model
         'imageService' => 'ImageService',
         'imageUrl' => 'ImageUrl',
         'labels' => 'Labels',
+        'liveId' => 'LiveId',
         'maliciousFileLevel' => 'MaliciousFileLevel',
         'maliciousUrlLevel' => 'MaliciousUrlLevel',
         'manualOnly' => 'ManualOnly',
@@ -355,6 +367,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->apiLabels) {
             $res['ApiLabels'] = $this->apiLabels;
         }
@@ -460,6 +476,10 @@ class items extends Model
 
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+
+        if (null !== $this->liveId) {
+            $res['LiveId'] = $this->liveId;
         }
 
         if (null !== $this->maliciousFileLevel) {
@@ -643,6 +663,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['ApiLabels'])) {
             $model->apiLabels = $map['ApiLabels'];
         }
@@ -748,6 +772,10 @@ class items extends Model
 
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+
+        if (isset($map['LiveId'])) {
+            $model->liveId = $map['LiveId'];
         }
 
         if (isset($map['MaliciousFileLevel'])) {
