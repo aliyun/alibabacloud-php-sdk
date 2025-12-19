@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListValidateFileRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ListValidateFileResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyPWByDomainRequest;
@@ -3817,6 +3819,79 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserSuppressionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取上传的校验文件的列表.
+     *
+     * @param Request - ListValidateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListValidateFileResponse
+     *
+     * @param ListValidateFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListValidateFileResponse
+     */
+    public function listValidateFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->fileKeyword) {
+            @$query['FileKeyword'] = $request->fileKeyword;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListValidateFile',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListValidateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取上传的校验文件的列表.
+     *
+     * @param Request - ListValidateFileRequest
+     *
+     * @returns ListValidateFileResponse
+     *
+     * @param ListValidateFileRequest $request
+     *
+     * @return ListValidateFileResponse
+     */
+    public function listValidateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listValidateFileWithOptions($request, $runtime);
     }
 
     /**

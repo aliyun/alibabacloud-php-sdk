@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models\ListValidateFileResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class GetValidateFileStatusResponseBody extends Model
+class files extends Model
 {
     /**
      * @var string
@@ -39,6 +39,11 @@ class GetValidateFileStatusResponseBody extends Model
     public $invalidNum;
 
     /**
+     * @var bool
+     */
+    public $isDownloadable;
+
+    /**
      * @var string
      */
     public $percentage;
@@ -47,11 +52,6 @@ class GetValidateFileStatusResponseBody extends Model
      * @var string
      */
     public $processedNum;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -84,9 +84,9 @@ class GetValidateFileStatusResponseBody extends Model
         'fileId' => 'FileId',
         'fileName' => 'FileName',
         'invalidNum' => 'InvalidNum',
+        'isDownloadable' => 'IsDownloadable',
         'percentage' => 'Percentage',
         'processedNum' => 'ProcessedNum',
-        'requestId' => 'RequestId',
         'status' => 'Status',
         'totalNum' => 'TotalNum',
         'unknownNum' => 'UnknownNum',
@@ -126,16 +126,16 @@ class GetValidateFileStatusResponseBody extends Model
             $res['InvalidNum'] = $this->invalidNum;
         }
 
+        if (null !== $this->isDownloadable) {
+            $res['IsDownloadable'] = $this->isDownloadable;
+        }
+
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
 
         if (null !== $this->processedNum) {
             $res['ProcessedNum'] = $this->processedNum;
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->status) {
@@ -193,16 +193,16 @@ class GetValidateFileStatusResponseBody extends Model
             $model->invalidNum = $map['InvalidNum'];
         }
 
+        if (isset($map['IsDownloadable'])) {
+            $model->isDownloadable = $map['IsDownloadable'];
+        }
+
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
 
         if (isset($map['ProcessedNum'])) {
             $model->processedNum = $map['ProcessedNum'];
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['Status'])) {
