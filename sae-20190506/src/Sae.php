@@ -1061,6 +1061,10 @@ class Sae extends OpenApiClient
             @$query['Liveness'] = $request->liveness;
         }
 
+        if (null !== $request->lokiConfigs) {
+            @$query['LokiConfigs'] = $request->lokiConfigs;
+        }
+
         if (null !== $request->memory) {
             @$query['Memory'] = $request->memory;
         }
@@ -3555,6 +3559,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->liveness) {
             @$query['Liveness'] = $request->liveness;
+        }
+
+        if (null !== $request->lokiConfigs) {
+            @$query['LokiConfigs'] = $request->lokiConfigs;
         }
 
         if (null !== $request->maxSurgeInstanceRatio) {
@@ -11529,6 +11537,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->slsConfigs) {
             @$query['SlsConfigs'] = $request->slsConfigs;
+        }
+
+        if (null !== $request->slsLogEnvTags) {
+            @$query['SlsLogEnvTags'] = $request->slsLogEnvTags;
         }
 
         $req = new OpenApiRequest([

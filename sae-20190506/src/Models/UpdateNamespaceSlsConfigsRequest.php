@@ -22,10 +22,16 @@ class UpdateNamespaceSlsConfigsRequest extends Model
      * @var string
      */
     public $slsConfigs;
+
+    /**
+     * @var string
+     */
+    public $slsLogEnvTags;
     protected $_name = [
         'nameSpaceShortId' => 'NameSpaceShortId',
         'namespaceId' => 'NamespaceId',
         'slsConfigs' => 'SlsConfigs',
+        'slsLogEnvTags' => 'SlsLogEnvTags',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpdateNamespaceSlsConfigsRequest extends Model
 
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
+        if (null !== $this->slsLogEnvTags) {
+            $res['SlsLogEnvTags'] = $this->slsLogEnvTags;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class UpdateNamespaceSlsConfigsRequest extends Model
 
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+
+        if (isset($map['SlsLogEnvTags'])) {
+            $model->slsLogEnvTags = $map['SlsLogEnvTags'];
         }
 
         return $model;

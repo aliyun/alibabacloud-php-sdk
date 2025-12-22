@@ -209,6 +209,11 @@ class CreateApplicationRequest extends Model
     public $liveness;
 
     /**
+     * @var string
+     */
+    public $lokiConfigs;
+
+    /**
      * @var int
      */
     public $memory;
@@ -473,6 +478,7 @@ class CreateApplicationRequest extends Model
         'jdk' => 'Jdk',
         'kafkaConfigs' => 'KafkaConfigs',
         'liveness' => 'Liveness',
+        'lokiConfigs' => 'LokiConfigs',
         'memory' => 'Memory',
         'microRegistration' => 'MicroRegistration',
         'microRegistrationConfig' => 'MicroRegistrationConfig',
@@ -699,6 +705,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
+        }
+
+        if (null !== $this->lokiConfigs) {
+            $res['LokiConfigs'] = $this->lokiConfigs;
         }
 
         if (null !== $this->memory) {
@@ -1064,6 +1074,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
+        }
+
+        if (isset($map['LokiConfigs'])) {
+            $model->lokiConfigs = $map['LokiConfigs'];
         }
 
         if (isset($map['Memory'])) {

@@ -194,6 +194,11 @@ class DeployApplicationRequest extends Model
     public $liveness;
 
     /**
+     * @var string
+     */
+    public $lokiConfigs;
+
+    /**
      * @var int
      */
     public $maxSurgeInstanceRatio;
@@ -460,6 +465,7 @@ class DeployApplicationRequest extends Model
         'jdk' => 'Jdk',
         'kafkaConfigs' => 'KafkaConfigs',
         'liveness' => 'Liveness',
+        'lokiConfigs' => 'LokiConfigs',
         'maxSurgeInstanceRatio' => 'MaxSurgeInstanceRatio',
         'maxSurgeInstances' => 'MaxSurgeInstances',
         'memory' => 'Memory',
@@ -675,6 +681,10 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
+        }
+
+        if (null !== $this->lokiConfigs) {
+            $res['LokiConfigs'] = $this->lokiConfigs;
         }
 
         if (null !== $this->maxSurgeInstanceRatio) {
@@ -1032,6 +1042,10 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
+        }
+
+        if (isset($map['LokiConfigs'])) {
+            $model->lokiConfigs = $map['LokiConfigs'];
         }
 
         if (isset($map['MaxSurgeInstanceRatio'])) {
