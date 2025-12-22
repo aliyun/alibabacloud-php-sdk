@@ -187,6 +187,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingResponseHeaderModificationRuleRequest;
@@ -636,6 +638,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtection
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleActionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleActionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesShrinkRequest;
@@ -7183,6 +7189,71 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除深度学习和防护下发的规则.
+     *
+     * @param Request - DeleteHttpDDoSIntelligentRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpDDoSIntelligentRuleResponse
+     *
+     * @param DeleteHttpDDoSIntelligentRuleRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteHttpDDoSIntelligentRuleResponse
+     */
+    public function deleteHttpDDoSIntelligentRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->recordName) {
+            @$query['RecordName'] = $request->recordName;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHttpDDoSIntelligentRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHttpDDoSIntelligentRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除深度学习和防护下发的规则.
+     *
+     * @param Request - DeleteHttpDDoSIntelligentRuleRequest
+     *
+     * @returns DeleteHttpDDoSIntelligentRuleResponse
+     *
+     * @param DeleteHttpDDoSIntelligentRuleRequest $request
+     *
+     * @return DeleteHttpDDoSIntelligentRuleResponse
+     */
+    public function deleteHttpDDoSIntelligentRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpDDoSIntelligentRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -20524,6 +20595,136 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setHttpDDoSAttackProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置HTTP DDoS攻击防护指定规则防护动作.
+     *
+     * @param Request - SetHttpDDoSAttackRuleActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetHttpDDoSAttackRuleActionResponse
+     *
+     * @param SetHttpDDoSAttackRuleActionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetHttpDDoSAttackRuleActionResponse
+     */
+    public function setHttpDDoSAttackRuleActionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetHttpDDoSAttackRuleAction',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetHttpDDoSAttackRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置HTTP DDoS攻击防护指定规则防护动作.
+     *
+     * @param Request - SetHttpDDoSAttackRuleActionRequest
+     *
+     * @returns SetHttpDDoSAttackRuleActionResponse
+     *
+     * @param SetHttpDDoSAttackRuleActionRequest $request
+     *
+     * @return SetHttpDDoSAttackRuleActionResponse
+     */
+    public function setHttpDDoSAttackRuleAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setHttpDDoSAttackRuleActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置HTTP DDoS攻击防护指定规则防护状态
+     *
+     * @param Request - SetHttpDDoSAttackRuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetHttpDDoSAttackRuleStatusResponse
+     *
+     * @param SetHttpDDoSAttackRuleStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetHttpDDoSAttackRuleStatusResponse
+     */
+    public function setHttpDDoSAttackRuleStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetHttpDDoSAttackRuleStatus',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetHttpDDoSAttackRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置HTTP DDoS攻击防护指定规则防护状态
+     *
+     * @param Request - SetHttpDDoSAttackRuleStatusRequest
+     *
+     * @returns SetHttpDDoSAttackRuleStatusResponse
+     *
+     * @param SetHttpDDoSAttackRuleStatusRequest $request
+     *
+     * @return SetHttpDDoSAttackRuleStatusResponse
+     */
+    public function setHttpDDoSAttackRuleStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setHttpDDoSAttackRuleStatusWithOptions($request, $runtime);
     }
 
     /**
