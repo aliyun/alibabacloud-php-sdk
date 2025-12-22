@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateImageDetectionTaskHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateImageDetectionTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateImageDetectionTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePdfTranslateTaskRequest;
@@ -33,6 +36,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateQualityCheckTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateQualityCheckTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryRequest;
@@ -62,6 +68,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetFilterDocumentListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetFilterDocumentListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetHistoryListByBizTypeRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetHistoryListByBizTypeResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetImageDetectionTaskResultHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetImageDetectionTaskResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetImageDetectionTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryRequest;
@@ -76,6 +85,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
@@ -662,6 +674,90 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * 创建图片检测任务
+     *
+     * @param Request - CreateImageDetectionTaskRequest
+     * @param headers - CreateImageDetectionTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageDetectionTaskResponse
+     *
+     * @param string                          $workspaceId
+     * @param CreateImageDetectionTaskRequest $request
+     * @param CreateImageDetectionTaskHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateImageDetectionTaskResponse
+     */
+    public function createImageDetectionTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileInfo) {
+            @$body['fileInfo'] = $request->fileInfo;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['fileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImageDetectionTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/imageDetect/task/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImageDetectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建图片检测任务
+     *
+     * @param Request - CreateImageDetectionTaskRequest
+     *
+     * @returns CreateImageDetectionTaskResponse
+     *
+     * @param string                          $workspaceId
+     * @param CreateImageDetectionTaskRequest $request
+     *
+     * @return CreateImageDetectionTaskResponse
+     */
+    public function createImageDetectionTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateImageDetectionTaskHeaders([]);
+
+        return $this->createImageDetectionTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 创建文档库.
      *
      * @param Request - CreateLibraryRequest
@@ -971,6 +1067,94 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->createQualityCheckTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建视频生成任务
+     *
+     * @param Request - CreateVideoCreationTaskRequest
+     * @param headers - CreateVideoCreationTaskHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoCreationTaskResponse
+     *
+     * @param string                         $workspaceId
+     * @param CreateVideoCreationTaskRequest $request
+     * @param CreateVideoCreationTaskHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateVideoCreationTaskResponse
+     */
+    public function createVideoCreationTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->creationInstruction) {
+            @$body['creationInstruction'] = $request->creationInstruction;
+        }
+
+        if (null !== $request->fileInfo) {
+            @$body['fileInfo'] = $request->fileInfo;
+        }
+
+        if (null !== $request->imageDetectionTaskId) {
+            @$body['imageDetectionTaskId'] = $request->imageDetectionTaskId;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVideoCreationTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/videoCreation/task/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVideoCreationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建视频生成任务
+     *
+     * @param Request - CreateVideoCreationTaskRequest
+     *
+     * @returns CreateVideoCreationTaskResponse
+     *
+     * @param string                         $workspaceId
+     * @param CreateVideoCreationTaskRequest $request
+     *
+     * @return CreateVideoCreationTaskResponse
+     */
+    public function createVideoCreationTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateVideoCreationTaskHeaders([]);
+
+        return $this->createVideoCreationTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2051,6 +2235,82 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * 获取检测结果.
+     *
+     * @param Request - GetImageDetectionTaskResultRequest
+     * @param headers - GetImageDetectionTaskResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageDetectionTaskResultResponse
+     *
+     * @param string                             $workspaceId
+     * @param GetImageDetectionTaskResultRequest $request
+     * @param GetImageDetectionTaskResultHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetImageDetectionTaskResultResponse
+     */
+    public function getImageDetectionTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageDetectionTaskResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/imageDetect/task/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageDetectionTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取检测结果.
+     *
+     * @param Request - GetImageDetectionTaskResultRequest
+     *
+     * @returns GetImageDetectionTaskResultResponse
+     *
+     * @param string                             $workspaceId
+     * @param GetImageDetectionTaskResultRequest $request
+     *
+     * @return GetImageDetectionTaskResultResponse
+     */
+    public function getImageDetectionTaskResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetImageDetectionTaskResultHeaders([]);
+
+        return $this->getImageDetectionTaskResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取文档库配置详情.
      *
      * @param Request - GetLibraryRequest
@@ -2505,6 +2765,82 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->getTaskStatusWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取视频生成任务结果.
+     *
+     * @param Request - GetVideoCreationTaskResultRequest
+     * @param headers - GetVideoCreationTaskResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoCreationTaskResultResponse
+     *
+     * @param string                            $workspaceId
+     * @param GetVideoCreationTaskResultRequest $request
+     * @param GetVideoCreationTaskResultHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetVideoCreationTaskResultResponse
+     */
+    public function getVideoCreationTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoCreationTaskResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/videoCreation/task/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoCreationTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频生成任务结果.
+     *
+     * @param Request - GetVideoCreationTaskResultRequest
+     *
+     * @returns GetVideoCreationTaskResultResponse
+     *
+     * @param string                            $workspaceId
+     * @param GetVideoCreationTaskResultRequest $request
+     *
+     * @return GetVideoCreationTaskResultResponse
+     */
+    public function getVideoCreationTaskResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetVideoCreationTaskResultHeaders([]);
+
+        return $this->getVideoCreationTaskResultWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
