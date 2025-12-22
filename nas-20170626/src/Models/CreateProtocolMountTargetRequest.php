@@ -54,6 +54,11 @@ class CreateProtocolMountTargetRequest extends Model
     public $vSwitchId;
 
     /**
+     * @var string[]
+     */
+    public $vSwitchIds;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -67,11 +72,15 @@ class CreateProtocolMountTargetRequest extends Model
         'path' => 'Path',
         'protocolServiceId' => 'ProtocolServiceId',
         'vSwitchId' => 'VSwitchId',
+        'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
+        }
         parent::validate();
     }
 
@@ -112,6 +121,17 @@ class CreateProtocolMountTargetRequest extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vSwitchIds) {
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcId) {
@@ -163,6 +183,17 @@ class CreateProtocolMountTargetRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VpcId'])) {

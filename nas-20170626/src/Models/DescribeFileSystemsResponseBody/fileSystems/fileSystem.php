@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSy
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\options;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\packages;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\redundancyVSwitchIds;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\supportedFeatures;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\tags;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\vswIds;
@@ -123,6 +124,16 @@ class fileSystem extends Model
     /**
      * @var string
      */
+    public $redundancyType;
+
+    /**
+     * @var redundancyVSwitchIds
+     */
+    public $redundancyVSwitchIds;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -196,6 +207,8 @@ class fileSystem extends Model
         'packages' => 'Packages',
         'protocolType' => 'ProtocolType',
         'quorumVswId' => 'QuorumVswId',
+        'redundancyType' => 'RedundancyType',
+        'redundancyVSwitchIds' => 'RedundancyVSwitchIds',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
@@ -222,6 +235,9 @@ class fileSystem extends Model
         }
         if (null !== $this->packages) {
             $this->packages->validate();
+        }
+        if (null !== $this->redundancyVSwitchIds) {
+            $this->redundancyVSwitchIds->validate();
         }
         if (null !== $this->supportedFeatures) {
             $this->supportedFeatures->validate();
@@ -320,6 +336,14 @@ class fileSystem extends Model
 
         if (null !== $this->quorumVswId) {
             $res['QuorumVswId'] = $this->quorumVswId;
+        }
+
+        if (null !== $this->redundancyType) {
+            $res['RedundancyType'] = $this->redundancyType;
+        }
+
+        if (null !== $this->redundancyVSwitchIds) {
+            $res['RedundancyVSwitchIds'] = null !== $this->redundancyVSwitchIds ? $this->redundancyVSwitchIds->toArray($noStream) : $this->redundancyVSwitchIds;
         }
 
         if (null !== $this->regionId) {
@@ -459,6 +483,14 @@ class fileSystem extends Model
 
         if (isset($map['QuorumVswId'])) {
             $model->quorumVswId = $map['QuorumVswId'];
+        }
+
+        if (isset($map['RedundancyType'])) {
+            $model->redundancyType = $map['RedundancyType'];
+        }
+
+        if (isset($map['RedundancyVSwitchIds'])) {
+            $model->redundancyVSwitchIds = redundancyVSwitchIds::fromMap($map['RedundancyVSwitchIds']);
         }
 
         if (isset($map['RegionId'])) {

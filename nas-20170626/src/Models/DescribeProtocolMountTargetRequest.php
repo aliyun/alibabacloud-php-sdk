@@ -33,12 +33,18 @@ class DescribeProtocolMountTargetRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $protocolServiceIds;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'fileSystemId' => 'FileSystemId',
         'filters' => 'Filters',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'protocolServiceIds' => 'ProtocolServiceIds',
     ];
 
     public function validate()
@@ -79,6 +85,10 @@ class DescribeProtocolMountTargetRequest extends Model
             $res['NextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->protocolServiceIds) {
+            $res['ProtocolServiceIds'] = $this->protocolServiceIds;
+        }
+
         return $res;
     }
 
@@ -115,6 +125,10 @@ class DescribeProtocolMountTargetRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['ProtocolServiceIds'])) {
+            $model->protocolServiceIds = $map['ProtocolServiceIds'];
         }
 
         return $model;

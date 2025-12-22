@@ -72,6 +72,16 @@ class protocolServices extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'createTime' => 'CreateTime',
         'description' => 'Description',
@@ -86,6 +96,8 @@ class protocolServices extends Model
         'protocolThroughput' => 'ProtocolThroughput',
         'protocolType' => 'ProtocolType',
         'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -146,6 +158,14 @@ class protocolServices extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -209,6 +229,14 @@ class protocolServices extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

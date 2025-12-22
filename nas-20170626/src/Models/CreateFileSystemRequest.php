@@ -67,6 +67,16 @@ class CreateFileSystemRequest extends Model
     /**
      * @var string
      */
+    public $redundancyType;
+
+    /**
+     * @var string[]
+     */
+    public $redundancyVSwitchIds;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -110,6 +120,8 @@ class CreateFileSystemRequest extends Model
         'fileSystemType' => 'FileSystemType',
         'kmsKeyId' => 'KmsKeyId',
         'protocolType' => 'ProtocolType',
+        'redundancyType' => 'RedundancyType',
+        'redundancyVSwitchIds' => 'RedundancyVSwitchIds',
         'resourceGroupId' => 'ResourceGroupId',
         'snapshotId' => 'SnapshotId',
         'storageType' => 'StorageType',
@@ -121,6 +133,9 @@ class CreateFileSystemRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->redundancyVSwitchIds)) {
+            Model::validateArray($this->redundancyVSwitchIds);
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -172,6 +187,21 @@ class CreateFileSystemRequest extends Model
 
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+
+        if (null !== $this->redundancyType) {
+            $res['RedundancyType'] = $this->redundancyType;
+        }
+
+        if (null !== $this->redundancyVSwitchIds) {
+            if (\is_array($this->redundancyVSwitchIds)) {
+                $res['RedundancyVSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->redundancyVSwitchIds as $item1) {
+                    $res['RedundancyVSwitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->resourceGroupId) {
@@ -262,6 +292,21 @@ class CreateFileSystemRequest extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['RedundancyType'])) {
+            $model->redundancyType = $map['RedundancyType'];
+        }
+
+        if (isset($map['RedundancyVSwitchIds'])) {
+            if (!empty($map['RedundancyVSwitchIds'])) {
+                $model->redundancyVSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['RedundancyVSwitchIds'] as $item1) {
+                    $model->redundancyVSwitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ResourceGroupId'])) {
