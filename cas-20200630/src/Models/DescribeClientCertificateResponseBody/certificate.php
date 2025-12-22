@@ -27,6 +27,11 @@ class certificate extends Model
     /**
      * @var string
      */
+    public $certChain;
+
+    /**
+     * @var string
+     */
     public $certificateType;
 
     /**
@@ -38,6 +43,11 @@ class certificate extends Model
      * @var string
      */
     public $countryCode;
+
+    /**
+     * @var string
+     */
+    public $customIdentifier;
 
     /**
      * @var int
@@ -132,9 +142,11 @@ class certificate extends Model
         'afterDate' => 'AfterDate',
         'algorithm' => 'Algorithm',
         'beforeDate' => 'BeforeDate',
+        'certChain' => 'CertChain',
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
+        'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
@@ -178,6 +190,10 @@ class certificate extends Model
             $res['BeforeDate'] = $this->beforeDate;
         }
 
+        if (null !== $this->certChain) {
+            $res['CertChain'] = $this->certChain;
+        }
+
         if (null !== $this->certificateType) {
             $res['CertificateType'] = $this->certificateType;
         }
@@ -188,6 +204,10 @@ class certificate extends Model
 
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->days) {
@@ -292,6 +312,10 @@ class certificate extends Model
             $model->beforeDate = $map['BeforeDate'];
         }
 
+        if (isset($map['CertChain'])) {
+            $model->certChain = $map['CertChain'];
+        }
+
         if (isset($map['CertificateType'])) {
             $model->certificateType = $map['CertificateType'];
         }
@@ -302,6 +326,10 @@ class certificate extends Model
 
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Days'])) {

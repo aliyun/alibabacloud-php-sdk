@@ -49,6 +49,11 @@ class CreateCustomCertificateRequest extends Model
      * @var string
      */
     public $validity;
+
+    /**
+     * @var string
+     */
+    public $customIdentifier;
     protected $_name = [
         'apiPassthrough' => 'ApiPassthrough',
         'csr' => 'Csr',
@@ -58,6 +63,7 @@ class CreateCustomCertificateRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
         'validity' => 'Validity',
+        'customIdentifier' => 'customIdentifier',
     ];
 
     public function validate()
@@ -113,6 +119,10 @@ class CreateCustomCertificateRequest extends Model
             $res['Validity'] = $this->validity;
         }
 
+        if (null !== $this->customIdentifier) {
+            $res['customIdentifier'] = $this->customIdentifier;
+        }
+
         return $res;
     }
 
@@ -161,6 +171,10 @@ class CreateCustomCertificateRequest extends Model
 
         if (isset($map['Validity'])) {
             $model->validity = $map['Validity'];
+        }
+
+        if (isset($map['customIdentifier'])) {
+            $model->customIdentifier = $map['customIdentifier'];
         }
 
         return $model;

@@ -51,6 +51,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $customIdentifier;
+
+    /**
+     * @var string
+     */
     public $extra;
 
     /**
@@ -106,6 +111,7 @@ class list_ extends Model
         'beforeTime' => 'BeforeTime',
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
+        'customIdentifier' => 'CustomIdentifier',
         'extra' => 'Extra',
         'id' => 'Id',
         'identifier' => 'Identifier',
@@ -159,6 +165,10 @@ class list_ extends Model
 
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->extra) {
@@ -249,6 +259,10 @@ class list_ extends Model
 
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Extra'])) {

@@ -40,6 +40,11 @@ class CreateServerCertificateWithCsrRequest extends Model
     public $csr;
 
     /**
+     * @var string
+     */
+    public $customIdentifier;
+
+    /**
      * @var int
      */
     public $days;
@@ -110,6 +115,7 @@ class CreateServerCertificateWithCsrRequest extends Model
         'commonName' => 'CommonName',
         'country' => 'Country',
         'csr' => 'Csr',
+        'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
         'domain' => 'Domain',
         'enableCrl' => 'EnableCrl',
@@ -158,6 +164,10 @@ class CreateServerCertificateWithCsrRequest extends Model
 
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->days) {
@@ -252,6 +262,10 @@ class CreateServerCertificateWithCsrRequest extends Model
 
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Days'])) {

@@ -41,6 +41,11 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $customIdentifier;
+
+    /**
+     * @var string
+     */
     public $identifier;
 
     /**
@@ -119,6 +124,7 @@ class certificateList extends Model
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
+        'customIdentifier' => 'CustomIdentifier',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
         'locality' => 'Locality',
@@ -166,6 +172,10 @@ class certificateList extends Model
 
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->identifier) {
@@ -261,6 +271,10 @@ class certificateList extends Model
 
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Identifier'])) {

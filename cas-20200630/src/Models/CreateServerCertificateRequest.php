@@ -35,6 +35,11 @@ class CreateServerCertificateRequest extends Model
     public $country;
 
     /**
+     * @var string
+     */
+    public $customIdentifier;
+
+    /**
      * @var int
      */
     public $days;
@@ -104,6 +109,7 @@ class CreateServerCertificateRequest extends Model
         'beforeTime' => 'BeforeTime',
         'commonName' => 'CommonName',
         'country' => 'Country',
+        'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
         'domain' => 'Domain',
         'enableCrl' => 'EnableCrl',
@@ -148,6 +154,10 @@ class CreateServerCertificateRequest extends Model
 
         if (null !== $this->country) {
             $res['Country'] = $this->country;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->days) {
@@ -238,6 +248,10 @@ class CreateServerCertificateRequest extends Model
 
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Days'])) {

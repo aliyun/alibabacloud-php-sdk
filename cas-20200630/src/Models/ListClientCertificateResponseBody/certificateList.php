@@ -39,6 +39,11 @@ class certificateList extends Model
     public $countryCode;
 
     /**
+     * @var string
+     */
+    public $customIdentifier;
+
+    /**
      * @var int
      */
     public $days;
@@ -129,6 +134,7 @@ class certificateList extends Model
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
+        'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
@@ -178,6 +184,10 @@ class certificateList extends Model
 
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->days) {
@@ -281,6 +291,10 @@ class certificateList extends Model
 
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Days'])) {

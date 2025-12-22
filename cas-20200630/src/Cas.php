@@ -268,6 +268,10 @@ class Cas extends OpenApiClient
             @$query['Country'] = $request->country;
         }
 
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
+        }
+
         if (null !== $request->days) {
             @$query['Days'] = $request->days;
         }
@@ -409,6 +413,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->csr) {
             @$query['Csr'] = $request->csr;
+        }
+
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
         }
 
         if (null !== $request->days) {
@@ -572,6 +580,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->validity) {
             @$query['Validity'] = $request->validity;
+        }
+
+        if (null !== $request->customIdentifier) {
+            @$query['customIdentifier'] = $request->customIdentifier;
         }
 
         $req = new OpenApiRequest([
@@ -930,6 +942,10 @@ class Cas extends OpenApiClient
             @$query['Country'] = $request->country;
         }
 
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
+        }
+
         if (null !== $request->days) {
             @$query['Days'] = $request->days;
         }
@@ -1066,6 +1082,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->csr) {
             @$query['Csr'] = $request->csr;
+        }
+
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
         }
 
         if (null !== $request->days) {
