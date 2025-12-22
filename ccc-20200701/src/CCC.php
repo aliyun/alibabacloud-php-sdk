@@ -283,6 +283,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFeedbacksRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListFeedbacksResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsApplicationsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsApplicationsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListFlashSmsSettingsRequest;
@@ -467,6 +469,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\SaveWebRTCStatsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SaveWebRTCStatsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SendDtmfSignalingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SendDtmfSignalingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SendNotificationRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SendNotificationResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SignInGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SignInGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SignOutGroupRequest;
@@ -9633,6 +9637,67 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询反馈记录.
+     *
+     * @param request - ListFeedbacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeedbacksResponse
+     *
+     * @param ListFeedbacksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFeedbacksResponse
+     */
+    public function listFeedbacksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->taskIdList) {
+            @$query['TaskIdList'] = $request->taskIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFeedbacks',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFeedbacksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询反馈记录.
+     *
+     * @param request - ListFeedbacksRequest
+     *
+     * @returns ListFeedbacksResponse
+     *
+     * @param ListFeedbacksRequest $request
+     *
+     * @return ListFeedbacksResponse
+     */
+    public function listFeedbacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFeedbacksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ListFlashSmsApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15889,6 +15954,79 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendDtmfSignalingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 推送消息.
+     *
+     * @param request - SendNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendNotificationResponse
+     *
+     * @param SendNotificationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendNotificationResponse
+     */
+    public function sendNotificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->messageBody) {
+            @$query['MessageBody'] = $request->messageBody;
+        }
+
+        if (null !== $request->notificationTarget) {
+            @$query['NotificationTarget'] = $request->notificationTarget;
+        }
+
+        if (null !== $request->notificationType) {
+            @$query['NotificationType'] = $request->notificationType;
+        }
+
+        if (null !== $request->shardingKey) {
+            @$query['ShardingKey'] = $request->shardingKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendNotification',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 推送消息.
+     *
+     * @param request - SendNotificationRequest
+     *
+     * @returns SendNotificationResponse
+     *
+     * @param SendNotificationRequest $request
+     *
+     * @return SendNotificationResponse
+     */
+    public function sendNotification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendNotificationWithOptions($request, $runtime);
     }
 
     /**
