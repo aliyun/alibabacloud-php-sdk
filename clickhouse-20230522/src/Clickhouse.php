@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteBackupPolicyRequest;
@@ -774,6 +776,73 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增白名单模板
+     *
+     * @param request - CreateWhitelistTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWhitelistTemplateResponse
+     *
+     * @param CreateWhitelistTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateWhitelistTemplateResponse
+     */
+    public function createWhitelistTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $body = [];
+        if (null !== $request->securityIPList) {
+            @$body['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWhitelistTemplate',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增白名单模板
+     *
+     * @param request - CreateWhitelistTemplateRequest
+     *
+     * @returns CreateWhitelistTemplateResponse
+     *
+     * @param CreateWhitelistTemplateRequest $request
+     *
+     * @return CreateWhitelistTemplateResponse
+     */
+    public function createWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWhitelistTemplateWithOptions($request, $runtime);
     }
 
     /**
