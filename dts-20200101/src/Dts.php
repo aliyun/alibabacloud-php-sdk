@@ -213,6 +213,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySynchronizationObjectRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySynchronizationObjectResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\PreCheckCreateGadOrderRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\PreCheckCreateGadOrderResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\PromoteToMasterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\PromoteToMasterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ResetDtsJobRequest;
@@ -9463,6 +9465,75 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->preCheckCreateGadOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Request - PromoteToMasterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PromoteToMasterResponse
+     *
+     * @param PromoteToMasterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PromoteToMasterResponse
+     */
+    public function promoteToMasterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->masterDbInstanceId) {
+            @$query['MasterDbInstanceId'] = $request->masterDbInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->slaveDbInstanceId) {
+            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PromoteToMaster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PromoteToMasterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Request - PromoteToMasterRequest
+     *
+     * @returns PromoteToMasterResponse
+     *
+     * @param PromoteToMasterRequest $request
+     *
+     * @return PromoteToMasterResponse
+     */
+    public function promoteToMaster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->promoteToMasterWithOptions($request, $runtime);
     }
 
     /**
