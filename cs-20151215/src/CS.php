@@ -148,6 +148,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstanceResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponse;
@@ -6394,6 +6395,59 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->listAddonsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取集群组件实例的资源列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterAddonInstanceResourcesResponse
+     *
+     * @param string         $clusterId
+     * @param string         $instanceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListClusterAddonInstanceResourcesResponse
+     */
+    public function listClusterAddonInstanceResourcesWithOptions($clusterId, $instanceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListClusterAddonInstanceResources',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/addon_instances/' . Url::percentEncode($instanceName) . '/resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClusterAddonInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取集群组件实例的资源列表.
+     *
+     * @returns ListClusterAddonInstanceResourcesResponse
+     *
+     * @param string $clusterId
+     * @param string $instanceName
+     *
+     * @return ListClusterAddonInstanceResourcesResponse
+     */
+    public function listClusterAddonInstanceResources($clusterId, $instanceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listClusterAddonInstanceResourcesWithOptions($clusterId, $instanceName, $headers, $runtime);
     }
 
     /**
