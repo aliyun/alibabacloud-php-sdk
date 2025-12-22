@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListGatewayRequest extends Model
+class ListGatewayShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,9 +34,9 @@ class ListGatewayRequest extends Model
     public $internetEnabled;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $label;
+    public $labelShrink;
 
     /**
      * @var string
@@ -73,7 +73,7 @@ class ListGatewayRequest extends Model
         'gatewayName' => 'GatewayName',
         'gatewayType' => 'GatewayType',
         'internetEnabled' => 'InternetEnabled',
-        'label' => 'Label',
+        'labelShrink' => 'Label',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -84,9 +84,6 @@ class ListGatewayRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->label)) {
-            Model::validateArray($this->label);
-        }
         parent::validate();
     }
 
@@ -113,13 +110,8 @@ class ListGatewayRequest extends Model
             $res['InternetEnabled'] = $this->internetEnabled;
         }
 
-        if (null !== $this->label) {
-            if (\is_array($this->label)) {
-                $res['Label'] = [];
-                foreach ($this->label as $key1 => $value1) {
-                    $res['Label'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->labelShrink) {
+            $res['Label'] = $this->labelShrink;
         }
 
         if (null !== $this->order) {
@@ -178,12 +170,7 @@ class ListGatewayRequest extends Model
         }
 
         if (isset($map['Label'])) {
-            if (!empty($map['Label'])) {
-                $model->label = [];
-                foreach ($map['Label'] as $key1 => $value1) {
-                    $model->label[$key1] = $value1;
-                }
-            }
+            $model->labelShrink = $map['Label'];
         }
 
         if (isset($map['Order'])) {

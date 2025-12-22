@@ -120,6 +120,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetSupportedZoneResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
@@ -4335,21 +4336,27 @@ class Eas extends OpenApiClient
     /**
      * Queries a list of private gateways.
      *
-     * @param request - ListGatewayRequest
+     * @param tmpReq - ListGatewayRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListGatewayResponse
      *
-     * @param ListGatewayRequest $request
+     * @param ListGatewayRequest $tmpReq
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
      *
      * @return ListGatewayResponse
      */
-    public function listGatewayWithOptions($request, $headers, $runtime)
+    public function listGatewayWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListGatewayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->label) {
+            $request->labelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
+        }
+
         $query = [];
         if (null !== $request->chargeType) {
             @$query['ChargeType'] = $request->chargeType;
@@ -4369,6 +4376,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->internetEnabled) {
             @$query['InternetEnabled'] = $request->internetEnabled;
+        }
+
+        if (null !== $request->labelShrink) {
+            @$query['Label'] = $request->labelShrink;
         }
 
         if (null !== $request->order) {

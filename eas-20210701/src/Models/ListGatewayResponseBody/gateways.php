@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponseBody\gateways\labels;
 
 class gateways extends Model
 {
@@ -59,6 +60,11 @@ class gateways extends Model
     public $isDefault;
 
     /**
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
      * @var int
      */
     public $replicas;
@@ -88,6 +94,7 @@ class gateways extends Model
         'intranetDomain' => 'IntranetDomain',
         'intranetEnabled' => 'IntranetEnabled',
         'isDefault' => 'IsDefault',
+        'labels' => 'Labels',
         'replicas' => 'Replicas',
         'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
         'status' => 'Status',
@@ -96,6 +103,9 @@ class gateways extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
         parent::validate();
     }
 
@@ -140,6 +150,17 @@ class gateways extends Model
 
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->replicas) {
@@ -207,6 +228,17 @@ class gateways extends Model
 
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Replicas'])) {
