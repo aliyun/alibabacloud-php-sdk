@@ -10,16 +10,28 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetImageDetectionTaskResultRespons
 class detectionResult extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var detectionDetails[]
      */
     public $detectionDetails;
+
+    /**
+     * @var string
+     */
+    public $portraitType;
 
     /**
      * @var string[]
      */
     public $suggestions;
     protected $_name = [
+        'description' => 'description',
         'detectionDetails' => 'detectionDetails',
+        'portraitType' => 'portraitType',
         'suggestions' => 'suggestions',
     ];
 
@@ -37,6 +49,10 @@ class detectionResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->detectionDetails) {
             if (\is_array($this->detectionDetails)) {
                 $res['detectionDetails'] = [];
@@ -46,6 +62,10 @@ class detectionResult extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->portraitType) {
+            $res['portraitType'] = $this->portraitType;
         }
 
         if (null !== $this->suggestions) {
@@ -70,6 +90,10 @@ class detectionResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['detectionDetails'])) {
             if (!empty($map['detectionDetails'])) {
                 $model->detectionDetails = [];
@@ -79,6 +103,10 @@ class detectionResult extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['portraitType'])) {
+            $model->portraitType = $map['portraitType'];
         }
 
         if (isset($map['suggestions'])) {
