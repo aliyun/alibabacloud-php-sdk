@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionResourceRequest\data\generators\input;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class features extends Model
 {
     /**
-     * @description The name of the feature.
-     *
-     * @example system_item_id
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the feature.
-     *
-     * Valid values:
-     *
-     *   item
-     *
-     * <!-- -->
-     *
-     *   user
-     *
-     * <!-- -->
-     * @example item
-     *
      * @var string
      */
     public $type;
@@ -41,14 +24,16 @@ class features extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -56,17 +41,18 @@ class features extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return features
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

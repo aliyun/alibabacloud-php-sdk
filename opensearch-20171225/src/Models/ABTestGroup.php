@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ABTestGroup extends Model
 {
@@ -18,20 +18,22 @@ class ABTestGroup extends Model
      */
     public $status;
     protected $_name = [
-        'name'   => 'name',
+        'name' => 'name',
         'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -39,17 +41,18 @@ class ABTestGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ABTestGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

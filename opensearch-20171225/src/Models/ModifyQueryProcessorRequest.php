@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyQueryProcessorRequest extends Model
 {
     /**
-     * @description The request parameters.
-     *
-     * @example {
-     * }
      * @var mixed
      */
     public $body;
 
     /**
-     * @description Specifies whether the request is a dry run.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
         'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -47,17 +41,18 @@ class ModifyQueryProcessorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyQueryProcessorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

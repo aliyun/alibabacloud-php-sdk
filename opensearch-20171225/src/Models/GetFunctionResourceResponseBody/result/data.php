@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionResourceResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionResourceResponseBody\result\data\generators;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The content of the file that corresponds to a resource of the raw_file type.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The feature generators that correspond to resources of the feature_generator type.
-     *
      * @var generators[]
      */
     public $generators;
     protected $_name = [
-        'content'    => 'Content',
+        'content' => 'Content',
         'generators' => 'Generators',
     ];
 
     public function validate()
     {
+        if (\is_array($this->generators)) {
+            Model::validateArray($this->generators);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->generators) {
-            $res['Generators'] = [];
-            if (null !== $this->generators && \is_array($this->generators)) {
-                $n = 0;
-                foreach ($this->generators as $item) {
-                    $res['Generators'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->generators)) {
+                $res['Generators'] = [];
+                $n1 = 0;
+                foreach ($this->generators as $item1) {
+                    $res['Generators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Generators'])) {
             if (!empty($map['Generators'])) {
                 $model->generators = [];
-                $n                 = 0;
-                foreach ($map['Generators'] as $item) {
-                    $model->generators[$n++] = null !== $item ? generators::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Generators'] as $item1) {
+                    $model->generators[$n1] = generators::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

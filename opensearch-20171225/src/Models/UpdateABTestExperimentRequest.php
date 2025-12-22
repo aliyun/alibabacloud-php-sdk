@@ -4,43 +4,39 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateABTestExperimentRequest extends Model
 {
     /**
-     * @description The request body. For more information, see [ABTestExperiment](https://help.aliyun.com/document_detail/173617.html).
-     *
      * @var ABTestExperiment
      */
     public $body;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   true: performs only a dry run. No endpoint is created. The system checks whether your AccessKey is valid, whether Resource Access Management (RAM) users are authorized, and whether the required parameters are set.
-     *   false (default): creates an endpoint immediately.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
         'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -48,17 +44,18 @@ class UpdateABTestExperimentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateABTestExperimentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = ABTestExperiment::fromMap($map['body']);
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFunctionInstanceRequest extends Model
 {
     /**
-     * @description Specifies the richness of returned information. Valid values:
-     *
-     *   simple: displays only the basic information.
-     *   normal: displays information such as createParameters and cron. This is the default value.
-     *   detail: returns the details of the training task.
-     *
-     * @example detail
-     *
      * @var string
      */
     public $output;
@@ -26,9 +18,10 @@ class GetFunctionInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->output) {
@@ -38,11 +31,11 @@ class GetFunctionInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFunctionInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

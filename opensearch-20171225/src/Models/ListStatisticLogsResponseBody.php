@@ -4,57 +4,61 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListStatisticLogsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F76ACE3D-E510-EE2C-B7B1-39B3136A61EE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned result. For more information, see
-     *
-     *   [Parameters of hotwords rankings](https://help.aliyun.com/document_detail/421248.html).
-     *
-     * @example []
-     *
      * @var mixed[][]
      */
     public $result;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'requestId',
-        'result'     => 'result',
+        'requestId' => 'requestId',
+        'result' => 'result',
         'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    if (\is_array($item1)) {
+                        $res['result'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['result'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -62,22 +66,34 @@ class ListStatisticLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStatisticLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
-                $model->result = $map['result'];
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['result'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->result[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->result[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

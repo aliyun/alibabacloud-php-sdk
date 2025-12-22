@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionCurrentVersionResponseBody\result\versionConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class depends extends Model
 {
     /**
-     * @description The condition.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $condition;
 
     /**
-     * @description The dependency.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $dependency;
 
     /**
-     * @description The description.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $description;
     protected $_name = [
-        'condition'   => 'Condition',
-        'dependency'  => 'Dependency',
+        'condition' => 'Condition',
+        'dependency' => 'Dependency',
         'description' => 'Description',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
+
         if (null !== $this->dependency) {
             $res['Dependency'] = $this->dependency;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -60,20 +51,22 @@ class depends extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return depends
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
+
         if (isset($map['Dependency'])) {
             $model->dependency = $map['Dependency'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

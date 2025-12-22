@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataSourceTablesRequest extends Model
 {
     /**
-     * @description N/A
-     *
-     * This parameter is required.
-     * @example -
-     *
      * @var string
      */
     public $params;
@@ -23,9 +18,10 @@ class ListDataSourceTablesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
@@ -35,11 +31,11 @@ class ListDataSourceTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataSourceTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

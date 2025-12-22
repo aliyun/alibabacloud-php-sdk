@@ -4,62 +4,70 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScheduledTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 922DC0D9-31B5-45F9-47B7-37DC678D61A8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the scheduled task.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                foreach ($this->result as $key1 => $value1) {
+                    $res['result'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScheduledTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
-            $model->result = $map['result'];
+            if (!empty($map['result'])) {
+                $model->result = [];
+                foreach ($map['result'] as $key1 => $value1) {
+                    $model->result[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

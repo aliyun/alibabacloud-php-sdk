@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ScheduledTask;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
@@ -28,28 +28,32 @@ class filter extends Model
      */
     public $unit;
     protected $_name = [
-        'days'       => 'days',
+        'days' => 'days',
         'expression' => 'expression',
-        'field'      => 'field',
-        'unit'       => 'unit',
+        'field' => 'field',
+        'unit' => 'unit',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->days) {
             $res['days'] = $this->days;
         }
+
         if (null !== $this->expression) {
             $res['expression'] = $this->expression;
         }
+
         if (null !== $this->field) {
             $res['field'] = $this->field;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
@@ -57,23 +61,26 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['days'])) {
             $model->days = $map['days'];
         }
+
         if (isset($map['expression'])) {
             $model->expression = $map['expression'];
         }
+
         if (isset($map['field'])) {
             $model->field = $map['field'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }

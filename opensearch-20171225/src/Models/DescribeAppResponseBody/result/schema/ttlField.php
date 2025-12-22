@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ttlField extends Model
 {
@@ -19,19 +19,21 @@ class ttlField extends Model
     public $ttl;
     protected $_name = [
         'name' => 'name',
-        'ttl'  => 'ttl',
+        'ttl' => 'ttl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->ttl) {
             $res['ttl'] = $this->ttl;
         }
@@ -39,17 +41,18 @@ class ttlField extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ttlField
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['ttl'])) {
             $model->ttl = $map['ttl'];
         }

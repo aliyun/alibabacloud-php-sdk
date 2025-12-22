@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFunctionResourceRequest extends Model
 {
     /**
-     * @description The output level.
-     *
-     * Valid values:
-     *
-     *   simple
-     *   normal
-     *   detail
-     *
-     * @example detail
-     *
      * @var string
      */
     public $output;
@@ -28,9 +18,10 @@ class GetFunctionResourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->output) {
@@ -40,11 +31,11 @@ class GetFunctionResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFunctionResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

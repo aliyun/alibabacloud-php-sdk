@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFetchFieldsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -47,17 +41,18 @@ class UpdateFetchFieldsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFetchFieldsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

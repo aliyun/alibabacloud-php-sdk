@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cluster extends Model
 {
@@ -19,19 +19,21 @@ class cluster extends Model
     public $maxTimeoutMS;
     protected $_name = [
         'maxQueryClauseLength' => 'maxQueryClauseLength',
-        'maxTimeoutMS'         => 'maxTimeoutMS',
+        'maxTimeoutMS' => 'maxTimeoutMS',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxQueryClauseLength) {
             $res['maxQueryClauseLength'] = $this->maxQueryClauseLength;
         }
+
         if (null !== $this->maxTimeoutMS) {
             $res['maxTimeoutMS'] = $this->maxTimeoutMS;
         }
@@ -39,17 +41,18 @@ class cluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxQueryClauseLength'])) {
             $model->maxQueryClauseLength = $map['maxQueryClauseLength'];
         }
+
         if (isset($map['maxTimeoutMS'])) {
             $model->maxTimeoutMS = $map['maxTimeoutMS'];
         }

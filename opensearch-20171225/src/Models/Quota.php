@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Quota extends Model
 {
@@ -29,27 +29,31 @@ class Quota extends Model
     public $spec;
     protected $_name = [
         'computeResource' => 'computeResource',
-        'docSize'         => 'docSize',
-        'orderType'       => 'orderType',
-        'spec'            => 'spec',
+        'docSize' => 'docSize',
+        'orderType' => 'orderType',
+        'spec' => 'spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeResource) {
             $res['computeResource'] = $this->computeResource;
         }
+
         if (null !== $this->docSize) {
             $res['docSize'] = $this->docSize;
         }
+
         if (null !== $this->orderType) {
             $res['orderType'] = $this->orderType;
         }
+
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -57,23 +61,26 @@ class Quota extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Quota
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['computeResource'])) {
             $model->computeResource = $map['computeResource'];
         }
+
         if (isset($map['docSize'])) {
             $model->docSize = $map['docSize'];
         }
+
         if (isset($map['orderType'])) {
             $model->orderType = $map['orderType'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }

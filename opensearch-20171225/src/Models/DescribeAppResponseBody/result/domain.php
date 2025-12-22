@@ -4,56 +4,50 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\domain\functions;
-use AlibabaCloud\Tea\Model;
 
 class domain extends Model
 {
     /**
-     * @description The category. By default, this parameter is left empty.
-     *
-     * @example -
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description search functions
-     *
-     * @example {}
-     *
      * @var functions
      */
     public $functions;
 
     /**
-     * @description The name
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'category'  => 'category',
+        'category' => 'category',
         'functions' => 'functions',
-        'name'      => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        if (null !== $this->functions) {
+            $this->functions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->functions) {
-            $res['functions'] = null !== $this->functions ? $this->functions->toMap() : null;
+            $res['functions'] = null !== $this->functions ? $this->functions->toArray($noStream) : $this->functions;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -61,20 +55,22 @@ class domain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['functions'])) {
             $model->functions = functions::fromMap($map['functions']);
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

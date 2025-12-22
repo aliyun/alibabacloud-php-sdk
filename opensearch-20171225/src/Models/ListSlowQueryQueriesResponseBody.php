@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListSlowQueryQueriesResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListSlowQueryQueriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EB250CA0-ACFD-C5DE-17CD-01445BFE8AE5
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The return result.
-     *
      * @var result
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSlowQueryQueriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

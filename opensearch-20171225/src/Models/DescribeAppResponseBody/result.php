@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\cluster;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\dataSources;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\domain;
@@ -14,15 +15,10 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schemas;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\secondRanks;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\summaries;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the version is automatically published to the online environment.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoSwitch;
@@ -33,10 +29,6 @@ class result extends Model
     public $cluster;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example -
-     *
      * @var string
      */
     public $clusterName;
@@ -47,32 +39,16 @@ class result extends Model
     public $dataSources;
 
     /**
-     * @description The description of the version.
-     *
-     * @example -
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The type of the industry. Valid values:
-     *
-     *   GENERAL
-     *   ECOMMERCE
-     *   IT_CONTENT
-     *
-     * @example GENERAL
-     *
      * @var domain
      */
     public $domain;
 
     /**
-     * @description The default display fields.
-     *
-     * @example []
-     *
      * @var string[]
      */
     public $fetchFields;
@@ -83,10 +59,6 @@ class result extends Model
     public $firstRanks;
 
     /**
-     * @description The ID of the version.
-     *
-     * @example 100303063
-     *
      * @var string
      */
     public $id;
@@ -102,10 +74,6 @@ class result extends Model
     public $isCurrent;
 
     /**
-     * @description The progress of data import, in percentage. For example, a value of 83 indicates 83%.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $progressPercent;
@@ -121,19 +89,11 @@ class result extends Model
     public $queryProcessors;
 
     /**
-     * @description The quota information about the version.
-     *
-     * @example {}
-     *
      * @var quota
      */
     public $quota;
 
     /**
-     * @description The application schema.
-     *
-     * @example {}
-     *
      * @var schema
      */
     public $schema;
@@ -149,18 +109,6 @@ class result extends Model
     public $secondRanks;
 
     /**
-     * @description The status of the version. Valid values:
-     *
-     *   ok
-     *   stopped
-     *   frozen
-     *   initializing
-     *   unavailable
-     *   data_waiting
-     *   data_preparing
-     *
-     * @example ok
-     *
      * @var string
      */
     public $status;
@@ -171,144 +119,226 @@ class result extends Model
     public $summaries;
 
     /**
-     * @description The type of the application. Valid values:
-     *
-     *   standard: a standard application.
-     *   advance: an advanced application which is of an old application type. New applications cannot be of this type.
-     *   enhanced: an advanced application which is of a new application type.
-     *
-     * @example enhanced
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoSwitch'      => 'autoSwitch',
-        'cluster'         => 'cluster',
-        'clusterName'     => 'clusterName',
-        'dataSources'     => 'dataSources',
-        'description'     => 'description',
-        'domain'          => 'domain',
-        'fetchFields'     => 'fetchFields',
-        'firstRanks'      => 'firstRanks',
-        'id'              => 'id',
+        'autoSwitch' => 'autoSwitch',
+        'cluster' => 'cluster',
+        'clusterName' => 'clusterName',
+        'dataSources' => 'dataSources',
+        'description' => 'description',
+        'domain' => 'domain',
+        'fetchFields' => 'fetchFields',
+        'firstRanks' => 'firstRanks',
+        'id' => 'id',
         'interpretations' => 'interpretations',
-        'isCurrent'       => 'isCurrent',
+        'isCurrent' => 'isCurrent',
         'progressPercent' => 'progressPercent',
-        'prompts'         => 'prompts',
+        'prompts' => 'prompts',
         'queryProcessors' => 'queryProcessors',
-        'quota'           => 'quota',
-        'schema'          => 'schema',
-        'schemas'         => 'schemas',
-        'secondRanks'     => 'secondRanks',
-        'status'          => 'status',
-        'summaries'       => 'summaries',
-        'type'            => 'type',
+        'quota' => 'quota',
+        'schema' => 'schema',
+        'schemas' => 'schemas',
+        'secondRanks' => 'secondRanks',
+        'status' => 'status',
+        'summaries' => 'summaries',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->cluster) {
+            $this->cluster->validate();
+        }
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
+        }
+        if (null !== $this->domain) {
+            $this->domain->validate();
+        }
+        if (\is_array($this->fetchFields)) {
+            Model::validateArray($this->fetchFields);
+        }
+        if (\is_array($this->firstRanks)) {
+            Model::validateArray($this->firstRanks);
+        }
+        if (\is_array($this->interpretations)) {
+            Model::validateArray($this->interpretations);
+        }
+        if (\is_array($this->prompts)) {
+            Model::validateArray($this->prompts);
+        }
+        if (\is_array($this->queryProcessors)) {
+            Model::validateArray($this->queryProcessors);
+        }
+        if (null !== $this->quota) {
+            $this->quota->validate();
+        }
+        if (null !== $this->schema) {
+            $this->schema->validate();
+        }
+        if (\is_array($this->schemas)) {
+            Model::validateArray($this->schemas);
+        }
+        if (\is_array($this->secondRanks)) {
+            Model::validateArray($this->secondRanks);
+        }
+        if (\is_array($this->summaries)) {
+            Model::validateArray($this->summaries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSwitch) {
             $res['autoSwitch'] = $this->autoSwitch;
         }
+
         if (null !== $this->cluster) {
-            $res['cluster'] = null !== $this->cluster ? $this->cluster->toMap() : null;
+            $res['cluster'] = null !== $this->cluster ? $this->cluster->toArray($noStream) : $this->cluster;
         }
+
         if (null !== $this->clusterName) {
             $res['clusterName'] = $this->clusterName;
         }
+
         if (null !== $this->dataSources) {
-            $res['dataSources'] = [];
-            if (null !== $this->dataSources && \is_array($this->dataSources)) {
-                $n = 0;
-                foreach ($this->dataSources as $item) {
-                    $res['dataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSources)) {
+                $res['dataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['dataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->domain) {
-            $res['domain'] = null !== $this->domain ? $this->domain->toMap() : null;
+            $res['domain'] = null !== $this->domain ? $this->domain->toArray($noStream) : $this->domain;
         }
+
         if (null !== $this->fetchFields) {
-            $res['fetchFields'] = $this->fetchFields;
-        }
-        if (null !== $this->firstRanks) {
-            $res['firstRanks'] = [];
-            if (null !== $this->firstRanks && \is_array($this->firstRanks)) {
-                $n = 0;
-                foreach ($this->firstRanks as $item) {
-                    $res['firstRanks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fetchFields)) {
+                $res['fetchFields'] = [];
+                $n1 = 0;
+                foreach ($this->fetchFields as $item1) {
+                    $res['fetchFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->firstRanks) {
+            if (\is_array($this->firstRanks)) {
+                $res['firstRanks'] = [];
+                $n1 = 0;
+                foreach ($this->firstRanks as $item1) {
+                    $res['firstRanks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->interpretations) {
-            $res['interpretations'] = $this->interpretations;
+            if (\is_array($this->interpretations)) {
+                $res['interpretations'] = [];
+                foreach ($this->interpretations as $key1 => $value1) {
+                    $res['interpretations'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->isCurrent) {
             $res['isCurrent'] = $this->isCurrent;
         }
+
         if (null !== $this->progressPercent) {
             $res['progressPercent'] = $this->progressPercent;
         }
+
         if (null !== $this->prompts) {
-            $res['prompts'] = $this->prompts;
+            if (\is_array($this->prompts)) {
+                $res['prompts'] = [];
+                $n1 = 0;
+                foreach ($this->prompts as $item1) {
+                    if (\is_array($item1)) {
+                        $res['prompts'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['prompts'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->queryProcessors) {
-            $res['queryProcessors'] = [];
-            if (null !== $this->queryProcessors && \is_array($this->queryProcessors)) {
-                $n = 0;
-                foreach ($this->queryProcessors as $item) {
-                    $res['queryProcessors'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->queryProcessors)) {
+                $res['queryProcessors'] = [];
+                $n1 = 0;
+                foreach ($this->queryProcessors as $item1) {
+                    $res['queryProcessors'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->quota) {
-            $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
+            $res['quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
         }
+
         if (null !== $this->schema) {
-            $res['schema'] = null !== $this->schema ? $this->schema->toMap() : null;
+            $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
         }
+
         if (null !== $this->schemas) {
-            $res['schemas'] = [];
-            if (null !== $this->schemas && \is_array($this->schemas)) {
-                $n = 0;
-                foreach ($this->schemas as $item) {
-                    $res['schemas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schemas)) {
+                $res['schemas'] = [];
+                $n1 = 0;
+                foreach ($this->schemas as $item1) {
+                    $res['schemas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->secondRanks) {
-            $res['secondRanks'] = [];
-            if (null !== $this->secondRanks && \is_array($this->secondRanks)) {
-                $n = 0;
-                foreach ($this->secondRanks as $item) {
-                    $res['secondRanks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->secondRanks)) {
+                $res['secondRanks'] = [];
+                $n1 = 0;
+                foreach ($this->secondRanks as $item1) {
+                    $res['secondRanks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->summaries) {
-            $res['summaries'] = [];
-            if (null !== $this->summaries && \is_array($this->summaries)) {
-                $n = 0;
-                foreach ($this->summaries as $item) {
-                    $res['summaries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->summaries)) {
+                $res['summaries'] = [];
+                $n1 = 0;
+                foreach ($this->summaries as $item1) {
+                    $res['summaries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -316,114 +346,160 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoSwitch'])) {
             $model->autoSwitch = $map['autoSwitch'];
         }
+
         if (isset($map['cluster'])) {
             $model->cluster = cluster::fromMap($map['cluster']);
         }
+
         if (isset($map['clusterName'])) {
             $model->clusterName = $map['clusterName'];
         }
+
         if (isset($map['dataSources'])) {
             if (!empty($map['dataSources'])) {
                 $model->dataSources = [];
-                $n                  = 0;
-                foreach ($map['dataSources'] as $item) {
-                    $model->dataSources[$n++] = null !== $item ? dataSources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dataSources'] as $item1) {
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['domain'])) {
             $model->domain = domain::fromMap($map['domain']);
         }
+
         if (isset($map['fetchFields'])) {
             if (!empty($map['fetchFields'])) {
-                $model->fetchFields = $map['fetchFields'];
+                $model->fetchFields = [];
+                $n1 = 0;
+                foreach ($map['fetchFields'] as $item1) {
+                    $model->fetchFields[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['firstRanks'])) {
             if (!empty($map['firstRanks'])) {
                 $model->firstRanks = [];
-                $n                 = 0;
-                foreach ($map['firstRanks'] as $item) {
-                    $model->firstRanks[$n++] = null !== $item ? firstRanks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['firstRanks'] as $item1) {
+                    $model->firstRanks[$n1] = firstRanks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['interpretations'])) {
-            $model->interpretations = $map['interpretations'];
+            if (!empty($map['interpretations'])) {
+                $model->interpretations = [];
+                foreach ($map['interpretations'] as $key1 => $value1) {
+                    $model->interpretations[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['isCurrent'])) {
             $model->isCurrent = $map['isCurrent'];
         }
+
         if (isset($map['progressPercent'])) {
             $model->progressPercent = $map['progressPercent'];
         }
+
         if (isset($map['prompts'])) {
             if (!empty($map['prompts'])) {
-                $model->prompts = $map['prompts'];
+                $model->prompts = [];
+                $n1 = 0;
+                foreach ($map['prompts'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->prompts[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->prompts[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['queryProcessors'])) {
             if (!empty($map['queryProcessors'])) {
                 $model->queryProcessors = [];
-                $n                      = 0;
-                foreach ($map['queryProcessors'] as $item) {
-                    $model->queryProcessors[$n++] = null !== $item ? queryProcessors::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['queryProcessors'] as $item1) {
+                    $model->queryProcessors[$n1] = queryProcessors::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
         }
+
         if (isset($map['schema'])) {
             $model->schema = schema::fromMap($map['schema']);
         }
+
         if (isset($map['schemas'])) {
             if (!empty($map['schemas'])) {
                 $model->schemas = [];
-                $n              = 0;
-                foreach ($map['schemas'] as $item) {
-                    $model->schemas[$n++] = null !== $item ? schemas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['schemas'] as $item1) {
+                    $model->schemas[$n1] = schemas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['secondRanks'])) {
             if (!empty($map['secondRanks'])) {
                 $model->secondRanks = [];
-                $n                  = 0;
-                foreach ($map['secondRanks'] as $item) {
-                    $model->secondRanks[$n++] = null !== $item ? secondRanks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['secondRanks'] as $item1) {
+                    $model->secondRanks[$n1] = secondRanks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['summaries'])) {
             if (!empty($map['summaries'])) {
                 $model->summaries = [];
-                $n                = 0;
-                foreach ($map['summaries'] as $item) {
-                    $model->summaries[$n++] = null !== $item ? summaries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['summaries'] as $item1) {
+                    $model->summaries[$n1] = summaries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

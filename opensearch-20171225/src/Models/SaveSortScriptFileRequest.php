@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveSortScriptFileRequest extends Model
 {
     /**
-     * @description The script content that is encoded in the Base64 format.
-     *
-     * @example 4769#0: *28194492991 a client request body is buffered to a temporary file /usr/local/webserver/openresty/nginx/client_body_temp/0000624474,
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The version number of the script content.
-     *
-     * @example 2022-12-01
-     *
      * @var int
      */
     public $version;
@@ -32,14 +24,16 @@ class SaveSortScriptFileRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -47,17 +41,18 @@ class SaveSortScriptFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveSortScriptFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

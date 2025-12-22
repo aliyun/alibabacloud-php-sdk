@@ -4,49 +4,47 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ValidateDataSourcesResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ValidateDataSourcesResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 8FA2B338-AFDC-46B4-A132-B5487820C2BF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The result returned.
-     *
-     * @example []
-     *
      * @var result[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,23 +52,25 @@ class ValidateDataSourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ValidateDataSourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

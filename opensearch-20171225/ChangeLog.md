@@ -1,3 +1,7 @@
+2025-12-22 Version: 3.0.2
+- Update API ModifyAppGroupQuota: add request parameters clientToken.
+
+
 2024-09-05 Version: 3.0.1
 - Update API CreateAppGroup: update param body.
 

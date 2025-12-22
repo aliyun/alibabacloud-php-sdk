@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListTagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of the tag.
-     *
-     * @example bm
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag.
-     *
-     * @example Uefi
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key' => 'key',
         'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -47,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

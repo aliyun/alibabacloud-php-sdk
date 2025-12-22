@@ -4,40 +4,39 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewAppGroupRequest extends Model
 {
     /**
-     * @description The renewal request body.
-     *
      * @var PrepayOrderInfo
      */
     public $body;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * @example 74db41d8cd3c784209093aa76afbe89e
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
+        'body' => 'body',
         'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -45,17 +44,18 @@ class RenewAppGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewAppGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = PrepayOrderInfo::fromMap($map['body']);
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

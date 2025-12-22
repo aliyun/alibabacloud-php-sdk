@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionDefaultInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The default instance name.
-     *
-     * @example model1
-     *
      * @var string
      */
     public $instanceName;
@@ -22,9 +18,10 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceName) {
@@ -34,11 +31,11 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

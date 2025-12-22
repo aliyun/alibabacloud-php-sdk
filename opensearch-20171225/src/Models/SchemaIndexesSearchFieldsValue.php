@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SchemaIndexesSearchFieldsValue extends Model
 {
@@ -33,32 +33,47 @@ class SchemaIndexesSearchFieldsValue extends Model
      */
     public $label;
     protected $_name = [
-        'analyzer'           => 'analyzer',
-        'analyzerType'       => 'analyzerType',
+        'analyzer' => 'analyzer',
+        'analyzerType' => 'analyzerType',
         'analyzerGeneration' => 'analyzerGeneration',
-        'fields'             => 'fields',
-        'label'              => 'label',
+        'fields' => 'fields',
+        'label' => 'label',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analyzer) {
             $res['analyzer'] = $this->analyzer;
         }
+
         if (null !== $this->analyzerType) {
             $res['analyzerType'] = $this->analyzerType;
         }
+
         if (null !== $this->analyzerGeneration) {
             $res['analyzerGeneration'] = $this->analyzerGeneration;
         }
+
         if (null !== $this->fields) {
-            $res['fields'] = $this->fields;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
@@ -66,28 +81,37 @@ class SchemaIndexesSearchFieldsValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SchemaIndexesSearchFieldsValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['analyzer'])) {
             $model->analyzer = $map['analyzer'];
         }
+
         if (isset($map['analyzerType'])) {
             $model->analyzerType = $map['analyzerType'];
         }
+
         if (isset($map['analyzerGeneration'])) {
             $model->analyzerGeneration = $map['analyzerGeneration'];
         }
+
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
-                $model->fields = $map['fields'];
+                $model->fields = [];
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }

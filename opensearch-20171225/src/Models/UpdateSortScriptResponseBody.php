@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSortScriptResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9F165784-5507-5342-ABF3-545293F9808A
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateSortScriptResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateSortScriptResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSortScriptResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

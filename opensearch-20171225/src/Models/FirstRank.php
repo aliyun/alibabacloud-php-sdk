@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FirstRank extends Model
 {
@@ -33,32 +33,37 @@ class FirstRank extends Model
      */
     public $type;
     protected $_name = [
-        'active'      => 'active',
+        'active' => 'active',
         'description' => 'description',
-        'meta'        => 'meta',
-        'name'        => 'name',
-        'type'        => 'type',
+        'meta' => 'meta',
+        'name' => 'name',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['active'] = $this->active;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->meta) {
             $res['meta'] = $this->meta;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -66,26 +71,30 @@ class FirstRank extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FirstRank
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['active'])) {
             $model->active = $map['active'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['meta'])) {
             $model->meta = $map['meta'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

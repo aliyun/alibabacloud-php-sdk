@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataSourcePluginsValue extends Model
 {
@@ -23,47 +23,65 @@ class DataSourcePluginsValue extends Model
      */
     public $parameters;
     protected $_name = [
-        'name'       => 'name',
+        'name' => 'name',
         'fromFields' => 'fromFields',
         'parameters' => 'parameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->fromFields) {
             $res['fromFields'] = $this->fromFields;
         }
+
         if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataSourcePluginsValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['fromFields'])) {
             $model->fromFields = $map['fromFields'];
         }
+
         if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

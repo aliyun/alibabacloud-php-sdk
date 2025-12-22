@@ -4,40 +4,49 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppGroupQuotaRequest extends Model
 {
     /**
-     * @description The request body.
-     *
      * @var Quota
      */
     public $body;
 
     /**
-     * @description Specifies whether to verify the application before modification. Valid values: true and false.
-     *
-     * @example false
-     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
+        'clientToken' => 'clientToken',
         'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -45,17 +54,22 @@ class ModifyAppGroupQuotaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppGroupQuotaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = Quota::fromMap($map['body']);
         }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

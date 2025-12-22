@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domain extends Model
 {
@@ -23,24 +23,35 @@ class domain extends Model
      */
     public $name;
     protected $_name = [
-        'category'  => 'category',
+        'category' => 'category',
         'functions' => 'functions',
-        'name'      => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->functions)) {
+            Model::validateArray($this->functions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->functions) {
-            $res['functions'] = $this->functions;
+            if (\is_array($this->functions)) {
+                $res['functions'] = [];
+                foreach ($this->functions as $key1 => $value1) {
+                    $res['functions'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -48,20 +59,27 @@ class domain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['functions'])) {
-            $model->functions = $map['functions'];
+            if (!empty($map['functions'])) {
+                $model->functions = [];
+                foreach ($map['functions'] as $key1 => $value1) {
+                    $model->functions[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

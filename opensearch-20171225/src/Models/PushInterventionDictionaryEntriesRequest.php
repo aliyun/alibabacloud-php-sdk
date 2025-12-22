@@ -4,45 +4,51 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushInterventionDictionaryEntriesRequest extends Model
 {
     /**
-     * @description The request body.
-     *
      * @var mixed[][]
      */
     public $body;
 
     /**
-     * @description Specifies whether to check the validity of input parameters. Default value: false.
-     *
-     * Valid values:
-     *
-     *   **true**: checks only the validity of input parameters.
-     *   **false**: checks the validity of input parameters and creates an attribution configuration.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
         'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                $n1 = 0;
+                foreach ($this->body as $item1) {
+                    if (\is_array($item1)) {
+                        $res['body'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['body'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -50,19 +56,30 @@ class PushInterventionDictionaryEntriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushInterventionDictionaryEntriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
-                $model->body = $map['body'];
+                $model->body = [];
+                $n1 = 0;
+                foreach ($map['body'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->body[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->body[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

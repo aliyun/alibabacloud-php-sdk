@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupCredentialsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example app_group_123
-     *
      * @var int
      */
     public $appGroupId;
@@ -21,41 +19,41 @@ class result extends Model
     public $enabled;
 
     /**
-     * @example generated_token_string
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @example api-token
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'appGroupId' => 'appGroupId',
-        'enabled'    => 'enabled',
-        'token'      => 'token',
-        'type'       => 'type',
+        'enabled' => 'enabled',
+        'token' => 'token',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroupId) {
             $res['appGroupId'] = $this->appGroupId;
         }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -63,23 +61,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appGroupId'])) {
             $model->appGroupId = $map['appGroupId'];
         }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

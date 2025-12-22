@@ -4,55 +4,54 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ValidateDataSourcesResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSource extends Model
 {
     /**
-     * @description The parameters of the data source.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
-     * @description The name of the table.
-     *
-     * @example user_activity_decision
-     *
      * @var string
      */
     public $tableName;
 
     /**
-     * @description The type of the data source.
-     *
-     * @example rds
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'parameters' => 'parameters',
-        'tableName'  => 'tableName',
-        'type'       => 'type',
+        'tableName' => 'tableName',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -60,20 +59,27 @@ class dataSource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

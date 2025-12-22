@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SchemaTablesValueFieldsValue extends Model
 {
@@ -33,32 +33,47 @@ class SchemaTablesValueFieldsValue extends Model
      */
     public $label;
     protected $_name = [
-        'name'       => 'name',
+        'name' => 'name',
         'primaryKey' => 'primaryKey',
-        'type'       => 'type',
-        'joinWith'   => 'joinWith',
-        'label'      => 'label',
+        'type' => 'type',
+        'joinWith' => 'joinWith',
+        'label' => 'label',
     ];
 
     public function validate()
     {
+        if (\is_array($this->joinWith)) {
+            Model::validateArray($this->joinWith);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->primaryKey) {
             $res['primaryKey'] = $this->primaryKey;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->joinWith) {
-            $res['joinWith'] = $this->joinWith;
+            if (\is_array($this->joinWith)) {
+                $res['joinWith'] = [];
+                $n1 = 0;
+                foreach ($this->joinWith as $item1) {
+                    $res['joinWith'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
@@ -66,28 +81,37 @@ class SchemaTablesValueFieldsValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SchemaTablesValueFieldsValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['primaryKey'])) {
             $model->primaryKey = $map['primaryKey'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['joinWith'])) {
             if (!empty($map['joinWith'])) {
-                $model->joinWith = $map['joinWith'];
+                $model->joinWith = [];
+                $n1 = 0;
+                foreach ($map['joinWith'] as $item1) {
+                    $model->joinWith[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }

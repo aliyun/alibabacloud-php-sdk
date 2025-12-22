@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ReplaceAppGroupCommodityCodeResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quota extends Model
 {
     /**
-     * @description The number of computing resources configured.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $computeResource;
 
     /**
-     * @description The storage capacity.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $docSize;
 
     /**
-     * @description The specifications configured.
-     *
-     * @example -
-     *
      * @var string
      */
     public $spec;
     protected $_name = [
         'computeResource' => 'computeResource',
-        'docSize'         => 'docSize',
-        'spec'            => 'spec',
+        'docSize' => 'docSize',
+        'spec' => 'spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeResource) {
             $res['computeResource'] = $this->computeResource;
         }
+
         if (null !== $this->docSize) {
             $res['docSize'] = $this->docSize;
         }
+
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -60,20 +51,22 @@ class quota extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quota
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['computeResource'])) {
             $model->computeResource = $map['computeResource'];
         }
+
         if (isset($map['docSize'])) {
             $model->docSize = $map['docSize'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }

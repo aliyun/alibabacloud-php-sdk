@@ -4,62 +4,70 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserAnalyzerEntriesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 516A02B7-2167-8D92-12D0-B639A2A0F3C5
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The entries of the custom analyzer. For more information, see [UserAnalyzerEntry](https://www.alibabacloud.com/help/en/open-search/industry-algorithm-edition/useranalyzerentry).
-     *
-     * @example []
-     *
      * @var mixed[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                foreach ($this->result as $key1 => $value1) {
+                    $res['result'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserAnalyzerEntriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['result'])) {
-            $model->result = $map['result'];
+            if (!empty($map['result'])) {
+                $model->result = [];
+                foreach ($map['result'] as $key1 => $value1) {
+                    $model->result[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

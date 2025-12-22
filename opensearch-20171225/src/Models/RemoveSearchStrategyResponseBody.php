@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveSearchStrategyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F5099063-6B86-F398-D843-905F9EFB683A
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RemoveSearchStrategyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RemoveSearchStrategyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveSearchStrategyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

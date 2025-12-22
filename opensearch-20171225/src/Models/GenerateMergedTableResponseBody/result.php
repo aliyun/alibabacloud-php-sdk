@@ -4,55 +4,62 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GenerateMergedTableResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The tables on which the JOIN operation is performed.
-     *
-     * @example -
-     *
      * @var mixed[]
      */
     public $fromTable;
 
     /**
-     * @description The wide table that is generated after the JOIN operation is performed on multiple tables.
-     *
-     * @example -
-     *
      * @var mixed[]
      */
     public $mergeTable;
 
     /**
-     * @description The primary key.
-     *
-     * @example -
-     *
      * @var string
      */
     public $primaryKey;
     protected $_name = [
-        'fromTable'  => 'fromTable',
+        'fromTable' => 'fromTable',
         'mergeTable' => 'mergeTable',
         'primaryKey' => 'primaryKey',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fromTable)) {
+            Model::validateArray($this->fromTable);
+        }
+        if (\is_array($this->mergeTable)) {
+            Model::validateArray($this->mergeTable);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromTable) {
-            $res['fromTable'] = $this->fromTable;
+            if (\is_array($this->fromTable)) {
+                $res['fromTable'] = [];
+                foreach ($this->fromTable as $key1 => $value1) {
+                    $res['fromTable'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->mergeTable) {
-            $res['mergeTable'] = $this->mergeTable;
+            if (\is_array($this->mergeTable)) {
+                $res['mergeTable'] = [];
+                foreach ($this->mergeTable as $key1 => $value1) {
+                    $res['mergeTable'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->primaryKey) {
             $res['primaryKey'] = $this->primaryKey;
         }
@@ -60,20 +67,32 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fromTable'])) {
-            $model->fromTable = $map['fromTable'];
+            if (!empty($map['fromTable'])) {
+                $model->fromTable = [];
+                foreach ($map['fromTable'] as $key1 => $value1) {
+                    $model->fromTable[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['mergeTable'])) {
-            $model->mergeTable = $map['mergeTable'];
+            if (!empty($map['mergeTable'])) {
+                $model->mergeTable = [];
+                foreach ($map['mergeTable'] as $key1 => $value1) {
+                    $model->mergeTable[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['primaryKey'])) {
             $model->primaryKey = $map['primaryKey'];
         }

@@ -4,111 +4,111 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyQueryProcessorResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the query analysis rule is a default rule.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $active;
 
     /**
-     * @description The time when the rule was created.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $created;
 
     /**
-     * @description The type of the industry to which the query analysis rule is applied. Valid values:
-     *
-     *   GENERAL
-     *   ECOMMERCE
-     *   IT_CONTENT
-     *
-     * @example GENERAL
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The indexes to which the query analysis rule is applied.
-     *
-     * @example ["default"]
-     *
      * @var string[]
      */
     public $indexes;
 
     /**
-     * @description The name of the query analysis rule.
-     *
-     * @example synonym
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The analysis rule.
-     *
-     * @example []
-     *
      * @var mixed[][]
      */
     public $processors;
 
     /**
-     * @description The time when the rule was updated.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $updated;
     protected $_name = [
-        'active'     => 'active',
-        'created'    => 'created',
-        'domain'     => 'domain',
-        'indexes'    => 'indexes',
-        'name'       => 'name',
+        'active' => 'active',
+        'created' => 'created',
+        'domain' => 'domain',
+        'indexes' => 'indexes',
+        'name' => 'name',
         'processors' => 'processors',
-        'updated'    => 'updated',
+        'updated' => 'updated',
     ];
 
     public function validate()
     {
+        if (\is_array($this->indexes)) {
+            Model::validateArray($this->indexes);
+        }
+        if (\is_array($this->processors)) {
+            Model::validateArray($this->processors);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['active'] = $this->active;
         }
+
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
+
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+
         if (null !== $this->indexes) {
-            $res['indexes'] = $this->indexes;
+            if (\is_array($this->indexes)) {
+                $res['indexes'] = [];
+                $n1 = 0;
+                foreach ($this->indexes as $item1) {
+                    $res['indexes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->processors) {
-            $res['processors'] = $this->processors;
+            if (\is_array($this->processors)) {
+                $res['processors'] = [];
+                $n1 = 0;
+                foreach ($this->processors as $item1) {
+                    if (\is_array($item1)) {
+                        $res['processors'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['processors'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
@@ -116,36 +116,57 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['active'])) {
             $model->active = $map['active'];
         }
+
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
+
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+
         if (isset($map['indexes'])) {
             if (!empty($map['indexes'])) {
-                $model->indexes = $map['indexes'];
+                $model->indexes = [];
+                $n1 = 0;
+                foreach ($map['indexes'] as $item1) {
+                    $model->indexes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['processors'])) {
             if (!empty($map['processors'])) {
-                $model->processors = $map['processors'];
+                $model->processors = [];
+                $n1 = 0;
+                foreach ($map['processors'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->processors[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->processors[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }

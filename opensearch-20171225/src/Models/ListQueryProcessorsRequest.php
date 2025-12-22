@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListQueryProcessorsRequest extends Model
 {
     /**
-     * @description The scope of query analysis rules to be queried. Default value: 0. Valid values:
-     *
-     *   0: queries all query analysis rules.
-     *   1: queries the default query analysis rules.
-     *   2: queries the query analysis rules that are not the default rules.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $isActive;
@@ -26,9 +18,10 @@ class ListQueryProcessorsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isActive) {
@@ -38,11 +31,11 @@ class ListQueryProcessorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQueryProcessorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

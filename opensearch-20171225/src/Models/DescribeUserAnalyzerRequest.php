@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserAnalyzerRequest extends Model
 {
     /**
-     * @description The Associated information,output properties based on hierarchy.
-     * **all**: Outputs associated app information
-     *
-     * @example all
-     *
      * @var string
      */
     public $with;
@@ -23,9 +18,10 @@ class DescribeUserAnalyzerRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->with) {
@@ -35,11 +31,11 @@ class DescribeUserAnalyzerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserAnalyzerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

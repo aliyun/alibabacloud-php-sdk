@@ -4,62 +4,70 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindESUserAnalyzerResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 3AD34CAD-9603-5251-AFF5-3916C848A1D3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The custom analyzer.
-     *
-     * @example []
-     *
      * @var mixed[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                foreach ($this->result as $key1 => $value1) {
+                    $res['result'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindESUserAnalyzerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
-            $model->result = $map['result'];
+            if (!empty($map['result'])) {
+                $model->result = [];
+                foreach ($map['result'] as $key1 => $value1) {
+                    $model->result[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

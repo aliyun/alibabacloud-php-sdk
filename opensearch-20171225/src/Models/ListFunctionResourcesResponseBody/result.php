@@ -4,117 +4,110 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionResourcesResponseBody\result\data;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The time when the resource was created. Unit: milliseconds.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The resource data. The data structure varies with the resource type.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The description of the resource.
-     *
-     * @example resource description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the feature.
-     *
-     * @example rank
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description The time when the resource was modified. Unit: milliseconds.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description The algorithm instances that are referenced.
-     *
      * @var string[]
      */
     public $referencedInstances;
 
     /**
-     * @description The name of the resource.
-     *
-     * @example fg_json
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description The type of the resource.
-     *
-     * @example feature_generator
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'data'                => 'Data',
-        'description'         => 'Description',
-        'functionName'        => 'FunctionName',
-        'modifyTime'          => 'ModifyTime',
+        'createTime' => 'CreateTime',
+        'data' => 'Data',
+        'description' => 'Description',
+        'functionName' => 'FunctionName',
+        'modifyTime' => 'ModifyTime',
         'referencedInstances' => 'ReferencedInstances',
-        'resourceName'        => 'ResourceName',
-        'resourceType'        => 'ResourceType',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        if (\is_array($this->referencedInstances)) {
+            Model::validateArray($this->referencedInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->referencedInstances) {
-            $res['ReferencedInstances'] = $this->referencedInstances;
+            if (\is_array($this->referencedInstances)) {
+                $res['ReferencedInstances'] = [];
+                $n1 = 0;
+                foreach ($this->referencedInstances as $item1) {
+                    $res['ReferencedInstances'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -122,37 +115,49 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['ReferencedInstances'])) {
             if (!empty($map['ReferencedInstances'])) {
-                $model->referencedInstances = $map['ReferencedInstances'];
+                $model->referencedInstances = [];
+                $n1 = 0;
+                foreach ($map['ReferencedInstances'] as $item1) {
+                    $model->referencedInstances[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

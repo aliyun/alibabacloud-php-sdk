@@ -4,74 +4,79 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionVersionResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionVersionResponseBody\result\versionConfig\createParameters;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionVersionResponseBody\result\versionConfig\depends;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionVersionResponseBody\result\versionConfig\usageParameters;
-use AlibabaCloud\Tea\Model;
 
 class versionConfig extends Model
 {
     /**
-     * @description The parameters that are used to create the instance.
-     *
-     * @example [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\\"required\\": true, \\"pattern?\\": \\"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\\"}",                     "componentProps": "{\\"component\\": \\"Input\\", \\"attributes\\": {\\"defaultValue\\": \\"value1\\"}}"                 }             ]
-     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
-     * @description The dependencies of the instance.
-     *
      * @var depends[]
      */
     public $depends;
 
     /**
-     * @description The parameters that are used during online use of the instance.
-     *
-     * @example []
-     *
      * @var usageParameters[]
      */
     public $usageParameters;
     protected $_name = [
         'createParameters' => 'CreateParameters',
-        'depends'          => 'Depends',
-        'usageParameters'  => 'UsageParameters',
+        'depends' => 'Depends',
+        'usageParameters' => 'UsageParameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->createParameters)) {
+            Model::validateArray($this->createParameters);
+        }
+        if (\is_array($this->depends)) {
+            Model::validateArray($this->depends);
+        }
+        if (\is_array($this->usageParameters)) {
+            Model::validateArray($this->usageParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createParameters) {
-            $res['CreateParameters'] = [];
-            if (null !== $this->createParameters && \is_array($this->createParameters)) {
-                $n = 0;
-                foreach ($this->createParameters as $item) {
-                    $res['CreateParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->createParameters)) {
+                $res['CreateParameters'] = [];
+                $n1 = 0;
+                foreach ($this->createParameters as $item1) {
+                    $res['CreateParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->depends) {
-            $res['Depends'] = [];
-            if (null !== $this->depends && \is_array($this->depends)) {
-                $n = 0;
-                foreach ($this->depends as $item) {
-                    $res['Depends'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->depends)) {
+                $res['Depends'] = [];
+                $n1 = 0;
+                foreach ($this->depends as $item1) {
+                    $res['Depends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->usageParameters) {
-            $res['UsageParameters'] = [];
-            if (null !== $this->usageParameters && \is_array($this->usageParameters)) {
-                $n = 0;
-                foreach ($this->usageParameters as $item) {
-                    $res['UsageParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->usageParameters)) {
+                $res['UsageParameters'] = [];
+                $n1 = 0;
+                foreach ($this->usageParameters as $item1) {
+                    $res['UsageParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -79,38 +84,43 @@ class versionConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versionConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateParameters'])) {
             if (!empty($map['CreateParameters'])) {
                 $model->createParameters = [];
-                $n                       = 0;
-                foreach ($map['CreateParameters'] as $item) {
-                    $model->createParameters[$n++] = null !== $item ? createParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CreateParameters'] as $item1) {
+                    $model->createParameters[$n1] = createParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Depends'])) {
             if (!empty($map['Depends'])) {
                 $model->depends = [];
-                $n              = 0;
-                foreach ($map['Depends'] as $item) {
-                    $model->depends[$n++] = null !== $item ? depends::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Depends'] as $item1) {
+                    $model->depends[$n1] = depends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['UsageParameters'])) {
             if (!empty($map['UsageParameters'])) {
                 $model->usageParameters = [];
-                $n                      = 0;
-                foreach ($map['UsageParameters'] as $item) {
-                    $model->usageParameters[$n++] = null !== $item ? usageParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UsageParameters'] as $item1) {
+                    $model->usageParameters[$n1] = usageParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

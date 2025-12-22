@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionResourceRequest\data\generators;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionResourceRequest\data\generators\input\features;
-use AlibabaCloud\Tea\Model;
 
 class input extends Model
 {
     /**
-     * @description The input features.
-     *
      * @var features[]
      */
     public $features;
@@ -21,17 +19,22 @@ class input extends Model
 
     public function validate()
     {
+        if (\is_array($this->features)) {
+            Model::validateArray($this->features);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->features) {
-            $res['Features'] = [];
-            if (null !== $this->features && \is_array($this->features)) {
-                $n = 0;
-                foreach ($this->features as $item) {
-                    $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->features)) {
+                $res['Features'] = [];
+                $n1 = 0;
+                foreach ($this->features as $item1) {
+                    $res['Features'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class input extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return input
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Features'])) {
             if (!empty($map['Features'])) {
                 $model->features = [];
-                $n               = 0;
-                foreach ($map['Features'] as $item) {
-                    $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Features'] as $item1) {
+                    $model->features[$n1] = features::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

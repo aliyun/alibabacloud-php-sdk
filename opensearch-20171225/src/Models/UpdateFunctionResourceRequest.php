@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionResourceRequest\data;
-use AlibabaCloud\Tea\Model;
 
 class UpdateFunctionResourceRequest extends Model
 {
     /**
-     * @description The resource data. The data structure varies with the resource type.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The description of the resource.
-     *
-     * @example updated description
-     *
      * @var string
      */
     public $description;
     protected $_name = [
-        'data'        => 'Data',
+        'data' => 'Data',
         'description' => 'Description',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -46,17 +45,18 @@ class UpdateFunctionResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFunctionResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

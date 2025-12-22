@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\Schema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indexSortConfig extends Model
 {
@@ -19,19 +19,21 @@ class indexSortConfig extends Model
     public $field;
     protected $_name = [
         'direction' => 'direction',
-        'field'     => 'field',
+        'field' => 'field',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->direction) {
             $res['direction'] = $this->direction;
         }
+
         if (null !== $this->field) {
             $res['field'] = $this->field;
         }
@@ -39,17 +41,18 @@ class indexSortConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexSortConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['direction'])) {
             $model->direction = $map['direction'];
         }
+
         if (isset($map['field'])) {
             $model->field = $map['field'];
         }

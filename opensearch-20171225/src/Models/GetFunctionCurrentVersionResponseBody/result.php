@@ -4,96 +4,80 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionCurrentVersionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\GetFunctionCurrentVersionResponseBody\result\versionConfig;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The name of the feature.
-     *
-     * @example ctr
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description The type of the feature. Valid values:
-     *
-     *   PAAS
-     *   SAAS
-     *
-     * @example PAAS
-     *
      * @var string
      */
     public $functionType;
 
     /**
-     * @description The type of the model.
-     *
-     * @example tf_checkpoint
-     *
      * @var string
      */
     public $modelType;
 
     /**
-     * @description The configuration information about the instance.
-     *
      * @var versionConfig
      */
     public $versionConfig;
 
     /**
-     * @description The ID of the version.
-     *
-     * @example 101
-     *
      * @var int
      */
     public $versionId;
 
     /**
-     * @description The name of the version.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'functionName'  => 'FunctionName',
-        'functionType'  => 'FunctionType',
-        'modelType'     => 'ModelType',
+        'functionName' => 'FunctionName',
+        'functionType' => 'FunctionType',
+        'modelType' => 'ModelType',
         'versionConfig' => 'VersionConfig',
-        'versionId'     => 'VersionId',
-        'versionName'   => 'VersionName',
+        'versionId' => 'VersionId',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()
     {
+        if (null !== $this->versionConfig) {
+            $this->versionConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
+
         if (null !== $this->functionType) {
             $res['FunctionType'] = $this->functionType;
         }
+
         if (null !== $this->modelType) {
             $res['ModelType'] = $this->modelType;
         }
+
         if (null !== $this->versionConfig) {
-            $res['VersionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toMap() : null;
+            $res['VersionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toArray($noStream) : $this->versionConfig;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
+
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -101,29 +85,34 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
+
         if (isset($map['FunctionType'])) {
             $model->functionType = $map['FunctionType'];
         }
+
         if (isset($map['ModelType'])) {
             $model->modelType = $map['ModelType'];
         }
+
         if (isset($map['VersionConfig'])) {
             $model->versionConfig = versionConfig::fromMap($map['VersionConfig']);
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }
+
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

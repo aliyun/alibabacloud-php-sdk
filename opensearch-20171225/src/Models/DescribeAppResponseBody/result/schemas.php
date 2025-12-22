@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schemas\indexes;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schemas\indexSortConfig;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponseBody\result\schemas\ttlField;
-use AlibabaCloud\Tea\Model;
 
 class schemas extends Model
 {
@@ -51,94 +51,148 @@ class schemas extends Model
      */
     public $ttlField;
     protected $_name = [
-        'indexSortConfig'  => 'indexSortConfig',
-        'indexes'          => 'indexes',
-        'name'             => 'name',
-        'routeField'       => 'routeField',
+        'indexSortConfig' => 'indexSortConfig',
+        'indexes' => 'indexes',
+        'name' => 'name',
+        'routeField' => 'routeField',
         'routeFieldValues' => 'routeFieldValues',
         'secondRouteField' => 'secondRouteField',
-        'tables'           => 'tables',
-        'ttlField'         => 'ttlField',
+        'tables' => 'tables',
+        'ttlField' => 'ttlField',
     ];
 
     public function validate()
     {
+        if (\is_array($this->indexSortConfig)) {
+            Model::validateArray($this->indexSortConfig);
+        }
+        if (null !== $this->indexes) {
+            $this->indexes->validate();
+        }
+        if (\is_array($this->routeFieldValues)) {
+            Model::validateArray($this->routeFieldValues);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        if (null !== $this->ttlField) {
+            $this->ttlField->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexSortConfig) {
-            $res['indexSortConfig'] = [];
-            if (null !== $this->indexSortConfig && \is_array($this->indexSortConfig)) {
-                $n = 0;
-                foreach ($this->indexSortConfig as $item) {
-                    $res['indexSortConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indexSortConfig)) {
+                $res['indexSortConfig'] = [];
+                $n1 = 0;
+                foreach ($this->indexSortConfig as $item1) {
+                    $res['indexSortConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->indexes) {
-            $res['indexes'] = null !== $this->indexes ? $this->indexes->toMap() : null;
+            $res['indexes'] = null !== $this->indexes ? $this->indexes->toArray($noStream) : $this->indexes;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->routeField) {
             $res['routeField'] = $this->routeField;
         }
+
         if (null !== $this->routeFieldValues) {
-            $res['routeFieldValues'] = $this->routeFieldValues;
+            if (\is_array($this->routeFieldValues)) {
+                $res['routeFieldValues'] = [];
+                $n1 = 0;
+                foreach ($this->routeFieldValues as $item1) {
+                    $res['routeFieldValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->secondRouteField) {
             $res['secondRouteField'] = $this->secondRouteField;
         }
+
         if (null !== $this->tables) {
-            $res['tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                foreach ($this->tables as $key1 => $value1) {
+                    $res['tables'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->ttlField) {
-            $res['ttlField'] = null !== $this->ttlField ? $this->ttlField->toMap() : null;
+            $res['ttlField'] = null !== $this->ttlField ? $this->ttlField->toArray($noStream) : $this->ttlField;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexSortConfig'])) {
             if (!empty($map['indexSortConfig'])) {
                 $model->indexSortConfig = [];
-                $n                      = 0;
-                foreach ($map['indexSortConfig'] as $item) {
-                    $model->indexSortConfig[$n++] = null !== $item ? indexSortConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indexSortConfig'] as $item1) {
+                    $model->indexSortConfig[$n1] = indexSortConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['indexes'])) {
             $model->indexes = indexes::fromMap($map['indexes']);
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['routeField'])) {
             $model->routeField = $map['routeField'];
         }
+
         if (isset($map['routeFieldValues'])) {
             if (!empty($map['routeFieldValues'])) {
-                $model->routeFieldValues = $map['routeFieldValues'];
+                $model->routeFieldValues = [];
+                $n1 = 0;
+                foreach ($map['routeFieldValues'] as $item1) {
+                    $model->routeFieldValues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['secondRouteField'])) {
             $model->secondRouteField = $map['secondRouteField'];
         }
+
         if (isset($map['tables'])) {
-            $model->tables = $map['tables'];
+            if (!empty($map['tables'])) {
+                $model->tables = [];
+                foreach ($map['tables'] as $key1 => $value1) {
+                    $model->tables[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ttlField'])) {
             $model->ttlField = ttlField::fromMap($map['ttlField']);
         }

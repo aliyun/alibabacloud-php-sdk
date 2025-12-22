@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\BindEsInstanceRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\BindEsInstanceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\BindESUserAnalyzerRequest;
@@ -208,11 +208,10 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSummariesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSummariesResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ValidateDataSourcesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ValidateDataSourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class OpenSearch extends OpenApiClient
 {
@@ -237,57 +236,68 @@ class OpenSearch extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Binds a custom analyzer to an Elasticsearch instance.
-     *  *
+     * Binds a custom analyzer to an Elasticsearch instance.
+     *
+     * @param request - BindESUserAnalyzerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindESUserAnalyzerResponse
+     *
      * @param string                    $appGroupIdentity
      * @param string                    $esInstanceId
-     * @param BindESUserAnalyzerRequest $request          BindESUserAnalyzerRequest
-     * @param string[]                  $headers          map
-     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
+     * @param BindESUserAnalyzerRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return BindESUserAnalyzerResponse BindESUserAnalyzerResponse
+     * @return BindESUserAnalyzerResponse
      */
     public function bindESUserAnalyzerWithOptions($appGroupIdentity, $esInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'BindESUserAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/es/' . OpenApiUtilClient::getEncodeParam($esInstanceId) . '/actions/bind-analyzer',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BindESUserAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/es/' . Url::percentEncode($esInstanceId) . '/actions/bind-analyzer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindESUserAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds a custom analyzer to an Elasticsearch instance.
-     *  *
+     * Binds a custom analyzer to an Elasticsearch instance.
+     *
+     * @param request - BindESUserAnalyzerRequest
+     *
+     * @returns BindESUserAnalyzerResponse
+     *
      * @param string                    $appGroupIdentity
      * @param string                    $esInstanceId
-     * @param BindESUserAnalyzerRequest $request          BindESUserAnalyzerRequest
+     * @param BindESUserAnalyzerRequest $request
      *
-     * @return BindESUserAnalyzerResponse BindESUserAnalyzerResponse
+     * @return BindESUserAnalyzerResponse
      */
     public function bindESUserAnalyzer($appGroupIdentity, $esInstanceId, $request)
     {
@@ -298,48 +308,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Binds an Elasticsearch instance.
-     *  *
-     * @param string                $appGroupIdentity
-     * @param BindEsInstanceRequest $request          BindEsInstanceRequest
-     * @param string[]              $headers          map
-     * @param RuntimeOptions        $runtime          runtime options for this request RuntimeOptions
+     * Binds an Elasticsearch instance.
      *
-     * @return BindEsInstanceResponse BindEsInstanceResponse
+     * @param request - BindEsInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindEsInstanceResponse
+     *
+     * @param string                $appGroupIdentity
+     * @param BindEsInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return BindEsInstanceResponse
      */
     public function bindEsInstanceWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BindEsInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/bind-es-instance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BindEsInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/actions/bind-es-instance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindEsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds an Elasticsearch instance.
-     *  *
-     * @param string                $appGroupIdentity
-     * @param BindEsInstanceRequest $request          BindEsInstanceRequest
+     * Binds an Elasticsearch instance.
      *
-     * @return BindEsInstanceResponse BindEsInstanceResponse
+     * @param request - BindEsInstanceRequest
+     *
+     * @returns BindEsInstanceResponse
+     *
+     * @param string                $appGroupIdentity
+     * @param BindEsInstanceRequest $request
+     *
+     * @return BindEsInstanceResponse
      */
     public function bindEsInstance($appGroupIdentity, $request)
     {
@@ -350,13 +371,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Compiles a sort script.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompileSortScriptResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CompileSortScriptResponse CompileSortScriptResponse
+     * @return CompileSortScriptResponse
      */
     public function compileSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -364,26 +392,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CompileSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/actions/compiling',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CompileSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/actions/compiling',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompileSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Compiles a sort script.
+     *
+     * @returns CompileSortScriptResponse
+     *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return CompileSortScriptResponse CompileSortScriptResponse
+     * @return CompileSortScriptResponse
      */
     public function compileSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -394,53 +426,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates an experiment.
-     *  *
+     * Creates an experiment.
+     *
+     * @param request - CreateABTestExperimentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateABTestExperimentResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
-     * @param CreateABTestExperimentRequest $request          CreateABTestExperimentRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param CreateABTestExperimentRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateABTestExperimentResponse CreateABTestExperimentResponse
+     * @return CreateABTestExperimentResponse
      */
     public function createABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateABTestExperiment',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateABTestExperiment',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateABTestExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an experiment.
-     *  *
+     * Creates an experiment.
+     *
+     * @param request - CreateABTestExperimentRequest
+     *
+     * @returns CreateABTestExperimentResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
-     * @param CreateABTestExperimentRequest $request          CreateABTestExperimentRequest
+     * @param CreateABTestExperimentRequest $request
      *
-     * @return CreateABTestExperimentResponse CreateABTestExperimentResponse
+     * @return CreateABTestExperimentResponse
      */
     public function createABTestExperiment($appGroupIdentity, $sceneId, $groupId, $request)
     {
@@ -451,51 +494,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a test group.
-     *  *
+     * Creates a test group.
+     *
+     * @param request - CreateABTestGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateABTestGroupResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param CreateABTestGroupRequest $request          CreateABTestGroupRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param CreateABTestGroupRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateABTestGroupResponse CreateABTestGroupResponse
+     * @return CreateABTestGroupResponse
      */
     public function createABTestGroupWithOptions($appGroupIdentity, $sceneId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateABTestGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateABTestGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateABTestGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a test group.
-     *  *
+     * Creates a test group.
+     *
+     * @param request - CreateABTestGroupRequest
+     *
+     * @returns CreateABTestGroupResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param CreateABTestGroupRequest $request          CreateABTestGroupRequest
+     * @param CreateABTestGroupRequest $request
      *
-     * @return CreateABTestGroupResponse CreateABTestGroupResponse
+     * @return CreateABTestGroupResponse
      */
     public function createABTestGroup($appGroupIdentity, $sceneId, $request)
     {
@@ -506,45 +560,60 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $appGroupIdentity
-     * @param CreateABTestSceneRequest $request          CreateABTestSceneRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * Creates an scenario.
      *
-     * @return CreateABTestSceneResponse CreateABTestSceneResponse
+     * @param request - CreateABTestSceneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateABTestSceneResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param CreateABTestSceneRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateABTestSceneResponse
      */
     public function createABTestSceneWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateABTestScene',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateABTestScene',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateABTestSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                   $appGroupIdentity
-     * @param CreateABTestSceneRequest $request          CreateABTestSceneRequest
+     * Creates an scenario.
      *
-     * @return CreateABTestSceneResponse CreateABTestSceneResponse
+     * @param request - CreateABTestSceneRequest
+     *
+     * @returns CreateABTestSceneResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param CreateABTestSceneRequest $request
+     *
+     * @return CreateABTestSceneResponse
      */
     public function createABTestScene($appGroupIdentity, $request)
     {
@@ -555,99 +624,141 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a version for an OpenSearch application.
-     *  *
-     * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * Creates a version for an OpenSearch application.
+     *
+     * @remarks
+     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
      * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
      * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
      * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
-     *  *
-     * @param string           $appGroupIdentity
-     * @param CreateAppRequest $request          CreateAppRequest
-     * @param string[]         $headers          map
-     * @param RuntimeOptions   $runtime          runtime options for this request RuntimeOptions
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppResponse
+     *
+     * @param string           $appGroupIdentity
+     * @param CreateAppRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoSwitch)) {
-            $body['autoSwitch'] = $request->autoSwitch;
+        if (null !== $request->autoSwitch) {
+            @$body['autoSwitch'] = $request->autoSwitch;
         }
-        if (!Utils::isUnset($request->cluster)) {
-            $body['cluster'] = $request->cluster;
+
+        if (null !== $request->cluster) {
+            @$body['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->dataSources)) {
-            $body['dataSources'] = $request->dataSources;
+
+        if (null !== $request->configItems) {
+            @$body['configItems'] = $request->configItems;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->dataSources) {
+            @$body['dataSources'] = $request->dataSources;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fetchFields)) {
-            $body['fetchFields'] = $request->fetchFields;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->firstRanks)) {
-            $body['firstRanks'] = $request->firstRanks;
+
+        if (null !== $request->fetchFields) {
+            @$body['fetchFields'] = $request->fetchFields;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $body['networkType'] = $request->networkType;
+
+        if (null !== $request->firstRanks) {
+            @$body['firstRanks'] = $request->firstRanks;
         }
-        if (!Utils::isUnset($request->queryProcessors)) {
-            $body['queryProcessors'] = $request->queryProcessors;
+
+        if (null !== $request->interpretations) {
+            @$body['interpretations'] = $request->interpretations;
         }
-        if (!Utils::isUnset($request->schema)) {
-            $body['schema'] = $request->schema;
+
+        if (null !== $request->networkType) {
+            @$body['networkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->schemas)) {
-            $body['schemas'] = $request->schemas;
+
+        if (null !== $request->prompts) {
+            @$body['prompts'] = $request->prompts;
         }
-        if (!Utils::isUnset($request->secondRanks)) {
-            $body['secondRanks'] = $request->secondRanks;
+
+        if (null !== $request->queryProcessors) {
+            @$body['queryProcessors'] = $request->queryProcessors;
         }
-        if (!Utils::isUnset($request->summaries)) {
-            $body['summaries'] = $request->summaries;
+
+        if (null !== $request->realtimeShared) {
+            @$body['realtimeShared'] = $request->realtimeShared;
         }
+
+        if (null !== $request->schema) {
+            @$body['schema'] = $request->schema;
+        }
+
+        if (null !== $request->schemas) {
+            @$body['schemas'] = $request->schemas;
+        }
+
+        if (null !== $request->secondRanks) {
+            @$body['secondRanks'] = $request->secondRanks;
+        }
+
+        if (null !== $request->summaries) {
+            @$body['summaries'] = $request->summaries;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApp',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateApp',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a version for an OpenSearch application.
-     *  *
-     * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * Creates a version for an OpenSearch application.
+     *
+     * @remarks
+     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
      * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
      * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
      * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
-     *  *
-     * @param string           $appGroupIdentity
-     * @param CreateAppRequest $request          CreateAppRequest
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     *
+     * @returns CreateAppResponse
+     *
+     * @param string           $appGroupIdentity
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($appGroupIdentity, $request)
     {
@@ -658,61 +769,77 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Create an OpenSearch application.
-     *  *
-     * @param CreateAppGroupRequest $request CreateAppGroupRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates an OpenSearch application.
      *
-     * @return CreateAppGroupResponse CreateAppGroupResponse
+     * @param request - CreateAppGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppGroupResponse
+     *
+     * @param CreateAppGroupRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAppGroupResponse
      */
     public function createAppGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['chargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$body['chargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->quota)) {
-            $body['quota'] = $request->quota;
+
+        if (null !== $request->quota) {
+            @$body['quota'] = $request->quota;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAppGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Create an OpenSearch application.
-     *  *
-     * @param CreateAppGroupRequest $request CreateAppGroupRequest
+     * Creates an OpenSearch application.
      *
-     * @return CreateAppGroupResponse CreateAppGroupResponse
+     * @param request - CreateAppGroupRequest
+     *
+     * @returns CreateAppGroupResponse
+     *
+     * @param CreateAppGroupRequest $request
+     *
+     * @return CreateAppGroupResponse
      */
     public function createAppGroup($request)
     {
@@ -723,49 +850,61 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                           $appGroupIdentity
-     * @param CreateAppGroupCredentialsRequest $request          CreateAppGroupCredentialsRequest
-     * @param string[]                         $headers          map
-     * @param RuntimeOptions                   $runtime          runtime options for this request RuntimeOptions
+     * @param request - CreateAppGroupCredentialsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAppGroupCredentialsResponse CreateAppGroupCredentialsResponse
+     * @returns CreateAppGroupCredentialsResponse
+     *
+     * @param string                           $appGroupIdentity
+     * @param CreateAppGroupCredentialsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAppGroupCredentialsResponse
      */
     public function createAppGroupCredentialsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppGroupCredentials',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/credentials',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAppGroupCredentials',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/credentials',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAppGroupCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                           $appGroupIdentity
-     * @param CreateAppGroupCredentialsRequest $request          CreateAppGroupCredentialsRequest
+     * @param request - CreateAppGroupCredentialsRequest
      *
-     * @return CreateAppGroupCredentialsResponse CreateAppGroupCredentialsResponse
+     * @returns CreateAppGroupCredentialsResponse
+     *
+     * @param string                           $appGroupIdentity
+     * @param CreateAppGroupCredentialsRequest $request
+     *
+     * @return CreateAppGroupCredentialsResponse
      */
     public function createAppGroupCredentials($appGroupIdentity, $request)
     {
@@ -776,51 +915,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateFirstRankRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFirstRankResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param CreateFirstRankRequest $request          CreateFirstRankRequest
-     * @param string[]               $headers          map
-     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
+     * @param CreateFirstRankRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateFirstRankResponse CreateFirstRankResponse
+     * @return CreateFirstRankResponse
      */
     public function createFirstRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFirstRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFirstRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/first-ranks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFirstRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateFirstRankRequest
+     *
+     * @returns CreateFirstRankResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param CreateFirstRankRequest $request          CreateFirstRankRequest
+     * @param CreateFirstRankRequest $request
      *
-     * @return CreateFirstRankResponse CreateFirstRankResponse
+     * @return CreateFirstRankResponse
      */
     public function createFirstRank($appGroupIdentity, $appId, $request)
     {
@@ -831,72 +981,91 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates an algorithm instance of a feature.
-     *  *
-     * @description You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
-     *  *
+     * Creates an algorithm instance of a feature.
+     *
+     * @remarks
+     * You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
+     *
+     * @param request - CreateFunctionInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFunctionInstanceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionInstanceRequest $request          CreateFunctionInstanceRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param CreateFunctionInstanceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateFunctionInstanceResponse CreateFunctionInstanceResponse
+     * @return CreateFunctionInstanceResponse
      */
     public function createFunctionInstanceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->createParameters)) {
-            $body['createParameters'] = $request->createParameters;
+        if (null !== $request->createParameters) {
+            @$body['createParameters'] = $request->createParameters;
         }
-        if (!Utils::isUnset($request->cron)) {
-            $body['cron'] = $request->cron;
+
+        if (null !== $request->cron) {
+            @$body['cron'] = $request->cron;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->functionType)) {
-            $body['functionType'] = $request->functionType;
+
+        if (null !== $request->functionType) {
+            @$body['functionType'] = $request->functionType;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['instanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->modelType)) {
-            $body['modelType'] = $request->modelType;
+
+        if (null !== $request->modelType) {
+            @$body['modelType'] = $request->modelType;
         }
-        if (!Utils::isUnset($request->usageParameters)) {
-            $body['usageParameters'] = $request->usageParameters;
+
+        if (null !== $request->usageParameters) {
+            @$body['usageParameters'] = $request->usageParameters;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFunctionInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFunctionInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an algorithm instance of a feature.
-     *  *
-     * @description You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
-     *  *
+     * Creates an algorithm instance of a feature.
+     *
+     * @remarks
+     * You can call the [GetFunctionCurrentVersion](https://help.aliyun.com/document_detail/421377.html) operation to query the latest version of a feature. The response of the operation includes the createParameters parameter that is used to create an algorithm instance, the usageParameters parameter, and the requirements for setting these parameters.
+     *
+     * @param request - CreateFunctionInstanceRequest
+     *
+     * @returns CreateFunctionInstanceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionInstanceRequest $request          CreateFunctionInstanceRequest
+     * @param CreateFunctionInstanceRequest $request
      *
-     * @return CreateFunctionInstanceResponse CreateFunctionInstanceResponse
+     * @return CreateFunctionInstanceResponse
      */
     public function createFunctionInstance($appGroupIdentity, $functionName, $request)
     {
@@ -907,59 +1076,73 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates an algorithm resource for a specific feature.
-     *  *
+     * Creates an algorithm resource for a specific feature.
+     *
+     * @param request - CreateFunctionResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFunctionResourceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionResourceRequest $request          CreateFunctionResourceRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param CreateFunctionResourceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateFunctionResourceResponse CreateFunctionResourceResponse
+     * @return CreateFunctionResourceResponse
      */
     public function createFunctionResourceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->data)) {
-            $body['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$body['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $body['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$body['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFunctionResource',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/resources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFunctionResource',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/resources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFunctionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an algorithm resource for a specific feature.
-     *  *
+     * Creates an algorithm resource for a specific feature.
+     *
+     * @param request - CreateFunctionResourceRequest
+     *
+     * @returns CreateFunctionResourceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
-     * @param CreateFunctionResourceRequest $request          CreateFunctionResourceRequest
+     * @param CreateFunctionResourceRequest $request
      *
-     * @return CreateFunctionResourceResponse CreateFunctionResourceResponse
+     * @return CreateFunctionResourceResponse
      */
     public function createFunctionResource($appGroupIdentity, $functionName, $request)
     {
@@ -970,15 +1153,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Starts a training task for an algorithm instance.
-     *  *
+     * Starts a training task for an algorithm instance.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFunctionTaskResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CreateFunctionTaskResponse CreateFunctionTaskResponse
+     * @return CreateFunctionTaskResponse
      */
     public function createFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
@@ -986,28 +1174,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CreateFunctionTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFunctionTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '/tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFunctionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a training task for an algorithm instance.
-     *  *
+     * Starts a training task for an algorithm instance.
+     *
+     * @returns CreateFunctionTaskResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      *
-     * @return CreateFunctionTaskResponse CreateFunctionTaskResponse
+     * @return CreateFunctionTaskResponse
      */
     public function createFunctionTask($appGroupIdentity, $functionName, $instanceName)
     {
@@ -1018,57 +1208,71 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Create an intervention dictionary.
-     *  *
-     * @param CreateInterventionDictionaryRequest $request CreateInterventionDictionaryRequest
-     * @param string[]                            $headers map
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Create an intervention dictionary.
      *
-     * @return CreateInterventionDictionaryResponse CreateInterventionDictionaryResponse
+     * @param request - CreateInterventionDictionaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInterventionDictionaryResponse
+     *
+     * @param CreateInterventionDictionaryRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateInterventionDictionaryResponse
      */
     public function createInterventionDictionaryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->analyzerType)) {
-            $body['analyzerType'] = $request->analyzerType;
+        if (null !== $request->analyzerType) {
+            @$body['analyzerType'] = $request->analyzerType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInterventionDictionary',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInterventionDictionary',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInterventionDictionaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Create an intervention dictionary.
-     *  *
-     * @param CreateInterventionDictionaryRequest $request CreateInterventionDictionaryRequest
+     * Create an intervention dictionary.
      *
-     * @return CreateInterventionDictionaryResponse CreateInterventionDictionaryResponse
+     * @param request - CreateInterventionDictionaryRequest
+     *
+     * @returns CreateInterventionDictionaryResponse
+     *
+     * @param CreateInterventionDictionaryRequest $request
+     *
+     * @return CreateInterventionDictionaryResponse
      */
     public function createInterventionDictionary($request)
     {
@@ -1079,51 +1283,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateQueryProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQueryProcessorResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateQueryProcessorRequest $request          CreateQueryProcessorRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param CreateQueryProcessorRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return CreateQueryProcessorResponse CreateQueryProcessorResponse
+     * @return CreateQueryProcessorResponse
      */
     public function createQueryProcessorWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'CreateQueryProcessor',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateQueryProcessor',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateQueryProcessorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a query analysis rule. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateQueryProcessorRequest
+     *
+     * @returns CreateQueryProcessorResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateQueryProcessorRequest $request          CreateQueryProcessorRequest
+     * @param CreateQueryProcessorRequest $request
      *
-     * @return CreateQueryProcessorResponse CreateQueryProcessorResponse
+     * @return CreateQueryProcessorResponse
      */
     public function createQueryProcessor($appGroupIdentity, $appId, $request)
     {
@@ -1134,40 +1349,54 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param CreateScheduledTaskRequest $request          CreateScheduledTaskRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * Creates a scheduled task for an OpenSearch application.
      *
-     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
+     * @param request - CreateScheduledTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param CreateScheduledTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateScheduledTaskResponse
      */
     public function createScheduledTaskWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduledTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScheduledTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scheduled-tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param CreateScheduledTaskRequest $request          CreateScheduledTaskRequest
+     * Creates a scheduled task for an OpenSearch application.
      *
-     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
+     * @param request - CreateScheduledTaskRequest
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param CreateScheduledTaskRequest $request
+     *
+     * @return CreateScheduledTaskResponse
      */
     public function createScheduledTask($appGroupIdentity, $request)
     {
@@ -1178,46 +1407,56 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a query policy.
-     *  *
+     * Creates a query policy.
+     *
+     * @param request - CreateSearchStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSearchStrategyResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateSearchStrategyRequest $request          CreateSearchStrategyRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param CreateSearchStrategyRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return CreateSearchStrategyResponse CreateSearchStrategyResponse
+     * @return CreateSearchStrategyResponse
      */
     public function createSearchStrategyWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSearchStrategy',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSearchStrategy',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/search-strategies',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSearchStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a query policy.
-     *  *
+     * Creates a query policy.
+     *
+     * @param request - CreateSearchStrategyRequest
+     *
+     * @returns CreateSearchStrategyResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
-     * @param CreateSearchStrategyRequest $request          CreateSearchStrategyRequest
+     * @param CreateSearchStrategyRequest $request
      *
-     * @return CreateSearchStrategyResponse CreateSearchStrategyResponse
+     * @return CreateSearchStrategyResponse
      */
     public function createSearchStrategy($appGroupIdentity, $appId, $request)
     {
@@ -1228,51 +1467,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateSecondRankRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecondRankResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
-     * @param CreateSecondRankRequest $request          CreateSecondRankRequest
-     * @param string[]                $headers          map
-     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
+     * @param CreateSecondRankRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateSecondRankResponse CreateSecondRankResponse
+     * @return CreateSecondRankResponse
      */
     public function createSecondRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSecondRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSecondRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/second-ranks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSecondRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
-     *  *
+     * Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     *
+     * @param request - CreateSecondRankRequest
+     *
+     * @returns CreateSecondRankResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
-     * @param CreateSecondRankRequest $request          CreateSecondRankRequest
+     * @param CreateSecondRankRequest $request
      *
-     * @return CreateSecondRankResponse CreateSecondRankResponse
+     * @return CreateSecondRankResponse
      */
     public function createSecondRank($appGroupIdentity, $appId, $request)
     {
@@ -1283,56 +1533,69 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Creates a sort script.
-     *  *
+     * Creates a sort script.
+     *
+     * @param request - CreateSortScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSortScriptResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appVersionId
-     * @param CreateSortScriptRequest $request          CreateSortScriptRequest
-     * @param string[]                $headers          map
-     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
+     * @param CreateSortScriptRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateSortScriptResponse CreateSortScriptResponse
+     * @return CreateSortScriptResponse
      */
     public function createSortScriptWithOptions($appGroupIdentity, $appVersionId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->scriptName)) {
-            $body['scriptName'] = $request->scriptName;
+
+        if (null !== $request->scriptName) {
+            @$body['scriptName'] = $request->scriptName;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a sort script.
-     *  *
+     * Creates a sort script.
+     *
+     * @param request - CreateSortScriptRequest
+     *
+     * @returns CreateSortScriptResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appVersionId
-     * @param CreateSortScriptRequest $request          CreateSortScriptRequest
+     * @param CreateSortScriptRequest $request
      *
-     * @return CreateSortScriptResponse CreateSortScriptResponse
+     * @return CreateSortScriptResponse
      */
     public function createSortScript($appGroupIdentity, $appVersionId, $request)
     {
@@ -1343,59 +1606,79 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param CreateUserAnalyzerRequest $request CreateUserAnalyzerRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Create a custom analyzer.
      *
-     * @return CreateUserAnalyzerResponse CreateUserAnalyzerResponse
+     * @param request - CreateUserAnalyzerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserAnalyzerResponse
+     *
+     * @param CreateUserAnalyzerRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateUserAnalyzerResponse
      */
     public function createUserAnalyzerWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->business)) {
-            $body['business'] = $request->business;
+        if (null !== $request->business) {
+            @$body['business'] = $request->business;
         }
-        if (!Utils::isUnset($request->businessAppGroupId)) {
-            $body['businessAppGroupId'] = $request->businessAppGroupId;
+
+        if (null !== $request->businessAppGroupId) {
+            @$body['businessAppGroupId'] = $request->businessAppGroupId;
         }
-        if (!Utils::isUnset($request->businessType)) {
-            $body['businessType'] = $request->businessType;
+
+        if (null !== $request->businessType) {
+            @$body['businessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateUserAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateUserAnalyzerRequest $request CreateUserAnalyzerRequest
+     * Create a custom analyzer.
      *
-     * @return CreateUserAnalyzerResponse CreateUserAnalyzerResponse
+     * @param request - CreateUserAnalyzerRequest
+     *
+     * @returns CreateUserAnalyzerResponse
+     *
+     * @param CreateUserAnalyzerRequest $request
+     *
+     * @return CreateUserAnalyzerResponse
      */
     public function createUserAnalyzer($request)
     {
@@ -1406,14 +1689,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a test.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteABTestExperimentResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteABTestExperimentResponse DeleteABTestExperimentResponse
+     * @return DeleteABTestExperimentResponse
      */
     public function deleteABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -1421,27 +1711,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteABTestExperiment',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteABTestExperiment',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments/' . Url::percentEncode($experimentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteABTestExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a test.
+     *
+     * @returns DeleteABTestExperimentResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return DeleteABTestExperimentResponse DeleteABTestExperimentResponse
+     * @return DeleteABTestExperimentResponse
      */
     public function deleteABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -1452,13 +1746,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 删除实验组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteABTestGroupResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteABTestGroupResponse DeleteABTestGroupResponse
+     * @return DeleteABTestGroupResponse
      */
     public function deleteABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -1466,26 +1767,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteABTestGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteABTestGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteABTestGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除实验组.
+     *
+     * @returns DeleteABTestGroupResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return DeleteABTestGroupResponse DeleteABTestGroupResponse
+     * @return DeleteABTestGroupResponse
      */
     public function deleteABTestGroup($appGroupIdentity, $sceneId, $groupId)
     {
@@ -1496,14 +1801,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an A/B test scenario.
-     *  *
+     * Deletes an A/B test scenario.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteABTestSceneResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteABTestSceneResponse DeleteABTestSceneResponse
+     * @return DeleteABTestSceneResponse
      */
     public function deleteABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -1511,27 +1821,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteABTestScene',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteABTestScene',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteABTestSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an A/B test scenario.
-     *  *
+     * Deletes an A/B test scenario.
+     *
+     * @returns DeleteABTestSceneResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return DeleteABTestSceneResponse DeleteABTestSceneResponse
+     * @return DeleteABTestSceneResponse
      */
     public function deleteABTestScene($appGroupIdentity, $sceneId)
     {
@@ -1542,15 +1854,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
-     *  *
+     * Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFunctionInstanceResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionInstanceResponse DeleteFunctionInstanceResponse
+     * @return DeleteFunctionInstanceResponse
      */
     public function deleteFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
@@ -1558,28 +1875,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFunctionInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFunctionInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
-     *  *
+     * Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     *
+     * @returns DeleteFunctionInstanceResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      *
-     * @return DeleteFunctionInstanceResponse DeleteFunctionInstanceResponse
+     * @return DeleteFunctionInstanceResponse
      */
     public function deleteFunctionInstance($appGroupIdentity, $functionName, $instanceName)
     {
@@ -1590,15 +1909,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an algorithm resource.
-     *  *
+     * Deletes an algorithm resource.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFunctionResourceResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $resourceName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionResourceResponse DeleteFunctionResourceResponse
+     * @return DeleteFunctionResourceResponse
      */
     public function deleteFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $headers, $runtime)
     {
@@ -1606,28 +1930,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFunctionResource',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/resources/' . OpenApiUtilClient::getEncodeParam($resourceName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFunctionResource',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/resources/' . Url::percentEncode($resourceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFunctionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an algorithm resource.
-     *  *
+     * Deletes an algorithm resource.
+     *
+     * @returns DeleteFunctionResourceResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $resourceName
      *
-     * @return DeleteFunctionResourceResponse DeleteFunctionResourceResponse
+     * @return DeleteFunctionResourceResponse
      */
     public function deleteFunctionResource($appGroupIdentity, $functionName, $resourceName)
     {
@@ -1638,16 +1964,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a training task. The training task in progress cannot be deleted.
-     *  *
+     * Deletes a training task. The training task in progress cannot be deleted.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFunctionTaskResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
      * @param string         $generation
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionTaskResponse DeleteFunctionTaskResponse
+     * @return DeleteFunctionTaskResponse
      */
     public function deleteFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
@@ -1655,29 +1986,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFunctionTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks/' . OpenApiUtilClient::getEncodeParam($generation) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFunctionTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '/tasks/' . Url::percentEncode($generation) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFunctionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a training task. The training task in progress cannot be deleted.
-     *  *
+     * Deletes a training task. The training task in progress cannot be deleted.
+     *
+     * @returns DeleteFunctionTaskResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      * @param string $generation
      *
-     * @return DeleteFunctionTaskResponse DeleteFunctionTaskResponse
+     * @return DeleteFunctionTaskResponse
      */
     public function deleteFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
     {
@@ -1688,13 +2021,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 删除排序脚本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSortScriptResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteSortScriptResponse DeleteSortScriptResponse
+     * @return DeleteSortScriptResponse
      */
     public function deleteSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -1702,26 +2042,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除排序脚本.
+     *
+     * @returns DeleteSortScriptResponse
+     *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return DeleteSortScriptResponse DeleteSortScriptResponse
+     * @return DeleteSortScriptResponse
      */
     public function deleteSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -1732,14 +2076,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a script file.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSortScriptFileResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
      * @param string         $scriptName
      * @param string         $fileName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteSortScriptFileResponse DeleteSortScriptFileResponse
+     * @return DeleteSortScriptFileResponse
      */
     public function deleteSortScriptFileWithOptions($appGroupIdentity, $appVersionId, $scriptName, $fileName, $headers, $runtime)
     {
@@ -1747,27 +2098,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSortScriptFile',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSortScriptFile',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/files/src/' . Url::percentEncode($fileName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSortScriptFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a script file.
+     *
+     * @returns DeleteSortScriptFileResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      * @param string $scriptName
      * @param string $fileName
      *
-     * @return DeleteSortScriptFileResponse DeleteSortScriptFileResponse
+     * @return DeleteSortScriptFileResponse
      */
     public function deleteSortScriptFile($appGroupIdentity, $appVersionId, $scriptName, $fileName)
     {
@@ -1778,14 +2133,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 获取实验详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeABTestExperimentResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeABTestExperimentResponse DescribeABTestExperimentResponse
+     * @return DescribeABTestExperimentResponse
      */
     public function describeABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -1793,27 +2155,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeABTestExperiment',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeABTestExperiment',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments/' . Url::percentEncode($experimentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeABTestExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实验详情.
+     *
+     * @returns DescribeABTestExperimentResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return DescribeABTestExperimentResponse DescribeABTestExperimentResponse
+     * @return DescribeABTestExperimentResponse
      */
     public function describeABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -1824,13 +2190,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the details of a test group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeABTestGroupResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeABTestGroupResponse DescribeABTestGroupResponse
+     * @return DescribeABTestGroupResponse
      */
     public function describeABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -1838,26 +2211,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeABTestGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeABTestGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeABTestGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a test group.
+     *
+     * @returns DescribeABTestGroupResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return DescribeABTestGroupResponse DescribeABTestGroupResponse
+     * @return DescribeABTestGroupResponse
      */
     public function describeABTestGroup($appGroupIdentity, $sceneId, $groupId)
     {
@@ -1868,14 +2245,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an A/B test scenario.
-     *  *
+     * Queries the information about an A/B test scenario.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeABTestSceneResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeABTestSceneResponse DescribeABTestSceneResponse
+     * @return DescribeABTestSceneResponse
      */
     public function describeABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -1883,27 +2265,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeABTestScene',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeABTestScene',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeABTestSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an A/B test scenario.
-     *  *
+     * Queries the information about an A/B test scenario.
+     *
+     * @returns DescribeABTestSceneResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return DescribeABTestSceneResponse DescribeABTestSceneResponse
+     * @return DescribeABTestSceneResponse
      */
     public function describeABTestScene($appGroupIdentity, $sceneId)
     {
@@ -1914,12 +2298,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the information about a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeAppResponse DescribeAppResponse
+     * @return DescribeAppResponse
      */
     public function describeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -1927,25 +2318,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeApp',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeApp',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a version of an OpenSearch application.
+     *
+     * @returns DescribeAppResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return DescribeAppResponse DescribeAppResponse
+     * @return DescribeAppResponse
      */
     public function describeApp($appGroupIdentity, $appId)
     {
@@ -1956,13 +2351,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an OpenSearch application.
-     *  *
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Queries the details of an OpenSearch application.
      *
-     * @return DescribeAppGroupResponse DescribeAppGroupResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppGroupResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAppGroupResponse
      */
     public function describeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -1970,26 +2370,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeAppGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an OpenSearch application.
-     *  *
+     * Queries the details of an OpenSearch application.
+     *
+     * @returns DescribeAppGroupResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return DescribeAppGroupResponse DescribeAppGroupResponse
+     * @return DescribeAppGroupResponse
      */
     public function describeAppGroup($appGroupIdentity)
     {
@@ -2000,12 +2402,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the statistics about a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppStatisticsResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeAppStatisticsResponse DescribeAppStatisticsResponse
+     * @return DescribeAppStatisticsResponse
      */
     public function describeAppStatisticsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -2013,25 +2422,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppStatistics',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/statistics',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeAppStatistics',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/statistics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the statistics about a version of an OpenSearch application.
+     *
+     * @returns DescribeAppStatisticsResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return DescribeAppStatisticsResponse DescribeAppStatisticsResponse
+     * @return DescribeAppStatisticsResponse
      */
     public function describeAppStatistics($appGroupIdentity, $appId)
     {
@@ -2042,11 +2455,24 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Queries the version list of an OpenSearch application.
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @remarks
+     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
+     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
+     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppsResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAppsResponse
      */
     public function describeAppsWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2054,24 +2480,34 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeApps',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeApps',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the version list of an OpenSearch application.
+     *
+     * @remarks
+     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
+     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
+     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
+     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     *
+     * @returns DescribeAppsResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @return DescribeAppsResponse
      */
     public function describeApps($appGroupIdentity)
     {
@@ -2082,14 +2518,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data collection task of an application.
-     *  *
+     * Queries the details of a data collection task of an application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataCollctionResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $dataCollectionIdentity
-     * @param string[]       $headers                map
-     * @param RuntimeOptions $runtime                runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeDataCollctionResponse DescribeDataCollctionResponse
+     * @return DescribeDataCollctionResponse
      */
     public function describeDataCollctionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
@@ -2097,27 +2538,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataCollction',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections/' . OpenApiUtilClient::getEncodeParam($dataCollectionIdentity) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeDataCollction',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/data-collections/' . Url::percentEncode($dataCollectionIdentity) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDataCollctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a data collection task of an application.
-     *  *
+     * Queries the details of a data collection task of an application.
+     *
+     * @returns DescribeDataCollctionResponse
+     *
      * @param string $appGroupIdentity
      * @param string $dataCollectionIdentity
      *
-     * @return DescribeDataCollctionResponse DescribeDataCollctionResponse
+     * @return DescribeDataCollctionResponse
      */
     public function describeDataCollction($appGroupIdentity, $dataCollectionIdentity)
     {
@@ -2128,13 +2571,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries a rough sort expression that is configured for an OpenSearch application version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirstRankResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeFirstRankResponse DescribeFirstRankResponse
+     * @return DescribeFirstRankResponse
      */
     public function describeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -2142,26 +2592,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeFirstRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeFirstRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/first-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFirstRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a rough sort expression that is configured for an OpenSearch application version.
+     *
+     * @returns DescribeFirstRankResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeFirstRankResponse DescribeFirstRankResponse
+     * @return DescribeFirstRankResponse
      */
     public function describeFirstRank($appGroupIdentity, $appId, $name)
     {
@@ -2172,11 +2626,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an intervention dictionary.
      *
-     * @return DescribeInterventionDictionaryResponse DescribeInterventionDictionaryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInterventionDictionaryResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeInterventionDictionaryResponse
      */
     public function describeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
@@ -2184,24 +2645,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeInterventionDictionary',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeInterventionDictionary',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInterventionDictionaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of an intervention dictionary.
+     *
+     * @returns DescribeInterventionDictionaryResponse
+     *
      * @param string $name
      *
-     * @return DescribeInterventionDictionaryResponse DescribeInterventionDictionaryResponse
+     * @return DescribeInterventionDictionaryResponse
      */
     public function describeInterventionDictionary($name)
     {
@@ -2212,13 +2677,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeQueryProcessorResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeQueryProcessorResponse DescribeQueryProcessorResponse
+     * @return DescribeQueryProcessorResponse
      */
     public function describeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -2226,26 +2696,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeQueryProcessor',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeQueryProcessor',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeQueryProcessorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns DescribeQueryProcessorResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeQueryProcessorResponse DescribeQueryProcessorResponse
+     * @return DescribeQueryProcessorResponse
      */
     public function describeQueryProcessor($appGroupIdentity, $appId, $name)
     {
@@ -2256,12 +2728,17 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the endpoints of all regions that support OpenSearch.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the endpoints of all regions that support OpenSearch.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -2269,24 +2746,26 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/regions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeRegions',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the endpoints of all regions that support OpenSearch.
-     *  *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * Queries the endpoints of all regions that support OpenSearch.
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2297,12 +2776,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 查看应用定时任务详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScheduledTaskResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $taskId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeScheduledTaskResponse DescribeScheduledTaskResponse
+     * @return DescribeScheduledTaskResponse
      */
     public function describeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
@@ -2310,25 +2796,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeScheduledTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeScheduledTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scheduled-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查看应用定时任务详情.
+     *
+     * @returns DescribeScheduledTaskResponse
+     *
      * @param string $appGroupIdentity
      * @param string $taskId
      *
-     * @return DescribeScheduledTaskResponse DescribeScheduledTaskResponse
+     * @return DescribeScheduledTaskResponse
      */
     public function describeScheduledTask($appGroupIdentity, $taskId)
     {
@@ -2339,13 +2829,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries a fine sort expression that is configured for a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecondRankResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeSecondRankResponse DescribeSecondRankResponse
+     * @return DescribeSecondRankResponse
      */
     public function describeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -2353,26 +2850,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecondRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeSecondRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/second-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSecondRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a fine sort expression that is configured for a version of an OpenSearch application.
+     *
+     * @returns DescribeSecondRankResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return DescribeSecondRankResponse DescribeSecondRankResponse
+     * @return DescribeSecondRankResponse
      */
     public function describeSecondRank($appGroupIdentity, $appId, $name)
     {
@@ -2383,11 +2884,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * 获取优化大师慢查询开通状态
      *
-     * @return DescribeSlowQueryStatusResponse DescribeSlowQueryStatusResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSlowQueryStatusResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeSlowQueryStatusResponse
      */
     public function describeSlowQueryStatusWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2395,24 +2903,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowQueryStatus',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeSlowQueryStatus',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSlowQueryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取优化大师慢查询开通状态
+     *
+     * @returns DescribeSlowQueryStatusResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return DescribeSlowQueryStatusResponse DescribeSlowQueryStatusResponse
+     * @return DescribeSlowQueryStatusResponse
      */
     public function describeSlowQueryStatus($appGroupIdentity)
     {
@@ -2423,44 +2935,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $name
-     * @param DescribeUserAnalyzerRequest $request DescribeUserAnalyzerRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取自定义分析器详情.
      *
-     * @return DescribeUserAnalyzerResponse DescribeUserAnalyzerResponse
+     * @param request - DescribeUserAnalyzerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserAnalyzerResponse
+     *
+     * @param string                      $name
+     * @param DescribeUserAnalyzerRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeUserAnalyzerResponse
      */
     public function describeUserAnalyzerWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->with)) {
-            $query['with'] = $request->with;
+        if (null !== $request->with) {
+            @$query['with'] = $request->with;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeUserAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUserAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                      $name
-     * @param DescribeUserAnalyzerRequest $request DescribeUserAnalyzerRequest
+     * 获取自定义分析器详情.
      *
-     * @return DescribeUserAnalyzerResponse DescribeUserAnalyzerResponse
+     * @param request - DescribeUserAnalyzerRequest
+     *
+     * @returns DescribeUserAnalyzerResponse
+     *
+     * @param string                      $name
+     * @param DescribeUserAnalyzerRequest $request
+     *
+     * @return DescribeUserAnalyzerResponse
      */
     public function describeUserAnalyzer($name, $request)
     {
@@ -2471,11 +2998,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * 禁用优化大师慢查询服务
      *
-     * @return DisableSlowQueryResponse DisableSlowQueryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSlowQueryResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableSlowQueryResponse
      */
     public function disableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2483,24 +3017,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DisableSlowQuery',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/disable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DisableSlowQuery',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query/actions/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableSlowQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 禁用优化大师慢查询服务
+     *
+     * @returns DisableSlowQueryResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return DisableSlowQueryResponse DisableSlowQueryResponse
+     * @return DisableSlowQueryResponse
      */
     public function disableSlowQuery($appGroupIdentity)
     {
@@ -2511,11 +3049,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Enables slow query optimization of Optimization Master.
      *
-     * @return EnableSlowQueryResponse EnableSlowQueryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSlowQueryResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableSlowQueryResponse
      */
     public function enableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -2523,24 +3068,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'EnableSlowQuery',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/enable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EnableSlowQuery',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query/actions/enable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableSlowQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Enables slow query optimization of Optimization Master.
+     *
+     * @returns EnableSlowQueryResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return EnableSlowQueryResponse EnableSlowQueryResponse
+     * @return EnableSlowQueryResponse
      */
     public function enableSlowQuery($appGroupIdentity)
     {
@@ -2551,47 +3100,58 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
-     *  *
-     * @param GenerateMergedTableRequest $request GenerateMergedTableRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
      *
-     * @return GenerateMergedTableResponse GenerateMergedTableResponse
+     * @param request - GenerateMergedTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateMergedTableResponse
+     *
+     * @param GenerateMergedTableRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GenerateMergedTableResponse
      */
     public function generateMergedTableWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spec)) {
-            $query['spec'] = $request->spec;
+        if (null !== $request->spec) {
+            @$query['spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateMergedTable',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/schema/actions/merge',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateMergedTable',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/assist/schema/actions/merge',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateMergedTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
-     *  *
-     * @param GenerateMergedTableRequest $request GenerateMergedTableRequest
+     * Queries the information about a wide table that is generated after a JOIN operation is performed on multiple tables.
      *
-     * @return GenerateMergedTableResponse GenerateMergedTableResponse
+     * @param request - GenerateMergedTableRequest
+     *
+     * @returns GenerateMergedTableResponse
+     *
+     * @param GenerateMergedTableRequest $request
+     *
+     * @return GenerateMergedTableResponse
      */
     public function generateMergedTable($request)
     {
@@ -2602,48 +3162,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the type of an industry.
-     *  *
-     * @param string           $domainName
-     * @param GetDomainRequest $request    GetDomainRequest
-     * @param string[]         $headers    map
-     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
+     * Queries the type of an industry.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDomainResponse
+     *
+     * @param string           $domainName
+     * @param GetDomainRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
      */
     public function getDomainWithOptions($domainName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appGroupIdentity)) {
-            $query['appGroupIdentity'] = $request->appGroupIdentity;
+        if (null !== $request->appGroupIdentity) {
+            @$query['appGroupIdentity'] = $request->appGroupIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDomain',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDomain',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the type of an industry.
-     *  *
-     * @param string           $domainName
-     * @param GetDomainRequest $request    GetDomainRequest
+     * Queries the type of an industry.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     *
+     * @returns GetDomainResponse
+     *
+     * @param string           $domainName
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
      */
     public function getDomain($domainName, $request)
     {
@@ -2654,57 +3225,71 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the version information about the current feature when you create an instance.
-     *  *
-     * @param string                           $functionName
-     * @param GetFunctionCurrentVersionRequest $request      GetFunctionCurrentVersionRequest
-     * @param string[]                         $headers      map
-     * @param RuntimeOptions                   $runtime      runtime options for this request RuntimeOptions
+     * Queries the version information about the current feature when you create an instance.
      *
-     * @return GetFunctionCurrentVersionResponse GetFunctionCurrentVersionResponse
+     * @param request - GetFunctionCurrentVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionCurrentVersionResponse
+     *
+     * @param string                           $functionName
+     * @param GetFunctionCurrentVersionRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetFunctionCurrentVersionResponse
      */
     public function getFunctionCurrentVersionWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->functionType)) {
-            $query['functionType'] = $request->functionType;
+
+        if (null !== $request->functionType) {
+            @$query['functionType'] = $request->functionType;
         }
-        if (!Utils::isUnset($request->modelType)) {
-            $query['modelType'] = $request->modelType;
+
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionCurrentVersion',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/current-version',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionCurrentVersion',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/functions/' . Url::percentEncode($functionName) . '/current-version',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionCurrentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the version information about the current feature when you create an instance.
-     *  *
-     * @param string                           $functionName
-     * @param GetFunctionCurrentVersionRequest $request      GetFunctionCurrentVersionRequest
+     * Queries the version information about the current feature when you create an instance.
      *
-     * @return GetFunctionCurrentVersionResponse GetFunctionCurrentVersionResponse
+     * @param request - GetFunctionCurrentVersionRequest
+     *
+     * @returns GetFunctionCurrentVersionResponse
+     *
+     * @param string                           $functionName
+     * @param GetFunctionCurrentVersionRequest $request
+     *
+     * @return GetFunctionCurrentVersionResponse
      */
     public function getFunctionCurrentVersion($functionName, $request)
     {
@@ -2715,14 +3300,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the algorithm instance that an application uses by default.
-     *  *
+     * Queries the algorithm instance that an application uses by default.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionDefaultInstanceResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFunctionDefaultInstanceResponse GetFunctionDefaultInstanceResponse
+     * @return GetFunctionDefaultInstanceResponse
      */
     public function getFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $headers, $runtime)
     {
@@ -2730,27 +3320,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionDefaultInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/default-instance',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionDefaultInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/default-instance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionDefaultInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the algorithm instance that an application uses by default.
-     *  *
+     * Queries the algorithm instance that an application uses by default.
+     *
+     * @returns GetFunctionDefaultInstanceResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      *
-     * @return GetFunctionDefaultInstanceResponse GetFunctionDefaultInstanceResponse
+     * @return GetFunctionDefaultInstanceResponse
      */
     public function getFunctionDefaultInstance($appGroupIdentity, $functionName)
     {
@@ -2761,52 +3353,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an algorithm instance by instance name.
-     *  *
+     * Queries the details of an algorithm instance by instance name.
+     *
+     * @param request - GetFunctionInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionInstanceResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $instanceName
-     * @param GetFunctionInstanceRequest $request          GetFunctionInstanceRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * @param GetFunctionInstanceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return GetFunctionInstanceResponse GetFunctionInstanceResponse
+     * @return GetFunctionInstanceResponse
      */
     public function getFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->output)) {
-            $query['output'] = $request->output;
+        if (null !== $request->output) {
+            @$query['output'] = $request->output;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an algorithm instance by instance name.
-     *  *
+     * Queries the details of an algorithm instance by instance name.
+     *
+     * @param request - GetFunctionInstanceRequest
+     *
+     * @returns GetFunctionInstanceResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $instanceName
-     * @param GetFunctionInstanceRequest $request          GetFunctionInstanceRequest
+     * @param GetFunctionInstanceRequest $request
      *
-     * @return GetFunctionInstanceResponse GetFunctionInstanceResponse
+     * @return GetFunctionInstanceResponse
      */
     public function getFunctionInstance($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -2817,52 +3420,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries an algorithm resource.
-     *  *
+     * Queries an algorithm resource.
+     *
+     * @param request - GetFunctionResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionResourceResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $resourceName
-     * @param GetFunctionResourceRequest $request          GetFunctionResourceRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * @param GetFunctionResourceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return GetFunctionResourceResponse GetFunctionResourceResponse
+     * @return GetFunctionResourceResponse
      */
     public function getFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->output)) {
-            $query['output'] = $request->output;
+        if (null !== $request->output) {
+            @$query['output'] = $request->output;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionResource',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/resources/' . OpenApiUtilClient::getEncodeParam($resourceName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionResource',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/resources/' . Url::percentEncode($resourceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries an algorithm resource.
-     *  *
+     * Queries an algorithm resource.
+     *
+     * @param request - GetFunctionResourceRequest
+     *
+     * @returns GetFunctionResourceResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $functionName
      * @param string                     $resourceName
-     * @param GetFunctionResourceRequest $request          GetFunctionResourceRequest
+     * @param GetFunctionResourceRequest $request
      *
-     * @return GetFunctionResourceResponse GetFunctionResourceResponse
+     * @return GetFunctionResourceResponse
      */
     public function getFunctionResource($appGroupIdentity, $functionName, $resourceName, $request)
     {
@@ -2873,16 +3487,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a training task.
-     *  *
+     * Queries the details of a training task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionTaskResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $functionName
      * @param string         $instanceName
      * @param string         $generation
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFunctionTaskResponse GetFunctionTaskResponse
+     * @return GetFunctionTaskResponse
      */
     public function getFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
@@ -2890,29 +3509,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks/' . OpenApiUtilClient::getEncodeParam($generation) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '/tasks/' . Url::percentEncode($generation) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a training task.
-     *  *
+     * Queries the details of a training task.
+     *
+     * @returns GetFunctionTaskResponse
+     *
      * @param string $appGroupIdentity
      * @param string $functionName
      * @param string $instanceName
      * @param string $generation
      *
-     * @return GetFunctionTaskResponse GetFunctionTaskResponse
+     * @return GetFunctionTaskResponse
      */
     public function getFunctionTask($appGroupIdentity, $functionName, $instanceName, $generation)
     {
@@ -2923,14 +3544,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries version information by version ID.
-     *  *
+     * Queries version information by version ID.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFunctionVersionResponse
+     *
      * @param string         $functionName
      * @param string         $versionId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFunctionVersionResponse GetFunctionVersionResponse
+     * @return GetFunctionVersionResponse
      */
     public function getFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
@@ -2938,27 +3564,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetFunctionVersion',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFunctionVersion',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/functions/' . Url::percentEncode($functionName) . '/versions/' . Url::percentEncode($versionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries version information by version ID.
-     *  *
+     * Queries version information by version ID.
+     *
+     * @returns GetFunctionVersionResponse
+     *
      * @param string $functionName
      * @param string $versionId
      *
-     * @return GetFunctionVersionResponse GetFunctionVersionResponse
+     * @return GetFunctionVersionResponse
      */
     public function getFunctionVersion($functionName, $versionId)
     {
@@ -2969,13 +3597,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScriptFileNamesResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
      * @param string         $scriptName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetScriptFileNamesResponse GetScriptFileNamesResponse
+     * @return GetScriptFileNamesResponse
      */
     public function getScriptFileNamesWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
     {
@@ -2983,26 +3616,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetScriptFileNames',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/file-names',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetScriptFileNames',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/file-names',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScriptFileNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns GetScriptFileNamesResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      * @param string $scriptName
      *
-     * @return GetScriptFileNamesResponse GetScriptFileNamesResponse
+     * @return GetScriptFileNamesResponse
      */
     public function getScriptFileNames($appGroupIdentity, $appVersionId, $scriptName)
     {
@@ -3013,15 +3648,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a query policy.
-     *  *
+     * Queries the details of a query policy.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSearchStrategyResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $strategyName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSearchStrategyResponse GetSearchStrategyResponse
+     * @return GetSearchStrategyResponse
      */
     public function getSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
@@ -3029,28 +3669,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSearchStrategy',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSearchStrategy',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/search-strategies/' . Url::percentEncode($strategyName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSearchStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a query policy.
-     *  *
+     * Queries the details of a query policy.
+     *
+     * @returns GetSearchStrategyResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $strategyName
      *
-     * @return GetSearchStrategyResponse GetSearchStrategyResponse
+     * @return GetSearchStrategyResponse
      */
     public function getSearchStrategy($appGroupIdentity, $appId, $strategyName)
     {
@@ -3061,15 +3703,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a sort script.
-     *  *
+     * Queries the details of a sort script.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSortScriptResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSortScriptResponse GetSortScriptResponse
+     * @return GetSortScriptResponse
      */
     public function getSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -3077,28 +3724,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a sort script.
-     *  *
+     * Queries the details of a sort script.
+     *
+     * @returns GetSortScriptResponse
+     *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return GetSortScriptResponse GetSortScriptResponse
+     * @return GetSortScriptResponse
      */
     public function getSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -3109,16 +3758,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the content of a sort script.
-     *  *
+     * Queries the content of a sort script.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSortScriptFileResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
      * @param string         $fileName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSortScriptFileResponse GetSortScriptFileResponse
+     * @return GetSortScriptFileResponse
      */
     public function getSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $headers, $runtime)
     {
@@ -3126,29 +3780,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSortScriptFile',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSortScriptFile',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/files/src/' . Url::percentEncode($fileName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSortScriptFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the content of a sort script.
-     *  *
+     * Queries the content of a sort script.
+     *
+     * @returns GetSortScriptFileResponse
+     *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      * @param string $fileName
      *
-     * @return GetSortScriptFileResponse GetSortScriptFileResponse
+     * @return GetSortScriptFileResponse
      */
     public function getSortScriptFile($appGroupIdentity, $scriptName, $appVersionId, $fileName)
     {
@@ -3159,15 +3815,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of experiments.
-     *  *
+     * Queries a list of experiments.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListABTestExperimentsResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListABTestExperimentsResponse ListABTestExperimentsResponse
+     * @return ListABTestExperimentsResponse
      */
     public function listABTestExperimentsWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
@@ -3175,28 +3836,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListABTestExperiments',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListABTestExperiments',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListABTestExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of experiments.
-     *  *
+     * Queries a list of experiments.
+     *
+     * @returns ListABTestExperimentsResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      *
-     * @return ListABTestExperimentsResponse ListABTestExperimentsResponse
+     * @return ListABTestExperimentsResponse
      */
     public function listABTestExperiments($appGroupIdentity, $sceneId, $groupId)
     {
@@ -3207,14 +3870,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries whitelists.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListABTestFixedFlowDividersResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
      * @param string         $groupId
      * @param string         $experimentId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListABTestFixedFlowDividersResponse ListABTestFixedFlowDividersResponse
+     * @return ListABTestFixedFlowDividersResponse
      */
     public function listABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
@@ -3222,27 +3892,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListABTestFixedFlowDividers',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '/fixed-flow-dividers',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListABTestFixedFlowDividers',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments/' . Url::percentEncode($experimentId) . '/fixed-flow-dividers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListABTestFixedFlowDividersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries whitelists.
+     *
+     * @returns ListABTestFixedFlowDividersResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      * @param string $groupId
      * @param string $experimentId
      *
-     * @return ListABTestFixedFlowDividersResponse ListABTestFixedFlowDividersResponse
+     * @return ListABTestFixedFlowDividersResponse
      */
     public function listABTestFixedFlowDividers($appGroupIdentity, $sceneId, $groupId, $experimentId)
     {
@@ -3253,12 +3927,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 获取实验组清单.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListABTestGroupsResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $sceneId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListABTestGroupsResponse ListABTestGroupsResponse
+     * @return ListABTestGroupsResponse
      */
     public function listABTestGroupsWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
@@ -3266,25 +3947,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListABTestGroups',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListABTestGroups',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListABTestGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取实验组清单.
+     *
+     * @returns ListABTestGroupsResponse
+     *
      * @param string $appGroupIdentity
      * @param string $sceneId
      *
-     * @return ListABTestGroupsResponse ListABTestGroupsResponse
+     * @return ListABTestGroupsResponse
      */
     public function listABTestGroups($appGroupIdentity, $sceneId)
     {
@@ -3295,11 +3980,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Queries test scenarios.
      *
-     * @return ListABTestScenesResponse ListABTestScenesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListABTestScenesResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListABTestScenesResponse
      */
     public function listABTestScenesWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -3307,24 +3999,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListABTestScenes',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListABTestScenes',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListABTestScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries test scenarios.
+     *
+     * @returns ListABTestScenesResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return ListABTestScenesResponse ListABTestScenesResponse
+     * @return ListABTestScenesResponse
      */
     public function listABTestScenes($appGroupIdentity)
     {
@@ -3335,80 +4031,101 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of OpenSearch applications.
-     *  *
-     * @description *   This operation allows you to query applications by application name, instance ID, and application type.
+     * Queries a list of OpenSearch applications.
+     *
+     * @remarks
+     *   This operation allows you to query applications by application name, instance ID, and application type.
      * *   This operation allows you to sort the applications based on their creation time.
      * *   This operation supports the parameters for paging.
-     *  *
-     * @param ListAppGroupsRequest $tmpReq  ListAppGroupsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppGroupsResponse ListAppGroupsResponse
+     * @param tmpReq - ListAppGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppGroupsResponse
+     *
+     * @param ListAppGroupsRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListAppGroupsResponse
      */
     public function listAppGroupsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAppGroupsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['sortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['sortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAppGroups',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAppGroups',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAppGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of OpenSearch applications.
-     *  *
-     * @description *   This operation allows you to query applications by application name, instance ID, and application type.
+     * Queries a list of OpenSearch applications.
+     *
+     * @remarks
+     *   This operation allows you to query applications by application name, instance ID, and application type.
      * *   This operation allows you to sort the applications based on their creation time.
      * *   This operation supports the parameters for paging.
-     *  *
-     * @param ListAppGroupsRequest $request ListAppGroupsRequest
      *
-     * @return ListAppGroupsResponse ListAppGroupsResponse
+     * @param request - ListAppGroupsRequest
+     *
+     * @returns ListAppGroupsResponse
+     *
+     * @param ListAppGroupsRequest $request
+     *
+     * @return ListAppGroupsResponse
      */
     public function listAppGroups($request)
     {
@@ -3419,47 +4136,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param ListDataCollectionsRequest $request          ListDataCollectionsRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * Queries the data collection tasks of an OpenSearch application.
      *
-     * @return ListDataCollectionsResponse ListDataCollectionsResponse
+     * @param request - ListDataCollectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataCollectionsResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param ListDataCollectionsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataCollectionsResponse
      */
     public function listDataCollectionsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataCollections',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataCollections',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/data-collections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param ListDataCollectionsRequest $request          ListDataCollectionsRequest
+     * Queries the data collection tasks of an OpenSearch application.
      *
-     * @return ListDataCollectionsResponse ListDataCollectionsResponse
+     * @param request - ListDataCollectionsRequest
+     *
+     * @returns ListDataCollectionsResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param ListDataCollectionsRequest $request
+     *
+     * @return ListDataCollectionsResponse
      */
     public function listDataCollections($appGroupIdentity, $request)
     {
@@ -3470,51 +4203,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries all fields in a table of a data source. This operation is for internal use only.
-     *  *
-     * @param string                           $dataSourceType
-     * @param ListDataSourceTableFieldsRequest $request        ListDataSourceTableFieldsRequest
-     * @param string[]                         $headers        map
-     * @param RuntimeOptions                   $runtime        runtime options for this request RuntimeOptions
+     * Queries all fields in a table of a data source. This operation is for internal use only.
      *
-     * @return ListDataSourceTableFieldsResponse ListDataSourceTableFieldsResponse
+     * @param request - ListDataSourceTableFieldsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceTableFieldsResponse
+     *
+     * @param string                           $dataSourceType
+     * @param ListDataSourceTableFieldsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataSourceTableFieldsResponse
      */
     public function listDataSourceTableFieldsWithOptions($dataSourceType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->params)) {
-            $query['params'] = $request->params;
+        if (null !== $request->params) {
+            @$query['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->rawType)) {
-            $query['rawType'] = $request->rawType;
+
+        if (null !== $request->rawType) {
+            @$query['rawType'] = $request->rawType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceTableFields',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceType) . '/fields',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSourceTableFields',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/assist/data-sources/' . Url::percentEncode($dataSourceType) . '/fields',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataSourceTableFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all fields in a table of a data source. This operation is for internal use only.
-     *  *
-     * @param string                           $dataSourceType
-     * @param ListDataSourceTableFieldsRequest $request        ListDataSourceTableFieldsRequest
+     * Queries all fields in a table of a data source. This operation is for internal use only.
      *
-     * @return ListDataSourceTableFieldsResponse ListDataSourceTableFieldsResponse
+     * @param request - ListDataSourceTableFieldsRequest
+     *
+     * @returns ListDataSourceTableFieldsResponse
+     *
+     * @param string                           $dataSourceType
+     * @param ListDataSourceTableFieldsRequest $request
+     *
+     * @return ListDataSourceTableFieldsResponse
      */
     public function listDataSourceTableFields($dataSourceType, $request)
     {
@@ -3525,44 +4270,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $dataSourceType
-     * @param ListDataSourceTablesRequest $request        ListDataSourceTablesRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * Obtains all data from a specified data source.
      *
-     * @return ListDataSourceTablesResponse ListDataSourceTablesResponse
+     * @param request - ListDataSourceTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceTablesResponse
+     *
+     * @param string                      $dataSourceType
+     * @param ListDataSourceTablesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDataSourceTablesResponse
      */
     public function listDataSourceTablesWithOptions($dataSourceType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->params)) {
-            $query['params'] = $request->params;
+        if (null !== $request->params) {
+            @$query['params'] = $request->params;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceTables',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceType) . '/tables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSourceTables',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/assist/data-sources/' . Url::percentEncode($dataSourceType) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataSourceTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                      $dataSourceType
-     * @param ListDataSourceTablesRequest $request        ListDataSourceTablesRequest
+     * Obtains all data from a specified data source.
      *
-     * @return ListDataSourceTablesResponse ListDataSourceTablesResponse
+     * @param request - ListDataSourceTablesRequest
+     *
+     * @returns ListDataSourceTablesResponse
+     *
+     * @param string                      $dataSourceType
+     * @param ListDataSourceTablesRequest $request
+     *
+     * @return ListDataSourceTablesResponse
      */
     public function listDataSourceTables($dataSourceType, $request)
     {
@@ -3573,12 +4333,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the rough sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFirstRanksResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListFirstRanksResponse ListFirstRanksResponse
+     * @return ListFirstRanksResponse
      */
     public function listFirstRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -3586,25 +4353,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListFirstRanks',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFirstRanks',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/first-ranks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFirstRanksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the rough sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @returns ListFirstRanksResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListFirstRanksResponse ListFirstRanksResponse
+     * @return ListFirstRanksResponse
      */
     public function listFirstRanks($appGroupIdentity, $appId)
     {
@@ -3615,65 +4386,81 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries all algorithm instances of a user, which meet specified conditions.
-     *  *
+     * Queries all algorithm instances of a user, which meet specified conditions.
+     *
+     * @param request - ListFunctionInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFunctionInstancesResponse
+     *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionInstancesRequest $request          ListFunctionInstancesRequest
-     * @param string[]                     $headers          map
-     * @param RuntimeOptions               $runtime          runtime options for this request RuntimeOptions
+     * @param ListFunctionInstancesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListFunctionInstancesResponse ListFunctionInstancesResponse
+     * @return ListFunctionInstancesResponse
      */
     public function listFunctionInstancesWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionType)) {
-            $query['functionType'] = $request->functionType;
+        if (null !== $request->functionType) {
+            @$query['functionType'] = $request->functionType;
         }
-        if (!Utils::isUnset($request->modelType)) {
-            $query['modelType'] = $request->modelType;
+
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
         }
-        if (!Utils::isUnset($request->output)) {
-            $query['output'] = $request->output;
+
+        if (null !== $request->output) {
+            @$query['output'] = $request->output;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFunctionInstances',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFunctionInstances',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFunctionInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all algorithm instances of a user, which meet specified conditions.
-     *  *
+     * Queries all algorithm instances of a user, which meet specified conditions.
+     *
+     * @param request - ListFunctionInstancesRequest
+     *
+     * @returns ListFunctionInstancesResponse
+     *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionInstancesRequest $request          ListFunctionInstancesRequest
+     * @param ListFunctionInstancesRequest $request
      *
-     * @return ListFunctionInstancesResponse ListFunctionInstancesResponse
+     * @return ListFunctionInstancesResponse
      */
     public function listFunctionInstances($appGroupIdentity, $functionName, $request)
     {
@@ -3684,59 +4471,73 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries algorithm resources.
-     *  *
+     * Queries algorithm resources.
+     *
+     * @param request - ListFunctionResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFunctionResourcesResponse
+     *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionResourcesRequest $request          ListFunctionResourcesRequest
-     * @param string[]                     $headers          map
-     * @param RuntimeOptions               $runtime          runtime options for this request RuntimeOptions
+     * @param ListFunctionResourcesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListFunctionResourcesResponse ListFunctionResourcesResponse
+     * @return ListFunctionResourcesResponse
      */
     public function listFunctionResourcesWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->output)) {
-            $query['output'] = $request->output;
+        if (null !== $request->output) {
+            @$query['output'] = $request->output;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFunctionResources',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/resources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFunctionResources',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFunctionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries algorithm resources.
-     *  *
+     * Queries algorithm resources.
+     *
+     * @param request - ListFunctionResourcesRequest
+     *
+     * @returns ListFunctionResourcesResponse
+     *
      * @param string                       $appGroupIdentity
      * @param string                       $functionName
-     * @param ListFunctionResourcesRequest $request          ListFunctionResourcesRequest
+     * @param ListFunctionResourcesRequest $request
      *
-     * @return ListFunctionResourcesResponse ListFunctionResourcesResponse
+     * @return ListFunctionResourcesResponse
      */
     public function listFunctionResources($appGroupIdentity, $functionName, $request)
     {
@@ -3747,64 +4548,79 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
-     *  *
+     * Queries the training tasks. The returned results are sorted by start time in descending order.
+     *
+     * @param request - ListFunctionTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFunctionTasksResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $functionName
      * @param string                   $instanceName
-     * @param ListFunctionTasksRequest $request          ListFunctionTasksRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param ListFunctionTasksRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListFunctionTasksResponse ListFunctionTasksResponse
+     * @return ListFunctionTasksResponse
      */
     public function listFunctionTasksWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFunctionTasks',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFunctionTasks',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFunctionTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
-     *  *
+     * Queries the training tasks. The returned results are sorted by start time in descending order.
+     *
+     * @param request - ListFunctionTasksRequest
+     *
+     * @returns ListFunctionTasksResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $functionName
      * @param string                   $instanceName
-     * @param ListFunctionTasksRequest $request          ListFunctionTasksRequest
+     * @param ListFunctionTasksRequest $request
      *
-     * @return ListFunctionTasksResponse ListFunctionTasksResponse
+     * @return ListFunctionTasksResponse
      */
     public function listFunctionTasks($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -3815,48 +4631,65 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListInterventionDictionariesRequest $request ListInterventionDictionariesRequest
-     * @param string[]                            $headers map
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取用户的干预词典列表.
      *
-     * @return ListInterventionDictionariesResponse ListInterventionDictionariesResponse
+     * @param request - ListInterventionDictionariesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterventionDictionariesResponse
+     *
+     * @param ListInterventionDictionariesRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListInterventionDictionariesResponse
      */
     public function listInterventionDictionariesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->types)) {
-            $query['types'] = $request->types;
+
+        if (null !== $request->types) {
+            @$query['types'] = $request->types;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInterventionDictionaries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInterventionDictionaries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInterventionDictionariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListInterventionDictionariesRequest $request ListInterventionDictionariesRequest
+     * 获取用户的干预词典列表.
      *
-     * @return ListInterventionDictionariesResponse ListInterventionDictionariesResponse
+     * @param request - ListInterventionDictionariesRequest
+     *
+     * @returns ListInterventionDictionariesResponse
+     *
+     * @param ListInterventionDictionariesRequest $request
+     *
+     * @return ListInterventionDictionariesResponse
      */
     public function listInterventionDictionaries($request)
     {
@@ -3867,54 +4700,67 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the intervention entries in an intervention dictionary.
-     *  *
-     * @param string                                   $name
-     * @param ListInterventionDictionaryEntriesRequest $request ListInterventionDictionaryEntriesRequest
-     * @param string[]                                 $headers map
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the intervention entries in an intervention dictionary.
      *
-     * @return ListInterventionDictionaryEntriesResponse ListInterventionDictionaryEntriesResponse
+     * @param request - ListInterventionDictionaryEntriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterventionDictionaryEntriesResponse
+     *
+     * @param string                                   $name
+     * @param ListInterventionDictionaryEntriesRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListInterventionDictionaryEntriesResponse
      */
     public function listInterventionDictionaryEntriesWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->word)) {
-            $query['word'] = $request->word;
+
+        if (null !== $request->word) {
+            @$query['word'] = $request->word;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInterventionDictionaryEntries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/entries',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInterventionDictionaryEntries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '/entries',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInterventionDictionaryEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the intervention entries in an intervention dictionary.
-     *  *
-     * @param string                                   $name
-     * @param ListInterventionDictionaryEntriesRequest $request ListInterventionDictionaryEntriesRequest
+     * Queries the intervention entries in an intervention dictionary.
      *
-     * @return ListInterventionDictionaryEntriesResponse ListInterventionDictionaryEntriesResponse
+     * @param request - ListInterventionDictionaryEntriesRequest
+     *
+     * @returns ListInterventionDictionaryEntriesResponse
+     *
+     * @param string                                   $name
+     * @param ListInterventionDictionaryEntriesRequest $request
+     *
+     * @return ListInterventionDictionaryEntriesResponse
      */
     public function listInterventionDictionaryEntries($name, $request)
     {
@@ -3925,44 +4771,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                                      $name
-     * @param ListInterventionDictionaryNerResultsRequest $request ListInterventionDictionaryNerResultsRequest
-     * @param string[]                                    $headers map
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 获取实体识别结果.
      *
-     * @return ListInterventionDictionaryNerResultsResponse ListInterventionDictionaryNerResultsResponse
+     * @param request - ListInterventionDictionaryNerResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterventionDictionaryNerResultsResponse
+     *
+     * @param string                                      $name
+     * @param ListInterventionDictionaryNerResultsRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListInterventionDictionaryNerResultsResponse
      */
     public function listInterventionDictionaryNerResultsWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInterventionDictionaryNerResults',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/ner-results',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInterventionDictionaryNerResults',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '/ner-results',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInterventionDictionaryNerResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                                      $name
-     * @param ListInterventionDictionaryNerResultsRequest $request ListInterventionDictionaryNerResultsRequest
+     * 获取实体识别结果.
      *
-     * @return ListInterventionDictionaryNerResultsResponse ListInterventionDictionaryNerResultsResponse
+     * @param request - ListInterventionDictionaryNerResultsRequest
+     *
+     * @returns ListInterventionDictionaryNerResultsResponse
+     *
+     * @param string                                      $name
+     * @param ListInterventionDictionaryNerResultsRequest $request
+     *
+     * @return ListInterventionDictionaryNerResultsResponse
      */
     public function listInterventionDictionaryNerResults($name, $request)
     {
@@ -3973,11 +4834,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
      *
-     * @return ListInterventionDictionaryRelatedEntitiesResponse ListInterventionDictionaryRelatedEntitiesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterventionDictionaryRelatedEntitiesResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListInterventionDictionaryRelatedEntitiesResponse
      */
     public function listInterventionDictionaryRelatedEntitiesWithOptions($name, $headers, $runtime)
     {
@@ -3985,24 +4853,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListInterventionDictionaryRelatedEntities',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/related',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInterventionDictionaryRelatedEntities',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '/related',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInterventionDictionaryRelatedEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+     *
+     * @returns ListInterventionDictionaryRelatedEntitiesResponse
+     *
      * @param string $name
      *
-     * @return ListInterventionDictionaryRelatedEntitiesResponse ListInterventionDictionaryRelatedEntitiesResponse
+     * @return ListInterventionDictionaryRelatedEntitiesResponse
      */
     public function listInterventionDictionaryRelatedEntities($name)
     {
@@ -4013,48 +4885,59 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary 查看当前的处理流
-     *  *
-     * @param string                 $appGroupIdentity
-     * @param ListProceedingsRequest $request          ListProceedingsRequest
-     * @param string[]               $headers          map
-     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
+     * 查看当前的处理流
      *
-     * @return ListProceedingsResponse ListProceedingsResponse
+     * @param request - ListProceedingsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProceedingsResponse
+     *
+     * @param string                 $appGroupIdentity
+     * @param ListProceedingsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListProceedingsResponse
      */
     public function listProceedingsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterFinished)) {
-            $query['filterFinished'] = $request->filterFinished;
+        if (null !== $request->filterFinished) {
+            @$query['filterFinished'] = $request->filterFinished;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProceedings',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/proceedings',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListProceedings',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/proceedings',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProceedingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看当前的处理流
-     *  *
-     * @param string                 $appGroupIdentity
-     * @param ListProceedingsRequest $request          ListProceedingsRequest
+     * 查看当前的处理流
      *
-     * @return ListProceedingsResponse ListProceedingsResponse
+     * @param request - ListProceedingsRequest
+     *
+     * @returns ListProceedingsResponse
+     *
+     * @param string                 $appGroupIdentity
+     * @param ListProceedingsRequest $request
+     *
+     * @return ListProceedingsResponse
      */
     public function listProceedings($appGroupIdentity, $request)
     {
@@ -4065,52 +4948,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
-     *  *
+     * Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     *
+     * @param request - ListQueryProcessorAnalyzerResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueryProcessorAnalyzerResultsResponse
+     *
      * @param string                                   $appGroupIdentity
      * @param string                                   $appId
      * @param string                                   $name
-     * @param ListQueryProcessorAnalyzerResultsRequest $request          ListQueryProcessorAnalyzerResultsRequest
-     * @param string[]                                 $headers          map
-     * @param RuntimeOptions                           $runtime          runtime options for this request RuntimeOptions
+     * @param ListQueryProcessorAnalyzerResultsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
      *
-     * @return ListQueryProcessorAnalyzerResultsResponse ListQueryProcessorAnalyzerResultsResponse
+     * @return ListQueryProcessorAnalyzerResultsResponse
      */
     public function listQueryProcessorAnalyzerResultsWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->text)) {
-            $query['text'] = $request->text;
+        if (null !== $request->text) {
+            @$query['text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQueryProcessorAnalyzerResults',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '/analyze',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQueryProcessorAnalyzerResults',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors/' . Url::percentEncode($name) . '/analyze',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQueryProcessorAnalyzerResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
-     *  *
+     * Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     *
+     * @param request - ListQueryProcessorAnalyzerResultsRequest
+     *
+     * @returns ListQueryProcessorAnalyzerResultsResponse
+     *
      * @param string                                   $appGroupIdentity
      * @param string                                   $appId
      * @param string                                   $name
-     * @param ListQueryProcessorAnalyzerResultsRequest $request          ListQueryProcessorAnalyzerResultsRequest
+     * @param ListQueryProcessorAnalyzerResultsRequest $request
      *
-     * @return ListQueryProcessorAnalyzerResultsResponse ListQueryProcessorAnalyzerResultsResponse
+     * @return ListQueryProcessorAnalyzerResultsResponse
      */
     public function listQueryProcessorAnalyzerResults($appGroupIdentity, $appId, $name, $request)
     {
@@ -4121,46 +5015,57 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
-     *  *
-     * @param ListQueryProcessorNersRequest $request ListQueryProcessorNersRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the recommended priority settings of entity types for named entity recognition (NER).
      *
-     * @return ListQueryProcessorNersResponse ListQueryProcessorNersResponse
+     * @param request - ListQueryProcessorNersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueryProcessorNersResponse
+     *
+     * @param ListQueryProcessorNersRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListQueryProcessorNersResponse
      */
     public function listQueryProcessorNersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQueryProcessorNers',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/query-processor/ner/default-priorities',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQueryProcessorNers',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/query-processor/ner/default-priorities',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQueryProcessorNersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
-     *  *
-     * @param ListQueryProcessorNersRequest $request ListQueryProcessorNersRequest
+     * Queries the recommended priority settings of entity types for named entity recognition (NER).
      *
-     * @return ListQueryProcessorNersResponse ListQueryProcessorNersResponse
+     * @param request - ListQueryProcessorNersRequest
+     *
+     * @returns ListQueryProcessorNersResponse
+     *
+     * @param ListQueryProcessorNersRequest $request
+     *
+     * @return ListQueryProcessorNersResponse
      */
     public function listQueryProcessorNers($request)
     {
@@ -4171,50 +5076,61 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
-     *  *
+     * Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     *
+     * @param request - ListQueryProcessorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueryProcessorsResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $appId
-     * @param ListQueryProcessorsRequest $request          ListQueryProcessorsRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * @param ListQueryProcessorsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListQueryProcessorsResponse ListQueryProcessorsResponse
+     * @return ListQueryProcessorsResponse
      */
     public function listQueryProcessorsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isActive)) {
-            $query['isActive'] = $request->isActive;
+        if (null !== $request->isActive) {
+            @$query['isActive'] = $request->isActive;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQueryProcessors',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQueryProcessors',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQueryProcessorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
-     *  *
+     * Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     *
+     * @param request - ListQueryProcessorsRequest
+     *
+     * @returns ListQueryProcessorsResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $appId
-     * @param ListQueryProcessorsRequest $request          ListQueryProcessorsRequest
+     * @param ListQueryProcessorsRequest $request
      *
-     * @return ListQueryProcessorsResponse ListQueryProcessorsResponse
+     * @return ListQueryProcessorsResponse
      */
     public function listQueryProcessors($appGroupIdentity, $appId, $request)
     {
@@ -4225,51 +5141,63 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
-     *  *
-     * @param string                      $appGroupIdentity
-     * @param ListQuotaReviewTasksRequest $request          ListQuotaReviewTasksRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * Queries tickets that are submitted to apply for quotas for an OpenSearch application.
      *
-     * @return ListQuotaReviewTasksResponse ListQuotaReviewTasksResponse
+     * @param request - ListQuotaReviewTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaReviewTasksResponse
+     *
+     * @param string                      $appGroupIdentity
+     * @param ListQuotaReviewTasksRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListQuotaReviewTasksResponse
      */
     public function listQuotaReviewTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotaReviewTasks',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/quota-review-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQuotaReviewTasks',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/quota-review-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQuotaReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
-     *  *
-     * @param string                      $appGroupIdentity
-     * @param ListQuotaReviewTasksRequest $request          ListQuotaReviewTasksRequest
+     * Queries tickets that are submitted to apply for quotas for an OpenSearch application.
      *
-     * @return ListQuotaReviewTasksResponse ListQuotaReviewTasksResponse
+     * @param request - ListQuotaReviewTasksRequest
+     *
+     * @returns ListQuotaReviewTasksResponse
+     *
+     * @param string                      $appGroupIdentity
+     * @param ListQuotaReviewTasksRequest $request
+     *
+     * @return ListQuotaReviewTasksResponse
      */
     public function listQuotaReviewTasks($appGroupIdentity, $request)
     {
@@ -4280,54 +5208,67 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of scheduled tasks of an OpenSearch application.
-     *  *
-     * @param string                    $appGroupIdentity
-     * @param ListScheduledTasksRequest $request          ListScheduledTasksRequest
-     * @param string[]                  $headers          map
-     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
+     * Queries a list of scheduled tasks of an OpenSearch application.
      *
-     * @return ListScheduledTasksResponse ListScheduledTasksResponse
+     * @param request - ListScheduledTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduledTasksResponse
+     *
+     * @param string                    $appGroupIdentity
+     * @param ListScheduledTasksRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListScheduledTasksResponse
      */
     public function listScheduledTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduledTasks',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListScheduledTasks',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scheduled-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of scheduled tasks of an OpenSearch application.
-     *  *
-     * @param string                    $appGroupIdentity
-     * @param ListScheduledTasksRequest $request          ListScheduledTasksRequest
+     * Queries a list of scheduled tasks of an OpenSearch application.
      *
-     * @return ListScheduledTasksResponse ListScheduledTasksResponse
+     * @param request - ListScheduledTasksRequest
+     *
+     * @returns ListScheduledTasksResponse
+     *
+     * @param string                    $appGroupIdentity
+     * @param ListScheduledTasksRequest $request
+     *
+     * @return ListScheduledTasksResponse
      */
     public function listScheduledTasks($appGroupIdentity, $request)
     {
@@ -4338,14 +5279,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of query policies.
-     *  *
+     * Queries the details of query policies.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSearchStrategiesResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListSearchStrategiesResponse ListSearchStrategiesResponse
+     * @return ListSearchStrategiesResponse
      */
     public function listSearchStrategiesWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4353,27 +5299,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSearchStrategies',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSearchStrategies',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/search-strategies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSearchStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of query policies.
-     *  *
+     * Queries the details of query policies.
+     *
+     * @returns ListSearchStrategiesResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSearchStrategiesResponse ListSearchStrategiesResponse
+     * @return ListSearchStrategiesResponse
      */
     public function listSearchStrategies($appGroupIdentity, $appId)
     {
@@ -4384,12 +5332,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecondRanksResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListSecondRanksResponse ListSecondRanksResponse
+     * @return ListSecondRanksResponse
      */
     public function listSecondRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4397,25 +5352,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSecondRanks',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSecondRanks',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/second-ranks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSecondRanksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @returns ListSecondRanksResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSecondRanksResponse ListSecondRanksResponse
+     * @return ListSecondRanksResponse
      */
     public function listSecondRanks($appGroupIdentity, $appId)
     {
@@ -4426,13 +5385,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
-     *  *
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Queries the suggestions that are provided by Optimization Master for slow queries.
      *
-     * @return ListSlowQueryCategoriesResponse ListSlowQueryCategoriesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSlowQueryCategoriesResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSlowQueryCategoriesResponse
      */
     public function listSlowQueryCategoriesWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -4440,26 +5404,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSlowQueryCategories',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/categories',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSlowQueryCategories',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query/categories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSlowQueryCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
-     *  *
+     * Queries the suggestions that are provided by Optimization Master for slow queries.
+     *
+     * @returns ListSlowQueryCategoriesResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return ListSlowQueryCategoriesResponse ListSlowQueryCategoriesResponse
+     * @return ListSlowQueryCategoriesResponse
      */
     public function listSlowQueryCategories($appGroupIdentity)
     {
@@ -4470,12 +5436,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 列出优化大师慢查询Query清单.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSlowQueryQueriesResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $categoryIndex
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListSlowQueryQueriesResponse ListSlowQueryQueriesResponse
+     * @return ListSlowQueryQueriesResponse
      */
     public function listSlowQueryQueriesWithOptions($appGroupIdentity, $categoryIndex, $headers, $runtime)
     {
@@ -4483,25 +5456,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSlowQueryQueries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/categories/' . OpenApiUtilClient::getEncodeParam($categoryIndex) . '/queries',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSlowQueryQueries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query/categories/' . Url::percentEncode($categoryIndex) . '/queries',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSlowQueryQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 列出优化大师慢查询Query清单.
+     *
+     * @returns ListSlowQueryQueriesResponse
+     *
      * @param string $appGroupIdentity
      * @param string $categoryIndex
      *
-     * @return ListSlowQueryQueriesResponse ListSlowQueryQueriesResponse
+     * @return ListSlowQueryQueriesResponse
      */
     public function listSlowQueryQueries($appGroupIdentity, $categoryIndex)
     {
@@ -4512,14 +5489,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
-     *  *
+     * Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSortExpressionsResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListSortExpressionsResponse ListSortExpressionsResponse
+     * @return ListSortExpressionsResponse
      */
     public function listSortExpressionsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -4527,27 +5509,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSortExpressions',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/sort-expressions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSortExpressions',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/sort-expressions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSortExpressionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
-     *  *
+     * Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     *
+     * @returns ListSortExpressionsResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return ListSortExpressionsResponse ListSortExpressionsResponse
+     * @return ListSortExpressionsResponse
      */
     public function listSortExpressions($appGroupIdentity, $appId)
     {
@@ -4558,14 +5542,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries all sort scripts of an application version.
-     *  *
+     * Queries all sort scripts of an application version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSortScriptsResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListSortScriptsResponse ListSortScriptsResponse
+     * @return ListSortScriptsResponse
      */
     public function listSortScriptsWithOptions($appGroupIdentity, $appVersionId, $headers, $runtime)
     {
@@ -4573,27 +5562,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSortScripts',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSortScripts',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSortScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all sort scripts of an application version.
-     *  *
+     * Queries all sort scripts of an application version.
+     *
+     * @returns ListSortScriptsResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      *
-     * @return ListSortScriptsResponse ListSortScriptsResponse
+     * @return ListSortScriptsResponse
      */
     public function listSortScripts($appGroupIdentity, $appVersionId)
     {
@@ -4604,71 +5595,89 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
-     *  *
+     * Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
+     *
+     * @param request - ListStatisticLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStatisticLogsResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $moduleName
-     * @param ListStatisticLogsRequest $request          ListStatisticLogsRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param ListStatisticLogsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListStatisticLogsResponse ListStatisticLogsResponse
+     * @return ListStatisticLogsResponse
      */
     public function listStatisticLogsWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columns)) {
-            $query['columns'] = $request->columns;
+        if (null !== $request->columns) {
+            @$query['columns'] = $request->columns;
         }
-        if (!Utils::isUnset($request->distinct)) {
-            $query['distinct'] = $request->distinct;
+
+        if (null !== $request->distinct) {
+            @$query['distinct'] = $request->distinct;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['sortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['sortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->stopTime)) {
-            $query['stopTime'] = $request->stopTime;
+
+        if (null !== $request->stopTime) {
+            @$query['stopTime'] = $request->stopTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStatisticLogs',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/statistic-logs/' . OpenApiUtilClient::getEncodeParam($moduleName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListStatisticLogs',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/statistic-logs/' . Url::percentEncode($moduleName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListStatisticLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
-     *  *
+     * Queries log statistics, such as application error logs, hotword rankings, and slow query logs.
+     *
+     * @param request - ListStatisticLogsRequest
+     *
+     * @returns ListStatisticLogsResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $moduleName
-     * @param ListStatisticLogsRequest $request          ListStatisticLogsRequest
+     * @param ListStatisticLogsRequest $request
      *
-     * @return ListStatisticLogsResponse ListStatisticLogsResponse
+     * @return ListStatisticLogsResponse
      */
     public function listStatisticLogs($appGroupIdentity, $moduleName, $request)
     {
@@ -4679,61 +5688,81 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+     *
+     * @param request - ListStatisticReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStatisticReportResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $moduleName
-     * @param ListStatisticReportRequest $request          ListStatisticReportRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * @param ListStatisticReportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListStatisticReportResponse ListStatisticReportResponse
+     * @return ListStatisticReportResponse
      */
     public function listStatisticReportWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columns)) {
-            $query['columns'] = $request->columns;
+        if (null !== $request->columns) {
+            @$query['columns'] = $request->columns;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStatisticReport',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/statistic-report/' . OpenApiUtilClient::getEncodeParam($moduleName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListStatisticReport',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/statistic-report/' . Url::percentEncode($moduleName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListStatisticReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+     *
+     * @param request - ListStatisticReportRequest
+     *
+     * @returns ListStatisticReportResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $moduleName
-     * @param ListStatisticReportRequest $request          ListStatisticReportRequest
+     * @param ListStatisticReportRequest $request
      *
-     * @return ListStatisticReportResponse ListStatisticReportResponse
+     * @return ListStatisticReportResponse
      */
     public function listStatisticReport($appGroupIdentity, $moduleName, $request)
     {
@@ -4744,63 +5773,79 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries tagged resources.
-     *  *
-     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries tagged resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['resourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/resource-tags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTagResources',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/resource-tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tagged resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries tagged resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4811,54 +5856,67 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the entries of a custom analyzer.
-     *  *
-     * @param string                         $name
-     * @param ListUserAnalyzerEntriesRequest $request ListUserAnalyzerEntriesRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the entries of a custom analyzer.
      *
-     * @return ListUserAnalyzerEntriesResponse ListUserAnalyzerEntriesResponse
+     * @param request - ListUserAnalyzerEntriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserAnalyzerEntriesResponse
+     *
+     * @param string                         $name
+     * @param ListUserAnalyzerEntriesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListUserAnalyzerEntriesResponse
      */
     public function listUserAnalyzerEntriesWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->word)) {
-            $query['word'] = $request->word;
+
+        if (null !== $request->word) {
+            @$query['word'] = $request->word;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserAnalyzerEntries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '/entries',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUserAnalyzerEntries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers/' . Url::percentEncode($name) . '/entries',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserAnalyzerEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the entries of a custom analyzer.
-     *  *
-     * @param string                         $name
-     * @param ListUserAnalyzerEntriesRequest $request ListUserAnalyzerEntriesRequest
+     * Queries the entries of a custom analyzer.
      *
-     * @return ListUserAnalyzerEntriesResponse ListUserAnalyzerEntriesResponse
+     * @param request - ListUserAnalyzerEntriesRequest
+     *
+     * @returns ListUserAnalyzerEntriesResponse
+     *
+     * @param string                         $name
+     * @param ListUserAnalyzerEntriesRequest $request
+     *
+     * @return ListUserAnalyzerEntriesResponse
      */
     public function listUserAnalyzerEntries($name, $request)
     {
@@ -4869,49 +5927,61 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom analyzers that belong to the current account.
-     *  *
-     * @param ListUserAnalyzersRequest $request ListUserAnalyzersRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the custom analyzers that belong to the current account.
      *
-     * @return ListUserAnalyzersResponse ListUserAnalyzersResponse
+     * @param request - ListUserAnalyzersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserAnalyzersResponse
+     *
+     * @param ListUserAnalyzersRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUserAnalyzersResponse
      */
     public function listUserAnalyzersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserAnalyzers',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUserAnalyzers',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserAnalyzersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom analyzers that belong to the current account.
-     *  *
-     * @param ListUserAnalyzersRequest $request ListUserAnalyzersRequest
+     * Queries the custom analyzers that belong to the current account.
      *
-     * @return ListUserAnalyzersResponse ListUserAnalyzersResponse
+     * @param request - ListUserAnalyzersRequest
+     *
+     * @returns ListUserAnalyzersResponse
+     *
+     * @param ListUserAnalyzersRequest $request
+     *
+     * @return ListUserAnalyzersResponse
      */
     public function listUserAnalyzers($request)
     {
@@ -4922,62 +5992,77 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
-     *  *
-     * @param string                $appGroupIdentity
-     * @param ModifyAppGroupRequest $request          ModifyAppGroupRequest
-     * @param string[]              $headers          map
-     * @param RuntimeOptions        $runtime          runtime options for this request RuntimeOptions
+     * Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
      *
-     * @return ModifyAppGroupResponse ModifyAppGroupResponse
+     * @param request - ModifyAppGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppGroupResponse
+     *
+     * @param string                $appGroupIdentity
+     * @param ModifyAppGroupRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyAppGroupResponse
      */
     public function modifyAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->currentVersion)) {
-            $body['currentVersion'] = $request->currentVersion;
+        if (null !== $request->currentVersion) {
+            @$body['currentVersion'] = $request->currentVersion;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyAppGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
-     *  *
-     * @param string                $appGroupIdentity
-     * @param ModifyAppGroupRequest $request          ModifyAppGroupRequest
+     * Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
      *
-     * @return ModifyAppGroupResponse ModifyAppGroupResponse
+     * @param request - ModifyAppGroupRequest
+     *
+     * @returns ModifyAppGroupResponse
+     *
+     * @param string                $appGroupIdentity
+     * @param ModifyAppGroupRequest $request
+     *
+     * @return ModifyAppGroupResponse
      */
     public function modifyAppGroup($appGroupIdentity, $request)
     {
@@ -4988,45 +6073,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param ModifyAppGroupQuotaRequest $request          ModifyAppGroupQuotaRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * Modifies the quotas of an OpenSearch application.
      *
-     * @return ModifyAppGroupQuotaResponse ModifyAppGroupQuotaResponse
+     * @param request - ModifyAppGroupQuotaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppGroupQuotaResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param ModifyAppGroupQuotaRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyAppGroupQuotaResponse
      */
     public function modifyAppGroupQuotaWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
+
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppGroupQuota',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/quota',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyAppGroupQuota',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/quota',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAppGroupQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                     $appGroupIdentity
-     * @param ModifyAppGroupQuotaRequest $request          ModifyAppGroupQuotaRequest
+     * Modifies the quotas of an OpenSearch application.
      *
-     * @return ModifyAppGroupQuotaResponse ModifyAppGroupQuotaResponse
+     * @param request - ModifyAppGroupQuotaRequest
+     *
+     * @returns ModifyAppGroupQuotaResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param ModifyAppGroupQuotaRequest $request
+     *
+     * @return ModifyAppGroupQuotaResponse
      */
     public function modifyAppGroupQuota($appGroupIdentity, $request)
     {
@@ -5037,53 +6141,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
-     *  *
+     * Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     *
+     * @param request - ModifyFirstRankRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFirstRankResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
      * @param string                 $name
-     * @param ModifyFirstRankRequest $request          ModifyFirstRankRequest
-     * @param string[]               $headers          map
-     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
+     * @param ModifyFirstRankRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return ModifyFirstRankResponse ModifyFirstRankResponse
+     * @return ModifyFirstRankResponse
      */
     public function modifyFirstRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFirstRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyFirstRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/first-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyFirstRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
-     *  *
+     * Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     *
+     * @param request - ModifyFirstRankRequest
+     *
+     * @returns ModifyFirstRankResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
      * @param string                 $name
-     * @param ModifyFirstRankRequest $request          ModifyFirstRankRequest
+     * @param ModifyFirstRankRequest $request
      *
-     * @return ModifyFirstRankResponse ModifyFirstRankResponse
+     * @return ModifyFirstRankResponse
      */
     public function modifyFirstRank($appGroupIdentity, $appId, $name, $request)
     {
@@ -5094,53 +6209,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
-     *  *
+     * Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     *
+     * @param request - ModifyQueryProcessorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyQueryProcessorResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $name
-     * @param ModifyQueryProcessorRequest $request          ModifyQueryProcessorRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param ModifyQueryProcessorRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ModifyQueryProcessorResponse ModifyQueryProcessorResponse
+     * @return ModifyQueryProcessorResponse
      */
     public function modifyQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'ModifyQueryProcessor',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyQueryProcessor',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyQueryProcessorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
-     *  *
+     * Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     *
+     * @param request - ModifyQueryProcessorRequest
+     *
+     * @returns ModifyQueryProcessorResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $name
-     * @param ModifyQueryProcessorRequest $request          ModifyQueryProcessorRequest
+     * @param ModifyQueryProcessorRequest $request
      *
-     * @return ModifyQueryProcessorResponse ModifyQueryProcessorResponse
+     * @return ModifyQueryProcessorResponse
      */
     public function modifyQueryProcessor($appGroupIdentity, $appId, $name, $request)
     {
@@ -5151,46 +6277,56 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduled task.
-     *  *
+     * Modifies a scheduled task.
+     *
+     * @param request - ModifyScheduledTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $taskId
-     * @param ModifyScheduledTaskRequest $request          ModifyScheduledTaskRequest
-     * @param string[]                   $headers          map
-     * @param RuntimeOptions             $runtime          runtime options for this request RuntimeOptions
+     * @param ModifyScheduledTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse
      */
     public function modifyScheduledTaskWithOptions($appGroupIdentity, $taskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'ModifyScheduledTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyScheduledTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scheduled-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a scheduled task.
-     *  *
+     * Modifies a scheduled task.
+     *
+     * @param request - ModifyScheduledTaskRequest
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
      * @param string                     $appGroupIdentity
      * @param string                     $taskId
-     * @param ModifyScheduledTaskRequest $request          ModifyScheduledTaskRequest
+     * @param ModifyScheduledTaskRequest $request
      *
-     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse
      */
     public function modifyScheduledTask($appGroupIdentity, $taskId, $request)
     {
@@ -5201,53 +6337,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
-     *  *
+     * Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     *
+     * @param request - ModifySecondRankRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecondRankResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
      * @param string                  $name
-     * @param ModifySecondRankRequest $request          ModifySecondRankRequest
-     * @param string[]                $headers          map
-     * @param RuntimeOptions          $runtime          runtime options for this request RuntimeOptions
+     * @param ModifySecondRankRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return ModifySecondRankResponse ModifySecondRankResponse
+     * @return ModifySecondRankResponse
      */
     public function modifySecondRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecondRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifySecondRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/second-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifySecondRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
-     *  *
+     * Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     *
+     * @param request - ModifySecondRankRequest
+     *
+     * @returns ModifySecondRankResponse
+     *
      * @param string                  $appGroupIdentity
      * @param string                  $appId
      * @param string                  $name
-     * @param ModifySecondRankRequest $request          ModifySecondRankRequest
+     * @param ModifySecondRankRequest $request
      *
-     * @return ModifySecondRankResponse ModifySecondRankResponse
+     * @return ModifySecondRankResponse
      */
     public function modifySecondRank($appGroupIdentity, $appId, $name, $request)
     {
@@ -5258,49 +6405,60 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Accepts the changes in intervention entries.
-     *  *
-     * @param string                                   $name
-     * @param PushInterventionDictionaryEntriesRequest $request PushInterventionDictionaryEntriesRequest
-     * @param string[]                                 $headers map
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Accepts the changes in intervention entries.
      *
-     * @return PushInterventionDictionaryEntriesResponse PushInterventionDictionaryEntriesResponse
+     * @param request - PushInterventionDictionaryEntriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushInterventionDictionaryEntriesResponse
+     *
+     * @param string                                   $name
+     * @param PushInterventionDictionaryEntriesRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return PushInterventionDictionaryEntriesResponse
      */
     public function pushInterventionDictionaryEntriesWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toArray($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
-            'action'      => 'PushInterventionDictionaryEntries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/entries/actions/bulk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushInterventionDictionaryEntries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '/entries/actions/bulk',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushInterventionDictionaryEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Accepts the changes in intervention entries.
-     *  *
-     * @param string                                   $name
-     * @param PushInterventionDictionaryEntriesRequest $request PushInterventionDictionaryEntriesRequest
+     * Accepts the changes in intervention entries.
      *
-     * @return PushInterventionDictionaryEntriesResponse PushInterventionDictionaryEntriesResponse
+     * @param request - PushInterventionDictionaryEntriesRequest
+     *
+     * @returns PushInterventionDictionaryEntriesResponse
+     *
+     * @param string                                   $name
+     * @param PushInterventionDictionaryEntriesRequest $request
+     *
+     * @return PushInterventionDictionaryEntriesResponse
      */
     public function pushInterventionDictionaryEntries($name, $request)
     {
@@ -5311,53 +6469,65 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Accepts the changes in the entries of a custom analyzer.
-     *  *
-     * @param string                         $name
-     * @param PushUserAnalyzerEntriesRequest $request PushUserAnalyzerEntriesRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Accepts the changes in the entries of a custom analyzer.
      *
-     * @return PushUserAnalyzerEntriesResponse PushUserAnalyzerEntriesResponse
+     * @param request - PushUserAnalyzerEntriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushUserAnalyzerEntriesResponse
+     *
+     * @param string                         $name
+     * @param PushUserAnalyzerEntriesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return PushUserAnalyzerEntriesResponse
      */
     public function pushUserAnalyzerEntriesWithOptions($name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->entries)) {
-            $body['entries'] = $request->entries;
+        if (null !== $request->entries) {
+            @$body['entries'] = $request->entries;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushUserAnalyzerEntries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '/entries/actions/bulk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushUserAnalyzerEntries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers/' . Url::percentEncode($name) . '/entries/actions/bulk',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushUserAnalyzerEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Accepts the changes in the entries of a custom analyzer.
-     *  *
-     * @param string                         $name
-     * @param PushUserAnalyzerEntriesRequest $request PushUserAnalyzerEntriesRequest
+     * Accepts the changes in the entries of a custom analyzer.
      *
-     * @return PushUserAnalyzerEntriesResponse PushUserAnalyzerEntriesResponse
+     * @param request - PushUserAnalyzerEntriesRequest
+     *
+     * @returns PushUserAnalyzerEntriesResponse
+     *
+     * @param string                         $name
+     * @param PushUserAnalyzerEntriesRequest $request
+     *
+     * @return PushUserAnalyzerEntriesResponse
      */
     public function pushUserAnalyzerEntries($name, $request)
     {
@@ -5368,13 +6538,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * 发布排序脚本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseSortScriptResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $scriptName
      * @param string         $appVersionId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ReleaseSortScriptResponse ReleaseSortScriptResponse
+     * @return ReleaseSortScriptResponse
      */
     public function releaseSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
@@ -5382,26 +6559,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ReleaseSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/actions/release',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReleaseSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/actions/release',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发布排序脚本.
+     *
+     * @returns ReleaseSortScriptResponse
+     *
      * @param string $appGroupIdentity
      * @param string $scriptName
      * @param string $appVersionId
      *
-     * @return ReleaseSortScriptResponse ReleaseSortScriptResponse
+     * @return ReleaseSortScriptResponse
      */
     public function releaseSortScript($appGroupIdentity, $scriptName, $appVersionId)
     {
@@ -5412,14 +6593,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a version of an OpenSearch application.
-     *  *
+     * Deletes a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveAppResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveAppResponse RemoveAppResponse
+     * @return RemoveAppResponse
      */
     public function removeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
@@ -5427,27 +6613,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveApp',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveApp',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a version of an OpenSearch application.
-     *  *
+     * Deletes a version of an OpenSearch application.
+     *
+     * @returns RemoveAppResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      *
-     * @return RemoveAppResponse RemoveAppResponse
+     * @return RemoveAppResponse
      */
     public function removeApp($appGroupIdentity, $appId)
     {
@@ -5458,11 +6646,21 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Deletes an OpenSearch application.
      *
-     * @return RemoveAppGroupResponse RemoveAppGroupResponse
+     * @remarks
+     * You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveAppGroupResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveAppGroupResponse
      */
     public function removeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5470,24 +6668,31 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveAppGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveAppGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes an OpenSearch application.
+     *
+     * @remarks
+     * You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+     *
+     * @returns RemoveAppGroupResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return RemoveAppGroupResponse RemoveAppGroupResponse
+     * @return RemoveAppGroupResponse
      */
     public function removeAppGroup($appGroupIdentity)
     {
@@ -5498,14 +6703,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Disables data collection.
-     *  *
+     * Disables data collection.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDataCollectionResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $dataCollectionIdentity
-     * @param string[]       $headers                map
-     * @param RuntimeOptions $runtime                runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveDataCollectionResponse RemoveDataCollectionResponse
+     * @return RemoveDataCollectionResponse
      */
     public function removeDataCollectionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
@@ -5513,27 +6723,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveDataCollection',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections/' . OpenApiUtilClient::getEncodeParam($dataCollectionIdentity) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveDataCollection',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/data-collections/' . Url::percentEncode($dataCollectionIdentity) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveDataCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables data collection.
-     *  *
+     * Disables data collection.
+     *
+     * @returns RemoveDataCollectionResponse
+     *
      * @param string $appGroupIdentity
      * @param string $dataCollectionIdentity
      *
-     * @return RemoveDataCollectionResponse RemoveDataCollectionResponse
+     * @return RemoveDataCollectionResponse
      */
     public function removeDataCollection($appGroupIdentity, $dataCollectionIdentity)
     {
@@ -5544,13 +6756,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a rough sort expression for a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveFirstRankResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveFirstRankResponse RemoveFirstRankResponse
+     * @return RemoveFirstRankResponse
      */
     public function removeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5558,26 +6777,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveFirstRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveFirstRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/first-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveFirstRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a rough sort expression for a version of an OpenSearch application.
+     *
+     * @returns RemoveFirstRankResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveFirstRankResponse RemoveFirstRankResponse
+     * @return RemoveFirstRankResponse
      */
     public function removeFirstRank($appGroupIdentity, $appId, $name)
     {
@@ -5588,11 +6811,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes an intervention dictionary.
      *
-     * @return RemoveInterventionDictionaryResponse RemoveInterventionDictionaryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveInterventionDictionaryResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveInterventionDictionaryResponse
      */
     public function removeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
@@ -5600,24 +6830,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveInterventionDictionary',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveInterventionDictionary',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/intervention-dictionaries/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveInterventionDictionaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes an intervention dictionary.
+     *
+     * @returns RemoveInterventionDictionaryResponse
+     *
      * @param string $name
      *
-     * @return RemoveInterventionDictionaryResponse RemoveInterventionDictionaryResponse
+     * @return RemoveInterventionDictionaryResponse
      */
     public function removeInterventionDictionary($name)
     {
@@ -5628,13 +6862,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a query analysis rule for an OpenSearch application version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveQueryProcessorResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveQueryProcessorResponse RemoveQueryProcessorResponse
+     * @return RemoveQueryProcessorResponse
      */
     public function removeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5642,26 +6883,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveQueryProcessor',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveQueryProcessor',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/query-processors/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveQueryProcessorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a query analysis rule for an OpenSearch application version.
+     *
+     * @returns RemoveQueryProcessorResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveQueryProcessorResponse RemoveQueryProcessorResponse
+     * @return RemoveQueryProcessorResponse
      */
     public function removeQueryProcessor($appGroupIdentity, $appId, $name)
     {
@@ -5672,12 +6917,19 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a scheduled task of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveScheduledTaskResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $taskId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveScheduledTaskResponse RemoveScheduledTaskResponse
+     * @return RemoveScheduledTaskResponse
      */
     public function removeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
@@ -5685,25 +6937,29 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveScheduledTask',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveScheduledTask',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scheduled-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a scheduled task of an OpenSearch application.
+     *
+     * @returns RemoveScheduledTaskResponse
+     *
      * @param string $appGroupIdentity
      * @param string $taskId
      *
-     * @return RemoveScheduledTaskResponse RemoveScheduledTaskResponse
+     * @return RemoveScheduledTaskResponse
      */
     public function removeScheduledTask($appGroupIdentity, $taskId)
     {
@@ -5714,15 +6970,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a query policy.
-     *  *
+     * Deletes a query policy.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveSearchStrategyResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $strategyName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveSearchStrategyResponse RemoveSearchStrategyResponse
+     * @return RemoveSearchStrategyResponse
      */
     public function removeSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
@@ -5730,28 +6991,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveSearchStrategy',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveSearchStrategy',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/search-strategies/' . Url::percentEncode($strategyName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveSearchStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a query policy.
-     *  *
+     * Deletes a query policy.
+     *
+     * @returns RemoveSearchStrategyResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $strategyName
      *
-     * @return RemoveSearchStrategyResponse RemoveSearchStrategyResponse
+     * @return RemoveSearchStrategyResponse
      */
     public function removeSearchStrategy($appGroupIdentity, $appId, $strategyName)
     {
@@ -5762,13 +7025,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Deletes a fine sort expression from a version of an OpenSearch application.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveSecondRankResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appId
      * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveSecondRankResponse RemoveSecondRankResponse
+     * @return RemoveSecondRankResponse
      */
     public function removeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
@@ -5776,26 +7046,30 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveSecondRank',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveSecondRank',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/second-ranks/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveSecondRankResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a fine sort expression from a version of an OpenSearch application.
+     *
+     * @returns RemoveSecondRankResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appId
      * @param string $name
      *
-     * @return RemoveSecondRankResponse RemoveSecondRankResponse
+     * @return RemoveSecondRankResponse
      */
     public function removeSecondRank($appGroupIdentity, $appId, $name)
     {
@@ -5806,11 +7080,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $name
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom analyzer.
      *
-     * @return RemoveUserAnalyzerResponse RemoveUserAnalyzerResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserAnalyzerResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveUserAnalyzerResponse
      */
     public function removeUserAnalyzerWithOptions($name, $headers, $runtime)
     {
@@ -5818,24 +7099,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveUserAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveUserAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/user-analyzers/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveUserAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a custom analyzer.
+     *
+     * @returns RemoveUserAnalyzerResponse
+     *
      * @param string $name
      *
-     * @return RemoveUserAnalyzerResponse RemoveUserAnalyzerResponse
+     * @return RemoveUserAnalyzerResponse
      */
     public function removeUserAnalyzer($name)
     {
@@ -5846,49 +7131,60 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
-     *  *
-     * @param string               $appGroupIdentity
-     * @param RenewAppGroupRequest $request          RenewAppGroupRequest
-     * @param string[]             $headers          map
-     * @param RuntimeOptions       $runtime          runtime options for this request RuntimeOptions
+     * Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
      *
-     * @return RenewAppGroupResponse RenewAppGroupResponse
+     * @param request - RenewAppGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewAppGroupResponse
+     *
+     * @param string               $appGroupIdentity
+     * @param RenewAppGroupRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewAppGroupResponse
      */
     public function renewAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['clientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'RenewAppGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/renew',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenewAppGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/actions/renew',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
-     *  *
-     * @param string               $appGroupIdentity
-     * @param RenewAppGroupRequest $request          RenewAppGroupRequest
+     * Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
      *
-     * @return RenewAppGroupResponse RenewAppGroupResponse
+     * @param request - RenewAppGroupRequest
+     *
+     * @returns RenewAppGroupResponse
+     *
+     * @param string               $appGroupIdentity
+     * @param RenewAppGroupRequest $request
+     *
+     * @return RenewAppGroupResponse
      */
     public function renewAppGroup($appGroupIdentity, $request)
     {
@@ -5899,13 +7195,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Converts a service-based application to an instance-based application.
-     *  *
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Converts a service-based application to an instance-based application.
      *
-     * @return ReplaceAppGroupCommodityCodeResponse ReplaceAppGroupCommodityCodeResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceAppGroupCommodityCodeResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ReplaceAppGroupCommodityCodeResponse
      */
     public function replaceAppGroupCommodityCodeWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -5913,26 +7214,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ReplaceAppGroupCommodityCode',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/to-instance-typed',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReplaceAppGroupCommodityCode',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/actions/to-instance-typed',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReplaceAppGroupCommodityCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Converts a service-based application to an instance-based application.
-     *  *
+     * Converts a service-based application to an instance-based application.
+     *
+     * @returns ReplaceAppGroupCommodityCodeResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return ReplaceAppGroupCommodityCodeResponse ReplaceAppGroupCommodityCodeResponse
+     * @return ReplaceAppGroupCommodityCodeResponse
      */
     public function replaceAppGroupCommodityCode($appGroupIdentity)
     {
@@ -5943,57 +7246,69 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a sort script.
-     *  *
+     * Uploads a sort script.
+     *
+     * @param request - SaveSortScriptFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSortScriptFileResponse
+     *
      * @param string                    $appGroupIdentity
      * @param string                    $scriptName
      * @param string                    $appVersionId
      * @param string                    $fileName
-     * @param SaveSortScriptFileRequest $request          SaveSortScriptFileRequest
-     * @param string[]                  $headers          map
-     * @param RuntimeOptions            $runtime          runtime options for this request RuntimeOptions
+     * @param SaveSortScriptFileRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return SaveSortScriptFileResponse SaveSortScriptFileResponse
+     * @return SaveSortScriptFileResponse
      */
     public function saveSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->version)) {
-            $body['version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveSortScriptFile',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveSortScriptFile',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '/files/src/' . Url::percentEncode($fileName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSortScriptFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads a sort script.
-     *  *
+     * Uploads a sort script.
+     *
+     * @param request - SaveSortScriptFileRequest
+     *
+     * @returns SaveSortScriptFileResponse
+     *
      * @param string                    $appGroupIdentity
      * @param string                    $scriptName
      * @param string                    $appVersionId
      * @param string                    $fileName
-     * @param SaveSortScriptFileRequest $request          SaveSortScriptFileRequest
+     * @param SaveSortScriptFileRequest $request
      *
-     * @return SaveSortScriptFileResponse SaveSortScriptFileResponse
+     * @return SaveSortScriptFileResponse
      */
     public function saveSortScriptFile($appGroupIdentity, $scriptName, $appVersionId, $fileName, $request)
     {
@@ -6004,11 +7319,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * 立即进行慢查询分析.
      *
-     * @return StartSlowQueryAnalyzerResponse StartSlowQueryAnalyzerResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartSlowQueryAnalyzerResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartSlowQueryAnalyzerResponse
      */
     public function startSlowQueryAnalyzerWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -6016,24 +7338,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartSlowQueryAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/run',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartSlowQueryAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/optimizers/slow-query/actions/run',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartSlowQueryAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 立即进行慢查询分析.
+     *
+     * @returns StartSlowQueryAnalyzerResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return StartSlowQueryAnalyzerResponse StartSlowQueryAnalyzerResponse
+     * @return StartSlowQueryAnalyzerResponse
      */
     public function startSlowQueryAnalyzer($appGroupIdentity)
     {
@@ -6044,52 +7370,65 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['resourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/resource-tags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TagResources',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/resource-tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6100,50 +7439,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a custom analyzer from an Elasticsearch instance.
-     *  *
-     * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
-     *  *
+     * Unbinds a custom analyzer from an Elasticsearch instance.
+     *
+     * @remarks
+     * You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     *
+     * @param request - UnbindESUserAnalyzerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindESUserAnalyzerResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $esInstanceId
-     * @param UnbindESUserAnalyzerRequest $request          UnbindESUserAnalyzerRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param UnbindESUserAnalyzerRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UnbindESUserAnalyzerResponse UnbindESUserAnalyzerResponse
+     * @return UnbindESUserAnalyzerResponse
      */
     public function unbindESUserAnalyzerWithOptions($appGroupIdentity, $esInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UnbindESUserAnalyzer',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/es/' . OpenApiUtilClient::getEncodeParam($esInstanceId) . '/actions/unbind-analyzer',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnbindESUserAnalyzer',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/es/' . Url::percentEncode($esInstanceId) . '/actions/unbind-analyzer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindESUserAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds a custom analyzer from an Elasticsearch instance.
-     *  *
-     * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
-     *  *
+     * Unbinds a custom analyzer from an Elasticsearch instance.
+     *
+     * @remarks
+     * You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     *
+     * @param request - UnbindESUserAnalyzerRequest
+     *
+     * @returns UnbindESUserAnalyzerResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $esInstanceId
-     * @param UnbindESUserAnalyzerRequest $request          UnbindESUserAnalyzerRequest
+     * @param UnbindESUserAnalyzerRequest $request
      *
-     * @return UnbindESUserAnalyzerResponse UnbindESUserAnalyzerResponse
+     * @return UnbindESUserAnalyzerResponse
      */
     public function unbindESUserAnalyzer($appGroupIdentity, $esInstanceId, $request)
     {
@@ -6154,13 +7505,18 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds an Elasticsearch instance from an OpenSearch application.
-     *  *
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * Unbinds an Elasticsearch instance from an OpenSearch application.
      *
-     * @return UnbindEsInstanceResponse UnbindEsInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindEsInstanceResponse
+     *
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UnbindEsInstanceResponse
      */
     public function unbindEsInstanceWithOptions($appGroupIdentity, $headers, $runtime)
     {
@@ -6168,26 +7524,28 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'UnbindEsInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/unbind-es-instance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnbindEsInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/actions/unbind-es-instance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindEsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds an Elasticsearch instance from an OpenSearch application.
-     *  *
+     * Unbinds an Elasticsearch instance from an OpenSearch application.
+     *
+     * @returns UnbindEsInstanceResponse
+     *
      * @param string $appGroupIdentity
      *
-     * @return UnbindEsInstanceResponse UnbindEsInstanceResponse
+     * @return UnbindEsInstanceResponse
      */
     public function unbindEsInstance($appGroupIdentity)
     {
@@ -6198,63 +7556,79 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Remove tags from resources.
-     *  *
-     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Remove tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UntagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagKey)) {
-            $request->tagKeyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['all'] = $request->all;
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['resourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKeyShrink)) {
-            $query['tagKey'] = $request->tagKeyShrink;
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['tagKey'] = $request->tagKeyShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/resource-tags',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UntagResources',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/resource-tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Remove tags from resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Remove tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -6265,55 +7639,66 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the parameters of an A/B test.
-     *  *
+     * Modifies the parameters of an A/B test.
+     *
+     * @param request - UpdateABTestExperimentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateABTestExperimentResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
      * @param string                        $experimentId
-     * @param UpdateABTestExperimentRequest $request          UpdateABTestExperimentRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateABTestExperimentRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateABTestExperimentResponse UpdateABTestExperimentResponse
+     * @return UpdateABTestExperimentResponse
      */
     public function updateABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateABTestExperiment',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateABTestExperiment',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments/' . Url::percentEncode($experimentId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateABTestExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the parameters of an A/B test.
-     *  *
+     * Modifies the parameters of an A/B test.
+     *
+     * @param request - UpdateABTestExperimentRequest
+     *
+     * @returns UpdateABTestExperimentResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $sceneId
      * @param string                        $groupId
      * @param string                        $experimentId
-     * @param UpdateABTestExperimentRequest $request          UpdateABTestExperimentRequest
+     * @param UpdateABTestExperimentRequest $request
      *
-     * @return UpdateABTestExperimentResponse UpdateABTestExperimentResponse
+     * @return UpdateABTestExperimentResponse
      */
     public function updateABTestExperiment($appGroupIdentity, $sceneId, $groupId, $experimentId, $request)
     {
@@ -6324,50 +7709,60 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies whitelists.
-     *  *
+     * Modifies whitelists.
+     *
+     * @param request - UpdateABTestFixedFlowDividersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateABTestFixedFlowDividersResponse
+     *
      * @param string                               $appGroupIdentity
      * @param string                               $sceneId
      * @param string                               $groupId
      * @param string                               $experimentId
-     * @param UpdateABTestFixedFlowDividersRequest $request          UpdateABTestFixedFlowDividersRequest
-     * @param string[]                             $headers          map
-     * @param RuntimeOptions                       $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateABTestFixedFlowDividersRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return UpdateABTestFixedFlowDividersResponse UpdateABTestFixedFlowDividersResponse
+     * @return UpdateABTestFixedFlowDividersResponse
      */
     public function updateABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UpdateABTestFixedFlowDividers',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '/fixed-flow-dividers',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateABTestFixedFlowDividers',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '/experiments/' . Url::percentEncode($experimentId) . '/fixed-flow-dividers',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateABTestFixedFlowDividersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies whitelists.
-     *  *
+     * Modifies whitelists.
+     *
+     * @param request - UpdateABTestFixedFlowDividersRequest
+     *
+     * @returns UpdateABTestFixedFlowDividersResponse
+     *
      * @param string                               $appGroupIdentity
      * @param string                               $sceneId
      * @param string                               $groupId
      * @param string                               $experimentId
-     * @param UpdateABTestFixedFlowDividersRequest $request          UpdateABTestFixedFlowDividersRequest
+     * @param UpdateABTestFixedFlowDividersRequest $request
      *
-     * @return UpdateABTestFixedFlowDividersResponse UpdateABTestFixedFlowDividersResponse
+     * @return UpdateABTestFixedFlowDividersResponse
      */
     public function updateABTestFixedFlowDividers($appGroupIdentity, $sceneId, $groupId, $experimentId, $request)
     {
@@ -6378,53 +7773,64 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a test group.
-     *  *
+     * Modifies a test group.
+     *
+     * @param request - UpdateABTestGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateABTestGroupResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
      * @param string                   $groupId
-     * @param UpdateABTestGroupRequest $request          UpdateABTestGroupRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateABTestGroupRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateABTestGroupResponse UpdateABTestGroupResponse
+     * @return UpdateABTestGroupResponse
      */
     public function updateABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateABTestGroup',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateABTestGroup',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '/groups/' . Url::percentEncode($groupId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateABTestGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a test group.
-     *  *
+     * Modifies a test group.
+     *
+     * @param request - UpdateABTestGroupRequest
+     *
+     * @returns UpdateABTestGroupResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
      * @param string                   $groupId
-     * @param UpdateABTestGroupRequest $request          UpdateABTestGroupRequest
+     * @param UpdateABTestGroupRequest $request
      *
-     * @return UpdateABTestGroupResponse UpdateABTestGroupResponse
+     * @return UpdateABTestGroupResponse
      */
     public function updateABTestGroup($appGroupIdentity, $sceneId, $groupId, $request)
     {
@@ -6435,51 +7841,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an A/B test scenario.
-     *  *
+     * Modifies an A/B test scenario.
+     *
+     * @param request - UpdateABTestSceneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateABTestSceneResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param UpdateABTestSceneRequest $request          UpdateABTestSceneRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateABTestSceneRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateABTestSceneResponse UpdateABTestSceneResponse
+     * @return UpdateABTestSceneResponse
      */
     public function updateABTestSceneWithOptions($appGroupIdentity, $sceneId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateABTestScene',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateABTestScene',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/scenes/' . Url::percentEncode($sceneId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateABTestSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an A/B test scenario.
-     *  *
+     * Modifies an A/B test scenario.
+     *
+     * @param request - UpdateABTestSceneRequest
+     *
+     * @returns UpdateABTestSceneResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $sceneId
-     * @param UpdateABTestSceneRequest $request          UpdateABTestSceneRequest
+     * @param UpdateABTestSceneRequest $request
      *
-     * @return UpdateABTestSceneResponse UpdateABTestSceneResponse
+     * @return UpdateABTestSceneResponse
      */
     public function updateABTestScene($appGroupIdentity, $sceneId, $request)
     {
@@ -6490,47 +7907,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Updates fetch fields. A dry run is supported.
+     *
+     * @param request - UpdateFetchFieldsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFetchFieldsResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $appId
-     * @param UpdateFetchFieldsRequest $request          UpdateFetchFieldsRequest
-     * @param string[]                 $headers          map
-     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateFetchFieldsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateFetchFieldsResponse UpdateFetchFieldsResponse
+     * @return UpdateFetchFieldsResponse
      */
     public function updateFetchFieldsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UpdateFetchFields',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/fetch-fields',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFetchFields',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/fetch-fields',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFetchFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates fetch fields. A dry run is supported.
+     *
+     * @param request - UpdateFetchFieldsRequest
+     *
+     * @returns UpdateFetchFieldsResponse
+     *
      * @param string                   $appGroupIdentity
      * @param string                   $appId
-     * @param UpdateFetchFieldsRequest $request          UpdateFetchFieldsRequest
+     * @param UpdateFetchFieldsRequest $request
      *
-     * @return UpdateFetchFieldsResponse UpdateFetchFieldsResponse
+     * @return UpdateFetchFieldsResponse
      */
     public function updateFetchFields($appGroupIdentity, $appId, $request)
     {
@@ -6541,50 +7973,61 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
-     *  *
+     * Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     *
+     * @param request - UpdateFunctionDefaultInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFunctionDefaultInstanceResponse
+     *
      * @param string                               $appGroupIdentity
      * @param string                               $functionName
-     * @param UpdateFunctionDefaultInstanceRequest $request          UpdateFunctionDefaultInstanceRequest
-     * @param string[]                             $headers          map
-     * @param RuntimeOptions                       $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateFunctionDefaultInstanceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return UpdateFunctionDefaultInstanceResponse UpdateFunctionDefaultInstanceResponse
+     * @return UpdateFunctionDefaultInstanceResponse
      */
     public function updateFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['instanceName'] = $request->instanceName;
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFunctionDefaultInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/default-instance',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFunctionDefaultInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/default-instance',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFunctionDefaultInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
-     *  *
+     * Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     *
+     * @param request - UpdateFunctionDefaultInstanceRequest
+     *
+     * @returns UpdateFunctionDefaultInstanceResponse
+     *
      * @param string                               $appGroupIdentity
      * @param string                               $functionName
-     * @param UpdateFunctionDefaultInstanceRequest $request          UpdateFunctionDefaultInstanceRequest
+     * @param UpdateFunctionDefaultInstanceRequest $request
      *
-     * @return UpdateFunctionDefaultInstanceResponse UpdateFunctionDefaultInstanceResponse
+     * @return UpdateFunctionDefaultInstanceResponse
      */
     public function updateFunctionDefaultInstance($appGroupIdentity, $functionName, $request)
     {
@@ -6595,61 +8038,75 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Updates an algorithm instance.
-     *  *
+     * Updates an algorithm instance.
+     *
+     * @param request - UpdateFunctionInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFunctionInstanceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $instanceName
-     * @param UpdateFunctionInstanceRequest $request          UpdateFunctionInstanceRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateFunctionInstanceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateFunctionInstanceResponse UpdateFunctionInstanceResponse
+     * @return UpdateFunctionInstanceResponse
      */
     public function updateFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->createParameters)) {
-            $body['createParameters'] = $request->createParameters;
+        if (null !== $request->createParameters) {
+            @$body['createParameters'] = $request->createParameters;
         }
-        if (!Utils::isUnset($request->cron)) {
-            $body['cron'] = $request->cron;
+
+        if (null !== $request->cron) {
+            @$body['cron'] = $request->cron;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->usageParameters)) {
-            $body['usageParameters'] = $request->usageParameters;
+
+        if (null !== $request->usageParameters) {
+            @$body['usageParameters'] = $request->usageParameters;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFunctionInstance',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFunctionInstance',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/instances/' . Url::percentEncode($instanceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFunctionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an algorithm instance.
-     *  *
+     * Updates an algorithm instance.
+     *
+     * @param request - UpdateFunctionInstanceRequest
+     *
+     * @returns UpdateFunctionInstanceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $instanceName
-     * @param UpdateFunctionInstanceRequest $request          UpdateFunctionInstanceRequest
+     * @param UpdateFunctionInstanceRequest $request
      *
-     * @return UpdateFunctionInstanceResponse UpdateFunctionInstanceResponse
+     * @return UpdateFunctionInstanceResponse
      */
     public function updateFunctionInstance($appGroupIdentity, $functionName, $instanceName, $request)
     {
@@ -6660,59 +8117,73 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Updates an algorithm resource.
-     *  *
-     * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
-     *  *
+     * Updates an algorithm resource.
+     *
+     * @remarks
+     * You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     *
+     * @param request - UpdateFunctionResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFunctionResourceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $resourceName
-     * @param UpdateFunctionResourceRequest $request          UpdateFunctionResourceRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateFunctionResourceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateFunctionResourceResponse UpdateFunctionResourceResponse
+     * @return UpdateFunctionResourceResponse
      */
     public function updateFunctionResourceWithOptions($appGroupIdentity, $functionName, $resourceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->data)) {
-            $body['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$body['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFunctionResource',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/resources/' . OpenApiUtilClient::getEncodeParam($resourceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFunctionResource',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/functions/' . Url::percentEncode($functionName) . '/resources/' . Url::percentEncode($resourceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFunctionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an algorithm resource.
-     *  *
-     * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
-     *  *
+     * Updates an algorithm resource.
+     *
+     * @remarks
+     * You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     *
+     * @param request - UpdateFunctionResourceRequest
+     *
+     * @returns UpdateFunctionResourceResponse
+     *
      * @param string                        $appGroupIdentity
      * @param string                        $functionName
      * @param string                        $resourceName
-     * @param UpdateFunctionResourceRequest $request          UpdateFunctionResourceRequest
+     * @param UpdateFunctionResourceRequest $request
      *
-     * @return UpdateFunctionResourceResponse UpdateFunctionResourceResponse
+     * @return UpdateFunctionResourceResponse
      */
     public function updateFunctionResource($appGroupIdentity, $functionName, $resourceName, $request)
     {
@@ -6723,48 +8194,58 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a query policy.
-     *  *
+     * Modifies a query policy.
+     *
+     * @param request - UpdateSearchStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSearchStrategyResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $strategyName
-     * @param UpdateSearchStrategyRequest $request          UpdateSearchStrategyRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateSearchStrategyRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdateSearchStrategyResponse UpdateSearchStrategyResponse
+     * @return UpdateSearchStrategyResponse
      */
     public function updateSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSearchStrategy',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSearchStrategy',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/search-strategies/' . Url::percentEncode($strategyName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSearchStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a query policy.
-     *  *
+     * Modifies a query policy.
+     *
+     * @param request - UpdateSearchStrategyRequest
+     *
+     * @returns UpdateSearchStrategyResponse
+     *
      * @param string                      $appGroupIdentity
      * @param string                      $appId
      * @param string                      $strategyName
-     * @param UpdateSearchStrategyRequest $request          UpdateSearchStrategyRequest
+     * @param UpdateSearchStrategyRequest $request
      *
-     * @return UpdateSearchStrategyResponse UpdateSearchStrategyResponse
+     * @return UpdateSearchStrategyResponse
      */
     public function updateSearchStrategy($appGroupIdentity, $appId, $strategyName, $request)
     {
@@ -6775,17 +8256,23 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a sort script.
-     *  *
-     * @description You can call this operation to modify the description of a sort script.
-     *  *
+     * Modifies the description of a sort script.
+     *
+     * @remarks
+     * You can call this operation to modify the description of a sort script.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSortScriptResponse
+     *
      * @param string         $appGroupIdentity
      * @param string         $appVersionId
      * @param string         $scriptName
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return UpdateSortScriptResponse UpdateSortScriptResponse
+     * @return UpdateSortScriptResponse
      */
     public function updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
     {
@@ -6793,30 +8280,33 @@ class OpenSearch extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'UpdateSortScript',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSortScript',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appVersionId) . '/sort-scripts/' . Url::percentEncode($scriptName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSortScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a sort script.
-     *  *
-     * @description You can call this operation to modify the description of a sort script.
-     *  *
+     * Modifies the description of a sort script.
+     *
+     * @remarks
+     * You can call this operation to modify the description of a sort script.
+     *
+     * @returns UpdateSortScriptResponse
+     *
      * @param string $appGroupIdentity
      * @param string $appVersionId
      * @param string $scriptName
      *
-     * @return UpdateSortScriptResponse UpdateSortScriptResponse
+     * @return UpdateSortScriptResponse
      */
     public function updateSortScript($appGroupIdentity, $appVersionId, $scriptName)
     {
@@ -6827,51 +8317,62 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Updates summaries. A dry run is supported.
-     *  *
+     * Updates summaries. A dry run is supported.
+     *
+     * @param request - UpdateSummariesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSummariesResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param UpdateSummariesRequest $request          UpdateSummariesRequest
-     * @param string[]               $headers          map
-     * @param RuntimeOptions         $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateSummariesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateSummariesResponse UpdateSummariesResponse
+     * @return UpdateSummariesResponse
      */
     public function updateSummariesWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toArray($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSummaries',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/summaries',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSummaries',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/apps/' . Url::percentEncode($appId) . '/summaries',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates summaries. A dry run is supported.
-     *  *
+     * Updates summaries. A dry run is supported.
+     *
+     * @param request - UpdateSummariesRequest
+     *
+     * @returns UpdateSummariesResponse
+     *
      * @param string                 $appGroupIdentity
      * @param string                 $appId
-     * @param UpdateSummariesRequest $request          UpdateSummariesRequest
+     * @param UpdateSummariesRequest $request
      *
-     * @return UpdateSummariesResponse UpdateSummariesResponse
+     * @return UpdateSummariesResponse
      */
     public function updateSummaries($appGroupIdentity, $appId, $request)
     {
@@ -6882,42 +8383,52 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @summary Verifies data sources.
-     *  *
-     * @param ValidateDataSourcesRequest $request ValidateDataSourcesRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Verifies data sources.
      *
-     * @return ValidateDataSourcesResponse ValidateDataSourcesResponse
+     * @param request - ValidateDataSourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateDataSourcesResponse
+     *
+     * @param ValidateDataSourcesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ValidateDataSourcesResponse
      */
     public function validateDataSourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ValidateDataSources',
-            'version'     => '2017-12-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/data-sources/validations',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ValidateDataSources',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/assist/data-sources/validations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ValidateDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies data sources.
-     *  *
-     * @param ValidateDataSourcesRequest $request ValidateDataSourcesRequest
+     * Verifies data sources.
      *
-     * @return ValidateDataSourcesResponse ValidateDataSourcesResponse
+     * @param request - ValidateDataSourcesRequest
+     *
+     * @returns ValidateDataSourcesResponse
+     *
+     * @param ValidateDataSourcesRequest $request
+     *
+     * @return ValidateDataSourcesResponse
      */
     public function validateDataSources($request)
     {

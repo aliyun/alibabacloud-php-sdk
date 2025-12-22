@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\PushUserAnalyzerEntriesRequest\entries;
-use AlibabaCloud\Tea\Model;
 
 class PushUserAnalyzerEntriesRequest extends Model
 {
     /**
-     * @description The entries of the custom analyzer.
-     *
      * @var entries[]
      */
     public $entries;
 
     /**
-     * @description Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
         'entries' => 'entries',
-        'dryRun'  => 'dryRun',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        if (\is_array($this->entries)) {
+            Model::validateArray($this->entries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entries) {
-            $res['entries'] = [];
-            if (null !== $this->entries && \is_array($this->entries)) {
-                $n = 0;
-                foreach ($this->entries as $item) {
-                    $res['entries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entries)) {
+                $res['entries'] = [];
+                $n1 = 0;
+                foreach ($this->entries as $item1) {
+                    $res['entries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -52,23 +52,25 @@ class PushUserAnalyzerEntriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushUserAnalyzerEntriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entries'])) {
             if (!empty($map['entries'])) {
                 $model->entries = [];
-                $n              = 0;
-                foreach ($map['entries'] as $item) {
-                    $model->entries[$n++] = null !== $item ? entries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['entries'] as $item1) {
+                    $model->entries[$n1] = entries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }
