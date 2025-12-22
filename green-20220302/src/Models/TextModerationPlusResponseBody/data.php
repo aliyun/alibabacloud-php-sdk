@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $accountId;
+
+    /**
      * @var advice[]
      */
     public $advice;
@@ -72,6 +77,7 @@ class data extends Model
      */
     public $translatedContent;
     protected $_name = [
+        'accountId' => 'AccountId',
         'advice' => 'Advice',
         'attackLevel' => 'AttackLevel',
         'attackResult' => 'AttackResult',
@@ -106,6 +112,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->advice) {
             if (\is_array($this->advice)) {
                 $res['Advice'] = [];
@@ -193,6 +203,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['Advice'])) {
             if (!empty($map['Advice'])) {
                 $model->advice = [];

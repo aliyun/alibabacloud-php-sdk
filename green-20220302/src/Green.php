@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardForBase64Request;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardForBase64Response;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusRequest;
@@ -1033,6 +1035,73 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->multiModalGuardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 多模态同步检测接口，支持图片base64字符串.
+     *
+     * @param request - MultiModalGuardForBase64Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalGuardForBase64Response
+     *
+     * @param MultiModalGuardForBase64Request $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MultiModalGuardForBase64Response
+     */
+    public function multiModalGuardForBase64WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
+        }
+
+        $body = [];
+        if (null !== $request->imageBase64Str) {
+            @$body['ImageBase64Str'] = $request->imageBase64Str;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalGuardForBase64',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalGuardForBase64Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态同步检测接口，支持图片base64字符串.
+     *
+     * @param request - MultiModalGuardForBase64Request
+     *
+     * @returns MultiModalGuardForBase64Response
+     *
+     * @param MultiModalGuardForBase64Request $request
+     *
+     * @return MultiModalGuardForBase64Response
+     */
+    public function multiModalGuardForBase64($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalGuardForBase64WithOptions($request, $runtime);
     }
 
     /**
