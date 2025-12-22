@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListFunctionsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListFunctionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergNamespaceDetailsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergNamespaceDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsRequest;
@@ -114,6 +116,10 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUserRolesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListUsersResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListViewDetailsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListViewDetailsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListViewsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListViewsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RefreshUserSyncResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RevokeRoleFromUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\RevokeRoleFromUsersResponse;
@@ -2911,6 +2917,79 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * 查看函数列表.
+     *
+     * @param request - ListFunctionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFunctionsResponse
+     *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param ListFunctionsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFunctionsResponse
+     */
+    public function listFunctionsWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->functionNamePattern) {
+            @$query['functionNamePattern'] = $request->functionNamePattern;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageToken) {
+            @$query['pageToken'] = $request->pageToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFunctions',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/functions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看函数列表.
+     *
+     * @param request - ListFunctionsRequest
+     *
+     * @returns ListFunctionsResponse
+     *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param ListFunctionsRequest $request
+     *
+     * @return ListFunctionsResponse
+     */
+    public function listFunctions($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFunctionsWithOptions($catalogId, $database, $request, $headers, $runtime);
+    }
+
+    /**
      * 查看iceberg数据库列表.
      *
      * @param request - ListIcebergNamespaceDetailsRequest
@@ -4198,6 +4277,152 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listUsersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查看视图详情列表.
+     *
+     * @param request - ListViewDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListViewDetailsResponse
+     *
+     * @param string                 $catalogId
+     * @param string                 $database
+     * @param ListViewDetailsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListViewDetailsResponse
+     */
+    public function listViewDetailsWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageToken) {
+            @$query['pageToken'] = $request->pageToken;
+        }
+
+        if (null !== $request->viewNamePattern) {
+            @$query['viewNamePattern'] = $request->viewNamePattern;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListViewDetails',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/view-details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListViewDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看视图详情列表.
+     *
+     * @param request - ListViewDetailsRequest
+     *
+     * @returns ListViewDetailsResponse
+     *
+     * @param string                 $catalogId
+     * @param string                 $database
+     * @param ListViewDetailsRequest $request
+     *
+     * @return ListViewDetailsResponse
+     */
+    public function listViewDetails($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listViewDetailsWithOptions($catalogId, $database, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看视图详情列表.
+     *
+     * @param request - ListViewsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListViewsResponse
+     *
+     * @param string           $catalogId
+     * @param string           $database
+     * @param ListViewsRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListViewsResponse
+     */
+    public function listViewsWithOptions($catalogId, $database, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageToken) {
+            @$query['pageToken'] = $request->pageToken;
+        }
+
+        if (null !== $request->viewNamePattern) {
+            @$query['viewNamePattern'] = $request->viewNamePattern;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListViews',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/views',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListViewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看视图详情列表.
+     *
+     * @param request - ListViewsRequest
+     *
+     * @returns ListViewsResponse
+     *
+     * @param string           $catalogId
+     * @param string           $database
+     * @param ListViewsRequest $request
+     *
+     * @return ListViewsResponse
+     */
+    public function listViews($catalogId, $database, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listViewsWithOptions($catalogId, $database, $request, $headers, $runtime);
     }
 
     /**
