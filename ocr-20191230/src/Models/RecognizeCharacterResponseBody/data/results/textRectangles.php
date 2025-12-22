@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeCharacterResponseBody\data\results;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeCharacterResponseBody\data\results\textRectangles\pos;
 
 class textRectangles extends Model
 {
@@ -24,6 +25,11 @@ class textRectangles extends Model
     public $left;
 
     /**
+     * @var pos[]
+     */
+    public $pos;
+
+    /**
      * @var int
      */
     public $top;
@@ -36,12 +42,16 @@ class textRectangles extends Model
         'angle' => 'Angle',
         'height' => 'Height',
         'left' => 'Left',
+        'pos' => 'Pos',
         'top' => 'Top',
         'width' => 'Width',
     ];
 
     public function validate()
     {
+        if (\is_array($this->pos)) {
+            Model::validateArray($this->pos);
+        }
         parent::validate();
     }
 
@@ -58,6 +68,17 @@ class textRectangles extends Model
 
         if (null !== $this->left) {
             $res['Left'] = $this->left;
+        }
+
+        if (null !== $this->pos) {
+            if (\is_array($this->pos)) {
+                $res['Pos'] = [];
+                $n1 = 0;
+                foreach ($this->pos as $item1) {
+                    $res['Pos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->top) {
@@ -89,6 +110,17 @@ class textRectangles extends Model
 
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
+        }
+
+        if (isset($map['Pos'])) {
+            if (!empty($map['Pos'])) {
+                $model->pos = [];
+                $n1 = 0;
+                foreach ($map['Pos'] as $item1) {
+                    $model->pos[$n1] = pos::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Top'])) {
