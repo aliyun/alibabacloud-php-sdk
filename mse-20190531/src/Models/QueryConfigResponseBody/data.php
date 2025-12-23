@@ -145,6 +145,11 @@ class data extends Model
     public $passWord;
 
     /**
+     * @var string
+     */
+    public $prometheusSdProtocolEnabled;
+
+    /**
      * @var bool
      */
     public $restartFlag;
@@ -201,6 +206,7 @@ class data extends Model
         'namingCreateServiceSupported' => 'NamingCreateServiceSupported',
         'openSuperAcl' => 'OpenSuperAcl',
         'passWord' => 'PassWord',
+        'prometheusSdProtocolEnabled' => 'PrometheusSdProtocolEnabled',
         'restartFlag' => 'RestartFlag',
         'snapshotCount' => 'SnapshotCount',
         'syncLimit' => 'SyncLimit',
@@ -326,6 +332,10 @@ class data extends Model
 
         if (null !== $this->passWord) {
             $res['PassWord'] = $this->passWord;
+        }
+
+        if (null !== $this->prometheusSdProtocolEnabled) {
+            $res['PrometheusSdProtocolEnabled'] = $this->prometheusSdProtocolEnabled;
         }
 
         if (null !== $this->restartFlag) {
@@ -469,6 +479,10 @@ class data extends Model
 
         if (isset($map['PassWord'])) {
             $model->passWord = $map['PassWord'];
+        }
+
+        if (isset($map['PrometheusSdProtocolEnabled'])) {
+            $model->prometheusSdProtocolEnabled = $map['PrometheusSdProtocolEnabled'];
         }
 
         if (isset($map['RestartFlag'])) {

@@ -16,7 +16,17 @@ class configurations extends Model
     /**
      * @var string
      */
+    public $configTags;
+
+    /**
+     * @var string
+     */
     public $dataId;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class configurations extends Model
     public $id;
     protected $_name = [
         'appName' => 'AppName',
+        'configTags' => 'ConfigTags',
         'dataId' => 'DataId',
+        'description' => 'Description',
         'group' => 'Group',
         'id' => 'Id',
     ];
@@ -46,8 +58,16 @@ class configurations extends Model
             $res['AppName'] = $this->appName;
         }
 
+        if (null !== $this->configTags) {
+            $res['ConfigTags'] = $this->configTags;
+        }
+
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->group) {
@@ -73,8 +93,16 @@ class configurations extends Model
             $model->appName = $map['AppName'];
         }
 
+        if (isset($map['ConfigTags'])) {
+            $model->configTags = $map['ConfigTags'];
+        }
+
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Group'])) {
