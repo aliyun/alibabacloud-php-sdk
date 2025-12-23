@@ -5506,6 +5506,10 @@ class Dm extends OpenApiClient
             @$body['Attachments'] = $request->attachments;
         }
 
+        if (null !== $request->bccAddress) {
+            @$body['BccAddress'] = $request->bccAddress;
+        }
+
         if (null !== $request->clickTrace) {
             @$body['ClickTrace'] = $request->clickTrace;
         }

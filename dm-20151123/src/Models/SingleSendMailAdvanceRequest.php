@@ -28,6 +28,11 @@ class SingleSendMailAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $bccAddress;
+
+    /**
+     * @var string
+     */
     public $clickTrace;
 
     /**
@@ -118,6 +123,7 @@ class SingleSendMailAdvanceRequest extends Model
         'accountName' => 'AccountName',
         'addressType' => 'AddressType',
         'attachments' => 'Attachments',
+        'bccAddress' => 'BccAddress',
         'clickTrace' => 'ClickTrace',
         'fromAlias' => 'FromAlias',
         'headers' => 'Headers',
@@ -169,6 +175,10 @@ class SingleSendMailAdvanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->bccAddress) {
+            $res['BccAddress'] = $this->bccAddress;
         }
 
         if (null !== $this->clickTrace) {
@@ -271,6 +281,10 @@ class SingleSendMailAdvanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['BccAddress'])) {
+            $model->bccAddress = $map['BccAddress'];
         }
 
         if (isset($map['ClickTrace'])) {
