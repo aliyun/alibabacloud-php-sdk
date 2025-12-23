@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\bigKeys;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\highTrafficKeys;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\hotKeys;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeHotBigKeysResponseBody\data\largeKeys;
 
 class data extends Model
 {
@@ -40,6 +41,16 @@ class data extends Model
      * @var hotKeys
      */
     public $hotKeys;
+
+    /**
+     * @var string
+     */
+    public $largeKeyMsg;
+
+    /**
+     * @var largeKeys
+     */
+    public $largeKeys;
     protected $_name = [
         'bigKeyMsg' => 'BigKeyMsg',
         'bigKeys' => 'BigKeys',
@@ -47,6 +58,8 @@ class data extends Model
         'highTrafficKeys' => 'HighTrafficKeys',
         'hotKeyMsg' => 'HotKeyMsg',
         'hotKeys' => 'HotKeys',
+        'largeKeyMsg' => 'LargeKeyMsg',
+        'largeKeys' => 'LargeKeys',
     ];
 
     public function validate()
@@ -59,6 +72,9 @@ class data extends Model
         }
         if (null !== $this->hotKeys) {
             $this->hotKeys->validate();
+        }
+        if (null !== $this->largeKeys) {
+            $this->largeKeys->validate();
         }
         parent::validate();
     }
@@ -88,6 +104,14 @@ class data extends Model
 
         if (null !== $this->hotKeys) {
             $res['HotKeys'] = null !== $this->hotKeys ? $this->hotKeys->toArray($noStream) : $this->hotKeys;
+        }
+
+        if (null !== $this->largeKeyMsg) {
+            $res['LargeKeyMsg'] = $this->largeKeyMsg;
+        }
+
+        if (null !== $this->largeKeys) {
+            $res['LargeKeys'] = null !== $this->largeKeys ? $this->largeKeys->toArray($noStream) : $this->largeKeys;
         }
 
         return $res;
@@ -123,6 +147,14 @@ class data extends Model
 
         if (isset($map['HotKeys'])) {
             $model->hotKeys = hotKeys::fromMap($map['HotKeys']);
+        }
+
+        if (isset($map['LargeKeyMsg'])) {
+            $model->largeKeyMsg = $map['LargeKeyMsg'];
+        }
+
+        if (isset($map['LargeKeys'])) {
+            $model->largeKeys = largeKeys::fromMap($map['LargeKeys']);
         }
 
         return $model;
