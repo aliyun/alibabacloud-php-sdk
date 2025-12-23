@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class internet extends Model
 {
     /**
+     * @var int
+     */
+    public $connectionDrainTimeout;
+
+    /**
      * @var string
      */
     public $cookie;
@@ -22,6 +27,11 @@ class internet extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $enableConnectionDrain;
 
     /**
      * @var string
@@ -57,10 +67,17 @@ class internet extends Model
      * @var int
      */
     public $targetPort;
+
+    /**
+     * @var string
+     */
+    public $VServerGroupId;
     protected $_name = [
+        'connectionDrainTimeout' => 'ConnectionDrainTimeout',
         'cookie' => 'Cookie',
         'cookieTimeout' => 'CookieTimeout',
         'createTime' => 'CreateTime',
+        'enableConnectionDrain' => 'EnableConnectionDrain',
         'httpsCaCertId' => 'HttpsCaCertId',
         'httpsCertId' => 'HttpsCertId',
         'port' => 'Port',
@@ -68,6 +85,7 @@ class internet extends Model
         'stickySession' => 'StickySession',
         'stickySessionType' => 'StickySessionType',
         'targetPort' => 'TargetPort',
+        'VServerGroupId' => 'VServerGroupId',
     ];
 
     public function validate()
@@ -78,6 +96,10 @@ class internet extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectionDrainTimeout) {
+            $res['ConnectionDrainTimeout'] = $this->connectionDrainTimeout;
+        }
+
         if (null !== $this->cookie) {
             $res['Cookie'] = $this->cookie;
         }
@@ -88,6 +110,10 @@ class internet extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->enableConnectionDrain) {
+            $res['EnableConnectionDrain'] = $this->enableConnectionDrain;
         }
 
         if (null !== $this->httpsCaCertId) {
@@ -118,6 +144,10 @@ class internet extends Model
             $res['TargetPort'] = $this->targetPort;
         }
 
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
+        }
+
         return $res;
     }
 
@@ -129,6 +159,10 @@ class internet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionDrainTimeout'])) {
+            $model->connectionDrainTimeout = $map['ConnectionDrainTimeout'];
+        }
+
         if (isset($map['Cookie'])) {
             $model->cookie = $map['Cookie'];
         }
@@ -139,6 +173,10 @@ class internet extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['EnableConnectionDrain'])) {
+            $model->enableConnectionDrain = $map['EnableConnectionDrain'];
         }
 
         if (isset($map['HttpsCaCertId'])) {
@@ -167,6 +205,10 @@ class internet extends Model
 
         if (isset($map['TargetPort'])) {
             $model->targetPort = $map['TargetPort'];
+        }
+
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
 
         return $model;
