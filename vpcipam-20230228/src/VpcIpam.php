@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\VpcIpam\V20230228;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamMembersRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamMembersResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AssociateIpamResourceDiscoveryRequest;
@@ -43,6 +45,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamMembersRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamMembersResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolAllocationsRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolAllocationsResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolCidrsRequest;
@@ -63,6 +67,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\OpenVpcIpamServiceRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\OpenVpcIpamServiceResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\RemoveIpamMembersRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\RemoveIpamMembersResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UntagResourcesRequest;
@@ -114,6 +120,91 @@ class VpcIpam extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加ipam可信服务纳管成员.
+     *
+     * @param request - AddIpamMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddIpamMembersResponse
+     *
+     * @param AddIpamMembersRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddIpamMembersResponse
+     */
+    public function addIpamMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->members) {
+            @$query['Members'] = $request->members;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddIpamMembers',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddIpamMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加ipam可信服务纳管成员.
+     *
+     * @param request - AddIpamMembersRequest
+     *
+     * @returns AddIpamMembersResponse
+     *
+     * @param AddIpamMembersRequest $request
+     *
+     * @return AddIpamMembersResponse
+     */
+    public function addIpamMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addIpamMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -1838,6 +1929,91 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * 查询ipam可信服务纳管成员.
+     *
+     * @param request - ListIpamMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIpamMembersResponse
+     *
+     * @param ListIpamMembersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListIpamMembersResponse
+     */
+    public function listIpamMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberIds) {
+            @$query['MemberIds'] = $request->memberIds;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIpamMembers',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIpamMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ipam可信服务纳管成员.
+     *
+     * @param request - ListIpamMembersRequest
+     *
+     * @returns ListIpamMembersResponse
+     *
+     * @param ListIpamMembersRequest $request
+     *
+     * @return ListIpamMembersResponse
+     */
+    public function listIpamMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpamMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
      *
      * @param request - ListIpamPoolAllocationsRequest
@@ -2779,6 +2955,91 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openVpcIpamServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除ipam可信服务纳管成员.
+     *
+     * @param request - RemoveIpamMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveIpamMembersResponse
+     *
+     * @param RemoveIpamMembersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveIpamMembersResponse
+     */
+    public function removeIpamMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->members) {
+            @$query['Members'] = $request->members;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveIpamMembers',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveIpamMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除ipam可信服务纳管成员.
+     *
+     * @param request - RemoveIpamMembersRequest
+     *
+     * @returns RemoveIpamMembersResponse
+     *
+     * @param RemoveIpamMembersRequest $request
+     *
+     * @return RemoveIpamMembersResponse
+     */
+    public function removeIpamMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeIpamMembersWithOptions($request, $runtime);
     }
 
     /**
