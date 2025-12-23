@@ -71,6 +71,11 @@ class DescribeAuditLogsRequest extends Model
     /**
      * @var string
      */
+    public $logQueryOpJson;
+
+    /**
+     * @var string
+     */
     public $logSource;
 
     /**
@@ -155,6 +160,7 @@ class DescribeAuditLogsRequest extends Model
         'ipType' => 'IpType',
         'lang' => 'Lang',
         'loadWhiteList' => 'LoadWhiteList',
+        'logQueryOpJson' => 'LogQueryOpJson',
         'logSource' => 'LogSource',
         'memberAccount' => 'MemberAccount',
         'message' => 'Message',
@@ -226,6 +232,10 @@ class DescribeAuditLogsRequest extends Model
 
         if (null !== $this->loadWhiteList) {
             $res['LoadWhiteList'] = $this->loadWhiteList;
+        }
+
+        if (null !== $this->logQueryOpJson) {
+            $res['LogQueryOpJson'] = $this->logQueryOpJson;
         }
 
         if (null !== $this->logSource) {
@@ -345,6 +355,10 @@ class DescribeAuditLogsRequest extends Model
 
         if (isset($map['LoadWhiteList'])) {
             $model->loadWhiteList = $map['LoadWhiteList'];
+        }
+
+        if (isset($map['LogQueryOpJson'])) {
+            $model->logQueryOpJson = $map['LogQueryOpJson'];
         }
 
         if (isset($map['LogSource'])) {

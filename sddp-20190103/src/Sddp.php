@@ -908,6 +908,10 @@ class Sddp extends OpenApiClient
             @$query['LoadWhiteList'] = $request->loadWhiteList;
         }
 
+        if (null !== $request->logQueryOpJson) {
+            @$query['LogQueryOpJson'] = $request->logQueryOpJson;
+        }
+
         if (null !== $request->logSource) {
             @$query['LogSource'] = $request->logSource;
         }
