@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListResourceGroupsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associatedWorkspaces extends Model
 {
     /**
-     * @example 1200827。
-     *
      * @var string
      */
     public $workspaceId;
@@ -20,20 +18,22 @@ class associatedWorkspaces extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'workspaceId'   => 'workspaceId',
+        'workspaceId' => 'workspaceId',
         'workspaceName' => 'workspaceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->workspaceName) {
             $res['workspaceName'] = $this->workspaceName;
         }
@@ -41,17 +41,18 @@ class associatedWorkspaces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedWorkspaces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }
+
         if (isset($map['workspaceName'])) {
             $model->workspaceName = $map['workspaceName'];
         }

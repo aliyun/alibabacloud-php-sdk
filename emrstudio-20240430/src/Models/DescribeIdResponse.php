@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListTasksResponse extends Model
+class DescribeIdResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListTasksResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListTasksResponseBody
+     * @var DescribeIdResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class ListTasksResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ListTasksResponseBody::fromMap($map['body']);
+            $model->body = DescribeIdResponseBody::fromMap($map['body']);
         }
 
         return $model;

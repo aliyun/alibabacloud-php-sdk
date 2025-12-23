@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\CreateWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\CreateWorkflowResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DeleteWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DeleteWorkflowResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeIdRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeIdResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeManualTaskInstanceRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeManualTaskInstanceResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeManualTaskRequest;
@@ -24,6 +26,8 @@ use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowInstanceRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowInstanceResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\GetInstanceLogRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\GetInstanceLogResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListAlertGroupsRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListAlertGroupsResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListManualTaskInstancesRequest;
@@ -50,21 +54,16 @@ use AlibabaCloud\SDK\EmrStudio\V20240430\Models\RunWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\RunWorkflowResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\UpdateWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\UpdateWorkflowResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EmrStudio extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'EmrStudio';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emrstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -83,124 +82,153 @@ class EmrStudio extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 创建工作流
-     *  *
-     * @param string                $projectId
-     * @param CreateWorkflowRequest $request   CreateWorkflowRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * 创建工作流
      *
-     * @return CreateWorkflowResponse CreateWorkflowResponse
+     * @param request - CreateWorkflowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkflowResponse
+     *
+     * @param string                $projectId
+     * @param CreateWorkflowRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWorkflowResponse
      */
     public function createWorkflowWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertGroupId)) {
-            $query['alertGroupId'] = $request->alertGroupId;
-        }
-        if (!Utils::isUnset($request->alertStrategy)) {
-            $query['alertStrategy'] = $request->alertStrategy;
-        }
-        if (!Utils::isUnset($request->cronExpr)) {
-            $query['cronExpr'] = $request->cronExpr;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->executionType)) {
-            $query['executionType'] = $request->executionType;
-        }
-        if (!Utils::isUnset($request->failureStrategy)) {
-            $query['failureStrategy'] = $request->failureStrategy;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->parentDirectoryId)) {
-            $query['parentDirectoryId'] = $request->parentDirectoryId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->scheduleEndTime)) {
-            $query['scheduleEndTime'] = $request->scheduleEndTime;
-        }
-        if (!Utils::isUnset($request->scheduleStartTime)) {
-            $query['scheduleStartTime'] = $request->scheduleStartTime;
-        }
-        if (!Utils::isUnset($request->scheduleState)) {
-            $query['scheduleState'] = $request->scheduleState;
-        }
-        if (!Utils::isUnset($request->taskDefinitionJson)) {
-            $query['taskDefinitionJson'] = $request->taskDefinitionJson;
-        }
-        if (!Utils::isUnset($request->taskRelationJson)) {
-            $query['taskRelationJson'] = $request->taskRelationJson;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            $query['timeZone'] = $request->timeZone;
-        }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->workflowInstancePriority)) {
-            $query['workflowInstancePriority'] = $request->workflowInstancePriority;
-        }
-        if (!Utils::isUnset($request->workflowParams)) {
-            $query['workflowParams'] = $request->workflowParams;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->taskDefinitionJsonValue)) {
-            $body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
-        }
-        if (!Utils::isUnset($request->taskRelationJsonValue)) {
-            $body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWorkflow',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->alertGroupId) {
+            @$query['alertGroupId'] = $request->alertGroupId;
         }
 
-        return CreateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->alertStrategy) {
+            @$query['alertStrategy'] = $request->alertStrategy;
+        }
+
+        if (null !== $request->cronExpr) {
+            @$query['cronExpr'] = $request->cronExpr;
+        }
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
+        }
+
+        if (null !== $request->executionType) {
+            @$query['executionType'] = $request->executionType;
+        }
+
+        if (null !== $request->failureStrategy) {
+            @$query['failureStrategy'] = $request->failureStrategy;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$query['parentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->scheduleEndTime) {
+            @$query['scheduleEndTime'] = $request->scheduleEndTime;
+        }
+
+        if (null !== $request->scheduleStartTime) {
+            @$query['scheduleStartTime'] = $request->scheduleStartTime;
+        }
+
+        if (null !== $request->scheduleState) {
+            @$query['scheduleState'] = $request->scheduleState;
+        }
+
+        if (null !== $request->taskDefinitionJson) {
+            @$query['taskDefinitionJson'] = $request->taskDefinitionJson;
+        }
+
+        if (null !== $request->taskRelationJson) {
+            @$query['taskRelationJson'] = $request->taskRelationJson;
+        }
+
+        if (null !== $request->timeZone) {
+            @$query['timeZone'] = $request->timeZone;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->workflowInstancePriority) {
+            @$query['workflowInstancePriority'] = $request->workflowInstancePriority;
+        }
+
+        if (null !== $request->workflowParams) {
+            @$query['workflowParams'] = $request->workflowParams;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->taskDefinitionJsonValue) {
+            @$body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
+        }
+
+        if (null !== $request->taskRelationJsonValue) {
+            @$body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkflow',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建工作流
-     *  *
-     * @param string                $projectId
-     * @param CreateWorkflowRequest $request   CreateWorkflowRequest
+     * 创建工作流
      *
-     * @return CreateWorkflowResponse CreateWorkflowResponse
+     * @param request - CreateWorkflowRequest
+     *
+     * @returns CreateWorkflowResponse
+     *
+     * @param string                $projectId
+     * @param CreateWorkflowRequest $request
+     *
+     * @return CreateWorkflowResponse
      */
     public function createWorkflow($projectId, $request)
     {
@@ -211,53 +239,61 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除工作流
-     *  *
+     * 删除工作流
+     *
+     * @param request - DeleteWorkflowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkflowResponse
+     *
      * @param string                $projectId
      * @param string                $workflowId
-     * @param DeleteWorkflowRequest $request    DeleteWorkflowRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteWorkflowRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeleteWorkflowResponse DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse
      */
     public function deleteWorkflowWithOptions($projectId, $workflowId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteWorkflow',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows/' . OpenApiUtilClient::getEncodeParam($workflowId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DeleteWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkflow',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows/' . Url::percentEncode($workflowId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除工作流
-     *  *
+     * 删除工作流
+     *
+     * @param request - DeleteWorkflowRequest
+     *
+     * @returns DeleteWorkflowResponse
+     *
      * @param string                $projectId
      * @param string                $workflowId
-     * @param DeleteWorkflowRequest $request    DeleteWorkflowRequest
+     * @param DeleteWorkflowRequest $request
      *
-     * @return DeleteWorkflowResponse DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse
      */
     public function deleteWorkflow($projectId, $workflowId, $request)
     {
@@ -268,53 +304,126 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取手动任务定义
-     *  *
-     * @param string                    $projectId
-     * @param string                    $manualTaskId
-     * @param DescribeManualTaskRequest $request      DescribeManualTaskRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * 获取id关联信息.
      *
-     * @return DescribeManualTaskResponse DescribeManualTaskResponse
+     * @param request - DescribeIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIdResponse
+     *
+     * @param DescribeIdRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DescribeIdResponse
      */
-    public function describeManualTaskWithOptions($projectId, $manualTaskId, $request, $headers, $runtime)
+    public function describeIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeManualTask',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/manualTasks/' . OpenApiUtilClient::getEncodeParam($manualTaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeManualTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
         }
 
-        return DescribeManualTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeId',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/relatedIds',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取手动任务定义
-     *  *
+     * 获取id关联信息.
+     *
+     * @param request - DescribeIdRequest
+     *
+     * @returns DescribeIdResponse
+     *
+     * @param DescribeIdRequest $request
+     *
+     * @return DescribeIdResponse
+     */
+    public function describeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取手动任务定义.
+     *
+     * @param request - DescribeManualTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeManualTaskResponse
+     *
      * @param string                    $projectId
      * @param string                    $manualTaskId
-     * @param DescribeManualTaskRequest $request      DescribeManualTaskRequest
+     * @param DescribeManualTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeManualTaskResponse DescribeManualTaskResponse
+     * @return DescribeManualTaskResponse
+     */
+    public function describeManualTaskWithOptions($projectId, $manualTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeManualTask',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/manualTasks/' . Url::percentEncode($manualTaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeManualTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取手动任务定义.
+     *
+     * @param request - DescribeManualTaskRequest
+     *
+     * @returns DescribeManualTaskResponse
+     *
+     * @param string                    $projectId
+     * @param string                    $manualTaskId
+     * @param DescribeManualTaskRequest $request
+     *
+     * @return DescribeManualTaskResponse
      */
     public function describeManualTask($projectId, $manualTaskId, $request)
     {
@@ -325,53 +434,61 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取手动任务实例
-     *  *
+     * 获取手动任务实例.
+     *
+     * @param request - DescribeManualTaskInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeManualTaskInstanceResponse
+     *
      * @param string                            $manualTaskInstanceId
      * @param string                            $projectId
-     * @param DescribeManualTaskInstanceRequest $request              DescribeManualTaskInstanceRequest
-     * @param string[]                          $headers              map
-     * @param RuntimeOptions                    $runtime              runtime options for this request RuntimeOptions
+     * @param DescribeManualTaskInstanceRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DescribeManualTaskInstanceResponse DescribeManualTaskInstanceResponse
+     * @return DescribeManualTaskInstanceResponse
      */
     public function describeManualTaskInstanceWithOptions($manualTaskInstanceId, $projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeManualTaskInstance',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/manualTaskInstances/' . OpenApiUtilClient::getEncodeParam($manualTaskInstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeManualTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeManualTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeManualTaskInstance',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/manualTaskInstances/' . Url::percentEncode($manualTaskInstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeManualTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取手动任务实例
-     *  *
+     * 获取手动任务实例.
+     *
+     * @param request - DescribeManualTaskInstanceRequest
+     *
+     * @returns DescribeManualTaskInstanceResponse
+     *
      * @param string                            $manualTaskInstanceId
      * @param string                            $projectId
-     * @param DescribeManualTaskInstanceRequest $request              DescribeManualTaskInstanceRequest
+     * @param DescribeManualTaskInstanceRequest $request
      *
-     * @return DescribeManualTaskInstanceResponse DescribeManualTaskInstanceResponse
+     * @return DescribeManualTaskInstanceResponse
      */
     public function describeManualTaskInstance($manualTaskInstanceId, $projectId, $request)
     {
@@ -382,51 +499,59 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目详情
-     *  *
-     * @param string                 $projectId
-     * @param DescribeProjectRequest $request   DescribeProjectRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * 获取项目详情.
      *
-     * @return DescribeProjectResponse DescribeProjectResponse
+     * @param request - DescribeProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProjectResponse
+     *
+     * @param string                 $projectId
+     * @param DescribeProjectRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeProjectResponse
      */
     public function describeProjectWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeProject',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeProject',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目详情
-     *  *
-     * @param string                 $projectId
-     * @param DescribeProjectRequest $request   DescribeProjectRequest
+     * 获取项目详情.
      *
-     * @return DescribeProjectResponse DescribeProjectResponse
+     * @param request - DescribeProjectRequest
+     *
+     * @returns DescribeProjectResponse
+     *
+     * @param string                 $projectId
+     * @param DescribeProjectRequest $request
+     *
+     * @return DescribeProjectResponse
      */
     public function describeProject($projectId, $request)
     {
@@ -437,55 +562,63 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务定义
-     *  *
+     * 查询任务定义.
+     *
+     * @param request - DescribeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskResponse
+     *
      * @param string              $workflowId
      * @param string              $projectId
      * @param string              $taskId
-     * @param DescribeTaskRequest $request    DescribeTaskRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * @param DescribeTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return DescribeTaskResponse DescribeTaskResponse
+     * @return DescribeTaskResponse
      */
     public function describeTaskWithOptions($workflowId, $projectId, $taskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTask',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows/' . OpenApiUtilClient::getEncodeParam($workflowId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTask',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows/' . Url::percentEncode($workflowId) . '/tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务定义
-     *  *
+     * 查询任务定义.
+     *
+     * @param request - DescribeTaskRequest
+     *
+     * @returns DescribeTaskResponse
+     *
      * @param string              $workflowId
      * @param string              $projectId
      * @param string              $taskId
-     * @param DescribeTaskRequest $request    DescribeTaskRequest
+     * @param DescribeTaskRequest $request
      *
-     * @return DescribeTaskResponse DescribeTaskResponse
+     * @return DescribeTaskResponse
      */
     public function describeTask($workflowId, $projectId, $taskId, $request)
     {
@@ -496,55 +629,63 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务实例
-     *  *
+     * 获取任务实例.
+     *
+     * @param request - DescribeTaskInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskInstanceResponse
+     *
      * @param string                      $projectId
      * @param string                      $workflowInstanceId
      * @param string                      $taskInstanceId
-     * @param DescribeTaskInstanceRequest $request            DescribeTaskInstanceRequest
-     * @param string[]                    $headers            map
-     * @param RuntimeOptions              $runtime            runtime options for this request RuntimeOptions
+     * @param DescribeTaskInstanceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeTaskInstanceResponse DescribeTaskInstanceResponse
+     * @return DescribeTaskInstanceResponse
      */
     public function describeTaskInstanceWithOptions($projectId, $workflowInstanceId, $taskInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeTaskInstance',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows/' . OpenApiUtilClient::getEncodeParam($workflowInstanceId) . '/taskInstances/' . OpenApiUtilClient::getEncodeParam($taskInstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTaskInstance',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows/' . Url::percentEncode($workflowInstanceId) . '/taskInstances/' . Url::percentEncode($taskInstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务实例
-     *  *
+     * 获取任务实例.
+     *
+     * @param request - DescribeTaskInstanceRequest
+     *
+     * @returns DescribeTaskInstanceResponse
+     *
      * @param string                      $projectId
      * @param string                      $workflowInstanceId
      * @param string                      $taskInstanceId
-     * @param DescribeTaskInstanceRequest $request            DescribeTaskInstanceRequest
+     * @param DescribeTaskInstanceRequest $request
      *
-     * @return DescribeTaskInstanceResponse DescribeTaskInstanceResponse
+     * @return DescribeTaskInstanceResponse
      */
     public function describeTaskInstance($projectId, $workflowInstanceId, $taskInstanceId, $request)
     {
@@ -555,53 +696,61 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流详情
-     *  *
+     * 获取工作流详情.
+     *
+     * @param request - DescribeWorkflowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWorkflowResponse
+     *
      * @param string                  $projectId
      * @param string                  $workflowId
-     * @param DescribeWorkflowRequest $request    DescribeWorkflowRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * @param DescribeWorkflowRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return DescribeWorkflowResponse DescribeWorkflowResponse
+     * @return DescribeWorkflowResponse
      */
     public function describeWorkflowWithOptions($projectId, $workflowId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWorkflow',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows/' . OpenApiUtilClient::getEncodeParam($workflowId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWorkflow',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows/' . Url::percentEncode($workflowId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作流详情
-     *  *
+     * 获取工作流详情.
+     *
+     * @param request - DescribeWorkflowRequest
+     *
+     * @returns DescribeWorkflowResponse
+     *
      * @param string                  $projectId
      * @param string                  $workflowId
-     * @param DescribeWorkflowRequest $request    DescribeWorkflowRequest
+     * @param DescribeWorkflowRequest $request
      *
-     * @return DescribeWorkflowResponse DescribeWorkflowResponse
+     * @return DescribeWorkflowResponse
      */
     public function describeWorkflow($projectId, $workflowId, $request)
     {
@@ -612,53 +761,61 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流实例详情
-     *  *
+     * 获取工作流实例详情.
+     *
+     * @param request - DescribeWorkflowInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWorkflowInstanceResponse
+     *
      * @param string                          $projectId
      * @param string                          $workflowInstanceId
-     * @param DescribeWorkflowInstanceRequest $request            DescribeWorkflowInstanceRequest
-     * @param string[]                        $headers            map
-     * @param RuntimeOptions                  $runtime            runtime options for this request RuntimeOptions
+     * @param DescribeWorkflowInstanceRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeWorkflowInstanceResponse DescribeWorkflowInstanceResponse
+     * @return DescribeWorkflowInstanceResponse
      */
     public function describeWorkflowInstanceWithOptions($projectId, $workflowInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWorkflowInstance',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflowInstances/' . OpenApiUtilClient::getEncodeParam($workflowInstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return DescribeWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWorkflowInstance',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflowInstances/' . Url::percentEncode($workflowInstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作流实例详情
-     *  *
+     * 获取工作流实例详情.
+     *
+     * @param request - DescribeWorkflowInstanceRequest
+     *
+     * @returns DescribeWorkflowInstanceResponse
+     *
      * @param string                          $projectId
      * @param string                          $workflowInstanceId
-     * @param DescribeWorkflowInstanceRequest $request            DescribeWorkflowInstanceRequest
+     * @param DescribeWorkflowInstanceRequest $request
      *
-     * @return DescribeWorkflowInstanceResponse DescribeWorkflowInstanceResponse
+     * @return DescribeWorkflowInstanceResponse
      */
     public function describeWorkflowInstance($projectId, $workflowInstanceId, $request)
     {
@@ -669,60 +826,144 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询告警组列表
-     *  *
-     * @param string                 $projectId
-     * @param ListAlertGroupsRequest $request   ListAlertGroupsRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * 获取实例的日志.
      *
-     * @return ListAlertGroupsResponse ListAlertGroupsResponse
+     * @param request - GetInstanceLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceLogResponse
+     *
+     * @param string                $projectId
+     * @param string                $instanceId
+     * @param GetInstanceLogRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetInstanceLogResponse
      */
-    public function listAlertGroupsWithOptions($projectId, $request, $headers, $runtime)
+    public function getInstanceLogWithOptions($projectId, $instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlertGroups',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/alert-groups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
 
-        return ListAlertGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->skipLineNum) {
+            @$query['skipLineNum'] = $request->skipLineNum;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceLog',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/instances/' . Url::percentEncode($instanceId) . '/log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询告警组列表
-     *  *
-     * @param string                 $projectId
-     * @param ListAlertGroupsRequest $request   ListAlertGroupsRequest
+     * 获取实例的日志.
      *
-     * @return ListAlertGroupsResponse ListAlertGroupsResponse
+     * @param request - GetInstanceLogRequest
+     *
+     * @returns GetInstanceLogResponse
+     *
+     * @param string                $projectId
+     * @param string                $instanceId
+     * @param GetInstanceLogRequest $request
+     *
+     * @return GetInstanceLogResponse
+     */
+    public function getInstanceLog($projectId, $instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceLogWithOptions($projectId, $instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询告警组列表.
+     *
+     * @param request - ListAlertGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertGroupsResponse
+     *
+     * @param string                 $projectId
+     * @param ListAlertGroupsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAlertGroupsResponse
+     */
+    public function listAlertGroupsWithOptions($projectId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertGroups',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/alert-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询告警组列表.
+     *
+     * @param request - ListAlertGroupsRequest
+     *
+     * @returns ListAlertGroupsResponse
+     *
+     * @param string                 $projectId
+     * @param ListAlertGroupsRequest $request
+     *
+     * @return ListAlertGroupsResponse
      */
     public function listAlertGroups($projectId, $request)
     {
@@ -733,69 +974,83 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取手动任务实例列表
-     *  *
-     * @param string                         $projectId
-     * @param ListManualTaskInstancesRequest $request   ListManualTaskInstancesRequest
-     * @param string[]                       $headers   map
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * 获取手动任务实例列表.
      *
-     * @return ListManualTaskInstancesResponse ListManualTaskInstancesResponse
+     * @param request - ListManualTaskInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListManualTaskInstancesResponse
+     *
+     * @param string                         $projectId
+     * @param ListManualTaskInstancesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListManualTaskInstancesResponse
      */
     public function listManualTaskInstancesWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListManualTaskInstances',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/manualTaskInstances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListManualTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
 
-        return ListManualTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListManualTaskInstances',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/manualTaskInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListManualTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取手动任务实例列表
-     *  *
-     * @param string                         $projectId
-     * @param ListManualTaskInstancesRequest $request   ListManualTaskInstancesRequest
+     * 获取手动任务实例列表.
      *
-     * @return ListManualTaskInstancesResponse ListManualTaskInstancesResponse
+     * @param request - ListManualTaskInstancesRequest
+     *
+     * @returns ListManualTaskInstancesResponse
+     *
+     * @param string                         $projectId
+     * @param ListManualTaskInstancesRequest $request
+     *
+     * @return ListManualTaskInstancesResponse
      */
     public function listManualTaskInstances($projectId, $request)
     {
@@ -806,63 +1061,75 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询手动任务定义列表
-     *  *
-     * @param string                 $projectId
-     * @param ListManualTasksRequest $request   ListManualTasksRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * 查询手动任务定义列表.
      *
-     * @return ListManualTasksResponse ListManualTasksResponse
+     * @param request - ListManualTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListManualTasksResponse
+     *
+     * @param string                 $projectId
+     * @param ListManualTasksRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListManualTasksResponse
      */
     public function listManualTasksWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['taskType'] = $request->taskType;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListManualTasks',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/manualTasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListManualTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
 
-        return ListManualTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['taskType'] = $request->taskType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListManualTasks',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/manualTasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListManualTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询手动任务定义列表
-     *  *
-     * @param string                 $projectId
-     * @param ListManualTasksRequest $request   ListManualTasksRequest
+     * 查询手动任务定义列表.
      *
-     * @return ListManualTasksResponse ListManualTasksResponse
+     * @param request - ListManualTasksRequest
+     *
+     * @returns ListManualTasksResponse
+     *
+     * @param string                 $projectId
+     * @param ListManualTasksRequest $request
+     *
+     * @return ListManualTasksResponse
      */
     public function listManualTasks($projectId, $request)
     {
@@ -873,58 +1140,69 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目详情
-     *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取项目详情.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProjects',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
 
-        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjects',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目详情
-     *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
+     * 获取项目详情.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -935,61 +1213,73 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度资源组列表
-     *  *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询调度资源组列表.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->resourceGroupName)) {
-            $query['resourceGroupName'] = $request->resourceGroupName;
-        }
-        if (!Utils::isUnset($request->resourceGroupType)) {
-            $query['resourceGroupType'] = $request->resourceGroupType;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListResourceGroups',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/resourcegroups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
 
-        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['resourceGroupName'] = $request->resourceGroupName;
+        }
+
+        if (null !== $request->resourceGroupType) {
+            @$query['resourceGroupType'] = $request->resourceGroupType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceGroups',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/resourcegroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询调度资源组列表
-     *  *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * 查询调度资源组列表.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     *
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -1000,72 +1290,87 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务实例列表
-     *  *
-     * @param string                   $projectId
-     * @param ListTaskInstancesRequest $request   ListTaskInstancesRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * 获取任务实例列表.
      *
-     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     * @param request - ListTaskInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTaskInstancesResponse
+     *
+     * @param string                   $projectId
+     * @param ListTaskInstancesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTaskInstancesResponse
      */
     public function listTaskInstancesWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $query['workflowInstanceId'] = $request->workflowInstanceId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTaskInstances',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/taskInstances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
 
-        return ListTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->workflowInstanceId) {
+            @$query['workflowInstanceId'] = $request->workflowInstanceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTaskInstances',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/taskInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务实例列表
-     *  *
-     * @param string                   $projectId
-     * @param ListTaskInstancesRequest $request   ListTaskInstancesRequest
+     * 获取任务实例列表.
      *
-     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     * @param request - ListTaskInstancesRequest
+     *
+     * @returns ListTaskInstancesResponse
+     *
+     * @param string                   $projectId
+     * @param ListTaskInstancesRequest $request
+     *
+     * @return ListTaskInstancesResponse
      */
     public function listTaskInstances($projectId, $request)
     {
@@ -1076,66 +1381,79 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务定义列表
-     *  *
-     * @param string           $projectId
-     * @param ListTasksRequest $request   ListTasksRequest
-     * @param string[]         $headers   map
-     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     * 查询任务定义列表.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $projectId
+     * @param ListTasksRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['taskType'] = $request->taskType;
-        }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['workflowId'] = $request->workflowId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
 
-        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['taskType'] = $request->taskType;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['workflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTasks',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务定义列表
-     *  *
-     * @param string           $projectId
-     * @param ListTasksRequest $request   ListTasksRequest
+     * 查询任务定义列表.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $projectId
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($projectId, $request)
     {
@@ -1146,63 +1464,75 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作流目录列表
-     *  *
-     * @param string                         $projectId
-     * @param ListWorkflowDirectoriesRequest $request   ListWorkflowDirectoriesRequest
-     * @param string[]                       $headers   map
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * 查询工作流目录列表.
      *
-     * @return ListWorkflowDirectoriesResponse ListWorkflowDirectoriesResponse
+     * @param request - ListWorkflowDirectoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowDirectoriesResponse
+     *
+     * @param string                         $projectId
+     * @param ListWorkflowDirectoriesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListWorkflowDirectoriesResponse
      */
     public function listWorkflowDirectoriesWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['directoryId'] = $request->directoryId;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->parentDirectoryId)) {
-            $query['parentDirectoryId'] = $request->parentDirectoryId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWorkflowDirectories',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/directories',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWorkflowDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->directoryId) {
+            @$query['directoryId'] = $request->directoryId;
         }
 
-        return ListWorkflowDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$query['parentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowDirectories',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/directories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询工作流目录列表
-     *  *
-     * @param string                         $projectId
-     * @param ListWorkflowDirectoriesRequest $request   ListWorkflowDirectoriesRequest
+     * 查询工作流目录列表.
      *
-     * @return ListWorkflowDirectoriesResponse ListWorkflowDirectoriesResponse
+     * @param request - ListWorkflowDirectoriesRequest
+     *
+     * @returns ListWorkflowDirectoriesResponse
+     *
+     * @param string                         $projectId
+     * @param ListWorkflowDirectoriesRequest $request
+     *
+     * @return ListWorkflowDirectoriesResponse
      */
     public function listWorkflowDirectories($projectId, $request)
     {
@@ -1213,69 +1543,83 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流实例列表
-     *  *
-     * @param string                       $projectId
-     * @param ListWorkflowInstancesRequest $request   ListWorkflowInstancesRequest
-     * @param string[]                     $headers   map
-     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     * 获取工作流实例列表.
      *
-     * @return ListWorkflowInstancesResponse ListWorkflowInstancesResponse
+     * @param request - ListWorkflowInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowInstancesResponse
+     *
+     * @param string                       $projectId
+     * @param ListWorkflowInstancesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkflowInstancesResponse
      */
     public function listWorkflowInstancesWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['workflowId'] = $request->workflowId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWorkflowInstances',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflowInstances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
 
-        return ListWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['workflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowInstances',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflowInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作流实例列表
-     *  *
-     * @param string                       $projectId
-     * @param ListWorkflowInstancesRequest $request   ListWorkflowInstancesRequest
+     * 获取工作流实例列表.
      *
-     * @return ListWorkflowInstancesResponse ListWorkflowInstancesResponse
+     * @param request - ListWorkflowInstancesRequest
+     *
+     * @returns ListWorkflowInstancesResponse
+     *
+     * @param string                       $projectId
+     * @param ListWorkflowInstancesRequest $request
+     *
+     * @return ListWorkflowInstancesResponse
      */
     public function listWorkflowInstances($projectId, $request)
     {
@@ -1286,60 +1630,71 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流列表
-     *  *
-     * @param string               $projectId
-     * @param ListWorkflowsRequest $request   ListWorkflowsRequest
-     * @param string[]             $headers   map
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * 获取工作流列表.
      *
-     * @return ListWorkflowsResponse ListWorkflowsResponse
+     * @param request - ListWorkflowsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowsResponse
+     *
+     * @param string               $projectId
+     * @param ListWorkflowsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkflowsResponse
      */
     public function listWorkflowsWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->searchVal)) {
-            $query['searchVal'] = $request->searchVal;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWorkflows',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
 
-        return ListWorkflowsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchVal) {
+            @$query['searchVal'] = $request->searchVal;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflows',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作流列表
-     *  *
-     * @param string               $projectId
-     * @param ListWorkflowsRequest $request   ListWorkflowsRequest
+     * 获取工作流列表.
      *
-     * @return ListWorkflowsResponse ListWorkflowsResponse
+     * @param request - ListWorkflowsRequest
+     *
+     * @returns ListWorkflowsResponse
+     *
+     * @param string               $projectId
+     * @param ListWorkflowsRequest $request
+     *
+     * @return ListWorkflowsResponse
      */
     public function listWorkflows($projectId, $request)
     {
@@ -1350,59 +1705,69 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 操作工作流实例
-     *  *
-     * @param string                         $projectId
-     * @param OperateWorkflowInstanceRequest $request   OperateWorkflowInstanceRequest
-     * @param string[]                       $headers   map
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * 操作工作流实例.
      *
-     * @return OperateWorkflowInstanceResponse OperateWorkflowInstanceResponse
+     * @param request - OperateWorkflowInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateWorkflowInstanceResponse
+     *
+     * @param string                         $projectId
+     * @param OperateWorkflowInstanceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return OperateWorkflowInstanceResponse
      */
     public function operateWorkflowInstanceWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->execType)) {
-            $body['execType'] = $request->execType;
-        }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $body['workflowInstanceId'] = $request->workflowInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OperateWorkflowInstance',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/executors/execute',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OperateWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
-        return OperateWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $body = [];
+        if (null !== $request->execType) {
+            @$body['execType'] = $request->execType;
+        }
+
+        if (null !== $request->workflowInstanceId) {
+            @$body['workflowInstanceId'] = $request->workflowInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OperateWorkflowInstance',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/executors/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 操作工作流实例
-     *  *
-     * @param string                         $projectId
-     * @param OperateWorkflowInstanceRequest $request   OperateWorkflowInstanceRequest
+     * 操作工作流实例.
      *
-     * @return OperateWorkflowInstanceResponse OperateWorkflowInstanceResponse
+     * @param request - OperateWorkflowInstanceRequest
+     *
+     * @returns OperateWorkflowInstanceResponse
+     *
+     * @param string                         $projectId
+     * @param OperateWorkflowInstanceRequest $request
+     *
+     * @return OperateWorkflowInstanceResponse
      */
     public function operateWorkflowInstance($projectId, $request)
     {
@@ -1413,90 +1778,111 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 运行工作流
-     *  *
-     * @param string             $projectId
-     * @param RunWorkflowRequest $request   RunWorkflowRequest
-     * @param string[]           $headers   map
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * 运行工作流
      *
-     * @return RunWorkflowResponse RunWorkflowResponse
+     * @param request - RunWorkflowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunWorkflowResponse
+     *
+     * @param string             $projectId
+     * @param RunWorkflowRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RunWorkflowResponse
      */
     public function runWorkflowWithOptions($projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertGroupId)) {
-            $query['alertGroupId'] = $request->alertGroupId;
-        }
-        if (!Utils::isUnset($request->alertStrategy)) {
-            $query['alertStrategy'] = $request->alertStrategy;
-        }
-        if (!Utils::isUnset($request->complementDependentMode)) {
-            $query['complementDependentMode'] = $request->complementDependentMode;
-        }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
-        }
-        if (!Utils::isUnset($request->execType)) {
-            $query['execType'] = $request->execType;
-        }
-        if (!Utils::isUnset($request->expectedParallelismNumber)) {
-            $query['expectedParallelismNumber'] = $request->expectedParallelismNumber;
-        }
-        if (!Utils::isUnset($request->failureStrategy)) {
-            $query['failureStrategy'] = $request->failureStrategy;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->runMode)) {
-            $query['runMode'] = $request->runMode;
-        }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['scheduleTime'] = $request->scheduleTime;
-        }
-        if (!Utils::isUnset($request->startParams)) {
-            $query['startParams'] = $request->startParams;
-        }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['workflowId'] = $request->workflowId;
-        }
-        if (!Utils::isUnset($request->workflowInstancePriority)) {
-            $query['workflowInstancePriority'] = $request->workflowInstancePriority;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RunWorkflow',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/executors/run-workflow',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->alertGroupId) {
+            @$query['alertGroupId'] = $request->alertGroupId;
         }
 
-        return RunWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->alertStrategy) {
+            @$query['alertStrategy'] = $request->alertStrategy;
+        }
+
+        if (null !== $request->complementDependentMode) {
+            @$query['complementDependentMode'] = $request->complementDependentMode;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->execType) {
+            @$query['execType'] = $request->execType;
+        }
+
+        if (null !== $request->expectedParallelismNumber) {
+            @$query['expectedParallelismNumber'] = $request->expectedParallelismNumber;
+        }
+
+        if (null !== $request->failureStrategy) {
+            @$query['failureStrategy'] = $request->failureStrategy;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->runMode) {
+            @$query['runMode'] = $request->runMode;
+        }
+
+        if (null !== $request->scheduleTime) {
+            @$query['scheduleTime'] = $request->scheduleTime;
+        }
+
+        if (null !== $request->startParams) {
+            @$query['startParams'] = $request->startParams;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['workflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workflowInstancePriority) {
+            @$query['workflowInstancePriority'] = $request->workflowInstancePriority;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunWorkflow',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/executors/run-workflow',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RunWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行工作流
-     *  *
-     * @param string             $projectId
-     * @param RunWorkflowRequest $request   RunWorkflowRequest
+     * 运行工作流
      *
-     * @return RunWorkflowResponse RunWorkflowResponse
+     * @param request - RunWorkflowRequest
+     *
+     * @returns RunWorkflowResponse
+     *
+     * @param string             $projectId
+     * @param RunWorkflowRequest $request
+     *
+     * @return RunWorkflowResponse
      */
     public function runWorkflow($projectId, $request)
     {
@@ -1507,115 +1893,143 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作流
-     *  *
+     * 更新工作流
+     *
+     * @param request - UpdateWorkflowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkflowResponse
+     *
      * @param string                $projectId
      * @param string                $workflowId
-     * @param UpdateWorkflowRequest $request    UpdateWorkflowRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateWorkflowRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateWorkflowResponse UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse
      */
     public function updateWorkflowWithOptions($projectId, $workflowId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertGroupId)) {
-            $query['alertGroupId'] = $request->alertGroupId;
-        }
-        if (!Utils::isUnset($request->alertStrategy)) {
-            $query['alertStrategy'] = $request->alertStrategy;
-        }
-        if (!Utils::isUnset($request->cronExpr)) {
-            $query['cronExpr'] = $request->cronExpr;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->executionType)) {
-            $query['executionType'] = $request->executionType;
-        }
-        if (!Utils::isUnset($request->failureStrategy)) {
-            $query['failureStrategy'] = $request->failureStrategy;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->parentDirectoryId)) {
-            $query['parentDirectoryId'] = $request->parentDirectoryId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->scheduleEndTime)) {
-            $query['scheduleEndTime'] = $request->scheduleEndTime;
-        }
-        if (!Utils::isUnset($request->scheduleStartTime)) {
-            $query['scheduleStartTime'] = $request->scheduleStartTime;
-        }
-        if (!Utils::isUnset($request->scheduleState)) {
-            $query['scheduleState'] = $request->scheduleState;
-        }
-        if (!Utils::isUnset($request->taskDefinitionJson)) {
-            $query['taskDefinitionJson'] = $request->taskDefinitionJson;
-        }
-        if (!Utils::isUnset($request->taskRelationJson)) {
-            $query['taskRelationJson'] = $request->taskRelationJson;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            $query['timeZone'] = $request->timeZone;
-        }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->workflowInstancePriority)) {
-            $query['workflowInstancePriority'] = $request->workflowInstancePriority;
-        }
-        if (!Utils::isUnset($request->workflowParams)) {
-            $query['workflowParams'] = $request->workflowParams;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->taskDefinitionJsonValue)) {
-            $body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
-        }
-        if (!Utils::isUnset($request->taskRelationJsonValue)) {
-            $body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateWorkflow',
-            'version'     => '2024-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/workflows/' . OpenApiUtilClient::getEncodeParam($workflowId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->alertGroupId) {
+            @$query['alertGroupId'] = $request->alertGroupId;
         }
 
-        return UpdateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->alertStrategy) {
+            @$query['alertStrategy'] = $request->alertStrategy;
+        }
+
+        if (null !== $request->cronExpr) {
+            @$query['cronExpr'] = $request->cronExpr;
+        }
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
+        }
+
+        if (null !== $request->executionType) {
+            @$query['executionType'] = $request->executionType;
+        }
+
+        if (null !== $request->failureStrategy) {
+            @$query['failureStrategy'] = $request->failureStrategy;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$query['parentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->scheduleEndTime) {
+            @$query['scheduleEndTime'] = $request->scheduleEndTime;
+        }
+
+        if (null !== $request->scheduleStartTime) {
+            @$query['scheduleStartTime'] = $request->scheduleStartTime;
+        }
+
+        if (null !== $request->scheduleState) {
+            @$query['scheduleState'] = $request->scheduleState;
+        }
+
+        if (null !== $request->taskDefinitionJson) {
+            @$query['taskDefinitionJson'] = $request->taskDefinitionJson;
+        }
+
+        if (null !== $request->taskRelationJson) {
+            @$query['taskRelationJson'] = $request->taskRelationJson;
+        }
+
+        if (null !== $request->timeZone) {
+            @$query['timeZone'] = $request->timeZone;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->workflowInstancePriority) {
+            @$query['workflowInstancePriority'] = $request->workflowInstancePriority;
+        }
+
+        if (null !== $request->workflowParams) {
+            @$query['workflowParams'] = $request->workflowParams;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->taskDefinitionJsonValue) {
+            @$body['taskDefinitionJsonValue'] = $request->taskDefinitionJsonValue;
+        }
+
+        if (null !== $request->taskRelationJsonValue) {
+            @$body['taskRelationJsonValue'] = $request->taskRelationJsonValue;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkflow',
+            'version' => '2024-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dolphinscheduler/v3/projects/' . Url::percentEncode($projectId) . '/workflows/' . Url::percentEncode($workflowId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新工作流
-     *  *
+     * 更新工作流
+     *
+     * @param request - UpdateWorkflowRequest
+     *
+     * @returns UpdateWorkflowResponse
+     *
      * @param string                $projectId
      * @param string                $workflowId
-     * @param UpdateWorkflowRequest $request    UpdateWorkflowRequest
+     * @param UpdateWorkflowRequest $request
      *
-     * @return UpdateWorkflowResponse UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse
      */
     public function updateWorkflow($projectId, $workflowId, $request)
     {

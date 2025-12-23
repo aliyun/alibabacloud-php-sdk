@@ -2,18 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models\CreateWorkflowResponseBody;
+namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models\GetInstanceLogResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $lineNum;
+
+    /**
      * @var string
      */
-    public $workflowId;
+    public $message;
     protected $_name = [
-        'workflowId' => 'workflowId',
+        'lineNum' => 'lineNum',
+        'message' => 'message',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->workflowId) {
-            $res['workflowId'] = $this->workflowId;
+        if (null !== $this->lineNum) {
+            $res['lineNum'] = $this->lineNum;
+        }
+
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['workflowId'])) {
-            $model->workflowId = $map['workflowId'];
+        if (isset($map['lineNum'])) {
+            $model->lineNum = $map['lineNum'];
+        }
+
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
         return $model;

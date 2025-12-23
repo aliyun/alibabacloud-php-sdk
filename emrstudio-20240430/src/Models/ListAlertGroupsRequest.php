@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAlertGroupsRequest extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example name
-     *
      * @var string
      */
     public $searchVal;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example w-lxyy60mpgpg****
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'maxResults'  => 'maxResults',
-        'nextToken'   => 'nextToken',
-        'searchVal'   => 'searchVal',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'searchVal' => 'searchVal',
         'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->searchVal) {
             $res['searchVal'] = $this->searchVal;
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -67,23 +61,26 @@ class ListAlertGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlertGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['searchVal'])) {
             $model->searchVal = $map['searchVal'];
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

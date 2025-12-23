@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\EmrStudio\V20240430\Models\CreateWorkflowResponseBody\data;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeIdResponseBody\data;
 
-class CreateWorkflowResponseBody extends Model
+class DescribeIdResponseBody extends Model
 {
     /**
      * @var data
@@ -18,15 +18,9 @@ class CreateWorkflowResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'data' => 'data',
         'requestId' => 'requestId',
-        'success' => 'success',
     ];
 
     public function validate()
@@ -48,10 +42,6 @@ class CreateWorkflowResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
-        }
-
         return $res;
     }
 
@@ -69,10 +59,6 @@ class CreateWorkflowResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
         }
 
         return $model;

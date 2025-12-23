@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeManualTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123***
-     *
      * @var string
      */
     public $workspaceId;
@@ -22,9 +18,10 @@ class DescribeManualTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workspaceId) {
@@ -34,11 +31,11 @@ class DescribeManualTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeManualTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

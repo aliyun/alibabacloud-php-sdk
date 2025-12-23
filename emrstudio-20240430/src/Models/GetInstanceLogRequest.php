@@ -6,13 +6,25 @@ namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeTaskRequest extends Model
+class GetInstanceLogRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var int
+     */
+    public $skipLineNum;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
+        'limit' => 'limit',
+        'skipLineNum' => 'skipLineNum',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -24,6 +36,14 @@ class DescribeTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->limit) {
+            $res['limit'] = $this->limit;
+        }
+
+        if (null !== $this->skipLineNum) {
+            $res['skipLineNum'] = $this->skipLineNum;
+        }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -39,6 +59,14 @@ class DescribeTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['limit'])) {
+            $model->limit = $map['limit'];
+        }
+
+        if (isset($map['skipLineNum'])) {
+            $model->skipLineNum = $map['skipLineNum'];
+        }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

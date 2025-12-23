@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskRelations extends Model
 {
     /**
-     * @example t-n72kong0832****
-     *
      * @var string
      */
     public $postTaskId;
 
     /**
-     * @example t-n72kong0832****
-     *
      * @var string
      */
     public $preTaskId;
     protected $_name = [
         'postTaskId' => 'postTaskId',
-        'preTaskId'  => 'preTaskId',
+        'preTaskId' => 'preTaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->postTaskId) {
             $res['postTaskId'] = $this->postTaskId;
         }
+
         if (null !== $this->preTaskId) {
             $res['preTaskId'] = $this->preTaskId;
         }
@@ -43,17 +41,18 @@ class taskRelations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskRelations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['postTaskId'])) {
             $model->postTaskId = $map['postTaskId'];
         }
+
         if (isset($map['preTaskId'])) {
             $model->preTaskId = $map['preTaskId'];
         }

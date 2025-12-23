@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListResourceGroupsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associatedClusters extends Model
 {
     /**
-     * @example c-3cd8ba94b36cxxxx
-     *
      * @var string
      */
     public $clusterId;
@@ -25,24 +23,27 @@ class associatedClusters extends Model
      */
     public $clusterType;
     protected $_name = [
-        'clusterId'   => 'clusterId',
+        'clusterId' => 'clusterId',
         'clusterName' => 'clusterName',
         'clusterType' => 'clusterType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['clusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['clusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterType) {
             $res['clusterType'] = $this->clusterType;
         }
@@ -50,20 +51,22 @@ class associatedClusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedClusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusterId'])) {
             $model->clusterId = $map['clusterId'];
         }
+
         if (isset($map['clusterName'])) {
             $model->clusterName = $map['clusterName'];
         }
+
         if (isset($map['clusterType'])) {
             $model->clusterType = $map['clusterType'];
         }
