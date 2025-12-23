@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobResponseBody\results;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobResponseBody\usages;
 
 class QuerySmarttagJobResponseBody extends Model
 {
@@ -25,6 +26,11 @@ class QuerySmarttagJobResponseBody extends Model
     public $results;
 
     /**
+     * @var usages
+     */
+    public $usages;
+
+    /**
      * @var string
      */
     public $userData;
@@ -32,6 +38,7 @@ class QuerySmarttagJobResponseBody extends Model
         'jobStatus' => 'JobStatus',
         'requestId' => 'RequestId',
         'results' => 'Results',
+        'usages' => 'Usages',
         'userData' => 'UserData',
     ];
 
@@ -39,6 +46,9 @@ class QuerySmarttagJobResponseBody extends Model
     {
         if (null !== $this->results) {
             $this->results->validate();
+        }
+        if (null !== $this->usages) {
+            $this->usages->validate();
         }
         parent::validate();
     }
@@ -56,6 +66,10 @@ class QuerySmarttagJobResponseBody extends Model
 
         if (null !== $this->results) {
             $res['Results'] = null !== $this->results ? $this->results->toArray($noStream) : $this->results;
+        }
+
+        if (null !== $this->usages) {
+            $res['Usages'] = null !== $this->usages ? $this->usages->toArray($noStream) : $this->usages;
         }
 
         if (null !== $this->userData) {
@@ -83,6 +97,10 @@ class QuerySmarttagJobResponseBody extends Model
 
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
+        }
+
+        if (isset($map['Usages'])) {
+            $model->usages = usages::fromMap($map['Usages']);
         }
 
         if (isset($map['UserData'])) {

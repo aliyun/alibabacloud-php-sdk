@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateHotwordLibraryShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateIpcOrderRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateIpcOrderResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelRequest;
@@ -279,6 +281,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEventCallbackResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetHotwordLibraryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetHotwordLibraryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetIpcDeviceInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetIpcDeviceInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobRequest;
@@ -506,6 +510,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIpcQuotaRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIpcQuotaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailRequest;
@@ -2923,6 +2929,71 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createHotwordLibraryWithOptions($request, $runtime);
+    }
+
+    /**
+     * IPC下单.
+     *
+     * @param request - CreateIpcOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIpcOrderResponse
+     *
+     * @param CreateIpcOrderRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateIpcOrderResponse
+     */
+    public function createIpcOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->capability) {
+            @$query['Capability'] = $request->capability;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateIpcOrder',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateIpcOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * IPC下单.
+     *
+     * @param request - CreateIpcOrderRequest
+     *
+     * @returns CreateIpcOrderResponse
+     *
+     * @param CreateIpcOrderRequest $request
+     *
+     * @return CreateIpcOrderResponse
+     */
+    public function createIpcOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIpcOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -10209,6 +10280,83 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getHotwordLibraryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询IPC设备信息.
+     *
+     * @param request - GetIpcDeviceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIpcDeviceInfoResponse
+     *
+     * @param GetIpcDeviceInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetIpcDeviceInfoResponse
+     */
+    public function getIpcDeviceInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->capability) {
+            @$query['Capability'] = $request->capability;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIpcDeviceInfo',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIpcDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询IPC设备信息.
+     *
+     * @param request - GetIpcDeviceInfoRequest
+     *
+     * @returns GetIpcDeviceInfoResponse
+     *
+     * @param GetIpcDeviceInfoRequest $request
+     *
+     * @return GetIpcDeviceInfoResponse
+     */
+    public function getIpcDeviceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpcDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -18277,6 +18425,79 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryIProductionJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询IPC用量.
+     *
+     * @param request - QueryIpcQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryIpcQuotaResponse
+     *
+     * @param QueryIpcQuotaRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryIpcQuotaResponse
+     */
+    public function queryIpcQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->capability) {
+            @$query['Capability'] = $request->capability;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryIpcQuota',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryIpcQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询IPC用量.
+     *
+     * @param request - QueryIpcQuotaRequest
+     *
+     * @returns QueryIpcQuotaResponse
+     *
+     * @param QueryIpcQuotaRequest $request
+     *
+     * @return QueryIpcQuotaResponse
+     */
+    public function queryIpcQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryIpcQuotaWithOptions($request, $runtime);
     }
 
     /**
