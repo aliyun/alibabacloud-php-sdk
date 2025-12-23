@@ -21,6 +21,11 @@ class resources extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $deleted;
+
+    /**
      * @var string
      */
     public $expireTime;
@@ -72,6 +77,7 @@ class resources extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'createTime' => 'CreateTime',
+        'deleted' => 'Deleted',
         'expireTime' => 'ExpireTime',
         'ipAddressAttributes' => 'IpAddressAttributes',
         'ipAddresses' => 'IpAddresses',
@@ -107,6 +113,10 @@ class resources extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->deleted) {
+            $res['Deleted'] = $this->deleted;
         }
 
         if (null !== $this->expireTime) {
@@ -187,6 +197,10 @@ class resources extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['Deleted'])) {
+            $model->deleted = $map['Deleted'];
         }
 
         if (isset($map['ExpireTime'])) {

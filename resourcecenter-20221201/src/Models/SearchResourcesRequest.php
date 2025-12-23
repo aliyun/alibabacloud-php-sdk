@@ -16,6 +16,11 @@ class SearchResourcesRequest extends Model
     public $filter;
 
     /**
+     * @var bool
+     */
+    public $includeDeletedResources;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -31,14 +36,21 @@ class SearchResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $searchExpression;
+
+    /**
      * @var sortCriterion
      */
     public $sortCriterion;
     protected $_name = [
         'filter' => 'Filter',
+        'includeDeletedResources' => 'IncludeDeletedResources',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
+        'searchExpression' => 'SearchExpression',
         'sortCriterion' => 'SortCriterion',
     ];
 
@@ -67,6 +79,10 @@ class SearchResourcesRequest extends Model
             }
         }
 
+        if (null !== $this->includeDeletedResources) {
+            $res['IncludeDeletedResources'] = $this->includeDeletedResources;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -77,6 +93,10 @@ class SearchResourcesRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchExpression) {
+            $res['SearchExpression'] = $this->searchExpression;
         }
 
         if (null !== $this->sortCriterion) {
@@ -105,6 +125,10 @@ class SearchResourcesRequest extends Model
             }
         }
 
+        if (isset($map['IncludeDeletedResources'])) {
+            $model->includeDeletedResources = $map['IncludeDeletedResources'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -115,6 +139,10 @@ class SearchResourcesRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SearchExpression'])) {
+            $model->searchExpression = $map['SearchExpression'];
         }
 
         if (isset($map['SortCriterion'])) {

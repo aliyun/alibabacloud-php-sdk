@@ -1672,6 +1672,14 @@ class ResourceCenter extends OpenApiClient
             @$query['GroupByKey'] = $request->groupByKey;
         }
 
+        if (null !== $request->includeDeletedResources) {
+            @$query['IncludeDeletedResources'] = $request->includeDeletedResources;
+        }
+
+        if (null !== $request->searchExpression) {
+            @$query['SearchExpression'] = $request->searchExpression;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2778,6 +2786,10 @@ class ResourceCenter extends OpenApiClient
             @$query['Filter'] = $request->filter;
         }
 
+        if (null !== $request->includeDeletedResources) {
+            @$query['IncludeDeletedResources'] = $request->includeDeletedResources;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -2788,6 +2800,10 @@ class ResourceCenter extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->searchExpression) {
+            @$query['SearchExpression'] = $request->searchExpression;
         }
 
         if (null !== $request->sortCriterion) {

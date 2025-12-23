@@ -18,9 +18,21 @@ class GetResourceCountsRequest extends Model
      * @var string
      */
     public $groupByKey;
+
+    /**
+     * @var bool
+     */
+    public $includeDeletedResources;
+
+    /**
+     * @var string
+     */
+    public $searchExpression;
     protected $_name = [
         'filter' => 'Filter',
         'groupByKey' => 'GroupByKey',
+        'includeDeletedResources' => 'IncludeDeletedResources',
+        'searchExpression' => 'SearchExpression',
     ];
 
     public function validate()
@@ -49,6 +61,14 @@ class GetResourceCountsRequest extends Model
             $res['GroupByKey'] = $this->groupByKey;
         }
 
+        if (null !== $this->includeDeletedResources) {
+            $res['IncludeDeletedResources'] = $this->includeDeletedResources;
+        }
+
+        if (null !== $this->searchExpression) {
+            $res['SearchExpression'] = $this->searchExpression;
+        }
+
         return $res;
     }
 
@@ -73,6 +93,14 @@ class GetResourceCountsRequest extends Model
 
         if (isset($map['GroupByKey'])) {
             $model->groupByKey = $map['GroupByKey'];
+        }
+
+        if (isset($map['IncludeDeletedResources'])) {
+            $model->includeDeletedResources = $map['IncludeDeletedResources'];
+        }
+
+        if (isset($map['SearchExpression'])) {
+            $model->searchExpression = $map['SearchExpression'];
         }
 
         return $model;
