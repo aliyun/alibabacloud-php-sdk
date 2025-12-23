@@ -72,6 +72,31 @@ class PatchEventShrinkRequest extends Model
      * @var string
      */
     public $summary;
+
+    /**
+     * @var string
+     */
+    public $categoriesShrink;
+
+    /**
+     * @var string
+     */
+    public $freeBusyStatus;
+
+    /**
+     * @var string
+     */
+    public $onlineMeetingInfoShrink;
+
+    /**
+     * @var string
+     */
+    public $richTextDescriptionShrink;
+
+    /**
+     * @var string
+     */
+    public $uiConfigsShrink;
     protected $_name = [
         'attendeesShrink' => 'Attendees',
         'calendarId' => 'CalendarId',
@@ -86,6 +111,11 @@ class PatchEventShrinkRequest extends Model
         'remindersShrink' => 'Reminders',
         'startShrink' => 'Start',
         'summary' => 'Summary',
+        'categoriesShrink' => 'categories',
+        'freeBusyStatus' => 'freeBusyStatus',
+        'onlineMeetingInfoShrink' => 'onlineMeetingInfo',
+        'richTextDescriptionShrink' => 'richTextDescription',
+        'uiConfigsShrink' => 'uiConfigs',
     ];
 
     public function validate()
@@ -146,6 +176,26 @@ class PatchEventShrinkRequest extends Model
 
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+
+        if (null !== $this->categoriesShrink) {
+            $res['categories'] = $this->categoriesShrink;
+        }
+
+        if (null !== $this->freeBusyStatus) {
+            $res['freeBusyStatus'] = $this->freeBusyStatus;
+        }
+
+        if (null !== $this->onlineMeetingInfoShrink) {
+            $res['onlineMeetingInfo'] = $this->onlineMeetingInfoShrink;
+        }
+
+        if (null !== $this->richTextDescriptionShrink) {
+            $res['richTextDescription'] = $this->richTextDescriptionShrink;
+        }
+
+        if (null !== $this->uiConfigsShrink) {
+            $res['uiConfigs'] = $this->uiConfigsShrink;
         }
 
         return $res;
@@ -209,6 +259,26 @@ class PatchEventShrinkRequest extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['categories'])) {
+            $model->categoriesShrink = $map['categories'];
+        }
+
+        if (isset($map['freeBusyStatus'])) {
+            $model->freeBusyStatus = $map['freeBusyStatus'];
+        }
+
+        if (isset($map['onlineMeetingInfo'])) {
+            $model->onlineMeetingInfoShrink = $map['onlineMeetingInfo'];
+        }
+
+        if (isset($map['richTextDescription'])) {
+            $model->richTextDescriptionShrink = $map['richTextDescription'];
+        }
+
+        if (isset($map['uiConfigs'])) {
+            $model->uiConfigsShrink = $map['uiConfigs'];
         }
 
         return $model;

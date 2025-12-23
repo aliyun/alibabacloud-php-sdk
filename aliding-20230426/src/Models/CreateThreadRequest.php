@@ -15,6 +15,11 @@ class CreateThreadRequest extends Model
     public $assistantId;
 
     /**
+     * @var string
+     */
+    public $clientEnum;
+
+    /**
      * @var extLoginUser
      */
     public $extLoginUser;
@@ -35,6 +40,7 @@ class CreateThreadRequest extends Model
     public $sourceTypeOfOriginalAssistantId;
     protected $_name = [
         'assistantId' => 'assistantId',
+        'clientEnum' => 'clientEnum',
         'extLoginUser' => 'extLoginUser',
         'originalAssistantId' => 'originalAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
@@ -54,6 +60,10 @@ class CreateThreadRequest extends Model
         $res = [];
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
+        }
+
+        if (null !== $this->clientEnum) {
+            $res['clientEnum'] = $this->clientEnum;
         }
 
         if (null !== $this->extLoginUser) {
@@ -85,6 +95,10 @@ class CreateThreadRequest extends Model
         $model = new self();
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
+        }
+
+        if (isset($map['clientEnum'])) {
+            $model->clientEnum = $map['clientEnum'];
         }
 
         if (isset($map['extLoginUser'])) {

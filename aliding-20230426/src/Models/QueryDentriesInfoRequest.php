@@ -30,11 +30,6 @@ class QueryDentriesInfoRequest extends Model
     public $tenantContext;
 
     /**
-     * @var string
-     */
-    public $unionId;
-
-    /**
      * @var bool
      */
     public $withThumbnail;
@@ -43,7 +38,6 @@ class QueryDentriesInfoRequest extends Model
         'dentryId' => 'DentryId',
         'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
-        'unionId' => 'UnionId',
         'withThumbnail' => 'WithThumbnail',
     ];
 
@@ -84,10 +78,6 @@ class QueryDentriesInfoRequest extends Model
             $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
-        if (null !== $this->unionId) {
-            $res['UnionId'] = $this->unionId;
-        }
-
         if (null !== $this->withThumbnail) {
             $res['WithThumbnail'] = $this->withThumbnail;
         }
@@ -124,10 +114,6 @@ class QueryDentriesInfoRequest extends Model
 
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
-        }
-
-        if (isset($map['UnionId'])) {
-            $model->unionId = $map['UnionId'];
         }
 
         if (isset($map['WithThumbnail'])) {

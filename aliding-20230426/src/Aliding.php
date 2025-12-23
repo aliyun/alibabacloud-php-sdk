@@ -6566,6 +6566,10 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
+        if (null !== $request->clientEnum) {
+            @$body['clientEnum'] = $request->clientEnum;
+        }
+
         if (null !== $request->extLoginUser) {
             @$body['extLoginUser'] = $request->extLoginUser;
         }
@@ -16640,6 +16644,10 @@ class Aliding extends OpenApiClient
             @$body['assistantId'] = $request->assistantId;
         }
 
+        if (null !== $request->clientEnum) {
+            @$body['clientEnum'] = $request->clientEnum;
+        }
+
         if (null !== $request->extLoginUser) {
             @$body['extLoginUser'] = $request->extLoginUser;
         }
@@ -16729,6 +16737,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->clientEnum) {
+            @$body['clientEnum'] = $request->clientEnum;
         }
 
         if (null !== $request->extLoginUser) {
@@ -18879,6 +18891,43 @@ class Aliding extends OpenApiClient
             $request->startShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->start, 'Start', 'json');
         }
 
+        if (null !== $tmpReq->categories) {
+            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'categories', 'json');
+        }
+
+        if (null !== $tmpReq->onlineMeetingInfo) {
+            $request->onlineMeetingInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->onlineMeetingInfo, 'onlineMeetingInfo', 'json');
+        }
+
+        if (null !== $tmpReq->richTextDescription) {
+            $request->richTextDescriptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->richTextDescription, 'richTextDescription', 'json');
+        }
+
+        if (null !== $tmpReq->uiConfigs) {
+            $request->uiConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->uiConfigs, 'uiConfigs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->categoriesShrink) {
+            @$query['categories'] = $request->categoriesShrink;
+        }
+
+        if (null !== $request->freeBusyStatus) {
+            @$query['freeBusyStatus'] = $request->freeBusyStatus;
+        }
+
+        if (null !== $request->onlineMeetingInfoShrink) {
+            @$query['onlineMeetingInfo'] = $request->onlineMeetingInfoShrink;
+        }
+
+        if (null !== $request->richTextDescriptionShrink) {
+            @$query['richTextDescription'] = $request->richTextDescriptionShrink;
+        }
+
+        if (null !== $request->uiConfigsShrink) {
+            @$query['uiConfigs'] = $request->uiConfigsShrink;
+        }
+
         $body = [];
         if (null !== $request->attendeesShrink) {
             @$body['Attendees'] = $request->attendeesShrink;
@@ -18943,6 +18992,7 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -19574,10 +19624,6 @@ class Aliding extends OpenApiClient
 
         if (null !== $request->tenantContextShrink) {
             @$body['TenantContext'] = $request->tenantContextShrink;
-        }
-
-        if (null !== $request->unionId) {
-            @$body['UnionId'] = $request->unionId;
         }
 
         if (null !== $request->withThumbnail) {

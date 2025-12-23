@@ -29,11 +29,6 @@ class QueryDentriesInfoShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @var string
-     */
-    public $unionId;
-
-    /**
      * @var bool
      */
     public $withThumbnail;
@@ -42,7 +37,6 @@ class QueryDentriesInfoShrinkRequest extends Model
         'dentryId' => 'DentryId',
         'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
-        'unionId' => 'UnionId',
         'withThumbnail' => 'WithThumbnail',
     ];
 
@@ -68,10 +62,6 @@ class QueryDentriesInfoShrinkRequest extends Model
 
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
-        }
-
-        if (null !== $this->unionId) {
-            $res['UnionId'] = $this->unionId;
         }
 
         if (null !== $this->withThumbnail) {
@@ -103,10 +93,6 @@ class QueryDentriesInfoShrinkRequest extends Model
 
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
-        }
-
-        if (isset($map['UnionId'])) {
-            $model->unionId = $map['UnionId'];
         }
 
         if (isset($map['WithThumbnail'])) {

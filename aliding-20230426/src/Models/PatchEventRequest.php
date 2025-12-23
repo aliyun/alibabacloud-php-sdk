@@ -7,11 +7,15 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\attendees;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\cardInstances;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\categories;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\end;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\location;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\onlineMeetingInfo;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\recurrence;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\reminders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\richTextDescription;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\start;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\uiConfigs;
 
 class PatchEventRequest extends Model
 {
@@ -79,6 +83,31 @@ class PatchEventRequest extends Model
      * @var string
      */
     public $summary;
+
+    /**
+     * @var categories[]
+     */
+    public $categories;
+
+    /**
+     * @var string
+     */
+    public $freeBusyStatus;
+
+    /**
+     * @var onlineMeetingInfo
+     */
+    public $onlineMeetingInfo;
+
+    /**
+     * @var richTextDescription
+     */
+    public $richTextDescription;
+
+    /**
+     * @var uiConfigs[]
+     */
+    public $uiConfigs;
     protected $_name = [
         'attendees' => 'Attendees',
         'calendarId' => 'CalendarId',
@@ -93,6 +122,11 @@ class PatchEventRequest extends Model
         'reminders' => 'Reminders',
         'start' => 'Start',
         'summary' => 'Summary',
+        'categories' => 'categories',
+        'freeBusyStatus' => 'freeBusyStatus',
+        'onlineMeetingInfo' => 'onlineMeetingInfo',
+        'richTextDescription' => 'richTextDescription',
+        'uiConfigs' => 'uiConfigs',
     ];
 
     public function validate()
@@ -120,6 +154,18 @@ class PatchEventRequest extends Model
         }
         if (null !== $this->start) {
             $this->start->validate();
+        }
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        if (null !== $this->onlineMeetingInfo) {
+            $this->onlineMeetingInfo->validate();
+        }
+        if (null !== $this->richTextDescription) {
+            $this->richTextDescription->validate();
+        }
+        if (\is_array($this->uiConfigs)) {
+            Model::validateArray($this->uiConfigs);
         }
         parent::validate();
     }
@@ -203,6 +249,40 @@ class PatchEventRequest extends Model
 
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+
+        if (null !== $this->categories) {
+            if (\is_array($this->categories)) {
+                $res['categories'] = [];
+                $n1 = 0;
+                foreach ($this->categories as $item1) {
+                    $res['categories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->freeBusyStatus) {
+            $res['freeBusyStatus'] = $this->freeBusyStatus;
+        }
+
+        if (null !== $this->onlineMeetingInfo) {
+            $res['onlineMeetingInfo'] = null !== $this->onlineMeetingInfo ? $this->onlineMeetingInfo->toArray($noStream) : $this->onlineMeetingInfo;
+        }
+
+        if (null !== $this->richTextDescription) {
+            $res['richTextDescription'] = null !== $this->richTextDescription ? $this->richTextDescription->toArray($noStream) : $this->richTextDescription;
+        }
+
+        if (null !== $this->uiConfigs) {
+            if (\is_array($this->uiConfigs)) {
+                $res['uiConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->uiConfigs as $item1) {
+                    $res['uiConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -292,6 +372,40 @@ class PatchEventRequest extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['categories'])) {
+            if (!empty($map['categories'])) {
+                $model->categories = [];
+                $n1 = 0;
+                foreach ($map['categories'] as $item1) {
+                    $model->categories[$n1] = categories::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['freeBusyStatus'])) {
+            $model->freeBusyStatus = $map['freeBusyStatus'];
+        }
+
+        if (isset($map['onlineMeetingInfo'])) {
+            $model->onlineMeetingInfo = onlineMeetingInfo::fromMap($map['onlineMeetingInfo']);
+        }
+
+        if (isset($map['richTextDescription'])) {
+            $model->richTextDescription = richTextDescription::fromMap($map['richTextDescription']);
+        }
+
+        if (isset($map['uiConfigs'])) {
+            if (!empty($map['uiConfigs'])) {
+                $model->uiConfigs = [];
+                $n1 = 0;
+                foreach ($map['uiConfigs'] as $item1) {
+                    $model->uiConfigs[$n1] = uiConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
