@@ -37,6 +37,11 @@ class events extends Model
      * @var string
      */
     public $recoveryTime;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'eventCode' => 'EventCode',
         'eventStatus' => 'EventStatus',
@@ -44,6 +49,7 @@ class events extends Model
         'instanceDescription' => 'InstanceDescription',
         'instanceId' => 'InstanceId',
         'recoveryTime' => 'RecoveryTime',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class events extends Model
             $res['RecoveryTime'] = $this->recoveryTime;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class events extends Model
 
         if (isset($map['RecoveryTime'])) {
             $model->recoveryTime = $map['RecoveryTime'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
