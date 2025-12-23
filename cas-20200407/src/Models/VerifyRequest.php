@@ -16,6 +16,11 @@ class VerifyRequest extends Model
     /**
      * @var string
      */
+    public $customIdentifier;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -34,6 +39,7 @@ class VerifyRequest extends Model
     public $signingAlgorithm;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
+        'customIdentifier' => 'CustomIdentifier',
         'message' => 'Message',
         'messageType' => 'MessageType',
         'signatureValue' => 'SignatureValue',
@@ -50,6 +56,10 @@ class VerifyRequest extends Model
         $res = [];
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->message) {
@@ -81,6 +91,10 @@ class VerifyRequest extends Model
         $model = new self();
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['Message'])) {

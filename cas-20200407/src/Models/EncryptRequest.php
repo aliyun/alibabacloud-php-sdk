@@ -21,6 +21,11 @@ class EncryptRequest extends Model
     /**
      * @var string
      */
+    public $customIdentifier;
+
+    /**
+     * @var string
+     */
     public $messageType;
 
     /**
@@ -30,6 +35,7 @@ class EncryptRequest extends Model
     protected $_name = [
         'algorithm' => 'Algorithm',
         'certIdentifier' => 'CertIdentifier',
+        'customIdentifier' => 'CustomIdentifier',
         'messageType' => 'MessageType',
         'plaintext' => 'Plaintext',
     ];
@@ -48,6 +54,10 @@ class EncryptRequest extends Model
 
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->messageType) {
@@ -75,6 +85,10 @@ class EncryptRequest extends Model
 
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['MessageType'])) {

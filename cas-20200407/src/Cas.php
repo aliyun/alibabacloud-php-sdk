@@ -804,6 +804,10 @@ class Cas extends OpenApiClient
             @$query['CiphertextBlob'] = $request->ciphertextBlob;
         }
 
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
+        }
+
         if (null !== $request->messageType) {
             @$query['MessageType'] = $request->messageType;
         }
@@ -1538,6 +1542,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->certIdentifier) {
             @$query['CertIdentifier'] = $request->certIdentifier;
+        }
+
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
         }
 
         if (null !== $request->messageType) {
@@ -2732,6 +2740,10 @@ class Cas extends OpenApiClient
             @$query['CertIdentifier'] = $request->certIdentifier;
         }
 
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
+        }
+
         if (null !== $request->message) {
             @$query['Message'] = $request->message;
         }
@@ -3233,6 +3245,10 @@ class Cas extends OpenApiClient
         $query = [];
         if (null !== $request->certIdentifier) {
             @$query['CertIdentifier'] = $request->certIdentifier;
+        }
+
+        if (null !== $request->customIdentifier) {
+            @$query['CustomIdentifier'] = $request->customIdentifier;
         }
 
         if (null !== $request->message) {

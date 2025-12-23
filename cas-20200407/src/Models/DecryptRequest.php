@@ -26,11 +26,17 @@ class DecryptRequest extends Model
     /**
      * @var string
      */
+    public $customIdentifier;
+
+    /**
+     * @var string
+     */
     public $messageType;
     protected $_name = [
         'algorithm' => 'Algorithm',
         'certIdentifier' => 'CertIdentifier',
         'ciphertextBlob' => 'CiphertextBlob',
+        'customIdentifier' => 'CustomIdentifier',
         'messageType' => 'MessageType',
     ];
 
@@ -52,6 +58,10 @@ class DecryptRequest extends Model
 
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
+        }
+
+        if (null !== $this->customIdentifier) {
+            $res['CustomIdentifier'] = $this->customIdentifier;
         }
 
         if (null !== $this->messageType) {
@@ -79,6 +89,10 @@ class DecryptRequest extends Model
 
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
+        }
+
+        if (isset($map['CustomIdentifier'])) {
+            $model->customIdentifier = $map['CustomIdentifier'];
         }
 
         if (isset($map['MessageType'])) {
