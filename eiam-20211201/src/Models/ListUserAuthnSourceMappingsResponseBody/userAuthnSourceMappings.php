@@ -21,6 +21,11 @@ class userAuthnSourceMappings extends Model
     /**
      * @var string
      */
+    public $externalData;
+
+    /**
+     * @var string
+     */
     public $identityProviderId;
 
     /**
@@ -45,6 +50,7 @@ class userAuthnSourceMappings extends Model
     protected $_name = [
         'authnSourceType' => 'AuthnSourceType',
         'createTime' => 'CreateTime',
+        'externalData' => 'ExternalData',
         'identityProviderId' => 'IdentityProviderId',
         'instanceId' => 'InstanceId',
         'updateTime' => 'UpdateTime',
@@ -66,6 +72,10 @@ class userAuthnSourceMappings extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->externalData) {
+            $res['ExternalData'] = $this->externalData;
         }
 
         if (null !== $this->identityProviderId) {
@@ -105,6 +115,10 @@ class userAuthnSourceMappings extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['ExternalData'])) {
+            $model->externalData = $map['ExternalData'];
         }
 
         if (isset($map['IdentityProviderId'])) {
