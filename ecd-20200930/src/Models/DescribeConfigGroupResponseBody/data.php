@@ -31,6 +31,26 @@ class data extends Model
     /**
      * @var string
      */
+    public $innerTimerDesc;
+
+    /**
+     * @var string
+     */
+    public $innerTimerName;
+
+    /**
+     * @var bool
+     */
+    public $isBind;
+
+    /**
+     * @var bool
+     */
+    public $isUpdate;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -52,6 +72,10 @@ class data extends Model
         'bindCountMap' => 'BindCountMap',
         'description' => 'Description',
         'groupId' => 'GroupId',
+        'innerTimerDesc' => 'InnerTimerDesc',
+        'innerTimerName' => 'InnerTimerName',
+        'isBind' => 'IsBind',
+        'isUpdate' => 'IsUpdate',
         'name' => 'Name',
         'productType' => 'ProductType',
         'status' => 'Status',
@@ -88,6 +112,22 @@ class data extends Model
 
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+
+        if (null !== $this->innerTimerDesc) {
+            $res['InnerTimerDesc'] = $this->innerTimerDesc;
+        }
+
+        if (null !== $this->innerTimerName) {
+            $res['InnerTimerName'] = $this->innerTimerName;
+        }
+
+        if (null !== $this->isBind) {
+            $res['IsBind'] = $this->isBind;
+        }
+
+        if (null !== $this->isUpdate) {
+            $res['IsUpdate'] = $this->isUpdate;
         }
 
         if (null !== $this->name) {
@@ -136,6 +176,22 @@ class data extends Model
 
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+
+        if (isset($map['InnerTimerDesc'])) {
+            $model->innerTimerDesc = $map['InnerTimerDesc'];
+        }
+
+        if (isset($map['InnerTimerName'])) {
+            $model->innerTimerName = $map['InnerTimerName'];
+        }
+
+        if (isset($map['IsBind'])) {
+            $model->isBind = $map['IsBind'];
+        }
+
+        if (isset($map['IsUpdate'])) {
+            $model->isUpdate = $map['IsUpdate'];
         }
 
         if (isset($map['Name'])) {

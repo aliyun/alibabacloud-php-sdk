@@ -219,6 +219,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopMetadataRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopMetadataResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldUserGroupRequest;
@@ -10091,6 +10093,111 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询云电脑基础元数据.
+     *
+     * @param request - DescribeDesktopMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDesktopMetadataResponse
+     *
+     * @param DescribeDesktopMetadataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDesktopMetadataResponse
+     */
+    public function describeDesktopMetadataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->creationTimeStart) {
+            @$query['CreationTimeStart'] = $request->creationTimeStart;
+        }
+
+        if (null !== $request->desktopIds) {
+            @$query['DesktopIds'] = $request->desktopIds;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->includeDesktopGroup) {
+            @$query['IncludeDesktopGroup'] = $request->includeDesktopGroup;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->operationTimeStart) {
+            @$query['OperationTimeStart'] = $request->operationTimeStart;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDesktopMetadata',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDesktopMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云电脑基础元数据.
+     *
+     * @param request - DescribeDesktopMetadataRequest
+     *
+     * @returns DescribeDesktopMetadataResponse
+     *
+     * @param DescribeDesktopMetadataRequest $request
+     *
+     * @return DescribeDesktopMetadataResponse
+     */
+    public function describeDesktopMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopMetadataWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询超卖组.
      *
      * @param request - DescribeDesktopOversoldGroupRequest
@@ -12765,6 +12872,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }

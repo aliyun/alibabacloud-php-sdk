@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeOfficeSitesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -48,6 +53,7 @@ class DescribeOfficeSitesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accountType' => 'AccountType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
@@ -69,6 +75,10 @@ class DescribeOfficeSitesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -119,6 +129,10 @@ class DescribeOfficeSitesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

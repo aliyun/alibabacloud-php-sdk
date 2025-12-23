@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class segmentTimers extends Model
 {
     /**
+     * @var int
+     */
+    public $appointmentTimer;
+
+    /**
      * @var string
      */
     public $endCronExpression;
@@ -19,9 +24,19 @@ class segmentTimers extends Model
     public $enforce;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @var int
      */
     public $interval;
+
+    /**
+     * @var int
+     */
+    public $lockScreenTime;
 
     /**
      * @var int
@@ -63,9 +78,12 @@ class segmentTimers extends Model
      */
     public $triggerType;
     protected $_name = [
+        'appointmentTimer' => 'AppointmentTimer',
         'endCronExpression' => 'EndCronExpression',
         'enforce' => 'Enforce',
+        'imageId' => 'ImageId',
         'interval' => 'Interval',
+        'lockScreenTime' => 'LockScreenTime',
         'notificationTime' => 'NotificationTime',
         'operationType' => 'OperationType',
         'processWhitelist' => 'ProcessWhitelist',
@@ -87,6 +105,10 @@ class segmentTimers extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appointmentTimer) {
+            $res['AppointmentTimer'] = $this->appointmentTimer;
+        }
+
         if (null !== $this->endCronExpression) {
             $res['EndCronExpression'] = $this->endCronExpression;
         }
@@ -95,8 +117,16 @@ class segmentTimers extends Model
             $res['Enforce'] = $this->enforce;
         }
 
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->lockScreenTime) {
+            $res['LockScreenTime'] = $this->lockScreenTime;
         }
 
         if (null !== $this->notificationTime) {
@@ -149,6 +179,10 @@ class segmentTimers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppointmentTimer'])) {
+            $model->appointmentTimer = $map['AppointmentTimer'];
+        }
+
         if (isset($map['EndCronExpression'])) {
             $model->endCronExpression = $map['EndCronExpression'];
         }
@@ -157,8 +191,16 @@ class segmentTimers extends Model
             $model->enforce = $map['Enforce'];
         }
 
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['LockScreenTime'])) {
+            $model->lockScreenTime = $map['LockScreenTime'];
         }
 
         if (isset($map['NotificationTime'])) {
