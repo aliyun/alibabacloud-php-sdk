@@ -12,12 +12,22 @@ class items extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $bailianRequestId;
 
     /**
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $dataId;
 
     /**
      * @var string
@@ -84,8 +94,10 @@ class items extends Model
      */
     public $taskId;
     protected $_name = [
+        'accountId' => 'AccountId',
         'bailianRequestId' => 'BailianRequestId',
         'content' => 'Content',
+        'dataId' => 'DataId',
         'extFeedback' => 'ExtFeedback',
         'extra' => 'Extra',
         'gmtCreate' => 'GmtCreate',
@@ -115,12 +127,20 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->bailianRequestId) {
             $res['BailianRequestId'] = $this->bailianRequestId;
         }
 
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
         }
 
         if (null !== $this->extFeedback) {
@@ -198,12 +218,20 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['BailianRequestId'])) {
             $model->bailianRequestId = $map['BailianRequestId'];
         }
 
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
         }
 
         if (isset($map['ExtFeedback'])) {
