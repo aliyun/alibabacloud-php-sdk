@@ -39,6 +39,16 @@ class Session extends Model
     public $nasConfig;
 
     /**
+     * @var OSSMountConfig
+     */
+    public $ossMountConfig;
+
+    /**
+     * @var PolarFsConfig
+     */
+    public $polarFsConfig;
+
+    /**
      * @var string
      */
     public $qualifier;
@@ -74,6 +84,8 @@ class Session extends Model
         'functionName' => 'functionName',
         'lastModifiedTime' => 'lastModifiedTime',
         'nasConfig' => 'nasConfig',
+        'ossMountConfig' => 'ossMountConfig',
+        'polarFsConfig' => 'polarFsConfig',
         'qualifier' => 'qualifier',
         'sessionAffinityType' => 'sessionAffinityType',
         'sessionId' => 'sessionId',
@@ -86,6 +98,12 @@ class Session extends Model
     {
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
+        }
+        if (null !== $this->ossMountConfig) {
+            $this->ossMountConfig->validate();
+        }
+        if (null !== $this->polarFsConfig) {
+            $this->polarFsConfig->validate();
         }
         parent::validate();
     }
@@ -115,6 +133,14 @@ class Session extends Model
 
         if (null !== $this->nasConfig) {
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
+        }
+
+        if (null !== $this->polarFsConfig) {
+            $res['polarFsConfig'] = null !== $this->polarFsConfig ? $this->polarFsConfig->toArray($noStream) : $this->polarFsConfig;
         }
 
         if (null !== $this->qualifier) {
@@ -174,6 +200,14 @@ class Session extends Model
 
         if (isset($map['nasConfig'])) {
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+
+        if (isset($map['polarFsConfig'])) {
+            $model->polarFsConfig = PolarFsConfig::fromMap($map['polarFsConfig']);
         }
 
         if (isset($map['qualifier'])) {

@@ -23,9 +23,9 @@ class ChangeResourceGroupInput extends Model
      */
     public $resourceType;
     protected $_name = [
-        'newResourceGroupId' => 'newResourceGroupId',
-        'resourceId' => 'resourceId',
-        'resourceType' => 'resourceType',
+        'newResourceGroupId' => 'NewResourceGroupId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -37,15 +37,15 @@ class ChangeResourceGroupInput extends Model
     {
         $res = [];
         if (null !== $this->newResourceGroupId) {
-            $res['newResourceGroupId'] = $this->newResourceGroupId;
+            $res['NewResourceGroupId'] = $this->newResourceGroupId;
         }
 
         if (null !== $this->resourceId) {
-            $res['resourceId'] = $this->resourceId;
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceType) {
-            $res['resourceType'] = $this->resourceType;
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -59,16 +59,16 @@ class ChangeResourceGroupInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['newResourceGroupId'])) {
-            $model->newResourceGroupId = $map['newResourceGroupId'];
+        if (isset($map['NewResourceGroupId'])) {
+            $model->newResourceGroupId = $map['NewResourceGroupId'];
         }
 
-        if (isset($map['resourceId'])) {
-            $model->resourceId = $map['resourceId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
-        if (isset($map['resourceType'])) {
-            $model->resourceType = $map['resourceType'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
