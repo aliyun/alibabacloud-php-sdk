@@ -631,6 +631,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosReque
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveTagResourcesRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveTagResourcesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageAppRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageAppResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupRequest;
@@ -13891,6 +13893,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播CDN诊断信息.
+     *
      * @param request - DescribeLiveCdnDiagnoseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13964,6 +13968,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播CDN诊断信息.
+     *
      * @param request - DescribeLiveCdnDiagnoseInfoRequest
      *
      * @returns DescribeLiveCdnDiagnoseInfoResponse
@@ -17183,6 +17189,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播域名转码参数.
+     *
      * @param request - DescribeLiveDomainTranscodeParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17232,6 +17240,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播域名转码参数.
+     *
      * @param request - DescribeLiveDomainTranscodeParamsRequest
      *
      * @returns DescribeLiveDomainTranscodeParamsResponse
@@ -17248,6 +17258,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取直播DRM用量数据.
+     *
      * @remarks
      * ### [](#)Usage notes
      * *   You can query data in the previous 90 days.
@@ -17316,6 +17328,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取直播DRM用量数据.
+     *
      * @remarks
      * ### [](#)Usage notes
      * *   You can query data in the previous 90 days.
@@ -22820,6 +22834,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取直播用户标签.
+     *
      * @param request - DescribeLiveUserTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -22861,6 +22877,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取直播用户标签.
+     *
      * @param request - DescribeLiveUserTagsRequest
      *
      * @returns DescribeLiveUserTagsResponse
@@ -25771,6 +25789,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取转码任务状态
+     *
      * @param request - GetTranscodeTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -25824,6 +25844,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 获取转码任务状态
+     *
      * @param request - GetTranscodeTaskStatusRequest
      *
      * @returns GetTranscodeTaskStatusResponse
@@ -27277,6 +27299,91 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLiveRealtimeLogDeliveryInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询符合条件的资源和标签.
+     *
+     * @param request - ListLiveTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLiveTagResourcesResponse
+     *
+     * @param ListLiveTagResourcesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListLiveTagResourcesResponse
+     */
+    public function listLiveTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->tagOwnerBid) {
+            @$query['TagOwnerBid'] = $request->tagOwnerBid;
+        }
+
+        if (null !== $request->tagOwnerUid) {
+            @$query['TagOwnerUid'] = $request->tagOwnerUid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLiveTagResources',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLiveTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询符合条件的资源和标签.
+     *
+     * @param request - ListLiveTagResourcesRequest
+     *
+     * @returns ListLiveTagResourcesResponse
+     *
+     * @param ListLiveTagResourcesRequest $request
+     *
+     * @return ListLiveTagResourcesResponse
+     */
+    public function listLiveTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLiveTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -31223,6 +31330,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 重启转码任务
+     *
      * @param request - RestartTranscodeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -31276,6 +31385,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 重启转码任务
+     *
      * @param request - RestartTranscodeTaskRequest
      *
      * @returns RestartTranscodeTaskResponse

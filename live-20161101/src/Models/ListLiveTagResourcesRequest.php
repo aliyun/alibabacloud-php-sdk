@@ -1,0 +1,181 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Live\V20161101\Models;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveTagResourcesRequest\tag;
+
+class ListLiveTagResourcesRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var string
+     */
+    public $tagOwnerBid;
+
+    /**
+     * @var string
+     */
+    public $tagOwnerUid;
+    protected $_name = [
+        'nextToken' => 'NextToken',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag' => 'Tag',
+        'tagOwnerBid' => 'TagOwnerBid',
+        'tagOwnerUid' => 'TagOwnerUid',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceId) {
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->tagOwnerBid) {
+            $res['TagOwnerBid'] = $this->tagOwnerBid;
+        }
+
+        if (null !== $this->tagOwnerUid) {
+            $res['TagOwnerUid'] = $this->tagOwnerUid;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TagOwnerBid'])) {
+            $model->tagOwnerBid = $map['TagOwnerBid'];
+        }
+
+        if (isset($map['TagOwnerUid'])) {
+            $model->tagOwnerUid = $map['TagOwnerUid'];
+        }
+
+        return $model;
+    }
+}
