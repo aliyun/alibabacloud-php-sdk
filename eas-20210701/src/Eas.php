@@ -56,6 +56,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerResp
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayLabelResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayLabelShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstanceLabelRequest;
@@ -158,6 +161,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayLabelResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGroupRequest;
@@ -1992,6 +1997,77 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除网关标签.
+     *
+     * @param tmpReq - DeleteGatewayLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayLabelResponse
+     *
+     * @param string                    $ClusterId
+     * @param string                    $GatewayId
+     * @param DeleteGatewayLabelRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteGatewayLabelResponse
+     */
+    public function deleteGatewayLabelWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteGatewayLabelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelKeys) {
+            $request->labelKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelKeys, 'LabelKeys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->labelKeysShrink) {
+            @$query['LabelKeys'] = $request->labelKeysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGatewayLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/label',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关标签.
+     *
+     * @param request - DeleteGatewayLabelRequest
+     *
+     * @returns DeleteGatewayLabelResponse
+     *
+     * @param string                    $ClusterId
+     * @param string                    $GatewayId
+     * @param DeleteGatewayLabelRequest $request
+     *
+     * @return DeleteGatewayLabelResponse
+     */
+    public function deleteGatewayLabel($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayLabelWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -6424,6 +6500,71 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改网关标签.
+     *
+     * @param request - UpdateGatewayLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayLabelResponse
+     *
+     * @param string                    $ClusterId
+     * @param string                    $GatewayId
+     * @param UpdateGatewayLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateGatewayLabelResponse
+     */
+    public function updateGatewayLabelWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/label',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改网关标签.
+     *
+     * @param request - UpdateGatewayLabelRequest
+     *
+     * @returns UpdateGatewayLabelResponse
+     *
+     * @param string                    $ClusterId
+     * @param string                    $GatewayId
+     * @param UpdateGatewayLabelRequest $request
+     *
+     * @return UpdateGatewayLabelResponse
+     */
+    public function updateGatewayLabel($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayLabelWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
