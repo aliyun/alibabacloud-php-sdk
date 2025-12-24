@@ -56,6 +56,11 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
+     * @var string
+     */
+    public $executionMode;
+
+    /**
      * @var bool
      */
     public $hibernationOptionsConfigured;
@@ -198,6 +203,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'defaultTargetCapacityType' => 'DefaultTargetCapacityType',
         'description' => 'Description',
         'excessCapacityTerminationPolicy' => 'ExcessCapacityTerminationPolicy',
+        'executionMode' => 'ExecutionMode',
         'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
         'launchTemplateConfig' => 'LaunchTemplateConfig',
         'launchTemplateId' => 'LaunchTemplateId',
@@ -293,6 +299,10 @@ class CreateAutoProvisioningGroupRequest extends Model
 
         if (null !== $this->excessCapacityTerminationPolicy) {
             $res['ExcessCapacityTerminationPolicy'] = $this->excessCapacityTerminationPolicy;
+        }
+
+        if (null !== $this->executionMode) {
+            $res['ExecutionMode'] = $this->executionMode;
         }
 
         if (null !== $this->hibernationOptionsConfigured) {
@@ -472,6 +482,10 @@ class CreateAutoProvisioningGroupRequest extends Model
 
         if (isset($map['ExcessCapacityTerminationPolicy'])) {
             $model->excessCapacityTerminationPolicy = $map['ExcessCapacityTerminationPolicy'];
+        }
+
+        if (isset($map['ExecutionMode'])) {
+            $model->executionMode = $map['ExecutionMode'];
         }
 
         if (isset($map['HibernationOptionsConfigured'])) {

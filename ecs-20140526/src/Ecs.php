@@ -4223,6 +4223,10 @@ class Ecs extends OpenApiClient
             @$query['ExcessCapacityTerminationPolicy'] = $request->excessCapacityTerminationPolicy;
         }
 
+        if (null !== $request->executionMode) {
+            @$query['ExecutionMode'] = $request->executionMode;
+        }
+
         if (null !== $request->hibernationOptionsConfigured) {
             @$query['HibernationOptionsConfigured'] = $request->hibernationOptionsConfigured;
         }
