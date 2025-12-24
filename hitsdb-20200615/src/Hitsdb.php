@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSecurityGroupsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSecurityGroupsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSummaryRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSummaryResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaRequest;
@@ -2025,6 +2027,79 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceSecurityGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetInstanceSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceSummaryResponse
+     *
+     * @param GetInstanceSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetInstanceSummaryResponse
+     */
+    public function getInstanceSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceSummary',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetInstanceSummaryRequest
+     *
+     * @returns GetInstanceSummaryResponse
+     *
+     * @param GetInstanceSummaryRequest $request
+     *
+     * @return GetInstanceSummaryResponse
+     */
+    public function getInstanceSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceSummaryWithOptions($request, $runtime);
     }
 
     /**
