@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPythonFileResponseBody\syntax;
-use AlibabaCloud\Tea\Model;
 
 class VerifyPythonFileResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F72685FB-A6E6-5A9A-97F7-6DC1056E63CE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The verification result. If the parameter is left empty, the syntax of the code snippet is correct.
-     *
      * @var syntax[]
      */
     public $syntax;
@@ -29,20 +23,28 @@ class VerifyPythonFileResponseBody extends Model
         'syntax' => 'Syntax',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->syntax)) {
+            Model::validateArray($this->syntax);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->syntax) {
-            $res['Syntax'] = [];
-            if (null !== $this->syntax && \is_array($this->syntax)) {
-                $n = 0;
-                foreach ($this->syntax as $item) {
-                    $res['Syntax'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->syntax)) {
+                $res['Syntax'] = [];
+                $n1 = 0;
+                foreach ($this->syntax as $item1) {
+                    $res['Syntax'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class VerifyPythonFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyPythonFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Syntax'])) {
             if (!empty($map['Syntax'])) {
                 $model->syntax = [];
-                $n = 0;
-                foreach ($map['Syntax'] as $item) {
-                    $model->syntax[$n++] = null !== $item ? syntax::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Syntax'] as $item1) {
+                    $model->syntax[$n1] = syntax::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

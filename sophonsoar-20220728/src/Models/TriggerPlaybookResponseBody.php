@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerPlaybookResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BD5A8DB6-A42C-532B-BCE8-83E69550CD59
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The running UUID of the playbook. This parameter is used to query the running result of the playbook.
-     *
-     * @example 55E63C57-D6C8-5036-A770-5CB10AC807AA
-     *
      * @var string
      */
     public $triggerUuid;
@@ -30,14 +22,18 @@ class TriggerPlaybookResponseBody extends Model
         'triggerUuid' => 'TriggerUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->triggerUuid) {
             $res['TriggerUuid'] = $this->triggerUuid;
         }
@@ -45,17 +41,18 @@ class TriggerPlaybookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerPlaybookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TriggerUuid'])) {
             $model->triggerUuid = $map['TriggerUuid'];
         }

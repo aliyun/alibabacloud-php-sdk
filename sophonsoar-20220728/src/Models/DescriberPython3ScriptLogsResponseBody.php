@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescriberPython3ScriptLogsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D22D8A0C-6E86-57B2-A142-929184122AB1
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The operational logs of the Python3 script.
-     *
-     * @example {
-     * "logs": [
-     * {
-     * "message": "function input is {}"
-     * }
-     * ]
-     * }
-     *
      * @var string
      */
     public $runResult;
@@ -36,14 +22,18 @@ class DescriberPython3ScriptLogsResponseBody extends Model
         'runResult' => 'RunResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->runResult) {
             $res['RunResult'] = $this->runResult;
         }
@@ -51,17 +41,18 @@ class DescriberPython3ScriptLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescriberPython3ScriptLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RunResult'])) {
             $model->runResult = $map['RunResult'];
         }

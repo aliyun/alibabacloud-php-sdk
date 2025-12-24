@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteComponentAssetRequest extends Model
 {
     /**
-     * @description The ID of the asset.
-     *
-     * >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 12x
-     *
      * @var int
      */
     public $assetId;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -37,14 +22,18 @@ class DeleteComponentAssetRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetId) {
             $res['AssetId'] = $this->assetId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -52,17 +41,18 @@ class DeleteComponentAssetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteComponentAssetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetId'])) {
             $model->assetId = $map['AssetId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

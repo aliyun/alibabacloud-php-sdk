@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeGroupProductionsResponseBody\data\productions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class policyList extends Model
 {
     /**
-     * @example AliyunRAMReadOnlyAccess
-     *
      * @var string
      */
     public $policyName;
@@ -24,14 +22,18 @@ class policyList extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +41,18 @@ class policyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

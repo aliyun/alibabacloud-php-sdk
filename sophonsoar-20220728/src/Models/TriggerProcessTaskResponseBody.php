@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerProcessTaskResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 58A518BC-E4A8-5BD7-AFEA-366046ED9073
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class TriggerProcessTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class TriggerProcessTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerProcessTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

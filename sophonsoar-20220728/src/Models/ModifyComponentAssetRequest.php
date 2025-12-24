@@ -4,46 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyComponentAssetRequest extends Model
 {
     /**
-     * @description The configuration of the asset. The value is a JSON object.
-     *
-     * This parameter is required.
-     *
-     * @example {
-     * "name": "test asset",
-     * "componentName": "SLS",
-     * "params": [
-     * {
-     * "name": "end_point",
-     * "value": "xxx"
-     * },
-     * {
-     * "name": "sub_id",
-     * "value": "xxxx"
-     * },
-     * {
-     * "name": "access_key",
-     * "value": "xxxx"
-     * }
-     * ]
-     * }
-     *
      * @var string
      */
     public $assetConfig;
 
     /**
-     * @description The language of the content within the request and response.
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -52,14 +22,18 @@ class ModifyComponentAssetRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetConfig) {
             $res['AssetConfig'] = $this->assetConfig;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -67,17 +41,18 @@ class ModifyComponentAssetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyComponentAssetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetConfig'])) {
             $model->assetConfig = $map['AssetConfig'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

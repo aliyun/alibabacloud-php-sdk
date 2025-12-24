@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponseBody\playbookNodeSchema;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLatestRecordSchemaResponseBody extends Model
 {
     /**
-     * @description The output structure information of the playbook.
-     *
      * @var playbookNodeSchema
      */
     public $playbookNodeSchema;
 
     /**
-     * @description The request ID.
-     *
-     * @example 10B92EE1-4597-593B-A131-7A17D25EF5C9
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLatestRecordSchemaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->playbookNodeSchema) {
+            $this->playbookNodeSchema->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playbookNodeSchema) {
-            $res['PlaybookNodeSchema'] = null !== $this->playbookNodeSchema ? $this->playbookNodeSchema->toMap() : null;
+            $res['PlaybookNodeSchema'] = null !== $this->playbookNodeSchema ? $this->playbookNodeSchema->toArray($noStream) : $this->playbookNodeSchema;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLatestRecordSchemaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLatestRecordSchemaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlaybookNodeSchema'])) {
             $model->playbookNodeSchema = playbookNodeSchema::fromMap($map['PlaybookNodeSchema']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

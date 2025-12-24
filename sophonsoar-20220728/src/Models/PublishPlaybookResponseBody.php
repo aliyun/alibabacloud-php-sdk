@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishPlaybookResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C513FCEA-D71F-5E50-ADC4-FCF8C5DCF6BF
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class PublishPlaybookResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class PublishPlaybookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishPlaybookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

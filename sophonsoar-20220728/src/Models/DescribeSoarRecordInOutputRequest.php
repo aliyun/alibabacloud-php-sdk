@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSoarRecordInOutputRequest extends Model
 {
     /**
-     * @description The UUID of the component action.
-     *
-     * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
-     *
-     * This parameter is required.
-     *
-     * @example 0531ff66-dd05-4f24-84bf-xxxxxxxx
-     *
      * @var string
      */
     public $actionUuid;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -37,14 +22,18 @@ class DescribeSoarRecordInOutputRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionUuid) {
             $res['ActionUuid'] = $this->actionUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -52,17 +41,18 @@ class DescribeSoarRecordInOutputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSoarRecordInOutputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionUuid'])) {
             $model->actionUuid = $map['ActionUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

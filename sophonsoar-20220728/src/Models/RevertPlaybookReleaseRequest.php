@@ -4,44 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevertPlaybookReleaseRequest extends Model
 {
     /**
-     * @description Specifies whether to directly publish the new playbook after the rollback.
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isPublish;
 
     /**
-     * @description The version of the playbook that you want to publish.
-     *
-     * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the playbook version.
-     *
-     * This parameter is required.
-     *
-     * @example 3f97b56e-064e-47e7-a309-xxxxxxx
-     *
      * @var int
      */
     public $playReleaseId;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
-     *
-     * This parameter is required.
-     *
-     * @example 185295a1-c987-4b64-8796-xxxxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -51,17 +28,22 @@ class RevertPlaybookReleaseRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isPublish) {
             $res['IsPublish'] = $this->isPublish;
         }
+
         if (null !== $this->playReleaseId) {
             $res['PlayReleaseId'] = $this->playReleaseId;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -69,20 +51,22 @@ class RevertPlaybookReleaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevertPlaybookReleaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsPublish'])) {
             $model->isPublish = $map['IsPublish'];
         }
+
         if (isset($map['PlayReleaseId'])) {
             $model->playReleaseId = $map['PlayReleaseId'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

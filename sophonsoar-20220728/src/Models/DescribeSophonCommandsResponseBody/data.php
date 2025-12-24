@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSophonCommandsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSophonCommandsResponseBody\data\paramConfig;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The description of the command.
-     *
-     * @example This is a action of processing for WAF
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The display name of the command.
-     *
-     * @example WAF Process IP
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description The name of the command.
-     *
-     * @example waf_process_ip_v2
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The parameter configurations.
-     *
      * @var paramConfig[]
      */
     public $paramConfig;
@@ -49,26 +35,36 @@ class data extends Model
         'paramConfig' => 'ParamConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->paramConfig)) {
+            Model::validateArray($this->paramConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->paramConfig) {
-            $res['ParamConfig'] = [];
-            if (null !== $this->paramConfig && \is_array($this->paramConfig)) {
-                $n = 0;
-                foreach ($this->paramConfig as $item) {
-                    $res['ParamConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paramConfig)) {
+                $res['ParamConfig'] = [];
+                $n1 = 0;
+                foreach ($this->paramConfig as $item1) {
+                    $res['ParamConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -76,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParamConfig'])) {
             if (!empty($map['ParamConfig'])) {
                 $model->paramConfig = [];
-                $n = 0;
-                foreach ($map['ParamConfig'] as $item) {
-                    $model->paramConfig[$n++] = null !== $item ? paramConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ParamConfig'] as $item1) {
+                    $model->paramConfig[$n1] = paramConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

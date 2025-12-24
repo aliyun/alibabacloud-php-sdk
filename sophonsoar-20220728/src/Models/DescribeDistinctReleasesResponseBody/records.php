@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeDistinctReleasesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class records extends Model
 {
     /**
-     * @description The version description.
-     *
-     * @example demo version
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The MD5 value of the version XML configuration.
-     *
-     * @example 17cf53049bc8efa941207xxxxx
-     *
      * @var string
      */
     public $taskflowMd5;
 
     /**
-     * @description The format of the playbook. Valid values:
-     *
-     *   **xml**: XML format.
-     *   **x6**: JSON format.
-     *
-     * @example x6
-     *
      * @var string
      */
     public $taskflowType;
@@ -43,17 +28,22 @@ class records extends Model
         'taskflowType' => 'TaskflowType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->taskflowMd5) {
             $res['TaskflowMd5'] = $this->taskflowMd5;
         }
+
         if (null !== $this->taskflowType) {
             $res['TaskflowType'] = $this->taskflowType;
         }
@@ -61,20 +51,22 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['TaskflowMd5'])) {
             $model->taskflowMd5 = $map['TaskflowMd5'];
         }
+
         if (isset($map['TaskflowType'])) {
             $model->taskflowType = $map['TaskflowType'];
         }

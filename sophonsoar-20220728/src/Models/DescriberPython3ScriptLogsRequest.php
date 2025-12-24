@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescriberPython3ScriptLogsRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The UUID that is returned when the Python3 script is run.
-     *
-     * >  You can call the [RunPython3Script](~~RunPython3Script~~) operation to query the UUID.
-     *
-     * This parameter is required.
-     *
-     * @example 69edc2b4-c95c-424f-9114-xxxxxxx
-     *
      * @var string
      */
     public $requestUuid;
@@ -37,14 +22,18 @@ class DescriberPython3ScriptLogsRequest extends Model
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->requestUuid) {
             $res['RequestUuid'] = $this->requestUuid;
         }
@@ -52,17 +41,18 @@ class DescriberPython3ScriptLogsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescriberPython3ScriptLogsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RequestUuid'])) {
             $model->requestUuid = $map['RequestUuid'];
         }

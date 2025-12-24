@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponseBody\playbookNodeSchema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeSchema extends Model
 {
     /**
-     * @description The action name of the component.
-     *
-     * @example formatedata
-     *
      * @var string
      */
     public $actionName;
 
     /**
-     * @description The name of the component.
-     *
-     * @example DataFormat
-     *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description The name of the node.
-     *
-     * @example DataFormat_1
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The output fields.
-     *
      * @var string[]
      */
     public $outputFields;
@@ -48,47 +34,71 @@ class nodeSchema extends Model
         'outputFields' => 'OutputFields',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->outputFields)) {
+            Model::validateArray($this->outputFields);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
         }
+
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->outputFields) {
-            $res['OutputFields'] = $this->outputFields;
+            if (\is_array($this->outputFields)) {
+                $res['OutputFields'] = [];
+                $n1 = 0;
+                foreach ($this->outputFields as $item1) {
+                    $res['OutputFields'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeSchema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
         }
+
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['OutputFields'])) {
             if (!empty($map['OutputFields'])) {
-                $model->outputFields = $map['OutputFields'];
+                $model->outputFields = [];
+                $n1 = 0;
+                foreach ($map['OutputFields'] as $item1) {
+                    $model->outputFields[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

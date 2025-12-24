@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTreeDataResponseBody extends Model
 {
     /**
-     * @description The returned information about the playbook. The value is a JSON string.
-     *
-     * @example [
-     * {
-     * "playbook": {
-     * "active": false,
-     * "displayName": "test_playbook",
-     * "playbookUuid": "09a20455-3d3a-424c-a1df-xxxxxx"
-     * }
-     * }
-     * ]
-     *
      * @var string
      */
     public $playbooks;
 
     /**
-     * @description The request ID.
-     *
-     * @example EF2ECA2D-D8E6-5021-BF5C-19DD6D52C5B2
-     *
      * @var string
      */
     public $requestId;
@@ -38,14 +22,18 @@ class QueryTreeDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playbooks) {
             $res['Playbooks'] = $this->playbooks;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,17 +41,18 @@ class QueryTreeDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTreeDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Playbooks'])) {
             $model->playbooks = $map['Playbooks'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

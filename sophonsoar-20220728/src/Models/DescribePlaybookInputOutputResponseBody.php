@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookInputOutputResponseBody\config;
-use AlibabaCloud\Tea\Model;
 
 class DescribePlaybookInputOutputResponseBody extends Model
 {
     /**
-     * @description The configurations.
-     *
      * @var config
      */
     public $config;
 
     /**
-     * @description The request ID.
-     *
-     * @example 688B4CCD-5272-5DCF-9D76-FE5EFEF545F8
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribePlaybookInputOutputResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribePlaybookInputOutputResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlaybookInputOutputResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

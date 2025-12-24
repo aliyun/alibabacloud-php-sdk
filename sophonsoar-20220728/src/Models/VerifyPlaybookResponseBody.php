@@ -4,45 +4,68 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPlaybookResponseBody\checkTaskInfos;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPlaybookResponseBody\prerequisites;
 
 class VerifyPlaybookResponseBody extends Model
 {
     /**
-     * @description The result of the verification.
-     *
      * @var checkTaskInfos[]
      */
     public $checkTaskInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0DFC9403-54EB-5672-B690-9AA93C9EBB54
-     *
+     * @var prerequisites[]
+     */
+    public $prerequisites;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'checkTaskInfos' => 'CheckTaskInfos',
+        'prerequisites' => 'Prerequisites',
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->checkTaskInfos)) {
+            Model::validateArray($this->checkTaskInfos);
+        }
+        if (\is_array($this->prerequisites)) {
+            Model::validateArray($this->prerequisites);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkTaskInfos) {
-            $res['CheckTaskInfos'] = [];
-            if (null !== $this->checkTaskInfos && \is_array($this->checkTaskInfos)) {
-                $n = 0;
-                foreach ($this->checkTaskInfos as $item) {
-                    $res['CheckTaskInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->checkTaskInfos)) {
+                $res['CheckTaskInfos'] = [];
+                $n1 = 0;
+                foreach ($this->checkTaskInfos as $item1) {
+                    $res['CheckTaskInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->prerequisites) {
+            if (\is_array($this->prerequisites)) {
+                $res['Prerequisites'] = [];
+                $n1 = 0;
+                foreach ($this->prerequisites as $item1) {
+                    $res['Prerequisites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +73,36 @@ class VerifyPlaybookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyPlaybookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckTaskInfos'])) {
             if (!empty($map['CheckTaskInfos'])) {
                 $model->checkTaskInfos = [];
-                $n = 0;
-                foreach ($map['CheckTaskInfos'] as $item) {
-                    $model->checkTaskInfos[$n++] = null !== $item ? checkTaskInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CheckTaskInfos'] as $item1) {
+                    $model->checkTaskInfos[$n1] = checkTaskInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Prerequisites'])) {
+            if (!empty($map['Prerequisites'])) {
+                $model->prerequisites = [];
+                $n1 = 0;
+                foreach ($map['Prerequisites'] as $item1) {
+                    $model->prerequisites[$n1] = prerequisites::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

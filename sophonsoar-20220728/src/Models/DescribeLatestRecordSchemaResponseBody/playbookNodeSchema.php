@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponseBody\playbookNodeSchema\nodeSchema;
-use AlibabaCloud\Tea\Model;
 
 class playbookNodeSchema extends Model
 {
     /**
-     * @description The structure information.
-     *
      * @var nodeSchema[]
      */
     public $nodeSchema;
@@ -19,17 +17,24 @@ class playbookNodeSchema extends Model
         'nodeSchema' => 'NodeSchema',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeSchema)) {
+            Model::validateArray($this->nodeSchema);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeSchema) {
-            $res['NodeSchema'] = [];
-            if (null !== $this->nodeSchema && \is_array($this->nodeSchema)) {
-                $n = 0;
-                foreach ($this->nodeSchema as $item) {
-                    $res['NodeSchema'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeSchema)) {
+                $res['NodeSchema'] = [];
+                $n1 = 0;
+                foreach ($this->nodeSchema as $item1) {
+                    $res['NodeSchema'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class playbookNodeSchema extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playbookNodeSchema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeSchema'])) {
             if (!empty($map['NodeSchema'])) {
                 $model->nodeSchema = [];
-                $n = 0;
-                foreach ($map['NodeSchema'] as $item) {
-                    $model->nodeSchema[$n++] = null !== $item ? nodeSchema::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeSchema'] as $item1) {
+                    $model->nodeSchema[$n1] = nodeSchema::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

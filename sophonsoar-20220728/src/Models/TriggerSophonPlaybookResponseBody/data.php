@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\TriggerSophonPlaybookResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The custom ID. If you do not specify this parameter when the playbook is triggered, a random ID is generated for fault locating and troubleshooting.
-     *
-     * @example a7c6d055-a72f-4676-bc89-3cd9edc0284c
-     *
      * @var string
      */
     public $sophonTaskId;
@@ -20,9 +16,12 @@ class data extends Model
         'sophonTaskId' => 'SophonTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sophonTaskId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

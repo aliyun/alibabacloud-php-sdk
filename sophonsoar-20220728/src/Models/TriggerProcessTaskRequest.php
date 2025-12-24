@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerProcessTaskRequest extends Model
 {
     /**
-     * @description The type of the action. Valid values:
-     *
-     *   **remove**: cancels blocking or isolation.
-     *   **retry**: submits the task again.
-     *
-     * This parameter is required.
-     *
-     * @example remove
-     *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description The ID of the handling task.
-     *
-     * >  You can call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to query the IDs of handling tasks.
-     *
-     * This parameter is required.
-     *
-     * @example 15355xxxxxx82894882
-     *
      * @var string
      */
     public $taskId;
@@ -39,14 +22,18 @@ class TriggerProcessTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -54,17 +41,18 @@ class TriggerProcessTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerProcessTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

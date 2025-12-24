@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePlaybookNodesOutputRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The name of the component node.
-     *
-     * This parameter is required.
-     *
-     * @example DataFormat_1
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
-     *
-     * This parameter is required.
-     *
-     * @example ac343acc-1a61-4084-9a1c-xxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -49,17 +28,22 @@ class DescribePlaybookNodesOutputRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -67,20 +51,22 @@ class DescribePlaybookNodesOutputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlaybookNodesOutputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

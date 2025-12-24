@@ -4,73 +4,76 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePlaybookRequest extends Model
 {
     /**
-     * @description Description of the playbook.
-     *
-     * @example This is a new version
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Name of the playbook.
-     *
-     * This parameter is required.
-     *
-     * @example test09
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description Language type for receiving messages. Values:
-     *
-     * - **zh** (default): Chinese
-     * - **en**: English
-     *
-     * @example zh
-     *
+     * @var string
+     */
+    public $inputParams;
+
+    /**
      * @var string
      */
     public $lang;
 
     /**
-     * @description Playbook TaskFlow type.
-     * - **x6** : x6
-     * - **bpmn**: bpmn
-     *
-     * @example x6
-     *
+     * @var string
+     */
+    public $outputParams;
+
+    /**
      * @var string
      */
     public $taskflowType;
     protected $_name = [
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'inputParams' => 'InputParams',
         'lang' => 'Lang',
+        'outputParams' => 'OutputParams',
         'taskflowType' => 'TaskflowType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
+        if (null !== $this->inputParams) {
+            $res['InputParams'] = $this->inputParams;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
+        if (null !== $this->outputParams) {
+            $res['OutputParams'] = $this->outputParams;
+        }
+
         if (null !== $this->taskflowType) {
             $res['TaskflowType'] = $this->taskflowType;
         }
@@ -78,23 +81,34 @@ class CreatePlaybookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePlaybookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
+        if (isset($map['InputParams'])) {
+            $model->inputParams = $map['InputParams'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
+        if (isset($map['OutputParams'])) {
+            $model->outputParams = $map['OutputParams'];
+        }
+
         if (isset($map['TaskflowType'])) {
             $model->taskflowType = $map['TaskflowType'];
         }

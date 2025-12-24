@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessStatisticsResponseBody\metrics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeProcessStatisticsResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeProcessStatisticsResponseBody extends Model
     public $metrics;
 
     /**
-     * @example 4CFC0F8A-D600-5FFF-A0DF-3121C4C1B90F
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeProcessStatisticsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->metrics) {
+            $this->metrics->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeProcessStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeProcessStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

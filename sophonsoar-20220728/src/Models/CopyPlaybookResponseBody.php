@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CopyPlaybookResponseBody\data;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CopyPlaybookResponseBody\page;
-use AlibabaCloud\Tea\Model;
 
 class CopyPlaybookResponseBody extends Model
 {
@@ -21,8 +21,6 @@ class CopyPlaybookResponseBody extends Model
     public $page;
 
     /**
-     * @example 2EC05B06-****-5F3E-****-3B1FAD76087A
-     *
      * @var string
      */
     public $requestId;
@@ -32,17 +30,28 @@ class CopyPlaybookResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,20 +59,22 @@ class CopyPlaybookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyPlaybookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

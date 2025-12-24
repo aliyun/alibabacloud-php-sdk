@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeExecutePlaybooksResponseBody\playbookMetrics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeExecutePlaybooksResponseBody extends Model
 {
     /**
-     * @description The playbook.
-     *
      * @var playbookMetrics[]
      */
     public $playbookMetrics;
 
     /**
-     * @description The request ID.
-     *
-     * @example 88A39217-2802-5B1E-BA2B-CF1BBC43C1F5
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeExecutePlaybooksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->playbookMetrics)) {
+            Model::validateArray($this->playbookMetrics);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playbookMetrics) {
-            $res['PlaybookMetrics'] = [];
-            if (null !== $this->playbookMetrics && \is_array($this->playbookMetrics)) {
-                $n = 0;
-                foreach ($this->playbookMetrics as $item) {
-                    $res['PlaybookMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->playbookMetrics)) {
+                $res['PlaybookMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->playbookMetrics as $item1) {
+                    $res['PlaybookMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeExecutePlaybooksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExecutePlaybooksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlaybookMetrics'])) {
             if (!empty($map['PlaybookMetrics'])) {
                 $model->playbookMetrics = [];
-                $n = 0;
-                foreach ($map['PlaybookMetrics'] as $item) {
-                    $model->playbookMetrics[$n++] = null !== $item ? playbookMetrics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PlaybookMetrics'] as $item1) {
+                    $model->playbookMetrics[$n1] = playbookMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

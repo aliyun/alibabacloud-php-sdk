@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metrics extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $banFileNum;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $banIpNum;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $banProcessNum;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $taskNum;
@@ -42,20 +34,26 @@ class metrics extends Model
         'taskNum' => 'TaskNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->banFileNum) {
             $res['BanFileNum'] = $this->banFileNum;
         }
+
         if (null !== $this->banIpNum) {
             $res['BanIpNum'] = $this->banIpNum;
         }
+
         if (null !== $this->banProcessNum) {
             $res['BanProcessNum'] = $this->banProcessNum;
         }
+
         if (null !== $this->taskNum) {
             $res['TaskNum'] = $this->taskNum;
         }
@@ -63,23 +61,26 @@ class metrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BanFileNum'])) {
             $model->banFileNum = $map['BanFileNum'];
         }
+
         if (isset($map['BanIpNum'])) {
             $model->banIpNum = $map['BanIpNum'];
         }
+
         if (isset($map['BanProcessNum'])) {
             $model->banProcessNum = $map['BanProcessNum'];
         }
+
         if (isset($map['TaskNum'])) {
             $model->taskNum = $map['TaskNum'];
         }

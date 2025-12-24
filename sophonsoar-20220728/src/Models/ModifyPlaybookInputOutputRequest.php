@@ -4,84 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPlaybookInputOutputRequest extends Model
 {
     /**
-     * @description The executed mode of a playbook. The value is a JSON array.
-     *
      * @var string
      */
     public $exeConfig;
 
     /**
-     * @description The configuration of the input parameters. The value is a JSON array.
-     *
-     * This parameter is required.
-     *
-     * @example [
-     * {
-     * "typeName": "String",
-     * "dataClass": "normal",
-     * "dataType": "String",
-     * "description": "period",
-     * "example": "",
-     * "name": "period",
-     * "required": false
-     * }
-     * ]
-     *
      * @var string
      */
     public $inputParams;
 
     /**
-     * @description The language of the content within the request and response.
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The configuration of the output parameters. This parameter is unavailable. Leave it empty.
-     *
-     * This parameter is required.
-     *
-     * @example []
-     *
      * @var string
      */
     public $outputParams;
 
     /**
-     * @description The input parameter type.
-     *
-     *   **template-ip**
-     *   **template-file**
-     *   **template-process**
-     *   **custom**
-     *
-     * @example custom
-     *
      * @var string
      */
     public $paramType;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
-     *
-     * This parameter is required.
-     *
-     * @example 8baa6cff-319e-4ede-97bc-xxxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -94,26 +46,34 @@ class ModifyPlaybookInputOutputRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exeConfig) {
             $res['ExeConfig'] = $this->exeConfig;
         }
+
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->outputParams) {
             $res['OutputParams'] = $this->outputParams;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -121,29 +81,34 @@ class ModifyPlaybookInputOutputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPlaybookInputOutputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExeConfig'])) {
             $model->exeConfig = $map['ExeConfig'];
         }
+
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['OutputParams'])) {
             $model->outputParams = $map['OutputParams'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ComparePlaybooksResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class compareResult extends Model
 {
     /**
-     * @description The description of the comparison result.
-     *
-     * @example The first version adds one node compared to the second version
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Indicates whether the second version provides more information than the first version. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $new;
 
     /**
-     * @description Indicates whether the configurations of the two versions are the same. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $same;
@@ -46,17 +28,22 @@ class compareResult extends Model
         'same' => 'Same',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->new) {
             $res['New'] = $this->new;
         }
+
         if (null !== $this->same) {
             $res['Same'] = $this->same;
         }
@@ -64,20 +51,22 @@ class compareResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return compareResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['New'])) {
             $model->new = $map['New'];
         }
+
         if (isset($map['Same'])) {
             $model->same = $map['Same'];
         }

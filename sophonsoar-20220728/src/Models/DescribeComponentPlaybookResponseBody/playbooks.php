@@ -4,88 +4,85 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeComponentPlaybookResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class playbooks extends Model
 {
     /**
-     * @description The description of the predefined component.
-     *
-     * @example aegis_kill_process
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the predefined component.
-     *
-     * @example AegisKillQuara
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description The input parameter configuration of the playbook. The value is a JSON array.
-     *
-     * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
-     *
-     * @example [
-     * {
-     * "typeName": "String",
-     * "dataClass": "normal",
-     * "dataType": "String",
-     * "description": "period",
-     * "example": "",
-     * "name": "period",
-     * "required": false
-     * }
-     * ]
-     *
      * @var string
      */
     public $inputParams;
+
+    /**
+     * @var string
+     */
+    public $paramType;
     protected $_name = [
         'description' => 'Description',
         'displayName' => 'DisplayName',
         'inputParams' => 'InputParams',
+        'paramType' => 'ParamType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
+        }
+
+        if (null !== $this->paramType) {
+            $res['ParamType'] = $this->paramType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playbooks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
+        }
+
+        if (isset($map['ParamType'])) {
+            $model->paramType = $map['ParamType'];
         }
 
         return $model;

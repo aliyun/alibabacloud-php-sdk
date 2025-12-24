@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSophonCommandsRequest extends Model
 {
     /**
-     * @description The name of the command. Fuzzy match is supported.
-     *
-     * @example waf_process
-     *
      * @var string
      */
     public $name;
@@ -20,9 +16,12 @@ class DescribeSophonCommandsRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -32,11 +31,11 @@ class DescribeSophonCommandsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSophonCommandsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

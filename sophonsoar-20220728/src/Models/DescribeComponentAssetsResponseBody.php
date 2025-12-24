@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeComponentAssetsResponseBody\componentAssets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeComponentAssetsResponseBody extends Model
 {
     /**
-     * @description The information about the assets.
-     *
      * @var componentAssets[]
      */
     public $componentAssets;
 
     /**
-     * @description The request ID.
-     *
-     * @example BFEFB76D-DD0E-5529-BD57-0DAC10B9B30F
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeComponentAssetsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->componentAssets)) {
+            Model::validateArray($this->componentAssets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentAssets) {
-            $res['ComponentAssets'] = [];
-            if (null !== $this->componentAssets && \is_array($this->componentAssets)) {
-                $n = 0;
-                foreach ($this->componentAssets as $item) {
-                    $res['ComponentAssets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->componentAssets)) {
+                $res['ComponentAssets'] = [];
+                $n1 = 0;
+                foreach ($this->componentAssets as $item1) {
+                    $res['ComponentAssets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeComponentAssetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentAssetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentAssets'])) {
             if (!empty($map['ComponentAssets'])) {
                 $model->componentAssets = [];
-                $n = 0;
-                foreach ($map['ComponentAssets'] as $item) {
-                    $model->componentAssets[$n++] = null !== $item ? componentAssets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ComponentAssets'] as $item1) {
+                    $model->componentAssets[$n1] = componentAssets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

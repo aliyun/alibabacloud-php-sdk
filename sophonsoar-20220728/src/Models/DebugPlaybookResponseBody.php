@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DebugPlaybookResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 75E56B2C-C8FA-5A2F-AA08-8745E2AC33EF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The UUID of the debugging task. You can use the UUID to query the result and other details of the debugging task.
-     *
-     * @example 6d412cfa-0905-4567-8a83-xxxxxx
-     *
      * @var string
      */
     public $requestUuid;
@@ -30,14 +22,18 @@ class DebugPlaybookResponseBody extends Model
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->requestUuid) {
             $res['RequestUuid'] = $this->requestUuid;
         }
@@ -45,17 +41,18 @@ class DebugPlaybookResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DebugPlaybookResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RequestUuid'])) {
             $model->requestUuid = $map['RequestUuid'];
         }

@@ -4,59 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class openApiMetaList extends Model
 {
     /**
-     * @description The parameter description.
-     *
-     * @example demo parameter
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The example value.
-     *
-     * @example 12.xx.xx.xx
-     *
      * @var string
      */
     public $exampleValue;
 
     /**
-     * @description The parameter name.
-     *
-     * @example DescribePopApi
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Indicates whether the parameter is required.
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $required;
 
     /**
-     * @description The data type of the parameter field. Valid values:
-     *
-     *   **string**
-     *   **boolean**
-     *   **integer**
-     *   **long**
-     *
-     * @example string
-     *
+     * @var string
+     */
+    public $style;
+
+    /**
      * @var string
      */
     public $type;
@@ -65,26 +42,38 @@ class openApiMetaList extends Model
         'exampleValue' => 'ExampleValue',
         'name' => 'Name',
         'required' => 'Required',
+        'style' => 'Style',
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->exampleValue) {
             $res['ExampleValue'] = $this->exampleValue;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
+
+        if (null !== $this->style) {
+            $res['Style'] = $this->style;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -92,26 +81,34 @@ class openApiMetaList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return openApiMetaList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ExampleValue'])) {
             $model->exampleValue = $map['ExampleValue'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }
+
+        if (isset($map['Style'])) {
+            $model->style = $map['Style'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

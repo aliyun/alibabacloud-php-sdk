@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeComponentsJsResponseBody extends Model
 {
     /**
-     * @description The configuration of the JavaScript file for the component.
-     *
-     * @example [
-     * {
-     * "js": "https://xxxxx.oss-cn-zhangjiakou.aliyuncs.com/componentUpload/xxxxx",
-     * "name": "python3",
-     * "ownType": "sys"
-     * }
-     * ]
-     *
      * @var string
      */
     public $componentsJs;
 
     /**
-     * @description The request ID.
-     *
-     * @example 58A518BC-E4A8-5BD7-AFEA-366046ED9073
-     *
      * @var string
      */
     public $requestId;
@@ -36,14 +22,18 @@ class DescribeComponentsJsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentsJs) {
             $res['ComponentsJs'] = $this->componentsJs;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,17 +41,18 @@ class DescribeComponentsJsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentsJsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentsJs'])) {
             $model->componentsJs = $map['ComponentsJs'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

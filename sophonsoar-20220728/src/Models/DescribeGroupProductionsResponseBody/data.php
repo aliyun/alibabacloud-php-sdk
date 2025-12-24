@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeGroupProductionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeGroupProductionsResponseBody\data\productions;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -23,20 +23,28 @@ class data extends Model
         'productions' => 'Productions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->productions)) {
+            Model::validateArray($this->productions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->productions) {
-            $res['Productions'] = [];
-            if (null !== $this->productions && \is_array($this->productions)) {
-                $n = 0;
-                foreach ($this->productions as $item) {
-                    $res['Productions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productions)) {
+                $res['Productions'] = [];
+                $n1 = 0;
+                foreach ($this->productions as $item1) {
+                    $res['Productions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -44,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Productions'])) {
             if (!empty($map['Productions'])) {
                 $model->productions = [];
-                $n = 0;
-                foreach ($map['Productions'] as $item) {
-                    $model->productions[$n++] = null !== $item ? productions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Productions'] as $item1) {
+                    $model->productions[$n1] = productions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example [{"apis":[{"summary":"get account information","deprecated":false,"name":"DescAccountSummary","title":"get account information"}],"childrens":[],"title":"account"}]
-     *
      * @var mixed
      */
     public $directories;
 
     /**
-     * @example 2018-12-03
-     *
      * @var string
      */
     public $version;
@@ -34,17 +28,22 @@ class data extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->directories) {
             $res['Directories'] = $this->directories;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -52,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Directories'])) {
             $model->directories = $map['Directories'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

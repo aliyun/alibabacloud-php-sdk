@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunNotifyComponentWithMessageCenterRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example notifyByMessageCenter
-     *
      * @var string
      */
     public $actionName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 146789xxxx733152
-     *
      * @var string
      */
     public $aliuid;
 
     /**
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
     public $assetId;
 
@@ -39,65 +29,41 @@ class RunNotifyComponentWithMessageCenterRequest extends Model
     public $channelTypeList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example NotifyMessage
-     *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example yundun_soar_incident_generate
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example notify_message
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @example {"startTime":"test222","incidentName":"test123","incidentID":"teset123"}
-     *
      * @var string
      */
     public $params;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c5c88b5e-97ca-435d-8c20-xxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
 
     /**
-     * @example 1467894xxx733152
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $roleType;
@@ -116,44 +82,68 @@ class RunNotifyComponentWithMessageCenterRequest extends Model
         'roleType' => 'RoleType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channelTypeList)) {
+            Model::validateArray($this->channelTypeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
         }
+
         if (null !== $this->aliuid) {
             $res['Aliuid'] = $this->aliuid;
         }
+
         if (null !== $this->assetId) {
             $res['AssetId'] = $this->assetId;
         }
+
         if (null !== $this->channelTypeList) {
-            $res['ChannelTypeList'] = $this->channelTypeList;
+            if (\is_array($this->channelTypeList)) {
+                $res['ChannelTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->channelTypeList as $item1) {
+                    $res['ChannelTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
+
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
@@ -161,49 +151,65 @@ class RunNotifyComponentWithMessageCenterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunNotifyComponentWithMessageCenterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
         }
+
         if (isset($map['Aliuid'])) {
             $model->aliuid = $map['Aliuid'];
         }
+
         if (isset($map['AssetId'])) {
             $model->assetId = $map['AssetId'];
         }
+
         if (isset($map['ChannelTypeList'])) {
             if (!empty($map['ChannelTypeList'])) {
-                $model->channelTypeList = $map['ChannelTypeList'];
+                $model->channelTypeList = [];
+                $n1 = 0;
+                foreach ($map['ChannelTypeList'] as $item1) {
+                    $model->channelTypeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
+
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }

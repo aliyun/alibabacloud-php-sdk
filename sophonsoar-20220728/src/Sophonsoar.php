@@ -4,10 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\BatchModifyInstanceStatusRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\BatchModifyInstanceStatusResponse;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ComparePlaybooksRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ComparePlaybooksResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ConvertPlaybookRequest;
@@ -46,8 +43,6 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaReque
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeParamTagsRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeParamTagsResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeUsedInfosRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeUsedInfosResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNotifyTemplateListRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNotifyTemplateListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiInfoRequest;
@@ -68,8 +63,6 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybooksRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybooksResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiItemListRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiItemListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessStatisticsRequest;
@@ -96,16 +89,12 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyComponentAssetRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyComponentAssetResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookInputOutputRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookInputOutputResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookInstanceStatusRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookInstanceStatusResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\PublishPlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\PublishPlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\QueryTreeDataRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\QueryTreeDataResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RenamePlaybookNodeRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RenamePlaybookNodeResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RevertPlaybookReleaseRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RevertPlaybookReleaseResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithEmailRequest;
@@ -126,11 +115,10 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPythonFileRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\VerifyPythonFileResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Sophonsoar extends OpenApiClient
 {
@@ -155,100 +143,52 @@ class Sophonsoar extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Modifies the statuses of playbooks at a time.
-     *  *
-     * @param BatchModifyInstanceStatusRequest $request BatchModifyInstanceStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Compares configurations between two versions of a published playbook.
      *
-     * @return BatchModifyInstanceStatusResponse BatchModifyInstanceStatusResponse
-     */
-    public function batchModifyInstanceStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
-        }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'BatchModifyInstanceStatus',
-            'version' => '2022-07-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchModifyInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return BatchModifyInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies the statuses of playbooks at a time.
-     *  *
-     * @param BatchModifyInstanceStatusRequest $request BatchModifyInstanceStatusRequest
+     * @param request - ComparePlaybooksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BatchModifyInstanceStatusResponse BatchModifyInstanceStatusResponse
-     */
-    public function batchModifyInstanceStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchModifyInstanceStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Compares configurations between two versions of a published playbook.
-     *  *
-     * @param ComparePlaybooksRequest $request ComparePlaybooksRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @returns ComparePlaybooksResponse
      *
-     * @return ComparePlaybooksResponse ComparePlaybooksResponse
+     * @param ComparePlaybooksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ComparePlaybooksResponse
      */
     public function comparePlaybooksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->newPlaybookReleaseId)) {
-            $query['NewPlaybookReleaseId'] = $request->newPlaybookReleaseId;
+
+        if (null !== $request->newPlaybookReleaseId) {
+            @$query['NewPlaybookReleaseId'] = $request->newPlaybookReleaseId;
         }
-        if (!Utils::isUnset($request->oldPlaybookReleaseId)) {
-            $query['OldPlaybookReleaseId'] = $request->oldPlaybookReleaseId;
+
+        if (null !== $request->oldPlaybookReleaseId) {
+            @$query['OldPlaybookReleaseId'] = $request->oldPlaybookReleaseId;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $query['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$query['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ComparePlaybooks',
@@ -261,19 +201,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ComparePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ComparePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ComparePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Compares configurations between two versions of a published playbook.
-     *  *
-     * @param ComparePlaybooksRequest $request ComparePlaybooksRequest
+     * Compares configurations between two versions of a published playbook.
      *
-     * @return ComparePlaybooksResponse ComparePlaybooksResponse
+     * @param request - ComparePlaybooksRequest
+     *
+     * @returns ComparePlaybooksResponse
+     *
+     * @param ComparePlaybooksRequest $request
+     *
+     * @return ComparePlaybooksResponse
      */
     public function comparePlaybooks($request)
     {
@@ -283,35 +224,45 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Convert XML configuration.
-     *  *
-     * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
-     *  *
-     * @param ConvertPlaybookRequest $request ConvertPlaybookRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Convert XML configuration.
      *
-     * @return ConvertPlaybookResponse ConvertPlaybookResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
+     *
+     * @param request - ConvertPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertPlaybookResponse
+     *
+     * @param ConvertPlaybookRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConvertPlaybookResponse
      */
     public function convertPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $query['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$query['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $query['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskflow)) {
-            $body['Taskflow'] = $request->taskflow;
+        if (null !== $request->taskflow) {
+            @$body['Taskflow'] = $request->taskflow;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConvertPlaybook',
@@ -324,21 +275,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ConvertPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConvertPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConvertPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Convert XML configuration.
-     *  *
-     * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
-     *  *
-     * @param ConvertPlaybookRequest $request ConvertPlaybookRequest
+     * Convert XML configuration.
      *
-     * @return ConvertPlaybookResponse ConvertPlaybookResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
+     *
+     * @param request - ConvertPlaybookRequest
+     *
+     * @returns ConvertPlaybookResponse
+     *
+     * @param ConvertPlaybookRequest $request
+     *
+     * @return ConvertPlaybookResponse
      */
     public function convertPlaybook($request)
     {
@@ -348,42 +301,57 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 剧本复制
-     *  *
-     * @param CopyPlaybookRequest $request CopyPlaybookRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Copies a playbook.
      *
-     * @return CopyPlaybookResponse CopyPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - CopyPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyPlaybookResponse
+     *
+     * @param CopyPlaybookRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CopyPlaybookResponse
      */
     public function copyPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $query['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$query['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $query['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->releaseVersion)) {
-            $body['ReleaseVersion'] = $request->releaseVersion;
+
+        if (null !== $request->releaseVersion) {
+            @$body['ReleaseVersion'] = $request->releaseVersion;
         }
-        if (!Utils::isUnset($request->sourcePlaybookUuid)) {
-            $body['SourcePlaybookUuid'] = $request->sourcePlaybookUuid;
+
+        if (null !== $request->sourcePlaybookUuid) {
+            @$body['SourcePlaybookUuid'] = $request->sourcePlaybookUuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CopyPlaybook',
@@ -396,19 +364,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CopyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 剧本复制
-     *  *
-     * @param CopyPlaybookRequest $request CopyPlaybookRequest
+     * Copies a playbook.
      *
-     * @return CopyPlaybookResponse CopyPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - CopyPlaybookRequest
+     *
+     * @returns CopyPlaybookResponse
+     *
+     * @param CopyPlaybookRequest $request
+     *
+     * @return CopyPlaybookResponse
      */
     public function copyPlaybook($request)
     {
@@ -418,33 +390,51 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary New Playbook.
-     *  *
-     * @description Create Playbook.
-     *  *
-     * @param CreatePlaybookRequest $request CreatePlaybookRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * New Playbook.
      *
-     * @return CreatePlaybookResponse CreatePlaybookResponse
+     * @remarks
+     * Create Playbook.
+     *
+     * @param request - CreatePlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePlaybookResponse
+     *
+     * @param CreatePlaybookRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePlaybookResponse
      */
     public function createPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+
+        if (null !== $request->inputParams) {
+            @$body['InputParams'] = $request->inputParams;
         }
-        if (!Utils::isUnset($request->taskflowType)) {
-            $body['TaskflowType'] = $request->taskflowType;
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
+
+        if (null !== $request->outputParams) {
+            @$body['OutputParams'] = $request->outputParams;
+        }
+
+        if (null !== $request->taskflowType) {
+            @$body['TaskflowType'] = $request->taskflowType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePlaybook',
@@ -457,21 +447,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary New Playbook.
-     *  *
-     * @description Create Playbook.
-     *  *
-     * @param CreatePlaybookRequest $request CreatePlaybookRequest
+     * New Playbook.
      *
-     * @return CreatePlaybookResponse CreatePlaybookResponse
+     * @remarks
+     * Create Playbook.
+     *
+     * @param request - CreatePlaybookRequest
+     *
+     * @returns CreatePlaybookResponse
+     *
+     * @param CreatePlaybookRequest $request
+     *
+     * @return CreatePlaybookResponse
      */
     public function createPlaybook($request)
     {
@@ -481,31 +473,40 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Debugs a playbook.
-     *  *
-     * @param DebugPlaybookRequest $request DebugPlaybookRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Debugs a playbook.
      *
-     * @return DebugPlaybookResponse DebugPlaybookResponse
+     * @param request - DebugPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DebugPlaybookResponse
+     *
+     * @param DebugPlaybookRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DebugPlaybookResponse
      */
     public function debugPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->record)) {
-            $body['Record'] = $request->record;
+
+        if (null !== $request->record) {
+            @$body['Record'] = $request->record;
         }
-        if (!Utils::isUnset($request->taskflow)) {
-            $body['Taskflow'] = $request->taskflow;
+
+        if (null !== $request->taskflow) {
+            @$body['Taskflow'] = $request->taskflow;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DebugPlaybook',
@@ -518,19 +519,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DebugPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DebugPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return DebugPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Debugs a playbook.
-     *  *
-     * @param DebugPlaybookRequest $request DebugPlaybookRequest
+     * Debugs a playbook.
      *
-     * @return DebugPlaybookResponse DebugPlaybookResponse
+     * @param request - DebugPlaybookRequest
+     *
+     * @returns DebugPlaybookResponse
+     *
+     * @param DebugPlaybookRequest $request
+     *
+     * @return DebugPlaybookResponse
      */
     public function debugPlaybook($request)
     {
@@ -540,25 +542,32 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the assets in a component.
-     *  *
-     * @param DeleteComponentAssetRequest $request DeleteComponentAssetRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes the assets in a component.
      *
-     * @return DeleteComponentAssetResponse DeleteComponentAssetResponse
+     * @param request - DeleteComponentAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComponentAssetResponse
+     *
+     * @param DeleteComponentAssetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteComponentAssetResponse
      */
     public function deleteComponentAssetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->assetId)) {
-            $query['AssetId'] = $request->assetId;
+        if (null !== $request->assetId) {
+            @$query['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteComponentAsset',
@@ -571,19 +580,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteComponentAssetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the assets in a component.
-     *  *
-     * @param DeleteComponentAssetRequest $request DeleteComponentAssetRequest
+     * Deletes the assets in a component.
      *
-     * @return DeleteComponentAssetResponse DeleteComponentAssetResponse
+     * @param request - DeleteComponentAssetRequest
+     *
+     * @returns DeleteComponentAssetResponse
+     *
+     * @param DeleteComponentAssetRequest $request
+     *
+     * @return DeleteComponentAssetResponse
      */
     public function deleteComponentAsset($request)
     {
@@ -593,25 +603,32 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom playbook.
-     *  *
-     * @param DeletePlaybookRequest $request DeletePlaybookRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom playbook.
      *
-     * @return DeletePlaybookResponse DeletePlaybookResponse
+     * @param request - DeletePlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePlaybookResponse
+     *
+     * @param DeletePlaybookRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePlaybookResponse
      */
     public function deletePlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeletePlaybook',
@@ -624,19 +641,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeletePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom playbook.
-     *  *
-     * @param DeletePlaybookRequest $request DeletePlaybookRequest
+     * Deletes a custom playbook.
      *
-     * @return DeletePlaybookResponse DeletePlaybookResponse
+     * @param request - DeletePlaybookRequest
+     *
+     * @returns DeletePlaybookResponse
+     *
+     * @param DeletePlaybookRequest $request
+     *
+     * @return DeletePlaybookResponse
      */
     public function deletePlaybook($request)
     {
@@ -646,19 +664,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
-     *  *
-     * @param DescribeComponentAssetFormRequest $request DescribeComponentAssetFormRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
      *
-     * @return DescribeComponentAssetFormResponse DescribeComponentAssetFormResponse
+     * @param request - DescribeComponentAssetFormRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentAssetFormResponse
+     *
+     * @param DescribeComponentAssetFormRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeComponentAssetFormResponse
      */
     public function describeComponentAssetFormWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeComponentAssetForm',
@@ -671,19 +694,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeComponentAssetFormResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeComponentAssetFormResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeComponentAssetFormResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
-     *  *
-     * @param DescribeComponentAssetFormRequest $request DescribeComponentAssetFormRequest
+     * Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
      *
-     * @return DescribeComponentAssetFormResponse DescribeComponentAssetFormResponse
+     * @param request - DescribeComponentAssetFormRequest
+     *
+     * @returns DescribeComponentAssetFormResponse
+     *
+     * @param DescribeComponentAssetFormRequest $request
+     *
+     * @return DescribeComponentAssetFormResponse
      */
     public function describeComponentAssetForm($request)
     {
@@ -693,19 +717,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of assets in a component.
-     *  *
-     * @param DescribeComponentAssetsRequest $request DescribeComponentAssetsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of assets in a component.
      *
-     * @return DescribeComponentAssetsResponse DescribeComponentAssetsResponse
+     * @param request - DescribeComponentAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentAssetsResponse
+     *
+     * @param DescribeComponentAssetsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeComponentAssetsResponse
      */
     public function describeComponentAssetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeComponentAssets',
@@ -718,19 +747,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeComponentAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeComponentAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeComponentAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of assets in a component.
-     *  *
-     * @param DescribeComponentAssetsRequest $request DescribeComponentAssetsRequest
+     * Queries a list of assets in a component.
      *
-     * @return DescribeComponentAssetsResponse DescribeComponentAssetsResponse
+     * @param request - DescribeComponentAssetsRequest
+     *
+     * @returns DescribeComponentAssetsResponse
+     *
+     * @param DescribeComponentAssetsRequest $request
+     *
+     * @return DescribeComponentAssetsResponse
      */
     public function describeComponentAssets($request)
     {
@@ -740,19 +770,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of common components that are available.
-     *  *
-     * @param DescribeComponentListRequest $request DescribeComponentListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of common components that are available.
      *
-     * @return DescribeComponentListResponse DescribeComponentListResponse
+     * @param request - DescribeComponentListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentListResponse
+     *
+     * @param DescribeComponentListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeComponentListResponse
      */
     public function describeComponentListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeComponentList',
@@ -765,19 +800,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeComponentListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeComponentListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeComponentListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of common components that are available.
-     *  *
-     * @param DescribeComponentListRequest $request DescribeComponentListRequest
+     * Queries a list of common components that are available.
      *
-     * @return DescribeComponentListResponse DescribeComponentListResponse
+     * @param request - DescribeComponentListRequest
+     *
+     * @returns DescribeComponentListResponse
+     *
+     * @param DescribeComponentListRequest $request
+     *
+     * @return DescribeComponentListResponse
      */
     public function describeComponentList($request)
     {
@@ -787,19 +823,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of predefined components that are available.
-     *  *
-     * @param DescribeComponentPlaybookRequest $request DescribeComponentPlaybookRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of predefined components that are available.
      *
-     * @return DescribeComponentPlaybookResponse DescribeComponentPlaybookResponse
+     * @param request - DescribeComponentPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentPlaybookResponse
+     *
+     * @param DescribeComponentPlaybookRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeComponentPlaybookResponse
      */
     public function describeComponentPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeComponentPlaybook',
@@ -812,19 +853,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeComponentPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeComponentPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeComponentPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of predefined components that are available.
-     *  *
-     * @param DescribeComponentPlaybookRequest $request DescribeComponentPlaybookRequest
+     * Queries a list of predefined components that are available.
      *
-     * @return DescribeComponentPlaybookResponse DescribeComponentPlaybookResponse
+     * @param request - DescribeComponentPlaybookRequest
+     *
+     * @returns DescribeComponentPlaybookResponse
+     *
+     * @param DescribeComponentPlaybookRequest $request
+     *
+     * @return DescribeComponentPlaybookResponse
      */
     public function describeComponentPlaybook($request)
     {
@@ -834,19 +876,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
-     *  *
-     * @param DescribeComponentsJsRequest $request DescribeComponentsJsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
      *
-     * @return DescribeComponentsJsResponse DescribeComponentsJsResponse
+     * @param request - DescribeComponentsJsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentsJsResponse
+     *
+     * @param DescribeComponentsJsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeComponentsJsResponse
      */
     public function describeComponentsJsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeComponentsJs',
@@ -859,19 +906,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeComponentsJsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeComponentsJsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeComponentsJsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
-     *  *
-     * @param DescribeComponentsJsRequest $request DescribeComponentsJsRequest
+     * Queries the JavaScript file of a component. The component uses the returned JavaScript file for page rendering.
      *
-     * @return DescribeComponentsJsResponse DescribeComponentsJsResponse
+     * @param request - DescribeComponentsJsRequest
+     *
+     * @returns DescribeComponentsJsResponse
+     *
+     * @param DescribeComponentsJsRequest $request
+     *
+     * @return DescribeComponentsJsResponse
      */
     public function describeComponentsJs($request)
     {
@@ -881,19 +929,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the published versions of a playbook after deduplication.
-     *  *
-     * @param DescribeDistinctReleasesRequest $request DescribeDistinctReleasesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the published versions of a playbook after deduplication.
      *
-     * @return DescribeDistinctReleasesResponse DescribeDistinctReleasesResponse
+     * @param request - DescribeDistinctReleasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDistinctReleasesResponse
+     *
+     * @param DescribeDistinctReleasesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDistinctReleasesResponse
      */
     public function describeDistinctReleasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDistinctReleases',
@@ -906,19 +959,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDistinctReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDistinctReleasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDistinctReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the published versions of a playbook after deduplication.
-     *  *
-     * @param DescribeDistinctReleasesRequest $request DescribeDistinctReleasesRequest
+     * Queries the information about the published versions of a playbook after deduplication.
      *
-     * @return DescribeDistinctReleasesResponse DescribeDistinctReleasesResponse
+     * @param request - DescribeDistinctReleasesRequest
+     *
+     * @returns DescribeDistinctReleasesResponse
+     *
+     * @param DescribeDistinctReleasesRequest $request
+     *
+     * @return DescribeDistinctReleasesResponse
      */
     public function describeDistinctReleases($request)
     {
@@ -928,19 +982,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries enumeration items that are required by a cloud service.
-     *  *
-     * @param DescribeEnumItemsRequest $request DescribeEnumItemsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries enumeration items that are required by a cloud service.
      *
-     * @return DescribeEnumItemsResponse DescribeEnumItemsResponse
+     * @param request - DescribeEnumItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEnumItemsResponse
+     *
+     * @param DescribeEnumItemsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeEnumItemsResponse
      */
     public function describeEnumItemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEnumItems',
@@ -953,19 +1012,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeEnumItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEnumItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEnumItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries enumeration items that are required by a cloud service.
-     *  *
-     * @param DescribeEnumItemsRequest $request DescribeEnumItemsRequest
+     * Queries enumeration items that are required by a cloud service.
      *
-     * @return DescribeEnumItemsResponse DescribeEnumItemsResponse
+     * @param request - DescribeEnumItemsRequest
+     *
+     * @returns DescribeEnumItemsResponse
+     *
+     * @param DescribeEnumItemsRequest $request
+     *
+     * @return DescribeEnumItemsResponse
      */
     public function describeEnumItems($request)
     {
@@ -975,19 +1035,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the playbooks that are available for an automatic response plan.
-     *  *
-     * @param DescribeExecutePlaybooksRequest $request DescribeExecutePlaybooksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the playbooks that are available for an automatic response plan.
      *
-     * @return DescribeExecutePlaybooksResponse DescribeExecutePlaybooksResponse
+     * @param request - DescribeExecutePlaybooksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExecutePlaybooksResponse
+     *
+     * @param DescribeExecutePlaybooksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeExecutePlaybooksResponse
      */
     public function describeExecutePlaybooksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeExecutePlaybooks',
@@ -1000,19 +1065,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeExecutePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExecutePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExecutePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the playbooks that are available for an automatic response plan.
-     *  *
-     * @param DescribeExecutePlaybooksRequest $request DescribeExecutePlaybooksRequest
+     * Queries the playbooks that are available for an automatic response plan.
      *
-     * @return DescribeExecutePlaybooksResponse DescribeExecutePlaybooksResponse
+     * @param request - DescribeExecutePlaybooksRequest
+     *
+     * @returns DescribeExecutePlaybooksResponse
+     *
+     * @param DescribeExecutePlaybooksRequest $request
+     *
+     * @return DescribeExecutePlaybooksResponse
      */
     public function describeExecutePlaybooks($request)
     {
@@ -1022,19 +1088,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the global configuration information about a cloud service.
-     *  *
-     * @param DescribeFieldRequest $request DescribeFieldRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the global configuration information about a cloud service.
      *
-     * @return DescribeFieldResponse DescribeFieldResponse
+     * @param request - DescribeFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFieldResponse
+     *
+     * @param DescribeFieldRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeFieldResponse
      */
     public function describeFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeField',
@@ -1047,19 +1118,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeFieldResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFieldResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the global configuration information about a cloud service.
-     *  *
-     * @param DescribeFieldRequest $request DescribeFieldRequest
+     * Queries the global configuration information about a cloud service.
      *
-     * @return DescribeFieldResponse DescribeFieldResponse
+     * @param request - DescribeFieldRequest
+     *
+     * @returns DescribeFieldResponse
+     *
+     * @param DescribeFieldRequest $request
+     *
+     * @return DescribeFieldResponse
      */
     public function describeField($request)
     {
@@ -1069,19 +1141,27 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 获取OpenAPI的产品列表
-     *  *
-     * @param DescribeGroupProductionsRequest $request DescribeGroupProductionsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries groups of Alibaba Cloud services.
      *
-     * @return DescribeGroupProductionsResponse DescribeGroupProductionsResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeGroupProductionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupProductionsResponse
+     *
+     * @param DescribeGroupProductionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeGroupProductionsResponse
      */
     public function describeGroupProductionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGroupProductions',
@@ -1094,19 +1174,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGroupProductionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGroupProductionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGroupProductionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取OpenAPI的产品列表
-     *  *
-     * @param DescribeGroupProductionsRequest $request DescribeGroupProductionsRequest
+     * Queries groups of Alibaba Cloud services.
      *
-     * @return DescribeGroupProductionsResponse DescribeGroupProductionsResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeGroupProductionsRequest
+     *
+     * @returns DescribeGroupProductionsResponse
+     *
+     * @param DescribeGroupProductionsRequest $request
+     *
+     * @return DescribeGroupProductionsResponse
      */
     public function describeGroupProductions($request)
     {
@@ -1116,19 +1200,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
-     *  *
-     * @param DescribeLatestRecordSchemaRequest $request DescribeLatestRecordSchemaRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
      *
-     * @return DescribeLatestRecordSchemaResponse DescribeLatestRecordSchemaResponse
+     * @param request - DescribeLatestRecordSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLatestRecordSchemaResponse
+     *
+     * @param DescribeLatestRecordSchemaRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeLatestRecordSchemaResponse
      */
     public function describeLatestRecordSchemaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeLatestRecordSchema',
@@ -1141,19 +1230,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeLatestRecordSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLatestRecordSchemaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLatestRecordSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
-     *  *
-     * @param DescribeLatestRecordSchemaRequest $request DescribeLatestRecordSchemaRequest
+     * Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
      *
-     * @return DescribeLatestRecordSchemaResponse DescribeLatestRecordSchemaResponse
+     * @param request - DescribeLatestRecordSchemaRequest
+     *
+     * @returns DescribeLatestRecordSchemaResponse
+     *
+     * @param DescribeLatestRecordSchemaRequest $request
+     *
+     * @return DescribeLatestRecordSchemaResponse
      */
     public function describeLatestRecordSchema($request)
     {
@@ -1163,19 +1253,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
-     *  *
-     * @param DescribeNodeParamTagsRequest $request DescribeNodeParamTagsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries recommended dynamic input parameters of a component for playbook orchestration.
      *
-     * @return DescribeNodeParamTagsResponse DescribeNodeParamTagsResponse
+     * @param request - DescribeNodeParamTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeParamTagsResponse
+     *
+     * @param DescribeNodeParamTagsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeNodeParamTagsResponse
      */
     public function describeNodeParamTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNodeParamTags',
@@ -1188,19 +1283,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNodeParamTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNodeParamTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNodeParamTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries recommended dynamic input parameters of a component for playbook orchestration.
-     *  *
-     * @param DescribeNodeParamTagsRequest $request DescribeNodeParamTagsRequest
+     * Queries recommended dynamic input parameters of a component for playbook orchestration.
      *
-     * @return DescribeNodeParamTagsResponse DescribeNodeParamTagsResponse
+     * @param request - DescribeNodeParamTagsRequest
+     *
+     * @returns DescribeNodeParamTagsResponse
+     *
+     * @param DescribeNodeParamTagsRequest $request
+     *
+     * @return DescribeNodeParamTagsResponse
      */
     public function describeNodeParamTags($request)
     {
@@ -1210,66 +1306,27 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the nodes that reference the same node in a playbook.
-     *  *
-     * @param DescribeNodeUsedInfosRequest $request DescribeNodeUsedInfosRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries notification templates.
      *
-     * @return DescribeNodeUsedInfosResponse DescribeNodeUsedInfosResponse
-     */
-    public function describeNodeUsedInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeNodeUsedInfos',
-            'version' => '2022-07-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNodeUsedInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return DescribeNodeUsedInfosResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the nodes that reference the same node in a playbook.
-     *  *
-     * @param DescribeNodeUsedInfosRequest $request DescribeNodeUsedInfosRequest
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
      *
-     * @return DescribeNodeUsedInfosResponse DescribeNodeUsedInfosResponse
-     */
-    public function describeNodeUsedInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNodeUsedInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 查询通知消息模版列表
-     *  *
-     * @param DescribeNotifyTemplateListRequest $request DescribeNotifyTemplateListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeNotifyTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeNotifyTemplateListResponse DescribeNotifyTemplateListResponse
+     * @returns DescribeNotifyTemplateListResponse
+     *
+     * @param DescribeNotifyTemplateListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeNotifyTemplateListResponse
      */
     public function describeNotifyTemplateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNotifyTemplateList',
@@ -1282,19 +1339,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNotifyTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNotifyTemplateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNotifyTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询通知消息模版列表
-     *  *
-     * @param DescribeNotifyTemplateListRequest $request DescribeNotifyTemplateListRequest
+     * Queries notification templates.
      *
-     * @return DescribeNotifyTemplateListResponse DescribeNotifyTemplateListResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeNotifyTemplateListRequest
+     *
+     * @returns DescribeNotifyTemplateListResponse
+     *
+     * @param DescribeNotifyTemplateListRequest $request
+     *
+     * @return DescribeNotifyTemplateListResponse
      */
     public function describeNotifyTemplateList($request)
     {
@@ -1304,19 +1365,27 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 获取产品接口的详情
-     *  *
-     * @param DescribeOpenApiInfoRequest $request DescribeOpenApiInfoRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an API operation.
      *
-     * @return DescribeOpenApiInfoResponse DescribeOpenApiInfoResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeOpenApiInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenApiInfoResponse
+     *
+     * @param DescribeOpenApiInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOpenApiInfoResponse
      */
     public function describeOpenApiInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOpenApiInfo',
@@ -1329,19 +1398,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeOpenApiInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOpenApiInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOpenApiInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取产品接口的详情
-     *  *
-     * @param DescribeOpenApiInfoRequest $request DescribeOpenApiInfoRequest
+     * Queries the details of an API operation.
      *
-     * @return DescribeOpenApiInfoResponse DescribeOpenApiInfoResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeOpenApiInfoRequest
+     *
+     * @returns DescribeOpenApiInfoResponse
+     *
+     * @param DescribeOpenApiInfoRequest $request
+     *
+     * @return DescribeOpenApiInfoResponse
      */
     public function describeOpenApiInfo($request)
     {
@@ -1351,19 +1424,27 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 获取产品的接口列表
-     *  *
-     * @param DescribeOpenApiListRequest $request DescribeOpenApiListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the API operations of an Alibaba Cloud service.
      *
-     * @return DescribeOpenApiListResponse DescribeOpenApiListResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeOpenApiListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenApiListResponse
+     *
+     * @param DescribeOpenApiListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOpenApiListResponse
      */
     public function describeOpenApiListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOpenApiList',
@@ -1376,19 +1457,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeOpenApiListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOpenApiListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOpenApiListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取产品的接口列表
-     *  *
-     * @param DescribeOpenApiListRequest $request DescribeOpenApiListRequest
+     * Queries the API operations of an Alibaba Cloud service.
      *
-     * @return DescribeOpenApiListResponse DescribeOpenApiListResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or the pricing for log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeOpenApiListRequest
+     *
+     * @returns DescribeOpenApiListResponse
+     *
+     * @param DescribeOpenApiListRequest $request
+     *
+     * @return DescribeOpenApiListResponse
      */
     public function describeOpenApiList($request)
     {
@@ -1398,19 +1483,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the XML configuration of a playbook.
-     *  *
-     * @param DescribePlaybookRequest $request DescribePlaybookRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the XML configuration of a playbook.
      *
-     * @return DescribePlaybookResponse DescribePlaybookResponse
+     * @param request - DescribePlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookResponse
+     *
+     * @param DescribePlaybookRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribePlaybookResponse
      */
     public function describePlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybook',
@@ -1423,19 +1513,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the XML configuration of a playbook.
-     *  *
-     * @param DescribePlaybookRequest $request DescribePlaybookRequest
+     * Queries the XML configuration of a playbook.
      *
-     * @return DescribePlaybookResponse DescribePlaybookResponse
+     * @param request - DescribePlaybookRequest
+     *
+     * @returns DescribePlaybookResponse
+     *
+     * @param DescribePlaybookRequest $request
+     *
+     * @return DescribePlaybookResponse
      */
     public function describePlaybook($request)
     {
@@ -1445,19 +1536,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the input and output parameter configurations of a playbook.
-     *  *
-     * @param DescribePlaybookInputOutputRequest $request DescribePlaybookInputOutputRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the input and output parameter configurations of a playbook.
      *
-     * @return DescribePlaybookInputOutputResponse DescribePlaybookInputOutputResponse
+     * @param request - DescribePlaybookInputOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookInputOutputResponse
+     *
+     * @param DescribePlaybookInputOutputRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePlaybookInputOutputResponse
      */
     public function describePlaybookInputOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybookInputOutput',
@@ -1470,19 +1566,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookInputOutputResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the input and output parameter configurations of a playbook.
-     *  *
-     * @param DescribePlaybookInputOutputRequest $request DescribePlaybookInputOutputRequest
+     * Queries the input and output parameter configurations of a playbook.
      *
-     * @return DescribePlaybookInputOutputResponse DescribePlaybookInputOutputResponse
+     * @param request - DescribePlaybookInputOutputRequest
+     *
+     * @returns DescribePlaybookInputOutputResponse
+     *
+     * @param DescribePlaybookInputOutputRequest $request
+     *
+     * @return DescribePlaybookInputOutputResponse
      */
     public function describePlaybookInputOutput($request)
     {
@@ -1492,19 +1589,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
-     *  *
-     * @param DescribePlaybookMetricsRequest $request DescribePlaybookMetricsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
      *
-     * @return DescribePlaybookMetricsResponse DescribePlaybookMetricsResponse
+     * @param request - DescribePlaybookMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookMetricsResponse
+     *
+     * @param DescribePlaybookMetricsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePlaybookMetricsResponse
      */
     public function describePlaybookMetricsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybookMetrics',
@@ -1517,19 +1619,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
-     *  *
-     * @param DescribePlaybookMetricsRequest $request DescribePlaybookMetricsRequest
+     * Queries the metrics of a playbook. The metrics include the playbook name, playbook description, the number of times that the playbook is run, and the failure rate of the playbook.
      *
-     * @return DescribePlaybookMetricsResponse DescribePlaybookMetricsResponse
+     * @param request - DescribePlaybookMetricsRequest
+     *
+     * @returns DescribePlaybookMetricsResponse
+     *
+     * @param DescribePlaybookMetricsRequest $request
+     *
+     * @return DescribePlaybookMetricsResponse
      */
     public function describePlaybookMetrics($request)
     {
@@ -1539,19 +1642,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical output data of a component node.
-     *  *
-     * @param DescribePlaybookNodesOutputRequest $request DescribePlaybookNodesOutputRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the historical output data of a component node.
      *
-     * @return DescribePlaybookNodesOutputResponse DescribePlaybookNodesOutputResponse
+     * @param request - DescribePlaybookNodesOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookNodesOutputResponse
+     *
+     * @param DescribePlaybookNodesOutputRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePlaybookNodesOutputResponse
      */
     public function describePlaybookNodesOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybookNodesOutput',
@@ -1564,19 +1672,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookNodesOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookNodesOutputResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookNodesOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the historical output data of a component node.
-     *  *
-     * @param DescribePlaybookNodesOutputRequest $request DescribePlaybookNodesOutputRequest
+     * Queries the historical output data of a component node.
      *
-     * @return DescribePlaybookNodesOutputResponse DescribePlaybookNodesOutputResponse
+     * @param request - DescribePlaybookNodesOutputRequest
+     *
+     * @returns DescribePlaybookNodesOutputResponse
+     *
+     * @param DescribePlaybookNodesOutputRequest $request
+     *
+     * @return DescribePlaybookNodesOutputResponse
      */
     public function describePlaybookNodesOutput($request)
     {
@@ -1586,19 +1695,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
-     *  *
-     * @param DescribePlaybookNumberMetricsRequest $request DescribePlaybookNumberMetricsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
      *
-     * @return DescribePlaybookNumberMetricsResponse DescribePlaybookNumberMetricsResponse
+     * @param request - DescribePlaybookNumberMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookNumberMetricsResponse
+     *
+     * @param DescribePlaybookNumberMetricsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePlaybookNumberMetricsResponse
      */
     public function describePlaybookNumberMetricsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybookNumberMetrics',
@@ -1611,19 +1725,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookNumberMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookNumberMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookNumberMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
-     *  *
-     * @param DescribePlaybookNumberMetricsRequest $request DescribePlaybookNumberMetricsRequest
+     * Queries the statistics of Security Orchestration Automation Response (SOAR), such as the numbers of created and enabled playbooks.
      *
-     * @return DescribePlaybookNumberMetricsResponse DescribePlaybookNumberMetricsResponse
+     * @param request - DescribePlaybookNumberMetricsRequest
+     *
+     * @returns DescribePlaybookNumberMetricsResponse
+     *
+     * @param DescribePlaybookNumberMetricsRequest $request
+     *
+     * @return DescribePlaybookNumberMetricsResponse
      */
     public function describePlaybookNumberMetrics($request)
     {
@@ -1633,19 +1748,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the published versions of a playbook.
-     *  *
-     * @param DescribePlaybookReleasesRequest $request DescribePlaybookReleasesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the published versions of a playbook.
      *
-     * @return DescribePlaybookReleasesResponse DescribePlaybookReleasesResponse
+     * @param request - DescribePlaybookReleasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybookReleasesResponse
+     *
+     * @param DescribePlaybookReleasesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePlaybookReleasesResponse
      */
     public function describePlaybookReleasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybookReleases',
@@ -1658,19 +1778,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybookReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybookReleasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybookReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the published versions of a playbook.
-     *  *
-     * @param DescribePlaybookReleasesRequest $request DescribePlaybookReleasesRequest
+     * Queries the information about the published versions of a playbook.
      *
-     * @return DescribePlaybookReleasesResponse DescribePlaybookReleasesResponse
+     * @param request - DescribePlaybookReleasesRequest
+     *
+     * @returns DescribePlaybookReleasesResponse
+     *
+     * @param DescribePlaybookReleasesRequest $request
+     *
+     * @return DescribePlaybookReleasesResponse
      */
     public function describePlaybookReleases($request)
     {
@@ -1680,19 +1801,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve the list of playbooks.
-     *  *
-     * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Retrieve the list of playbooks.
      *
-     * @return DescribePlaybooksResponse DescribePlaybooksResponse
+     * @param request - DescribePlaybooksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlaybooksResponse
+     *
+     * @param DescribePlaybooksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribePlaybooksResponse
      */
     public function describePlaybooksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlaybooks',
@@ -1705,19 +1831,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Retrieve the list of playbooks.
-     *  *
-     * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
+     * Retrieve the list of playbooks.
      *
-     * @return DescribePlaybooksResponse DescribePlaybooksResponse
+     * @param request - DescribePlaybooksRequest
+     *
+     * @returns DescribePlaybooksResponse
+     *
+     * @param DescribePlaybooksRequest $request
+     *
+     * @return DescribePlaybooksResponse
      */
     public function describePlaybooks($request)
     {
@@ -1727,19 +1854,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an API operation.
-     *  *
-     * @param DescribePopApiRequest $request DescribePopApiRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an API operation.
      *
-     * @return DescribePopApiResponse DescribePopApiResponse
+     * @param request - DescribePopApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePopApiResponse
+     *
+     * @param DescribePopApiRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribePopApiResponse
      */
     public function describePopApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePopApi',
@@ -1752,19 +1884,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePopApiResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePopApiResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePopApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an API operation.
-     *  *
-     * @param DescribePopApiRequest $request DescribePopApiRequest
+     * Queries the details of an API operation.
      *
-     * @return DescribePopApiResponse DescribePopApiResponse
+     * @param request - DescribePopApiRequest
+     *
+     * @returns DescribePopApiResponse
+     *
+     * @param DescribePopApiRequest $request
+     *
+     * @return DescribePopApiResponse
      */
     public function describePopApi($request)
     {
@@ -1774,66 +1907,27 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of API operations for an Alibaba Cloud service.
-     *  *
-     * @param DescribePopApiItemListRequest $request DescribePopApiItemListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries statistics.
      *
-     * @return DescribePopApiItemListResponse DescribePopApiItemListResponse
-     */
-    public function describePopApiItemListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribePopApiItemList',
-            'version' => '2022-07-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePopApiItemListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return DescribePopApiItemListResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries a list of API operations for an Alibaba Cloud service.
-     *  *
-     * @param DescribePopApiItemListRequest $request DescribePopApiItemListRequest
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
      *
-     * @return DescribePopApiItemListResponse DescribePopApiItemListResponse
-     */
-    public function describePopApiItemList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePopApiItemListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 获取统计信息
-     *  *
-     * @param DescribeProcessStatisticsRequest $request DescribeProcessStatisticsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProcessStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeProcessStatisticsResponse DescribeProcessStatisticsResponse
+     * @returns DescribeProcessStatisticsResponse
+     *
+     * @param DescribeProcessStatisticsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeProcessStatisticsResponse
      */
     public function describeProcessStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeProcessStatistics',
@@ -1846,19 +1940,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeProcessStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取统计信息
-     *  *
-     * @param DescribeProcessStatisticsRequest $request DescribeProcessStatisticsRequest
+     * Queries statistics.
      *
-     * @return DescribeProcessStatisticsResponse DescribeProcessStatisticsResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeProcessStatisticsRequest
+     *
+     * @returns DescribeProcessStatisticsResponse
+     *
+     * @param DescribeProcessStatisticsRequest $request
+     *
+     * @return DescribeProcessStatisticsResponse
      */
     public function describeProcessStatistics($request)
     {
@@ -1868,19 +1966,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Query the number of associated disposal tasks based on the entity UUID.
-     *  *
-     * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Query the number of associated disposal tasks based on the entity UUID.
      *
-     * @return DescribeProcessTaskCountResponse DescribeProcessTaskCountResponse
+     * @param request - DescribeProcessTaskCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProcessTaskCountResponse
+     *
+     * @param DescribeProcessTaskCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeProcessTaskCountResponse
      */
     public function describeProcessTaskCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeProcessTaskCount',
@@ -1893,19 +1996,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeProcessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessTaskCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the number of associated disposal tasks based on the entity UUID.
-     *  *
-     * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
+     * Query the number of associated disposal tasks based on the entity UUID.
      *
-     * @return DescribeProcessTaskCountResponse DescribeProcessTaskCountResponse
+     * @param request - DescribeProcessTaskCountRequest
+     *
+     * @returns DescribeProcessTaskCountResponse
+     *
+     * @param DescribeProcessTaskCountRequest $request
+     *
+     * @return DescribeProcessTaskCountResponse
      */
     public function describeProcessTaskCount($request)
     {
@@ -1915,82 +2019,115 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
-     *  *
-     * @param DescribeProcessTasksRequest $request DescribeProcessTasksRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
      *
-     * @return DescribeProcessTasksResponse DescribeProcessTasksResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeProcessTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProcessTasksResponse
+     *
+     * @param DescribeProcessTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeProcessTasksResponse
      */
     public function describeProcessTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->entityName)) {
-            $query['EntityName'] = $request->entityName;
+
+        if (null !== $request->entityName) {
+            @$query['EntityName'] = $request->entityName;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->entityUuid)) {
-            $query['EntityUuid'] = $request->entityUuid;
+
+        if (null !== $request->entityUuid) {
+            @$query['EntityUuid'] = $request->entityUuid;
         }
-        if (!Utils::isUnset($request->eventUuid)) {
-            $query['EventUuid'] = $request->eventUuid;
+
+        if (null !== $request->eventUuid) {
+            @$query['EventUuid'] = $request->eventUuid;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $query['OrderField'] = $request->orderField;
+
+        if (null !== $request->orderField) {
+            @$query['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paramContent)) {
-            $query['ParamContent'] = $request->paramContent;
+
+        if (null !== $request->paramContent) {
+            @$query['ParamContent'] = $request->paramContent;
         }
-        if (!Utils::isUnset($request->processActionEnd)) {
-            $query['ProcessActionEnd'] = $request->processActionEnd;
+
+        if (null !== $request->processActionEnd) {
+            @$query['ProcessActionEnd'] = $request->processActionEnd;
         }
-        if (!Utils::isUnset($request->processActionStart)) {
-            $query['ProcessActionStart'] = $request->processActionStart;
+
+        if (null !== $request->processActionStart) {
+            @$query['ProcessActionStart'] = $request->processActionStart;
         }
-        if (!Utils::isUnset($request->processRemoveEnd)) {
-            $query['ProcessRemoveEnd'] = $request->processRemoveEnd;
+
+        if (null !== $request->processRemoveEnd) {
+            @$query['ProcessRemoveEnd'] = $request->processRemoveEnd;
         }
-        if (!Utils::isUnset($request->processRemoveStart)) {
-            $query['ProcessRemoveStart'] = $request->processRemoveStart;
+
+        if (null !== $request->processRemoveStart) {
+            @$query['ProcessRemoveStart'] = $request->processRemoveStart;
         }
-        if (!Utils::isUnset($request->processStrategyUuid)) {
-            $query['ProcessStrategyUuid'] = $request->processStrategyUuid;
+
+        if (null !== $request->processStrategyUuid) {
+            @$query['ProcessStrategyUuid'] = $request->processStrategyUuid;
         }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
+
+        if (null !== $request->reqUuid) {
+            @$query['ReqUuid'] = $request->reqUuid;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->triggerSource)) {
-            $query['TriggerSource'] = $request->triggerSource;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->yunCode)) {
-            $query['YunCode'] = $request->yunCode;
+
+        if (null !== $request->triggerSource) {
+            @$query['TriggerSource'] = $request->triggerSource;
         }
+
+        if (null !== $request->yunCode) {
+            @$query['YunCode'] = $request->yunCode;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeProcessTasks',
@@ -2003,19 +2140,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeProcessTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProcessTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProcessTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
-     *  *
-     * @param DescribeProcessTasksRequest $request DescribeProcessTasksRequest
+     * Queries the information about handling tasks. When you use Security Orchestration Automation Response (SOAR) to handle events, handling tasks are generated in the handling center.
      *
-     * @return DescribeProcessTasksResponse DescribeProcessTasksResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - DescribeProcessTasksRequest
+     *
+     * @returns DescribeProcessTasksResponse
+     *
+     * @param DescribeProcessTasksRequest $request
+     *
+     * @return DescribeProcessTasksResponse
      */
     public function describeProcessTasks($request)
     {
@@ -2025,19 +2166,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data that is returned when a component initiates an action in a playbook task.
-     *  *
-     * @param DescribeSoarRecordActionOutputListRequest $request DescribeSoarRecordActionOutputListRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the data that is returned when a component initiates an action in a playbook task.
      *
-     * @return DescribeSoarRecordActionOutputListResponse DescribeSoarRecordActionOutputListResponse
+     * @param request - DescribeSoarRecordActionOutputListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSoarRecordActionOutputListResponse
+     *
+     * @param DescribeSoarRecordActionOutputListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeSoarRecordActionOutputListResponse
      */
     public function describeSoarRecordActionOutputListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSoarRecordActionOutputList',
@@ -2050,19 +2196,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSoarRecordActionOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSoarRecordActionOutputListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSoarRecordActionOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the data that is returned when a component initiates an action in a playbook task.
-     *  *
-     * @param DescribeSoarRecordActionOutputListRequest $request DescribeSoarRecordActionOutputListRequest
+     * Queries the data that is returned when a component initiates an action in a playbook task.
      *
-     * @return DescribeSoarRecordActionOutputListResponse DescribeSoarRecordActionOutputListResponse
+     * @param request - DescribeSoarRecordActionOutputListRequest
+     *
+     * @returns DescribeSoarRecordActionOutputListResponse
+     *
+     * @param DescribeSoarRecordActionOutputListRequest $request
+     *
+     * @return DescribeSoarRecordActionOutputListResponse
      */
     public function describeSoarRecordActionOutputList($request)
     {
@@ -2072,19 +2219,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
-     *  *
-     * @param DescribeSoarRecordInOutputRequest $request DescribeSoarRecordInOutputRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the input and output data of a component action. You can call this operation after a playbook is run.
      *
-     * @return DescribeSoarRecordInOutputResponse DescribeSoarRecordInOutputResponse
+     * @param request - DescribeSoarRecordInOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSoarRecordInOutputResponse
+     *
+     * @param DescribeSoarRecordInOutputRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSoarRecordInOutputResponse
      */
     public function describeSoarRecordInOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSoarRecordInOutput',
@@ -2097,19 +2249,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSoarRecordInOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSoarRecordInOutputResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSoarRecordInOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the input and output data of a component action. You can call this operation after a playbook is run.
-     *  *
-     * @param DescribeSoarRecordInOutputRequest $request DescribeSoarRecordInOutputRequest
+     * Queries the input and output data of a component action. You can call this operation after a playbook is run.
      *
-     * @return DescribeSoarRecordInOutputResponse DescribeSoarRecordInOutputResponse
+     * @param request - DescribeSoarRecordInOutputRequest
+     *
+     * @returns DescribeSoarRecordInOutputResponse
+     *
+     * @param DescribeSoarRecordInOutputRequest $request
+     *
+     * @return DescribeSoarRecordInOutputResponse
      */
     public function describeSoarRecordInOutput($request)
     {
@@ -2119,19 +2272,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Get the execution records of a playbook.
-     *  *
-     * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Get the execution records of a playbook.
      *
-     * @return DescribeSoarRecordsResponse DescribeSoarRecordsResponse
+     * @param request - DescribeSoarRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSoarRecordsResponse
+     *
+     * @param DescribeSoarRecordsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSoarRecordsResponse
      */
     public function describeSoarRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSoarRecords',
@@ -2144,19 +2302,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSoarRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSoarRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSoarRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Get the execution records of a playbook.
-     *  *
-     * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
+     * Get the execution records of a playbook.
      *
-     * @return DescribeSoarRecordsResponse DescribeSoarRecordsResponse
+     * @param request - DescribeSoarRecordsRequest
+     *
+     * @returns DescribeSoarRecordsResponse
+     *
+     * @param DescribeSoarRecordsRequest $request
+     *
+     * @return DescribeSoarRecordsResponse
      */
     public function describeSoarRecords($request)
     {
@@ -2166,19 +2325,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution records of a component during the running of a playbook.
-     *  *
-     * @param DescribeSoarTaskAndActionsRequest $request DescribeSoarTaskAndActionsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the execution records of a component during the running of a playbook.
      *
-     * @return DescribeSoarTaskAndActionsResponse DescribeSoarTaskAndActionsResponse
+     * @param request - DescribeSoarTaskAndActionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSoarTaskAndActionsResponse
+     *
+     * @param DescribeSoarTaskAndActionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSoarTaskAndActionsResponse
      */
     public function describeSoarTaskAndActionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSoarTaskAndActions',
@@ -2191,19 +2355,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSoarTaskAndActionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSoarTaskAndActionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSoarTaskAndActionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution records of a component during the running of a playbook.
-     *  *
-     * @param DescribeSoarTaskAndActionsRequest $request DescribeSoarTaskAndActionsRequest
+     * Queries the execution records of a component during the running of a playbook.
      *
-     * @return DescribeSoarTaskAndActionsResponse DescribeSoarTaskAndActionsResponse
+     * @param request - DescribeSoarTaskAndActionsRequest
+     *
+     * @returns DescribeSoarTaskAndActionsResponse
+     *
+     * @param DescribeSoarTaskAndActionsRequest $request
+     *
+     * @return DescribeSoarTaskAndActionsResponse
      */
     public function describeSoarTaskAndActions($request)
     {
@@ -2213,22 +2378,28 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the commands that can be run to obtain objects.
-     *  *
-     * @param DescribeSophonCommandsRequest $request DescribeSophonCommandsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the commands that can be run to obtain objects.
      *
-     * @return DescribeSophonCommandsResponse DescribeSophonCommandsResponse
+     * @param request - DescribeSophonCommandsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSophonCommandsResponse
+     *
+     * @param DescribeSophonCommandsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSophonCommandsResponse
      */
     public function describeSophonCommandsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSophonCommands',
@@ -2241,19 +2412,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSophonCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSophonCommandsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSophonCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the commands that can be run to obtain objects.
-     *  *
-     * @param DescribeSophonCommandsRequest $request DescribeSophonCommandsRequest
+     * Queries the commands that can be run to obtain objects.
      *
-     * @return DescribeSophonCommandsResponse DescribeSophonCommandsResponse
+     * @param request - DescribeSophonCommandsRequest
+     *
+     * @returns DescribeSophonCommandsResponse
+     *
+     * @param DescribeSophonCommandsRequest $request
+     *
+     * @return DescribeSophonCommandsResponse
      */
     public function describeSophonCommands($request)
     {
@@ -2263,37 +2435,51 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 查询云厂商OpenApi列表
-     *  *
-     * @param DescribeVendorApiListRequest $request DescribeVendorApiListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Query OpenApi List of Cloud Vendors.
      *
-     * @return DescribeVendorApiListResponse DescribeVendorApiListResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
+     *
+     * @param request - DescribeVendorApiListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVendorApiListResponse
+     *
+     * @param DescribeVendorApiListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVendorApiListResponse
      */
     public function describeVendorApiListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiName)) {
-            $query['ApiName'] = $request->apiName;
+        if (null !== $request->apiName) {
+            @$query['ApiName'] = $request->apiName;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->vendorCode)) {
-            $query['VendorCode'] = $request->vendorCode;
+
+        if (null !== $request->vendorCode) {
+            @$query['VendorCode'] = $request->vendorCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVendorApiList',
@@ -2306,19 +2492,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVendorApiListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVendorApiListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVendorApiListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询云厂商OpenApi列表
-     *  *
-     * @param DescribeVendorApiListRequest $request DescribeVendorApiListRequest
+     * Query OpenApi List of Cloud Vendors.
      *
-     * @return DescribeVendorApiListResponse DescribeVendorApiListResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
+     *
+     * @param request - DescribeVendorApiListRequest
+     *
+     * @returns DescribeVendorApiListResponse
+     *
+     * @param DescribeVendorApiListRequest $request
+     *
+     * @return DescribeVendorApiListResponse
      */
     public function describeVendorApiList($request)
     {
@@ -2328,19 +2518,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
-     *  *
-     * @param DescriberPython3ScriptLogsRequest $request DescriberPython3ScriptLogsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
      *
-     * @return DescriberPython3ScriptLogsResponse DescriberPython3ScriptLogsResponse
+     * @param request - DescriberPython3ScriptLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescriberPython3ScriptLogsResponse
+     *
+     * @param DescriberPython3ScriptLogsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescriberPython3ScriptLogsResponse
      */
     public function describerPython3ScriptLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescriberPython3ScriptLogs',
@@ -2353,19 +2548,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescriberPython3ScriptLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescriberPython3ScriptLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescriberPython3ScriptLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
-     *  *
-     * @param DescriberPython3ScriptLogsRequest $request DescriberPython3ScriptLogsRequest
+     * Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
      *
-     * @return DescriberPython3ScriptLogsResponse DescriberPython3ScriptLogsResponse
+     * @param request - DescriberPython3ScriptLogsRequest
+     *
+     * @returns DescriberPython3ScriptLogsResponse
+     *
+     * @param DescriberPython3ScriptLogsRequest $request
+     *
+     * @return DescriberPython3ScriptLogsResponse
      */
     public function describerPython3ScriptLogs($request)
     {
@@ -2375,25 +2571,32 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about the asset that is configured for a component.
-     *  *
-     * @param ModifyComponentAssetRequest $request ModifyComponentAssetRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about the asset that is configured for a component.
      *
-     * @return ModifyComponentAssetResponse ModifyComponentAssetResponse
+     * @param request - ModifyComponentAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyComponentAssetResponse
+     *
+     * @param ModifyComponentAssetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyComponentAssetResponse
      */
     public function modifyComponentAssetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->assetConfig)) {
-            $query['AssetConfig'] = $request->assetConfig;
+        if (null !== $request->assetConfig) {
+            @$query['AssetConfig'] = $request->assetConfig;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyComponentAsset',
@@ -2406,19 +2609,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyComponentAssetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about the asset that is configured for a component.
-     *  *
-     * @param ModifyComponentAssetRequest $request ModifyComponentAssetRequest
+     * Modifies the information about the asset that is configured for a component.
      *
-     * @return ModifyComponentAssetResponse ModifyComponentAssetResponse
+     * @param request - ModifyComponentAssetRequest
+     *
+     * @returns ModifyComponentAssetResponse
+     *
+     * @param ModifyComponentAssetRequest $request
+     *
+     * @return ModifyComponentAssetResponse
      */
     public function modifyComponentAsset($request)
     {
@@ -2428,34 +2632,44 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configuration of a playbook.
-     *  *
-     * @param ModifyPlaybookRequest $request ModifyPlaybookRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies the configuration of a playbook.
      *
-     * @return ModifyPlaybookResponse ModifyPlaybookResponse
+     * @param request - ModifyPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPlaybookResponse
+     *
+     * @param ModifyPlaybookRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyPlaybookResponse
      */
     public function modifyPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->taskflow)) {
-            $body['Taskflow'] = $request->taskflow;
+
+        if (null !== $request->taskflow) {
+            @$body['Taskflow'] = $request->taskflow;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPlaybook',
@@ -2468,19 +2682,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configuration of a playbook.
-     *  *
-     * @param ModifyPlaybookRequest $request ModifyPlaybookRequest
+     * Modifies the configuration of a playbook.
      *
-     * @return ModifyPlaybookResponse ModifyPlaybookResponse
+     * @param request - ModifyPlaybookRequest
+     *
+     * @returns ModifyPlaybookResponse
+     *
+     * @param ModifyPlaybookRequest $request
+     *
+     * @return ModifyPlaybookResponse
      */
     public function modifyPlaybook($request)
     {
@@ -2490,37 +2705,48 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the input and output parameters of a playbook.
-     *  *
-     * @param ModifyPlaybookInputOutputRequest $request ModifyPlaybookInputOutputRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the input and output parameters of a playbook.
      *
-     * @return ModifyPlaybookInputOutputResponse ModifyPlaybookInputOutputResponse
+     * @param request - ModifyPlaybookInputOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPlaybookInputOutputResponse
+     *
+     * @param ModifyPlaybookInputOutputRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyPlaybookInputOutputResponse
      */
     public function modifyPlaybookInputOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exeConfig)) {
-            $body['ExeConfig'] = $request->exeConfig;
+        if (null !== $request->exeConfig) {
+            @$body['ExeConfig'] = $request->exeConfig;
         }
-        if (!Utils::isUnset($request->inputParams)) {
-            $body['InputParams'] = $request->inputParams;
+
+        if (null !== $request->inputParams) {
+            @$body['InputParams'] = $request->inputParams;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $body['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->outputParams)) {
-            $body['OutputParams'] = $request->outputParams;
+
+        if (null !== $request->outputParams) {
+            @$body['OutputParams'] = $request->outputParams;
         }
-        if (!Utils::isUnset($request->paramType)) {
-            $body['ParamType'] = $request->paramType;
+
+        if (null !== $request->paramType) {
+            @$body['ParamType'] = $request->paramType;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPlaybookInputOutput',
@@ -2533,19 +2759,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPlaybookInputOutputResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the input and output parameters of a playbook.
-     *  *
-     * @param ModifyPlaybookInputOutputRequest $request ModifyPlaybookInputOutputRequest
+     * Modifies the input and output parameters of a playbook.
      *
-     * @return ModifyPlaybookInputOutputResponse ModifyPlaybookInputOutputResponse
+     * @param request - ModifyPlaybookInputOutputRequest
+     *
+     * @returns ModifyPlaybookInputOutputResponse
+     *
+     * @param ModifyPlaybookInputOutputRequest $request
+     *
+     * @return ModifyPlaybookInputOutputResponse
      */
     public function modifyPlaybookInputOutput($request)
     {
@@ -2555,83 +2782,32 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of a playbook.
-     *  *
-     * @param ModifyPlaybookInstanceStatusRequest $request ModifyPlaybookInstanceStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
      *
-     * @return ModifyPlaybookInstanceStatusResponse ModifyPlaybookInstanceStatusResponse
-     */
-    public function modifyPlaybookInstanceStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
-        }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'ModifyPlaybookInstanceStatus',
-            'version' => '2022-07-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPlaybookInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return ModifyPlaybookInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies the status of a playbook.
-     *  *
-     * @param ModifyPlaybookInstanceStatusRequest $request ModifyPlaybookInstanceStatusRequest
+     * @param request - PublishPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPlaybookInstanceStatusResponse ModifyPlaybookInstanceStatusResponse
-     */
-    public function modifyPlaybookInstanceStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyPlaybookInstanceStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
-     *  *
-     * @param PublishPlaybookRequest $request PublishPlaybookRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @returns PublishPlaybookResponse
      *
-     * @return PublishPlaybookResponse PublishPlaybookResponse
+     * @param PublishPlaybookRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PublishPlaybookResponse
      */
     public function publishPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PublishPlaybook',
@@ -2644,19 +2820,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
-     *  *
-     * @param PublishPlaybookRequest $request PublishPlaybookRequest
+     * Publishes the playbook. After the playbook is published, the playbook runs based on the new logic.
      *
-     * @return PublishPlaybookResponse PublishPlaybookResponse
+     * @param request - PublishPlaybookRequest
+     *
+     * @returns PublishPlaybookResponse
+     *
+     * @param PublishPlaybookRequest $request
+     *
+     * @return PublishPlaybookResponse
      */
     public function publishPlaybook($request)
     {
@@ -2666,19 +2843,24 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries all playbooks at a time.
-     *  *
-     * @param QueryTreeDataRequest $request QueryTreeDataRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries all playbooks at a time.
      *
-     * @return QueryTreeDataResponse QueryTreeDataResponse
+     * @param request - QueryTreeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTreeDataResponse
+     *
+     * @param QueryTreeDataRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryTreeDataResponse
      */
     public function queryTreeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTreeData',
@@ -2691,19 +2873,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTreeDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all playbooks at a time.
-     *  *
-     * @param QueryTreeDataRequest $request QueryTreeDataRequest
+     * Queries all playbooks at a time.
      *
-     * @return QueryTreeDataResponse QueryTreeDataResponse
+     * @param request - QueryTreeDataRequest
+     *
+     * @returns QueryTreeDataResponse
+     *
+     * @param QueryTreeDataRequest $request
+     *
+     * @return QueryTreeDataResponse
      */
     public function queryTreeData($request)
     {
@@ -2713,87 +2896,36 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
-     *  *
-     * @param RenamePlaybookNodeRequest $request RenamePlaybookNodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
      *
-     * @return RenamePlaybookNodeResponse RenamePlaybookNodeResponse
-     */
-    public function renamePlaybookNodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->newNodeName)) {
-            $query['NewNodeName'] = $request->newNodeName;
-        }
-        if (!Utils::isUnset($request->oldNodeName)) {
-            $query['OldNodeName'] = $request->oldNodeName;
-        }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $query['PlaybookUuid'] = $request->playbookUuid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'RenamePlaybookNode',
-            'version' => '2022-07-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RenamePlaybookNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return RenamePlaybookNodeResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Changes the name of a node in a playbook. You can call this operation during playbook orchestration. After the name of the node is changed, the reference path of the node also changes.
-     *  *
-     * @param RenamePlaybookNodeRequest $request RenamePlaybookNodeRequest
+     * @param request - RevertPlaybookReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RenamePlaybookNodeResponse RenamePlaybookNodeResponse
-     */
-    public function renamePlaybookNode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->renamePlaybookNodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
-     *  *
-     * @param RevertPlaybookReleaseRequest $request RevertPlaybookReleaseRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @returns RevertPlaybookReleaseResponse
      *
-     * @return RevertPlaybookReleaseResponse RevertPlaybookReleaseResponse
+     * @param RevertPlaybookReleaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevertPlaybookReleaseResponse
      */
     public function revertPlaybookReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isPublish)) {
-            $body['IsPublish'] = $request->isPublish;
+        if (null !== $request->isPublish) {
+            @$body['IsPublish'] = $request->isPublish;
         }
-        if (!Utils::isUnset($request->playReleaseId)) {
-            $body['PlayReleaseId'] = $request->playReleaseId;
+
+        if (null !== $request->playReleaseId) {
+            @$body['PlayReleaseId'] = $request->playReleaseId;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RevertPlaybookRelease',
@@ -2806,19 +2938,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevertPlaybookReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevertPlaybookReleaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevertPlaybookReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
-     *  *
-     * @param RevertPlaybookReleaseRequest $request RevertPlaybookReleaseRequest
+     * Rolls back a playbook to a specific version. You can determine whether to publish the new playbook version during the rollback.
      *
-     * @return RevertPlaybookReleaseResponse RevertPlaybookReleaseResponse
+     * @param request - RevertPlaybookReleaseRequest
+     *
+     * @returns RevertPlaybookReleaseResponse
+     *
+     * @param RevertPlaybookReleaseRequest $request
+     *
+     * @return RevertPlaybookReleaseResponse
      */
     public function revertPlaybookRelease($request)
     {
@@ -2828,52 +2961,71 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 执行通知组件-email发送消息
-     *  *
-     * @param RunNotifyComponentWithEmailRequest $request RunNotifyComponentWithEmailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Runs the email notification component to send messages.
      *
-     * @return RunNotifyComponentWithEmailResponse RunNotifyComponentWithEmailResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - RunNotifyComponentWithEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunNotifyComponentWithEmailResponse
+     *
+     * @param RunNotifyComponentWithEmailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RunNotifyComponentWithEmailResponse
      */
     public function runNotifyComponentWithEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->assetId)) {
-            $query['AssetId'] = $request->assetId;
+
+        if (null !== $request->assetId) {
+            @$query['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->componentName)) {
-            $query['ComponentName'] = $request->componentName;
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $query['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$query['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->receivers)) {
-            $query['Receivers'] = $request->receivers;
+
+        if (null !== $request->receivers) {
+            @$query['Receivers'] = $request->receivers;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $query['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$query['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $query['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RunNotifyComponentWithEmail',
@@ -2886,19 +3038,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunNotifyComponentWithEmailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunNotifyComponentWithEmailResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunNotifyComponentWithEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行通知组件-email发送消息
-     *  *
-     * @param RunNotifyComponentWithEmailRequest $request RunNotifyComponentWithEmailRequest
+     * Runs the email notification component to send messages.
      *
-     * @return RunNotifyComponentWithEmailResponse RunNotifyComponentWithEmailResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - RunNotifyComponentWithEmailRequest
+     *
+     * @returns RunNotifyComponentWithEmailResponse
+     *
+     * @param RunNotifyComponentWithEmailRequest $request
+     *
+     * @return RunNotifyComponentWithEmailResponse
      */
     public function runNotifyComponentWithEmail($request)
     {
@@ -2908,55 +3064,75 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 执行通知组件-消息中心发送消息
-     *  *
-     * @param RunNotifyComponentWithMessageCenterRequest $request RunNotifyComponentWithMessageCenterRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Execute Notification Component - Send Message via Message Center.
      *
-     * @return RunNotifyComponentWithMessageCenterResponse RunNotifyComponentWithMessageCenterResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+     *
+     * @param request - RunNotifyComponentWithMessageCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunNotifyComponentWithMessageCenterResponse
+     *
+     * @param RunNotifyComponentWithMessageCenterRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RunNotifyComponentWithMessageCenterResponse
      */
     public function runNotifyComponentWithMessageCenterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->aliuid)) {
-            $query['Aliuid'] = $request->aliuid;
+
+        if (null !== $request->aliuid) {
+            @$query['Aliuid'] = $request->aliuid;
         }
-        if (!Utils::isUnset($request->assetId)) {
-            $query['AssetId'] = $request->assetId;
+
+        if (null !== $request->assetId) {
+            @$query['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->channelTypeList)) {
-            $query['ChannelTypeList'] = $request->channelTypeList;
+
+        if (null !== $request->channelTypeList) {
+            @$query['ChannelTypeList'] = $request->channelTypeList;
         }
-        if (!Utils::isUnset($request->componentName)) {
-            $query['ComponentName'] = $request->componentName;
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $query['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$query['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $query['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$query['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $query['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RunNotifyComponentWithMessageCenter',
@@ -2969,19 +3145,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunNotifyComponentWithMessageCenterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunNotifyComponentWithMessageCenterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunNotifyComponentWithMessageCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行通知组件-消息中心发送消息
-     *  *
-     * @param RunNotifyComponentWithMessageCenterRequest $request RunNotifyComponentWithMessageCenterRequest
+     * Execute Notification Component - Send Message via Message Center.
      *
-     * @return RunNotifyComponentWithMessageCenterResponse RunNotifyComponentWithMessageCenterResponse
+     * @remarks
+     * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., Threat Analysis and Response Log Access Traffic) before using this interface.
+     *
+     * @param request - RunNotifyComponentWithMessageCenterRequest
+     *
+     * @returns RunNotifyComponentWithMessageCenterResponse
+     *
+     * @param RunNotifyComponentWithMessageCenterRequest $request
+     *
+     * @return RunNotifyComponentWithMessageCenterResponse
      */
     public function runNotifyComponentWithMessageCenter($request)
     {
@@ -2991,55 +3171,75 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary 执行通知组件-webhook发送消息
-     *  *
-     * @param RunNotifyComponentWithWebhookRequest $request RunNotifyComponentWithWebhookRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Runs the webhook notification component to send messages.
      *
-     * @return RunNotifyComponentWithWebhookResponse RunNotifyComponentWithWebhookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - RunNotifyComponentWithWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunNotifyComponentWithWebhookResponse
+     *
+     * @param RunNotifyComponentWithWebhookRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RunNotifyComponentWithWebhookResponse
      */
     public function runNotifyComponentWithWebhookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->assetId)) {
-            $query['AssetId'] = $request->assetId;
+
+        if (null !== $request->assetId) {
+            @$query['AssetId'] = $request->assetId;
         }
-        if (!Utils::isUnset($request->componentName)) {
-            $query['ComponentName'] = $request->componentName;
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->msgType)) {
-            $query['MsgType'] = $request->msgType;
+
+        if (null !== $request->msgType) {
+            @$query['MsgType'] = $request->msgType;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $query['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$query['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->roleFor)) {
-            $query['RoleFor'] = $request->roleFor;
+
+        if (null !== $request->roleFor) {
+            @$query['RoleFor'] = $request->roleFor;
         }
-        if (!Utils::isUnset($request->roleType)) {
-            $query['RoleType'] = $request->roleType;
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->secret)) {
-            $query['Secret'] = $request->secret;
+
+        if (null !== $request->secret) {
+            @$query['Secret'] = $request->secret;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RunNotifyComponentWithWebhook',
@@ -3052,19 +3252,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunNotifyComponentWithWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunNotifyComponentWithWebhookResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunNotifyComponentWithWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行通知组件-webhook发送消息
-     *  *
-     * @param RunNotifyComponentWithWebhookRequest $request RunNotifyComponentWithWebhookRequest
+     * Runs the webhook notification component to send messages.
      *
-     * @return RunNotifyComponentWithWebhookResponse RunNotifyComponentWithWebhookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR) or pricing for the log data added to the Cloud Threat Detection and Response (CTDR) feature. For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *
+     * @param request - RunNotifyComponentWithWebhookRequest
+     *
+     * @returns RunNotifyComponentWithWebhookResponse
+     *
+     * @param RunNotifyComponentWithWebhookRequest $request
+     *
+     * @return RunNotifyComponentWithWebhookResponse
      */
     public function runNotifyComponentWithWebhook($request)
     {
@@ -3074,33 +3278,49 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
-     *  *
-     * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Submits and runs a Python3 script. You can call this operation only for data processing.
      *
-     * @return RunPython3ScriptResponse RunPython3ScriptResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+     *
+     * @param request - RunPython3ScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPython3ScriptResponse
+     *
+     * @param RunPython3ScriptRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RunPython3ScriptResponse
      */
     public function runPython3ScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->pythonVersion) {
+            @$query['PythonVersion'] = $request->pythonVersion;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->nodeName)) {
-            $body['NodeName'] = $request->nodeName;
+        if (null !== $request->nodeName) {
+            @$body['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->pythonScript)) {
-            $body['PythonScript'] = $request->pythonScript;
+
+        if (null !== $request->pythonScript) {
+            @$body['PythonScript'] = $request->pythonScript;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunPython3Script',
@@ -3113,21 +3333,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunPython3ScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunPython3ScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunPython3ScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
-     *  *
-     * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
+     * Submits and runs a Python3 script. You can call this operation only for data processing.
      *
-     * @return RunPython3ScriptResponse RunPython3ScriptResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
+     *
+     * @param request - RunPython3ScriptRequest
+     *
+     * @returns RunPython3ScriptResponse
+     *
+     * @param RunPython3ScriptRequest $request
+     *
+     * @return RunPython3ScriptResponse
      */
     public function runPython3Script($request)
     {
@@ -3137,27 +3359,35 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Triggers an enabled custom playbook or a predefined playbook.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
-     *  *
-     * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Triggers an enabled custom playbook or a predefined playbook.
      *
-     * @return TriggerPlaybookResponse TriggerPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     *
+     * @param request - TriggerPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerPlaybookResponse
+     *
+     * @param TriggerPlaybookRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TriggerPlaybookResponse
      */
     public function triggerPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->inputParam)) {
-            $body['InputParam'] = $request->inputParam;
+        if (null !== $request->inputParam) {
+            @$body['InputParam'] = $request->inputParam;
         }
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TriggerPlaybook',
@@ -3170,21 +3400,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TriggerPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TriggerPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return TriggerPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Triggers an enabled custom playbook or a predefined playbook.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
-     *  *
-     * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
+     * Triggers an enabled custom playbook or a predefined playbook.
      *
-     * @return TriggerPlaybookResponse TriggerPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     *
+     * @param request - TriggerPlaybookRequest
+     *
+     * @returns TriggerPlaybookResponse
+     *
+     * @param TriggerPlaybookRequest $request
+     *
+     * @return TriggerPlaybookResponse
      */
     public function triggerPlaybook($request)
     {
@@ -3194,27 +3426,34 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
-     *  *
-     * @param TriggerProcessTaskRequest $request TriggerProcessTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
      *
-     * @return TriggerProcessTaskResponse TriggerProcessTaskResponse
+     * @param request - TriggerProcessTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerProcessTaskResponse
+     *
+     * @param TriggerProcessTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TriggerProcessTaskResponse
      */
     public function triggerProcessTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TriggerProcessTask',
@@ -3227,19 +3466,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TriggerProcessTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TriggerProcessTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return TriggerProcessTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
-     *  *
-     * @param TriggerProcessTaskRequest $request TriggerProcessTaskRequest
+     * Performs an action on a handling task that is generated by the handling center when an event is handled by using Security Orchestration Automation Response (SOAR). For example, you can call this operation to cancel blocking or isolation, or retry blocking.
      *
-     * @return TriggerProcessTaskResponse TriggerProcessTaskResponse
+     * @param request - TriggerProcessTaskRequest
+     *
+     * @returns TriggerProcessTaskResponse
+     *
+     * @param TriggerProcessTaskRequest $request
+     *
+     * @return TriggerProcessTaskResponse
      */
     public function triggerProcessTask($request)
     {
@@ -3249,36 +3489,47 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a playbook or a command.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
-     *  *
-     * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Triggers a playbook or a command.
      *
-     * @return TriggerSophonPlaybookResponse TriggerSophonPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     *
+     * @param request - TriggerSophonPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerSophonPlaybookResponse
+     *
+     * @param TriggerSophonPlaybookRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TriggerSophonPlaybookResponse
      */
     public function triggerSophonPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandName)) {
-            $query['CommandName'] = $request->commandName;
+        if (null !== $request->commandName) {
+            @$query['CommandName'] = $request->commandName;
         }
-        if (!Utils::isUnset($request->inputParams)) {
-            $query['InputParams'] = $request->inputParams;
+
+        if (null !== $request->inputParams) {
+            @$query['InputParams'] = $request->inputParams;
         }
-        if (!Utils::isUnset($request->sophonTaskId)) {
-            $query['SophonTaskId'] = $request->sophonTaskId;
+
+        if (null !== $request->sophonTaskId) {
+            @$query['SophonTaskId'] = $request->sophonTaskId;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $query['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TriggerSophonPlaybook',
@@ -3291,21 +3542,23 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TriggerSophonPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TriggerSophonPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return TriggerSophonPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Triggers a playbook or a command.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
-     *  *
-     * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
+     * Triggers a playbook or a command.
      *
-     * @return TriggerSophonPlaybookResponse TriggerSophonPlaybookResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
+     *
+     * @param request - TriggerSophonPlaybookRequest
+     *
+     * @returns TriggerSophonPlaybookResponse
+     *
+     * @param TriggerSophonPlaybookRequest $request
+     *
+     * @return TriggerSophonPlaybookResponse
      */
     public function triggerSophonPlaybook($request)
     {
@@ -3315,25 +3568,32 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
-     *  *
-     * @param VerifyPlaybookRequest $request VerifyPlaybookRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
      *
-     * @return VerifyPlaybookResponse VerifyPlaybookResponse
+     * @param request - VerifyPlaybookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyPlaybookResponse
+     *
+     * @param VerifyPlaybookRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return VerifyPlaybookResponse
      */
     public function verifyPlaybookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->playbookUuid)) {
-            $body['PlaybookUuid'] = $request->playbookUuid;
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
         }
-        if (!Utils::isUnset($request->taskFlow)) {
-            $body['TaskFlow'] = $request->taskFlow;
+
+        if (null !== $request->taskFlow) {
+            @$body['TaskFlow'] = $request->taskFlow;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VerifyPlaybook',
@@ -3346,19 +3606,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return VerifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
-     *  *
-     * @param VerifyPlaybookRequest $request VerifyPlaybookRequest
+     * Checks whether the configuration of the playbook is correct and whether the logic of the orchestration is reasonable.
      *
-     * @return VerifyPlaybookResponse VerifyPlaybookResponse
+     * @param request - VerifyPlaybookRequest
+     *
+     * @returns VerifyPlaybookResponse
+     *
+     * @param VerifyPlaybookRequest $request
+     *
+     * @return VerifyPlaybookResponse
      */
     public function verifyPlaybook($request)
     {
@@ -3368,22 +3629,28 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the syntax of a Python code snippet is correct.
-     *  *
-     * @param VerifyPythonFileRequest $request VerifyPythonFileRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Checks whether the syntax of a Python code snippet is correct.
      *
-     * @return VerifyPythonFileResponse VerifyPythonFileResponse
+     * @param request - VerifyPythonFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyPythonFileResponse
+     *
+     * @param VerifyPythonFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return VerifyPythonFileResponse
      */
     public function verifyPythonFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VerifyPythonFile',
@@ -3396,19 +3663,20 @@ class Sophonsoar extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return VerifyPythonFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyPythonFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyPythonFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the syntax of a Python code snippet is correct.
-     *  *
-     * @param VerifyPythonFileRequest $request VerifyPythonFileRequest
+     * Checks whether the syntax of a Python code snippet is correct.
      *
-     * @return VerifyPythonFileResponse VerifyPythonFileResponse
+     * @param request - VerifyPythonFileRequest
+     *
+     * @returns VerifyPythonFileResponse
+     *
+     * @param VerifyPythonFileRequest $request
+     *
+     * @return VerifyPythonFileResponse
      */
     public function verifyPythonFile($request)
     {

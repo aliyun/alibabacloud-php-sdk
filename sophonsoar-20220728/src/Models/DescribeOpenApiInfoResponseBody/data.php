@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example describeEcs
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $inputParams;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $outputParams;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $responseDemo;
 
     /**
-     * @example describeEcs
-     *
      * @var string
      */
     public $summary;
 
     /**
-     * @example describeEcs
-     *
      * @var string
      */
     public $title;
@@ -58,26 +46,34 @@ class data extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
+
         if (null !== $this->outputParams) {
             $res['OutputParams'] = $this->outputParams;
         }
+
         if (null !== $this->responseDemo) {
             $res['ResponseDemo'] = $this->responseDemo;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -85,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }
+
         if (isset($map['OutputParams'])) {
             $model->outputParams = $map['OutputParams'];
         }
+
         if (isset($map['ResponseDemo'])) {
             $model->responseDemo = $map['ResponseDemo'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

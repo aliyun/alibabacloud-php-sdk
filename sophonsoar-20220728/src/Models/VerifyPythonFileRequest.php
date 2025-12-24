@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyPythonFileRequest extends Model
 {
     /**
-     * @description The Python code snippet.
-     *
-     * This parameter is required.
-     *
-     * @example import logging
-     * def execute (params):
-     * success=True
-     * message=\\"OK\\"
-     * data=[]
-     * return (success,message,data)
-     *
      * @var string
      */
     public $content;
@@ -27,9 +16,12 @@ class VerifyPythonFileRequest extends Model
         'content' => 'Content',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -39,11 +31,11 @@ class VerifyPythonFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyPythonFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

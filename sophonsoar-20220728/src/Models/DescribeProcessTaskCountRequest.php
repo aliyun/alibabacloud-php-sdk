@@ -4,49 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeProcessTaskCountRequest extends Model
 {
     /**
-     * @description Collection of entity UUIDs.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $entityUuidList;
 
     /**
-     * @description Language type for request and response messages. Values:
-     *
-     * - **zh** (default): Chinese.
-     *
-     * - **en**: English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description User ID for administrators to switch to other member\\"s perspective.
-     *
-     * @example 104739******259
-     *
      * @var int
      */
     public $roleFor;
 
     /**
-     * @description View type.
-     *
-     * - **0**: Current Alibaba Cloud account view.
-     * - **1**: View for all accounts under the enterprise.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $roleType;
@@ -57,20 +34,36 @@ class DescribeProcessTaskCountRequest extends Model
         'roleType' => 'RoleType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->entityUuidList)) {
+            Model::validateArray($this->entityUuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityUuidList) {
-            $res['EntityUuidList'] = $this->entityUuidList;
+            if (\is_array($this->entityUuidList)) {
+                $res['EntityUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->entityUuidList as $item1) {
+                    $res['EntityUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
@@ -78,25 +71,33 @@ class DescribeProcessTaskCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeProcessTaskCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityUuidList'])) {
             if (!empty($map['EntityUuidList'])) {
-                $model->entityUuidList = $map['EntityUuidList'];
+                $model->entityUuidList = [];
+                $n1 = 0;
+                foreach ($map['EntityUuidList'] as $item1) {
+                    $model->entityUuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }

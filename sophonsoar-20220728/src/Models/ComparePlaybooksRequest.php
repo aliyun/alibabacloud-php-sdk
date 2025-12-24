@@ -4,57 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ComparePlaybooksRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the second version.
-     *
-     * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
-     *
-     * This parameter is required.
-     *
-     * @example sfdf2395-e814-459f-9662-xxxxx
-     *
      * @var int
      */
     public $newPlaybookReleaseId;
 
     /**
-     * @description The ID of the first version.
-     *
-     * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the IDs of versions. The system automatically generates IDs for new versions.
-     *
-     * This parameter is required.
-     *
-     * @example sflk23423-e814-459f-9662-xxxxx
-     *
      * @var int
      */
     public $oldPlaybookReleaseId;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
-     *
-     * This parameter is required.
-     *
-     * @example f916b93e-e814-459f-9662-xxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -65,20 +34,26 @@ class ComparePlaybooksRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->newPlaybookReleaseId) {
             $res['NewPlaybookReleaseId'] = $this->newPlaybookReleaseId;
         }
+
         if (null !== $this->oldPlaybookReleaseId) {
             $res['OldPlaybookReleaseId'] = $this->oldPlaybookReleaseId;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -86,23 +61,26 @@ class ComparePlaybooksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ComparePlaybooksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NewPlaybookReleaseId'])) {
             $model->newPlaybookReleaseId = $map['NewPlaybookReleaseId'];
         }
+
         if (isset($map['OldPlaybookReleaseId'])) {
             $model->oldPlaybookReleaseId = $map['OldPlaybookReleaseId'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

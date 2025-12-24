@@ -4,36 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeComponentAssetFormResponseBody extends Model
 {
     /**
-     * @description The metadata of the asset in the component. The value is a JSON array and contains the following fields:
-     *
-     *   **name**: the parameter name.
-     *   **defaultValue**: the default parameter value.
-     *   **description**: the parameter description.
-     *   **required**: indicates whether the parameter is required. Valid values: **true** and **false**.
-     *
-     * @example [
-     * {
-     * "defaultValue": "",
-     * "description": "assetname",
-     * "name": "assetname",
-     * "required": true
-     * }
-     * ]
-     *
      * @var string
      */
     public $componentAssetForm;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9D1651AC-31CC-5CC4-A14E-626B3FCC1022
-     *
      * @var string
      */
     public $requestId;
@@ -42,14 +22,18 @@ class DescribeComponentAssetFormResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentAssetForm) {
             $res['ComponentAssetForm'] = $this->componentAssetForm;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,17 +41,18 @@ class DescribeComponentAssetFormResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentAssetFormResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentAssetForm'])) {
             $model->componentAssetForm = $map['ComponentAssetForm'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

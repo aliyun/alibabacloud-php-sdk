@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerPlaybookRequest extends Model
 {
     /**
-     * @description The input parameters of the playbook.
-     *
-     * This parameter is required.
-     *
-     * @example {
-     * "input1": "xx.xx.xx.xx",
-     * "input2": "7d"
-     * }
-     *
      * @var string
      */
     public $inputParam;
 
     /**
-     * @description The playbook UUID.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
-     *
-     * This parameter is required.
-     *
-     * @example 2a687089-d4dd-47d4-9709-xxxxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -39,14 +22,18 @@ class TriggerPlaybookRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputParam) {
             $res['InputParam'] = $this->inputParam;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -54,17 +41,18 @@ class TriggerPlaybookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerPlaybookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputParam'])) {
             $model->inputParam = $map['InputParam'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

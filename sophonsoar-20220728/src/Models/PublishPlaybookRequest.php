@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishPlaybookRequest extends Model
 {
     /**
-     * @description The description of the released version.
-     *
-     * @example This is a waf processing playbook
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The playbook UUID.
-     *
-     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
-     *
-     * This parameter is required.
-     *
-     * @example ac343acc-1a61-4084-9a1c-xxxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -34,14 +22,18 @@ class PublishPlaybookRequest extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -49,17 +41,18 @@ class PublishPlaybookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishPlaybookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

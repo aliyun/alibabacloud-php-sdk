@@ -4,64 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookInputOutputResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
     /**
-     * @description The execution method of the playbook is in JSONObject format.
-     *
      * @var string
      */
     public $exeConfig;
 
     /**
-     * @description The input parameter configuration of the playbook. The value is a JSON array.
-     *
-     * @example [
-     * {
-     * "typeName": "String",
-     * "dataClass": "normal",
-     * "dataType": "String",
-     * "description": "period",
-     * "example": "",
-     * "name": "period",
-     * "required": false
-     * }
-     * ]
-     *
      * @var string
      */
     public $inputParams;
 
     /**
-     * @description The output parameter configuration. This parameter is unavailable and is always left empty.
-     *
-     * @example []
-     *
      * @var string
      */
     public $outputParams;
 
     /**
-     * @description The input parameter type of the playbook. Valid values:
-     *
-     *   **template-ip**
-     *   **template-file**
-     *   **template-process**
-     *   **custom**
-     *
-     * @example custom
-     *
      * @var string
      */
     public $paramType;
 
     /**
-     * @description The UUID of the playbook.
-     *
-     * @example 9030076b-6733-4842-b05a-xxxxxx
-     *
      * @var string
      */
     public $playbookUuid;
@@ -73,23 +40,30 @@ class config extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exeConfig) {
             $res['ExeConfig'] = $this->exeConfig;
         }
+
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
+
         if (null !== $this->outputParams) {
             $res['OutputParams'] = $this->outputParams;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
+
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
         }
@@ -97,26 +71,30 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExeConfig'])) {
             $model->exeConfig = $map['ExeConfig'];
         }
+
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }
+
         if (isset($map['OutputParams'])) {
             $model->outputParams = $map['OutputParams'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
+
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
         }

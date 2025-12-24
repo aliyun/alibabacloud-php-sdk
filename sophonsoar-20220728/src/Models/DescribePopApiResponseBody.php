@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiResponseBody\openApiMetaList;
-use AlibabaCloud\Tea\Model;
 
 class DescribePopApiResponseBody extends Model
 {
     /**
-     * @description The name of the API.
-     *
-     * @example AddAssetCleanConfig
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description The information about the API.
-     *
      * @var openApiMetaList[]
      */
     public $openApiMetaList;
 
     /**
-     * @description The POP code of the Alibaba Cloud service.
-     *
-     * @example Sas
-     *
      * @var string
      */
     public $popCode;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1A01B0BA-CFC4-5813-9EB0-A5DA15FA95AE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The version of the API.
-     *
-     * @example 2019-09-10
-     *
      * @var string
      */
     public $version;
@@ -59,29 +41,40 @@ class DescribePopApiResponseBody extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->openApiMetaList)) {
+            Model::validateArray($this->openApiMetaList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->openApiMetaList) {
-            $res['OpenApiMetaList'] = [];
-            if (null !== $this->openApiMetaList && \is_array($this->openApiMetaList)) {
-                $n = 0;
-                foreach ($this->openApiMetaList as $item) {
-                    $res['OpenApiMetaList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->openApiMetaList)) {
+                $res['OpenApiMetaList'] = [];
+                $n1 = 0;
+                foreach ($this->openApiMetaList as $item1) {
+                    $res['OpenApiMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->popCode) {
             $res['PopCode'] = $this->popCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -89,32 +82,37 @@ class DescribePopApiResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePopApiResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['OpenApiMetaList'])) {
             if (!empty($map['OpenApiMetaList'])) {
                 $model->openApiMetaList = [];
-                $n = 0;
-                foreach ($map['OpenApiMetaList'] as $item) {
-                    $model->openApiMetaList[$n++] = null !== $item ? openApiMetaList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OpenApiMetaList'] as $item1) {
+                    $model->openApiMetaList[$n1] = openApiMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PopCode'])) {
             $model->popCode = $map['PopCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

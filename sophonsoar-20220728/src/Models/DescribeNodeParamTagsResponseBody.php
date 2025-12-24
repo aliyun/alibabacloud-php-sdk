@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeParamTagsResponseBody\paramReferredPaths;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNodeParamTagsResponseBody extends Model
 {
     /**
-     * @description The configuration of the recommended path.
-     *
      * @var paramReferredPaths[]
      */
     public $paramReferredPaths;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6BE94351-712A-505D-A40A-BC77CC8254A9
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeNodeParamTagsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->paramReferredPaths)) {
+            Model::validateArray($this->paramReferredPaths);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramReferredPaths) {
-            $res['ParamReferredPaths'] = [];
-            if (null !== $this->paramReferredPaths && \is_array($this->paramReferredPaths)) {
-                $n = 0;
-                foreach ($this->paramReferredPaths as $item) {
-                    $res['ParamReferredPaths'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paramReferredPaths)) {
+                $res['ParamReferredPaths'] = [];
+                $n1 = 0;
+                foreach ($this->paramReferredPaths as $item1) {
+                    $res['ParamReferredPaths'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeNodeParamTagsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNodeParamTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamReferredPaths'])) {
             if (!empty($map['ParamReferredPaths'])) {
                 $model->paramReferredPaths = [];
-                $n = 0;
-                foreach ($map['ParamReferredPaths'] as $item) {
-                    $model->paramReferredPaths[$n++] = null !== $item ? paramReferredPaths::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ParamReferredPaths'] as $item1) {
+                    $model->paramReferredPaths[$n1] = paramReferredPaths::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

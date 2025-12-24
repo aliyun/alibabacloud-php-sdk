@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookNodesOutputResponseBody\playbookNodesOutput;
-use AlibabaCloud\Tea\Model;
 
 class DescribePlaybookNodesOutputResponseBody extends Model
 {
     /**
-     * @description The output data of the component node.
-     *
      * @var playbookNodesOutput
      */
     public $playbookNodesOutput;
 
     /**
-     * @description The request ID.
-     *
-     * @example A491170C-FE1F-520E-83D4-72ED205B72ED
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribePlaybookNodesOutputResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->playbookNodesOutput) {
+            $this->playbookNodesOutput->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playbookNodesOutput) {
-            $res['PlaybookNodesOutput'] = null !== $this->playbookNodesOutput ? $this->playbookNodesOutput->toMap() : null;
+            $res['PlaybookNodesOutput'] = null !== $this->playbookNodesOutput ? $this->playbookNodesOutput->toArray($noStream) : $this->playbookNodesOutput;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribePlaybookNodesOutputResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlaybookNodesOutputResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlaybookNodesOutput'])) {
             $model->playbookNodesOutput = playbookNodesOutput::fromMap($map['PlaybookNodesOutput']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

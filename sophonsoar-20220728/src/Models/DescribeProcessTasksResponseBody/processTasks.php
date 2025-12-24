@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTasksResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class processTasks extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that is used to submit the handling task.
-     *
-     * @example 123xxxx355
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description The name of the handling entity.
-     *
-     * @example 1.1.1.x
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description The type of the handling entity.
-     *
-     * @example ip
-     *
      * @var string
      */
     public $entityType;
@@ -41,28 +29,16 @@ class processTasks extends Model
     public $entityUuid;
 
     /**
-     * @description The error code returned if the call failed.
-     *
-     * @example sts_openapi.Info.DefenseSceneNotSupported
-     *
      * @var string
      */
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example ParamError : The parameters of your request are invalid
-     *
      * @var string
      */
     public $errMsg;
 
     /**
-     * @description The error tip returned if the call failed.
-     *
-     * @example Verify that the input parameters of the components are correct
-     *
      * @var string
      */
     public $errTip;
@@ -73,55 +49,31 @@ class processTasks extends Model
     public $eventUuid;
 
     /**
-     * @description The creation time of the handling task. The value is a 13-digit timestamp.
-     *
-     * @example 1700031183572
-     *
      * @var int
      */
     public $gmtCreateMillis;
 
     /**
-     * @description The modification time of the handling task. The value is a 13-digit timestamp.
-     *
-     * @example 1700031183572
-     *
      * @var int
      */
     public $gmtModifiedMillis;
 
     /**
-     * @description The input parameter of the handling task.
-     *
-     * @example {"groupuuid":"c6a9b1df-f4ac-4078-bef4-99xxxxxx"}
-     *
      * @var string
      */
     public $inputParams;
 
     /**
-     * @description The ID of the associated policy.
-     *
-     * @example 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
-     *
      * @var string
      */
     public $processStrategyUuid;
 
     /**
-     * @description The delivery time of the handling task. The value is a 13-digit timestamp.
-     *
-     * @example 1700031183572
-     *
      * @var int
      */
     public $processTime;
 
     /**
-     * @description The unblocking time of the handling task. The value is a 13-digit timestamp.
-     *
-     * @example 1700031183572
-     *
      * @var int
      */
     public $removeTime;
@@ -132,55 +84,31 @@ class processTasks extends Model
     public $reqUuid;
 
     /**
-     * @description The scenario code of the handling task.
-     *
-     * @example event_xxx_whole_process
-     *
      * @var string
      */
     public $sceneCode;
 
     /**
-     * @description The scenario name of the handling task.
-     *
-     * @example waf_whole_process
-     *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description The ID of the Alibaba Cloud account that is specified in the handling task.
-     *
-     * @example 123xxxxx234
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description The submission source of the handling task.
-     *
-     * @example system
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description The unique identifier of the handling task.
-     *
-     * @example 150xxxxxxxxx95066
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The status of the handling task.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $taskStatus;
@@ -191,10 +119,6 @@ class processTasks extends Model
     public $triggerSource;
 
     /**
-     * @description The code of the cloud service that is associated with the handling task.
-     *
-     * @example WAF
-     *
      * @var string
      */
     public $yunCode;
@@ -224,77 +148,102 @@ class processTasks extends Model
         'yunCode' => 'YunCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->entityName) {
             $res['EntityName'] = $this->entityName;
         }
+
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
+
         if (null !== $this->entityUuid) {
             $res['EntityUuid'] = $this->entityUuid;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
+
         if (null !== $this->errTip) {
             $res['ErrTip'] = $this->errTip;
         }
+
         if (null !== $this->eventUuid) {
             $res['EventUuid'] = $this->eventUuid;
         }
+
         if (null !== $this->gmtCreateMillis) {
             $res['GmtCreateMillis'] = $this->gmtCreateMillis;
         }
+
         if (null !== $this->gmtModifiedMillis) {
             $res['GmtModifiedMillis'] = $this->gmtModifiedMillis;
         }
+
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
+
         if (null !== $this->processStrategyUuid) {
             $res['ProcessStrategyUuid'] = $this->processStrategyUuid;
         }
+
         if (null !== $this->processTime) {
             $res['ProcessTime'] = $this->processTime;
         }
+
         if (null !== $this->removeTime) {
             $res['RemoveTime'] = $this->removeTime;
         }
+
         if (null !== $this->reqUuid) {
             $res['ReqUuid'] = $this->reqUuid;
         }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->triggerSource) {
             $res['TriggerSource'] = $this->triggerSource;
         }
+
         if (null !== $this->yunCode) {
             $res['YunCode'] = $this->yunCode;
         }
@@ -302,80 +251,102 @@ class processTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['EntityName'])) {
             $model->entityName = $map['EntityName'];
         }
+
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
+
         if (isset($map['EntityUuid'])) {
             $model->entityUuid = $map['EntityUuid'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
+
         if (isset($map['ErrTip'])) {
             $model->errTip = $map['ErrTip'];
         }
+
         if (isset($map['EventUuid'])) {
             $model->eventUuid = $map['EventUuid'];
         }
+
         if (isset($map['GmtCreateMillis'])) {
             $model->gmtCreateMillis = $map['GmtCreateMillis'];
         }
+
         if (isset($map['GmtModifiedMillis'])) {
             $model->gmtModifiedMillis = $map['GmtModifiedMillis'];
         }
+
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }
+
         if (isset($map['ProcessStrategyUuid'])) {
             $model->processStrategyUuid = $map['ProcessStrategyUuid'];
         }
+
         if (isset($map['ProcessTime'])) {
             $model->processTime = $map['ProcessTime'];
         }
+
         if (isset($map['RemoveTime'])) {
             $model->removeTime = $map['RemoveTime'];
         }
+
         if (isset($map['ReqUuid'])) {
             $model->reqUuid = $map['ReqUuid'];
         }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+
         if (isset($map['TriggerSource'])) {
             $model->triggerSource = $map['TriggerSource'];
         }
+
         if (isset($map['YunCode'])) {
             $model->yunCode = $map['YunCode'];
         }

@@ -4,45 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeComponentListResponseBody extends Model
 {
     /**
-     * @description The information about the components. The value is a JSON array.
-     *
-     * @example [
-     * {
-     * "actions": [
-     * {
-     * "description": "mysql component",
-     * "name": "storeIdb",
-     * "parameters": [
-     * {
-     * "description": "update the mysql db",
-     * "name": "updateSql",
-     * "required": false
-     * }
-     * ]
-     * }
-     * ],
-     * "basic": {
-     * "description": "mysq sql component for 5.6",
-     * "logo": "https://img.alicdn.com/tfs/TB1H89IpH3nBKNjSZFMXXaUSFXa-200-200.svg",
-     * "name": "Mysql"
-     * }
-     * }
-     * ]
-     *
      * @var string
      */
     public $components;
 
     /**
-     * @description The request ID.
-     *
-     * @example B0A255B3-495C-56FB-8B6B-DB073F80388A
-     *
      * @var string
      */
     public $requestId;
@@ -51,14 +22,18 @@ class DescribeComponentListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->components) {
             $res['Components'] = $this->components;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,17 +41,18 @@ class DescribeComponentListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Components'])) {
             $model->components = $map['Components'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
