@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsReques
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceCreateAndDeleteStatisticsRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceCreateAndDeleteStatisticsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceRefreshesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeInstanceRefreshesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleActionsRequest;
@@ -98,6 +100,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityDetailRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityDetailResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityStatisticsRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivityStatisticsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailRequest;
@@ -165,6 +169,14 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScheduledTaskRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScheduledTaskResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryHistoricalMetricRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryHistoricalMetricResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveMetricRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveMetricResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveTaskInfoRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveTaskInfoResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveValueRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveValueResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RebalanceInstancesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RebalanceInstancesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\RecordLifecycleActionHeartbeatRequest;
@@ -4203,6 +4215,83 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeInstanceCreateAndDeleteStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceCreateAndDeleteStatisticsResponse
+     *
+     * @param DescribeInstanceCreateAndDeleteStatisticsRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+     */
+    public function describeInstanceCreateAndDeleteStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceCreateAndDeleteStatistics',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceCreateAndDeleteStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeInstanceCreateAndDeleteStatisticsRequest
+     *
+     * @returns DescribeInstanceCreateAndDeleteStatisticsResponse
+     *
+     * @param DescribeInstanceCreateAndDeleteStatisticsRequest $request
+     *
+     * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+     */
+    public function describeInstanceCreateAndDeleteStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceCreateAndDeleteStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
      *
      * @param request - DescribeInstanceRefreshesRequest
@@ -4974,6 +5063,87 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScalingActivityDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeScalingActivityStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScalingActivityStatisticsResponse
+     *
+     * @param DescribeScalingActivityStatisticsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeScalingActivityStatisticsResponse
+     */
+    public function describeScalingActivityStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeScalingActivityStatistics',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeScalingActivityStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeScalingActivityStatisticsRequest
+     *
+     * @returns DescribeScalingActivityStatisticsResponse
+     *
+     * @param DescribeScalingActivityStatisticsRequest $request
+     *
+     * @return DescribeScalingActivityStatisticsResponse
+     */
+    public function describeScalingActivityStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScalingActivityStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -8679,6 +8849,330 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryHistoricalMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoricalMetricResponse
+     *
+     * @param QueryHistoricalMetricRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryHistoricalMetricResponse
+     */
+    public function queryHistoricalMetricWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoricalMetric',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoricalMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryHistoricalMetricRequest
+     *
+     * @returns QueryHistoricalMetricResponse
+     *
+     * @param QueryHistoricalMetricRequest $request
+     *
+     * @return QueryHistoricalMetricResponse
+     */
+    public function queryHistoricalMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoricalMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryPredictiveMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPredictiveMetricResponse
+     *
+     * @param QueryPredictiveMetricRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryPredictiveMetricResponse
+     */
+    public function queryPredictiveMetricWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPredictiveMetric',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPredictiveMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryPredictiveMetricRequest
+     *
+     * @returns QueryPredictiveMetricResponse
+     *
+     * @param QueryPredictiveMetricRequest $request
+     *
+     * @return QueryPredictiveMetricResponse
+     */
+    public function queryPredictiveMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPredictiveMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryPredictiveTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPredictiveTaskInfoResponse
+     *
+     * @param QueryPredictiveTaskInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryPredictiveTaskInfoResponse
+     */
+    public function queryPredictiveTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingRuleId) {
+            @$query['ScalingRuleId'] = $request->scalingRuleId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPredictiveTaskInfo',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPredictiveTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryPredictiveTaskInfoRequest
+     *
+     * @returns QueryPredictiveTaskInfoResponse
+     *
+     * @param QueryPredictiveTaskInfoRequest $request
+     *
+     * @return QueryPredictiveTaskInfoResponse
+     */
+    public function queryPredictiveTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPredictiveTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryPredictiveValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPredictiveValueResponse
+     *
+     * @param QueryPredictiveValueRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryPredictiveValueResponse
+     */
+    public function queryPredictiveValueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPredictiveValue',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPredictiveValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryPredictiveValueRequest
+     *
+     * @returns QueryPredictiveValueResponse
+     *
+     * @param QueryPredictiveValueRequest $request
+     *
+     * @return QueryPredictiveValueResponse
+     */
+    public function queryPredictiveValue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPredictiveValueWithOptions($request, $runtime);
     }
 
     /**
