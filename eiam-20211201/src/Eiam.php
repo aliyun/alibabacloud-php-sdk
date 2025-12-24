@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderStatusCheckJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderStatusCheckJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkAccessEndpointRequest;
@@ -91,6 +93,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUsersRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUsersResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteWebAuthnAuthenticatorRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteWebAuthnAuthenticatorResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationApiInvokeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationApiInvokeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationClientSecretRequest;
@@ -115,12 +121,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableFederatedCredentialProviderRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableFederatedCredentialProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAdvancedAbilityRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAdvancedAbilityResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAuthnRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAuthnResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeRequest;
@@ -147,14 +157,24 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableFederatedCredentialProviderRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableFederatedCredentialProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAdvancedAbilityRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAdvancedAbilityResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAuthnRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAuthnResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateFileImportTemplateRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateFileImportTemplateResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialRequest;
@@ -332,6 +352,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningConfigReque
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainRequest;
@@ -1932,6 +1954,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建IdP状态检查任务
+     *
+     * @param request - CreateIdentityProviderStatusCheckJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIdentityProviderStatusCheckJobResponse
+     *
+     * @param CreateIdentityProviderStatusCheckJobRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateIdentityProviderStatusCheckJobResponse
+     */
+    public function createIdentityProviderStatusCheckJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateIdentityProviderStatusCheckJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateIdentityProviderStatusCheckJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建IdP状态检查任务
+     *
+     * @param request - CreateIdentityProviderStatusCheckJobRequest
+     *
+     * @returns CreateIdentityProviderStatusCheckJobResponse
+     *
+     * @param CreateIdentityProviderStatusCheckJobRequest $request
+     *
+     * @return CreateIdentityProviderStatusCheckJobResponse
+     */
+    public function createIdentityProviderStatusCheckJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIdentityProviderStatusCheckJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
      *
      * @param request - CreateInstanceRequest
@@ -3469,6 +3552,132 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 批量删除账号.
+     *
+     * @param request - DeleteUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteUsersResponse
+     */
+    public function deleteUsersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUsers',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除账号.
+     *
+     * @param request - DeleteUsersRequest
+     *
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $request
+     *
+     * @return DeleteUsersResponse
+     */
+    public function deleteUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定WebAuthn认证器名称.
+     *
+     * @param request - DeleteWebAuthnAuthenticatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWebAuthnAuthenticatorResponse
+     *
+     * @param DeleteWebAuthnAuthenticatorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteWebAuthnAuthenticatorResponse
+     */
+    public function deleteWebAuthnAuthenticatorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authenticatorId) {
+            @$query['AuthenticatorId'] = $request->authenticatorId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWebAuthnAuthenticator',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWebAuthnAuthenticatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定WebAuthn认证器名称.
+     *
+     * @param request - DeleteWebAuthnAuthenticatorRequest
+     *
+     * @returns DeleteWebAuthnAuthenticatorResponse
+     *
+     * @param DeleteWebAuthnAuthenticatorRequest $request
+     *
+     * @return DeleteWebAuthnAuthenticatorResponse
+     */
+    public function deleteWebAuthnAuthenticator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebAuthnAuthenticatorWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
      *
      * @remarks
@@ -4229,6 +4438,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用高级配置.
+     *
+     * @param request - DisableIdentityProviderAdvancedAbilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableIdentityProviderAdvancedAbilityResponse
+     *
+     * @param DisableIdentityProviderAdvancedAbilityRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DisableIdentityProviderAdvancedAbilityResponse
+     */
+    public function disableIdentityProviderAdvancedAbilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableIdentityProviderAdvancedAbility',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableIdentityProviderAdvancedAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用高级配置.
+     *
+     * @param request - DisableIdentityProviderAdvancedAbilityRequest
+     *
+     * @returns DisableIdentityProviderAdvancedAbilityResponse
+     *
+     * @param DisableIdentityProviderAdvancedAbilityRequest $request
+     *
+     * @return DisableIdentityProviderAdvancedAbilityResponse
+     */
+    public function disableIdentityProviderAdvancedAbility($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableIdentityProviderAdvancedAbilityWithOptions($request, $runtime);
+    }
+
+    /**
      * 禁用认证
      *
      * @param request - DisableIdentityProviderAuthnRequest
@@ -4405,6 +4675,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableInitDomainAutoRedirectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用内部认证源.
+     *
+     * @param request - DisableInternalAuthenticationSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableInternalAuthenticationSourceResponse
+     *
+     * @param DisableInternalAuthenticationSourceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DisableInternalAuthenticationSourceResponse
+     */
+    public function disableInternalAuthenticationSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authenticationSourceId) {
+            @$query['AuthenticationSourceId'] = $request->authenticationSourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableInternalAuthenticationSource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableInternalAuthenticationSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用内部认证源.
+     *
+     * @param request - DisableInternalAuthenticationSourceRequest
+     *
+     * @returns DisableInternalAuthenticationSourceResponse
+     *
+     * @param DisableInternalAuthenticationSourceRequest $request
+     *
+     * @return DisableInternalAuthenticationSourceResponse
+     */
+    public function disableInternalAuthenticationSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableInternalAuthenticationSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -5223,6 +5554,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用高级配置.
+     *
+     * @param request - EnableIdentityProviderAdvancedAbilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableIdentityProviderAdvancedAbilityResponse
+     *
+     * @param EnableIdentityProviderAdvancedAbilityRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return EnableIdentityProviderAdvancedAbilityResponse
+     */
+    public function enableIdentityProviderAdvancedAbilityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableIdentityProviderAdvancedAbility',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableIdentityProviderAdvancedAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用高级配置.
+     *
+     * @param request - EnableIdentityProviderAdvancedAbilityRequest
+     *
+     * @returns EnableIdentityProviderAdvancedAbilityResponse
+     *
+     * @param EnableIdentityProviderAdvancedAbilityRequest $request
+     *
+     * @return EnableIdentityProviderAdvancedAbilityResponse
+     */
+    public function enableIdentityProviderAdvancedAbility($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableIdentityProviderAdvancedAbilityWithOptions($request, $runtime);
+    }
+
+    /**
      * 启用认证
      *
      * @param request - EnableIdentityProviderAuthnRequest
@@ -5402,6 +5794,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用内部认证源.
+     *
+     * @param request - EnableInternalAuthenticationSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableInternalAuthenticationSourceResponse
+     *
+     * @param EnableInternalAuthenticationSourceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return EnableInternalAuthenticationSourceResponse
+     */
+    public function enableInternalAuthenticationSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authenticationSourceId) {
+            @$query['AuthenticationSourceId'] = $request->authenticationSourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableInternalAuthenticationSource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableInternalAuthenticationSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用内部认证源.
+     *
+     * @param request - EnableInternalAuthenticationSourceRequest
+     *
+     * @returns EnableInternalAuthenticationSourceResponse
+     *
+     * @param EnableInternalAuthenticationSourceRequest $request
+     *
+     * @return EnableInternalAuthenticationSourceResponse
+     */
+    public function enableInternalAuthenticationSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableInternalAuthenticationSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
      *
      * @param request - EnableUserRequest
@@ -5460,6 +5913,193 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成文件导入结果下载地址
+     *
+     * @param request - GenerateDownloadUrlForSynchronizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateDownloadUrlForSynchronizationJobResponse
+     *
+     * @param GenerateDownloadUrlForSynchronizationJobRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GenerateDownloadUrlForSynchronizationJobResponse
+     */
+    public function generateDownloadUrlForSynchronizationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->synchronizationJobId) {
+            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateDownloadUrlForSynchronizationJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateDownloadUrlForSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成文件导入结果下载地址
+     *
+     * @param request - GenerateDownloadUrlForSynchronizationJobRequest
+     *
+     * @returns GenerateDownloadUrlForSynchronizationJobResponse
+     *
+     * @param GenerateDownloadUrlForSynchronizationJobRequest $request
+     *
+     * @return GenerateDownloadUrlForSynchronizationJobResponse
+     */
+    public function generateDownloadUrlForSynchronizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDownloadUrlForSynchronizationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成文件导入模板
+     *
+     * @param request - GenerateFileImportTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateFileImportTemplateResponse
+     *
+     * @param GenerateFileImportTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GenerateFileImportTemplateResponse
+     */
+    public function generateFileImportTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateFileImportTemplate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateFileImportTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成文件导入模板
+     *
+     * @param request - GenerateFileImportTemplateRequest
+     *
+     * @returns GenerateFileImportTemplateResponse
+     *
+     * @param GenerateFileImportTemplateRequest $request
+     *
+     * @return GenerateFileImportTemplateResponse
+     */
+    public function generateFileImportTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateFileImportTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取上传认证
+     *
+     * @param request - GenerateUploadAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateUploadAuthResponse
+     *
+     * @param GenerateUploadAuthRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateUploadAuthResponse
+     */
+    public function generateUploadAuthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->purpose) {
+            @$query['Purpose'] = $request->purpose;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateUploadAuth',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateUploadAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取上传认证
+     *
+     * @param request - GenerateUploadAuthRequest
+     *
+     * @returns GenerateUploadAuthResponse
+     *
+     * @param GenerateUploadAuthRequest $request
+     *
+     * @return GenerateUploadAuthResponse
+     */
+    public function generateUploadAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateUploadAuthWithOptions($request, $runtime);
     }
 
     /**
@@ -11441,6 +12081,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setApplicationProvisioningScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置应用同步用户主组织.
+     *
+     * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+     *
+     * @param SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest $request
+     * @param RuntimeOptions                                                 $runtime
+     *
+     * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+     */
+    public function setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userPrimaryOrganizationalUnitId) {
+            @$query['UserPrimaryOrganizationalUnitId'] = $request->userPrimaryOrganizationalUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetApplicationProvisioningUserPrimaryOrganizationalUnit',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置应用同步用户主组织.
+     *
+     * @param request - SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+     *
+     * @returns SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+     *
+     * @param SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest $request
+     *
+     * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+     */
+    public function setApplicationProvisioningUserPrimaryOrganizationalUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions($request, $runtime);
     }
 
     /**
