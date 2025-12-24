@@ -21,6 +21,11 @@ class DescribeGlobalTimerRecordsRequest extends Model
     /**
      * @var string
      */
+    public $displayResultName;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -44,6 +49,11 @@ class DescribeGlobalTimerRecordsRequest extends Model
     public $resultCategory;
 
     /**
+     * @var bool
+     */
+    public $retryable;
+
+    /**
      * @var string
      */
     public $searchRegionId;
@@ -60,11 +70,13 @@ class DescribeGlobalTimerRecordsRequest extends Model
     protected $_name = [
         'batchId' => 'BatchId',
         'desktopIds' => 'DesktopIds',
+        'displayResultName' => 'DisplayResultName',
         'groupId' => 'GroupId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
         'resultCategory' => 'ResultCategory',
+        'retryable' => 'Retryable',
         'searchRegionId' => 'SearchRegionId',
         'timerResult' => 'TimerResult',
         'timerTypes' => 'TimerTypes',
@@ -99,6 +111,10 @@ class DescribeGlobalTimerRecordsRequest extends Model
             }
         }
 
+        if (null !== $this->displayResultName) {
+            $res['DisplayResultName'] = $this->displayResultName;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -117,6 +133,10 @@ class DescribeGlobalTimerRecordsRequest extends Model
 
         if (null !== $this->resultCategory) {
             $res['ResultCategory'] = $this->resultCategory;
+        }
+
+        if (null !== $this->retryable) {
+            $res['Retryable'] = $this->retryable;
         }
 
         if (null !== $this->searchRegionId) {
@@ -164,6 +184,10 @@ class DescribeGlobalTimerRecordsRequest extends Model
             }
         }
 
+        if (isset($map['DisplayResultName'])) {
+            $model->displayResultName = $map['DisplayResultName'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -182,6 +206,10 @@ class DescribeGlobalTimerRecordsRequest extends Model
 
         if (isset($map['ResultCategory'])) {
             $model->resultCategory = $map['ResultCategory'];
+        }
+
+        if (isset($map['Retryable'])) {
+            $model->retryable = $map['Retryable'];
         }
 
         if (isset($map['SearchRegionId'])) {

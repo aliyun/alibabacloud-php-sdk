@@ -11910,6 +11910,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopIds'] = $request->desktopIds;
         }
 
+        if (null !== $request->displayResultName) {
+            @$query['DisplayResultName'] = $request->displayResultName;
+        }
+
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
         }
@@ -11928,6 +11932,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->resultCategory) {
             @$query['ResultCategory'] = $request->resultCategory;
+        }
+
+        if (null !== $request->retryable) {
+            @$query['Retryable'] = $request->retryable;
         }
 
         if (null !== $request->searchRegionId) {

@@ -41,6 +41,11 @@ class results extends Model
     /**
      * @var string
      */
+    public $displayResultName;
+
+    /**
+     * @var string
+     */
     public $finishTime;
 
     /**
@@ -49,9 +54,19 @@ class results extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $retryable;
+
+    /**
      * @var string
      */
     public $timerGroupId;
+
+    /**
+     * @var string
+     */
+    public $timerRecordId;
 
     /**
      * @var string
@@ -69,9 +84,12 @@ class results extends Model
         'createTime' => 'CreateTime',
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
+        'displayResultName' => 'DisplayResultName',
         'finishTime' => 'FinishTime',
         'regionId' => 'RegionId',
+        'retryable' => 'Retryable',
         'timerGroupId' => 'TimerGroupId',
+        'timerRecordId' => 'TimerRecordId',
         'timerResult' => 'TimerResult',
         'timerType' => 'TimerType',
     ];
@@ -108,6 +126,10 @@ class results extends Model
             $res['DesktopName'] = $this->desktopName;
         }
 
+        if (null !== $this->displayResultName) {
+            $res['DisplayResultName'] = $this->displayResultName;
+        }
+
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
@@ -116,8 +138,16 @@ class results extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->retryable) {
+            $res['Retryable'] = $this->retryable;
+        }
+
         if (null !== $this->timerGroupId) {
             $res['TimerGroupId'] = $this->timerGroupId;
+        }
+
+        if (null !== $this->timerRecordId) {
+            $res['TimerRecordId'] = $this->timerRecordId;
         }
 
         if (null !== $this->timerResult) {
@@ -163,6 +193,10 @@ class results extends Model
             $model->desktopName = $map['DesktopName'];
         }
 
+        if (isset($map['DisplayResultName'])) {
+            $model->displayResultName = $map['DisplayResultName'];
+        }
+
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
@@ -171,8 +205,16 @@ class results extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['Retryable'])) {
+            $model->retryable = $map['Retryable'];
+        }
+
         if (isset($map['TimerGroupId'])) {
             $model->timerGroupId = $map['TimerGroupId'];
+        }
+
+        if (isset($map['TimerRecordId'])) {
+            $model->timerRecordId = $map['TimerRecordId'];
         }
 
         if (isset($map['TimerResult'])) {
