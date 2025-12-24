@@ -1,0 +1,118 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsResponseBody;
+
+use AlibabaCloud\Dara\Model;
+
+class data extends Model
+{
+    /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
+     * @var int
+     */
+    public $appType;
+
+    /**
+     * @var string
+     */
+    public $failedService;
+
+    /**
+     * @var int
+     */
+    public $workerId;
+
+    /**
+     * @var string
+     */
+    public $workerType;
+
+    /**
+     * @var string
+     */
+    public $workers;
+    protected $_name = [
+        'appGroupId' => 'AppGroupId',
+        'appType' => 'AppType',
+        'failedService' => 'FailedService',
+        'workerId' => 'WorkerId',
+        'workerType' => 'WorkerType',
+        'workers' => 'Workers',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
+
+        if (null !== $this->failedService) {
+            $res['FailedService'] = $this->failedService;
+        }
+
+        if (null !== $this->workerId) {
+            $res['WorkerId'] = $this->workerId;
+        }
+
+        if (null !== $this->workerType) {
+            $res['WorkerType'] = $this->workerType;
+        }
+
+        if (null !== $this->workers) {
+            $res['Workers'] = $this->workers;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
+
+        if (isset($map['FailedService'])) {
+            $model->failedService = $map['FailedService'];
+        }
+
+        if (isset($map['WorkerId'])) {
+            $model->workerId = $map['WorkerId'];
+        }
+
+        if (isset($map['WorkerType'])) {
+            $model->workerType = $map['WorkerType'];
+        }
+
+        if (isset($map['Workers'])) {
+            $model->workers = $map['Workers'];
+        }
+
+        return $model;
+    }
+}

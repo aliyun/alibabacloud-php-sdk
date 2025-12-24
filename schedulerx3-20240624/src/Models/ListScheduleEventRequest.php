@@ -67,6 +67,16 @@ class ListScheduleEventRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var int
+     */
+    public $workflowExecutionId;
+
+    /**
+     * @var string
+     */
+    public $workflowName;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
@@ -80,6 +90,8 @@ class ListScheduleEventRequest extends Model
         'pageSize' => 'PageSize',
         'reverse' => 'Reverse',
         'startTime' => 'StartTime',
+        'workflowExecutionId' => 'WorkflowExecutionId',
+        'workflowName' => 'WorkflowName',
     ];
 
     public function validate()
@@ -136,6 +148,14 @@ class ListScheduleEventRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->workflowExecutionId) {
+            $res['WorkflowExecutionId'] = $this->workflowExecutionId;
+        }
+
+        if (null !== $this->workflowName) {
+            $res['WorkflowName'] = $this->workflowName;
         }
 
         return $res;
@@ -195,6 +215,14 @@ class ListScheduleEventRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['WorkflowExecutionId'])) {
+            $model->workflowExecutionId = $map['WorkflowExecutionId'];
+        }
+
+        if (isset($map['WorkflowName'])) {
+            $model->workflowName = $map['WorkflowName'];
         }
 
         return $model;

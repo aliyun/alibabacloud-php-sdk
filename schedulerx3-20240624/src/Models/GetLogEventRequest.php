@@ -29,6 +29,11 @@ class GetLogEventRequest extends Model
     public $event;
 
     /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
      * @var int
      */
     public $jobExecutionId;
@@ -62,11 +67,22 @@ class GetLogEventRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var int
+     */
+    public $workflowExecutionId;
+
+    /**
+     * @var string
+     */
+    public $workflowName;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'endTime' => 'EndTime',
         'event' => 'Event',
+        'eventType' => 'EventType',
         'jobExecutionId' => 'JobExecutionId',
         'jobName' => 'JobName',
         'keyword' => 'Keyword',
@@ -74,6 +90,8 @@ class GetLogEventRequest extends Model
         'pageSize' => 'PageSize',
         'reverse' => 'Reverse',
         'startTime' => 'StartTime',
+        'workflowExecutionId' => 'WorkflowExecutionId',
+        'workflowName' => 'WorkflowName',
     ];
 
     public function validate()
@@ -98,6 +116,10 @@ class GetLogEventRequest extends Model
 
         if (null !== $this->event) {
             $res['Event'] = $this->event;
+        }
+
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
         }
 
         if (null !== $this->jobExecutionId) {
@@ -128,6 +150,14 @@ class GetLogEventRequest extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->workflowExecutionId) {
+            $res['WorkflowExecutionId'] = $this->workflowExecutionId;
+        }
+
+        if (null !== $this->workflowName) {
+            $res['WorkflowName'] = $this->workflowName;
+        }
+
         return $res;
     }
 
@@ -153,6 +183,10 @@ class GetLogEventRequest extends Model
 
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
+        }
+
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
         }
 
         if (isset($map['JobExecutionId'])) {
@@ -181,6 +215,14 @@ class GetLogEventRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['WorkflowExecutionId'])) {
+            $model->workflowExecutionId = $map['WorkflowExecutionId'];
+        }
+
+        if (isset($map['WorkflowName'])) {
+            $model->workflowName = $map['WorkflowName'];
         }
 
         return $model;

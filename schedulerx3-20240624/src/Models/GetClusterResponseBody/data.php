@@ -77,6 +77,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $maxWorkflowNum;
+
+    /**
+     * @var int
+     */
     public $productType;
 
     /**
@@ -115,6 +120,11 @@ class data extends Model
     public $workerNum;
 
     /**
+     * @var int
+     */
+    public $workflowNum;
+
+    /**
      * @var string[]
      */
     public $zones;
@@ -132,6 +142,7 @@ class data extends Model
         'jobNum' => 'JobNum',
         'kubeConfig' => 'KubeConfig',
         'maxJobNum' => 'MaxJobNum',
+        'maxWorkflowNum' => 'MaxWorkflowNum',
         'productType' => 'ProductType',
         'spm' => 'Spm',
         'status' => 'Status',
@@ -140,6 +151,7 @@ class data extends Model
         'versionLifecycle' => 'VersionLifecycle',
         'vpcId' => 'VpcId',
         'workerNum' => 'WorkerNum',
+        'workflowNum' => 'WorkflowNum',
         'zones' => 'Zones',
     ];
 
@@ -212,6 +224,10 @@ class data extends Model
             $res['MaxJobNum'] = $this->maxJobNum;
         }
 
+        if (null !== $this->maxWorkflowNum) {
+            $res['MaxWorkflowNum'] = $this->maxWorkflowNum;
+        }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -254,6 +270,10 @@ class data extends Model
 
         if (null !== $this->workerNum) {
             $res['WorkerNum'] = $this->workerNum;
+        }
+
+        if (null !== $this->workflowNum) {
+            $res['WorkflowNum'] = $this->workflowNum;
         }
 
         if (null !== $this->zones) {
@@ -330,6 +350,10 @@ class data extends Model
             $model->maxJobNum = $map['MaxJobNum'];
         }
 
+        if (isset($map['MaxWorkflowNum'])) {
+            $model->maxWorkflowNum = $map['MaxWorkflowNum'];
+        }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
@@ -372,6 +396,10 @@ class data extends Model
 
         if (isset($map['WorkerNum'])) {
             $model->workerNum = $map['WorkerNum'];
+        }
+
+        if (isset($map['WorkflowNum'])) {
+            $model->workflowNum = $map['WorkflowNum'];
         }
 
         if (isset($map['Zones'])) {

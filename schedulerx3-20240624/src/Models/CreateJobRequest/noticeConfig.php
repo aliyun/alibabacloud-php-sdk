@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class noticeConfig extends Model
 {
     /**
+     * @var int
+     */
+    public $endEarly;
+
+    /**
+     * @var bool
+     */
+    public $endEarlyEnable;
+
+    /**
      * @var bool
      */
     public $failEnable;
@@ -48,6 +58,8 @@ class noticeConfig extends Model
      */
     public $timeoutKillEnable;
     protected $_name = [
+        'endEarly' => 'EndEarly',
+        'endEarlyEnable' => 'EndEarlyEnable',
         'failEnable' => 'FailEnable',
         'failLimitTimes' => 'FailLimitTimes',
         'missWorkerEnable' => 'MissWorkerEnable',
@@ -66,6 +78,14 @@ class noticeConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endEarly) {
+            $res['EndEarly'] = $this->endEarly;
+        }
+
+        if (null !== $this->endEarlyEnable) {
+            $res['EndEarlyEnable'] = $this->endEarlyEnable;
+        }
+
         if (null !== $this->failEnable) {
             $res['FailEnable'] = $this->failEnable;
         }
@@ -109,6 +129,14 @@ class noticeConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndEarly'])) {
+            $model->endEarly = $map['EndEarly'];
+        }
+
+        if (isset($map['EndEarlyEnable'])) {
+            $model->endEarlyEnable = $map['EndEarlyEnable'];
+        }
+
         if (isset($map['FailEnable'])) {
             $model->failEnable = $map['FailEnable'];
         }

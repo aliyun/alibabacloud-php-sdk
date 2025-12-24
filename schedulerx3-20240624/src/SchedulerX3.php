@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateAppResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobShrinkRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetDesigateInfoRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetDesigateInfoResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetExecutorConfigRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetExecutorConfigResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionRequest;
@@ -61,6 +65,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobScriptHistoryRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobScriptHistoryResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobsResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListK8sResourceRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListK8sResourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListLablesRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListLablesResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListRegionsResponse;
@@ -88,10 +94,15 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRetryJobExecutionShrink
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionShrinkRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\SyncJobsRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\SyncJobsResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\SyncJobsShrinkRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateAppRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateAppResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobScriptRequest;
@@ -319,6 +330,75 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 添加执行器.
+     *
+     * @param request - CreateExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExecutorsResponse
+     *
+     * @param CreateExecutorsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateExecutorsResponse
+     */
+    public function createExecutorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->workerType) {
+            @$body['WorkerType'] = $request->workerType;
+        }
+
+        if (null !== $request->workers) {
+            @$body['Workers'] = $request->workers;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExecutors',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加执行器.
+     *
+     * @param request - CreateExecutorsRequest
+     *
+     * @returns CreateExecutorsResponse
+     *
+     * @param CreateExecutorsRequest $request
+     *
+     * @return CreateExecutorsResponse
+     */
+    public function createExecutors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExecutorsWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建任务
      *
      * @param tmpReq - CreateJobRequest
@@ -336,6 +416,10 @@ class SchedulerX3 extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateJobShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->coordinate) {
+            $request->coordinateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->coordinate, 'Coordinate', 'json');
+        }
+
         if (null !== $tmpReq->noticeConfig) {
             $request->noticeConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->noticeConfig, 'NoticeConfig', 'json');
         }
@@ -363,6 +447,14 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->clusterId) {
             @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->coordinateShrink) {
+            @$body['Coordinate'] = $request->coordinateShrink;
+        }
+
+        if (null !== $request->dependentStrategy) {
+            @$body['DependentStrategy'] = $request->dependentStrategy;
         }
 
         if (null !== $request->description) {
@@ -419,6 +511,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->startTimeType) {
+            @$body['StartTimeType'] = $request->startTimeType;
         }
 
         if (null !== $request->status) {
@@ -906,6 +1002,67 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDesigateInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询执行器配置信息.
+     *
+     * @param request - GetExecutorConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExecutorConfigResponse
+     *
+     * @param GetExecutorConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetExecutorConfigResponse
+     */
+    public function getExecutorConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetExecutorConfig',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetExecutorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询执行器配置信息.
+     *
+     * @param request - GetExecutorConfigRequest
+     *
+     * @returns GetExecutorConfigResponse
+     *
+     * @param GetExecutorConfigRequest $request
+     *
+     * @return GetExecutorConfigResponse
+     */
+    public function getExecutorConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getExecutorConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1661,7 +1818,51 @@ class SchedulerX3 extends OpenApiClient
     public function listJobExecutionsWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workflowExecutionId) {
+            @$query['WorkflowExecutionId'] = $request->workflowExecutionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1670,7 +1871,7 @@ class SchedulerX3 extends OpenApiClient
             'version' => '2024-06-24',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -1787,7 +1988,47 @@ class SchedulerX3 extends OpenApiClient
     public function listJobsWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->jobHandler) {
+            @$query['JobHandler'] = $request->jobHandler;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1796,7 +2037,7 @@ class SchedulerX3 extends OpenApiClient
             'version' => '2024-06-24',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -1822,6 +2063,79 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取k8s资源列表.
+     *
+     * @param request - ListK8sResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListK8sResourceResponse
+     *
+     * @param ListK8sResourceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListK8sResourceResponse
+     */
+    public function listK8sResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->k8sClusterId) {
+            @$query['K8sClusterId'] = $request->k8sClusterId;
+        }
+
+        if (null !== $request->k8sNamespace) {
+            @$query['K8sNamespace'] = $request->k8sNamespace;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListK8sResource',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListK8sResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取k8s资源列表.
+     *
+     * @param request - ListK8sResourceRequest
+     *
+     * @returns ListK8sResourceResponse
+     *
+     * @param ListK8sResourceRequest $request
+     *
+     * @return ListK8sResourceResponse
+     */
+    public function listK8sResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listK8sResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2489,6 +2803,10 @@ class SchedulerX3 extends OpenApiClient
             @$query['TaskList'] = $request->taskListShrink;
         }
 
+        if (null !== $request->triggerChild) {
+            @$query['TriggerChild'] = $request->triggerChild;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2526,7 +2844,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止正在运行的任务实例.
+     * 停止运行中的任务实例.
      *
      * @param tmpReq - OperateStopJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2583,7 +2901,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止正在运行的任务实例.
+     * 停止运行中的任务实例.
      *
      * @param request - OperateStopJobExecutionRequest
      *
@@ -2598,6 +2916,85 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateStopJobExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步任务
+     *
+     * @param tmpReq - SyncJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncJobsResponse
+     *
+     * @param SyncJobsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SyncJobsResponse
+     */
+    public function syncJobsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SyncJobsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->jobIdsShrink) {
+            @$body['JobIds'] = $request->jobIdsShrink;
+        }
+
+        if (null !== $request->originalAppName) {
+            @$body['OriginalAppName'] = $request->originalAppName;
+        }
+
+        if (null !== $request->originalClusterId) {
+            @$body['OriginalClusterId'] = $request->originalClusterId;
+        }
+
+        if (null !== $request->targetAppName) {
+            @$body['TargetAppName'] = $request->targetAppName;
+        }
+
+        if (null !== $request->targetClusterId) {
+            @$body['TargetClusterId'] = $request->targetClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步任务
+     *
+     * @param request - SyncJobsRequest
+     *
+     * @returns SyncJobsResponse
+     *
+     * @param SyncJobsRequest $request
+     *
+     * @return SyncJobsResponse
+     */
+    public function syncJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -2743,6 +3140,75 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 更新执行器.
+     *
+     * @param request - UpdateExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExecutorsResponse
+     *
+     * @param UpdateExecutorsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateExecutorsResponse
+     */
+    public function updateExecutorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->workerType) {
+            @$body['WorkerType'] = $request->workerType;
+        }
+
+        if (null !== $request->workers) {
+            @$body['Workers'] = $request->workers;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExecutors',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新执行器.
+     *
+     * @param request - UpdateExecutorsRequest
+     *
+     * @returns UpdateExecutorsResponse
+     *
+     * @param UpdateExecutorsRequest $request
+     *
+     * @return UpdateExecutorsResponse
+     */
+    public function updateExecutors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExecutorsWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新任务信息.
      *
      * @param tmpReq - UpdateJobRequest
@@ -2787,6 +3253,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->clusterId) {
             @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->dependentStrategy) {
+            @$body['DependentStrategy'] = $request->dependentStrategy;
         }
 
         if (null !== $request->description) {
@@ -2843,6 +3313,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->startTimeType) {
+            @$body['StartTimeType'] = $request->startTimeType;
         }
 
         if (null !== $request->timeExpression) {

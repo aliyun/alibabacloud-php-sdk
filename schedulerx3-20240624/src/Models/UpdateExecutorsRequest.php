@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OperateRetryJobExecutionShrinkRequest extends Model
+class UpdateExecutorsRequest extends Model
 {
     /**
      * @var string
@@ -21,23 +21,17 @@ class OperateRetryJobExecutionShrinkRequest extends Model
     /**
      * @var string
      */
-    public $jobExecutionId;
+    public $workerType;
 
     /**
      * @var string
      */
-    public $taskListShrink;
-
-    /**
-     * @var bool
-     */
-    public $triggerChild;
+    public $workers;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobExecutionId' => 'JobExecutionId',
-        'taskListShrink' => 'TaskList',
-        'triggerChild' => 'TriggerChild',
+        'workerType' => 'WorkerType',
+        'workers' => 'Workers',
     ];
 
     public function validate()
@@ -56,16 +50,12 @@ class OperateRetryJobExecutionShrinkRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->jobExecutionId) {
-            $res['JobExecutionId'] = $this->jobExecutionId;
+        if (null !== $this->workerType) {
+            $res['WorkerType'] = $this->workerType;
         }
 
-        if (null !== $this->taskListShrink) {
-            $res['TaskList'] = $this->taskListShrink;
-        }
-
-        if (null !== $this->triggerChild) {
-            $res['TriggerChild'] = $this->triggerChild;
+        if (null !== $this->workers) {
+            $res['Workers'] = $this->workers;
         }
 
         return $res;
@@ -87,16 +77,12 @@ class OperateRetryJobExecutionShrinkRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['JobExecutionId'])) {
-            $model->jobExecutionId = $map['JobExecutionId'];
+        if (isset($map['WorkerType'])) {
+            $model->workerType = $map['WorkerType'];
         }
 
-        if (isset($map['TaskList'])) {
-            $model->taskListShrink = $map['TaskList'];
-        }
-
-        if (isset($map['TriggerChild'])) {
-            $model->triggerChild = $map['TriggerChild'];
+        if (isset($map['Workers'])) {
+            $model->workers = $map['Workers'];
         }
 
         return $model;

@@ -52,6 +52,11 @@ class ListJobsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $workflowId;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
@@ -62,6 +67,7 @@ class ListJobsRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'status' => 'Status',
+        'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
         }
 
         return $model;

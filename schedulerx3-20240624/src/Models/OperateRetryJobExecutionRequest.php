@@ -27,11 +27,17 @@ class OperateRetryJobExecutionRequest extends Model
      * @var string[]
      */
     public $taskList;
+
+    /**
+     * @var bool
+     */
+    public $triggerChild;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
         'taskList' => 'TaskList',
+        'triggerChild' => 'TriggerChild',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class OperateRetryJobExecutionRequest extends Model
             }
         }
 
+        if (null !== $this->triggerChild) {
+            $res['TriggerChild'] = $this->triggerChild;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class OperateRetryJobExecutionRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TriggerChild'])) {
+            $model->triggerChild = $map['TriggerChild'];
         }
 
         return $model;

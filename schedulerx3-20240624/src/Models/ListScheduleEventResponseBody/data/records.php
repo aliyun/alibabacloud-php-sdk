@@ -26,6 +26,11 @@ class records extends Model
     /**
      * @var string
      */
+    public $eventType;
+
+    /**
+     * @var string
+     */
     public $jobExecutionId;
 
     /**
@@ -42,14 +47,27 @@ class records extends Model
      * @var string
      */
     public $workerAddr;
+
+    /**
+     * @var string
+     */
+    public $workflowExecutionId;
+
+    /**
+     * @var string
+     */
+    public $workflowName;
     protected $_name = [
         'appName' => 'AppName',
         'content' => 'Content',
         'event' => 'Event',
+        'eventType' => 'EventType',
         'jobExecutionId' => 'JobExecutionId',
         'jobName' => 'JobName',
         'time' => 'Time',
         'workerAddr' => 'WorkerAddr',
+        'workflowExecutionId' => 'WorkflowExecutionId',
+        'workflowName' => 'WorkflowName',
     ];
 
     public function validate()
@@ -72,6 +90,10 @@ class records extends Model
             $res['Event'] = $this->event;
         }
 
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
@@ -86,6 +108,14 @@ class records extends Model
 
         if (null !== $this->workerAddr) {
             $res['WorkerAddr'] = $this->workerAddr;
+        }
+
+        if (null !== $this->workflowExecutionId) {
+            $res['WorkflowExecutionId'] = $this->workflowExecutionId;
+        }
+
+        if (null !== $this->workflowName) {
+            $res['WorkflowName'] = $this->workflowName;
         }
 
         return $res;
@@ -111,6 +141,10 @@ class records extends Model
             $model->event = $map['Event'];
         }
 
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }
@@ -125,6 +159,14 @@ class records extends Model
 
         if (isset($map['WorkerAddr'])) {
             $model->workerAddr = $map['WorkerAddr'];
+        }
+
+        if (isset($map['WorkflowExecutionId'])) {
+            $model->workflowExecutionId = $map['WorkflowExecutionId'];
+        }
+
+        if (isset($map['WorkflowName'])) {
+            $model->workflowName = $map['WorkflowName'];
         }
 
         return $model;

@@ -107,6 +107,21 @@ class records extends Model
      * @var string
      */
     public $workAddr;
+
+    /**
+     * @var string
+     */
+    public $workflowExecutionId;
+
+    /**
+     * @var int
+     */
+    public $workflowId;
+
+    /**
+     * @var string
+     */
+    public $workflowName;
     protected $_name = [
         'appName' => 'AppName',
         'attempt' => 'Attempt',
@@ -128,6 +143,9 @@ class records extends Model
         'totalTokens' => 'TotalTokens',
         'triggerType' => 'TriggerType',
         'workAddr' => 'WorkAddr',
+        'workflowExecutionId' => 'WorkflowExecutionId',
+        'workflowId' => 'WorkflowId',
+        'workflowName' => 'WorkflowName',
     ];
 
     public function validate()
@@ -216,6 +234,18 @@ class records extends Model
 
         if (null !== $this->workAddr) {
             $res['WorkAddr'] = $this->workAddr;
+        }
+
+        if (null !== $this->workflowExecutionId) {
+            $res['WorkflowExecutionId'] = $this->workflowExecutionId;
+        }
+
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
+        }
+
+        if (null !== $this->workflowName) {
+            $res['WorkflowName'] = $this->workflowName;
         }
 
         return $res;
@@ -307,6 +337,18 @@ class records extends Model
 
         if (isset($map['WorkAddr'])) {
             $model->workAddr = $map['WorkAddr'];
+        }
+
+        if (isset($map['WorkflowExecutionId'])) {
+            $model->workflowExecutionId = $map['WorkflowExecutionId'];
+        }
+
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
+        }
+
+        if (isset($map['WorkflowName'])) {
+            $model->workflowName = $map['WorkflowName'];
         }
 
         return $model;

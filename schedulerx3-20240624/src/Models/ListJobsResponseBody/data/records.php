@@ -49,6 +49,11 @@ class records extends Model
     public $dataOffset;
 
     /**
+     * @var int
+     */
+    public $dependentStrategy;
+
+    /**
      * @var string
      */
     public $description;
@@ -99,6 +104,11 @@ class records extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $nodeType;
+
+    /**
      * @var string
      */
     public $noticeConfig;
@@ -127,6 +137,11 @@ class records extends Model
      * @var string
      */
     public $script;
+
+    /**
+     * @var int
+     */
+    public $startTimeType;
 
     /**
      * @var int
@@ -164,6 +179,11 @@ class records extends Model
     public $weight;
 
     /**
+     * @var int
+     */
+    public $workflowId;
+
+    /**
      * @var string
      */
     public $xattrs;
@@ -176,6 +196,7 @@ class records extends Model
         'creator' => 'Creator',
         'currentExecuteStatus' => 'CurrentExecuteStatus',
         'dataOffset' => 'DataOffset',
+        'dependentStrategy' => 'DependentStrategy',
         'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
@@ -186,12 +207,14 @@ class records extends Model
         'maxAttempt' => 'MaxAttempt',
         'maxConcurrency' => 'MaxConcurrency',
         'name' => 'Name',
+        'nodeType' => 'NodeType',
         'noticeConfig' => 'NoticeConfig',
         'noticeContacts' => 'NoticeContacts',
         'parameters' => 'Parameters',
         'priority' => 'Priority',
         'routeStrategy' => 'RouteStrategy',
         'script' => 'Script',
+        'startTimeType' => 'StartTimeType',
         'status' => 'Status',
         'timeExpression' => 'TimeExpression',
         'timeType' => 'TimeType',
@@ -199,6 +222,7 @@ class records extends Model
         'timezone' => 'Timezone',
         'updater' => 'Updater',
         'weight' => 'Weight',
+        'workflowId' => 'WorkflowId',
         'xattrs' => 'Xattrs',
     ];
 
@@ -242,6 +266,10 @@ class records extends Model
             $res['DataOffset'] = $this->dataOffset;
         }
 
+        if (null !== $this->dependentStrategy) {
+            $res['DependentStrategy'] = $this->dependentStrategy;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -282,6 +310,10 @@ class records extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
+        }
+
         if (null !== $this->noticeConfig) {
             $res['NoticeConfig'] = $this->noticeConfig;
         }
@@ -304,6 +336,10 @@ class records extends Model
 
         if (null !== $this->script) {
             $res['Script'] = $this->script;
+        }
+
+        if (null !== $this->startTimeType) {
+            $res['StartTimeType'] = $this->startTimeType;
         }
 
         if (null !== $this->status) {
@@ -332,6 +368,10 @@ class records extends Model
 
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
+        }
+
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
         }
 
         if (null !== $this->xattrs) {
@@ -381,6 +421,10 @@ class records extends Model
             $model->dataOffset = $map['DataOffset'];
         }
 
+        if (isset($map['DependentStrategy'])) {
+            $model->dependentStrategy = $map['DependentStrategy'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -421,6 +465,10 @@ class records extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
+        }
+
         if (isset($map['NoticeConfig'])) {
             $model->noticeConfig = $map['NoticeConfig'];
         }
@@ -443,6 +491,10 @@ class records extends Model
 
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
+        }
+
+        if (isset($map['StartTimeType'])) {
+            $model->startTimeType = $map['StartTimeType'];
         }
 
         if (isset($map['Status'])) {
@@ -471,6 +523,10 @@ class records extends Model
 
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
         }
 
         if (isset($map['Xattrs'])) {

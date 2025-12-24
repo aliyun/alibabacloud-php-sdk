@@ -34,6 +34,11 @@ class UpdateJobShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @var int
+     */
+    public $dependentStrategy;
+
+    /**
      * @var string
      */
     public $description;
@@ -106,6 +111,11 @@ class UpdateJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $startTimeType;
+
+    /**
+     * @var string
+     */
     public $timeExpression;
 
     /**
@@ -128,6 +138,7 @@ class UpdateJobShrinkRequest extends Model
         'calendar' => 'Calendar',
         'childJobId' => 'ChildJobId',
         'clusterId' => 'ClusterId',
+        'dependentStrategy' => 'DependentStrategy',
         'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
@@ -142,6 +153,7 @@ class UpdateJobShrinkRequest extends Model
         'routeStrategy' => 'RouteStrategy',
         'script' => 'Script',
         'startTime' => 'StartTime',
+        'startTimeType' => 'StartTimeType',
         'timeExpression' => 'TimeExpression',
         'timeType' => 'TimeType',
         'timezone' => 'Timezone',
@@ -174,6 +186,10 @@ class UpdateJobShrinkRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->dependentStrategy) {
+            $res['DependentStrategy'] = $this->dependentStrategy;
         }
 
         if (null !== $this->description) {
@@ -232,6 +248,10 @@ class UpdateJobShrinkRequest extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->startTimeType) {
+            $res['StartTimeType'] = $this->startTimeType;
+        }
+
         if (null !== $this->timeExpression) {
             $res['TimeExpression'] = $this->timeExpression;
         }
@@ -277,6 +297,10 @@ class UpdateJobShrinkRequest extends Model
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['DependentStrategy'])) {
+            $model->dependentStrategy = $map['DependentStrategy'];
         }
 
         if (isset($map['Description'])) {
@@ -333,6 +357,10 @@ class UpdateJobShrinkRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['StartTimeType'])) {
+            $model->startTimeType = $map['StartTimeType'];
         }
 
         if (isset($map['TimeExpression'])) {

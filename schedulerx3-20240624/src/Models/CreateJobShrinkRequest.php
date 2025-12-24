@@ -36,6 +36,16 @@ class CreateJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $coordinateShrink;
+
+    /**
+     * @var int
+     */
+    public $dependentStrategy;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -106,6 +116,11 @@ class CreateJobShrinkRequest extends Model
     /**
      * @var int
      */
+    public $startTimeType;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -133,6 +148,8 @@ class CreateJobShrinkRequest extends Model
         'calendar' => 'Calendar',
         'childJobId' => 'ChildJobId',
         'clusterId' => 'ClusterId',
+        'coordinateShrink' => 'Coordinate',
+        'dependentStrategy' => 'DependentStrategy',
         'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
@@ -147,6 +164,7 @@ class CreateJobShrinkRequest extends Model
         'routeStrategy' => 'RouteStrategy',
         'script' => 'Script',
         'startTime' => 'StartTime',
+        'startTimeType' => 'StartTimeType',
         'status' => 'Status',
         'timeExpression' => 'TimeExpression',
         'timeType' => 'TimeType',
@@ -180,6 +198,14 @@ class CreateJobShrinkRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->coordinateShrink) {
+            $res['Coordinate'] = $this->coordinateShrink;
+        }
+
+        if (null !== $this->dependentStrategy) {
+            $res['DependentStrategy'] = $this->dependentStrategy;
         }
 
         if (null !== $this->description) {
@@ -238,6 +264,10 @@ class CreateJobShrinkRequest extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->startTimeType) {
+            $res['StartTimeType'] = $this->startTimeType;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -287,6 +317,14 @@ class CreateJobShrinkRequest extends Model
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['Coordinate'])) {
+            $model->coordinateShrink = $map['Coordinate'];
+        }
+
+        if (isset($map['DependentStrategy'])) {
+            $model->dependentStrategy = $map['DependentStrategy'];
         }
 
         if (isset($map['Description'])) {
@@ -343,6 +381,10 @@ class CreateJobShrinkRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['StartTimeType'])) {
+            $model->startTimeType = $map['StartTimeType'];
         }
 
         if (isset($map['Status'])) {

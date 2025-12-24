@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OperateRetryJobExecutionShrinkRequest extends Model
+class GetExecutorConfigRequest extends Model
 {
     /**
      * @var string
@@ -17,27 +17,9 @@ class OperateRetryJobExecutionShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $jobExecutionId;
-
-    /**
-     * @var string
-     */
-    public $taskListShrink;
-
-    /**
-     * @var bool
-     */
-    public $triggerChild;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobExecutionId' => 'JobExecutionId',
-        'taskListShrink' => 'TaskList',
-        'triggerChild' => 'TriggerChild',
     ];
 
     public function validate()
@@ -54,18 +36,6 @@ class OperateRetryJobExecutionShrinkRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-
-        if (null !== $this->jobExecutionId) {
-            $res['JobExecutionId'] = $this->jobExecutionId;
-        }
-
-        if (null !== $this->taskListShrink) {
-            $res['TaskList'] = $this->taskListShrink;
-        }
-
-        if (null !== $this->triggerChild) {
-            $res['TriggerChild'] = $this->triggerChild;
         }
 
         return $res;
@@ -85,18 +55,6 @@ class OperateRetryJobExecutionShrinkRequest extends Model
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-
-        if (isset($map['JobExecutionId'])) {
-            $model->jobExecutionId = $map['JobExecutionId'];
-        }
-
-        if (isset($map['TaskList'])) {
-            $model->taskListShrink = $map['TaskList'];
-        }
-
-        if (isset($map['TriggerChild'])) {
-            $model->triggerChild = $map['TriggerChild'];
         }
 
         return $model;

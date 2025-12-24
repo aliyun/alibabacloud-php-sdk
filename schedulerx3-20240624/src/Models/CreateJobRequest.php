@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest\coordinate;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest\noticeConfig;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest\noticeContacts;
 
@@ -34,6 +35,16 @@ class CreateJobRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var coordinate
+     */
+    public $coordinate;
+
+    /**
+     * @var int
+     */
+    public $dependentStrategy;
 
     /**
      * @var string
@@ -108,6 +119,11 @@ class CreateJobRequest extends Model
     /**
      * @var int
      */
+    public $startTimeType;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -135,6 +151,8 @@ class CreateJobRequest extends Model
         'calendar' => 'Calendar',
         'childJobId' => 'ChildJobId',
         'clusterId' => 'ClusterId',
+        'coordinate' => 'Coordinate',
+        'dependentStrategy' => 'DependentStrategy',
         'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
         'jobHandler' => 'JobHandler',
@@ -149,6 +167,7 @@ class CreateJobRequest extends Model
         'routeStrategy' => 'RouteStrategy',
         'script' => 'Script',
         'startTime' => 'StartTime',
+        'startTimeType' => 'StartTimeType',
         'status' => 'Status',
         'timeExpression' => 'TimeExpression',
         'timeType' => 'TimeType',
@@ -158,6 +177,9 @@ class CreateJobRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->coordinate) {
+            $this->coordinate->validate();
+        }
         if (null !== $this->noticeConfig) {
             $this->noticeConfig->validate();
         }
@@ -188,6 +210,14 @@ class CreateJobRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->coordinate) {
+            $res['Coordinate'] = null !== $this->coordinate ? $this->coordinate->toArray($noStream) : $this->coordinate;
+        }
+
+        if (null !== $this->dependentStrategy) {
+            $res['DependentStrategy'] = $this->dependentStrategy;
         }
 
         if (null !== $this->description) {
@@ -253,6 +283,10 @@ class CreateJobRequest extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->startTimeType) {
+            $res['StartTimeType'] = $this->startTimeType;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -302,6 +336,14 @@ class CreateJobRequest extends Model
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['Coordinate'])) {
+            $model->coordinate = coordinate::fromMap($map['Coordinate']);
+        }
+
+        if (isset($map['DependentStrategy'])) {
+            $model->dependentStrategy = $map['DependentStrategy'];
         }
 
         if (isset($map['Description'])) {
@@ -365,6 +407,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['StartTimeType'])) {
+            $model->startTimeType = $map['StartTimeType'];
         }
 
         if (isset($map['Status'])) {
