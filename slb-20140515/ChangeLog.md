@@ -2,6 +2,10 @@
 - Update API DescribeZones: add request parameters AcceptLanguage.
 
 
+2025-12-24 Version: 2.0.12
+- Update API DescribeZones: add request parameters AcceptLanguage.
+
+
 2025-12-05 Version: 2.0.11
 - Generated php 2014-05-15 for Slb.
 
