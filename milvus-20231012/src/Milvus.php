@@ -237,6 +237,10 @@ class Milvus extends OpenApiClient
             @$body['autoBackup'] = $request->autoBackup;
         }
 
+        if (null !== $request->autoRenew) {
+            @$body['autoRenew'] = $request->autoRenew;
+        }
+
         if (null !== $request->components) {
             @$body['components'] = $request->components;
         }
@@ -265,8 +269,16 @@ class Milvus extends OpenApiClient
             @$body['instanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->isMultiAzStorage) {
+            @$body['isMultiAzStorage'] = $request->isMultiAzStorage;
+        }
+
         if (null !== $request->kmsKeyId) {
             @$body['kmsKeyId'] = $request->kmsKeyId;
+        }
+
+        if (null !== $request->loadReplicas) {
+            @$body['loadReplicas'] = $request->loadReplicas;
         }
 
         if (null !== $request->multiZoneMode) {
@@ -283,6 +295,10 @@ class Milvus extends OpenApiClient
 
         if (null !== $request->paymentType) {
             @$body['paymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->promotionNo) {
+            @$body['promotionNo'] = $request->promotionNo;
         }
 
         if (null !== $request->resourceGroupId) {

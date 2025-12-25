@@ -37,6 +37,11 @@ class milvusResourceInfoList extends Model
      * @var int
      */
     public $replica;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'componentType' => 'ComponentType',
         'cuNum' => 'CuNum',
@@ -44,6 +49,7 @@ class milvusResourceInfoList extends Model
         'diskSize' => 'DiskSize',
         'diskType' => 'DiskType',
         'replica' => 'Replica',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class milvusResourceInfoList extends Model
 
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class milvusResourceInfoList extends Model
 
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -22,6 +22,11 @@ class CreateInstanceRequest extends Model
     public $autoBackup;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -57,9 +62,19 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @var bool
+     */
+    public $isMultiAzStorage;
+
+    /**
      * @var string
      */
     public $kmsKeyId;
+
+    /**
+     * @var int
+     */
+    public $loadReplicas;
 
     /**
      * @var string
@@ -80,6 +95,11 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $paymentType;
+
+    /**
+     * @var string
+     */
+    public $promotionNo;
 
     /**
      * @var string
@@ -113,6 +133,7 @@ class CreateInstanceRequest extends Model
     protected $_name = [
         'regionId' => 'RegionId',
         'autoBackup' => 'autoBackup',
+        'autoRenew' => 'autoRenew',
         'components' => 'components',
         'configuration' => 'configuration',
         'dbAdminPassword' => 'dbAdminPassword',
@@ -120,11 +141,14 @@ class CreateInstanceRequest extends Model
         'encrypted' => 'encrypted',
         'ha' => 'ha',
         'instanceName' => 'instanceName',
+        'isMultiAzStorage' => 'isMultiAzStorage',
         'kmsKeyId' => 'kmsKeyId',
+        'loadReplicas' => 'loadReplicas',
         'multiZoneMode' => 'multiZoneMode',
         'paymentDuration' => 'paymentDuration',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentType' => 'paymentType',
+        'promotionNo' => 'promotionNo',
         'resourceGroupId' => 'resourceGroupId',
         'tags' => 'tags',
         'vSwitchIds' => 'vSwitchIds',
@@ -156,6 +180,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->autoBackup) {
             $res['autoBackup'] = $this->autoBackup;
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['autoRenew'] = $this->autoRenew;
         }
 
         if (null !== $this->components) {
@@ -193,8 +221,16 @@ class CreateInstanceRequest extends Model
             $res['instanceName'] = $this->instanceName;
         }
 
+        if (null !== $this->isMultiAzStorage) {
+            $res['isMultiAzStorage'] = $this->isMultiAzStorage;
+        }
+
         if (null !== $this->kmsKeyId) {
             $res['kmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->loadReplicas) {
+            $res['loadReplicas'] = $this->loadReplicas;
         }
 
         if (null !== $this->multiZoneMode) {
@@ -211,6 +247,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->promotionNo) {
+            $res['promotionNo'] = $this->promotionNo;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -270,6 +310,10 @@ class CreateInstanceRequest extends Model
             $model->autoBackup = $map['autoBackup'];
         }
 
+        if (isset($map['autoRenew'])) {
+            $model->autoRenew = $map['autoRenew'];
+        }
+
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
                 $model->components = [];
@@ -305,8 +349,16 @@ class CreateInstanceRequest extends Model
             $model->instanceName = $map['instanceName'];
         }
 
+        if (isset($map['isMultiAzStorage'])) {
+            $model->isMultiAzStorage = $map['isMultiAzStorage'];
+        }
+
         if (isset($map['kmsKeyId'])) {
             $model->kmsKeyId = $map['kmsKeyId'];
+        }
+
+        if (isset($map['loadReplicas'])) {
+            $model->loadReplicas = $map['loadReplicas'];
         }
 
         if (isset($map['multiZoneMode'])) {
@@ -323,6 +375,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+
+        if (isset($map['promotionNo'])) {
+            $model->promotionNo = $map['promotionNo'];
         }
 
         if (isset($map['resourceGroupId'])) {

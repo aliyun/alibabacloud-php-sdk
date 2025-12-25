@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\clusterInfo;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\highAvailability;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\measureConfig;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\tags;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\vSwitches;
@@ -56,6 +57,11 @@ class data extends Model
      * @var int
      */
     public $expireTime;
+
+    /**
+     * @var highAvailability
+     */
+    public $highAvailability;
 
     /**
      * @var string
@@ -176,6 +182,7 @@ class data extends Model
         'enableHa' => 'EnableHa',
         'encrypted' => 'Encrypted',
         'expireTime' => 'ExpireTime',
+        'highAvailability' => 'HighAvailability',
         'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
         'kmsKeyId' => 'KmsKeyId',
@@ -204,6 +211,9 @@ class data extends Model
     {
         if (null !== $this->clusterInfo) {
             $this->clusterInfo->validate();
+        }
+        if (null !== $this->highAvailability) {
+            $this->highAvailability->validate();
         }
         if (null !== $this->measureConfig) {
             $this->measureConfig->validate();
@@ -254,6 +264,10 @@ class data extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->highAvailability) {
+            $res['HighAvailability'] = null !== $this->highAvailability ? $this->highAvailability->toArray($noStream) : $this->highAvailability;
         }
 
         if (null !== $this->instanceId) {
@@ -403,6 +417,10 @@ class data extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['HighAvailability'])) {
+            $model->highAvailability = highAvailability::fromMap($map['HighAvailability']);
         }
 
         if (isset($map['InstanceId'])) {
