@@ -151,6 +151,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserWafRulesetRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserWafRulesetResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserWafRulesetShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleRequest;
@@ -255,6 +258,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserWafRulesetRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleRequest;
@@ -409,6 +414,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineAccessTokenRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineAccessTokenResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRequest;
@@ -451,6 +458,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserWafRulesetRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafBotAppKeyResponse;
@@ -575,6 +584,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
@@ -760,6 +772,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleRequest;
@@ -5961,6 +5976,125 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param tmpReq - CreateUserWafRulesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserWafRulesetResponse
+     *
+     * @param CreateUserWafRulesetRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateUserWafRulesetResponse
+     */
+    public function createUserWafRulesetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateUserWafRulesetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        if (null !== $tmpReq->shared) {
+            $request->sharedShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shared, 'Shared', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->expression) {
+            @$body['Expression'] = $request->expression;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->phase) {
+            @$body['Phase'] = $request->phase;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$body['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->sharedShrink) {
+            @$body['Shared'] = $request->sharedShrink;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUserWafRuleset',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param Request - CreateUserWafRulesetRequest
+     *
+     * @returns CreateUserWafRulesetResponse
+     *
+     * @param CreateUserWafRulesetRequest $request
+     *
+     * @return CreateUserWafRulesetResponse
+     */
+    public function createUserWafRuleset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserWafRulesetWithOptions($request, $runtime);
+    }
+
+    /**
      * Add video processing configurations for a website.
      *
      * @param Request - CreateVideoProcessingRequest
@@ -9235,6 +9369,91 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserDeliveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于删除实例级别的Web应用防火墙规则集。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param Request - DeleteUserWafRulesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserWafRulesetResponse
+     *
+     * @param DeleteUserWafRulesetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteUserWafRulesetResponse
+     */
+    public function deleteUserWafRulesetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUserWafRuleset',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUserWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于删除实例级别的Web应用防火墙规则集。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param Request - DeleteUserWafRulesetRequest
+     *
+     * @returns DeleteUserWafRulesetResponse
+     *
+     * @param DeleteUserWafRulesetRequest $request
+     *
+     * @return DeleteUserWafRulesetResponse
+     */
+    public function deleteUserWafRuleset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserWafRulesetWithOptions($request, $runtime);
     }
 
     /**
@@ -13705,6 +13924,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询Routine默认访问记录访问鉴权token.
+     *
+     * @param Request - GetRoutineAccessTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutineAccessTokenResponse
+     *
+     * @param GetRoutineAccessTokenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRoutineAccessTokenResponse
+     */
+    public function getRoutineAccessTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutineAccessToken',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRoutineAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Routine默认访问记录访问鉴权token.
+     *
+     * @param Request - GetRoutineAccessTokenRequest
+     *
+     * @returns GetRoutineAccessTokenResponse
+     *
+     * @param GetRoutineAccessTokenRequest $request
+     *
+     * @return GetRoutineAccessTokenResponse
+     */
+    public function getRoutineAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineAccessTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about a code version of a routine.
      *
      * @param Request - GetRoutineCodeVersionRequest
@@ -14883,6 +15159,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserLogDeliveryQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于获取实例级别的Web应用防火墙规则集详情.
+     *
+     * @param Request - GetUserWafRulesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserWafRulesetResponse
+     *
+     * @param GetUserWafRulesetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserWafRulesetResponse
+     */
+    public function getUserWafRulesetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserWafRuleset',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于获取实例级别的Web应用防火墙规则集详情.
+     *
+     * @param Request - GetUserWafRulesetRequest
+     *
+     * @returns GetUserWafRulesetResponse
+     *
+     * @param GetUserWafRulesetRequest $request
+     *
+     * @return GetUserWafRulesetResponse
+     */
+    public function getUserWafRuleset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserWafRulesetWithOptions($request, $runtime);
     }
 
     /**
@@ -18456,6 +18793,85 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserRoutinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于列举实例级别的Web应用防火墙规则集。
+     *
+     * @param tmpReq - ListUserWafRulesetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserWafRulesetsResponse
+     *
+     * @param ListUserWafRulesetsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserWafRulesetsResponse
+     */
+    public function listUserWafRulesetsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListUserWafRulesetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
+        }
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserWafRulesets',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserWafRulesetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于列举实例级别的Web应用防火墙规则集。
+     *
+     * @param Request - ListUserWafRulesetsRequest
+     *
+     * @returns ListUserWafRulesetsResponse
+     *
+     * @param ListUserWafRulesetsRequest $request
+     *
+     * @return ListUserWafRulesetsResponse
+     */
+    public function listUserWafRulesets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserWafRulesetsWithOptions($request, $runtime);
     }
 
     /**
@@ -24958,6 +25374,129 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserDeliveryTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param tmpReq - UpdateUserWafRulesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserWafRulesetResponse
+     *
+     * @param UpdateUserWafRulesetRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateUserWafRulesetResponse
+     */
+    public function updateUserWafRulesetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateUserWafRulesetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        if (null !== $tmpReq->shared) {
+            $request->sharedShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shared, 'Shared', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->expression) {
+            @$body['Expression'] = $request->expression;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->position) {
+            @$body['Position'] = $request->position;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$body['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->sharedShrink) {
+            @$body['Shared'] = $request->sharedShrink;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserWafRuleset',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     *
+     * @param Request - UpdateUserWafRulesetRequest
+     *
+     * @returns UpdateUserWafRulesetResponse
+     *
+     * @param UpdateUserWafRulesetRequest $request
+     *
+     * @return UpdateUserWafRulesetResponse
+     */
+    public function updateUserWafRuleset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserWafRulesetWithOptions($request, $runtime);
     }
 
     /**
