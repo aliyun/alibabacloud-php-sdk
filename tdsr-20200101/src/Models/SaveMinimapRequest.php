@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveMinimapRequest extends Model
 {
@@ -18,20 +18,22 @@ class SaveMinimapRequest extends Model
      */
     public $sceneId;
     protected $_name = [
-        'data'    => 'Data',
+        'data' => 'Data',
         'sceneId' => 'SceneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -39,17 +41,18 @@ class SaveMinimapRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveMinimapRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

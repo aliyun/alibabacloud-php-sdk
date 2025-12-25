@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetScenePreviewDataRequest extends Model
 {
@@ -28,28 +28,32 @@ class GetScenePreviewDataRequest extends Model
      */
     public $showTag;
     protected $_name = [
-        'domain'       => 'Domain',
-        'enabled'      => 'Enabled',
+        'domain' => 'Domain',
+        'enabled' => 'Enabled',
         'previewToken' => 'PreviewToken',
-        'showTag'      => 'ShowTag',
+        'showTag' => 'ShowTag',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
+
         if (null !== $this->showTag) {
             $res['ShowTag'] = $this->showTag;
         }
@@ -57,23 +61,26 @@ class GetScenePreviewDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetScenePreviewDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
+
         if (isset($map['ShowTag'])) {
             $model->showTag = $map['ShowTag'];
         }

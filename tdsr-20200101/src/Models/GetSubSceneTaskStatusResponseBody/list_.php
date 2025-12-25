@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -43,40 +43,47 @@ class list_ extends Model
      */
     public $type;
     protected $_name = [
-        'errorCode'  => 'ErrorCode',
-        'errorMsg'   => 'ErrorMsg',
-        'id'         => 'Id',
-        'sceneId'    => 'SceneId',
-        'status'     => 'Status',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'id' => 'Id',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
         'subSceneId' => 'SubSceneId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->subSceneId) {
             $res['SubSceneId'] = $this->subSceneId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -84,32 +91,38 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubSceneId'])) {
             $model->subSceneId = $map['SubSceneId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

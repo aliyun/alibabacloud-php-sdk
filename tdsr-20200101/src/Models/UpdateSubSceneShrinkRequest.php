@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSubSceneShrinkRequest extends Model
 {
@@ -23,24 +23,27 @@ class UpdateSubSceneShrinkRequest extends Model
      */
     public $viewPointShrink;
     protected $_name = [
-        'id'              => 'Id',
-        'name'            => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'viewPointShrink' => 'ViewPoint',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->viewPointShrink) {
             $res['ViewPoint'] = $this->viewPointShrink;
         }
@@ -48,20 +51,22 @@ class UpdateSubSceneShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSubSceneShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ViewPoint'])) {
             $model->viewPointShrink = $map['ViewPoint'];
         }

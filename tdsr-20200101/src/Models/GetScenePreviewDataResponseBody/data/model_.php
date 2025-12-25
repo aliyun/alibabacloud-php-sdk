@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataResponseBody\data\model\panoList;
-use AlibabaCloud\Tea\Model;
 
 class model_ extends Model
 {
@@ -29,34 +29,42 @@ class model_ extends Model
      */
     public $texturePanoPath;
     protected $_name = [
-        'modelPath'        => 'ModelPath',
-        'panoList'         => 'PanoList',
+        'modelPath' => 'ModelPath',
+        'panoList' => 'PanoList',
         'textureModelPath' => 'TextureModelPath',
-        'texturePanoPath'  => 'TexturePanoPath',
+        'texturePanoPath' => 'TexturePanoPath',
     ];
 
     public function validate()
     {
+        if (\is_array($this->panoList)) {
+            Model::validateArray($this->panoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelPath) {
             $res['ModelPath'] = $this->modelPath;
         }
+
         if (null !== $this->panoList) {
-            $res['PanoList'] = [];
-            if (null !== $this->panoList && \is_array($this->panoList)) {
-                $n = 0;
-                foreach ($this->panoList as $item) {
-                    $res['PanoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->panoList)) {
+                $res['PanoList'] = [];
+                $n1 = 0;
+                foreach ($this->panoList as $item1) {
+                    $res['PanoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->textureModelPath) {
             $res['TextureModelPath'] = $this->textureModelPath;
         }
+
         if (null !== $this->texturePanoPath) {
             $res['TexturePanoPath'] = $this->texturePanoPath;
         }
@@ -64,29 +72,33 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelPath'])) {
             $model->modelPath = $map['ModelPath'];
         }
+
         if (isset($map['PanoList'])) {
             if (!empty($map['PanoList'])) {
                 $model->panoList = [];
-                $n               = 0;
-                foreach ($map['PanoList'] as $item) {
-                    $model->panoList[$n++] = null !== $item ? panoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PanoList'] as $item1) {
+                    $model->panoList[$n1] = panoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TextureModelPath'])) {
             $model->textureModelPath = $map['TextureModelPath'];
         }
+
         if (isset($map['TexturePanoPath'])) {
             $model->texturePanoPath = $map['TexturePanoPath'];
         }

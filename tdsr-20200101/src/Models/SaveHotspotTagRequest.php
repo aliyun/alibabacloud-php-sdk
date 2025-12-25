@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveHotspotTagRequest extends Model
 {
@@ -18,20 +18,22 @@ class SaveHotspotTagRequest extends Model
      */
     public $subSceneUuid;
     protected $_name = [
-        'paramTag'     => 'ParamTag',
+        'paramTag' => 'ParamTag',
         'subSceneUuid' => 'SubSceneUuid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramTag) {
             $res['ParamTag'] = $this->paramTag;
         }
+
         if (null !== $this->subSceneUuid) {
             $res['SubSceneUuid'] = $this->subSceneUuid;
         }
@@ -39,17 +41,18 @@ class SaveHotspotTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveHotspotTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamTag'])) {
             $model->paramTag = $map['ParamTag'];
         }
+
         if (isset($map['SubSceneUuid'])) {
             $model->subSceneUuid = $map['SubSceneUuid'];
         }

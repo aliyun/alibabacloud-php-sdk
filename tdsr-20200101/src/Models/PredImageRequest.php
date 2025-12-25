@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PredImageRequest extends Model
 {
@@ -30,26 +30,30 @@ class PredImageRequest extends Model
     protected $_name = [
         'correctVertical' => 'CorrectVertical',
         'countDetectDoor' => 'CountDetectDoor',
-        'detectDoor'      => 'DetectDoor',
-        'subSceneId'      => 'SubSceneId',
+        'detectDoor' => 'DetectDoor',
+        'subSceneId' => 'SubSceneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->correctVertical) {
             $res['CorrectVertical'] = $this->correctVertical;
         }
+
         if (null !== $this->countDetectDoor) {
             $res['CountDetectDoor'] = $this->countDetectDoor;
         }
+
         if (null !== $this->detectDoor) {
             $res['DetectDoor'] = $this->detectDoor;
         }
+
         if (null !== $this->subSceneId) {
             $res['SubSceneId'] = $this->subSceneId;
         }
@@ -57,23 +61,26 @@ class PredImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PredImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CorrectVertical'])) {
             $model->correctVertical = $map['CorrectVertical'];
         }
+
         if (isset($map['CountDetectDoor'])) {
             $model->countDetectDoor = $map['CountDetectDoor'];
         }
+
         if (isset($map['DetectDoor'])) {
             $model->detectDoor = $map['DetectDoor'];
         }
+
         if (isset($map['SubSceneId'])) {
             $model->subSceneId = $map['SubSceneId'];
         }

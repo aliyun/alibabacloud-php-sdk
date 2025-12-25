@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\ListProjectResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -43,40 +43,47 @@ class list_ extends Model
      */
     public $token;
     protected $_name = [
-        'businessId'   => 'BusinessId',
+        'businessId' => 'BusinessId',
         'businessName' => 'BusinessName',
-        'createTime'   => 'CreateTime',
-        'id'           => 'Id',
+        'createTime' => 'CreateTime',
+        'id' => 'Id',
         'modifiedTime' => 'ModifiedTime',
-        'name'         => 'Name',
-        'token'        => 'Token',
+        'name' => 'Name',
+        'token' => 'Token',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
+
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -84,32 +91,38 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
+
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

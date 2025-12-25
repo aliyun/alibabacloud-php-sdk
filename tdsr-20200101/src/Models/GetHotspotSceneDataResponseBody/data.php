@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -28,28 +28,32 @@ class data extends Model
      */
     public $sceneType;
     protected $_name = [
-        'modelToken'   => 'ModelToken',
-        'previewData'  => 'PreviewData',
+        'modelToken' => 'ModelToken',
+        'previewData' => 'PreviewData',
         'previewToken' => 'PreviewToken',
-        'sceneType'    => 'SceneType',
+        'sceneType' => 'SceneType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelToken) {
             $res['ModelToken'] = $this->modelToken;
         }
+
         if (null !== $this->previewData) {
             $res['PreviewData'] = $this->previewData;
         }
+
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
+
         if (null !== $this->sceneType) {
             $res['SceneType'] = $this->sceneType;
         }
@@ -57,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelToken'])) {
             $model->modelToken = $map['ModelToken'];
         }
+
         if (isset($map['PreviewData'])) {
             $model->previewData = $map['PreviewData'];
         }
+
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
+
         if (isset($map['SceneType'])) {
             $model->sceneType = $map['SceneType'];
         }

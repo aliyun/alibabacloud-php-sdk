@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateUploadPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -43,40 +43,47 @@ class data extends Model
      */
     public $signature;
     protected $_name = [
-        'accessId'  => 'AccessId',
-        'callback'  => 'Callback',
-        'dir'       => 'Dir',
-        'expire'    => 'Expire',
-        'host'      => 'Host',
-        'policy'    => 'Policy',
+        'accessId' => 'AccessId',
+        'callback' => 'Callback',
+        'dir' => 'Dir',
+        'expire' => 'Expire',
+        'host' => 'Host',
+        'policy' => 'Policy',
         'signature' => 'Signature',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessId) {
             $res['AccessId'] = $this->accessId;
         }
+
         if (null !== $this->callback) {
             $res['Callback'] = $this->callback;
         }
+
         if (null !== $this->dir) {
             $res['Dir'] = $this->dir;
         }
+
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
@@ -84,32 +91,38 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessId'])) {
             $model->accessId = $map['AccessId'];
         }
+
         if (isset($map['Callback'])) {
             $model->callback = $map['Callback'];
         }
+
         if (isset($map['Dir'])) {
             $model->dir = $map['Dir'];
         }
+
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }

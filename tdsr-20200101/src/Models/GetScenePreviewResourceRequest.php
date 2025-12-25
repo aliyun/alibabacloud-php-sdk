@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetScenePreviewResourceRequest extends Model
 {
@@ -18,20 +18,22 @@ class GetScenePreviewResourceRequest extends Model
      */
     public $previewToken;
     protected $_name = [
-        'draft'        => 'Draft',
+        'draft' => 'Draft',
         'previewToken' => 'PreviewToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->draft) {
             $res['Draft'] = $this->draft;
         }
+
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
@@ -39,17 +41,18 @@ class GetScenePreviewResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetScenePreviewResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Draft'])) {
             $model->draft = $map['Draft'];
         }
+
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }

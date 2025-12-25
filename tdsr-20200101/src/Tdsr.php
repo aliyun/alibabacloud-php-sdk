@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddHotspotFileRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddHotspotFileResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddMosaicsRequest;
@@ -144,11 +143,10 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneSeqShrinkRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Tdsr extends OpenApiClient
 {
@@ -156,7 +154,7 @@ class Tdsr extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'cn-hangzhou' => 'lyj.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -176,17 +174,25 @@ class Tdsr extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 保存模型文件.
+     *
+     * @param request - AddHotspotFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddHotspotFileResponse
+     *
      * @param AddHotspotFileRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -194,36 +200,45 @@ class Tdsr extends OpenApiClient
      */
     public function addHotspotFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddHotspotFile',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddHotspotFile',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddHotspotFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 保存模型文件.
+     *
+     * @param request - AddHotspotFileRequest
+     *
+     * @returns AddHotspotFileResponse
+     *
      * @param AddHotspotFileRequest $request
      *
      * @return AddHotspotFileResponse
@@ -236,6 +251,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 打马赛克.
+     *
+     * @param request - AddMosaicsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMosaicsResponse
+     *
      * @param AddMosaicsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -243,33 +265,41 @@ class Tdsr extends OpenApiClient
      */
     public function addMosaicsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->markPosition)) {
-            $query['MarkPosition'] = $request->markPosition;
+        if (null !== $request->markPosition) {
+            @$query['MarkPosition'] = $request->markPosition;
         }
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddMosaics',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddMosaics',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddMosaicsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打马赛克.
+     *
+     * @param request - AddMosaicsRequest
+     *
+     * @returns AddMosaicsResponse
+     *
      * @param AddMosaicsRequest $request
      *
      * @return AddMosaicsResponse
@@ -282,6 +312,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 添加项目.
+     *
+     * @param request - AddProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddProjectResponse
+     *
      * @param AddProjectRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -289,33 +326,41 @@ class Tdsr extends OpenApiClient
      */
     public function addProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessId)) {
-            $query['BusinessId'] = $request->businessId;
+        if (null !== $request->businessId) {
+            @$query['BusinessId'] = $request->businessId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddProject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加项目.
+     *
+     * @param request - AddProjectRequest
+     *
+     * @returns AddProjectResponse
+     *
      * @param AddProjectRequest $request
      *
      * @return AddProjectResponse
@@ -328,6 +373,15 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 添加相对位置.
+     *
+     * @deprecated OpenAPI AddRelativePosition is deprecated
+     *
+     * @param request - AddRelativePositionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRelativePositionResponse
+     *
      * @param AddRelativePositionRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -335,33 +389,44 @@ class Tdsr extends OpenApiClient
      */
     public function addRelativePositionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relativePosition)) {
-            $query['RelativePosition'] = $request->relativePosition;
+        if (null !== $request->relativePosition) {
+            @$query['RelativePosition'] = $request->relativePosition;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddRelativePosition',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRelativePosition',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddRelativePositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 添加相对位置.
+     *
+     * @deprecated OpenAPI AddRelativePosition is deprecated
+     *
+     * @param request - AddRelativePositionRequest
+     *
+     * @returns AddRelativePositionResponse
+     *
      * @param AddRelativePositionRequest $request
      *
      * @return AddRelativePositionResponse
@@ -374,6 +439,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 移动端添加rooms.json.
+     *
+     * @param request - AddRoomPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRoomPlanResponse
+     *
      * @param AddRoomPlanRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -381,30 +453,37 @@ class Tdsr extends OpenApiClient
      */
     public function addRoomPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddRoomPlan',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRoomPlan',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddRoomPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 移动端添加rooms.json.
+     *
+     * @param request - AddRoomPlanRequest
+     *
+     * @returns AddRoomPlanResponse
+     *
      * @param AddRoomPlanRequest $request
      *
      * @return AddRoomPlanResponse
@@ -417,6 +496,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 添加主场景.
+     *
+     * @param request - AddSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSceneResponse
+     *
      * @param AddSceneRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -424,39 +510,49 @@ class Tdsr extends OpenApiClient
      */
     public function addSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customerUid)) {
-            $query['CustomerUid'] = $request->customerUid;
+        if (null !== $request->customerUid) {
+            @$query['CustomerUid'] = $request->customerUid;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加主场景.
+     *
+     * @param request - AddSceneRequest
+     *
+     * @returns AddSceneResponse
+     *
      * @param AddSceneRequest $request
      *
      * @return AddSceneResponse
@@ -469,6 +565,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 创建子场景.
+     *
+     * @param request - AddSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSubSceneResponse
+     *
      * @param AddSubSceneRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -476,36 +579,45 @@ class Tdsr extends OpenApiClient
      */
     public function addSubSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建子场景.
+     *
+     * @param request - AddSubSceneRequest
+     *
+     * @returns AddSubSceneResponse
+     *
      * @param AddSubSceneRequest $request
      *
      * @return AddSubSceneResponse
@@ -518,6 +630,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 检查指定uid用户属性.
+     *
+     * @param request - CheckUserPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUserPropertyResponse
+     *
      * @param CheckUserPropertyRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -525,30 +644,37 @@ class Tdsr extends OpenApiClient
      */
     public function checkUserPropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckUserProperty',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckUserProperty',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckUserPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 检查指定uid用户属性.
+     *
+     * @param request - CheckUserPropertyRequest
+     *
+     * @returns CheckUserPropertyResponse
+     *
      * @param CheckUserPropertyRequest $request
      *
      * @return CheckUserPropertyResponse
@@ -561,6 +687,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 复制主场景.
+     *
+     * @param request - CopySceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopySceneResponse
+     *
      * @param CopySceneRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -568,36 +701,45 @@ class Tdsr extends OpenApiClient
      */
     public function copySceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $query['SceneName'] = $request->sceneName;
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopySceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 复制主场景.
+     *
+     * @param request - CopySceneRequest
+     *
+     * @returns CopySceneResponse
+     *
      * @param CopySceneRequest $request
      *
      * @return CopySceneResponse
@@ -610,6 +752,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取OSS授权.
+     *
+     * @param request - CreateUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUploadPolicyResponse
+     *
      * @param CreateUploadPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -617,33 +766,41 @@ class Tdsr extends OpenApiClient
      */
     public function createUploadPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->option)) {
-            $query['Option'] = $request->option;
+        if (null !== $request->option) {
+            @$query['Option'] = $request->option;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUploadPolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUploadPolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取OSS授权.
+     *
+     * @param request - CreateUploadPolicyRequest
+     *
+     * @returns CreateUploadPolicyResponse
+     *
      * @param CreateUploadPolicyRequest $request
      *
      * @return CreateUploadPolicyResponse
@@ -656,6 +813,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询项目详情.
+     *
+     * @param request - DetailProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetailProjectResponse
+     *
      * @param DetailProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -663,30 +827,37 @@ class Tdsr extends OpenApiClient
      */
     public function detailProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetailProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetailProject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetailProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询项目详情.
+     *
+     * @param request - DetailProjectRequest
+     *
+     * @returns DetailProjectResponse
+     *
      * @param DetailProjectRequest $request
      *
      * @return DetailProjectResponse
@@ -699,6 +870,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 主场景详细.
+     *
+     * @param request - DetailSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetailSceneResponse
+     *
      * @param DetailSceneRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -706,30 +884,37 @@ class Tdsr extends OpenApiClient
      */
     public function detailSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetailScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetailScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetailSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 主场景详细.
+     *
+     * @param request - DetailSceneRequest
+     *
+     * @returns DetailSceneResponse
+     *
      * @param DetailSceneRequest $request
      *
      * @return DetailSceneResponse
@@ -742,6 +927,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询子场景详情.
+     *
+     * @param request - DetailSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetailSubSceneResponse
+     *
      * @param DetailSubSceneRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -749,30 +941,37 @@ class Tdsr extends OpenApiClient
      */
     public function detailSubSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetailSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetailSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetailSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询子场景详情.
+     *
+     * @param request - DetailSubSceneRequest
+     *
+     * @returns DetailSubSceneResponse
+     *
      * @param DetailSubSceneRequest $request
      *
      * @return DetailSubSceneResponse
@@ -785,6 +984,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 删除项目.
+     *
+     * @param request - DropProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DropProjectResponse
+     *
      * @param DropProjectRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -792,30 +998,37 @@ class Tdsr extends OpenApiClient
      */
     public function dropProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DropProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DropProject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DropProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除项目.
+     *
+     * @param request - DropProjectRequest
+     *
+     * @returns DropProjectResponse
+     *
      * @param DropProjectRequest $request
      *
      * @return DropProjectResponse
@@ -828,6 +1041,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 删除主场景.
+     *
+     * @param request - DropSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DropSceneResponse
+     *
      * @param DropSceneRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -835,30 +1055,37 @@ class Tdsr extends OpenApiClient
      */
     public function dropSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DropScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DropScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DropSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除主场景.
+     *
+     * @param request - DropSceneRequest
+     *
+     * @returns DropSceneResponse
+     *
      * @param DropSceneRequest $request
      *
      * @return DropSceneResponse
@@ -871,6 +1098,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 删除子场景.
+     *
+     * @param request - DropSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DropSubSceneResponse
+     *
      * @param DropSubSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -878,30 +1112,37 @@ class Tdsr extends OpenApiClient
      */
     public function dropSubSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DropSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DropSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DropSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除子场景.
+     *
+     * @param request - DropSubSceneRequest
+     *
+     * @returns DropSubSceneResponse
+     *
      * @param DropSubSceneRequest $request
      *
      * @return DropSubSceneResponse
@@ -914,6 +1155,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询关联数据.
+     *
+     * @param request - GetConnDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnDataResponse
+     *
      * @param GetConnDataRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -921,30 +1169,37 @@ class Tdsr extends OpenApiClient
      */
     public function getConnDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConnData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConnData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询关联数据.
+     *
+     * @param request - GetConnDataRequest
+     *
+     * @returns GetConnDataResponse
+     *
      * @param GetConnDataRequest $request
      *
      * @return GetConnDataResponse
@@ -957,6 +1212,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 复制场景任务状态查询.
+     *
+     * @param request - GetCopySceneTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCopySceneTaskStatusResponse
+     *
      * @param GetCopySceneTaskStatusRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -964,30 +1226,37 @@ class Tdsr extends OpenApiClient
      */
     public function getCopySceneTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCopySceneTaskStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCopySceneTaskStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCopySceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 复制场景任务状态查询.
+     *
+     * @param request - GetCopySceneTaskStatusRequest
+     *
+     * @returns GetCopySceneTaskStatusResponse
+     *
      * @param GetCopySceneTaskStatusRequest $request
      *
      * @return GetCopySceneTaskStatusResponse
@@ -1000,6 +1269,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - GetHotspotConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotConfigResponse
+     *
      * @param GetHotspotConfigRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1007,39 +1281,47 @@ class Tdsr extends OpenApiClient
      */
     public function getHotspotConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotspotConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetHotspotConfigRequest
+     *
+     * @returns GetHotspotConfigResponse
+     *
      * @param GetHotspotConfigRequest $request
      *
      * @return GetHotspotConfigResponse
@@ -1052,6 +1334,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询后处理场景信息.
+     *
+     * @param request - GetHotspotSceneDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotSceneDataResponse
+     *
      * @param GetHotspotSceneDataRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1059,39 +1348,49 @@ class Tdsr extends OpenApiClient
      */
     public function getHotspotSceneDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotSceneData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotspotSceneData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotspotSceneDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询后处理场景信息.
+     *
+     * @param request - GetHotspotSceneDataRequest
+     *
+     * @returns GetHotspotSceneDataResponse
+     *
      * @param GetHotspotSceneDataRequest $request
      *
      * @return GetHotspotSceneDataResponse
@@ -1104,6 +1403,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - GetHotspotTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotspotTagResponse
+     *
      * @param GetHotspotTagRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1111,42 +1415,51 @@ class Tdsr extends OpenApiClient
      */
     public function getHotspotTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
-        if (!Utils::isUnset($request->subSceneUuid)) {
-            $query['SubSceneUuid'] = $request->subSceneUuid;
+
+        if (null !== $request->subSceneUuid) {
+            @$query['SubSceneUuid'] = $request->subSceneUuid;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotspotTag',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotspotTag',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotspotTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetHotspotTagRequest
+     *
+     * @returns GetHotspotTagResponse
+     *
      * @param GetHotspotTagRequest $request
      *
      * @return GetHotspotTagResponse
@@ -1159,6 +1472,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取标注数据.
+     *
+     * @param request - GetLayoutDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLayoutDataResponse
+     *
      * @param GetLayoutDataRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1166,30 +1486,37 @@ class Tdsr extends OpenApiClient
      */
     public function getLayoutDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLayoutData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLayoutData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取标注数据.
+     *
+     * @param request - GetLayoutDataRequest
+     *
+     * @returns GetLayoutDataResponse
+     *
      * @param GetLayoutDataRequest $request
      *
      * @return GetLayoutDataResponse
@@ -1202,6 +1529,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取算法自动标注数据.
+     *
+     * @param request - GetOriginLayoutDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOriginLayoutDataResponse
+     *
      * @param GetOriginLayoutDataRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1209,30 +1543,37 @@ class Tdsr extends OpenApiClient
      */
     public function getOriginLayoutDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOriginLayoutData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOriginLayoutData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOriginLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取算法自动标注数据.
+     *
+     * @param request - GetOriginLayoutDataRequest
+     *
+     * @returns GetOriginLayoutDataResponse
+     *
      * @param GetOriginLayoutDataRequest $request
      *
      * @return GetOriginLayoutDataResponse
@@ -1245,6 +1586,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取OSS授权.
+     *
+     * @param request - GetOssPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOssPolicyResponse
+     *
      * @param GetOssPolicyRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1252,30 +1600,37 @@ class Tdsr extends OpenApiClient
      */
     public function getOssPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOssPolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOssPolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOssPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取OSS授权.
+     *
+     * @param request - GetOssPolicyRequest
+     *
+     * @returns GetOssPolicyResponse
+     *
      * @param GetOssPolicyRequest $request
      *
      * @return GetOssPolicyResponse
@@ -1288,6 +1643,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 打包场景任务状态查询.
+     *
+     * @param request - GetPackSceneTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPackSceneTaskStatusResponse
+     *
      * @param GetPackSceneTaskStatusRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1295,33 +1657,41 @@ class Tdsr extends OpenApiClient
      */
     public function getPackSceneTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPackSceneTaskStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPackSceneTaskStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPackSceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打包场景任务状态查询.
+     *
+     * @param request - GetPackSceneTaskStatusRequest
+     *
+     * @returns GetPackSceneTaskStatusResponse
+     *
      * @param GetPackSceneTaskStatusRequest $request
      *
      * @return GetPackSceneTaskStatusResponse
@@ -1334,6 +1704,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询矫正后图片.
+     *
+     * @param request - GetRectifyImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRectifyImageResponse
+     *
      * @param GetRectifyImageRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1341,30 +1718,37 @@ class Tdsr extends OpenApiClient
      */
     public function getRectifyImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRectifyImage',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRectifyImage',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetRectifyImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询矫正后图片.
+     *
+     * @param request - GetRectifyImageRequest
+     *
+     * @returns GetRectifyImageResponse
+     *
      * @param GetRectifyImageRequest $request
      *
      * @return GetRectifyImageResponse
@@ -1377,6 +1761,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查看场景下重建任务
+     *
+     * @param request - GetSceneBuildTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSceneBuildTaskStatusResponse
+     *
      * @param GetSceneBuildTaskStatusRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1384,30 +1775,37 @@ class Tdsr extends OpenApiClient
      */
     public function getSceneBuildTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSceneBuildTaskStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSceneBuildTaskStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSceneBuildTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查看场景下重建任务
+     *
+     * @param request - GetSceneBuildTaskStatusRequest
+     *
+     * @returns GetSceneBuildTaskStatusResponse
+     *
      * @param GetSceneBuildTaskStatusRequest $request
      *
      * @return GetSceneBuildTaskStatusResponse
@@ -1420,6 +1818,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取场景的打包地址
+     *
+     * @param request - GetScenePackUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScenePackUrlResponse
+     *
      * @param GetScenePackUrlRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1427,30 +1832,37 @@ class Tdsr extends OpenApiClient
      */
     public function getScenePackUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScenePackUrl',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScenePackUrl',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScenePackUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取场景的打包地址
+     *
+     * @param request - GetScenePackUrlRequest
+     *
+     * @returns GetScenePackUrlResponse
+     *
      * @param GetScenePackUrlRequest $request
      *
      * @return GetScenePackUrlResponse
@@ -1463,6 +1875,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询模型数据.
+     *
+     * @param request - GetScenePreviewDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScenePreviewDataResponse
+     *
      * @param GetScenePreviewDataRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1470,39 +1889,49 @@ class Tdsr extends OpenApiClient
      */
     public function getScenePreviewDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
-        if (!Utils::isUnset($request->showTag)) {
-            $query['ShowTag'] = $request->showTag;
+
+        if (null !== $request->showTag) {
+            @$query['ShowTag'] = $request->showTag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScenePreviewData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScenePreviewData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScenePreviewDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询模型数据.
+     *
+     * @param request - GetScenePreviewDataRequest
+     *
+     * @returns GetScenePreviewDataResponse
+     *
      * @param GetScenePreviewDataRequest $request
      *
      * @return GetScenePreviewDataResponse
@@ -1515,6 +1944,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询模型预览信息.
+     *
+     * @param request - GetScenePreviewInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScenePreviewInfoResponse
+     *
      * @param GetScenePreviewInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1522,36 +1958,45 @@ class Tdsr extends OpenApiClient
      */
     public function getScenePreviewInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->modelToken)) {
-            $query['ModelToken'] = $request->modelToken;
+
+        if (null !== $request->modelToken) {
+            @$query['ModelToken'] = $request->modelToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScenePreviewInfo',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScenePreviewInfo',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScenePreviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询模型预览信息.
+     *
+     * @param request - GetScenePreviewInfoRequest
+     *
+     * @returns GetScenePreviewInfoResponse
+     *
      * @param GetScenePreviewInfoRequest $request
      *
      * @return GetScenePreviewInfoResponse
@@ -1564,6 +2009,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 获取模型预览数据.
+     *
+     * @param request - GetScenePreviewResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScenePreviewResourceResponse
+     *
      * @param GetScenePreviewResourceRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1571,33 +2023,41 @@ class Tdsr extends OpenApiClient
      */
     public function getScenePreviewResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->draft)) {
-            $query['Draft'] = $request->draft;
+        if (null !== $request->draft) {
+            @$query['Draft'] = $request->draft;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScenePreviewResource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScenePreviewResource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetScenePreviewResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取模型预览数据.
+     *
+     * @param request - GetScenePreviewResourceRequest
+     *
+     * @returns GetScenePreviewResourceResponse
+     *
      * @param GetScenePreviewResourceRequest $request
      *
      * @return GetScenePreviewResourceResponse
@@ -1610,6 +2070,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询单场景关联数据.
+     *
+     * @param request - GetSingleConnDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSingleConnDataResponse
+     *
      * @param GetSingleConnDataRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1617,30 +2084,37 @@ class Tdsr extends OpenApiClient
      */
     public function getSingleConnDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSingleConnData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSingleConnData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSingleConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询单场景关联数据.
+     *
+     * @param request - GetSingleConnDataRequest
+     *
+     * @returns GetSingleConnDataResponse
+     *
      * @param GetSingleConnDataRequest $request
      *
      * @return GetSingleConnDataResponse
@@ -1653,6 +2127,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 打包58数据状态检查.
+     *
+     * @param request - GetSourcePackStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSourcePackStatusResponse
+     *
      * @param GetSourcePackStatusRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1660,30 +2141,37 @@ class Tdsr extends OpenApiClient
      */
     public function getSourcePackStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSourcePackStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSourcePackStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSourcePackStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打包58数据状态检查.
+     *
+     * @param request - GetSourcePackStatusRequest
+     *
+     * @returns GetSourcePackStatusResponse
+     *
      * @param GetSourcePackStatusRequest $request
      *
      * @return GetSourcePackStatusResponse
@@ -1696,6 +2184,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查看子场景下预处理及切图任务
+     *
+     * @param request - GetSubSceneTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubSceneTaskStatusResponse
+     *
      * @param GetSubSceneTaskStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1703,30 +2198,37 @@ class Tdsr extends OpenApiClient
      */
     public function getSubSceneTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSubSceneTaskStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSubSceneTaskStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSubSceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查看子场景下预处理及切图任务
+     *
+     * @param request - GetSubSceneTaskStatusRequest
+     *
+     * @returns GetSubSceneTaskStatusResponse
+     *
      * @param GetSubSceneTaskStatusRequest $request
      *
      * @return GetSubSceneTaskStatusResponse
@@ -1739,6 +2241,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查看任务状态
+     *
+     * @param request - GetTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskStatusResponse
+     *
      * @param GetTaskStatusRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1746,30 +2255,37 @@ class Tdsr extends OpenApiClient
      */
     public function getTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTaskStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查看任务状态
+     *
+     * @param request - GetTaskStatusRequest
+     *
+     * @returns GetTaskStatusResponse
+     *
      * @param GetTaskStatusRequest $request
      *
      * @return GetTaskStatusResponse
@@ -1782,6 +2298,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - GetWindowConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWindowConfigResponse
+     *
      * @param GetWindowConfigRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1789,30 +2310,35 @@ class Tdsr extends OpenApiClient
      */
     public function getWindowConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWindowConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWindowConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetWindowConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetWindowConfigRequest
+     *
+     * @returns GetWindowConfigResponse
+     *
      * @param GetWindowConfigRequest $request
      *
      * @return GetWindowConfigResponse
@@ -1825,6 +2351,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 重建.
+     *
+     * @param request - LabelBuildRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LabelBuildResponse
+     *
      * @param LabelBuildRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1832,45 +2365,57 @@ class Tdsr extends OpenApiClient
      */
     public function labelBuildWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->modelStyle)) {
-            $query['ModelStyle'] = $request->modelStyle;
+
+        if (null !== $request->modelStyle) {
+            @$query['ModelStyle'] = $request->modelStyle;
         }
-        if (!Utils::isUnset($request->optimizeWallWidth)) {
-            $query['OptimizeWallWidth'] = $request->optimizeWallWidth;
+
+        if (null !== $request->optimizeWallWidth) {
+            @$query['OptimizeWallWidth'] = $request->optimizeWallWidth;
         }
-        if (!Utils::isUnset($request->planStyle)) {
-            $query['PlanStyle'] = $request->planStyle;
+
+        if (null !== $request->planStyle) {
+            @$query['PlanStyle'] = $request->planStyle;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->wallHeight)) {
-            $query['WallHeight'] = $request->wallHeight;
+
+        if (null !== $request->wallHeight) {
+            @$query['WallHeight'] = $request->wallHeight;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LabelBuild',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LabelBuild',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LabelBuildResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 重建.
+     *
+     * @param request - LabelBuildRequest
+     *
+     * @returns LabelBuildResponse
+     *
      * @param LabelBuildRequest $request
      *
      * @return LabelBuildResponse
@@ -1883,6 +2428,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 关联图片.
+     *
+     * @param request - LinkImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LinkImageResponse
+     *
      * @param LinkImageRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1890,39 +2442,49 @@ class Tdsr extends OpenApiClient
      */
     public function linkImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cameraHeight)) {
-            $query['CameraHeight'] = $request->cameraHeight;
+        if (null !== $request->cameraHeight) {
+            @$query['CameraHeight'] = $request->cameraHeight;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $query['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LinkImage',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LinkImage',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LinkImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 关联图片.
+     *
+     * @param request - LinkImageRequest
+     *
+     * @returns LinkImageResponse
+     *
      * @param LinkImageRequest $request
      *
      * @return LinkImageResponse
@@ -1935,6 +2497,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 分页查询项目列表.
+     *
+     * @param request - ListProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectResponse
+     *
      * @param ListProjectRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1942,36 +2511,45 @@ class Tdsr extends OpenApiClient
      */
     public function listProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 分页查询项目列表.
+     *
+     * @param request - ListProjectRequest
+     *
+     * @returns ListProjectResponse
+     *
      * @param ListProjectRequest $request
      *
      * @return ListProjectResponse
@@ -1984,6 +2562,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 分页查询主场景列表.
+     *
+     * @param request - ListSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSceneResponse
+     *
      * @param ListSceneRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1991,39 +2576,49 @@ class Tdsr extends OpenApiClient
      */
     public function listSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 分页查询主场景列表.
+     *
+     * @param request - ListSceneRequest
+     *
+     * @returns ListSceneResponse
+     *
      * @param ListSceneRequest $request
      *
      * @return ListSceneResponse
@@ -2036,6 +2631,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询子场景列表.
+     *
+     * @param request - ListSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubSceneResponse
+     *
      * @param ListSubSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2043,42 +2645,53 @@ class Tdsr extends OpenApiClient
      */
     public function listSubSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->showLayoutData)) {
-            $query['ShowLayoutData'] = $request->showLayoutData;
+
+        if (null !== $request->showLayoutData) {
+            @$query['ShowLayoutData'] = $request->showLayoutData;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询子场景列表.
+     *
+     * @param request - ListSubSceneRequest
+     *
+     * @returns ListSubSceneResponse
+     *
      * @param ListSubSceneRequest $request
      *
      * @return ListSubSceneResponse
@@ -2091,6 +2704,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 直角优化.
+     *
+     * @param request - OptimizeRightAngleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OptimizeRightAngleResponse
+     *
      * @param OptimizeRightAngleRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2098,30 +2718,37 @@ class Tdsr extends OpenApiClient
      */
     public function optimizeRightAngleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OptimizeRightAngle',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OptimizeRightAngle',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OptimizeRightAngleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 直角优化.
+     *
+     * @param request - OptimizeRightAngleRequest
+     *
+     * @returns OptimizeRightAngleResponse
+     *
      * @param OptimizeRightAngleRequest $request
      *
      * @return OptimizeRightAngleResponse
@@ -2134,6 +2761,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 打包场景.
+     *
+     * @param request - PackSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PackSceneResponse
+     *
      * @param PackSceneRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2141,33 +2775,41 @@ class Tdsr extends OpenApiClient
      */
     public function packSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PackScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PackScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PackSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打包场景.
+     *
+     * @param request - PackSceneRequest
+     *
+     * @returns PackSceneResponse
+     *
      * @param PackSceneRequest $request
      *
      * @return PackSceneResponse
@@ -2180,6 +2822,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 打包场景.
+     *
+     * @param request - PackSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PackSourceResponse
+     *
      * @param PackSourceRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2187,30 +2836,37 @@ class Tdsr extends OpenApiClient
      */
     public function packSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PackSource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PackSource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PackSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打包场景.
+     *
+     * @param request - PackSourceRequest
+     *
+     * @returns PackSourceResponse
+     *
      * @param PackSourceRequest $request
      *
      * @return PackSourceResponse
@@ -2223,6 +2879,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 预处理.
+     *
+     * @param request - PredImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PredImageResponse
+     *
      * @param PredImageRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2230,39 +2893,49 @@ class Tdsr extends OpenApiClient
      */
     public function predImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->correctVertical)) {
-            $query['CorrectVertical'] = $request->correctVertical;
+        if (null !== $request->correctVertical) {
+            @$query['CorrectVertical'] = $request->correctVertical;
         }
-        if (!Utils::isUnset($request->countDetectDoor)) {
-            $query['CountDetectDoor'] = $request->countDetectDoor;
+
+        if (null !== $request->countDetectDoor) {
+            @$query['CountDetectDoor'] = $request->countDetectDoor;
         }
-        if (!Utils::isUnset($request->detectDoor)) {
-            $query['DetectDoor'] = $request->detectDoor;
+
+        if (null !== $request->detectDoor) {
+            @$query['DetectDoor'] = $request->detectDoor;
         }
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PredImage',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PredImage',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PredImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 预处理.
+     *
+     * @param request - PredImageRequest
+     *
+     * @returns PredImageResponse
+     *
      * @param PredImageRequest $request
      *
      * @return PredImageResponse
@@ -2275,6 +2948,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 墙线预测.
+     *
+     * @param request - PredictionWallLineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PredictionWallLineResponse
+     *
      * @param PredictionWallLineRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2282,33 +2962,41 @@ class Tdsr extends OpenApiClient
      */
     public function predictionWallLineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cameraHeight)) {
-            $query['CameraHeight'] = $request->cameraHeight;
+        if (null !== $request->cameraHeight) {
+            @$query['CameraHeight'] = $request->cameraHeight;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PredictionWallLine',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PredictionWallLine',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PredictionWallLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 墙线预测.
+     *
+     * @param request - PredictionWallLineRequest
+     *
+     * @returns PredictionWallLineResponse
+     *
      * @param PredictionWallLineRequest $request
      *
      * @return PredictionWallLineResponse
@@ -2321,6 +3009,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - PublishHotspotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishHotspotResponse
+     *
      * @param PublishHotspotRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2328,33 +3021,39 @@ class Tdsr extends OpenApiClient
      */
     public function publishHotspotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramTag)) {
-            $query['ParamTag'] = $request->paramTag;
+        if (null !== $request->paramTag) {
+            @$query['ParamTag'] = $request->paramTag;
         }
-        if (!Utils::isUnset($request->subSceneUuid)) {
-            $query['SubSceneUuid'] = $request->subSceneUuid;
+
+        if (null !== $request->subSceneUuid) {
+            @$query['SubSceneUuid'] = $request->subSceneUuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishHotspot',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishHotspot',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishHotspotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - PublishHotspotRequest
+     *
+     * @returns PublishHotspotResponse
+     *
      * @param PublishHotspotRequest $request
      *
      * @return PublishHotspotResponse
@@ -2367,6 +3066,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 保存扩展配置.
+     *
+     * @param request - PublishHotspotConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishHotspotConfigResponse
+     *
      * @param PublishHotspotConfigRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2374,30 +3080,37 @@ class Tdsr extends OpenApiClient
      */
     public function publishHotspotConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishHotspotConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishHotspotConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 保存扩展配置.
+     *
+     * @param request - PublishHotspotConfigRequest
+     *
+     * @returns PublishHotspotConfigResponse
+     *
      * @param PublishHotspotConfigRequest $request
      *
      * @return PublishHotspotConfigResponse
@@ -2410,6 +3123,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 发布.
+     *
+     * @param request - PublishSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishSceneResponse
+     *
      * @param PublishSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2417,30 +3137,37 @@ class Tdsr extends OpenApiClient
      */
     public function publishSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发布.
+     *
+     * @param request - PublishSceneRequest
+     *
+     * @returns PublishSceneResponse
+     *
      * @param PublishSceneRequest $request
      *
      * @return PublishSceneResponse
@@ -2453,6 +3180,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 发布.
+     *
+     * @param request - PublishStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishStatusResponse
+     *
      * @param PublishStatusRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2460,30 +3194,37 @@ class Tdsr extends OpenApiClient
      */
     public function publishStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发布.
+     *
+     * @param request - PublishStatusRequest
+     *
+     * @returns PublishStatusResponse
+     *
      * @param PublishStatusRequest $request
      *
      * @return PublishStatusResponse
@@ -2496,6 +3237,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 恢复原图.
+     *
+     * @param request - RecoveryOriginImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoveryOriginImageResponse
+     *
      * @param RecoveryOriginImageRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2503,30 +3251,37 @@ class Tdsr extends OpenApiClient
      */
     public function recoveryOriginImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecoveryOriginImage',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecoveryOriginImage',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecoveryOriginImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 恢复原图.
+     *
+     * @param request - RecoveryOriginImageRequest
+     *
+     * @returns RecoveryOriginImageResponse
+     *
      * @param RecoveryOriginImageRequest $request
      *
      * @return RecoveryOriginImageResponse
@@ -2539,6 +3294,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 手动矫正.
+     *
+     * @param request - RectVerticalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RectVerticalResponse
+     *
      * @param RectVerticalRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2546,39 +3308,49 @@ class Tdsr extends OpenApiClient
      */
     public function rectVerticalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->countDetectDoor)) {
-            $query['CountDetectDoor'] = $request->countDetectDoor;
+        if (null !== $request->countDetectDoor) {
+            @$query['CountDetectDoor'] = $request->countDetectDoor;
         }
-        if (!Utils::isUnset($request->detectDoor)) {
-            $query['DetectDoor'] = $request->detectDoor;
+
+        if (null !== $request->detectDoor) {
+            @$query['DetectDoor'] = $request->detectDoor;
         }
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
-        if (!Utils::isUnset($request->verticalRect)) {
-            $query['VerticalRect'] = $request->verticalRect;
+
+        if (null !== $request->verticalRect) {
+            @$query['VerticalRect'] = $request->verticalRect;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RectVertical',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RectVertical',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RectVerticalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 手动矫正.
+     *
+     * @param request - RectVerticalRequest
+     *
+     * @returns RectVerticalResponse
+     *
      * @param RectVerticalRequest $request
      *
      * @return RectVerticalResponse
@@ -2591,6 +3363,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 图片矫正.
+     *
+     * @param request - RectifyImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RectifyImageResponse
+     *
      * @param RectifyImageRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2598,33 +3377,41 @@ class Tdsr extends OpenApiClient
      */
     public function rectifyImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cameraHeight)) {
-            $query['CameraHeight'] = $request->cameraHeight;
+        if (null !== $request->cameraHeight) {
+            @$query['CameraHeight'] = $request->cameraHeight;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RectifyImage',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RectifyImage',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RectifyImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 图片矫正.
+     *
+     * @param request - RectifyImageRequest
+     *
+     * @returns RectifyImageResponse
+     *
      * @param RectifyImageRequest $request
      *
      * @return RectifyImageResponse
@@ -2637,6 +3424,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 恢复子场景.
+     *
+     * @param request - RollbackSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackSubSceneResponse
+     *
      * @param RollbackSubSceneRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2644,30 +3438,37 @@ class Tdsr extends OpenApiClient
      */
     public function rollbackSubSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RollbackSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 恢复子场景.
+     *
+     * @param request - RollbackSubSceneRequest
+     *
+     * @returns RollbackSubSceneResponse
+     *
      * @param RollbackSubSceneRequest $request
      *
      * @return RollbackSubSceneResponse
@@ -2680,6 +3481,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - SaveHotspotConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveHotspotConfigResponse
+     *
      * @param SaveHotspotConfigRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2687,33 +3493,39 @@ class Tdsr extends OpenApiClient
      */
     public function saveHotspotConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramTag)) {
-            $query['ParamTag'] = $request->paramTag;
+        if (null !== $request->paramTag) {
+            @$query['ParamTag'] = $request->paramTag;
         }
-        if (!Utils::isUnset($request->previewToken)) {
-            $query['PreviewToken'] = $request->previewToken;
+
+        if (null !== $request->previewToken) {
+            @$query['PreviewToken'] = $request->previewToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveHotspotConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveHotspotConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SaveHotspotConfigRequest
+     *
+     * @returns SaveHotspotConfigResponse
+     *
      * @param SaveHotspotConfigRequest $request
      *
      * @return SaveHotspotConfigResponse
@@ -2726,6 +3538,11 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param request - SaveHotspotTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveHotspotTagResponse
+     *
      * @param SaveHotspotTagRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2733,33 +3550,39 @@ class Tdsr extends OpenApiClient
      */
     public function saveHotspotTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paramTag)) {
-            $query['ParamTag'] = $request->paramTag;
+        if (null !== $request->paramTag) {
+            @$query['ParamTag'] = $request->paramTag;
         }
-        if (!Utils::isUnset($request->subSceneUuid)) {
-            $query['SubSceneUuid'] = $request->subSceneUuid;
+
+        if (null !== $request->subSceneUuid) {
+            @$query['SubSceneUuid'] = $request->subSceneUuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveHotspotTag',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveHotspotTag',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveHotspotTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SaveHotspotTagRequest
+     *
+     * @returns SaveHotspotTagResponse
+     *
      * @param SaveHotspotTagRequest $request
      *
      * @return SaveHotspotTagResponse
@@ -2772,6 +3595,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 保存热点.
+     *
+     * @param request - SaveHotspotTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveHotspotTagListResponse
+     *
      * @param SaveHotspotTagListRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2779,33 +3609,41 @@ class Tdsr extends OpenApiClient
      */
     public function saveHotspotTagListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hotspotListJson)) {
-            $query['HotspotListJson'] = $request->hotspotListJson;
+        if (null !== $request->hotspotListJson) {
+            @$query['HotspotListJson'] = $request->hotspotListJson;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveHotspotTagList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveHotspotTagList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveHotspotTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 保存热点.
+     *
+     * @param request - SaveHotspotTagListRequest
+     *
+     * @returns SaveHotspotTagListResponse
+     *
      * @param SaveHotspotTagListRequest $request
      *
      * @return SaveHotspotTagListResponse
@@ -2818,6 +3656,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 保存小地图数据.
+     *
+     * @param request - SaveMinimapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveMinimapResponse
+     *
      * @param SaveMinimapRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2825,33 +3670,41 @@ class Tdsr extends OpenApiClient
      */
     public function saveMinimapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveMinimap',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveMinimap',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveMinimapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 保存小地图数据.
+     *
+     * @param request - SaveMinimapRequest
+     *
+     * @returns SaveMinimapResponse
+     *
      * @param SaveMinimapRequest $request
      *
      * @return SaveMinimapResponse
@@ -2864,6 +3717,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 保存模型文件.
+     *
+     * @param request - SaveModelConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveModelConfigResponse
+     *
      * @param SaveModelConfigRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2871,33 +3731,41 @@ class Tdsr extends OpenApiClient
      */
     public function saveModelConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveModelConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveModelConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveModelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 保存模型文件.
+     *
+     * @param request - SaveModelConfigRequest
+     *
+     * @returns SaveModelConfigResponse
+     *
      * @param SaveModelConfigRequest $request
      *
      * @return SaveModelConfigResponse
@@ -2910,6 +3778,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 发布.
+     *
+     * @param request - ScenePublishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScenePublishResponse
+     *
      * @param ScenePublishRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2917,30 +3792,37 @@ class Tdsr extends OpenApiClient
      */
     public function scenePublishWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScenePublish',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScenePublish',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ScenePublishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发布.
+     *
+     * @param request - ScenePublishRequest
+     *
+     * @returns ScenePublishResponse
+     *
      * @param ScenePublishRequest $request
      *
      * @return ScenePublishResponse
@@ -2953,6 +3835,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 预览.
+     *
+     * @param request - TempPreviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TempPreviewResponse
+     *
      * @param TempPreviewRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2960,30 +3849,37 @@ class Tdsr extends OpenApiClient
      */
     public function tempPreviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TempPreview',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TempPreview',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TempPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 预览.
+     *
+     * @param request - TempPreviewRequest
+     *
+     * @returns TempPreviewResponse
+     *
      * @param TempPreviewRequest $request
      *
      * @return TempPreviewResponse
@@ -2996,6 +3892,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 查询预览任务处理状态
+     *
+     * @param request - TempPreviewStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TempPreviewStatusResponse
+     *
      * @param TempPreviewStatusRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3003,30 +3906,37 @@ class Tdsr extends OpenApiClient
      */
     public function tempPreviewStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TempPreviewStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TempPreviewStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TempPreviewStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询预览任务处理状态
+     *
+     * @param request - TempPreviewStatusRequest
+     *
+     * @returns TempPreviewStatusResponse
+     *
      * @param TempPreviewStatusRequest $request
      *
      * @return TempPreviewStatusResponse
@@ -3039,6 +3949,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 更新关联数据.
+     *
+     * @param request - UpdateConnDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnDataResponse
+     *
      * @param UpdateConnDataRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3046,33 +3963,41 @@ class Tdsr extends OpenApiClient
      */
     public function updateConnDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connData)) {
-            $query['ConnData'] = $request->connData;
+        if (null !== $request->connData) {
+            @$query['ConnData'] = $request->connData;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConnData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConnData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新关联数据.
+     *
+     * @param request - UpdateConnDataRequest
+     *
+     * @returns UpdateConnDataResponse
+     *
      * @param UpdateConnDataRequest $request
      *
      * @return UpdateConnDataResponse
@@ -3085,6 +4010,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 更新标注数据.
+     *
+     * @param request - UpdateLayoutDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLayoutDataResponse
+     *
      * @param UpdateLayoutDataRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3092,33 +4024,41 @@ class Tdsr extends OpenApiClient
      */
     public function updateLayoutDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->layoutData)) {
-            $query['LayoutData'] = $request->layoutData;
+        if (null !== $request->layoutData) {
+            @$query['LayoutData'] = $request->layoutData;
         }
-        if (!Utils::isUnset($request->subSceneId)) {
-            $query['SubSceneId'] = $request->subSceneId;
+
+        if (null !== $request->subSceneId) {
+            @$query['SubSceneId'] = $request->subSceneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLayoutData',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLayoutData',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新标注数据.
+     *
+     * @param request - UpdateLayoutDataRequest
+     *
+     * @returns UpdateLayoutDataResponse
+     *
      * @param UpdateLayoutDataRequest $request
      *
      * @return UpdateLayoutDataResponse
@@ -3131,6 +4071,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 变更项目信息.
+     *
+     * @param request - UpdateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
      * @param UpdateProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3138,36 +4085,45 @@ class Tdsr extends OpenApiClient
      */
     public function updateProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessId)) {
-            $query['BusinessId'] = $request->businessId;
+        if (null !== $request->businessId) {
+            @$query['BusinessId'] = $request->businessId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 变更项目信息.
+     *
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
      * @param UpdateProjectRequest $request
      *
      * @return UpdateProjectResponse
@@ -3180,6 +4136,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 更新主场景.
+     *
+     * @param request - UpdateSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSceneResponse
+     *
      * @param UpdateSceneRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3187,33 +4150,41 @@ class Tdsr extends OpenApiClient
      */
     public function updateSceneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新主场景.
+     *
+     * @param request - UpdateSceneRequest
+     *
+     * @returns UpdateSceneResponse
+     *
      * @param UpdateSceneRequest $request
      *
      * @return UpdateSceneResponse
@@ -3226,6 +4197,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 更新子场景.
+     *
+     * @param tmpReq - UpdateSubSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubSceneResponse
+     *
      * @param UpdateSubSceneRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -3233,41 +4211,51 @@ class Tdsr extends OpenApiClient
      */
     public function updateSubSceneWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateSubSceneShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->viewPoint)) {
-            $request->viewPointShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->viewPoint, 'ViewPoint', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->viewPoint) {
+            $request->viewPointShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->viewPoint, 'ViewPoint', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->viewPointShrink)) {
-            $query['ViewPoint'] = $request->viewPointShrink;
+
+        if (null !== $request->viewPointShrink) {
+            @$query['ViewPoint'] = $request->viewPointShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSubScene',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSubScene',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新子场景.
+     *
+     * @param request - UpdateSubSceneRequest
+     *
+     * @returns UpdateSubSceneResponse
+     *
      * @param UpdateSubSceneRequest $request
      *
      * @return UpdateSubSceneResponse
@@ -3280,6 +4268,13 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * 更新子场景顺序.
+     *
+     * @param tmpReq - UpdateSubSceneSeqRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubSceneSeqResponse
+     *
      * @param UpdateSubSceneSeqRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -3287,38 +4282,47 @@ class Tdsr extends OpenApiClient
      */
     public function updateSubSceneSeqWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateSubSceneSeqShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sortSubSceneIds)) {
-            $request->sortSubSceneIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sortSubSceneIds, 'SortSubSceneIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sortSubSceneIds) {
+            $request->sortSubSceneIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sortSubSceneIds, 'SortSubSceneIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->sortSubSceneIdsShrink)) {
-            $query['SortSubSceneIds'] = $request->sortSubSceneIdsShrink;
+
+        if (null !== $request->sortSubSceneIdsShrink) {
+            @$query['SortSubSceneIds'] = $request->sortSubSceneIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSubSceneSeq',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSubSceneSeq',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSubSceneSeqResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新子场景顺序.
+     *
+     * @param request - UpdateSubSceneSeqRequest
+     *
+     * @returns UpdateSubSceneSeqResponse
+     *
      * @param UpdateSubSceneSeqRequest $request
      *
      * @return UpdateSubSceneSeqResponse

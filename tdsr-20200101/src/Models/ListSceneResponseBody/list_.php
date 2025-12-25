@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSceneResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -68,60 +68,72 @@ class list_ extends Model
      */
     public $type;
     protected $_name = [
-        'coverUrl'     => 'CoverUrl',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'id'           => 'Id',
-        'name'         => 'Name',
+        'coverUrl' => 'CoverUrl',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
         'previewToken' => 'PreviewToken',
-        'published'    => 'Published',
-        'sourceNum'    => 'SourceNum',
-        'status'       => 'Status',
-        'statusName'   => 'StatusName',
-        'subSceneNum'  => 'SubSceneNum',
-        'type'         => 'Type',
+        'published' => 'Published',
+        'sourceNum' => 'SourceNum',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
+        'subSceneNum' => 'SubSceneNum',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
+
         if (null !== $this->published) {
             $res['Published'] = $this->published;
         }
+
         if (null !== $this->sourceNum) {
             $res['SourceNum'] = $this->sourceNum;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
         }
+
         if (null !== $this->subSceneNum) {
             $res['SubSceneNum'] = $this->subSceneNum;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -129,47 +141,58 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }
+
         if (isset($map['Published'])) {
             $model->published = $map['Published'];
         }
+
         if (isset($map['SourceNum'])) {
             $model->sourceNum = $map['SourceNum'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
         }
+
         if (isset($map['SubSceneNum'])) {
             $model->subSceneNum = $map['SubSceneNum'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

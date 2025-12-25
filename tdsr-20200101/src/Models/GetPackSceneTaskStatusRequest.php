@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPackSceneTaskStatusRequest extends Model
 {
@@ -19,19 +19,21 @@ class GetPackSceneTaskStatusRequest extends Model
     public $type;
     protected $_name = [
         'taskId' => 'TaskId',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +41,18 @@ class GetPackSceneTaskStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPackSceneTaskStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

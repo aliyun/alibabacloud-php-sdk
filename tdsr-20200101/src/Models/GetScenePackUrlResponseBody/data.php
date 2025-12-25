@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePackUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -24,23 +24,26 @@ class data extends Model
     public $valid;
     protected $_name = [
         'expire' => 'Expire',
-        'url'    => 'Url',
-        'valid'  => 'Valid',
+        'url' => 'Url',
+        'valid' => 'Valid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->valid) {
             $res['Valid'] = $this->valid;
         }
@@ -48,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['Valid'])) {
             $model->valid = $map['Valid'];
         }

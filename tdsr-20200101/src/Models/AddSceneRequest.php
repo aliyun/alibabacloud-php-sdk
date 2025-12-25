@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddSceneRequest extends Model
 {
@@ -29,27 +29,31 @@ class AddSceneRequest extends Model
     public $type;
     protected $_name = [
         'customerUid' => 'CustomerUid',
-        'name'        => 'Name',
-        'projectId'   => 'ProjectId',
-        'type'        => 'Type',
+        'name' => 'Name',
+        'projectId' => 'ProjectId',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerUid) {
             $res['CustomerUid'] = $this->customerUid;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -57,23 +61,26 @@ class AddSceneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSceneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerUid'])) {
             $model->customerUid = $map['CustomerUid'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

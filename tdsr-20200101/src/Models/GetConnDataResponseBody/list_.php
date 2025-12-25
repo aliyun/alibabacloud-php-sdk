@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -23,24 +23,27 @@ class list_ extends Model
      */
     public $type;
     protected $_name = [
-        'id'    => 'Id',
+        'id' => 'Id',
         'mapId' => 'MapId',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->mapId) {
             $res['MapId'] = $this->mapId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -48,20 +51,22 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MapId'])) {
             $model->mapId = $map['MapId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

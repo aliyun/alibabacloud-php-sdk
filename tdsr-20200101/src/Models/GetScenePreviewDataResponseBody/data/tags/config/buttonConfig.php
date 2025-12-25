@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewDataResponseBody\data\tags\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class buttonConfig extends Model
 {
@@ -19,19 +19,21 @@ class buttonConfig extends Model
     public $type;
     protected $_name = [
         'customText' => 'CustomText',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customText) {
             $res['CustomText'] = $this->customText;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +41,18 @@ class buttonConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return buttonConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomText'])) {
             $model->customText = $map['CustomText'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
