@@ -639,6 +639,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCElasticScalingRequest;
@@ -31194,6 +31196,91 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改RDS用户磁盘付费类型.
+     *
+     * @param request - ModifyRCDiskChargeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRCDiskChargeTypeResponse
+     *
+     * @param ModifyRCDiskChargeTypeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyRCDiskChargeTypeResponse
+     */
+    public function modifyRCDiskChargeTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
+        if (null !== $request->businessInfo) {
+            @$query['BusinessInfo'] = $request->businessInfo;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRCDiskChargeType',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRCDiskChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改RDS用户磁盘付费类型.
+     *
+     * @param request - ModifyRCDiskChargeTypeRequest
+     *
+     * @returns ModifyRCDiskChargeTypeResponse
+     *
+     * @param ModifyRCDiskChargeTypeRequest $request
+     *
+     * @return ModifyRCDiskChargeTypeResponse
+     */
+    public function modifyRCDiskChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCDiskChargeTypeWithOptions($request, $runtime);
     }
 
     /**

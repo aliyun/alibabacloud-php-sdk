@@ -12,6 +12,11 @@ class disks extends Model
     /**
      * @var string
      */
+    public $attachedTime;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -139,6 +144,7 @@ class disks extends Model
      */
     public $zoneId;
     protected $_name = [
+        'attachedTime' => 'AttachedTime',
         'category' => 'Category',
         'creationTime' => 'CreationTime',
         'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
@@ -178,6 +184,10 @@ class disks extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attachedTime) {
+            $res['AttachedTime'] = $this->attachedTime;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -300,6 +310,10 @@ class disks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachedTime'])) {
+            $model->attachedTime = $map['AttachedTime'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
