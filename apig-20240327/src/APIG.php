@@ -129,6 +129,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesReques
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RemoveConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UnDeployMcpServerResponse;
@@ -3756,7 +3758,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取服务来源.
+     * Obtains the details of a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3790,7 +3792,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取服务来源.
+     * Obtains the details of a service source.
      *
      * @returns GetSourceResponse
      *
@@ -4292,7 +4294,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取Gateway的Features.
+     * Queries the feature parameter configurations of an instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4326,7 +4328,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取Gateway的Features.
+     * Queries the feature parameter configurations of an instance.
      *
      * @returns ListGatewayFeaturesResponse
      *
@@ -5642,6 +5644,83 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->restartGatewayWithOptions($gatewayId, $headers, $runtime);
+    }
+
+    /**
+     * 同步外部MCP server.
+     *
+     * @param request - SyncMCPServersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncMCPServersResponse
+     *
+     * @param SyncMCPServersRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncMCPServersResponse
+     */
+    public function syncMCPServersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->domainIds) {
+            @$body['domainIds'] = $request->domainIds;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->nacosMcpServers) {
+            @$body['nacosMcpServers'] = $request->nacosMcpServers;
+        }
+
+        if (null !== $request->namespace) {
+            @$body['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncMCPServers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/sync-mcp-server',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncMCPServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步外部MCP server.
+     *
+     * @param request - SyncMCPServersRequest
+     *
+     * @returns SyncMCPServersResponse
+     *
+     * @param SyncMCPServersRequest $request
+     *
+     * @return SyncMCPServersResponse
+     */
+    public function syncMCPServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->syncMCPServersWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -49,6 +49,11 @@ class serviceConfigs extends Model
      * @var string
      */
     public $qualifier;
+
+    /**
+     * @var string
+     */
+    public $sourceId;
     protected $_name = [
         'addresses' => 'addresses',
         'agentServiceConfig' => 'agentServiceConfig',
@@ -58,6 +63,7 @@ class serviceConfigs extends Model
         'name' => 'name',
         'namespace' => 'namespace',
         'qualifier' => 'qualifier',
+        'sourceId' => 'sourceId',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class serviceConfigs extends Model
             $res['qualifier'] = $this->qualifier;
         }
 
+        if (null !== $this->sourceId) {
+            $res['sourceId'] = $this->sourceId;
+        }
+
         return $res;
     }
 
@@ -181,6 +191,10 @@ class serviceConfigs extends Model
 
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
+        }
+
+        if (isset($map['sourceId'])) {
+            $model->sourceId = $map['sourceId'];
         }
 
         return $model;

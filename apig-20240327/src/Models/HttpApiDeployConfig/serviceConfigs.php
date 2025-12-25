@@ -11,6 +11,11 @@ class serviceConfigs extends Model
     /**
      * @var string
      */
+    public $intentCode;
+
+    /**
+     * @var string
+     */
     public $modelName;
 
     /**
@@ -28,6 +33,7 @@ class serviceConfigs extends Model
      */
     public $weight;
     protected $_name = [
+        'intentCode' => 'intentCode',
         'modelName' => 'modelName',
         'modelNamePattern' => 'modelNamePattern',
         'serviceId' => 'serviceId',
@@ -42,6 +48,10 @@ class serviceConfigs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->intentCode) {
+            $res['intentCode'] = $this->intentCode;
+        }
+
         if (null !== $this->modelName) {
             $res['modelName'] = $this->modelName;
         }
@@ -69,6 +79,10 @@ class serviceConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['intentCode'])) {
+            $model->intentCode = $map['intentCode'];
+        }
+
         if (isset($map['modelName'])) {
             $model->modelName = $map['modelName'];
         }
