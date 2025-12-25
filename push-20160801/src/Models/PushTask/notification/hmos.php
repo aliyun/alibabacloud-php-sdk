@@ -79,6 +79,16 @@ class hmos extends Model
     public $slotType;
 
     /**
+     * @var string
+     */
+    public $sound;
+
+    /**
+     * @var int
+     */
+    public $soundDuration;
+
+    /**
      * @var bool
      */
     public $testMessage;
@@ -102,6 +112,8 @@ class hmos extends Model
         'receiptId' => 'ReceiptId',
         'renderStyle' => 'RenderStyle',
         'slotType' => 'SlotType',
+        'sound' => 'Sound',
+        'soundDuration' => 'SoundDuration',
         'testMessage' => 'TestMessage',
         'uri' => 'Uri',
     ];
@@ -178,6 +190,14 @@ class hmos extends Model
 
         if (null !== $this->slotType) {
             $res['SlotType'] = $this->slotType;
+        }
+
+        if (null !== $this->sound) {
+            $res['Sound'] = $this->sound;
+        }
+
+        if (null !== $this->soundDuration) {
+            $res['SoundDuration'] = $this->soundDuration;
         }
 
         if (null !== $this->testMessage) {
@@ -260,6 +280,14 @@ class hmos extends Model
 
         if (isset($map['SlotType'])) {
             $model->slotType = $map['SlotType'];
+        }
+
+        if (isset($map['Sound'])) {
+            $model->sound = $map['Sound'];
+        }
+
+        if (isset($map['SoundDuration'])) {
+            $model->soundDuration = $map['SoundDuration'];
         }
 
         if (isset($map['TestMessage'])) {
