@@ -29,6 +29,11 @@ class exchanges extends Model
     public $exchangeType;
 
     /**
+     * @var bool
+     */
+    public $internal;
+
+    /**
      * @var string
      */
     public $name;
@@ -42,6 +47,7 @@ class exchanges extends Model
         'autoDeleteState' => 'AutoDeleteState',
         'createTime' => 'CreateTime',
         'exchangeType' => 'ExchangeType',
+        'internal' => 'Internal',
         'name' => 'Name',
         'VHostName' => 'VHostName',
     ];
@@ -76,6 +82,10 @@ class exchanges extends Model
 
         if (null !== $this->exchangeType) {
             $res['ExchangeType'] = $this->exchangeType;
+        }
+
+        if (null !== $this->internal) {
+            $res['Internal'] = $this->internal;
         }
 
         if (null !== $this->name) {
@@ -116,6 +126,10 @@ class exchanges extends Model
 
         if (isset($map['ExchangeType'])) {
             $model->exchangeType = $map['ExchangeType'];
+        }
+
+        if (isset($map['Internal'])) {
+            $model->internal = $map['Internal'];
         }
 
         if (isset($map['Name'])) {
