@@ -21,6 +21,11 @@ class AlertRuleNotification extends Model
     /**
      * @var string[]
      */
+    public $dingCoolAppWebhooks;
+
+    /**
+     * @var string[]
+     */
     public $dingWebhooks;
 
     /**
@@ -55,6 +60,7 @@ class AlertRuleNotification extends Model
     protected $_name = [
         'contacts' => 'contacts',
         'customWebhooks' => 'customWebhooks',
+        'dingCoolAppWebhooks' => 'dingCoolAppWebhooks',
         'dingWebhooks' => 'dingWebhooks',
         'fsWebhooks' => 'fsWebhooks',
         'groups' => 'groups',
@@ -71,6 +77,9 @@ class AlertRuleNotification extends Model
         }
         if (\is_array($this->customWebhooks)) {
             Model::validateArray($this->customWebhooks);
+        }
+        if (\is_array($this->dingCoolAppWebhooks)) {
+            Model::validateArray($this->dingCoolAppWebhooks);
         }
         if (\is_array($this->dingWebhooks)) {
             Model::validateArray($this->dingWebhooks);
@@ -113,6 +122,17 @@ class AlertRuleNotification extends Model
                 $n1 = 0;
                 foreach ($this->customWebhooks as $item1) {
                     $res['customWebhooks'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->dingCoolAppWebhooks) {
+            if (\is_array($this->dingCoolAppWebhooks)) {
+                $res['dingCoolAppWebhooks'] = [];
+                $n1 = 0;
+                foreach ($this->dingCoolAppWebhooks as $item1) {
+                    $res['dingCoolAppWebhooks'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -209,6 +229,17 @@ class AlertRuleNotification extends Model
                 $n1 = 0;
                 foreach ($map['customWebhooks'] as $item1) {
                     $model->customWebhooks[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['dingCoolAppWebhooks'])) {
+            if (!empty($map['dingCoolAppWebhooks'])) {
+                $model->dingCoolAppWebhooks = [];
+                $n1 = 0;
+                foreach ($map['dingCoolAppWebhooks'] as $item1) {
+                    $model->dingCoolAppWebhooks[$n1] = $item1;
                     ++$n1;
                 }
             }

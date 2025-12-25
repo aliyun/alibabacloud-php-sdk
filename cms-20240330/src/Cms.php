@@ -12,7 +12,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
@@ -24,6 +28,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceRequest
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateThreadRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
@@ -33,12 +39,14 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
@@ -61,6 +69,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataHeaders;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
@@ -76,6 +85,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataResponse;
@@ -93,6 +105,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesShrinkRequest;
@@ -121,6 +135,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
@@ -134,6 +151,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
@@ -148,6 +167,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateSubscriptionResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateThreadRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelCommonSchemaRefRequest;
@@ -505,6 +526,153 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 创建对话.
+     *
+     * @param request - CreateChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatResponse
+     *
+     * @param CreateChatRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateChatResponse
+     */
+    public function createChatWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->digitalEmployeeName) {
+            @$body['digitalEmployeeName'] = $request->digitalEmployeeName;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChat',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield CreateChatResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 创建对话.
+     *
+     * @param request - CreateChatRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatResponse
+     *
+     * @param CreateChatRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateChatResponse
+     */
+    public function createChatWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->digitalEmployeeName) {
+            @$body['digitalEmployeeName'] = $request->digitalEmployeeName;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChat',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建对话.
+     *
+     * @param request - CreateChatRequest
+     *
+     * @returns CreateChatResponse
+     *
+     * @param CreateChatRequest $request
+     *
+     * @return CreateChatResponse
+     */
+    public function createChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createChatWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建云资源中心.
      *
      * @param headers - map
@@ -550,6 +718,87 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 创建DigitalEmployee.
+     *
+     * @param request - CreateDigitalEmployeeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDigitalEmployeeResponse
+     *
+     * @param CreateDigitalEmployeeRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDigitalEmployeeResponse
+     */
+    public function createDigitalEmployeeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->defaultRule) {
+            @$body['defaultRule'] = $request->defaultRule;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->knowledges) {
+            @$body['knowledges'] = $request->knowledges;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->roleArn) {
+            @$body['roleArn'] = $request->roleArn;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDigitalEmployee',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digital-employee',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDigitalEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建DigitalEmployee.
+     *
+     * @param request - CreateDigitalEmployeeRequest
+     *
+     * @returns CreateDigitalEmployeeResponse
+     *
+     * @param CreateDigitalEmployeeRequest $request
+     *
+     * @return CreateDigitalEmployeeResponse
+     */
+    public function createDigitalEmployee($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDigitalEmployeeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1053,6 +1302,73 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 创建会话.
+     *
+     * @param request - CreateThreadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateThreadResponse
+     *
+     * @param string              $name
+     * @param CreateThreadRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateThreadResponse
+     */
+    public function createThreadWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateThread',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/thread',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建会话.
+     *
+     * @param request - CreateThreadRequest
+     *
+     * @returns CreateThreadResponse
+     *
+     * @param string              $name
+     * @param CreateThreadRequest $request
+     *
+     * @return CreateThreadResponse
+     */
+    public function createThread($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createThreadWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * Create Ticket.
      *
      * @param request - CreateTicketRequest
@@ -1410,6 +1726,57 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除DigitalEmployee.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDigitalEmployeeResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDigitalEmployeeResponse
+     */
+    public function deleteDigitalEmployeeWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDigitalEmployee',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digital-employee/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDigitalEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除DigitalEmployee.
+     *
+     * @returns DeleteDigitalEmployeeResponse
+     *
+     * @param string $name
+     *
+     * @return DeleteDigitalEmployeeResponse
+     */
+    public function deleteDigitalEmployee($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDigitalEmployeeWithOptions($name, $headers, $runtime);
+    }
+
+    /**
      * Delete EntityStore related storage.
      *
      * @param headers - map
@@ -1688,6 +2055,59 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteServiceWithOptions($workspace, $serviceId, $headers, $runtime);
+    }
+
+    /**
+     * 删除会话.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteThreadResponse
+     *
+     * @param string         $name
+     * @param string         $threadId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteThreadResponse
+     */
+    public function deleteThreadWithOptions($name, $threadId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteThread',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/thread/' . Url::percentEncode($threadId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除会话.
+     *
+     * @returns DeleteThreadResponse
+     *
+     * @param string $name
+     * @param string $threadId
+     *
+     * @return DeleteThreadResponse
+     */
+    public function deleteThread($name, $threadId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteThreadWithOptions($name, $threadId, $headers, $runtime);
     }
 
     /**
@@ -2548,6 +2968,57 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询 DigitalEmployee.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDigitalEmployeeResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDigitalEmployeeResponse
+     */
+    public function getDigitalEmployeeWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDigitalEmployee',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digital-employee/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDigitalEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 DigitalEmployee.
+     *
+     * @returns GetDigitalEmployeeResponse
+     *
+     * @param string $name
+     *
+     * @return GetDigitalEmployeeResponse
+     */
+    public function getDigitalEmployee($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDigitalEmployeeWithOptions($name, $headers, $runtime);
+    }
+
+    /**
      * Get EntityStore related storage information.
      *
      * @param headers - map
@@ -3105,6 +3576,128 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getServiceObservabilityWithOptions($workspace, $type, $headers, $runtime);
+    }
+
+    /**
+     * 获取会话.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetThreadResponse
+     *
+     * @param string         $name
+     * @param string         $threadId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetThreadResponse
+     */
+    public function getThreadWithOptions($name, $threadId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetThread',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/thread/' . Url::percentEncode($threadId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话.
+     *
+     * @returns GetThreadResponse
+     *
+     * @param string $name
+     * @param string $threadId
+     *
+     * @return GetThreadResponse
+     */
+    public function getThread($name, $threadId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getThreadWithOptions($name, $threadId, $headers, $runtime);
+    }
+
+    /**
+     * 获取会话数据.
+     *
+     * @param request - GetThreadDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetThreadDataResponse
+     *
+     * @param string               $name
+     * @param string               $threadId
+     * @param GetThreadDataRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetThreadDataResponse
+     */
+    public function getThreadDataWithOptions($name, $threadId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetThreadData',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/thread/' . Url::percentEncode($threadId) . '/data',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetThreadDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话数据.
+     *
+     * @param request - GetThreadDataRequest
+     *
+     * @returns GetThreadDataResponse
+     *
+     * @param string               $name
+     * @param string               $threadId
+     * @param GetThreadDataRequest $request
+     *
+     * @return GetThreadDataResponse
+     */
+    public function getThreadData($name, $threadId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getThreadDataWithOptions($name, $threadId, $request, $headers, $runtime);
     }
 
     /**
@@ -3734,6 +4327,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listBizTracesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出资源DigitalEmployee.
+     *
+     * @param request - ListDigitalEmployeesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDigitalEmployeesResponse
+     *
+     * @param ListDigitalEmployeesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDigitalEmployeesResponse
+     */
+    public function listDigitalEmployeesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDigitalEmployees',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digital-employee',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDigitalEmployeesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源DigitalEmployee.
+     *
+     * @param request - ListDigitalEmployeesRequest
+     *
+     * @returns ListDigitalEmployeesResponse
+     *
+     * @param ListDigitalEmployeesRequest $request
+     *
+     * @return ListDigitalEmployeesResponse
+     */
+    public function listDigitalEmployees($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDigitalEmployeesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4786,6 +5448,91 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 列出会话.
+     *
+     * @param tmpReq - ListThreadsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListThreadsResponse
+     *
+     * @param string             $name
+     * @param ListThreadsRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListThreadsResponse
+     */
+    public function listThreadsWithOptions($name, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListThreadsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->threadId) {
+            @$query['threadId'] = $request->threadId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListThreads',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/threads',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListThreadsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出会话.
+     *
+     * @param request - ListThreadsRequest
+     *
+     * @returns ListThreadsResponse
+     *
+     * @param string             $name
+     * @param ListThreadsRequest $request
+     *
+     * @return ListThreadsResponse
+     */
+    public function listThreads($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listThreadsWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * Get Workspace List.
      *
      * @param tmpReq - ListWorkspacesRequest
@@ -5279,6 +6026,85 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新UpdateDigitalEmployee.
+     *
+     * @param request - UpdateDigitalEmployeeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDigitalEmployeeResponse
+     *
+     * @param string                       $name
+     * @param UpdateDigitalEmployeeRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDigitalEmployeeResponse
+     */
+    public function updateDigitalEmployeeWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->defaultRule) {
+            @$body['defaultRule'] = $request->defaultRule;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->knowledges) {
+            @$body['knowledges'] = $request->knowledges;
+        }
+
+        if (null !== $request->roleArn) {
+            @$body['roleArn'] = $request->roleArn;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDigitalEmployee',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digital-employee/' . Url::percentEncode($name) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDigitalEmployeeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新UpdateDigitalEmployee.
+     *
+     * @param request - UpdateDigitalEmployeeRequest
+     *
+     * @returns UpdateDigitalEmployeeResponse
+     *
+     * @param string                       $name
+     * @param UpdateDigitalEmployeeRequest $request
+     *
+     * @return UpdateDigitalEmployeeResponse
+     */
+    public function updateDigitalEmployee($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDigitalEmployeeWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -5824,6 +6650,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新会话.
+     *
+     * @param request - UpdateThreadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateThreadResponse
+     *
+     * @param string              $name
+     * @param string              $threadId
+     * @param UpdateThreadRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateThreadResponse
+     */
+    public function updateThreadWithOptions($name, $threadId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateThread',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/thread/' . Url::percentEncode($threadId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新会话.
+     *
+     * @param request - UpdateThreadRequest
+     *
+     * @returns UpdateThreadResponse
+     *
+     * @param string              $name
+     * @param string              $threadId
+     * @param UpdateThreadRequest $request
+     *
+     * @return UpdateThreadResponse
+     */
+    public function updateThread($name, $threadId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateThreadWithOptions($name, $threadId, $request, $headers, $runtime);
     }
 
     /**
