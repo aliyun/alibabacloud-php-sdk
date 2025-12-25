@@ -28,6 +28,11 @@ class ext extends Model
     public $examples;
 
     /**
+     * @var mixed
+     */
+    public $paramMap;
+
+    /**
      * @var string[]
      */
     public $sensitives;
@@ -45,6 +50,7 @@ class ext extends Model
         'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
+        'paramMap' => 'paramMap',
         'sensitives' => 'sensitives',
         'terminologies' => 'terminologies',
         'textTransform' => 'textTransform',
@@ -90,6 +96,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->paramMap) {
+            $res['paramMap'] = $this->paramMap;
         }
 
         if (null !== $this->sensitives) {
@@ -146,6 +156,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['paramMap'])) {
+            $model->paramMap = $map['paramMap'];
         }
 
         if (isset($map['sensitives'])) {

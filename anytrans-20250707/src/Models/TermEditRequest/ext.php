@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditRequest\ext\terms;
 class ext extends Model
 {
     /**
+     * @var mixed
+     */
+    public $paramMap;
+
+    /**
      * @var terms[]
      */
     public $terms;
     protected $_name = [
+        'paramMap' => 'paramMap',
         'terms' => 'terms',
     ];
 
@@ -28,6 +34,10 @@ class ext extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->paramMap) {
+            $res['paramMap'] = $this->paramMap;
+        }
+
         if (null !== $this->terms) {
             if (\is_array($this->terms)) {
                 $res['terms'] = [];
@@ -50,6 +60,10 @@ class ext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['paramMap'])) {
+            $model->paramMap = $map['paramMap'];
+        }
+
         if (isset($map['terms'])) {
             if (!empty($map['terms'])) {
                 $model->terms = [];

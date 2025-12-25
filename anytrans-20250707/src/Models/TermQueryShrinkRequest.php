@@ -5,14 +5,13 @@
 namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryRequest\ext;
 
-class TermQueryRequest extends Model
+class TermQueryShrinkRequest extends Model
 {
     /**
-     * @var ext
+     * @var string
      */
-    public $ext;
+    public $extShrink;
 
     /**
      * @var string
@@ -39,7 +38,7 @@ class TermQueryRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'ext' => 'ext',
+        'extShrink' => 'ext',
         'scene' => 'scene',
         'sourceLanguage' => 'sourceLanguage',
         'targetLanguage' => 'targetLanguage',
@@ -49,17 +48,14 @@ class TermQueryRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->ext) {
-            $this->ext->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ext) {
-            $res['ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
+        if (null !== $this->extShrink) {
+            $res['ext'] = $this->extShrink;
         }
 
         if (null !== $this->scene) {
@@ -94,7 +90,7 @@ class TermQueryRequest extends Model
     {
         $model = new self();
         if (isset($map['ext'])) {
-            $model->ext = ext::fromMap($map['ext']);
+            $model->extShrink = $map['ext'];
         }
 
         if (isset($map['scene'])) {

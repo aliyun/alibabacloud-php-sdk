@@ -21,12 +21,18 @@ class ext extends Model
     public $domainHint;
 
     /**
+     * @var mixed
+     */
+    public $paramMap;
+
+    /**
      * @var terminologies[]
      */
     public $terminologies;
     protected $_name = [
         'config' => 'config',
         'domainHint' => 'domainHint',
+        'paramMap' => 'paramMap',
         'terminologies' => 'terminologies',
     ];
 
@@ -50,6 +56,10 @@ class ext extends Model
 
         if (null !== $this->domainHint) {
             $res['domainHint'] = $this->domainHint;
+        }
+
+        if (null !== $this->paramMap) {
+            $res['paramMap'] = $this->paramMap;
         }
 
         if (null !== $this->terminologies) {
@@ -80,6 +90,10 @@ class ext extends Model
 
         if (isset($map['domainHint'])) {
             $model->domainHint = $map['domainHint'];
+        }
+
+        if (isset($map['paramMap'])) {
+            $model->paramMap = $map['paramMap'];
         }
 
         if (isset($map['terminologies'])) {

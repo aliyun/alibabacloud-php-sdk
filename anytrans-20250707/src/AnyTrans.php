@@ -36,6 +36,7 @@ use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditShrinkRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryResponse;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryShrinkRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateShrinkRequest;
@@ -994,22 +995,32 @@ class AnyTrans extends OpenApiClient
     /**
      * 通义多模态翻译术语查询.
      *
-     * @param request - TermQueryRequest
+     * @param tmpReq - TermQueryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TermQueryResponse
      *
-     * @param TermQueryRequest $request
+     * @param TermQueryRequest $tmpReq
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
      *
      * @return TermQueryResponse
      */
-    public function termQueryWithOptions($request, $headers, $runtime)
+    public function termQueryWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new TermQueryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'ext', 'json');
+        }
+
         $body = [];
+        if (null !== $request->extShrink) {
+            @$body['ext'] = $request->extShrink;
+        }
+
         if (null !== $request->scene) {
             @$body['scene'] = $request->scene;
         }
