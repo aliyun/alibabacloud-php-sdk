@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\GetWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\GetWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\KillProcessRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\KillProcessResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListClickHouseDBTimezonesRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListClickHouseDBTimezonesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListInstanceLinkedWhitelistTemplatesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListInstanceLinkedWhitelistTemplatesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ListWhitelistTemplatesRequest;
@@ -2414,6 +2416,67 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->killProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举ClickHouse时区参数枚举值
+     *
+     * @param request - ListClickHouseDBTimezonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClickHouseDBTimezonesResponse
+     *
+     * @param ListClickHouseDBTimezonesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListClickHouseDBTimezonesResponse
+     */
+    public function listClickHouseDBTimezonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListClickHouseDBTimezones',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClickHouseDBTimezonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举ClickHouse时区参数枚举值
+     *
+     * @param request - ListClickHouseDBTimezonesRequest
+     *
+     * @returns ListClickHouseDBTimezonesResponse
+     *
+     * @param ListClickHouseDBTimezonesRequest $request
+     *
+     * @return ListClickHouseDBTimezonesResponse
+     */
+    public function listClickHouseDBTimezones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClickHouseDBTimezonesWithOptions($request, $runtime);
     }
 
     /**
