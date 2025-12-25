@@ -80,6 +80,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesR
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmListRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmListResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalDomainStatisticRequest;
@@ -120,6 +124,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotAppKeyRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotAppKeyResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotRuleLabelsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotRuleLabelsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
@@ -330,6 +336,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountRe
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventDetailRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventDetailResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTypeRequest;
@@ -3364,6 +3374,136 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询实例信息.
+     *
+     * @param request - DescribeAlarmBannerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlarmBannerResponse
+     *
+     * @param DescribeAlarmBannerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAlarmBannerResponse
+     */
+    public function describeAlarmBannerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAlarmBanner',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAlarmBannerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例信息.
+     *
+     * @param request - DescribeAlarmBannerRequest
+     *
+     * @returns DescribeAlarmBannerResponse
+     *
+     * @param DescribeAlarmBannerRequest $request
+     *
+     * @return DescribeAlarmBannerResponse
+     */
+    public function describeAlarmBanner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlarmBannerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例信息.
+     *
+     * @param request - DescribeAlarmListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlarmListResponse
+     *
+     * @param DescribeAlarmListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAlarmListResponse
+     */
+    public function describeAlarmListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAlarmList',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAlarmListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例信息.
+     *
+     * @param request - DescribeAlarmListRequest
+     *
+     * @returns DescribeAlarmListResponse
+     *
+     * @param DescribeAlarmListRequest $request
+     *
+     * @return DescribeAlarmListResponse
+     */
+    public function describeAlarmList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlarmListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of data export tasks in the API security module.
      *
      * @param request - DescribeApiExportsRequest
@@ -5173,6 +5313,75 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBaseSystemRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询防护模板
+     *
+     * @param request - DescribeBotAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBotAppKeyResponse
+     *
+     * @param DescribeBotAppKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeBotAppKeyResponse
+     */
+    public function describeBotAppKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyVersion) {
+            @$query['KeyVersion'] = $request->keyVersion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBotAppKey',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBotAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询防护模板
+     *
+     * @param request - DescribeBotAppKeyRequest
+     *
+     * @returns DescribeBotAppKeyResponse
+     *
+     * @param DescribeBotAppKeyRequest $request
+     *
+     * @return DescribeBotAppKeyResponse
+     */
+    public function describeBotAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBotAppKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -13055,6 +13264,160 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看攻击事件列表.
+     *
+     * @param request - DescribeThreatEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeThreatEventResponse
+     *
+     * @param DescribeThreatEventRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeThreatEventResponse
+     */
+    public function describeThreatEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeThreatEvent',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeThreatEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看攻击事件列表.
+     *
+     * @param request - DescribeThreatEventRequest
+     *
+     * @returns DescribeThreatEventResponse
+     *
+     * @param DescribeThreatEventRequest $request
+     *
+     * @return DescribeThreatEventResponse
+     */
+    public function describeThreatEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeThreatEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看威胁事件详情.
+     *
+     * @param request - DescribeThreatEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeThreatEventDetailResponse
+     *
+     * @param DescribeThreatEventDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeThreatEventDetailResponse
+     */
+    public function describeThreatEventDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeThreatEventDetail',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeThreatEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看威胁事件详情.
+     *
+     * @param request - DescribeThreatEventDetailRequest
+     *
+     * @returns DescribeThreatEventDetailResponse
+     *
+     * @param DescribeThreatEventDetailRequest $request
+     *
+     * @return DescribeThreatEventDetailResponse
+     */
+    public function describeThreatEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeThreatEventDetailWithOptions($request, $runtime);
     }
 
     /**
