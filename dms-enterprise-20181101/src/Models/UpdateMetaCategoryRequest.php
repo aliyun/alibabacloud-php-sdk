@@ -16,7 +16,22 @@ class UpdateMetaCategoryRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var int[]
+     */
+    public $ownerIds;
+
+    /**
+     * @var string
+     */
+    public $remark;
 
     /**
      * @var int
@@ -24,12 +39,18 @@ class UpdateMetaCategoryRequest extends Model
     public $tid;
     protected $_name = [
         'categoryId' => 'CategoryId',
+        'description' => 'Description',
         'name' => 'Name',
+        'ownerIds' => 'OwnerIds',
+        'remark' => 'Remark',
         'tid' => 'Tid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ownerIds)) {
+            Model::validateArray($this->ownerIds);
+        }
         parent::validate();
     }
 
@@ -40,8 +61,27 @@ class UpdateMetaCategoryRequest extends Model
             $res['CategoryId'] = $this->categoryId;
         }
 
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->ownerIds) {
+            if (\is_array($this->ownerIds)) {
+                $res['OwnerIds'] = [];
+                $n1 = 0;
+                foreach ($this->ownerIds as $item1) {
+                    $res['OwnerIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         if (null !== $this->tid) {
@@ -63,8 +103,27 @@ class UpdateMetaCategoryRequest extends Model
             $model->categoryId = $map['CategoryId'];
         }
 
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OwnerIds'])) {
+            if (!empty($map['OwnerIds'])) {
+                $model->ownerIds = [];
+                $n1 = 0;
+                foreach ($map['OwnerIds'] as $item1) {
+                    $model->ownerIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['Tid'])) {

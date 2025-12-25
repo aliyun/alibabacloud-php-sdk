@@ -86,6 +86,11 @@ class ChatWithDesensitizeSSERequest extends Model
     /**
      * @var string
      */
+    public $parameters;
+
+    /**
+     * @var string
+     */
     public $presencePenalty;
 
     /**
@@ -163,6 +168,7 @@ class ChatWithDesensitizeSSERequest extends Model
         'modalitiesList' => 'ModalitiesList',
         'model' => 'Model',
         'needDesensitization' => 'NeedDesensitization',
+        'parameters' => 'Parameters',
         'presencePenalty' => 'PresencePenalty',
         'responseFormat' => 'ResponseFormat',
         'searchOptions' => 'SearchOptions',
@@ -270,6 +276,10 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (null !== $this->needDesensitization) {
             $res['NeedDesensitization'] = $this->needDesensitization;
+        }
+
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
 
         if (null !== $this->presencePenalty) {
@@ -419,6 +429,10 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (isset($map['NeedDesensitization'])) {
             $model->needDesensitization = $map['NeedDesensitization'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
 
         if (isset($map['PresencePenalty'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateMetaCategoryRequest extends Model
+class CreateMetaCategoryShrinkRequest extends Model
 {
     /**
      * @var string
@@ -19,9 +19,9 @@ class CreateMetaCategoryRequest extends Model
     public $name;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $ownerIds;
+    public $ownerIdsShrink;
 
     /**
      * @var int
@@ -40,7 +40,7 @@ class CreateMetaCategoryRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'name' => 'Name',
-        'ownerIds' => 'OwnerIds',
+        'ownerIdsShrink' => 'OwnerIds',
         'parentCategoryId' => 'ParentCategoryId',
         'remark' => 'Remark',
         'tid' => 'Tid',
@@ -48,9 +48,6 @@ class CreateMetaCategoryRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->ownerIds)) {
-            Model::validateArray($this->ownerIds);
-        }
         parent::validate();
     }
 
@@ -65,15 +62,8 @@ class CreateMetaCategoryRequest extends Model
             $res['Name'] = $this->name;
         }
 
-        if (null !== $this->ownerIds) {
-            if (\is_array($this->ownerIds)) {
-                $res['OwnerIds'] = [];
-                $n1 = 0;
-                foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->ownerIdsShrink) {
+            $res['OwnerIds'] = $this->ownerIdsShrink;
         }
 
         if (null !== $this->parentCategoryId) {
@@ -108,14 +98,7 @@ class CreateMetaCategoryRequest extends Model
         }
 
         if (isset($map['OwnerIds'])) {
-            if (!empty($map['OwnerIds'])) {
-                $model->ownerIds = [];
-                $n1 = 0;
-                foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->ownerIdsShrink = $map['OwnerIds'];
         }
 
         if (isset($map['ParentCategoryId'])) {

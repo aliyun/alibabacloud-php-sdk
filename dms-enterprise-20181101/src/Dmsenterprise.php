@@ -109,6 +109,7 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateMetaCategoryResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateMetaCategoryShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
@@ -622,6 +623,7 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateMetaCategoryResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateMetaCategoryShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesRequest;
@@ -2544,6 +2546,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['NeedDesensitization'] = $request->needDesensitization;
         }
 
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
         if (null !== $request->presencePenalty) {
             @$query['PresencePenalty'] = $request->presencePenalty;
         }
@@ -2724,6 +2730,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->needDesensitization) {
             @$query['NeedDesensitization'] = $request->needDesensitization;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
 
         if (null !== $request->presencePenalty) {
@@ -4748,26 +4758,44 @@ class Dmsenterprise extends OpenApiClient
     /**
      * Create Asset Category.
      *
-     * @param request - CreateMetaCategoryRequest
+     * @param tmpReq - CreateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateMetaCategoryResponse
      *
-     * @param CreateMetaCategoryRequest $request
+     * @param CreateMetaCategoryRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return CreateMetaCategoryResponse
      */
-    public function createMetaCategoryWithOptions($request, $runtime)
+    public function createMetaCategoryWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateMetaCategoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ownerIds) {
+            $request->ownerIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ownerIds, 'OwnerIds', 'json');
+        }
+
         $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->ownerIdsShrink) {
+            @$query['OwnerIds'] = $request->ownerIdsShrink;
+        }
+
         if (null !== $request->parentCategoryId) {
             @$query['ParentCategoryId'] = $request->parentCategoryId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
 
         if (null !== $request->tid) {
@@ -22688,26 +22716,44 @@ class Dmsenterprise extends OpenApiClient
     /**
      * Updates asset category information.
      *
-     * @param request - UpdateMetaCategoryRequest
+     * @param tmpReq - UpdateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateMetaCategoryResponse
      *
-     * @param UpdateMetaCategoryRequest $request
+     * @param UpdateMetaCategoryRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return UpdateMetaCategoryResponse
      */
-    public function updateMetaCategoryWithOptions($request, $runtime)
+    public function updateMetaCategoryWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateMetaCategoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ownerIds) {
+            $request->ownerIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ownerIds, 'OwnerIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->categoryId) {
             @$query['CategoryId'] = $request->categoryId;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerIdsShrink) {
+            @$query['OwnerIds'] = $request->ownerIdsShrink;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
 
         if (null !== $request->tid) {
