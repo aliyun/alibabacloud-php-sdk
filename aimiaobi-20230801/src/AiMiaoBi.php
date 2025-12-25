@@ -14401,6 +14401,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Content'] = $request->content;
         }
 
+        if (null !== $request->originContent) {
+            @$body['OriginContent'] = $request->originContent;
+        }
+
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
         }
@@ -14458,6 +14462,10 @@ class AiMiaoBi extends OpenApiClient
         $body = [];
         if (null !== $request->content) {
             @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->originContent) {
+            @$body['OriginContent'] = $request->originContent;
         }
 
         if (null !== $request->prompt) {

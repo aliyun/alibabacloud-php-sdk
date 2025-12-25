@@ -16,6 +16,11 @@ class RunTextPolishingRequest extends Model
     /**
      * @var string
      */
+    public $originContent;
+
+    /**
+     * @var string
+     */
     public $prompt;
 
     /**
@@ -24,6 +29,7 @@ class RunTextPolishingRequest extends Model
     public $workspaceId;
     protected $_name = [
         'content' => 'Content',
+        'originContent' => 'OriginContent',
         'prompt' => 'Prompt',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -38,6 +44,10 @@ class RunTextPolishingRequest extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->originContent) {
+            $res['OriginContent'] = $this->originContent;
         }
 
         if (null !== $this->prompt) {
@@ -61,6 +71,10 @@ class RunTextPolishingRequest extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['OriginContent'])) {
+            $model->originContent = $map['OriginContent'];
         }
 
         if (isset($map['Prompt'])) {
