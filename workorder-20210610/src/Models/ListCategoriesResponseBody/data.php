@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20210610\Models\ListCategoriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -18,20 +18,22 @@ class data extends Model
      */
     public $categoryName;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'categoryName' => 'CategoryName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
@@ -39,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }

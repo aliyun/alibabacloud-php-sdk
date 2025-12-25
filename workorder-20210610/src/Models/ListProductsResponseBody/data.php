@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20210610\Models\ListProductsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\ListProductsResponseBody\data\productList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -24,30 +24,37 @@ class data extends Model
      */
     public $productList;
     protected $_name = [
-        'directoryId'   => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'directoryName' => 'DirectoryName',
-        'productList'   => 'ProductList',
+        'productList' => 'ProductList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->productList)) {
+            Model::validateArray($this->productList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+
         if (null !== $this->directoryName) {
             $res['DirectoryName'] = $this->directoryName;
         }
+
         if (null !== $this->productList) {
-            $res['ProductList'] = [];
-            if (null !== $this->productList && \is_array($this->productList)) {
-                $n = 0;
-                foreach ($this->productList as $item) {
-                    $res['ProductList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productList)) {
+                $res['ProductList'] = [];
+                $n1 = 0;
+                foreach ($this->productList as $item1) {
+                    $res['ProductList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+
         if (isset($map['DirectoryName'])) {
             $model->directoryName = $map['DirectoryName'];
         }
+
         if (isset($map['ProductList'])) {
             if (!empty($map['ProductList'])) {
                 $model->productList = [];
-                $n                  = 0;
-                foreach ($map['ProductList'] as $item) {
-                    $model->productList[$n++] = null !== $item ? productList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProductList'] as $item1) {
+                    $model->productList[$n1] = productList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

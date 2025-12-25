@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20210610\Models\GetAttachmentUploadUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -24,23 +24,26 @@ class data extends Model
     public $putSignedUrl;
     protected $_name = [
         'getSignedUrl' => 'GetSignedUrl',
-        'objectKey'    => 'ObjectKey',
+        'objectKey' => 'ObjectKey',
         'putSignedUrl' => 'PutSignedUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->getSignedUrl) {
             $res['GetSignedUrl'] = $this->getSignedUrl;
         }
+
         if (null !== $this->objectKey) {
             $res['ObjectKey'] = $this->objectKey;
         }
+
         if (null !== $this->putSignedUrl) {
             $res['PutSignedUrl'] = $this->putSignedUrl;
         }
@@ -48,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GetSignedUrl'])) {
             $model->getSignedUrl = $map['GetSignedUrl'];
         }
+
         if (isset($map['ObjectKey'])) {
             $model->objectKey = $map['ObjectKey'];
         }
+
         if (isset($map['PutSignedUrl'])) {
             $model->putSignedUrl = $map['PutSignedUrl'];
         }

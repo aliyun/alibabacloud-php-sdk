@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20210610\Models\ListTicketNotesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dialog extends Model
 {
@@ -19,19 +19,21 @@ class dialog extends Model
     public $schema;
     protected $_name = [
         'content' => 'Content',
-        'schema'  => 'Schema',
+        'schema' => 'Schema',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
         }
@@ -39,17 +41,18 @@ class dialog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
         }

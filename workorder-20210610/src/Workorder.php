@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20210610;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\CloseTicketRequest;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\CloseTicketResponse;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\CreateTicketRequest;
@@ -32,12 +31,10 @@ use AlibabaCloud\SDK\Workorder\V20210610\Models\ReopenTicketResponse;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\ReplyTicketRequest;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\ReplyTicketResponse;
 use AlibabaCloud\SDK\Workorder\V20210610\Models\ReplyTicketShrinkRequest;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Workorder extends OpenApiClient
 {
@@ -45,7 +42,7 @@ class Workorder extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'ap-northeast-1' => 'workorder.ap-northeast-1.aliyuncs.com',
             'ap-southeast-1' => 'workorder.ap-southeast-1.aliyuncs.com',
         ];
@@ -66,17 +63,25 @@ class Workorder extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Closes a ticket.
+     *
+     * @param request - CloseTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseTicketResponse
+     *
      * @param CloseTicketRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -84,30 +89,41 @@ class Workorder extends OpenApiClient
      */
     public function closeTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloseTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CloseTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Closes a ticket.
+     *
+     * @param request - CloseTicketRequest
+     *
+     * @returns CloseTicketResponse
+     *
      * @param CloseTicketRequest $request
      *
      * @return CloseTicketResponse
@@ -120,6 +136,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Creates a ticket.
+     *
+     * @param tmpReq - CreateTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTicketResponse
+     *
      * @param CreateTicketRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
@@ -127,61 +150,77 @@ class Workorder extends OpenApiClient
      */
     public function createTicketWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateTicketShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fileNameList)) {
-            $request->fileNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileNameList, 'FileNameList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileNameList) {
+            $request->fileNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileNameList, 'FileNameList', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->secretInfo)) {
-            $request->secretInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->secretInfo), 'SecretInfo', 'json');
+
+        if (null !== $tmpReq->secretInfo) {
+            $request->secretInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->secretInfo, 'SecretInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->secretInfoShrink)) {
-            $query['SecretInfo'] = $request->secretInfoShrink;
+        if (null !== $request->secretInfoShrink) {
+            @$query['SecretInfo'] = $request->secretInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->creatorId)) {
-            $body['CreatorId'] = $request->creatorId;
+
+        if (null !== $request->creatorId) {
+            @$body['CreatorId'] = $request->creatorId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->fileNameListShrink)) {
-            $body['FileNameList'] = $request->fileNameListShrink;
+
+        if (null !== $request->fileNameListShrink) {
+            @$body['FileNameList'] = $request->fileNameListShrink;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $body['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$body['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a ticket.
+     *
+     * @param request - CreateTicketRequest
+     *
+     * @returns CreateTicketResponse
+     *
      * @param CreateTicketRequest $request
      *
      * @return CreateTicketResponse
@@ -194,6 +233,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Evaluates a ticket.
+     *
+     * @param request - EvaluateTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EvaluateTicketResponse
+     *
      * @param EvaluateTicketRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -201,39 +247,53 @@ class Workorder extends OpenApiClient
      */
     public function evaluateTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->score)) {
-            $body['Score'] = $request->score;
+
+        if (null !== $request->score) {
+            @$body['Score'] = $request->score;
         }
-        if (!Utils::isUnset($request->solved)) {
-            $body['Solved'] = $request->solved;
+
+        if (null !== $request->solved) {
+            @$body['Solved'] = $request->solved;
         }
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EvaluateTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EvaluateTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EvaluateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Evaluates a ticket.
+     *
+     * @param request - EvaluateTicketRequest
+     *
+     * @returns EvaluateTicketResponse
+     *
      * @param EvaluateTicketRequest $request
      *
      * @return EvaluateTicketResponse
@@ -246,6 +306,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Queries the Object Storage Service (OSS) URL that is used to upload attachments.
+     *
+     * @param request - GetAttachmentUploadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAttachmentUploadUrlResponse
+     *
      * @param GetAttachmentUploadUrlRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -253,30 +320,37 @@ class Workorder extends OpenApiClient
      */
     public function getAttachmentUploadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAttachmentUploadUrl',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAttachmentUploadUrl',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAttachmentUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the Object Storage Service (OSS) URL that is used to upload attachments.
+     *
+     * @param request - GetAttachmentUploadUrlRequest
+     *
+     * @returns GetAttachmentUploadUrlResponse
+     *
      * @param GetAttachmentUploadUrlRequest $request
      *
      * @return GetAttachmentUploadUrlResponse
@@ -289,29 +363,36 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @param request - GetMqConsumerTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMqConsumerTagResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return GetMqConsumerTagResponse
      */
     public function getMqConsumerTagWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetMqConsumerTag',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMqConsumerTag',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMqConsumerTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns GetMqConsumerTagResponse
+     *
      * @return GetMqConsumerTagResponse
      */
     public function getMqConsumerTag()
@@ -322,6 +403,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Query tickets.
+     *
+     * @param request - GetTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTicketResponse
+     *
      * @param GetTicketRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -329,30 +417,41 @@ class Workorder extends OpenApiClient
      */
     public function getTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Query tickets.
+     *
+     * @param request - GetTicketRequest
+     *
+     * @returns GetTicketResponse
+     *
      * @param GetTicketRequest $request
      *
      * @return GetTicketResponse
@@ -365,6 +464,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Obtains the list data of ticket problem categories.
+     *
+     * @param request - ListCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCategoriesResponse
+     *
      * @param ListCategoriesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -372,38 +478,47 @@ class Workorder extends OpenApiClient
      */
     public function listCategoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCategories',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCategories',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Obtains the list data of ticket problem categories.
+     *
+     * @param request - ListCategoriesRequest
+     *
+     * @returns ListCategoriesResponse
+     *
      * @param ListCategoriesRequest $request
      *
      * @return ListCategoriesResponse
@@ -416,6 +531,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Obtains the data of the Alibaba Cloud product list.
+     *
+     * @param request - ListProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
      * @param ListProductsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -423,33 +545,41 @@ class Workorder extends OpenApiClient
      */
     public function listProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProducts',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProducts',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Obtains the data of the Alibaba Cloud product list.
+     *
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
      * @param ListProductsRequest $request
      *
      * @return ListProductsResponse
@@ -462,6 +592,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Obtains the ticket communication records.
+     *
+     * @param request - ListTicketNotesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTicketNotesResponse
+     *
      * @param ListTicketNotesRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -469,30 +606,41 @@ class Workorder extends OpenApiClient
      */
     public function listTicketNotesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ticketId)) {
-            $query['TicketId'] = $request->ticketId;
+        if (null !== $request->ticketId) {
+            @$query['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTicketNotes',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTicketNotes',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTicketNotesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Obtains the ticket communication records.
+     *
+     * @param request - ListTicketNotesRequest
+     *
+     * @returns ListTicketNotesResponse
+     *
      * @param ListTicketNotesRequest $request
      *
      * @return ListTicketNotesResponse
@@ -505,6 +653,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * You can call this operation to obtain the list of my tickets.
+     *
+     * @param tmpReq - ListTicketsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
@@ -512,58 +667,77 @@ class Workorder extends OpenApiClient
      */
     public function listTicketsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTicketsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ticketIdList)) {
-            $request->ticketIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketIdList, 'TicketIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ticketIdList) {
+            $request->ticketIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ticketIdList, 'TicketIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $body['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$body['StatusList'] = $request->statusList;
         }
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
-        if (!Utils::isUnset($request->ticketIdListShrink)) {
-            $body['TicketIdList'] = $request->ticketIdListShrink;
+
+        if (null !== $request->ticketIdListShrink) {
+            @$body['TicketIdList'] = $request->ticketIdListShrink;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTickets',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTickets',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * You can call this operation to obtain the list of my tickets.
+     *
+     * @param request - ListTicketsRequest
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $request
      *
      * @return ListTicketsResponse
@@ -576,6 +750,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Reopens a ticket.
+     *
+     * @param request - ReopenTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReopenTicketResponse
+     *
      * @param ReopenTicketRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -583,33 +764,45 @@ class Workorder extends OpenApiClient
      */
     public function reopenTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReopenTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReopenTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReopenTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Reopens a ticket.
+     *
+     * @param request - ReopenTicketRequest
+     *
+     * @returns ReopenTicketResponse
+     *
      * @param ReopenTicketRequest $request
      *
      * @return ReopenTicketResponse
@@ -622,6 +815,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+     *
+     * @param tmpReq - ReplyTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplyTicketResponse
+     *
      * @param ReplyTicketRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
@@ -629,46 +829,61 @@ class Workorder extends OpenApiClient
      */
     public function replyTicketWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReplyTicketShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fileNameList)) {
-            $request->fileNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileNameList, 'FileNameList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileNameList) {
+            $request->fileNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileNameList, 'FileNameList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->fileNameListShrink)) {
-            $query['FileNameList'] = $request->fileNameListShrink;
+        if (null !== $request->fileNameListShrink) {
+            @$query['FileNameList'] = $request->fileNameListShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->encrypt)) {
-            $body['Encrypt'] = $request->encrypt;
+
+        if (null !== $request->encrypt) {
+            @$body['Encrypt'] = $request->encrypt;
         }
-        if (!Utils::isUnset($request->ticketId)) {
-            $body['TicketId'] = $request->ticketId;
+
+        if (null !== $request->ticketId) {
+            @$body['TicketId'] = $request->ticketId;
         }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReplyTicket',
-            'version'     => '2021-06-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplyTicket',
+            'version' => '2021-06-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReplyTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+     *
+     * @param request - ReplyTicketRequest
+     *
+     * @returns ReplyTicketResponse
+     *
      * @param ReplyTicketRequest $request
      *
      * @return ReplyTicketResponse
