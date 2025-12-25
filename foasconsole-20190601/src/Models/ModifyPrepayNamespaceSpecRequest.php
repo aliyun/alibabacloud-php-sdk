@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\ModifyPrepayNamespaceSpecRequest\modifyPrepayNamespaceSpecRequest;
 
 class ModifyPrepayNamespaceSpecRequest extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Foasconsole\V20190601\Models\ModifyPrepayNamespaceSpecRequest\modifyPrepayNamespaceSpecRequest
+     * @var modifyPrepayNamespaceSpecRequest
      */
     public $modifyPrepayNamespaceSpecRequest;
     protected $_name = [
@@ -18,28 +19,32 @@ class ModifyPrepayNamespaceSpecRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->modifyPrepayNamespaceSpecRequest) {
+            $this->modifyPrepayNamespaceSpecRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modifyPrepayNamespaceSpecRequest) {
-            $res['ModifyPrepayNamespaceSpecRequest'] = null !== $this->modifyPrepayNamespaceSpecRequest ? $this->modifyPrepayNamespaceSpecRequest->toMap() : null;
+            $res['ModifyPrepayNamespaceSpecRequest'] = null !== $this->modifyPrepayNamespaceSpecRequest ? $this->modifyPrepayNamespaceSpecRequest->toArray($noStream) : $this->modifyPrepayNamespaceSpecRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPrepayNamespaceSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModifyPrepayNamespaceSpecRequest'])) {
-            $model->modifyPrepayNamespaceSpecRequest = \AlibabaCloud\SDK\Foasconsole\V20190601\Models\ModifyPrepayNamespaceSpecRequest\modifyPrepayNamespaceSpecRequest::fromMap($map['ModifyPrepayNamespaceSpecRequest']);
+            $model->modifyPrepayNamespaceSpecRequest = self::fromMap($map['ModifyPrepayNamespaceSpecRequest']);
         }
 
         return $model;

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderInfo extends Model
 {
     /**
-     * @example 8D2D5BBF-C302-1A21-80E1-27799802****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 210406354694567
-     *
      * @var int
      */
     public $orderId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'orderId'    => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -43,17 +41,18 @@ class orderInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

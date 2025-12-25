@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\RenewInstanceRequest\renewInstanceRequest;
 
 class RenewInstanceRequest extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Foasconsole\V20190601\Models\RenewInstanceRequest\renewInstanceRequest
+     * @var renewInstanceRequest
      */
     public $renewInstanceRequest;
     protected $_name = [
@@ -18,28 +19,32 @@ class RenewInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->renewInstanceRequest) {
+            $this->renewInstanceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->renewInstanceRequest) {
-            $res['RenewInstanceRequest'] = null !== $this->renewInstanceRequest ? $this->renewInstanceRequest->toMap() : null;
+            $res['RenewInstanceRequest'] = null !== $this->renewInstanceRequest ? $this->renewInstanceRequest->toArray($noStream) : $this->renewInstanceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RenewInstanceRequest'])) {
-            $model->renewInstanceRequest = \AlibabaCloud\SDK\Foasconsole\V20190601\Models\RenewInstanceRequest\renewInstanceRequest::fromMap($map['RenewInstanceRequest']);
+            $model->renewInstanceRequest = self::fromMap($map['RenewInstanceRequest']);
         }
 
         return $model;

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryConvertPrepayInstancePriceRequest\convertPrepayInstanceRequest;
-use AlibabaCloud\Tea\Model;
 
 class QueryConvertPrepayInstancePriceRequest extends Model
 {
@@ -19,23 +19,27 @@ class QueryConvertPrepayInstancePriceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->convertPrepayInstanceRequest) {
+            $this->convertPrepayInstanceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->convertPrepayInstanceRequest) {
-            $res['ConvertPrepayInstanceRequest'] = null !== $this->convertPrepayInstanceRequest ? $this->convertPrepayInstanceRequest->toMap() : null;
+            $res['ConvertPrepayInstanceRequest'] = null !== $this->convertPrepayInstanceRequest ? $this->convertPrepayInstanceRequest->toArray($noStream) : $this->convertPrepayInstanceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryConvertPrepayInstancePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryRenewInstancePriceResponseBody\priceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class optionalPromotions extends Model
 {
     /**
-     * @example ￥1,391.5 优惠券 (有效期至 03/23/2022)
-     *
      * @var string
      */
     public $promotionDesc;
 
     /**
-     * @example ￥1,391.5 优惠券
-     *
      * @var string
      */
     public $promotionName;
 
     /**
-     * @example 500011220010099
-     *
      * @var string
      */
     public $promotionOptionNo;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $selected;
     protected $_name = [
-        'promotionDesc'     => 'PromotionDesc',
-        'promotionName'     => 'PromotionName',
+        'promotionDesc' => 'PromotionDesc',
+        'promotionName' => 'PromotionName',
         'promotionOptionNo' => 'PromotionOptionNo',
-        'selected'          => 'Selected',
+        'selected' => 'Selected',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->promotionDesc) {
             $res['PromotionDesc'] = $this->promotionDesc;
         }
+
         if (null !== $this->promotionName) {
             $res['PromotionName'] = $this->promotionName;
         }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
+
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -65,23 +61,26 @@ class optionalPromotions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return optionalPromotions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PromotionDesc'])) {
             $model->promotionDesc = $map['PromotionDesc'];
         }
+
         if (isset($map['PromotionName'])) {
             $model->promotionName = $map['PromotionName'];
         }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
+
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }

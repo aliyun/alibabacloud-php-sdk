@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryCreateInstancePriceRequest\createInstanceRequest;
-use AlibabaCloud\Tea\Model;
 
 class QueryCreateInstancePriceRequest extends Model
 {
@@ -19,23 +19,27 @@ class QueryCreateInstancePriceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->createInstanceRequest) {
+            $this->createInstanceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createInstanceRequest) {
-            $res['CreateInstanceRequest'] = null !== $this->createInstanceRequest ? $this->createInstanceRequest->toMap() : null;
+            $res['CreateInstanceRequest'] = null !== $this->createInstanceRequest ? $this->createInstanceRequest->toArray($noStream) : $this->createInstanceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCreateInstancePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryConvertInstancePriceRequest\convertPostpayInstanceRequest;
-use AlibabaCloud\Tea\Model;
 
 class QueryConvertInstancePriceRequest extends Model
 {
@@ -19,23 +19,27 @@ class QueryConvertInstancePriceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->convertPostpayInstanceRequest) {
+            $this->convertPostpayInstanceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->convertPostpayInstanceRequest) {
-            $res['ConvertPostpayInstanceRequest'] = null !== $this->convertPostpayInstanceRequest ? $this->convertPostpayInstanceRequest->toMap() : null;
+            $res['ConvertPostpayInstanceRequest'] = null !== $this->convertPostpayInstanceRequest ? $this->convertPostpayInstanceRequest->toArray($noStream) : $this->convertPostpayInstanceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryConvertInstancePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

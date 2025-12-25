@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\ConvertInstanceRequest;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\ConvertInstanceResponse;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\ConvertPrepayInstanceRequest;
@@ -47,12 +46,10 @@ use AlibabaCloud\SDK\Foasconsole\V20190601\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Foasconsole extends OpenApiClient
 {
@@ -77,17 +74,25 @@ class Foasconsole extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 按量付费转包年包月.
+     *
+     * @param request - ConvertInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertInstanceResponse
+     *
      * @param ConvertInstanceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -95,32 +100,40 @@ class Foasconsole extends OpenApiClient
      */
     public function convertInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->convertPostpayInstanceRequest)) {
-            $bodyFlat['ConvertPostpayInstanceRequest'] = $request->convertPostpayInstanceRequest;
+        if (null !== $request->convertPostpayInstanceRequest) {
+            @$bodyFlat['ConvertPostpayInstanceRequest'] = $request->convertPostpayInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConvertInstance',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertInstance',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConvertInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 按量付费转包年包月.
+     *
+     * @param request - ConvertInstanceRequest
+     *
+     * @returns ConvertInstanceResponse
+     *
      * @param ConvertInstanceRequest $request
      *
      * @return ConvertInstanceResponse
@@ -133,6 +146,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 包年包月转按量付费.
+     *
+     * @param request - ConvertPrepayInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertPrepayInstanceResponse
+     *
      * @param ConvertPrepayInstanceRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -140,32 +160,40 @@ class Foasconsole extends OpenApiClient
      */
     public function convertPrepayInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->convertPrepayInstanceRequest)) {
-            $bodyFlat['ConvertPrepayInstanceRequest'] = $request->convertPrepayInstanceRequest;
+        if (null !== $request->convertPrepayInstanceRequest) {
+            @$bodyFlat['ConvertPrepayInstanceRequest'] = $request->convertPrepayInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConvertPrepayInstance',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertPrepayInstance',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConvertPrepayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 包年包月转按量付费.
+     *
+     * @param request - ConvertPrepayInstanceRequest
+     *
+     * @returns ConvertPrepayInstanceResponse
+     *
      * @param ConvertPrepayInstanceRequest $request
      *
      * @return ConvertPrepayInstanceResponse
@@ -178,6 +206,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -185,32 +220,40 @@ class Foasconsole extends OpenApiClient
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->createInstanceRequest)) {
-            $bodyFlat['CreateInstanceRequest'] = $request->createInstanceRequest;
+        if (null !== $request->createInstanceRequest) {
+            @$bodyFlat['CreateInstanceRequest'] = $request->createInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstance',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建实例.
+     *
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      *
      * @return CreateInstanceResponse
@@ -223,6 +266,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 创建命名空间.
+     *
+     * @param request - CreateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNamespaceResponse
+     *
      * @param CreateNamespaceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -230,32 +280,40 @@ class Foasconsole extends OpenApiClient
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->createNamespaceRequest)) {
-            $bodyFlat['CreateNamespaceRequest'] = $request->createNamespaceRequest;
+        if (null !== $request->createNamespaceRequest) {
+            @$bodyFlat['CreateNamespaceRequest'] = $request->createNamespaceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateNamespace',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNamespace',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建命名空间.
+     *
+     * @param request - CreateNamespaceRequest
+     *
+     * @returns CreateNamespaceResponse
+     *
      * @param CreateNamespaceRequest $request
      *
      * @return CreateNamespaceResponse
@@ -268,6 +326,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 释放按量付费的实例.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param DeleteInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -275,32 +340,40 @@ class Foasconsole extends OpenApiClient
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->deleteInstanceRequest)) {
-            $bodyFlat['DeleteInstanceRequest'] = $request->deleteInstanceRequest;
+        if (null !== $request->deleteInstanceRequest) {
+            @$bodyFlat['DeleteInstanceRequest'] = $request->deleteInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstance',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 释放按量付费的实例.
+     *
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param DeleteInstanceRequest $request
      *
      * @return DeleteInstanceResponse
@@ -313,6 +386,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 删除namespace.
+     *
+     * @param request - DeleteNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNamespaceResponse
+     *
      * @param DeleteNamespaceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -320,32 +400,40 @@ class Foasconsole extends OpenApiClient
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->deleteNamespaceRequest)) {
-            $bodyFlat['DeleteNamespaceRequest'] = $request->deleteNamespaceRequest;
+        if (null !== $request->deleteNamespaceRequest) {
+            @$bodyFlat['DeleteNamespaceRequest'] = $request->deleteNamespaceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNamespace',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNamespace',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除namespace.
+     *
+     * @param request - DeleteNamespaceRequest
+     *
+     * @returns DeleteNamespaceResponse
+     *
      * @param DeleteNamespaceRequest $request
      *
      * @return DeleteNamespaceResponse
@@ -358,6 +446,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 扩容/缩容.
+     *
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstancesResponse
+     *
      * @param DescribeInstancesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -365,27 +460,33 @@ class Foasconsole extends OpenApiClient
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 扩容/缩容.
+     *
+     * @param request - DescribeInstancesRequest
+     *
+     * @returns DescribeInstancesResponse
+     *
      * @param DescribeInstancesRequest $request
      *
      * @return DescribeInstancesResponse
@@ -398,6 +499,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * namespace列表.
+     *
+     * @param request - DescribeNamespacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNamespacesResponse
+     *
      * @param DescribeNamespacesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -405,27 +513,33 @@ class Foasconsole extends OpenApiClient
      */
     public function describeNamespacesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNamespaces',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNamespaces',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * namespace列表.
+     *
+     * @param request - DescribeNamespacesRequest
+     *
+     * @returns DescribeNamespacesResponse
+     *
      * @param DescribeNamespacesRequest $request
      *
      * @return DescribeNamespacesResponse
@@ -438,29 +552,40 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 获取支持的region列表.
+     *
+     * @param request - DescribeSupportedRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupportedRegionsResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeSupportedRegions',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportedRegions',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSupportedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取支持的region列表.
+     *
+     * @returns DescribeSupportedRegionsResponse
+     *
      * @return DescribeSupportedRegionsResponse
      */
     public function describeSupportedRegions()
@@ -471,6 +596,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 获取支持的zoneId列表.
+     *
+     * @param request - DescribeSupportedZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupportedZonesResponse
+     *
      * @param DescribeSupportedZonesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -478,27 +610,33 @@ class Foasconsole extends OpenApiClient
      */
     public function describeSupportedZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSupportedZones',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportedZones',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSupportedZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取支持的zoneId列表.
+     *
+     * @param request - DescribeSupportedZonesRequest
+     *
+     * @returns DescribeSupportedZonesResponse
+     *
      * @param DescribeSupportedZonesRequest $request
      *
      * @return DescribeSupportedZonesResponse
@@ -511,6 +649,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 列举flinkasi标签.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -518,42 +663,53 @@ class Foasconsole extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 列举flinkasi标签.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -566,50 +722,62 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
-     *   *
-     * Deprecated
+     * 扩容/缩容.
      *
-     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @param request - ModifyPrepayInstanceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPrepayInstanceSpecResponse
+     *
+     * @param ModifyPrepayInstanceSpecRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->modifyPrepayInstanceSpecRequest)) {
-            $bodyFlat['ModifyPrepayInstanceSpecRequest'] = $request->modifyPrepayInstanceSpecRequest;
+        if (null !== $request->modifyPrepayInstanceSpecRequest) {
+            @$bodyFlat['ModifyPrepayInstanceSpecRequest'] = $request->modifyPrepayInstanceSpecRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPrepayInstanceSpec',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPrepayInstanceSpec',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyPrepayInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
-     *   *
-     * Deprecated
+     * 扩容/缩容.
      *
-     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     * @deprecated openAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead
      *
-     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
+     * @param request - ModifyPrepayInstanceSpecRequest
+     *
+     * @returns ModifyPrepayInstanceSpecResponse
+     *
+     * @param ModifyPrepayInstanceSpecRequest $request
+     *
+     * @return ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -619,50 +787,62 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
-     *   *
-     * Deprecated
+     * 修改namespace资源分配.
      *
-     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead
      *
-     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
+     * @param request - ModifyPrepayNamespaceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPrepayNamespaceSpecResponse
+     *
+     * @param ModifyPrepayNamespaceSpecRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->modifyPrepayNamespaceSpecRequest)) {
-            $bodyFlat['ModifyPrepayNamespaceSpecRequest'] = $request->modifyPrepayNamespaceSpecRequest;
+        if (null !== $request->modifyPrepayNamespaceSpecRequest) {
+            @$bodyFlat['ModifyPrepayNamespaceSpecRequest'] = $request->modifyPrepayNamespaceSpecRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPrepayNamespaceSpec',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPrepayNamespaceSpec',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyPrepayNamespaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
-     *   *
-     * Deprecated
+     * 修改namespace资源分配.
      *
-     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
+     * @deprecated openAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead
      *
-     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
+     * @param request - ModifyPrepayNamespaceSpecRequest
+     *
+     * @returns ModifyPrepayNamespaceSpecResponse
+     *
+     * @param ModifyPrepayNamespaceSpecRequest $request
+     *
+     * @return ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpec($request)
     {
@@ -672,6 +852,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 按量付费转包年包月询价.
+     *
+     * @param request - QueryConvertInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConvertInstancePriceResponse
+     *
      * @param QueryConvertInstancePriceRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -679,32 +866,40 @@ class Foasconsole extends OpenApiClient
      */
     public function queryConvertInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->convertPostpayInstanceRequest)) {
-            $bodyFlat['ConvertPostpayInstanceRequest'] = $request->convertPostpayInstanceRequest;
+        if (null !== $request->convertPostpayInstanceRequest) {
+            @$bodyFlat['ConvertPostpayInstanceRequest'] = $request->convertPostpayInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryConvertInstancePrice',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryConvertInstancePrice',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryConvertInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 按量付费转包年包月询价.
+     *
+     * @param request - QueryConvertInstancePriceRequest
+     *
+     * @returns QueryConvertInstancePriceResponse
+     *
      * @param QueryConvertInstancePriceRequest $request
      *
      * @return QueryConvertInstancePriceResponse
@@ -717,6 +912,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 包年包月转按量付费询价.
+     *
+     * @param request - QueryConvertPrepayInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConvertPrepayInstancePriceResponse
+     *
      * @param QueryConvertPrepayInstancePriceRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -724,32 +926,40 @@ class Foasconsole extends OpenApiClient
      */
     public function queryConvertPrepayInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->convertPrepayInstanceRequest)) {
-            $bodyFlat['ConvertPrepayInstanceRequest'] = $request->convertPrepayInstanceRequest;
+        if (null !== $request->convertPrepayInstanceRequest) {
+            @$bodyFlat['ConvertPrepayInstanceRequest'] = $request->convertPrepayInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryConvertPrepayInstancePrice',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryConvertPrepayInstancePrice',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryConvertPrepayInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 包年包月转按量付费询价.
+     *
+     * @param request - QueryConvertPrepayInstancePriceRequest
+     *
+     * @returns QueryConvertPrepayInstancePriceResponse
+     *
      * @param QueryConvertPrepayInstancePriceRequest $request
      *
      * @return QueryConvertPrepayInstancePriceResponse
@@ -762,6 +972,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 获取创建实例的价格
+     *
+     * @param request - QueryCreateInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCreateInstancePriceResponse
+     *
      * @param QueryCreateInstancePriceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -769,32 +986,40 @@ class Foasconsole extends OpenApiClient
      */
     public function queryCreateInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->createInstanceRequest)) {
-            $bodyFlat['CreateInstanceRequest'] = $request->createInstanceRequest;
+        if (null !== $request->createInstanceRequest) {
+            @$bodyFlat['CreateInstanceRequest'] = $request->createInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCreateInstancePrice',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCreateInstancePrice',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCreateInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取创建实例的价格
+     *
+     * @param request - QueryCreateInstancePriceRequest
+     *
+     * @returns QueryCreateInstancePriceResponse
+     *
      * @param QueryCreateInstancePriceRequest $request
      *
      * @return QueryCreateInstancePriceResponse
@@ -807,6 +1032,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 查询付费类型为包年包月的实例修改资源规格的价格
+     *
+     * @param request - QueryModifyInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryModifyInstancePriceResponse
+     *
      * @param QueryModifyInstancePriceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -814,32 +1046,40 @@ class Foasconsole extends OpenApiClient
      */
     public function queryModifyInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->modifyPrepayInstanceSpecRequest)) {
-            $bodyFlat['ModifyPrepayInstanceSpecRequest'] = $request->modifyPrepayInstanceSpecRequest;
+        if (null !== $request->modifyPrepayInstanceSpecRequest) {
+            @$bodyFlat['ModifyPrepayInstanceSpecRequest'] = $request->modifyPrepayInstanceSpecRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryModifyInstancePrice',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryModifyInstancePrice',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryModifyInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询付费类型为包年包月的实例修改资源规格的价格
+     *
+     * @param request - QueryModifyInstancePriceRequest
+     *
+     * @returns QueryModifyInstancePriceResponse
+     *
      * @param QueryModifyInstancePriceRequest $request
      *
      * @return QueryModifyInstancePriceResponse
@@ -852,6 +1092,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 查询付费类型为包年包月的实例续费价格
+     *
+     * @param request - QueryRenewInstancePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRenewInstancePriceResponse
+     *
      * @param QueryRenewInstancePriceRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -859,32 +1106,40 @@ class Foasconsole extends OpenApiClient
      */
     public function queryRenewInstancePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->renewInstanceRequest)) {
-            $bodyFlat['RenewInstanceRequest'] = $request->renewInstanceRequest;
+        if (null !== $request->renewInstanceRequest) {
+            @$bodyFlat['RenewInstanceRequest'] = $request->renewInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryRenewInstancePrice',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRenewInstancePrice',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRenewInstancePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询付费类型为包年包月的实例续费价格
+     *
+     * @param request - QueryRenewInstancePriceRequest
+     *
+     * @returns QueryRenewInstancePriceResponse
+     *
      * @param QueryRenewInstancePriceRequest $request
      *
      * @return QueryRenewInstancePriceResponse
@@ -897,6 +1152,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 续费.
+     *
+     * @param request - RenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewInstanceResponse
+     *
      * @param RenewInstanceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -904,32 +1166,40 @@ class Foasconsole extends OpenApiClient
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $body     = [];
+        $request->validate();
+        $body = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->renewInstanceRequest)) {
-            $bodyFlat['RenewInstanceRequest'] = $request->renewInstanceRequest;
+        if (null !== $request->renewInstanceRequest) {
+            @$bodyFlat['RenewInstanceRequest'] = $request->renewInstanceRequest;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewInstance',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 续费.
+     *
+     * @param request - RenewInstanceRequest
+     *
+     * @returns RenewInstanceResponse
+     *
      * @param RenewInstanceRequest $request
      *
      * @return RenewInstanceResponse
@@ -942,6 +1212,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -949,39 +1226,49 @@ class Foasconsole extends OpenApiClient
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -994,6 +1281,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
+     * flinkasi去标签.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1001,42 +1295,53 @@ class Foasconsole extends OpenApiClient
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * flinkasi去标签.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      *
      * @return UntagResourcesResponse

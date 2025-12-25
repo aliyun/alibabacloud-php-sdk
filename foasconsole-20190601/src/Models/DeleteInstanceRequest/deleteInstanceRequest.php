@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deleteInstanceRequest extends Model
 {
     /**
-     * @example 223493C7-FCA9-13D4-B75B-AF8B32F4****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'region'     => 'Region',
+        'region' => 'Region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -43,17 +41,18 @@ class deleteInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deleteInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

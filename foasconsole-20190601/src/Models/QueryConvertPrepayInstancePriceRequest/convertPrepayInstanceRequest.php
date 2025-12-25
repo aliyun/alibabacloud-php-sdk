@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryConvertPrepayInstancePriceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class convertPrepayInstanceRequest extends Model
 {
@@ -19,19 +19,21 @@ class convertPrepayInstanceRequest extends Model
     public $region;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'region'     => 'Region',
+        'region' => 'Region',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -39,17 +41,18 @@ class convertPrepayInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return convertPrepayInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

@@ -4,23 +4,19 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\resourceUsed;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeNamespacesResponseBody\namespaces\tags;
-use AlibabaCloud\Tea\Model;
 
 class namespaces extends Model
 {
     /**
-     * @example 1629879567394
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @example 1629879567394
-     *
      * @var int
      */
     public $gmtModified;
@@ -31,8 +27,6 @@ class namespaces extends Model
     public $ha;
 
     /**
-     * @example ns-1
-     *
      * @var string
      */
     public $namespace;
@@ -48,8 +42,6 @@ class namespaces extends Model
     public $resourceUsed;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
@@ -59,50 +51,68 @@ class namespaces extends Model
      */
     public $tags;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'ha'           => 'Ha',
-        'namespace'    => 'Namespace',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'ha' => 'Ha',
+        'namespace' => 'Namespace',
         'resourceSpec' => 'ResourceSpec',
         'resourceUsed' => 'ResourceUsed',
-        'status'       => 'Status',
-        'tags'         => 'Tags',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (null !== $this->resourceSpec) {
+            $this->resourceSpec->validate();
+        }
+        if (null !== $this->resourceUsed) {
+            $this->resourceUsed->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceSpec) {
-            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
+            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toArray($noStream) : $this->resourceSpec;
         }
+
         if (null !== $this->resourceUsed) {
-            $res['ResourceUsed'] = null !== $this->resourceUsed ? $this->resourceUsed->toMap() : null;
+            $res['ResourceUsed'] = null !== $this->resourceUsed ? $this->resourceUsed->toArray($noStream) : $this->resourceUsed;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,41 +120,49 @@ class namespaces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return namespaces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpec = resourceSpec::fromMap($map['ResourceSpec']);
         }
+
         if (isset($map['ResourceUsed'])) {
             $model->resourceUsed = resourceUsed::fromMap($map['ResourceUsed']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

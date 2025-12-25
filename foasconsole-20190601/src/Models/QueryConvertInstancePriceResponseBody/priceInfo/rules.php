@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryConvertInstancePriceResponseBody\priceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @example 买满1年，立享官网价格8.5折优惠。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 1020071005141834
-     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'description' => 'Description',
-        'ruleId'      => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -43,17 +41,18 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

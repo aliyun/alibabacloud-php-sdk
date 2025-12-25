@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateNamespaceRequest\createNamespaceRequest;
 
 class CreateNamespaceRequest extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateNamespaceRequest\createNamespaceRequest
+     * @var createNamespaceRequest
      */
     public $createNamespaceRequest;
     protected $_name = [
@@ -18,28 +19,32 @@ class CreateNamespaceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->createNamespaceRequest) {
+            $this->createNamespaceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createNamespaceRequest) {
-            $res['CreateNamespaceRequest'] = null !== $this->createNamespaceRequest ? $this->createNamespaceRequest->toMap() : null;
+            $res['CreateNamespaceRequest'] = null !== $this->createNamespaceRequest ? $this->createNamespaceRequest->toArray($noStream) : $this->createNamespaceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateNamespaceRequest'])) {
-            $model->createNamespaceRequest = \AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateNamespaceRequest\createNamespaceRequest::fromMap($map['CreateNamespaceRequest']);
+            $model->createNamespaceRequest = self::fromMap($map['CreateNamespaceRequest']);
         }
 
         return $model;

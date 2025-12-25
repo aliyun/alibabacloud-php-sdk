@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteNamespaceRequest\deleteNamespaceRequest;
 
 class DeleteNamespaceRequest extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteNamespaceRequest\deleteNamespaceRequest
+     * @var deleteNamespaceRequest
      */
     public $deleteNamespaceRequest;
     protected $_name = [
@@ -18,28 +19,32 @@ class DeleteNamespaceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->deleteNamespaceRequest) {
+            $this->deleteNamespaceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteNamespaceRequest) {
-            $res['DeleteNamespaceRequest'] = null !== $this->deleteNamespaceRequest ? $this->deleteNamespaceRequest->toMap() : null;
+            $res['DeleteNamespaceRequest'] = null !== $this->deleteNamespaceRequest ? $this->deleteNamespaceRequest->toArray($noStream) : $this->deleteNamespaceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteNamespaceRequest'])) {
-            $model->deleteNamespaceRequest = \AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteNamespaceRequest\deleteNamespaceRequest::fromMap($map['DeleteNamespaceRequest']);
+            $model->deleteNamespaceRequest = self::fromMap($map['DeleteNamespaceRequest']);
         }
 
         return $model;

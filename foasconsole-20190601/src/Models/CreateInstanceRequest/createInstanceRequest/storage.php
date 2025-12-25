@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest\createInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest\createInstanceRequest\storage\oss;
-use AlibabaCloud\Tea\Model;
 
 class storage extends Model
 {
@@ -19,23 +19,27 @@ class storage extends Model
 
     public function validate()
     {
+        if (null !== $this->oss) {
+            $this->oss->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->oss) {
-            $res['Oss'] = null !== $this->oss ? $this->oss->toMap() : null;
+            $res['Oss'] = null !== $this->oss ? $this->oss->toArray($noStream) : $this->oss;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

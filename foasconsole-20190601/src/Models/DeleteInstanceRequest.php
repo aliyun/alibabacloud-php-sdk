@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteInstanceRequest\deleteInstanceRequest;
 
 class DeleteInstanceRequest extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteInstanceRequest\deleteInstanceRequest
+     * @var deleteInstanceRequest
      */
     public $deleteInstanceRequest;
     protected $_name = [
@@ -18,28 +19,32 @@ class DeleteInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->deleteInstanceRequest) {
+            $this->deleteInstanceRequest->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteInstanceRequest) {
-            $res['DeleteInstanceRequest'] = null !== $this->deleteInstanceRequest ? $this->deleteInstanceRequest->toMap() : null;
+            $res['DeleteInstanceRequest'] = null !== $this->deleteInstanceRequest ? $this->deleteInstanceRequest->toArray($noStream) : $this->deleteInstanceRequest;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteInstanceRequest'])) {
-            $model->deleteInstanceRequest = \AlibabaCloud\SDK\Foasconsole\V20190601\Models\DeleteInstanceRequest\deleteInstanceRequest::fromMap($map['DeleteInstanceRequest']);
+            $model->deleteInstanceRequest = self::fromMap($map['DeleteInstanceRequest']);
         }
 
         return $model;
