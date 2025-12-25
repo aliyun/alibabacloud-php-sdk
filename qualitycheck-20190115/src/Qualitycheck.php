@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigRequest;
@@ -151,6 +153,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitQualityCheckTaskRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitQualityCheckTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4Request;
@@ -1102,6 +1106,67 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTaskAssignRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建用户.
+     *
+     * @param request - CreateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
+     */
+    public function createUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUser',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户.
+     *
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
+     */
+    public function createUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserWithOptions($request, $runtime);
     }
 
     /**
@@ -2601,6 +2666,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取质检结果详情用于复核.
+     *
      * @param request - GetResultToReviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2642,6 +2709,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取质检结果详情用于复核.
+     *
      * @param request - GetResultToReviewRequest
      *
      * @returns GetResultToReviewResponse
@@ -4851,6 +4920,67 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitReviewInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交复核结果v4.
+     *
+     * @param request - SubmitReviewInfoV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitReviewInfoV4Response
+     *
+     * @param SubmitReviewInfoV4Request $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitReviewInfoV4Response
+     */
+    public function submitReviewInfoV4WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitReviewInfoV4',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitReviewInfoV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交复核结果v4.
+     *
+     * @param request - SubmitReviewInfoV4Request
+     *
+     * @returns SubmitReviewInfoV4Response
+     *
+     * @param SubmitReviewInfoV4Request $request
+     *
+     * @return SubmitReviewInfoV4Response
+     */
+    public function submitReviewInfoV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitReviewInfoV4WithOptions($request, $runtime);
     }
 
     /**

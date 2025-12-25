@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\reviewInfo\sentenceReviewResults;
 
 class reviewInfo extends Model
 {
@@ -32,16 +33,25 @@ class reviewInfo extends Model
      * @var int
      */
     public $rid;
+
+    /**
+     * @var sentenceReviewResults
+     */
+    public $sentenceReviewResults;
     protected $_name = [
         'hitId' => 'HitId',
         'reviewResult' => 'ReviewResult',
         'reviewTime' => 'ReviewTime',
         'reviewer' => 'Reviewer',
         'rid' => 'Rid',
+        'sentenceReviewResults' => 'SentenceReviewResults',
     ];
 
     public function validate()
     {
+        if (null !== $this->sentenceReviewResults) {
+            $this->sentenceReviewResults->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +76,10 @@ class reviewInfo extends Model
 
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
+        }
+
+        if (null !== $this->sentenceReviewResults) {
+            $res['SentenceReviewResults'] = null !== $this->sentenceReviewResults ? $this->sentenceReviewResults->toArray($noStream) : $this->sentenceReviewResults;
         }
 
         return $res;
@@ -97,6 +111,10 @@ class reviewInfo extends Model
 
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
+        }
+
+        if (isset($map['SentenceReviewResults'])) {
+            $model->sentenceReviewResults = sentenceReviewResults::fromMap($map['SentenceReviewResults']);
         }
 
         return $model;
