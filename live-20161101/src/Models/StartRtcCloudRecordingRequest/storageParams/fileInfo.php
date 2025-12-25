@@ -24,6 +24,11 @@ class fileInfo extends Model
     public $format;
 
     /**
+     * @var int
+     */
+    public $sliceDuration;
+
+    /**
      * @var string
      */
     public $sliceNamePattern;
@@ -31,6 +36,7 @@ class fileInfo extends Model
         'fileNamePattern' => 'FileNamePattern',
         'filePathPrefix' => 'FilePathPrefix',
         'format' => 'Format',
+        'sliceDuration' => 'SliceDuration',
         'sliceNamePattern' => 'SliceNamePattern',
     ];
 
@@ -62,6 +68,10 @@ class fileInfo extends Model
 
         if (null !== $this->format) {
             $res['Format'] = $this->format;
+        }
+
+        if (null !== $this->sliceDuration) {
+            $res['SliceDuration'] = $this->sliceDuration;
         }
 
         if (null !== $this->sliceNamePattern) {
@@ -96,6 +106,10 @@ class fileInfo extends Model
 
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
+        }
+
+        if (isset($map['SliceDuration'])) {
+            $model->sliceDuration = $map['SliceDuration'];
         }
 
         if (isset($map['SliceNamePattern'])) {
