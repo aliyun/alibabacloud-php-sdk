@@ -69,6 +69,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $elasticInstanceId;
+
+    /**
+     * @var string
+     */
     public $elasticOrderState;
 
     /**
@@ -210,6 +215,7 @@ class instances extends Model
         'clusterUsedResources' => 'ClusterUsedResources',
         'clusterUsedStorage' => 'ClusterUsedStorage',
         'elastic' => 'Elastic',
+        'elasticInstanceId' => 'ElasticInstanceId',
         'elasticOrderState' => 'ElasticOrderState',
         'elasticResourceSpec' => 'ElasticResourceSpec',
         'ha' => 'Ha',
@@ -326,6 +332,10 @@ class instances extends Model
 
         if (null !== $this->elastic) {
             $res['Elastic'] = $this->elastic;
+        }
+
+        if (null !== $this->elasticInstanceId) {
+            $res['ElasticInstanceId'] = $this->elasticInstanceId;
         }
 
         if (null !== $this->elasticOrderState) {
@@ -523,6 +533,10 @@ class instances extends Model
 
         if (isset($map['Elastic'])) {
             $model->elastic = $map['Elastic'];
+        }
+
+        if (isset($map['ElasticInstanceId'])) {
+            $model->elasticInstanceId = $map['ElasticInstanceId'];
         }
 
         if (isset($map['ElasticOrderState'])) {

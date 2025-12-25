@@ -24,6 +24,16 @@ class DescribeInstancesShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $namespaceName;
+
+    /**
      * @var int
      */
     public $pageIndex;
@@ -51,6 +61,8 @@ class DescribeInstancesShrinkRequest extends Model
         'architectureType' => 'ArchitectureType',
         'chargeType' => 'ChargeType',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'namespaceName' => 'NamespaceName',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
         'region' => 'Region',
@@ -76,6 +88,14 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
         }
 
         if (null !== $this->pageIndex) {
@@ -119,6 +139,14 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
         }
 
         if (isset($map['PageIndex'])) {

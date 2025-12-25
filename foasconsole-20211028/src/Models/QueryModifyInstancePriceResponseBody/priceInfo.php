@@ -39,6 +39,11 @@ class priceInfo extends Model
     /**
      * @var string
      */
+    public $lxRequestId;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -76,6 +81,7 @@ class priceInfo extends Model
         'depreciateInfo' => 'DepreciateInfo',
         'discountAmount' => 'DiscountAmount',
         'isContractActivity' => 'IsContractActivity',
+        'lxRequestId' => 'LxRequestId',
         'message' => 'Message',
         'optionalPromotions' => 'OptionalPromotions',
         'originalAmount' => 'OriginalAmount',
@@ -120,6 +126,10 @@ class priceInfo extends Model
 
         if (null !== $this->isContractActivity) {
             $res['IsContractActivity'] = $this->isContractActivity;
+        }
+
+        if (null !== $this->lxRequestId) {
+            $res['LxRequestId'] = $this->lxRequestId;
         }
 
         if (null !== $this->message) {
@@ -193,6 +203,10 @@ class priceInfo extends Model
 
         if (isset($map['IsContractActivity'])) {
             $model->isContractActivity = $map['IsContractActivity'];
+        }
+
+        if (isset($map['LxRequestId'])) {
+            $model->lxRequestId = $map['LxRequestId'];
         }
 
         if (isset($map['Message'])) {
