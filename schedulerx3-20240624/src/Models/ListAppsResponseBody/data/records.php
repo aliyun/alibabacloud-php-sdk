@@ -82,6 +82,11 @@ class records extends Model
      * @var string
      */
     public $workerRegistry;
+
+    /**
+     * @var int
+     */
+    public $workflowNum;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'appName' => 'AppName',
@@ -98,6 +103,7 @@ class records extends Model
         'title' => 'Title',
         'updater' => 'Updater',
         'workerRegistry' => 'WorkerRegistry',
+        'workflowNum' => 'WorkflowNum',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class records extends Model
 
         if (null !== $this->workerRegistry) {
             $res['WorkerRegistry'] = $this->workerRegistry;
+        }
+
+        if (null !== $this->workflowNum) {
+            $res['WorkflowNum'] = $this->workflowNum;
         }
 
         return $res;
@@ -237,6 +247,10 @@ class records extends Model
 
         if (isset($map['WorkerRegistry'])) {
             $model->workerRegistry = $map['WorkerRegistry'];
+        }
+
+        if (isset($map['WorkflowNum'])) {
+            $model->workflowNum = $map['WorkflowNum'];
         }
 
         return $model;
