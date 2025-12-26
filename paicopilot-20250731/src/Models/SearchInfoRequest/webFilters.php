@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class webFilters extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var string[]
      */
     public $includeSites;
@@ -28,6 +33,7 @@ class webFilters extends Model
      */
     public $scoreThreshold;
     protected $_name = [
+        'category' => 'Category',
         'includeSites' => 'IncludeSites',
         'query' => 'Query',
         'resultLimit' => 'ResultLimit',
@@ -45,6 +51,10 @@ class webFilters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+
         if (null !== $this->includeSites) {
             if (\is_array($this->includeSites)) {
                 $res['IncludeSites'] = [];
@@ -79,6 +89,10 @@ class webFilters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+
         if (isset($map['IncludeSites'])) {
             if (!empty($map['IncludeSites'])) {
                 $model->includeSites = [];
