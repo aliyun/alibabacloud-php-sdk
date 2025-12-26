@@ -135,6 +135,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsShrinkRequest;
@@ -1250,6 +1251,10 @@ class Cms extends OpenApiClient
             @$body['pid'] = $request->pid;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->serviceName) {
             @$body['serviceName'] = $request->serviceName;
         }
@@ -1260,6 +1265,10 @@ class Cms extends OpenApiClient
 
         if (null !== $request->serviceType) {
             @$body['serviceType'] = $request->serviceType;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
@@ -5379,22 +5388,28 @@ class Cms extends OpenApiClient
     /**
      * List Resource Services.
      *
-     * @param request - ListServicesRequest
+     * @param tmpReq - ListServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListServicesResponse
      *
      * @param string              $workspace
-     * @param ListServicesRequest $request
+     * @param ListServicesRequest $tmpReq
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
      *
      * @return ListServicesResponse
      */
-    public function listServicesWithOptions($workspace, $request, $headers, $runtime)
+    public function listServicesWithOptions($workspace, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListServicesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
@@ -5404,8 +5419,20 @@ class Cms extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['serviceName'] = $request->serviceName;
+        }
+
         if (null !== $request->serviceType) {
             @$query['serviceType'] = $request->serviceType;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
 
         $req = new OpenApiRequest([

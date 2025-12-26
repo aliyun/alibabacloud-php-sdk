@@ -36,6 +36,11 @@ class services extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
 
     /**
@@ -63,6 +68,7 @@ class services extends Model
         'description' => 'description',
         'displayName' => 'displayName',
         'pid' => 'pid',
+        'resourceGroupId' => 'resourceGroupId',
         'serviceId' => 'serviceId',
         'serviceName' => 'serviceName',
         'serviceStatus' => 'serviceStatus',
@@ -96,6 +102,10 @@ class services extends Model
 
         if (null !== $this->pid) {
             $res['pid'] = $this->pid;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->serviceId) {
@@ -147,6 +157,10 @@ class services extends Model
 
         if (isset($map['pid'])) {
             $model->pid = $map['pid'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['serviceId'])) {
