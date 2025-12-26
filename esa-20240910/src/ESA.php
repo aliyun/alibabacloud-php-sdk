@@ -378,6 +378,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Request;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Response;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvDetailRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvDetailResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvRequest;
@@ -12949,6 +12951,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getKvAccountWithOptions($runtime);
+    }
+
+    /**
+     * 查询Key-Value对的某个Key的详情.
+     *
+     * @param Request - GetKvDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKvDetailResponse
+     *
+     * @param GetKvDetailRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetKvDetailResponse
+     */
+    public function getKvDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKvDetail',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKvDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Key-Value对的某个Key的详情.
+     *
+     * @param Request - GetKvDetailRequest
+     *
+     * @returns GetKvDetailResponse
+     *
+     * @param GetKvDetailRequest $request
+     *
+     * @return GetKvDetailResponse
+     */
+    public function getKvDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKvDetailWithOptions($request, $runtime);
     }
 
     /**
