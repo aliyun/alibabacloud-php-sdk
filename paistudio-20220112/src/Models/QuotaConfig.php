@@ -36,6 +36,11 @@ class QuotaConfig extends Model
     /**
      * @var bool
      */
+    public $enableSelfQuotaPreemption;
+
+    /**
+     * @var bool
+     */
     public $enableSubQuotaPreemption;
 
     /**
@@ -93,6 +98,7 @@ class QuotaConfig extends Model
         'defaultGPUDriver' => 'DefaultGPUDriver',
         'enableGPUShare' => 'EnableGPUShare',
         'enablePreemptSubquotaWorkloads' => 'EnablePreemptSubquotaWorkloads',
+        'enableSelfQuotaPreemption' => 'EnableSelfQuotaPreemption',
         'enableSubQuotaPreemption' => 'EnableSubQuotaPreemption',
         'eniCacheConfig' => 'EniCacheConfig',
         'oversoldUsageInfo' => 'OversoldUsageInfo',
@@ -159,6 +165,10 @@ class QuotaConfig extends Model
 
         if (null !== $this->enablePreemptSubquotaWorkloads) {
             $res['EnablePreemptSubquotaWorkloads'] = $this->enablePreemptSubquotaWorkloads;
+        }
+
+        if (null !== $this->enableSelfQuotaPreemption) {
+            $res['EnableSelfQuotaPreemption'] = $this->enableSelfQuotaPreemption;
         }
 
         if (null !== $this->enableSubQuotaPreemption) {
@@ -248,6 +258,10 @@ class QuotaConfig extends Model
 
         if (isset($map['EnablePreemptSubquotaWorkloads'])) {
             $model->enablePreemptSubquotaWorkloads = $map['EnablePreemptSubquotaWorkloads'];
+        }
+
+        if (isset($map['EnableSelfQuotaPreemption'])) {
+            $model->enableSelfQuotaPreemption = $map['EnableSelfQuotaPreemption'];
         }
 
         if (isset($map['EnableSubQuotaPreemption'])) {
