@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTTSVoiceByIdCustomRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTTSVoiceByIdCustomResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastTemplatesRequest;
@@ -855,6 +857,67 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->getBroadcastTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据ID获取TTS音色.
+     *
+     * @param request - GetTTSVoiceByIdCustomRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTTSVoiceByIdCustomResponse
+     *
+     * @param GetTTSVoiceByIdCustomRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetTTSVoiceByIdCustomResponse
+     */
+    public function getTTSVoiceByIdCustomWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->voiceId) {
+            @$query['voiceId'] = $request->voiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTTSVoiceByIdCustom',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/voice/getTTSVoiceById',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTTSVoiceByIdCustomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据ID获取TTS音色.
+     *
+     * @param request - GetTTSVoiceByIdCustomRequest
+     *
+     * @returns GetTTSVoiceByIdCustomResponse
+     *
+     * @param GetTTSVoiceByIdCustomRequest $request
+     *
+     * @return GetTTSVoiceByIdCustomResponse
+     */
+    public function getTTSVoiceByIdCustom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTTSVoiceByIdCustomWithOptions($request, $headers, $runtime);
     }
 
     /**
