@@ -14,6 +14,9 @@ use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddFaceRecordAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddFaceRecordRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddFaceRecordResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressCompareIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressCompareIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\AddressVerifyIntlRequest;
@@ -226,6 +229,179 @@ class Cloudauthintl extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 人脸图片入库.
+     *
+     * @param Request - AddFaceRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddFaceRecordResponse
+     *
+     * @param AddFaceRecordRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddFaceRecordResponse
+     */
+    public function addFaceRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->faceGroupCode) {
+            @$body['FaceGroupCode'] = $request->faceGroupCode;
+        }
+
+        if (null !== $request->facePicture) {
+            @$body['FacePicture'] = $request->facePicture;
+        }
+
+        if (null !== $request->facePictureFile) {
+            @$body['FacePictureFile'] = $request->facePictureFile;
+        }
+
+        if (null !== $request->facePictureUrl) {
+            @$body['FacePictureUrl'] = $request->facePictureUrl;
+        }
+
+        if (null !== $request->faceQualityCheck) {
+            @$body['FaceQualityCheck'] = $request->faceQualityCheck;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$body['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddFaceRecord',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddFaceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 人脸图片入库.
+     *
+     * @param Request - AddFaceRecordRequest
+     *
+     * @returns AddFaceRecordResponse
+     *
+     * @param AddFaceRecordRequest $request
+     *
+     * @return AddFaceRecordResponse
+     */
+    public function addFaceRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFaceRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddFaceRecordAdvanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddFaceRecordResponse
+     */
+    public function addFaceRecordAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $addFaceRecordReq = new AddFaceRecordRequest([]);
+        Utils::convert($request, $addFaceRecordReq);
+        if (null !== $request->facePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->facePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $addFaceRecordReq->facePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->addFaceRecordWithOptions($addFaceRecordReq, $runtime);
     }
 
     /**
