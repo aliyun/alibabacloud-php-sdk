@@ -60,6 +60,11 @@ class CreateWuyingServerRequest extends Model
     public $imageId;
 
     /**
+     * @var float
+     */
+    public $maxPrice;
+
+    /**
      * @var string
      */
     public $networkStrategyType;
@@ -107,6 +112,11 @@ class CreateWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $subPayType;
+
+    /**
+     * @var string
+     */
     public $systemDiskCategory;
 
     /**
@@ -144,6 +154,7 @@ class CreateWuyingServerRequest extends Model
         'hostName' => 'HostName',
         'idempotenceToken' => 'IdempotenceToken',
         'imageId' => 'ImageId',
+        'maxPrice' => 'MaxPrice',
         'networkStrategyType' => 'NetworkStrategyType',
         'officeSiteId' => 'OfficeSiteId',
         'password' => 'Password',
@@ -153,6 +164,7 @@ class CreateWuyingServerRequest extends Model
         'savingPlanId' => 'SavingPlanId',
         'serverInstanceType' => 'ServerInstanceType',
         'serverPortRange' => 'ServerPortRange',
+        'subPayType' => 'SubPayType',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
@@ -222,6 +234,10 @@ class CreateWuyingServerRequest extends Model
             $res['ImageId'] = $this->imageId;
         }
 
+        if (null !== $this->maxPrice) {
+            $res['MaxPrice'] = $this->maxPrice;
+        }
+
         if (null !== $this->networkStrategyType) {
             $res['NetworkStrategyType'] = $this->networkStrategyType;
         }
@@ -256,6 +272,10 @@ class CreateWuyingServerRequest extends Model
 
         if (null !== $this->serverPortRange) {
             $res['ServerPortRange'] = $this->serverPortRange;
+        }
+
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
         }
 
         if (null !== $this->systemDiskCategory) {
@@ -347,6 +367,10 @@ class CreateWuyingServerRequest extends Model
             $model->imageId = $map['ImageId'];
         }
 
+        if (isset($map['MaxPrice'])) {
+            $model->maxPrice = $map['MaxPrice'];
+        }
+
         if (isset($map['NetworkStrategyType'])) {
             $model->networkStrategyType = $map['NetworkStrategyType'];
         }
@@ -381,6 +405,10 @@ class CreateWuyingServerRequest extends Model
 
         if (isset($map['ServerPortRange'])) {
             $model->serverPortRange = $map['ServerPortRange'];
+        }
+
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         if (isset($map['SystemDiskCategory'])) {

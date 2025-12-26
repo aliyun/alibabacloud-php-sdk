@@ -751,6 +751,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['ImageId'] = $request->imageId;
         }
 
+        if (null !== $request->maxPrice) {
+            @$body['MaxPrice'] = $request->maxPrice;
+        }
+
         if (null !== $request->networkStrategyType) {
             @$body['NetworkStrategyType'] = $request->networkStrategyType;
         }
@@ -785,6 +789,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->serverPortRange) {
             @$body['ServerPortRange'] = $request->serverPortRange;
+        }
+
+        if (null !== $request->subPayType) {
+            @$body['SubPayType'] = $request->subPayType;
         }
 
         if (null !== $request->systemDiskCategory) {

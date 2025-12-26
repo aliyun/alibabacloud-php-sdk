@@ -57,6 +57,11 @@ class wuyingServerList extends Model
     public $instanceInfoList;
 
     /**
+     * @var float
+     */
+    public $maxPrice;
+
+    /**
      * @var string
      */
     public $networkInterfaceIp;
@@ -99,6 +104,11 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $subPayType;
+
+    /**
+     * @var string
+     */
     public $systemDiskCategory;
 
     /**
@@ -135,6 +145,7 @@ class wuyingServerList extends Model
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'instanceInfoList' => 'InstanceInfoList',
+        'maxPrice' => 'MaxPrice',
         'networkInterfaceIp' => 'NetworkInterfaceIp',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -143,6 +154,7 @@ class wuyingServerList extends Model
         'securityGroupIds' => 'SecurityGroupIds',
         'serverInstanceTypeInfo' => 'ServerInstanceTypeInfo',
         'status' => 'Status',
+        'subPayType' => 'SubPayType',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
@@ -221,6 +233,10 @@ class wuyingServerList extends Model
             }
         }
 
+        if (null !== $this->maxPrice) {
+            $res['MaxPrice'] = $this->maxPrice;
+        }
+
         if (null !== $this->networkInterfaceIp) {
             $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
         }
@@ -258,6 +274,10 @@ class wuyingServerList extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
         }
 
         if (null !== $this->systemDiskCategory) {
@@ -345,6 +365,10 @@ class wuyingServerList extends Model
             }
         }
 
+        if (isset($map['MaxPrice'])) {
+            $model->maxPrice = $map['MaxPrice'];
+        }
+
         if (isset($map['NetworkInterfaceIp'])) {
             $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
         }
@@ -382,6 +406,10 @@ class wuyingServerList extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         if (isset($map['SystemDiskCategory'])) {
