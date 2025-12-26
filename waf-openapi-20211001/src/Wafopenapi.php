@@ -5,8 +5,12 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\AddAddressRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\AddAddressResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearAddressRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearAddressResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateRequest;
@@ -48,6 +52,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteAddressRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteAddressResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventsRequest;
@@ -80,6 +86,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesR
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAddressesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAddressesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmListRequest;
@@ -100,6 +108,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatis
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecExamplesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecExamplesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecMatchedHostsRequest;
@@ -269,6 +279,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRelatedDefenseRulesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRelatedDefenseRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogDeliveryStatusRequest;
@@ -532,6 +544,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 地址簿添加地址
+     *
+     * @param request - AddAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAddressResponse
+     *
+     * @param AddAddressRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddAddressResponse
+     */
+    public function addAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressList) {
+            @$query['AddressList'] = $request->addressList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAddress',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 地址簿添加地址
+     *
+     * @param request - AddAddressRequest
+     *
+     * @returns AddAddressResponse
+     *
+     * @param AddAddressRequest $request
+     *
+     * @return AddAddressResponse
+     */
+    public function addAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the resource group to which a protected object belongs.
      *
      * @param request - ChangeResourceGroupRequest
@@ -602,6 +683,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 地址簿清空所有地址
+     *
+     * @param request - ClearAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearAddressResponse
+     *
+     * @param ClearAddressRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ClearAddressResponse
+     */
+    public function clearAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClearAddress',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClearAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 地址簿清空所有地址
+     *
+     * @param request - ClearAddressRequest
+     *
+     * @returns ClearAddressResponse
+     *
+     * @param ClearAddressRequest $request
+     *
+     * @return ClearAddressResponse
+     */
+    public function clearAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -2218,6 +2364,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 地址簿添加地址
+     *
+     * @param request - DeleteAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAddressResponse
+     *
+     * @param DeleteAddressRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAddressResponse
+     */
+    public function deleteAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressList) {
+            @$query['AddressList'] = $request->addressList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAddress',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 地址簿添加地址
+     *
+     * @param request - DeleteAddressRequest
+     *
+     * @returns DeleteAddressResponse
+     *
+     * @param DeleteAddressRequest $request
+     *
+     * @return DeleteAddressResponse
+     */
+    public function deleteAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes multiple risks detected by the API security module at a time.
      *
      * @param request - DeleteApisecAbnormalsRequest
@@ -3374,6 +3589,87 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 分页查询地址簿IP.
+     *
+     * @param request - DescribeAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAddressesResponse
+     *
+     * @param DescribeAddressesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAddressesResponse
+     */
+    public function describeAddressesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressLike) {
+            @$query['AddressLike'] = $request->addressLike;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAddresses',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询地址簿IP.
+     *
+     * @param request - DescribeAddressesRequest
+     *
+     * @returns DescribeAddressesResponse
+     *
+     * @param DescribeAddressesRequest $request
+     *
+     * @return DescribeAddressesResponse
+     */
+    public function describeAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddressesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询实例信息.
      *
      * @param request - DescribeAlarmBannerRequest
@@ -4329,6 +4625,103 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApisecEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询API安全样例信息.
+     *
+     * @param request - DescribeApisecExamplesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApisecExamplesResponse
+     *
+     * @param DescribeApisecExamplesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeApisecExamplesResponse
+     */
+    public function describeApisecExamplesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->abnormalTag) {
+            @$query['AbnormalTag'] = $request->abnormalTag;
+        }
+
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->exampleType) {
+            @$query['ExampleType'] = $request->exampleType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->requestSensitiveTypeList) {
+            @$query['RequestSensitiveTypeList'] = $request->requestSensitiveTypeList;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->responseSensitiveTypeList) {
+            @$query['ResponseSensitiveTypeList'] = $request->responseSensitiveTypeList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApisecExamples',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApisecExamplesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询API安全样例信息.
+     *
+     * @param request - DescribeApisecExamplesRequest
+     *
+     * @returns DescribeApisecExamplesResponse
+     *
+     * @param DescribeApisecExamplesRequest $request
+     *
+     * @return DescribeApisecExamplesResponse
+     */
+    public function describeApisecExamples($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecExamplesWithOptions($request, $runtime);
     }
 
     /**
@@ -10710,6 +11103,91 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePunishedDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询关联规则.
+     *
+     * @param request - DescribeRelatedDefenseRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRelatedDefenseRulesResponse
+     *
+     * @param DescribeRelatedDefenseRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRelatedDefenseRulesResponse
+     */
+    public function describeRelatedDefenseRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
+        }
+
+        if (null !== $request->defenseType) {
+            @$query['DefenseType'] = $request->defenseType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRelatedDefenseRules',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRelatedDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询关联规则.
+     *
+     * @param request - DescribeRelatedDefenseRulesRequest
+     *
+     * @returns DescribeRelatedDefenseRulesResponse
+     *
+     * @param DescribeRelatedDefenseRulesRequest $request
+     *
+     * @return DescribeRelatedDefenseRulesResponse
+     */
+    public function describeRelatedDefenseRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRelatedDefenseRulesWithOptions($request, $runtime);
     }
 
     /**
