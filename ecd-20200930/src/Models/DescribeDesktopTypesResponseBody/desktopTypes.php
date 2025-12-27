@@ -21,6 +21,11 @@ class desktopTypes extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $desktopTypeId;
 
     /**
@@ -75,6 +80,7 @@ class desktopTypes extends Model
     protected $_name = [
         'cpuCount' => 'CpuCount',
         'dataDiskSize' => 'DataDiskSize',
+        'description' => 'Description',
         'desktopTypeId' => 'DesktopTypeId',
         'desktopTypeStatus' => 'DesktopTypeStatus',
         'gpuCount' => 'GpuCount',
@@ -105,6 +111,10 @@ class desktopTypes extends Model
 
         if (null !== $this->dataDiskSize) {
             $res['DataDiskSize'] = $this->dataDiskSize;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->desktopTypeId) {
@@ -175,6 +185,10 @@ class desktopTypes extends Model
 
         if (isset($map['DataDiskSize'])) {
             $model->dataDiskSize = $map['DataDiskSize'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DesktopTypeId'])) {

@@ -41,6 +41,11 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $desktopType;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -61,7 +66,17 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $memberEniIp;
+
+    /**
+     * @var string
+     */
     public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $platform;
 
     /**
      * @var string
@@ -89,11 +104,14 @@ class desktops extends Model
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
+        'desktopType' => 'DesktopType',
         'expiredTime' => 'ExpiredTime',
         'imageId' => 'ImageId',
         'localName' => 'LocalName',
         'managementFlags' => 'ManagementFlags',
+        'memberEniIp' => 'MemberEniIp',
         'officeSiteId' => 'OfficeSiteId',
+        'platform' => 'Platform',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupName' => 'ResourceGroupName',
@@ -135,6 +153,10 @@ class desktops extends Model
             $res['DesktopStatus'] = $this->desktopStatus;
         }
 
+        if (null !== $this->desktopType) {
+            $res['DesktopType'] = $this->desktopType;
+        }
+
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -158,8 +180,16 @@ class desktops extends Model
             }
         }
 
+        if (null !== $this->memberEniIp) {
+            $res['MemberEniIp'] = $this->memberEniIp;
+        }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         if (null !== $this->regionId) {
@@ -213,6 +243,10 @@ class desktops extends Model
             $model->desktopStatus = $map['DesktopStatus'];
         }
 
+        if (isset($map['DesktopType'])) {
+            $model->desktopType = $map['DesktopType'];
+        }
+
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -236,8 +270,16 @@ class desktops extends Model
             }
         }
 
+        if (isset($map['MemberEniIp'])) {
+            $model->memberEniIp = $map['MemberEniIp'];
+        }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         if (isset($map['RegionId'])) {
