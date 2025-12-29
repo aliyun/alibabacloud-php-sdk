@@ -19,12 +19,24 @@ class UpdateApplicationVswitchesRequest extends Model
     public $deploy;
 
     /**
+     * @var int
+     */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstances;
+
+    /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
         'appId' => 'AppId',
         'deploy' => 'Deploy',
+        'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
+        'minReadyInstances' => 'MinReadyInstances',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -42,6 +54,14 @@ class UpdateApplicationVswitchesRequest extends Model
 
         if (null !== $this->deploy) {
             $res['Deploy'] = $this->deploy;
+        }
+
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
+        }
+
+        if (null !== $this->minReadyInstances) {
+            $res['MinReadyInstances'] = $this->minReadyInstances;
         }
 
         if (null !== $this->vSwitchId) {
@@ -65,6 +85,14 @@ class UpdateApplicationVswitchesRequest extends Model
 
         if (isset($map['Deploy'])) {
             $model->deploy = $map['Deploy'];
+        }
+
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
+        }
+
+        if (isset($map['MinReadyInstances'])) {
+            $model->minReadyInstances = $map['MinReadyInstances'];
         }
 
         if (isset($map['VSwitchId'])) {

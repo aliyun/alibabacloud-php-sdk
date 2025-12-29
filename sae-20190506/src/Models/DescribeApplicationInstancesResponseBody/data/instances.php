@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances\sidecarContainersStatus;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances\tags;
 
 class instances extends Model
 {
@@ -80,6 +81,11 @@ class instances extends Model
     public $sidecarContainersStatus;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $timestamp;
@@ -113,6 +119,7 @@ class instances extends Model
         'mainContainerStatus' => 'MainContainerStatus',
         'packageVersion' => 'PackageVersion',
         'sidecarContainersStatus' => 'SidecarContainersStatus',
+        'tags' => 'Tags',
         'timestamp' => 'Timestamp',
         'trafficStatus' => 'TrafficStatus',
         'unhealthyMessage' => 'UnhealthyMessage',
@@ -123,6 +130,9 @@ class instances extends Model
     {
         if (\is_array($this->sidecarContainersStatus)) {
             Model::validateArray($this->sidecarContainersStatus);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -188,6 +198,17 @@ class instances extends Model
                 $n1 = 0;
                 foreach ($this->sidecarContainersStatus as $item1) {
                     $res['SidecarContainersStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -278,6 +299,17 @@ class instances extends Model
                 $n1 = 0;
                 foreach ($map['SidecarContainersStatus'] as $item1) {
                     $model->sidecarContainersStatus[$n1] = sidecarContainersStatus::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
                     ++$n1;
                 }
             }

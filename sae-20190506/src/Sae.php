@@ -10859,6 +10859,14 @@ class Sae extends OpenApiClient
             @$query['Deploy'] = $request->deploy;
         }
 
+        if (null !== $request->minReadyInstanceRatio) {
+            @$query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
+        }
+
+        if (null !== $request->minReadyInstances) {
+            @$query['MinReadyInstances'] = $request->minReadyInstances;
+        }
+
         if (null !== $request->vSwitchId) {
             @$query['VSwitchId'] = $request->vSwitchId;
         }
