@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomControlDevicesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomControlDevicesRequest\locationDevices\devices;
-use AlibabaCloud\Tea\Model;
 
 class locationDevices extends Model
 {
@@ -15,8 +15,6 @@ class locationDevices extends Model
     public $devices;
 
     /**
-     * @example room
-     *
      * @var string
      */
     public $location;
@@ -26,30 +24,37 @@ class locationDevices extends Model
      */
     public $locationName;
     protected $_name = [
-        'devices'      => 'Devices',
-        'location'     => 'Location',
+        'devices' => 'Devices',
+        'location' => 'Location',
         'locationName' => 'LocationName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->devices)) {
+            Model::validateArray($this->devices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->devices) {
-            $res['Devices'] = [];
-            if (null !== $this->devices && \is_array($this->devices)) {
-                $n = 0;
-                foreach ($this->devices as $item) {
-                    $res['Devices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->devices)) {
+                $res['Devices'] = [];
+                $n1 = 0;
+                foreach ($this->devices as $item1) {
+                    $res['Devices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->locationName) {
             $res['LocationName'] = $this->locationName;
         }
@@ -57,26 +62,29 @@ class locationDevices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return locationDevices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n              = 0;
-                foreach ($map['Devices'] as $item) {
-                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Devices'] as $item1) {
+                    $model->devices[$n1] = devices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['LocationName'])) {
             $model->locationName = $map['LocationName'];
         }

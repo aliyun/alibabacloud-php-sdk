@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelOrderRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelOrderRequest\payload\page;
-use AlibabaCloud\Tea\Model;
 
 class payload extends Model
 {
@@ -19,23 +19,27 @@ class payload extends Model
 
     public function validate()
     {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

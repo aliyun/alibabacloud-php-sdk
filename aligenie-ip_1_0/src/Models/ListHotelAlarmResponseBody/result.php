@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelAlarmResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelAlarmResponseBody\result\scheduleInfo;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 5039
-     *
      * @var int
      */
     public $alarmId;
 
     /**
-     * @example PvkB****VVTA==
-     *
      * @var string
      */
     public $deviceOpenId;
@@ -29,34 +25,39 @@ class result extends Model
     public $scheduleInfo;
 
     /**
-     * @example mgw/k***HQd
-     *
      * @var string
      */
     public $userOpenId;
     protected $_name = [
-        'alarmId'      => 'AlarmId',
+        'alarmId' => 'AlarmId',
         'deviceOpenId' => 'DeviceOpenId',
         'scheduleInfo' => 'ScheduleInfo',
-        'userOpenId'   => 'UserOpenId',
+        'userOpenId' => 'UserOpenId',
     ];
 
     public function validate()
     {
+        if (null !== $this->scheduleInfo) {
+            $this->scheduleInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmId) {
             $res['AlarmId'] = $this->alarmId;
         }
+
         if (null !== $this->deviceOpenId) {
             $res['DeviceOpenId'] = $this->deviceOpenId;
         }
+
         if (null !== $this->scheduleInfo) {
-            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toMap() : null;
+            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toArray($noStream) : $this->scheduleInfo;
         }
+
         if (null !== $this->userOpenId) {
             $res['UserOpenId'] = $this->userOpenId;
         }
@@ -64,23 +65,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmId'])) {
             $model->alarmId = $map['AlarmId'];
         }
+
         if (isset($map['DeviceOpenId'])) {
             $model->deviceOpenId = $map['DeviceOpenId'];
         }
+
         if (isset($map['ScheduleInfo'])) {
             $model->scheduleInfo = scheduleInfo::fromMap($map['ScheduleInfo']);
         }
+
         if (isset($map['UserOpenId'])) {
             $model->userOpenId = $map['UserOpenId'];
         }

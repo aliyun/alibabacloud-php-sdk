@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListHotelAlarmRequest extends Model
 {
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
@@ -21,40 +19,58 @@ class ListHotelAlarmRequest extends Model
     public $rooms;
     protected $_name = [
         'hotelId' => 'HotelId',
-        'rooms'   => 'Rooms',
+        'rooms' => 'Rooms',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rooms)) {
+            Model::validateArray($this->rooms);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->rooms) {
-            $res['Rooms'] = $this->rooms;
+            if (\is_array($this->rooms)) {
+                $res['Rooms'] = [];
+                $n1 = 0;
+                foreach ($this->rooms as $item1) {
+                    $res['Rooms'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelAlarmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Rooms'])) {
             if (!empty($map['Rooms'])) {
-                $model->rooms = $map['Rooms'];
+                $model->rooms = [];
+                $n1 = 0;
+                foreach ($map['Rooms'] as $item1) {
+                    $model->rooms[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

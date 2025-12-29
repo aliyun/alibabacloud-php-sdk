@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetHotelNoticeV2Request\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetHotelNoticeV2Request extends Model
 {
@@ -19,23 +19,27 @@ class GetHotelNoticeV2Request extends Model
 
     public function validate()
     {
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotelNoticeV2Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

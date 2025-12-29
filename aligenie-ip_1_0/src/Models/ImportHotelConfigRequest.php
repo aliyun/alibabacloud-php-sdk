@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportHotelConfigRequest\importHotelConfig;
-use AlibabaCloud\Tea\Model;
 
 class ImportHotelConfigRequest extends Model
 {
     /**
-     * @example a7***83
-     *
      * @var string
      */
     public $hotelId;
@@ -21,38 +19,44 @@ class ImportHotelConfigRequest extends Model
      */
     public $importHotelConfig;
     protected $_name = [
-        'hotelId'           => 'HotelId',
+        'hotelId' => 'HotelId',
         'importHotelConfig' => 'ImportHotelConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->importHotelConfig) {
+            $this->importHotelConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->importHotelConfig) {
-            $res['ImportHotelConfig'] = null !== $this->importHotelConfig ? $this->importHotelConfig->toMap() : null;
+            $res['ImportHotelConfig'] = null !== $this->importHotelConfig ? $this->importHotelConfig->toArray($noStream) : $this->importHotelConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportHotelConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['ImportHotelConfig'])) {
             $model->importHotelConfig = importHotelConfig::fromMap($map['ImportHotelConfig']);
         }

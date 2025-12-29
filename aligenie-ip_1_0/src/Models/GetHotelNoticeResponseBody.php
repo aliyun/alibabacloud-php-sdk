@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHotelNoticeResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description RequestId
-     *
-     * @example 73C67BD9-175A-1324-8202-9FAABBB3E6FA
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example test notice...
-     *
      * @var string
      */
     public $result;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -67,23 +61,26 @@ class GetHotelNoticeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotelNoticeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

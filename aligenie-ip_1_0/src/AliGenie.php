@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCartoonHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCartoonRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddCartoonResponse;
@@ -96,6 +95,9 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\DeviceControlHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\DeviceControlRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\DeviceControlResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\DeviceControlShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ExecuteSceneHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ExecuteSceneRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ExecuteSceneResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetBasicInfoQAHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetBasicInfoQARequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetBasicInfoQAResponse;
@@ -280,9 +282,15 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryDeviceStatusShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryHotelRoomDetailHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryHotelRoomDetailRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryHotelRoomDetailResponse;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesAndStatusHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesAndStatusRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesAndStatusResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesResponse;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomStatusHeaders;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomStatusRequest;
+use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomStatusResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListResponse;
@@ -343,11 +351,10 @@ use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateServiceQAResponse;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateTicketHeaders;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateTicketRequest;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateTicketResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class AliGenie extends OpenApiClient
 {
@@ -372,17 +379,26 @@ class AliGenie extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 添加动画.
+     *
+     * @param request - AddCartoonRequest
+     * @param headers - AddCartoonHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCartoonResponse
+     *
      * @param AddCartoonRequest $request
      * @param AddCartoonHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -391,47 +407,59 @@ class AliGenie extends OpenApiClient
      */
     public function addCartoonWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->startVideoMd5)) {
-            $body['StartVideoMd5'] = $request->startVideoMd5;
+
+        if (null !== $request->startVideoMd5) {
+            @$body['StartVideoMd5'] = $request->startVideoMd5;
         }
-        if (!Utils::isUnset($request->startVideoUrl)) {
-            $body['StartVideoUrl'] = $request->startVideoUrl;
+
+        if (null !== $request->startVideoUrl) {
+            @$body['StartVideoUrl'] = $request->startVideoUrl;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCartoon',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addCartoon',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddCartoon',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addCartoon',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddCartoonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加动画.
+     *
+     * @param request - AddCartoonRequest
+     *
+     * @returns AddCartoonResponse
+     *
      * @param AddCartoonRequest $request
      *
      * @return AddCartoonResponse
@@ -445,6 +473,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 新增自定义问答.
+     *
+     * @param tmpReq - AddCustomQARequest
+     * @param headers - AddCustomQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCustomQAResponse
+     *
      * @param AddCustomQARequest $tmpReq
      * @param AddCustomQAHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -453,64 +489,81 @@ class AliGenie extends OpenApiClient
      */
     public function addCustomQAWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddCustomQAShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->answers)) {
-            $request->answersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->answers) {
+            $request->answersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keyWords)) {
-            $request->keyWordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
+
+        if (null !== $tmpReq->keyWords) {
+            $request->keyWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
         }
-        if (!Utils::isUnset($tmpReq->supplementaryQuestions)) {
-            $request->supplementaryQuestionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
+
+        if (null !== $tmpReq->supplementaryQuestions) {
+            $request->supplementaryQuestionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->answersShrink)) {
-            $body['Answers'] = $request->answersShrink;
+        if (null !== $request->answersShrink) {
+            @$body['Answers'] = $request->answersShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->keyWordsShrink)) {
-            $body['KeyWords'] = $request->keyWordsShrink;
+
+        if (null !== $request->keyWordsShrink) {
+            @$body['KeyWords'] = $request->keyWordsShrink;
         }
-        if (!Utils::isUnset($request->majorQuestion)) {
-            $body['MajorQuestion'] = $request->majorQuestion;
+
+        if (null !== $request->majorQuestion) {
+            @$body['MajorQuestion'] = $request->majorQuestion;
         }
-        if (!Utils::isUnset($request->supplementaryQuestionsShrink)) {
-            $body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
+
+        if (null !== $request->supplementaryQuestionsShrink) {
+            @$body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addCustomQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddCustomQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addCustomQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddCustomQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新增自定义问答.
+     *
+     * @param request - AddCustomQARequest
+     *
+     * @returns AddCustomQAResponse
+     *
      * @param AddCustomQARequest $request
      *
      * @return AddCustomQAResponse
@@ -524,6 +577,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 添加问答V2.
+     *
+     * @param tmpReq - AddCustomQAV2Request
+     * @param headers - AddCustomQAV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCustomQAV2Response
+     *
      * @param AddCustomQAV2Request $tmpReq
      * @param AddCustomQAV2Headers $headers
      * @param RuntimeOptions       $runtime
@@ -532,64 +593,81 @@ class AliGenie extends OpenApiClient
      */
     public function addCustomQAV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddCustomQAV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->answers)) {
-            $request->answersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->answers) {
+            $request->answersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keyWords)) {
-            $request->keyWordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
+
+        if (null !== $tmpReq->keyWords) {
+            $request->keyWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
         }
-        if (!Utils::isUnset($tmpReq->supplementaryQuestions)) {
-            $request->supplementaryQuestionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
+
+        if (null !== $tmpReq->supplementaryQuestions) {
+            $request->supplementaryQuestionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->answersShrink)) {
-            $body['Answers'] = $request->answersShrink;
+        if (null !== $request->answersShrink) {
+            @$body['Answers'] = $request->answersShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->keyWordsShrink)) {
-            $body['KeyWords'] = $request->keyWordsShrink;
+
+        if (null !== $request->keyWordsShrink) {
+            @$body['KeyWords'] = $request->keyWordsShrink;
         }
-        if (!Utils::isUnset($request->majorQuestion)) {
-            $body['MajorQuestion'] = $request->majorQuestion;
+
+        if (null !== $request->majorQuestion) {
+            @$body['MajorQuestion'] = $request->majorQuestion;
         }
-        if (!Utils::isUnset($request->supplementaryQuestionsShrink)) {
-            $body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
+
+        if (null !== $request->supplementaryQuestionsShrink) {
+            @$body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomQAV2',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addQAV2',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddCustomQAV2',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addQAV2',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddCustomQAV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加问答V2.
+     *
+     * @param request - AddCustomQAV2Request
+     *
+     * @returns AddCustomQAV2Response
+     *
      * @param AddCustomQAV2Request $request
      *
      * @return AddCustomQAV2Response
@@ -603,6 +681,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 添加消息模板
+     *
+     * @param request - AddMessageTemplateRequest
+     * @param headers - AddMessageTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMessageTemplateResponse
+     *
      * @param AddMessageTemplateRequest $request
      * @param AddMessageTemplateHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -611,44 +697,55 @@ class AliGenie extends OpenApiClient
      */
     public function addMessageTemplateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->templateDetail)) {
-            $body['TemplateDetail'] = $request->templateDetail;
+        if (null !== $request->templateDetail) {
+            @$body['TemplateDetail'] = $request->templateDetail;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddMessageTemplate',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addMessageTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddMessageTemplate',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addMessageTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddMessageTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加消息模板
+     *
+     * @param request - AddMessageTemplateRequest
+     *
+     * @returns AddMessageTemplateResponse
+     *
      * @param AddMessageTemplateRequest $request
      *
      * @return AddMessageTemplateResponse
@@ -662,6 +759,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 新增或者编辑带屏展示模式.
+     *
+     * @param tmpReq - AddOrUpdateDisPlayModesRequest
+     * @param headers - AddOrUpdateDisPlayModesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrUpdateDisPlayModesResponse
+     *
      * @param AddOrUpdateDisPlayModesRequest $tmpReq
      * @param AddOrUpdateDisPlayModesHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -670,49 +775,61 @@ class AliGenie extends OpenApiClient
      */
     public function addOrUpdateDisPlayModesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddOrUpdateDisPlayModesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelDeviceModeList)) {
-            $request->hotelDeviceModeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelDeviceModeList, 'HotelDeviceModeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelDeviceModeList) {
+            $request->hotelDeviceModeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelDeviceModeList, 'HotelDeviceModeList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelDeviceModeListShrink)) {
-            $body['HotelDeviceModeList'] = $request->hotelDeviceModeListShrink;
+        if (null !== $request->hotelDeviceModeListShrink) {
+            @$body['HotelDeviceModeList'] = $request->hotelDeviceModeListShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddOrUpdateDisPlayModes',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addOrUpdateDisPlayModes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddOrUpdateDisPlayModes',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addOrUpdateDisPlayModes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddOrUpdateDisPlayModesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新增或者编辑带屏展示模式.
+     *
+     * @param request - AddOrUpdateDisPlayModesRequest
+     *
+     * @returns AddOrUpdateDisPlayModesResponse
+     *
      * @param AddOrUpdateDisPlayModesRequest $request
      *
      * @return AddOrUpdateDisPlayModesResponse
@@ -726,6 +843,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 新增或者编辑定制配置.
+     *
+     * @param tmpReq - AddOrUpdateHotelSettingRequest
+     * @param headers - AddOrUpdateHotelSettingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrUpdateHotelSettingResponse
+     *
      * @param AddOrUpdateHotelSettingRequest $tmpReq
      * @param AddOrUpdateHotelSettingHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -734,67 +859,85 @@ class AliGenie extends OpenApiClient
      */
     public function addOrUpdateHotelSettingWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddOrUpdateHotelSettingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelDeviceModeList)) {
-            $request->hotelDeviceModeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelDeviceModeList, 'HotelDeviceModeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelDeviceModeList) {
+            $request->hotelDeviceModeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelDeviceModeList, 'HotelDeviceModeList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->hotelScreenSaver)) {
-            $request->hotelScreenSaverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelScreenSaver, 'HotelScreenSaver', 'json');
+
+        if (null !== $tmpReq->hotelScreenSaver) {
+            $request->hotelScreenSaverShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelScreenSaver, 'HotelScreenSaver', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nightMode)) {
-            $request->nightModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nightMode, 'NightMode', 'json');
+
+        if (null !== $tmpReq->nightMode) {
+            $request->nightModeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nightMode, 'NightMode', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelDeviceModeListShrink)) {
-            $body['HotelDeviceModeList'] = $request->hotelDeviceModeListShrink;
+        if (null !== $request->hotelDeviceModeListShrink) {
+            @$body['HotelDeviceModeList'] = $request->hotelDeviceModeListShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->hotelScreenSaverShrink)) {
-            $body['HotelScreenSaver'] = $request->hotelScreenSaverShrink;
+
+        if (null !== $request->hotelScreenSaverShrink) {
+            @$body['HotelScreenSaver'] = $request->hotelScreenSaverShrink;
         }
-        if (!Utils::isUnset($request->nightModeShrink)) {
-            $body['NightMode'] = $request->nightModeShrink;
+
+        if (null !== $request->nightModeShrink) {
+            @$body['NightMode'] = $request->nightModeShrink;
         }
-        if (!Utils::isUnset($request->settingType)) {
-            $body['SettingType'] = $request->settingType;
+
+        if (null !== $request->settingType) {
+            @$body['SettingType'] = $request->settingType;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddOrUpdateHotelSetting',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addOrUpdateHotelSetting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddOrUpdateHotelSetting',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addOrUpdateHotelSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddOrUpdateHotelSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新增或者编辑定制配置.
+     *
+     * @param request - AddOrUpdateHotelSettingRequest
+     *
+     * @returns AddOrUpdateHotelSettingResponse
+     *
      * @param AddOrUpdateHotelSettingRequest $request
      *
      * @return AddOrUpdateHotelSettingResponse
@@ -808,6 +951,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 新增或者编辑带屏屏保.
+     *
+     * @param tmpReq - AddOrUpdateScreenSaverRequest
+     * @param headers - AddOrUpdateScreenSaverHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrUpdateScreenSaverResponse
+     *
      * @param AddOrUpdateScreenSaverRequest $tmpReq
      * @param AddOrUpdateScreenSaverHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -816,49 +967,61 @@ class AliGenie extends OpenApiClient
      */
     public function addOrUpdateScreenSaverWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddOrUpdateScreenSaverShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelScreenSaver)) {
-            $request->hotelScreenSaverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelScreenSaver, 'HotelScreenSaver', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelScreenSaver) {
+            $request->hotelScreenSaverShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelScreenSaver, 'HotelScreenSaver', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->hotelScreenSaverShrink)) {
-            $body['HotelScreenSaver'] = $request->hotelScreenSaverShrink;
+
+        if (null !== $request->hotelScreenSaverShrink) {
+            @$body['HotelScreenSaver'] = $request->hotelScreenSaverShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddOrUpdateScreenSaver',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addOrUpdateScreenSaver',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddOrUpdateScreenSaver',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addOrUpdateScreenSaver',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddOrUpdateScreenSaverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新增或者编辑带屏屏保.
+     *
+     * @param request - AddOrUpdateScreenSaverRequest
+     *
+     * @returns AddOrUpdateScreenSaverResponse
+     *
      * @param AddOrUpdateScreenSaverRequest $request
      *
      * @return AddOrUpdateScreenSaverResponse
@@ -872,6 +1035,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 添加/更新欢迎语信息.
+     *
+     * @param request - AddOrUpdateWelcomeTextRequest
+     * @param headers - AddOrUpdateWelcomeTextHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrUpdateWelcomeTextResponse
+     *
      * @param AddOrUpdateWelcomeTextRequest $request
      * @param AddOrUpdateWelcomeTextHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -880,47 +1051,59 @@ class AliGenie extends OpenApiClient
      */
     public function addOrUpdateWelcomeTextWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->musicUrl)) {
-            $body['MusicUrl'] = $request->musicUrl;
+
+        if (null !== $request->musicUrl) {
+            @$body['MusicUrl'] = $request->musicUrl;
         }
-        if (!Utils::isUnset($request->welcomeText)) {
-            $body['WelcomeText'] = $request->welcomeText;
+
+        if (null !== $request->welcomeText) {
+            @$body['WelcomeText'] = $request->welcomeText;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddOrUpdateWelcomeText',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/addOrUpdateWelcomeText',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddOrUpdateWelcomeText',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/addOrUpdateWelcomeText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddOrUpdateWelcomeTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加/更新欢迎语信息.
+     *
+     * @param request - AddOrUpdateWelcomeTextRequest
+     *
+     * @returns AddOrUpdateWelcomeTextResponse
+     *
      * @param AddOrUpdateWelcomeTextRequest $request
      *
      * @return AddOrUpdateWelcomeTextResponse
@@ -934,6 +1117,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 审批酒店.
+     *
+     * @param tmpReq - AuditHotelRequest
+     * @param headers - AuditHotelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuditHotelResponse
+     *
      * @param AuditHotelRequest $tmpReq
      * @param AuditHotelHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -942,46 +1133,57 @@ class AliGenie extends OpenApiClient
      */
     public function auditHotelWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AuditHotelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->auditHotelReq)) {
-            $request->auditHotelReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->auditHotelReq, 'AuditHotelReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->auditHotelReq) {
+            $request->auditHotelReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->auditHotelReq, 'AuditHotelReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->auditHotelReqShrink)) {
-            $query['AuditHotelReq'] = $request->auditHotelReqShrink;
+        if (null !== $request->auditHotelReqShrink) {
+            @$query['AuditHotelReq'] = $request->auditHotelReqShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AuditHotel',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/auditHotel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AuditHotel',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/auditHotel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AuditHotelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 审批酒店.
+     *
+     * @param request - AuditHotelRequest
+     *
+     * @returns AuditHotelResponse
+     *
      * @param AuditHotelRequest $request
      *
      * @return AuditHotelResponse
@@ -995,6 +1197,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量创建房间.
+     *
+     * @param tmpReq - BatchAddHotelRoomRequest
+     * @param headers - BatchAddHotelRoomHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchAddHotelRoomResponse
+     *
      * @param BatchAddHotelRoomRequest $tmpReq
      * @param BatchAddHotelRoomHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -1003,49 +1213,61 @@ class AliGenie extends OpenApiClient
      */
     public function batchAddHotelRoomWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchAddHotelRoomShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roomNoList)) {
-            $request->roomNoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomNoList, 'RoomNoList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roomNoList) {
+            $request->roomNoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roomNoList, 'RoomNoList', 'simple');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNoListShrink)) {
-            $body['RoomNoList'] = $request->roomNoListShrink;
+
+        if (null !== $request->roomNoListShrink) {
+            @$body['RoomNoList'] = $request->roomNoListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchAddHotelRoom',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/batchAddHotelRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchAddHotelRoom',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/batchAddHotelRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchAddHotelRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量创建房间.
+     *
+     * @param request - BatchAddHotelRoomRequest
+     *
+     * @returns BatchAddHotelRoomResponse
+     *
      * @param BatchAddHotelRoomRequest $request
      *
      * @return BatchAddHotelRoomResponse
@@ -1059,6 +1281,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量删除房间.
+     *
+     * @param tmpReq - BatchDeleteHotelRoomRequest
+     * @param headers - BatchDeleteHotelRoomHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteHotelRoomResponse
+     *
      * @param BatchDeleteHotelRoomRequest $tmpReq
      * @param BatchDeleteHotelRoomHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -1067,49 +1297,61 @@ class AliGenie extends OpenApiClient
      */
     public function batchDeleteHotelRoomWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchDeleteHotelRoomShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roomNoList)) {
-            $request->roomNoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomNoList, 'RoomNoList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roomNoList) {
+            $request->roomNoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roomNoList, 'RoomNoList', 'simple');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNoListShrink)) {
-            $body['RoomNoList'] = $request->roomNoListShrink;
+
+        if (null !== $request->roomNoListShrink) {
+            @$body['RoomNoList'] = $request->roomNoListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteHotelRoom',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/batchDeleteHotelRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchDeleteHotelRoom',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/batchDeleteHotelRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteHotelRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量删除房间.
+     *
+     * @param request - BatchDeleteHotelRoomRequest
+     *
+     * @returns BatchDeleteHotelRoomResponse
+     *
      * @param BatchDeleteHotelRoomRequest $request
      *
      * @return BatchDeleteHotelRoomResponse
@@ -1123,6 +1365,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店退房，清楚例如闹钟等定时信息.
+     *
+     * @param request - CheckoutWithAKRequest
+     * @param headers - CheckoutWithAKHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckoutWithAKResponse
+     *
      * @param CheckoutWithAKRequest $request
      * @param CheckoutWithAKHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -1131,44 +1381,55 @@ class AliGenie extends OpenApiClient
      */
     public function checkoutWithAKWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckoutWithAK',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/checkoutWithAK',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckoutWithAK',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/checkoutWithAK',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckoutWithAKResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店退房，清楚例如闹钟等定时信息.
+     *
+     * @param request - CheckoutWithAKRequest
+     *
+     * @returns CheckoutWithAKResponse
+     *
      * @param CheckoutWithAKRequest $request
      *
      * @return CheckoutWithAKResponse
@@ -1182,6 +1443,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 子账号授权.
+     *
+     * @param request - ChildAccountAuthRequest
+     * @param headers - ChildAccountAuthHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChildAccountAuthResponse
+     *
      * @param ChildAccountAuthRequest $request
      * @param ChildAccountAuthHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -1190,50 +1459,63 @@ class AliGenie extends OpenApiClient
      */
     public function childAccountAuthWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->account)) {
-            $body['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$body['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->tbOpenId)) {
-            $body['TbOpenId'] = $request->tbOpenId;
+
+        if (null !== $request->tbOpenId) {
+            @$body['TbOpenId'] = $request->tbOpenId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChildAccountAuth',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/childAccountAuth',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChildAccountAuth',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/childAccountAuth',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChildAccountAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 子账号授权.
+     *
+     * @param request - ChildAccountAuthRequest
+     *
+     * @returns ChildAccountAuthResponse
+     *
      * @param ChildAccountAuthRequest $request
      *
      * @return ChildAccountAuthResponse
@@ -1247,6 +1529,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 控制房间内设备.
+     *
+     * @param tmpReq - ControlRoomDeviceRequest
+     * @param headers - ControlRoomDeviceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ControlRoomDeviceResponse
+     *
      * @param ControlRoomDeviceRequest $tmpReq
      * @param ControlRoomDeviceHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -1255,61 +1545,77 @@ class AliGenie extends OpenApiClient
      */
     public function controlRoomDeviceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ControlRoomDeviceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->properties)) {
-            $request->propertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->properties) {
+            $request->propertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cmd)) {
-            $body['Cmd'] = $request->cmd;
+        if (null !== $request->cmd) {
+            @$body['Cmd'] = $request->cmd;
         }
-        if (!Utils::isUnset($request->deviceIndex)) {
-            $body['DeviceIndex'] = $request->deviceIndex;
+
+        if (null !== $request->deviceIndex) {
+            @$body['DeviceIndex'] = $request->deviceIndex;
         }
-        if (!Utils::isUnset($request->deviceNumber)) {
-            $body['DeviceNumber'] = $request->deviceNumber;
+
+        if (null !== $request->deviceNumber) {
+            @$body['DeviceNumber'] = $request->deviceNumber;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->propertiesShrink)) {
-            $body['Properties'] = $request->propertiesShrink;
+
+        if (null !== $request->propertiesShrink) {
+            @$body['Properties'] = $request->propertiesShrink;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ControlRoomDevice',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/controlRoomDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ControlRoomDevice',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/controlRoomDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ControlRoomDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 控制房间内设备.
+     *
+     * @param request - ControlRoomDeviceRequest
+     *
+     * @returns ControlRoomDeviceResponse
+     *
      * @param ControlRoomDeviceRequest $request
      *
      * @return ControlRoomDeviceResponse
@@ -1323,6 +1629,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 创建酒店项目.
+     *
+     * @param tmpReq - CreateHotelRequest
+     * @param headers - CreateHotelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHotelResponse
+     *
      * @param CreateHotelRequest $tmpReq
      * @param CreateHotelHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -1331,76 +1645,97 @@ class AliGenie extends OpenApiClient
      */
     public function createHotelWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateHotelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->relatedPks)) {
-            $request->relatedPksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedPks, 'RelatedPks', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->relatedPks) {
+            $request->relatedPksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedPks, 'RelatedPks', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->estOpenTime)) {
-            $body['EstOpenTime'] = $request->estOpenTime;
+
+        if (null !== $request->estOpenTime) {
+            @$body['EstOpenTime'] = $request->estOpenTime;
         }
-        if (!Utils::isUnset($request->hotelAddress)) {
-            $body['HotelAddress'] = $request->hotelAddress;
+
+        if (null !== $request->hotelAddress) {
+            @$body['HotelAddress'] = $request->hotelAddress;
         }
-        if (!Utils::isUnset($request->hotelEmail)) {
-            $body['HotelEmail'] = $request->hotelEmail;
+
+        if (null !== $request->hotelEmail) {
+            @$body['HotelEmail'] = $request->hotelEmail;
         }
-        if (!Utils::isUnset($request->hotelName)) {
-            $body['HotelName'] = $request->hotelName;
+
+        if (null !== $request->hotelName) {
+            @$body['HotelName'] = $request->hotelName;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$body['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->relatedPk)) {
-            $body['RelatedPk'] = $request->relatedPk;
+
+        if (null !== $request->relatedPk) {
+            @$body['RelatedPk'] = $request->relatedPk;
         }
-        if (!Utils::isUnset($request->relatedPksShrink)) {
-            $body['RelatedPks'] = $request->relatedPksShrink;
+
+        if (null !== $request->relatedPksShrink) {
+            @$body['RelatedPks'] = $request->relatedPksShrink;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->roomNum)) {
-            $body['RoomNum'] = $request->roomNum;
+
+        if (null !== $request->roomNum) {
+            @$body['RoomNum'] = $request->roomNum;
         }
-        if (!Utils::isUnset($request->tbOpenId)) {
-            $body['TbOpenId'] = $request->tbOpenId;
+
+        if (null !== $request->tbOpenId) {
+            @$body['TbOpenId'] = $request->tbOpenId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateHotel',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/createHotel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateHotel',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/createHotel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHotelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建酒店项目.
+     *
+     * @param request - CreateHotelRequest
+     *
+     * @returns CreateHotelResponse
+     *
      * @param CreateHotelRequest $request
      *
      * @return CreateHotelResponse
@@ -1414,6 +1749,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量创建闹钟
+     *
+     * @param tmpReq - CreateHotelAlarmRequest
+     * @param headers - CreateHotelAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHotelAlarmResponse
+     *
      * @param CreateHotelAlarmRequest $tmpReq
      * @param CreateHotelAlarmHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -1422,58 +1765,73 @@ class AliGenie extends OpenApiClient
      */
     public function createHotelAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateHotelAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->rooms)) {
-            $request->roomsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rooms, 'Rooms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rooms) {
+            $request->roomsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rooms, 'Rooms', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleInfo)) {
-            $request->scheduleInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleInfo, 'ScheduleInfo', 'json');
+
+        if (null !== $tmpReq->scheduleInfo) {
+            $request->scheduleInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleInfo, 'ScheduleInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->musicType)) {
-            $body['MusicType'] = $request->musicType;
+
+        if (null !== $request->musicType) {
+            @$body['MusicType'] = $request->musicType;
         }
-        if (!Utils::isUnset($request->roomsShrink)) {
-            $body['Rooms'] = $request->roomsShrink;
+
+        if (null !== $request->roomsShrink) {
+            @$body['Rooms'] = $request->roomsShrink;
         }
-        if (!Utils::isUnset($request->scheduleInfoShrink)) {
-            $body['ScheduleInfo'] = $request->scheduleInfoShrink;
+
+        if (null !== $request->scheduleInfoShrink) {
+            @$body['ScheduleInfo'] = $request->scheduleInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateHotelAlarm',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/createHotelAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateHotelAlarm',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/createHotelAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHotelAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量创建闹钟
+     *
+     * @param request - CreateHotelAlarmRequest
+     *
+     * @returns CreateHotelAlarmResponse
+     *
      * @param CreateHotelAlarmRequest $request
      *
      * @return CreateHotelAlarmResponse
@@ -1487,6 +1845,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店rcu自定义场景创建.
+     *
+     * @param tmpReq - CreateRcuSceneRequest
+     * @param headers - CreateRcuSceneHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRcuSceneResponse
+     *
      * @param CreateRcuSceneRequest $tmpReq
      * @param CreateRcuSceneHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -1495,52 +1861,65 @@ class AliGenie extends OpenApiClient
      */
     public function createRcuSceneWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRcuSceneShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sceneRelationExtDTO)) {
-            $request->sceneRelationExtDTOShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneRelationExtDTO, 'SceneRelationExtDTO', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sceneRelationExtDTO) {
+            $request->sceneRelationExtDTOShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneRelationExtDTO, 'SceneRelationExtDTO', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->sceneRelationExtDTOShrink)) {
-            $body['SceneRelationExtDTO'] = $request->sceneRelationExtDTOShrink;
+
+        if (null !== $request->sceneRelationExtDTOShrink) {
+            @$body['SceneRelationExtDTO'] = $request->sceneRelationExtDTOShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRcuScene',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/createRcuScene',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateRcuScene',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/createRcuScene',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateRcuSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店rcu自定义场景创建.
+     *
+     * @param request - CreateRcuSceneRequest
+     *
+     * @returns CreateRcuSceneResponse
+     *
      * @param CreateRcuSceneRequest $request
      *
      * @return CreateRcuSceneResponse
@@ -1554,6 +1933,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除动画.
+     *
+     * @param request - DeleteCartoonRequest
+     * @param headers - DeleteCartoonHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCartoonResponse
+     *
      * @param DeleteCartoonRequest $request
      * @param DeleteCartoonHeaders $headers
      * @param RuntimeOptions       $runtime
@@ -1562,41 +1949,51 @@ class AliGenie extends OpenApiClient
      */
     public function deleteCartoonWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCartoon',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteCartoon',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCartoon',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteCartoon',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCartoonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除动画.
+     *
+     * @param request - DeleteCartoonRequest
+     *
+     * @returns DeleteCartoonResponse
+     *
      * @param DeleteCartoonRequest $request
      *
      * @return DeleteCartoonResponse
@@ -1610,6 +2007,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除自定义问答.
+     *
+     * @param tmpReq - DeleteCustomQARequest
+     * @param headers - DeleteCustomQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomQAResponse
+     *
      * @param DeleteCustomQARequest $tmpReq
      * @param DeleteCustomQAHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -1618,49 +2023,61 @@ class AliGenie extends OpenApiClient
      */
     public function deleteCustomQAWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteCustomQAShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customQAIds)) {
-            $request->customQAIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customQAIds, 'CustomQAIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customQAIds) {
+            $request->customQAIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customQAIds, 'CustomQAIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->customQAIdsShrink)) {
-            $body['CustomQAIds'] = $request->customQAIdsShrink;
+        if (null !== $request->customQAIdsShrink) {
+            @$body['CustomQAIds'] = $request->customQAIdsShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteCustomQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCustomQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteCustomQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustomQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除自定义问答.
+     *
+     * @param request - DeleteCustomQARequest
+     *
+     * @returns DeleteCustomQAResponse
+     *
      * @param DeleteCustomQARequest $request
      *
      * @return DeleteCustomQAResponse
@@ -1674,6 +2091,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除酒店闹钟
+     *
+     * @param tmpReq - DeleteHotelAlarmRequest
+     * @param headers - DeleteHotelAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHotelAlarmResponse
+     *
      * @param DeleteHotelAlarmRequest $tmpReq
      * @param DeleteHotelAlarmHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -1682,49 +2107,61 @@ class AliGenie extends OpenApiClient
      */
     public function deleteHotelAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteHotelAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->alarms)) {
-            $request->alarmsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarms, 'Alarms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->alarms) {
+            $request->alarmsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alarms, 'Alarms', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alarmsShrink)) {
-            $body['Alarms'] = $request->alarmsShrink;
+        if (null !== $request->alarmsShrink) {
+            @$body['Alarms'] = $request->alarmsShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHotelAlarm',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteHotelAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteHotelAlarm',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteHotelAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHotelAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除酒店闹钟
+     *
+     * @param request - DeleteHotelAlarmRequest
+     *
+     * @returns DeleteHotelAlarmResponse
+     *
      * @param DeleteHotelAlarmRequest $request
      *
      * @return DeleteHotelAlarmResponse
@@ -1738,6 +2175,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景预订删除.
+     *
+     * @param request - DeleteHotelSceneBookItemRequest
+     * @param headers - DeleteHotelSceneBookItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHotelSceneBookItemResponse
+     *
      * @param DeleteHotelSceneBookItemRequest $request
      * @param DeleteHotelSceneBookItemHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -1746,47 +2191,59 @@ class AliGenie extends OpenApiClient
      */
     public function deleteHotelSceneBookItemWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHotelSceneBookItem',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteHotelSceneBookItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteHotelSceneBookItem',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteHotelSceneBookItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHotelSceneBookItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景预订删除.
+     *
+     * @param request - DeleteHotelSceneBookItemRequest
+     *
+     * @returns DeleteHotelSceneBookItemResponse
+     *
      * @param DeleteHotelSceneBookItemRequest $request
      *
      * @return DeleteHotelSceneBookItemResponse
@@ -1800,6 +2257,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除定制配置.
+     *
+     * @param request - DeleteHotelSettingRequest
+     * @param headers - DeleteHotelSettingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHotelSettingResponse
+     *
      * @param DeleteHotelSettingRequest $request
      * @param DeleteHotelSettingHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -1808,44 +2273,55 @@ class AliGenie extends OpenApiClient
      */
     public function deleteHotelSettingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->settingType)) {
-            $body['SettingType'] = $request->settingType;
+
+        if (null !== $request->settingType) {
+            @$body['SettingType'] = $request->settingType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHotelSetting',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteHotelSetting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteHotelSetting',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteHotelSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHotelSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除定制配置.
+     *
+     * @param request - DeleteHotelSettingRequest
+     *
+     * @returns DeleteHotelSettingResponse
+     *
      * @param DeleteHotelSettingRequest $request
      *
      * @return DeleteHotelSettingResponse
@@ -1859,6 +2335,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除消息通知模板
+     *
+     * @param request - DeleteMessageTemplateRequest
+     * @param headers - DeleteMessageTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMessageTemplateResponse
+     *
      * @param DeleteMessageTemplateRequest $request
      * @param DeleteMessageTemplateHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -1867,41 +2351,51 @@ class AliGenie extends OpenApiClient
      */
     public function deleteMessageTemplateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMessageTemplate',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteMessageTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMessageTemplate',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteMessageTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMessageTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除消息通知模板
+     *
+     * @param request - DeleteMessageTemplateRequest
+     *
+     * @returns DeleteMessageTemplateResponse
+     *
      * @param DeleteMessageTemplateRequest $request
      *
      * @return DeleteMessageTemplateResponse
@@ -1915,6 +2409,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除酒店自定义rcu场景.
+     *
+     * @param request - DeleteRcuSceneRequest
+     * @param headers - DeleteRcuSceneHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRcuSceneResponse
+     *
      * @param DeleteRcuSceneRequest $request
      * @param DeleteRcuSceneHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -1923,44 +2425,55 @@ class AliGenie extends OpenApiClient
      */
     public function deleteRcuSceneWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRcuScene',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deleteRcuScene',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteRcuScene',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deleteRcuScene',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRcuSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除酒店自定义rcu场景.
+     *
+     * @param request - DeleteRcuSceneRequest
+     *
+     * @returns DeleteRcuSceneResponse
+     *
      * @param DeleteRcuSceneRequest $request
      *
      * @return DeleteRcuSceneResponse
@@ -1974,6 +2487,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 设备控制.
+     *
+     * @param tmpReq - DeviceControlRequest
+     * @param headers - DeviceControlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeviceControlResponse
+     *
      * @param DeviceControlRequest $tmpReq
      * @param DeviceControlHeaders $headers
      * @param RuntimeOptions       $runtime
@@ -1982,52 +2503,65 @@ class AliGenie extends OpenApiClient
      */
     public function deviceControlWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeviceControlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeviceControl',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/deviceControl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeviceControl',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/deviceControl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeviceControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 设备控制.
+     *
+     * @param request - DeviceControlRequest
+     *
+     * @returns DeviceControlResponse
+     *
      * @param DeviceControlRequest $request
      *
      * @return DeviceControlResponse
@@ -2041,6 +2575,96 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 控制房间场景.
+     *
+     * @param request - ExecuteSceneRequest
+     * @param headers - ExecuteSceneHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteSceneResponse
+     *
+     * @param ExecuteSceneRequest $request
+     * @param ExecuteSceneHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecuteSceneResponse
+     */
+    public function executeSceneWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
+        }
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
+        }
+
+        if (null !== $request->sceneName) {
+            @$body['SceneName'] = $request->sceneName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteScene',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/executeScene',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 控制房间场景.
+     *
+     * @param request - ExecuteSceneRequest
+     *
+     * @returns ExecuteSceneResponse
+     *
+     * @param ExecuteSceneRequest $request
+     *
+     * @return ExecuteSceneResponse
+     */
+    public function executeScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExecuteSceneHeaders([]);
+
+        return $this->executeSceneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取基础信息问答.
+     *
+     * @param request - GetBasicInfoQARequest
+     * @param headers - GetBasicInfoQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBasicInfoQAResponse
+     *
      * @param GetBasicInfoQARequest $request
      * @param GetBasicInfoQAHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -2049,41 +2673,51 @@ class AliGenie extends OpenApiClient
      */
     public function getBasicInfoQAWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBasicInfoQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getBasicInfoQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetBasicInfoQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getBasicInfoQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetBasicInfoQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取基础信息问答.
+     *
+     * @param request - GetBasicInfoQARequest
+     *
+     * @returns GetBasicInfoQAResponse
+     *
      * @param GetBasicInfoQARequest $request
      *
      * @return GetBasicInfoQAResponse
@@ -2097,6 +2731,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询动画.
+     *
+     * @param request - GetCartoonRequest
+     * @param headers - GetCartoonHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCartoonResponse
+     *
      * @param GetCartoonRequest $request
      * @param GetCartoonHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -2105,41 +2747,51 @@ class AliGenie extends OpenApiClient
      */
     public function getCartoonWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCartoon',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getCartoon',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCartoon',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getCartoon',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCartoonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询动画.
+     *
+     * @param request - GetCartoonRequest
+     *
+     * @returns GetCartoonResponse
+     *
      * @param GetCartoonRequest $request
      *
      * @return GetCartoonResponse
@@ -2153,6 +2805,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取当前设备的通话信息.
+     *
+     * @param tmpReq - GetHotelContactByGenieDeviceRequest
+     * @param headers - GetHotelContactByGenieDeviceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelContactByGenieDeviceResponse
+     *
      * @param GetHotelContactByGenieDeviceRequest $tmpReq
      * @param GetHotelContactByGenieDeviceHeaders $headers
      * @param RuntimeOptions                      $runtime
@@ -2161,52 +2821,65 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelContactByGenieDeviceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelContactByGenieDeviceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelContactByGenieDevice',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelContactByGenieDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelContactByGenieDevice',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelContactByGenieDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelContactByGenieDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取当前设备的通话信息.
+     *
+     * @param request - GetHotelContactByGenieDeviceRequest
+     *
+     * @returns GetHotelContactByGenieDeviceResponse
+     *
      * @param GetHotelContactByGenieDeviceRequest $request
      *
      * @return GetHotelContactByGenieDeviceResponse
@@ -2220,6 +2893,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 根据号码获取酒店联系人.
+     *
+     * @param tmpReq - GetHotelContactByNumberRequest
+     * @param headers - GetHotelContactByNumberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelContactByNumberResponse
+     *
      * @param GetHotelContactByNumberRequest $tmpReq
      * @param GetHotelContactByNumberHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -2228,51 +2909,63 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelContactByNumberWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelContactByNumberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->number)) {
-            $body['Number'] = $request->number;
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelContactByNumber',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelContactByNumber',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelContactByNumber',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelContactByNumber',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelContactByNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 根据号码获取酒店联系人.
+     *
+     * @param request - GetHotelContactByNumberRequest
+     *
+     * @returns GetHotelContactByNumberResponse
+     *
      * @param GetHotelContactByNumberRequest $request
      *
      * @return GetHotelContactByNumberResponse
@@ -2286,6 +2979,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店联系人.
+     *
+     * @param tmpReq - GetHotelContactsRequest
+     * @param headers - GetHotelContactsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelContactsResponse
+     *
      * @param GetHotelContactsRequest $tmpReq
      * @param GetHotelContactsHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -2294,46 +2995,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelContactsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelContactsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelContacts',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelContacts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelContacts',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelContacts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelContactsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店联系人.
+     *
+     * @param request - GetHotelContactsRequest
+     *
+     * @returns GetHotelContactsResponse
+     *
      * @param GetHotelContactsRequest $request
      *
      * @return GetHotelContactsResponse
@@ -2347,6 +3059,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取首页背景图和场景模式.
+     *
+     * @param tmpReq - GetHotelHomeBackImageAndModesRequest
+     * @param headers - GetHotelHomeBackImageAndModesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelHomeBackImageAndModesResponse
+     *
      * @param GetHotelHomeBackImageAndModesRequest $tmpReq
      * @param GetHotelHomeBackImageAndModesHeaders $headers
      * @param RuntimeOptions                       $runtime
@@ -2355,46 +3075,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelHomeBackImageAndModesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelHomeBackImageAndModesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelHomeBackImageAndModes',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelHomeBackImageAndModes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelHomeBackImageAndModes',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelHomeBackImageAndModes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelHomeBackImageAndModesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取首页背景图和场景模式.
+     *
+     * @param request - GetHotelHomeBackImageAndModesRequest
+     *
+     * @returns GetHotelHomeBackImageAndModesResponse
+     *
      * @param GetHotelHomeBackImageAndModesRequest $request
      *
      * @return GetHotelHomeBackImageAndModesResponse
@@ -2408,6 +3139,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店通知.
+     *
+     * @param tmpReq - GetHotelNoticeRequest
+     * @param headers - GetHotelNoticeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelNoticeResponse
+     *
      * @param GetHotelNoticeRequest $tmpReq
      * @param GetHotelNoticeHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -2416,46 +3155,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelNoticeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelNoticeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelNotice',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelNotice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelNotice',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelNotice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店通知.
+     *
+     * @param request - GetHotelNoticeRequest
+     *
+     * @returns GetHotelNoticeResponse
+     *
      * @param GetHotelNoticeRequest $request
      *
      * @return GetHotelNoticeResponse
@@ -2469,6 +3219,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店通知.
+     *
+     * @param tmpReq - GetHotelNoticeV2Request
+     * @param headers - GetHotelNoticeV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelNoticeV2Response
+     *
      * @param GetHotelNoticeV2Request $tmpReq
      * @param GetHotelNoticeV2Headers $headers
      * @param RuntimeOptions          $runtime
@@ -2477,46 +3235,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelNoticeV2WithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelNoticeV2ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelNoticeV2',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelNoticeV2',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelNoticeV2',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelNoticeV2',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelNoticeV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店通知.
+     *
+     * @param request - GetHotelNoticeV2Request
+     *
+     * @returns GetHotelNoticeV2Response
+     *
      * @param GetHotelNoticeV2Request $request
      *
      * @return GetHotelNoticeV2Response
@@ -2530,6 +3299,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店订单详情.
+     *
+     * @param tmpReq - GetHotelOrderDetailRequest
+     * @param headers - GetHotelOrderDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelOrderDetailResponse
+     *
      * @param GetHotelOrderDetailRequest $tmpReq
      * @param GetHotelOrderDetailHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -2538,46 +3315,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelOrderDetailWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelOrderDetailShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelOrderDetail',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelOrderDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelOrderDetail',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelOrderDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店订单详情.
+     *
+     * @param request - GetHotelOrderDetailRequest
+     *
+     * @returns GetHotelOrderDetailResponse
+     *
      * @param GetHotelOrderDetailRequest $request
      *
      * @return GetHotelOrderDetailResponse
@@ -2591,6 +3379,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店房间猫精设备信息.
+     *
+     * @param request - GetHotelRoomDeviceRequest
+     * @param headers - GetHotelRoomDeviceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelRoomDeviceResponse
+     *
      * @param GetHotelRoomDeviceRequest $request
      * @param GetHotelRoomDeviceHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -2599,44 +3395,55 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelRoomDeviceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $query['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$query['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $query['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$query['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelRoomDevice',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelRoomDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelRoomDevice',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelRoomDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelRoomDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店房间猫精设备信息.
+     *
+     * @param request - GetHotelRoomDeviceRequest
+     *
+     * @returns GetHotelRoomDeviceResponse
+     *
      * @param GetHotelRoomDeviceRequest $request
      *
      * @return GetHotelRoomDeviceResponse
@@ -2650,6 +3457,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取推荐语料.
+     *
+     * @param tmpReq - GetHotelSampleUtterancesRequest
+     * @param headers - GetHotelSampleUtterancesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelSampleUtterancesResponse
+     *
      * @param GetHotelSampleUtterancesRequest $tmpReq
      * @param GetHotelSampleUtterancesHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -2658,46 +3473,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelSampleUtterancesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelSampleUtterancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelSampleUtterances',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelSampleUtterances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelSampleUtterances',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelSampleUtterances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelSampleUtterancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取推荐语料.
+     *
+     * @param request - GetHotelSampleUtterancesRequest
+     *
+     * @returns GetHotelSampleUtterancesResponse
+     *
      * @param GetHotelSampleUtterancesRequest $request
      *
      * @return GetHotelSampleUtterancesResponse
@@ -2711,6 +3537,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景详情.
+     *
+     * @param request - GetHotelSceneItemDetailRequest
+     * @param headers - GetHotelSceneItemDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelSceneItemDetailResponse
+     *
      * @param GetHotelSceneItemDetailRequest $request
      * @param GetHotelSceneItemDetailHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -2719,47 +3553,59 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelSceneItemDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->itemId)) {
-            $body['ItemId'] = $request->itemId;
+
+        if (null !== $request->itemId) {
+            @$body['ItemId'] = $request->itemId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelSceneItemDetail',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelSceneItemDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelSceneItemDetail',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelSceneItemDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelSceneItemDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景详情.
+     *
+     * @param request - GetHotelSceneItemDetailRequest
+     *
+     * @returns GetHotelSceneItemDetailResponse
+     *
      * @param GetHotelSceneItemDetailRequest $request
      *
      * @return GetHotelSceneItemDetailResponse
@@ -2773,6 +3619,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店屏保.
+     *
+     * @param tmpReq - GetHotelScreenSaverRequest
+     * @param headers - GetHotelScreenSaverHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelScreenSaverResponse
+     *
      * @param GetHotelScreenSaverRequest $tmpReq
      * @param GetHotelScreenSaverHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -2781,46 +3635,57 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelScreenSaverWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotelScreenSaverShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelScreenSaver',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelScreenSaver',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelScreenSaver',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelScreenSaver',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelScreenSaverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店屏保.
+     *
+     * @param request - GetHotelScreenSaverRequest
+     *
+     * @returns GetHotelScreenSaverResponse
+     *
      * @param GetHotelScreenSaverRequest $request
      *
      * @return GetHotelScreenSaverResponse
@@ -2834,6 +3699,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取屏保列表.
+     *
+     * @param request - GetHotelScreenSaverStyleRequest
+     * @param headers - GetHotelScreenSaverStyleHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelScreenSaverStyleResponse
+     *
      * @param GetHotelScreenSaverStyleRequest $request
      * @param GetHotelScreenSaverStyleHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -2842,41 +3715,51 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelScreenSaverStyleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelScreenSaverStyle',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelScreenSaverStyle',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelScreenSaverStyle',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelScreenSaverStyle',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelScreenSaverStyleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取屏保列表.
+     *
+     * @param request - GetHotelScreenSaverStyleRequest
+     *
+     * @returns GetHotelScreenSaverStyleResponse
+     *
      * @param GetHotelScreenSaverStyleRequest $request
      *
      * @return GetHotelScreenSaverStyleResponse
@@ -2890,6 +3773,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询定制配置.
+     *
+     * @param request - GetHotelSettingRequest
+     * @param headers - GetHotelSettingHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotelSettingResponse
+     *
      * @param GetHotelSettingRequest $request
      * @param GetHotelSettingHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -2898,44 +3789,55 @@ class AliGenie extends OpenApiClient
      */
     public function getHotelSettingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->settingType)) {
-            $body['SettingType'] = $request->settingType;
+
+        if (null !== $request->settingType) {
+            @$body['SettingType'] = $request->settingType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotelSetting',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelSetting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotelSetting',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHotelSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询定制配置.
+     *
+     * @param request - GetHotelSettingRequest
+     *
+     * @returns GetHotelSettingResponse
+     *
      * @param GetHotelSettingRequest $request
      *
      * @return GetHotelSettingResponse
@@ -2949,6 +3851,13 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 关联产品列表查看.
+     *
+     * @param headers - GetRelationProductListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRelationProductListResponse
+     *
      * @param GetRelationProductListHeaders $headers
      * @param RuntimeOptions                $runtime
      *
@@ -2957,34 +3866,41 @@ class AliGenie extends OpenApiClient
     public function getRelationProductListWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetRelationProductList',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getRelationProductList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRelationProductList',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getRelationProductList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetRelationProductListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 关联产品列表查看.
+     *
+     * @returns GetRelationProductListResponse
+     *
      * @return GetRelationProductListResponse
      */
     public function getRelationProductList()
@@ -2996,6 +3912,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取组织下unionId列表.
+     *
+     * @param request - GetUnionIdRequest
+     * @param headers - GetUnionIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUnionIdResponse
+     *
      * @param GetUnionIdRequest $request
      * @param GetUnionIdHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -3004,50 +3928,63 @@ class AliGenie extends OpenApiClient
      */
     public function getUnionIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->encodeKey)) {
-            $body['EncodeKey'] = $request->encodeKey;
+        if (null !== $request->encodeKey) {
+            @$body['EncodeKey'] = $request->encodeKey;
         }
-        if (!Utils::isUnset($request->encodeType)) {
-            $body['EncodeType'] = $request->encodeType;
+
+        if (null !== $request->encodeType) {
+            @$body['EncodeType'] = $request->encodeType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->idType)) {
-            $body['IdType'] = $request->idType;
+
+        if (null !== $request->idType) {
+            @$body['IdType'] = $request->idType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUnionId',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getUnionId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUnionId',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getUnionId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUnionIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取组织下unionId列表.
+     *
+     * @param request - GetUnionIdRequest
+     *
+     * @returns GetUnionIdResponse
+     *
      * @param GetUnionIdRequest $request
      *
      * @return GetUnionIdResponse
@@ -3061,6 +3998,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询欢迎语信息.
+     *
+     * @param request - GetWelcomeTextAndMusicRequest
+     * @param headers - GetWelcomeTextAndMusicHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWelcomeTextAndMusicResponse
+     *
      * @param GetWelcomeTextAndMusicRequest $request
      * @param GetWelcomeTextAndMusicHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -3069,41 +4014,51 @@ class AliGenie extends OpenApiClient
      */
     public function getWelcomeTextAndMusicWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetWelcomeTextAndMusic',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getWelcomeTextAndMusic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWelcomeTextAndMusic',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getWelcomeTextAndMusic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetWelcomeTextAndMusicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询欢迎语信息.
+     *
+     * @param request - GetWelcomeTextAndMusicRequest
+     *
+     * @returns GetWelcomeTextAndMusicResponse
+     *
      * @param GetWelcomeTextAndMusicRequest $request
      *
      * @return GetWelcomeTextAndMusicResponse
@@ -3117,6 +4072,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店带屏设备扫码绑定.
+     *
+     * @param request - HotelQrBindRequest
+     * @param headers - HotelQrBindHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HotelQrBindResponse
+     *
      * @param HotelQrBindRequest $request
      * @param HotelQrBindHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -3125,53 +4088,67 @@ class AliGenie extends OpenApiClient
      */
     public function hotelQrBindWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $body['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$body['ExtInfo'] = $request->extInfo;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HotelQrBind',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/hotelQrBind',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotelQrBind',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/hotelQrBind',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return HotelQrBindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店带屏设备扫码绑定.
+     *
+     * @param request - HotelQrBindRequest
+     *
+     * @returns HotelQrBindResponse
+     *
      * @param HotelQrBindRequest $request
      *
      * @return HotelQrBindResponse
@@ -3185,6 +4162,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量导入酒店配置.
+     *
+     * @param tmpReq - ImportHotelConfigRequest
+     * @param headers - ImportHotelConfigHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportHotelConfigResponse
+     *
      * @param ImportHotelConfigRequest $tmpReq
      * @param ImportHotelConfigHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -3193,49 +4178,61 @@ class AliGenie extends OpenApiClient
      */
     public function importHotelConfigWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ImportHotelConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->importHotelConfig)) {
-            $request->importHotelConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->importHotelConfig, 'ImportHotelConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->importHotelConfig) {
+            $request->importHotelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->importHotelConfig, 'ImportHotelConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->importHotelConfigShrink)) {
-            $body['ImportHotelConfig'] = $request->importHotelConfigShrink;
+
+        if (null !== $request->importHotelConfigShrink) {
+            @$body['ImportHotelConfig'] = $request->importHotelConfigShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportHotelConfig',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/importHotelConfig',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ImportHotelConfig',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/importHotelConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportHotelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量导入酒店配置.
+     *
+     * @param request - ImportHotelConfigRequest
+     *
+     * @returns ImportHotelConfigResponse
+     *
      * @param ImportHotelConfigRequest $request
      *
      * @return ImportHotelConfigResponse
@@ -3249,6 +4246,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 批量导入设备（同时补充房型）.
+     *
+     * @param tmpReq - ImportRoomControlDevicesRequest
+     * @param headers - ImportRoomControlDevicesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportRoomControlDevicesResponse
+     *
      * @param ImportRoomControlDevicesRequest $tmpReq
      * @param ImportRoomControlDevicesHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -3257,55 +4262,73 @@ class AliGenie extends OpenApiClient
      */
     public function importRoomControlDevicesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ImportRoomControlDevicesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->locationDevices)) {
-            $request->locationDevicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDevices, 'LocationDevices', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->locationDevices) {
+            $request->locationDevicesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locationDevices, 'LocationDevices', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->enableInfraredDeviceImport)) {
-            $body['EnableInfraredDeviceImport'] = $request->enableInfraredDeviceImport;
+        if (null !== $request->enableInfraredDeviceImport) {
+            @$body['EnableInfraredDeviceImport'] = $request->enableInfraredDeviceImport;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->enableMeshDeviceImport) {
+            @$body['EnableMeshDeviceImport'] = $request->enableMeshDeviceImport;
         }
-        if (!Utils::isUnset($request->locationDevicesShrink)) {
-            $body['LocationDevices'] = $request->locationDevicesShrink;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->locationDevicesShrink) {
+            @$body['LocationDevices'] = $request->locationDevicesShrink;
         }
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportRoomControlDevices',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/importRoomControlDevices',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ImportRoomControlDevices',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/importRoomControlDevices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportRoomControlDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 批量导入设备（同时补充房型）.
+     *
+     * @param request - ImportRoomControlDevicesRequest
+     *
+     * @returns ImportRoomControlDevicesResponse
+     *
      * @param ImportRoomControlDevicesRequest $request
      *
      * @return ImportRoomControlDevicesResponse
@@ -3319,6 +4342,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 导入房间内精灵场景.
+     *
+     * @param tmpReq - ImportRoomGenieScenesRequest
+     * @param headers - ImportRoomGenieScenesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportRoomGenieScenesResponse
+     *
      * @param ImportRoomGenieScenesRequest $tmpReq
      * @param ImportRoomGenieScenesHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -3327,52 +4358,65 @@ class AliGenie extends OpenApiClient
      */
     public function importRoomGenieScenesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ImportRoomGenieScenesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sceneList)) {
-            $request->sceneListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneList, 'SceneList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sceneList) {
+            $request->sceneListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneList, 'SceneList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
-        if (!Utils::isUnset($request->sceneListShrink)) {
-            $body['SceneList'] = $request->sceneListShrink;
+
+        if (null !== $request->sceneListShrink) {
+            @$body['SceneList'] = $request->sceneListShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportRoomGenieScenes',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/importRoomGenieScenes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ImportRoomGenieScenes',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/importRoomGenieScenes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportRoomGenieScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 导入房间内精灵场景.
+     *
+     * @param request - ImportRoomGenieScenesRequest
+     *
+     * @returns ImportRoomGenieScenesResponse
+     *
      * @param ImportRoomGenieScenesRequest $request
      *
      * @return ImportRoomGenieScenesResponse
@@ -3386,6 +4430,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景预订新增.
+     *
+     * @param tmpReq - InsertHotelSceneBookItemRequest
+     * @param headers - InsertHotelSceneBookItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertHotelSceneBookItemResponse
+     *
      * @param InsertHotelSceneBookItemRequest $tmpReq
      * @param InsertHotelSceneBookItemHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -3394,51 +4446,63 @@ class AliGenie extends OpenApiClient
      */
     public function insertHotelSceneBookItemWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsertHotelSceneBookItemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addHotelSceneItemReq)) {
-            $request->addHotelSceneItemReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addHotelSceneItemReq, 'AddHotelSceneItemReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addHotelSceneItemReq) {
+            $request->addHotelSceneItemReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addHotelSceneItemReq, 'AddHotelSceneItemReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->addHotelSceneItemReqShrink)) {
-            $query['AddHotelSceneItemReq'] = $request->addHotelSceneItemReqShrink;
+        if (null !== $request->addHotelSceneItemReqShrink) {
+            @$query['AddHotelSceneItemReq'] = $request->addHotelSceneItemReqShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsertHotelSceneBookItem',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/insertHotelSceneBookItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsertHotelSceneBookItem',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/insertHotelSceneBookItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsertHotelSceneBookItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景预订新增.
+     *
+     * @param request - InsertHotelSceneBookItemRequest
+     *
+     * @returns InsertHotelSceneBookItemResponse
+     *
      * @param InsertHotelSceneBookItemRequest $request
      *
      * @return InsertHotelSceneBookItemResponse
@@ -3452,6 +4516,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 机器人服务，消息推送
+     *
+     * @param request - InvokeRobotPushRequest
+     * @param headers - InvokeRobotPushHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeRobotPushResponse
+     *
      * @param InvokeRobotPushRequest $request
      * @param InvokeRobotPushHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -3460,47 +4532,63 @@ class AliGenie extends OpenApiClient
      */
     public function invokeRobotPushWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $body['PushType'] = $request->pushType;
+
+        if (null !== $request->pushType) {
+            @$body['PushType'] = $request->pushType;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomName) {
+            @$body['RoomName'] = $request->roomName;
         }
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvokeRobotPush',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/invokeRobotPush',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokeRobotPush',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/invokeRobotPush',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvokeRobotPushResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 机器人服务，消息推送
+     *
+     * @param request - InvokeRobotPushRequest
+     *
+     * @returns InvokeRobotPushResponse
+     *
      * @param InvokeRobotPushRequest $request
      *
      * @return InvokeRobotPushResponse
@@ -3514,6 +4602,13 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询省份.
+     *
+     * @param headers - ListAllProvincesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllProvincesResponse
+     *
      * @param ListAllProvincesHeaders $headers
      * @param RuntimeOptions          $runtime
      *
@@ -3522,34 +4617,41 @@ class AliGenie extends OpenApiClient
     public function listAllProvincesWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListAllProvinces',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listAllProvinces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAllProvinces',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listAllProvinces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAllProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询省份.
+     *
+     * @returns ListAllProvincesResponse
+     *
      * @return ListAllProvincesResponse
      */
     public function listAllProvinces()
@@ -3561,6 +4663,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询城市
+     *
+     * @param request - ListCitiesByProvinceRequest
+     * @param headers - ListCitiesByProvinceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCitiesByProvinceResponse
+     *
      * @param ListCitiesByProvinceRequest $request
      * @param ListCitiesByProvinceHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -3569,41 +4679,51 @@ class AliGenie extends OpenApiClient
      */
     public function listCitiesByProvinceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->province)) {
-            $body['Province'] = $request->province;
+        if (null !== $request->province) {
+            @$body['Province'] = $request->province;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCitiesByProvince',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listCitiesByProvince',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCitiesByProvince',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listCitiesByProvince',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCitiesByProvinceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询城市
+     *
+     * @param request - ListCitiesByProvinceRequest
+     *
+     * @returns ListCitiesByProvinceResponse
+     *
      * @param ListCitiesByProvinceRequest $request
      *
      * @return ListCitiesByProvinceResponse
@@ -3617,6 +4737,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询自定义问答列表.
+     *
+     * @param tmpReq - ListCustomQARequest
+     * @param headers - ListCustomQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomQAResponse
+     *
      * @param ListCustomQARequest $tmpReq
      * @param ListCustomQAHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -3625,52 +4753,65 @@ class AliGenie extends OpenApiClient
      */
     public function listCustomQAWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCustomQAShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $body['Page'] = $request->pageShrink;
+
+        if (null !== $request->pageShrink) {
+            @$body['Page'] = $request->pageShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCustomQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listCustomQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCustomQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listCustomQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCustomQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询自定义问答列表.
+     *
+     * @param request - ListCustomQARequest
+     *
+     * @returns ListCustomQAResponse
+     *
      * @param ListCustomQARequest $request
      *
      * @return ListCustomQAResponse
@@ -3684,6 +4825,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景对话模板
+     *
+     * @param request - ListDialogueTemplateRequest
+     * @param headers - ListDialogueTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDialogueTemplateResponse
+     *
      * @param ListDialogueTemplateRequest $request
      * @param ListDialogueTemplateHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -3692,41 +4841,51 @@ class AliGenie extends OpenApiClient
      */
     public function listDialogueTemplateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDialogueTemplate',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listDialogueTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDialogueTemplate',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listDialogueTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDialogueTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景对话模板
+     *
+     * @param request - ListDialogueTemplateRequest
+     *
+     * @returns ListDialogueTemplateResponse
+     *
      * @param ListDialogueTemplateRequest $request
      *
      * @return ListDialogueTemplateResponse
@@ -3740,6 +4899,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询酒店闹钟
+     *
+     * @param tmpReq - ListHotelAlarmRequest
+     * @param headers - ListHotelAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelAlarmResponse
+     *
      * @param ListHotelAlarmRequest $tmpReq
      * @param ListHotelAlarmHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -3748,49 +4915,61 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->rooms)) {
-            $request->roomsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rooms, 'Rooms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rooms) {
+            $request->roomsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rooms, 'Rooms', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomsShrink)) {
-            $body['Rooms'] = $request->roomsShrink;
+
+        if (null !== $request->roomsShrink) {
+            @$body['Rooms'] = $request->roomsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelAlarm',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/getHotelAlarmList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelAlarm',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/getHotelAlarmList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询酒店闹钟
+     *
+     * @param request - ListHotelAlarmRequest
+     *
+     * @returns ListHotelAlarmResponse
+     *
      * @param ListHotelAlarmRequest $request
      *
      * @return ListHotelAlarmResponse
@@ -3804,6 +4983,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店设备列表.
+     *
+     * @param tmpReq - ListHotelControlDeviceRequest
+     * @param headers - ListHotelControlDeviceHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelControlDeviceResponse
+     *
      * @param ListHotelControlDeviceRequest $tmpReq
      * @param ListHotelControlDeviceHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -3812,46 +4999,57 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelControlDeviceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelControlDeviceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelControlDevice',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelControlDevice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelControlDevice',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelControlDevice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelControlDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店设备列表.
+     *
+     * @param request - ListHotelControlDeviceRequest
+     *
+     * @returns ListHotelControlDeviceResponse
+     *
      * @param ListHotelControlDeviceRequest $request
      *
      * @return ListHotelControlDeviceResponse
@@ -3865,6 +5063,13 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店列表.
+     *
+     * @param headers - ListHotelInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelInfoResponse
+     *
      * @param ListHotelInfoHeaders $headers
      * @param RuntimeOptions       $runtime
      *
@@ -3873,34 +5078,41 @@ class AliGenie extends OpenApiClient
     public function listHotelInfoWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListHotelInfo',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelInfo',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店列表.
+     *
+     * @returns ListHotelInfoResponse
+     *
      * @return ListHotelInfoResponse
      */
     public function listHotelInfo()
@@ -3912,6 +5124,13 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取消息模板
+     *
+     * @param headers - ListHotelMessageTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelMessageTemplateResponse
+     *
      * @param ListHotelMessageTemplateHeaders $headers
      * @param RuntimeOptions                  $runtime
      *
@@ -3920,34 +5139,41 @@ class AliGenie extends OpenApiClient
     public function listHotelMessageTemplateWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListHotelMessageTemplate',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelMessageTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelMessageTemplate',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelMessageTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelMessageTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取消息模板
+     *
+     * @returns ListHotelMessageTemplateResponse
+     *
      * @return ListHotelMessageTemplateResponse
      */
     public function listHotelMessageTemplate()
@@ -3959,6 +5185,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店订单列表.
+     *
+     * @param tmpReq - ListHotelOrderRequest
+     * @param headers - ListHotelOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelOrderResponse
+     *
      * @param ListHotelOrderRequest $tmpReq
      * @param ListHotelOrderHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -3967,52 +5201,65 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelOrderWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelOrder',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelOrder',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelOrder',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店订单列表.
+     *
+     * @param request - ListHotelOrderRequest
+     *
+     * @returns ListHotelOrderResponse
+     *
      * @param ListHotelOrderRequest $request
      *
      * @return ListHotelOrderResponse
@@ -4026,6 +5273,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 获取酒店的所有房间.
+     *
+     * @param tmpReq - ListHotelRoomsRequest
+     * @param headers - ListHotelRoomsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelRoomsResponse
+     *
      * @param ListHotelRoomsRequest $tmpReq
      * @param ListHotelRoomsHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -4034,49 +5289,61 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelRoomsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelRoomsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelAdminRoom)) {
-            $request->hotelAdminRoomShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelAdminRoom, 'HotelAdminRoom', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelAdminRoom) {
+            $request->hotelAdminRoomShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelAdminRoom, 'HotelAdminRoom', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelAdminRoomShrink)) {
-            $body['HotelAdminRoom'] = $request->hotelAdminRoomShrink;
+        if (null !== $request->hotelAdminRoomShrink) {
+            @$body['HotelAdminRoom'] = $request->hotelAdminRoomShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelRooms',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelRooms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelRooms',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelRooms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取酒店的所有房间.
+     *
+     * @param request - ListHotelRoomsRequest
+     *
+     * @returns ListHotelRoomsResponse
+     *
      * @param ListHotelRoomsRequest $request
      *
      * @return ListHotelRoomsResponse
@@ -4090,6 +5357,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景预订列表（餐饮/SPA休闲/打车）.
+     *
+     * @param tmpReq - ListHotelSceneBookItemsRequest
+     * @param headers - ListHotelSceneBookItemsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelSceneBookItemsResponse
+     *
      * @param ListHotelSceneBookItemsRequest $tmpReq
      * @param ListHotelSceneBookItemsHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -4098,54 +5373,67 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelSceneBookItemsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelSceneBookItemsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageShrink)) {
-            $query['Page'] = $request->pageShrink;
+        if (null !== $request->pageShrink) {
+            @$query['Page'] = $request->pageShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelSceneBookItems',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelSceneBookItems',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelSceneBookItems',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelSceneBookItems',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelSceneBookItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景预订列表（餐饮/SPA休闲/打车）.
+     *
+     * @param request - ListHotelSceneBookItemsRequest
+     *
+     * @returns ListHotelSceneBookItemsResponse
+     *
      * @param ListHotelSceneBookItemsRequest $request
      *
      * @return ListHotelSceneBookItemsResponse
@@ -4159,6 +5447,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 服务项目.
+     *
+     * @param tmpReq - ListHotelSceneItemRequest
+     * @param headers - ListHotelSceneItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelSceneItemResponse
+     *
      * @param ListHotelSceneItemRequest $tmpReq
      * @param ListHotelSceneItemHeaders $headers
      * @param RuntimeOptions            $runtime
@@ -4167,52 +5463,65 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelSceneItemWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelSceneItemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelSceneItem',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelSceneItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelSceneItem',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelSceneItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelSceneItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 服务项目.
+     *
+     * @param request - ListHotelSceneItemRequest
+     *
+     * @returns ListHotelSceneItemResponse
+     *
      * @param ListHotelSceneItemRequest $request
      *
      * @return ListHotelSceneItemResponse
@@ -4226,6 +5535,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景列表（物品/服务/维修）.
+     *
+     * @param tmpReq - ListHotelSceneItemsRequest
+     * @param headers - ListHotelSceneItemsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelSceneItemsResponse
+     *
      * @param ListHotelSceneItemsRequest $tmpReq
      * @param ListHotelSceneItemsHeaders $headers
      * @param RuntimeOptions             $runtime
@@ -4234,51 +5551,63 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelSceneItemsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelSceneItemsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listHotelSceneReq)) {
-            $request->listHotelSceneReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listHotelSceneReq, 'ListHotelSceneReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listHotelSceneReq) {
+            $request->listHotelSceneReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listHotelSceneReq, 'ListHotelSceneReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->listHotelSceneReqShrink)) {
-            $query['ListHotelSceneReq'] = $request->listHotelSceneReqShrink;
+        if (null !== $request->listHotelSceneReqShrink) {
+            @$query['ListHotelSceneReq'] = $request->listHotelSceneReqShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelSceneItems',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelSceneItems',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelSceneItems',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelSceneItems',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelSceneItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景列表（物品/服务/维修）.
+     *
+     * @param request - ListHotelSceneItemsRequest
+     *
+     * @returns ListHotelSceneItemsResponse
+     *
      * @param ListHotelSceneItemsRequest $request
      *
      * @return ListHotelSceneItemsResponse
@@ -4292,6 +5621,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 服务分类列表.
+     *
+     * @param tmpReq - ListHotelServiceCategoryRequest
+     * @param headers - ListHotelServiceCategoryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelServiceCategoryResponse
+     *
      * @param ListHotelServiceCategoryRequest $tmpReq
      * @param ListHotelServiceCategoryHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -4300,46 +5637,57 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelServiceCategoryWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelServiceCategoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotelServiceCategory',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotelServiceCategory',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotelServiceCategory',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotelServiceCategory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelServiceCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 服务分类列表.
+     *
+     * @param request - ListHotelServiceCategoryRequest
+     *
+     * @returns ListHotelServiceCategoryResponse
+     *
      * @param ListHotelServiceCategoryRequest $request
      *
      * @return ListHotelServiceCategoryResponse
@@ -4353,6 +5701,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店列表(待审批/已拒绝/已通过).
+     *
+     * @param tmpReq - ListHotelsRequest
+     * @param headers - ListHotelsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotelsResponse
+     *
      * @param ListHotelsRequest $tmpReq
      * @param ListHotelsHeaders $headers
      * @param RuntimeOptions    $runtime
@@ -4361,57 +5717,71 @@ class AliGenie extends OpenApiClient
      */
     public function listHotelsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotelsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotelRequest)) {
-            $request->hotelRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelRequest, 'HotelRequest', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotelRequest) {
+            $request->hotelRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotelRequest, 'HotelRequest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->hotelRequestShrink)) {
-            $query['HotelRequest'] = $request->hotelRequestShrink;
+        if (null !== $request->hotelRequestShrink) {
+            @$query['HotelRequest'] = $request->hotelRequestShrink;
         }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $query['Page'] = $request->pageShrink;
+
+        if (null !== $request->pageShrink) {
+            @$query['Page'] = $request->pageShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotels',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listHotels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotels',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listHotels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListHotelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店列表(待审批/已拒绝/已通过).
+     *
+     * @param request - ListHotelsRequest
+     *
+     * @returns ListHotelsResponse
+     *
      * @param ListHotelsRequest $request
      *
      * @return ListHotelsResponse
@@ -4425,6 +5795,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询红外品牌列表.
+     *
+     * @param request - ListInfraredDeviceBrandsRequest
+     * @param headers - ListInfraredDeviceBrandsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInfraredDeviceBrandsResponse
+     *
      * @param ListInfraredDeviceBrandsRequest $request
      * @param ListInfraredDeviceBrandsHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -4433,44 +5811,55 @@ class AliGenie extends OpenApiClient
      */
     public function listInfraredDeviceBrandsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->category)) {
-            $body['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$body['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->serviceProvider)) {
-            $body['ServiceProvider'] = $request->serviceProvider;
+
+        if (null !== $request->serviceProvider) {
+            @$body['ServiceProvider'] = $request->serviceProvider;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInfraredDeviceBrands',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listInfraredDeviceBrands',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInfraredDeviceBrands',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listInfraredDeviceBrands',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInfraredDeviceBrandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询红外品牌列表.
+     *
+     * @param request - ListInfraredDeviceBrandsRequest
+     *
+     * @returns ListInfraredDeviceBrandsResponse
+     *
      * @param ListInfraredDeviceBrandsRequest $request
      *
      * @return ListInfraredDeviceBrandsResponse
@@ -4484,6 +5873,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询红外码库列表.
+     *
+     * @param request - ListInfraredRemoteControllersRequest
+     * @param headers - ListInfraredRemoteControllersHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInfraredRemoteControllersResponse
+     *
      * @param ListInfraredRemoteControllersRequest $request
      * @param ListInfraredRemoteControllersHeaders $headers
      * @param RuntimeOptions                       $runtime
@@ -4492,56 +5889,71 @@ class AliGenie extends OpenApiClient
      */
     public function listInfraredRemoteControllersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->brand)) {
-            $body['Brand'] = $request->brand;
+        if (null !== $request->brand) {
+            @$body['Brand'] = $request->brand;
         }
-        if (!Utils::isUnset($request->category)) {
-            $body['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$body['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->city)) {
-            $body['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$body['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->province)) {
-            $body['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$body['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->serviceProvider)) {
-            $body['ServiceProvider'] = $request->serviceProvider;
+
+        if (null !== $request->serviceProvider) {
+            @$body['ServiceProvider'] = $request->serviceProvider;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInfraredRemoteControllers',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listInfraredRemoteControllers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInfraredRemoteControllers',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listInfraredRemoteControllers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInfraredRemoteControllersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询红外码库列表.
+     *
+     * @param request - ListInfraredRemoteControllersRequest
+     *
+     * @returns ListInfraredRemoteControllersResponse
+     *
      * @param ListInfraredRemoteControllersRequest $request
      *
      * @return ListInfraredRemoteControllersResponse
@@ -4555,6 +5967,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询服务提供商.
+     *
+     * @param request - ListSTBServiceProvidersRequest
+     * @param headers - ListSTBServiceProvidersHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSTBServiceProvidersResponse
+     *
      * @param ListSTBServiceProvidersRequest $request
      * @param ListSTBServiceProvidersHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -4563,44 +5983,55 @@ class AliGenie extends OpenApiClient
      */
     public function listSTBServiceProvidersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->city)) {
-            $body['City'] = $request->city;
+        if (null !== $request->city) {
+            @$body['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->province)) {
-            $body['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$body['Province'] = $request->province;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSTBServiceProviders',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listSTBServiceProviders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSTBServiceProviders',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listSTBServiceProviders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSTBServiceProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询服务提供商.
+     *
+     * @param request - ListSTBServiceProvidersRequest
+     *
+     * @returns ListSTBServiceProvidersResponse
+     *
      * @param ListSTBServiceProvidersRequest $request
      *
      * @return ListSTBServiceProvidersResponse
@@ -4614,6 +6045,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景分类.
+     *
+     * @param request - ListSceneCategoryRequest
+     * @param headers - ListSceneCategoryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSceneCategoryResponse
+     *
      * @param ListSceneCategoryRequest $request
      * @param ListSceneCategoryHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -4622,44 +6061,55 @@ class AliGenie extends OpenApiClient
      */
     public function listSceneCategoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSceneCategory',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listSceneCategory',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSceneCategory',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listSceneCategory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSceneCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景分类.
+     *
+     * @param request - ListSceneCategoryRequest
+     *
+     * @returns ListSceneCategoryResponse
+     *
      * @param ListSceneCategoryRequest $request
      *
      * @return ListSceneCategoryResponse
@@ -4673,6 +6123,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询服务设施问答列表.
+     *
+     * @param tmpReq - ListServiceQARequest
+     * @param headers - ListServiceQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceQAResponse
+     *
      * @param ListServiceQARequest $tmpReq
      * @param ListServiceQAHeaders $headers
      * @param RuntimeOptions       $runtime
@@ -4681,55 +6139,69 @@ class AliGenie extends OpenApiClient
      */
     public function listServiceQAWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListServiceQAShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
+        if (null !== $request->active) {
+            @$body['Active'] = $request->active;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $body['Page'] = $request->pageShrink;
+
+        if (null !== $request->pageShrink) {
+            @$body['Page'] = $request->pageShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listServiceQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServiceQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listServiceQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListServiceQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询服务设施问答列表.
+     *
+     * @param request - ListServiceQARequest
+     *
+     * @returns ListServiceQAResponse
+     *
      * @param ListServiceQARequest $request
      *
      * @return ListServiceQAResponse
@@ -4743,6 +6215,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询工单列表.
+     *
+     * @param tmpReq - ListTicketsRequest
+     * @param headers - ListTicketsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $tmpReq
      * @param ListTicketsHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -4751,76 +6231,97 @@ class AliGenie extends OpenApiClient
      */
     public function listTicketsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTicketsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->page) {
+            $request->pageShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->isDesc)) {
-            $body['IsDesc'] = $request->isDesc;
+
+        if (null !== $request->isDesc) {
+            @$body['IsDesc'] = $request->isDesc;
         }
-        if (!Utils::isUnset($request->isNeedCallback)) {
-            $body['IsNeedCallback'] = $request->isNeedCallback;
+
+        if (null !== $request->isNeedCallback) {
+            @$body['IsNeedCallback'] = $request->isNeedCallback;
         }
-        if (!Utils::isUnset($request->isNeedCharges)) {
-            $body['IsNeedCharges'] = $request->isNeedCharges;
+
+        if (null !== $request->isNeedCharges) {
+            @$body['IsNeedCharges'] = $request->isNeedCharges;
         }
-        if (!Utils::isUnset($request->pageShrink)) {
-            $body['Page'] = $request->pageShrink;
+
+        if (null !== $request->pageShrink) {
+            @$body['Page'] = $request->pageShrink;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $body['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$body['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTickets',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/listTickets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTickets',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/listTickets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询工单列表.
+     *
+     * @param request - ListTicketsRequest
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $request
      *
      * @return ListTicketsResponse
@@ -4834,6 +6335,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 分页查询酒店房间主控设备.
+     *
+     * @param request - PageGetHotelRoomDevicesRequest
+     * @param headers - PageGetHotelRoomDevicesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageGetHotelRoomDevicesResponse
+     *
      * @param PageGetHotelRoomDevicesRequest $request
      * @param PageGetHotelRoomDevicesHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -4842,47 +6351,59 @@ class AliGenie extends OpenApiClient
      */
     public function pageGetHotelRoomDevicesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PageGetHotelRoomDevices',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pageGetHotelRoomDevices',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PageGetHotelRoomDevices',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pageGetHotelRoomDevices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageGetHotelRoomDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 分页查询酒店房间主控设备.
+     *
+     * @param request - PageGetHotelRoomDevicesRequest
+     *
+     * @returns PageGetHotelRoomDevicesResponse
+     *
      * @param PageGetHotelRoomDevicesRequest $request
      *
      * @return PageGetHotelRoomDevicesResponse
@@ -4896,6 +6417,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * pms事件上报.
+     *
+     * @param request - PmsEventReportRequest
+     * @param headers - PmsEventReportHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PmsEventReportResponse
+     *
      * @param PmsEventReportRequest $request
      * @param PmsEventReportHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -4904,41 +6433,51 @@ class AliGenie extends OpenApiClient
      */
     public function pmsEventReportWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->payload)) {
-            $body['Payload'] = $request->payload;
+        if (null !== $request->payload) {
+            @$body['Payload'] = $request->payload;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PmsEventReport',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pmsEventReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PmsEventReport',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pmsEventReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PmsEventReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * pms事件上报.
+     *
+     * @param request - PmsEventReportRequest
+     *
+     * @returns PmsEventReportResponse
+     *
      * @param PmsEventReportRequest $request
      *
      * @return PmsEventReportResponse
@@ -4952,6 +6491,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 推送酒店消息.
+     *
+     * @param tmpReq - PushHotelMessageRequest
+     * @param headers - PushHotelMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushHotelMessageResponse
+     *
      * @param PushHotelMessageRequest $tmpReq
      * @param PushHotelMessageHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -4960,46 +6507,57 @@ class AliGenie extends OpenApiClient
      */
     public function pushHotelMessageWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushHotelMessageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pushHotelMessageReq)) {
-            $request->pushHotelMessageReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pushHotelMessageReq, 'PushHotelMessageReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pushHotelMessageReq) {
+            $request->pushHotelMessageReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pushHotelMessageReq, 'PushHotelMessageReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pushHotelMessageReqShrink)) {
-            $query['PushHotelMessageReq'] = $request->pushHotelMessageReqShrink;
+        if (null !== $request->pushHotelMessageReqShrink) {
+            @$query['PushHotelMessageReq'] = $request->pushHotelMessageReqShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushHotelMessage',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pushHotelMessage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushHotelMessage',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pushHotelMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushHotelMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 推送酒店消息.
+     *
+     * @param request - PushHotelMessageRequest
+     *
+     * @returns PushHotelMessageResponse
+     *
      * @param PushHotelMessageRequest $request
      *
      * @return PushHotelMessageResponse
@@ -5013,6 +6571,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 推送音箱指令.
+     *
+     * @param tmpReq - PushVoiceBoxCommandsRequest
+     * @param headers - PushVoiceBoxCommandsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushVoiceBoxCommandsResponse
+     *
      * @param PushVoiceBoxCommandsRequest $tmpReq
      * @param PushVoiceBoxCommandsHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -5021,52 +6587,65 @@ class AliGenie extends OpenApiClient
      */
     public function pushVoiceBoxCommandsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushVoiceBoxCommandsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->commands)) {
-            $request->commandsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->commands) {
+            $request->commandsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commands, 'Commands', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commandsShrink)) {
-            $body['Commands'] = $request->commandsShrink;
+        if (null !== $request->commandsShrink) {
+            @$body['Commands'] = $request->commandsShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushVoiceBoxCommands',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pushVoiceBoxCommands',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushVoiceBoxCommands',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pushVoiceBoxCommands',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushVoiceBoxCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 推送音箱指令.
+     *
+     * @param request - PushVoiceBoxCommandsRequest
+     *
+     * @returns PushVoiceBoxCommandsResponse
+     *
      * @param PushVoiceBoxCommandsRequest $request
      *
      * @return PushVoiceBoxCommandsResponse
@@ -5080,6 +6659,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 直接推送欢迎语.
+     *
+     * @param request - PushWelcomeRequest
+     * @param headers - PushWelcomeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushWelcomeResponse
+     *
      * @param PushWelcomeRequest $request
      * @param PushWelcomeHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -5088,50 +6675,67 @@ class AliGenie extends OpenApiClient
      */
     public function pushWelcomeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomName) {
+            @$body['RoomName'] = $request->roomName;
         }
-        if (!Utils::isUnset($request->welcomeMusicUrl)) {
-            $body['WelcomeMusicUrl'] = $request->welcomeMusicUrl;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
-        if (!Utils::isUnset($request->welcomeText)) {
-            $body['WelcomeText'] = $request->welcomeText;
+
+        if (null !== $request->welcomeMusicUrl) {
+            @$body['WelcomeMusicUrl'] = $request->welcomeMusicUrl;
         }
+
+        if (null !== $request->welcomeText) {
+            @$body['WelcomeText'] = $request->welcomeText;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushWelcome',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pushWelcome',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushWelcome',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pushWelcome',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushWelcomeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 直接推送欢迎语.
+     *
+     * @param request - PushWelcomeRequest
+     *
+     * @returns PushWelcomeResponse
+     *
      * @param PushWelcomeRequest $request
      *
      * @return PushWelcomeResponse
@@ -5145,6 +6749,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 推送欢迎语.
+     *
+     * @param tmpReq - PushWelcomeTextAndMusicRequest
+     * @param headers - PushWelcomeTextAndMusicHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushWelcomeTextAndMusicResponse
+     *
      * @param PushWelcomeTextAndMusicRequest $tmpReq
      * @param PushWelcomeTextAndMusicHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -5153,52 +6765,69 @@ class AliGenie extends OpenApiClient
      */
     public function pushWelcomeTextAndMusicWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushWelcomeTextAndMusicShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templateVariable)) {
-            $request->templateVariableShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateVariable, 'TemplateVariable', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templateVariable) {
+            $request->templateVariableShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateVariable, 'TemplateVariable', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomName) {
+            @$body['RoomName'] = $request->roomName;
         }
-        if (!Utils::isUnset($request->templateVariableShrink)) {
-            $body['TemplateVariable'] = $request->templateVariableShrink;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
+
+        if (null !== $request->templateVariableShrink) {
+            @$body['TemplateVariable'] = $request->templateVariableShrink;
+        }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushWelcomeTextAndMusic',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/pushWelcomeTextAndMusic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushWelcomeTextAndMusic',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/pushWelcomeTextAndMusic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushWelcomeTextAndMusicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 推送欢迎语.
+     *
+     * @param request - PushWelcomeTextAndMusicRequest
+     *
+     * @returns PushWelcomeTextAndMusicResponse
+     *
      * @param PushWelcomeTextAndMusicRequest $request
      *
      * @return PushWelcomeTextAndMusicResponse
@@ -5212,6 +6841,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询酒店设备状态/模式状态查询.
+     *
+     * @param tmpReq - QueryDeviceStatusRequest
+     * @param headers - QueryDeviceStatusHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDeviceStatusResponse
+     *
      * @param QueryDeviceStatusRequest $tmpReq
      * @param QueryDeviceStatusHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -5220,52 +6857,65 @@ class AliGenie extends OpenApiClient
      */
     public function queryDeviceStatusWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryDeviceStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDeviceStatus',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/queryDeviceStatus',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryDeviceStatus',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/queryDeviceStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询酒店设备状态/模式状态查询.
+     *
+     * @param request - QueryDeviceStatusRequest
+     *
+     * @returns QueryDeviceStatusResponse
+     *
      * @param QueryDeviceStatusRequest $request
      *
      * @return QueryDeviceStatusResponse
@@ -5279,6 +6929,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询房间详细信息.
+     *
+     * @param request - QueryHotelRoomDetailRequest
+     * @param headers - QueryHotelRoomDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHotelRoomDetailResponse
+     *
      * @param QueryHotelRoomDetailRequest $request
      * @param QueryHotelRoomDetailHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -5287,53 +6945,67 @@ class AliGenie extends OpenApiClient
      */
     public function queryHotelRoomDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->mac)) {
-            $body['Mac'] = $request->mac;
+
+        if (null !== $request->mac) {
+            @$body['Mac'] = $request->mac;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
-        if (!Utils::isUnset($request->sn)) {
-            $body['Sn'] = $request->sn;
+
+        if (null !== $request->sn) {
+            @$body['Sn'] = $request->sn;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryHotelRoomDetail',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/queryHotelRoomDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryHotelRoomDetail',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/queryHotelRoomDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryHotelRoomDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询房间详细信息.
+     *
+     * @param request - QueryHotelRoomDetailRequest
+     *
+     * @returns QueryHotelRoomDetailResponse
+     *
      * @param QueryHotelRoomDetailRequest $request
      *
      * @return QueryHotelRoomDetailResponse
@@ -5347,6 +7019,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询酒店房间客控设备.
+     *
+     * @param request - QueryRoomControlDevicesRequest
+     * @param headers - QueryRoomControlDevicesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRoomControlDevicesResponse
+     *
      * @param QueryRoomControlDevicesRequest $request
      * @param QueryRoomControlDevicesHeaders $headers
      * @param RuntimeOptions                 $runtime
@@ -5355,44 +7035,55 @@ class AliGenie extends OpenApiClient
      */
     public function queryRoomControlDevicesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $query['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$query['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $query['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$query['RoomNo'] = $request->roomNo;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRoomControlDevices',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/queryRoomControlDevices',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryRoomControlDevices',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/queryRoomControlDevices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRoomControlDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询酒店房间客控设备.
+     *
+     * @param request - QueryRoomControlDevicesRequest
+     *
+     * @returns QueryRoomControlDevicesResponse
+     *
      * @param QueryRoomControlDevicesRequest $request
      *
      * @return QueryRoomControlDevicesResponse
@@ -5406,6 +7097,170 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 查询房间被控设备包含设备状态
+     *
+     * @param request - QueryRoomControlDevicesAndStatusRequest
+     * @param headers - QueryRoomControlDevicesAndStatusHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRoomControlDevicesAndStatusResponse
+     *
+     * @param QueryRoomControlDevicesAndStatusRequest $request
+     * @param QueryRoomControlDevicesAndStatusHeaders $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryRoomControlDevicesAndStatusResponse
+     */
+    public function queryRoomControlDevicesAndStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
+        }
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRoomControlDevicesAndStatus',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/queryRoomControlDevicesAndStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRoomControlDevicesAndStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询房间被控设备包含设备状态
+     *
+     * @param request - QueryRoomControlDevicesAndStatusRequest
+     *
+     * @returns QueryRoomControlDevicesAndStatusResponse
+     *
+     * @param QueryRoomControlDevicesAndStatusRequest $request
+     *
+     * @return QueryRoomControlDevicesAndStatusResponse
+     */
+    public function queryRoomControlDevicesAndStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryRoomControlDevicesAndStatusHeaders([]);
+
+        return $this->queryRoomControlDevicesAndStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询房态信息.
+     *
+     * @param request - QueryRoomStatusRequest
+     * @param headers - QueryRoomStatusHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRoomStatusResponse
+     *
+     * @param QueryRoomStatusRequest $request
+     * @param QueryRoomStatusHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryRoomStatusResponse
+     */
+    public function queryRoomStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
+        }
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRoomStatus',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/queryRoomStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRoomStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询房态信息.
+     *
+     * @param request - QueryRoomStatusRequest
+     *
+     * @returns QueryRoomStatusResponse
+     *
+     * @param QueryRoomStatusRequest $request
+     *
+     * @return QueryRoomStatusResponse
+     */
+    public function queryRoomStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryRoomStatusHeaders([]);
+
+        return $this->queryRoomStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询酒店场景列表.
+     *
+     * @param tmpReq - QuerySceneListRequest
+     * @param headers - QuerySceneListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySceneListResponse
+     *
      * @param QuerySceneListRequest $tmpReq
      * @param QuerySceneListHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -5414,61 +7269,77 @@ class AliGenie extends OpenApiClient
      */
     public function querySceneListWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QuerySceneListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sceneStates)) {
-            $request->sceneStatesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneStates, 'SceneStates', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sceneStates) {
+            $request->sceneStatesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneStates, 'SceneStates', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sceneTypes)) {
-            $request->sceneTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneTypes, 'SceneTypes', 'json');
+
+        if (null !== $tmpReq->sceneTypes) {
+            $request->sceneTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneTypes, 'SceneTypes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->templateInfoIds)) {
-            $request->templateInfoIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateInfoIds, 'TemplateInfoIds', 'json');
+
+        if (null !== $tmpReq->templateInfoIds) {
+            $request->templateInfoIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateInfoIds, 'TemplateInfoIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->sceneStatesShrink)) {
-            $body['SceneStates'] = $request->sceneStatesShrink;
+
+        if (null !== $request->sceneStatesShrink) {
+            @$body['SceneStates'] = $request->sceneStatesShrink;
         }
-        if (!Utils::isUnset($request->sceneTypesShrink)) {
-            $body['SceneTypes'] = $request->sceneTypesShrink;
+
+        if (null !== $request->sceneTypesShrink) {
+            @$body['SceneTypes'] = $request->sceneTypesShrink;
         }
-        if (!Utils::isUnset($request->templateInfoIdsShrink)) {
-            $body['TemplateInfoIds'] = $request->templateInfoIdsShrink;
+
+        if (null !== $request->templateInfoIdsShrink) {
+            @$body['TemplateInfoIds'] = $request->templateInfoIdsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QuerySceneList',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/querySceneList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QuerySceneList',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/querySceneList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySceneListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询酒店场景列表.
+     *
+     * @param request - QuerySceneListRequest
+     *
+     * @returns QuerySceneListResponse
+     *
      * @param QuerySceneListRequest $request
      *
      * @return QuerySceneListResponse
@@ -5482,6 +7353,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除子账号授权.
+     *
+     * @param request - RemoveChildAccountAuthRequest
+     * @param headers - RemoveChildAccountAuthHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveChildAccountAuthResponse
+     *
      * @param RemoveChildAccountAuthRequest $request
      * @param RemoveChildAccountAuthHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -5490,50 +7369,63 @@ class AliGenie extends OpenApiClient
      */
     public function removeChildAccountAuthWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->childAccountName)) {
-            $body['ChildAccountName'] = $request->childAccountName;
+
+        if (null !== $request->childAccountName) {
+            @$body['ChildAccountName'] = $request->childAccountName;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->tbOpenId)) {
-            $body['TbOpenId'] = $request->tbOpenId;
+
+        if (null !== $request->tbOpenId) {
+            @$body['TbOpenId'] = $request->tbOpenId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveChildAccountAuth',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/removeChildAccountAuth',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveChildAccountAuth',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/removeChildAccountAuth',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveChildAccountAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除子账号授权.
+     *
+     * @param request - RemoveChildAccountAuthRequest
+     *
+     * @returns RemoveChildAccountAuthResponse
+     *
      * @param RemoveChildAccountAuthRequest $request
      *
      * @return RemoveChildAccountAuthResponse
@@ -5547,6 +7439,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 删除酒店项目.
+     *
+     * @param request - RemoveHotelRequest
+     * @param headers - RemoveHotelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveHotelResponse
+     *
      * @param RemoveHotelRequest $request
      * @param RemoveHotelHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -5555,47 +7455,59 @@ class AliGenie extends OpenApiClient
      */
     public function removeHotelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->tbOpenId)) {
-            $body['TbOpenId'] = $request->tbOpenId;
+
+        if (null !== $request->tbOpenId) {
+            @$body['TbOpenId'] = $request->tbOpenId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveHotel',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/removeHotel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveHotel',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/removeHotel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveHotelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除酒店项目.
+     *
+     * @param request - RemoveHotelRequest
+     *
+     * @returns RemoveHotelResponse
+     *
      * @param RemoveHotelRequest $request
      *
      * @return RemoveHotelResponse
@@ -5609,6 +7521,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 重置欢迎语信息.
+     *
+     * @param request - ResetWelcomeTextAndMusicRequest
+     * @param headers - ResetWelcomeTextAndMusicHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetWelcomeTextAndMusicResponse
+     *
      * @param ResetWelcomeTextAndMusicRequest $request
      * @param ResetWelcomeTextAndMusicHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -5617,41 +7537,51 @@ class AliGenie extends OpenApiClient
      */
     public function resetWelcomeTextAndMusicWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResetWelcomeTextAndMusic',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/resetWelcomeTextAndMusic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ResetWelcomeTextAndMusic',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/resetWelcomeTextAndMusic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetWelcomeTextAndMusicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 重置欢迎语信息.
+     *
+     * @param request - ResetWelcomeTextAndMusicRequest
+     *
+     * @returns ResetWelcomeTextAndMusicResponse
+     *
      * @param ResetWelcomeTextAndMusicRequest $request
      *
      * @return ResetWelcomeTextAndMusicResponse
@@ -5665,6 +7595,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 退房
+     *
+     * @param tmpReq - RoomCheckOutRequest
+     * @param headers - RoomCheckOutHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RoomCheckOutResponse
+     *
      * @param RoomCheckOutRequest $tmpReq
      * @param RoomCheckOutHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -5673,52 +7611,65 @@ class AliGenie extends OpenApiClient
      */
     public function roomCheckOutWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RoomCheckOutShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deviceInfoShrink)) {
-            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RoomCheckOut',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/roomCheckOut',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RoomCheckOut',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/roomCheckOut',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RoomCheckOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 退房
+     *
+     * @param request - RoomCheckOutRequest
+     *
+     * @returns RoomCheckOutResponse
+     *
      * @param RoomCheckOutRequest $request
      *
      * @return RoomCheckOutResponse
@@ -5732,6 +7683,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 提交酒店订单.
+     *
+     * @param tmpReq - SubmitHotelOrderRequest
+     * @param headers - SubmitHotelOrderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitHotelOrderResponse
+     *
      * @param SubmitHotelOrderRequest $tmpReq
      * @param SubmitHotelOrderHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -5740,52 +7699,65 @@ class AliGenie extends OpenApiClient
      */
     public function submitHotelOrderWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitHotelOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+
+        if (null !== $tmpReq->userInfo) {
+            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->payloadShrink)) {
-            $query['Payload'] = $request->payloadShrink;
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
         }
-        if (!Utils::isUnset($request->userInfoShrink)) {
-            $query['UserInfo'] = $request->userInfoShrink;
+
+        if (null !== $request->userInfoShrink) {
+            @$query['UserInfo'] = $request->userInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitHotelOrder',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/submitHotelOrder',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitHotelOrder',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/submitHotelOrder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitHotelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 提交酒店订单.
+     *
+     * @param request - SubmitHotelOrderRequest
+     *
+     * @returns SubmitHotelOrderResponse
+     *
      * @param SubmitHotelOrderRequest $request
      *
      * @return SubmitHotelOrderResponse
@@ -5799,6 +7771,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 同步客控设备状态到主控设备.
+     *
+     * @param request - SyncDeviceStatusWithAkRequest
+     * @param headers - SyncDeviceStatusWithAkHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDeviceStatusWithAkResponse
+     *
      * @param SyncDeviceStatusWithAkRequest $request
      * @param SyncDeviceStatusWithAkHeaders $headers
      * @param RuntimeOptions                $runtime
@@ -5807,80 +7787,103 @@ class AliGenie extends OpenApiClient
      */
     public function syncDeviceStatusWithAkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryCnName)) {
-            $body['CategoryCnName'] = $request->categoryCnName;
+        if (null !== $request->categoryCnName) {
+            @$body['CategoryCnName'] = $request->categoryCnName;
         }
-        if (!Utils::isUnset($request->categoryEnName)) {
-            $body['CategoryEnName'] = $request->categoryEnName;
+
+        if (null !== $request->categoryEnName) {
+            @$body['CategoryEnName'] = $request->categoryEnName;
         }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
+
+        if (null !== $request->deviceName) {
+            @$body['DeviceName'] = $request->deviceName;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->location)) {
-            $body['Location'] = $request->location;
+
+        if (null !== $request->location) {
+            @$body['Location'] = $request->location;
         }
-        if (!Utils::isUnset($request->locationCnName)) {
-            $body['LocationCnName'] = $request->locationCnName;
+
+        if (null !== $request->locationCnName) {
+            @$body['LocationCnName'] = $request->locationCnName;
         }
-        if (!Utils::isUnset($request->number)) {
-            $body['Number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
         }
-        if (!Utils::isUnset($request->roomNo)) {
-            $body['RoomNo'] = $request->roomNo;
+
+        if (null !== $request->roomNo) {
+            @$body['RoomNo'] = $request->roomNo;
         }
-        if (!Utils::isUnset($request->switch_)) {
-            $body['Switch'] = $request->switch_;
+
+        if (null !== $request->switch) {
+            @$body['Switch'] = $request->switch;
         }
-        if (!Utils::isUnset($request->fanSpeed)) {
-            $body['fanSpeed'] = $request->fanSpeed;
+
+        if (null !== $request->fanSpeed) {
+            @$body['fanSpeed'] = $request->fanSpeed;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $body['mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$body['mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->roomTemperature)) {
-            $body['roomTemperature'] = $request->roomTemperature;
+
+        if (null !== $request->roomTemperature) {
+            @$body['roomTemperature'] = $request->roomTemperature;
         }
-        if (!Utils::isUnset($request->temperature)) {
-            $body['temperature'] = $request->temperature;
+
+        if (null !== $request->temperature) {
+            @$body['temperature'] = $request->temperature;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['value'] = $request->value;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncDeviceStatusWithAk',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/syncDeviceStatusWithAk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SyncDeviceStatusWithAk',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/syncDeviceStatusWithAk',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncDeviceStatusWithAkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 同步客控设备状态到主控设备.
+     *
+     * @param request - SyncDeviceStatusWithAkRequest
+     *
+     * @returns SyncDeviceStatusWithAkResponse
+     *
      * @param SyncDeviceStatusWithAkRequest $request
      *
      * @return SyncDeviceStatusWithAkResponse
@@ -5894,6 +7897,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改基础信息问答.
+     *
+     * @param request - UpdateBasicInfoQARequest
+     * @param headers - UpdateBasicInfoQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBasicInfoQAResponse
+     *
      * @param UpdateBasicInfoQARequest $request
      * @param UpdateBasicInfoQAHeaders $headers
      * @param RuntimeOptions           $runtime
@@ -5902,74 +7913,95 @@ class AliGenie extends OpenApiClient
      */
     public function updateBasicInfoQAWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkInTime)) {
-            $body['CheckInTime'] = $request->checkInTime;
+        if (null !== $request->checkInTime) {
+            @$body['CheckInTime'] = $request->checkInTime;
         }
-        if (!Utils::isUnset($request->checkOutTime)) {
-            $body['CheckOutTime'] = $request->checkOutTime;
+
+        if (null !== $request->checkOutTime) {
+            @$body['CheckOutTime'] = $request->checkOutTime;
         }
-        if (!Utils::isUnset($request->hotelAddress)) {
-            $body['HotelAddress'] = $request->hotelAddress;
+
+        if (null !== $request->hotelAddress) {
+            @$body['HotelAddress'] = $request->hotelAddress;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->hotelIntroduction)) {
-            $body['HotelIntroduction'] = $request->hotelIntroduction;
+
+        if (null !== $request->hotelIntroduction) {
+            @$body['HotelIntroduction'] = $request->hotelIntroduction;
         }
-        if (!Utils::isUnset($request->hotelMember)) {
-            $body['HotelMember'] = $request->hotelMember;
+
+        if (null !== $request->hotelMember) {
+            @$body['HotelMember'] = $request->hotelMember;
         }
-        if (!Utils::isUnset($request->hotelService)) {
-            $body['HotelService'] = $request->hotelService;
+
+        if (null !== $request->hotelService) {
+            @$body['HotelService'] = $request->hotelService;
         }
-        if (!Utils::isUnset($request->parkingExpenses)) {
-            $body['ParkingExpenses'] = $request->parkingExpenses;
+
+        if (null !== $request->parkingExpenses) {
+            @$body['ParkingExpenses'] = $request->parkingExpenses;
         }
-        if (!Utils::isUnset($request->parkingPosition)) {
-            $body['ParkingPosition'] = $request->parkingPosition;
+
+        if (null !== $request->parkingPosition) {
+            @$body['ParkingPosition'] = $request->parkingPosition;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$body['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->wifiName)) {
-            $body['WifiName'] = $request->wifiName;
+
+        if (null !== $request->wifiName) {
+            @$body['WifiName'] = $request->wifiName;
         }
-        if (!Utils::isUnset($request->wifiPassword)) {
-            $body['WifiPassword'] = $request->wifiPassword;
+
+        if (null !== $request->wifiPassword) {
+            @$body['WifiPassword'] = $request->wifiPassword;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBasicInfoQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateBasicInfoQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateBasicInfoQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateBasicInfoQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateBasicInfoQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改基础信息问答.
+     *
+     * @param request - UpdateBasicInfoQARequest
+     *
+     * @returns UpdateBasicInfoQAResponse
+     *
      * @param UpdateBasicInfoQARequest $request
      *
      * @return UpdateBasicInfoQAResponse
@@ -5983,6 +8015,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改自定义问答.
+     *
+     * @param tmpReq - UpdateCustomQARequest
+     * @param headers - UpdateCustomQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomQAResponse
+     *
      * @param UpdateCustomQARequest $tmpReq
      * @param UpdateCustomQAHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -5991,67 +8031,85 @@ class AliGenie extends OpenApiClient
      */
     public function updateCustomQAWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateCustomQAShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->answers)) {
-            $request->answersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->answers) {
+            $request->answersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'Answers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keyWords)) {
-            $request->keyWordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
+
+        if (null !== $tmpReq->keyWords) {
+            $request->keyWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keyWords, 'KeyWords', 'json');
         }
-        if (!Utils::isUnset($tmpReq->supplementaryQuestions)) {
-            $request->supplementaryQuestionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
+
+        if (null !== $tmpReq->supplementaryQuestions) {
+            $request->supplementaryQuestionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supplementaryQuestions, 'SupplementaryQuestions', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->answersShrink)) {
-            $body['Answers'] = $request->answersShrink;
+        if (null !== $request->answersShrink) {
+            @$body['Answers'] = $request->answersShrink;
         }
-        if (!Utils::isUnset($request->customQAId)) {
-            $body['CustomQAId'] = $request->customQAId;
+
+        if (null !== $request->customQAId) {
+            @$body['CustomQAId'] = $request->customQAId;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->keyWordsShrink)) {
-            $body['KeyWords'] = $request->keyWordsShrink;
+
+        if (null !== $request->keyWordsShrink) {
+            @$body['KeyWords'] = $request->keyWordsShrink;
         }
-        if (!Utils::isUnset($request->majorQuestion)) {
-            $body['MajorQuestion'] = $request->majorQuestion;
+
+        if (null !== $request->majorQuestion) {
+            @$body['MajorQuestion'] = $request->majorQuestion;
         }
-        if (!Utils::isUnset($request->supplementaryQuestionsShrink)) {
-            $body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
+
+        if (null !== $request->supplementaryQuestionsShrink) {
+            @$body['SupplementaryQuestions'] = $request->supplementaryQuestionsShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateCustomQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateCustomQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateCustomQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateCustomQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改自定义问答.
+     *
+     * @param request - UpdateCustomQARequest
+     *
+     * @returns UpdateCustomQAResponse
+     *
      * @param UpdateCustomQARequest $request
      *
      * @return UpdateCustomQAResponse
@@ -6065,6 +8123,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改酒店项目.
+     *
+     * @param tmpReq - UpdateHotelRequest
+     * @param headers - UpdateHotelHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHotelResponse
+     *
      * @param UpdateHotelRequest $tmpReq
      * @param UpdateHotelHeaders $headers
      * @param RuntimeOptions     $runtime
@@ -6073,76 +8139,97 @@ class AliGenie extends OpenApiClient
      */
     public function updateHotelWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateHotelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->relatedPks)) {
-            $request->relatedPksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedPks, 'RelatedPks', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->relatedPks) {
+            $request->relatedPksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedPks, 'RelatedPks', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->estOpenTime)) {
-            $body['EstOpenTime'] = $request->estOpenTime;
+
+        if (null !== $request->estOpenTime) {
+            @$body['EstOpenTime'] = $request->estOpenTime;
         }
-        if (!Utils::isUnset($request->hotelAddress)) {
-            $body['HotelAddress'] = $request->hotelAddress;
+
+        if (null !== $request->hotelAddress) {
+            @$body['HotelAddress'] = $request->hotelAddress;
         }
-        if (!Utils::isUnset($request->hotelEmail)) {
-            $body['HotelEmail'] = $request->hotelEmail;
+
+        if (null !== $request->hotelEmail) {
+            @$body['HotelEmail'] = $request->hotelEmail;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->hotelName)) {
-            $body['HotelName'] = $request->hotelName;
+
+        if (null !== $request->hotelName) {
+            @$body['HotelName'] = $request->hotelName;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$body['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->relatedPksShrink)) {
-            $body['RelatedPks'] = $request->relatedPksShrink;
+
+        if (null !== $request->relatedPksShrink) {
+            @$body['RelatedPks'] = $request->relatedPksShrink;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->roomNum)) {
-            $body['RoomNum'] = $request->roomNum;
+
+        if (null !== $request->roomNum) {
+            @$body['RoomNum'] = $request->roomNum;
         }
-        if (!Utils::isUnset($request->tbOpenId)) {
-            $body['TbOpenId'] = $request->tbOpenId;
+
+        if (null !== $request->tbOpenId) {
+            @$body['TbOpenId'] = $request->tbOpenId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateHotel',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateHotel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateHotel',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateHotel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateHotelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改酒店项目.
+     *
+     * @param request - UpdateHotelRequest
+     *
+     * @returns UpdateHotelResponse
+     *
      * @param UpdateHotelRequest $request
      *
      * @return UpdateHotelResponse
@@ -6156,6 +8243,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改酒店闹钟
+     *
+     * @param tmpReq - UpdateHotelAlarmRequest
+     * @param headers - UpdateHotelAlarmHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHotelAlarmResponse
+     *
      * @param UpdateHotelAlarmRequest $tmpReq
      * @param UpdateHotelAlarmHeaders $headers
      * @param RuntimeOptions          $runtime
@@ -6164,55 +8259,69 @@ class AliGenie extends OpenApiClient
      */
     public function updateHotelAlarmWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateHotelAlarmShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->alarms)) {
-            $request->alarmsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarms, 'Alarms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->alarms) {
+            $request->alarmsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alarms, 'Alarms', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleInfo)) {
-            $request->scheduleInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleInfo, 'ScheduleInfo', 'json');
+
+        if (null !== $tmpReq->scheduleInfo) {
+            $request->scheduleInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleInfo, 'ScheduleInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alarmsShrink)) {
-            $body['Alarms'] = $request->alarmsShrink;
+        if (null !== $request->alarmsShrink) {
+            @$body['Alarms'] = $request->alarmsShrink;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->scheduleInfoShrink)) {
-            $body['ScheduleInfo'] = $request->scheduleInfoShrink;
+
+        if (null !== $request->scheduleInfoShrink) {
+            @$body['ScheduleInfo'] = $request->scheduleInfoShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateHotelAlarm',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateHotelAlarm',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateHotelAlarm',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateHotelAlarm',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateHotelAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改酒店闹钟
+     *
+     * @param request - UpdateHotelAlarmRequest
+     *
+     * @returns UpdateHotelAlarmResponse
+     *
      * @param UpdateHotelAlarmRequest $request
      *
      * @return UpdateHotelAlarmResponse
@@ -6226,6 +8335,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景预订编辑.
+     *
+     * @param tmpReq - UpdateHotelSceneBookItemRequest
+     * @param headers - UpdateHotelSceneBookItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHotelSceneBookItemResponse
+     *
      * @param UpdateHotelSceneBookItemRequest $tmpReq
      * @param UpdateHotelSceneBookItemHeaders $headers
      * @param RuntimeOptions                  $runtime
@@ -6234,51 +8351,63 @@ class AliGenie extends OpenApiClient
      */
     public function updateHotelSceneBookItemWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateHotelSceneBookItemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateHotelSceneBookReq)) {
-            $request->updateHotelSceneBookReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneBookReq, 'UpdateHotelSceneBookReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateHotelSceneBookReq) {
+            $request->updateHotelSceneBookReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneBookReq, 'UpdateHotelSceneBookReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->updateHotelSceneBookReqShrink)) {
-            $query['UpdateHotelSceneBookReq'] = $request->updateHotelSceneBookReqShrink;
+        if (null !== $request->updateHotelSceneBookReqShrink) {
+            @$query['UpdateHotelSceneBookReq'] = $request->updateHotelSceneBookReqShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateHotelSceneBookItem',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateHotelSceneBookItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateHotelSceneBookItem',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateHotelSceneBookItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateHotelSceneBookItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景预订编辑.
+     *
+     * @param request - UpdateHotelSceneBookItemRequest
+     *
+     * @returns UpdateHotelSceneBookItemResponse
+     *
      * @param UpdateHotelSceneBookItemRequest $request
      *
      * @return UpdateHotelSceneBookItemResponse
@@ -6292,6 +8421,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 酒店场景修改（开启/关闭/编辑）.
+     *
+     * @param tmpReq - UpdateHotelSceneItemRequest
+     * @param headers - UpdateHotelSceneItemHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHotelSceneItemResponse
+     *
      * @param UpdateHotelSceneItemRequest $tmpReq
      * @param UpdateHotelSceneItemHeaders $headers
      * @param RuntimeOptions              $runtime
@@ -6300,57 +8437,71 @@ class AliGenie extends OpenApiClient
      */
     public function updateHotelSceneItemWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateHotelSceneItemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateHotelSceneOperateReq)) {
-            $request->updateHotelSceneOperateReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneOperateReq, 'UpdateHotelSceneOperateReq', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateHotelSceneOperateReq) {
+            $request->updateHotelSceneOperateReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneOperateReq, 'UpdateHotelSceneOperateReq', 'json');
         }
-        if (!Utils::isUnset($tmpReq->updateHotelSceneReq)) {
-            $request->updateHotelSceneReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneReq, 'UpdateHotelSceneReq', 'json');
+
+        if (null !== $tmpReq->updateHotelSceneReq) {
+            $request->updateHotelSceneReqShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateHotelSceneReq, 'UpdateHotelSceneReq', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->updateHotelSceneOperateReqShrink)) {
-            $query['UpdateHotelSceneOperateReq'] = $request->updateHotelSceneOperateReqShrink;
+        if (null !== $request->updateHotelSceneOperateReqShrink) {
+            @$query['UpdateHotelSceneOperateReq'] = $request->updateHotelSceneOperateReqShrink;
         }
-        if (!Utils::isUnset($request->updateHotelSceneReqShrink)) {
-            $query['UpdateHotelSceneReq'] = $request->updateHotelSceneReqShrink;
+
+        if (null !== $request->updateHotelSceneReqShrink) {
+            @$query['UpdateHotelSceneReq'] = $request->updateHotelSceneReqShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateHotelSceneItem',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateHotelSceneItem',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateHotelSceneItem',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateHotelSceneItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateHotelSceneItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 酒店场景修改（开启/关闭/编辑）.
+     *
+     * @param request - UpdateHotelSceneItemRequest
+     *
+     * @returns UpdateHotelSceneItemResponse
+     *
      * @param UpdateHotelSceneItemRequest $request
      *
      * @return UpdateHotelSceneItemResponse
@@ -6364,6 +8515,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 更新消息通知模板
+     *
+     * @param request - UpdateMessageTemplateRequest
+     * @param headers - UpdateMessageTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMessageTemplateResponse
+     *
      * @param UpdateMessageTemplateRequest $request
      * @param UpdateMessageTemplateHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -6372,47 +8531,59 @@ class AliGenie extends OpenApiClient
      */
     public function updateMessageTemplateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->templateDetail)) {
-            $body['TemplateDetail'] = $request->templateDetail;
+        if (null !== $request->templateDetail) {
+            @$body['TemplateDetail'] = $request->templateDetail;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMessageTemplate',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateMessageTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMessageTemplate',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateMessageTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateMessageTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新消息通知模板
+     *
+     * @param request - UpdateMessageTemplateRequest
+     *
+     * @returns UpdateMessageTemplateResponse
+     *
      * @param UpdateMessageTemplateRequest $request
      *
      * @return UpdateMessageTemplateResponse
@@ -6426,6 +8597,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改酒店自定义rcu场景.
+     *
+     * @param tmpReq - UpdateRcuSceneRequest
+     * @param headers - UpdateRcuSceneHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRcuSceneResponse
+     *
      * @param UpdateRcuSceneRequest $tmpReq
      * @param UpdateRcuSceneHeaders $headers
      * @param RuntimeOptions        $runtime
@@ -6434,52 +8613,65 @@ class AliGenie extends OpenApiClient
      */
     public function updateRcuSceneWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateRcuSceneShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sceneRelationExtDTO)) {
-            $request->sceneRelationExtDTOShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneRelationExtDTO, 'SceneRelationExtDTO', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sceneRelationExtDTO) {
+            $request->sceneRelationExtDTOShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sceneRelationExtDTO, 'SceneRelationExtDTO', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->sceneRelationExtDTOShrink)) {
-            $body['SceneRelationExtDTO'] = $request->sceneRelationExtDTOShrink;
+
+        if (null !== $request->sceneRelationExtDTOShrink) {
+            @$body['SceneRelationExtDTO'] = $request->sceneRelationExtDTOShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRcuScene',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateRcuScene',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateRcuScene',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateRcuScene',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRcuSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改酒店自定义rcu场景.
+     *
+     * @param request - UpdateRcuSceneRequest
+     *
+     * @returns UpdateRcuSceneResponse
+     *
      * @param UpdateRcuSceneRequest $request
      *
      * @return UpdateRcuSceneResponse
@@ -6493,6 +8685,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改服务设施问答.
+     *
+     * @param request - UpdateServiceQARequest
+     * @param headers - UpdateServiceQAHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceQAResponse
+     *
      * @param UpdateServiceQARequest $request
      * @param UpdateServiceQAHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -6501,50 +8701,63 @@ class AliGenie extends OpenApiClient
      */
     public function updateServiceQAWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->answer)) {
-            $body['Answer'] = $request->answer;
+        if (null !== $request->answer) {
+            @$body['Answer'] = $request->answer;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->serviceQAId)) {
-            $body['ServiceQAId'] = $request->serviceQAId;
+
+        if (null !== $request->serviceQAId) {
+            @$body['ServiceQAId'] = $request->serviceQAId;
         }
-        if (!Utils::isUnset($request->isActive)) {
-            $body['isActive'] = $request->isActive;
+
+        if (null !== $request->isActive) {
+            @$body['isActive'] = $request->isActive;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceQA',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateServiceQA',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceQA',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateServiceQA',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateServiceQAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改服务设施问答.
+     *
+     * @param request - UpdateServiceQARequest
+     *
+     * @returns UpdateServiceQAResponse
+     *
      * @param UpdateServiceQARequest $request
      *
      * @return UpdateServiceQAResponse
@@ -6558,6 +8771,14 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 修改工单.
+     *
+     * @param request - UpdateTicketRequest
+     * @param headers - UpdateTicketHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTicketResponse
+     *
      * @param UpdateTicketRequest $request
      * @param UpdateTicketHeaders $headers
      * @param RuntimeOptions      $runtime
@@ -6566,47 +8787,59 @@ class AliGenie extends OpenApiClient
      */
     public function updateTicketWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupKey)) {
-            $body['GroupKey'] = $request->groupKey;
+        if (null !== $request->groupKey) {
+            @$body['GroupKey'] = $request->groupKey;
         }
-        if (!Utils::isUnset($request->hotelId)) {
-            $body['HotelId'] = $request->hotelId;
+
+        if (null !== $request->hotelId) {
+            @$body['HotelId'] = $request->hotelId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
-            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
         }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTicket',
-            'version'     => 'ip_1.0',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1.0/ip/updateTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTicket',
+            'version' => 'ip_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/ip/updateTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 修改工单.
+     *
+     * @param request - UpdateTicketRequest
+     *
+     * @returns UpdateTicketResponse
+     *
      * @param UpdateTicketRequest $request
      *
      * @return UpdateTicketResponse

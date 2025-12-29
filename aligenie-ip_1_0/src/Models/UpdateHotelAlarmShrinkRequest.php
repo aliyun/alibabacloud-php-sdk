@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateHotelAlarmShrinkRequest extends Model
 {
@@ -14,8 +14,6 @@ class UpdateHotelAlarmShrinkRequest extends Model
     public $alarmsShrink;
 
     /**
-     * @example a7a381a668bc485980bed3876a75e013
-     *
      * @var string
      */
     public $hotelId;
@@ -25,24 +23,27 @@ class UpdateHotelAlarmShrinkRequest extends Model
      */
     public $scheduleInfoShrink;
     protected $_name = [
-        'alarmsShrink'       => 'Alarms',
-        'hotelId'            => 'HotelId',
+        'alarmsShrink' => 'Alarms',
+        'hotelId' => 'HotelId',
         'scheduleInfoShrink' => 'ScheduleInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmsShrink) {
             $res['Alarms'] = $this->alarmsShrink;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->scheduleInfoShrink) {
             $res['ScheduleInfo'] = $this->scheduleInfoShrink;
         }
@@ -50,20 +51,22 @@ class UpdateHotelAlarmShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateHotelAlarmShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alarms'])) {
             $model->alarmsShrink = $map['Alarms'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['ScheduleInfo'])) {
             $model->scheduleInfoShrink = $map['ScheduleInfo'];
         }

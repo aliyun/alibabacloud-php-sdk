@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListServiceQAResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $active;
 
     /**
-     * @example ***
-     *
      * @var string
      */
     public $answer;
 
     /**
-     * @example 2022-07-27 14:06:27
-     *
      * @var string
      */
     public $gmtModified;
@@ -35,8 +29,6 @@ class result extends Model
     public $question;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $serviceQAId;
@@ -46,36 +38,42 @@ class result extends Model
      */
     public $templates;
     protected $_name = [
-        'active'      => 'Active',
-        'answer'      => 'Answer',
+        'active' => 'Active',
+        'answer' => 'Answer',
         'gmtModified' => 'GmtModified',
-        'question'    => 'Question',
+        'question' => 'Question',
         'serviceQAId' => 'ServiceQAId',
-        'templates'   => 'Templates',
+        'templates' => 'Templates',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
+
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
+
         if (null !== $this->serviceQAId) {
             $res['ServiceQAId'] = $this->serviceQAId;
         }
+
         if (null !== $this->templates) {
             $res['Templates'] = $this->templates;
         }
@@ -83,29 +81,34 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
+
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }
+
         if (isset($map['ServiceQAId'])) {
             $model->serviceQAId = $map['ServiceQAId'];
         }
+
         if (isset($map['Templates'])) {
             $model->templates = $map['Templates'];
         }

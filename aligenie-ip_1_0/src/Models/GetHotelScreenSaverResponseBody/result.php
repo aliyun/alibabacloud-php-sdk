@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetHotelScreenSaverResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example https://ailabs.alibabausercontent.com/platform/3d4fe6d66ec49d9789635f66627f0339/welcome_audios/976210a6532150f49c2677a8b7dbc105/l6fspbhd.jpg
-     *
      * @var string
      */
     public $picUrl;
 
     /**
-     * @example common-weather
-     *
      * @var string
      */
     public $styleCode;
     protected $_name = [
-        'picUrl'    => 'PicUrl',
+        'picUrl' => 'PicUrl',
         'styleCode' => 'StyleCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->picUrl) {
             $res['PicUrl'] = $this->picUrl;
         }
+
         if (null !== $this->styleCode) {
             $res['StyleCode'] = $this->styleCode;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PicUrl'])) {
             $model->picUrl = $map['PicUrl'];
         }
+
         if (isset($map['StyleCode'])) {
             $model->styleCode = $map['StyleCode'];
         }

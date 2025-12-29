@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListInfraredRemoteControllersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @example 3747
-     *
      * @var int
      */
     public $rid;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'index'   => 'Index',
-        'rid'     => 'Rid',
+        'index' => 'Index',
+        'rid' => 'Rid',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -54,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

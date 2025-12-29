@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRcuSceneRequest extends Model
 {
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example yoga
-     *
      * @var string
      */
     public $sceneId;
@@ -28,14 +24,16 @@ class DeleteRcuSceneRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -43,17 +41,18 @@ class DeleteRcuSceneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRcuSceneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

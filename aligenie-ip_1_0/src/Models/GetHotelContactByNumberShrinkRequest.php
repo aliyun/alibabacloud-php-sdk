@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHotelContactByNumberShrinkRequest extends Model
 {
     /**
-     * @example 101
-     *
      * @var string
      */
     public $number;
@@ -20,20 +18,22 @@ class GetHotelContactByNumberShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'number'         => 'Number',
+        'number' => 'Number',
         'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -41,17 +41,18 @@ class GetHotelContactByNumberShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotelContactByNumberShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

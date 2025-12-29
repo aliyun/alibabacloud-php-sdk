@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelInfoResponseBody\result\authAccount;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -20,8 +20,6 @@ class result extends Model
     public $hotelAddress;
 
     /**
-     * @example cf2446fc9d144c85aaee4f9ae20a96e7
-     *
      * @var string
      */
     public $hotelId;
@@ -31,34 +29,42 @@ class result extends Model
      */
     public $hotelName;
     protected $_name = [
-        'authAccount'  => 'AuthAccount',
+        'authAccount' => 'AuthAccount',
         'hotelAddress' => 'HotelAddress',
-        'hotelId'      => 'HotelId',
-        'hotelName'    => 'HotelName',
+        'hotelId' => 'HotelId',
+        'hotelName' => 'HotelName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->authAccount)) {
+            Model::validateArray($this->authAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authAccount) {
-            $res['AuthAccount'] = [];
-            if (null !== $this->authAccount && \is_array($this->authAccount)) {
-                $n = 0;
-                foreach ($this->authAccount as $item) {
-                    $res['AuthAccount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authAccount)) {
+                $res['AuthAccount'] = [];
+                $n1 = 0;
+                foreach ($this->authAccount as $item1) {
+                    $res['AuthAccount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hotelAddress) {
             $res['HotelAddress'] = $this->hotelAddress;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->hotelName) {
             $res['HotelName'] = $this->hotelName;
         }
@@ -66,29 +72,33 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthAccount'])) {
             if (!empty($map['AuthAccount'])) {
                 $model->authAccount = [];
-                $n                  = 0;
-                foreach ($map['AuthAccount'] as $item) {
-                    $model->authAccount[$n++] = null !== $item ? authAccount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AuthAccount'] as $item1) {
+                    $model->authAccount[$n1] = authAccount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HotelAddress'])) {
             $model->hotelAddress = $map['HotelAddress'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['HotelName'])) {
             $model->hotelName = $map['HotelName'];
         }

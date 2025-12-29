@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchAddHotelRoomRequest extends Model
 {
     /**
-     * @example e6dd44fd16084db8a60d69fd625d9f0f
-     *
      * @var string
      */
     public $hotelId;
@@ -20,41 +18,59 @@ class BatchAddHotelRoomRequest extends Model
      */
     public $roomNoList;
     protected $_name = [
-        'hotelId'    => 'HotelId',
+        'hotelId' => 'HotelId',
         'roomNoList' => 'RoomNoList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roomNoList)) {
+            Model::validateArray($this->roomNoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->roomNoList) {
-            $res['RoomNoList'] = $this->roomNoList;
+            if (\is_array($this->roomNoList)) {
+                $res['RoomNoList'] = [];
+                $n1 = 0;
+                foreach ($this->roomNoList as $item1) {
+                    $res['RoomNoList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddHotelRoomRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['RoomNoList'])) {
             if (!empty($map['RoomNoList'])) {
-                $model->roomNoList = $map['RoomNoList'];
+                $model->roomNoList = [];
+                $n1 = 0;
+                foreach ($map['RoomNoList'] as $item1) {
+                    $model->roomNoList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

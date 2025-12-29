@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetHotelScreenSaverStyleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
@@ -14,48 +14,46 @@ class result extends Model
     public $cnName;
 
     /**
-     * @example common-weather
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example common-weather
-     *
      * @var string
      */
     public $enName;
 
     /**
-     * @example https://img.***.png
-     *
      * @var string
      */
     public $picUrl;
     protected $_name = [
         'cnName' => 'CnName',
-        'code'   => 'Code',
+        'code' => 'Code',
         'enName' => 'EnName',
         'picUrl' => 'PicUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cnName) {
             $res['CnName'] = $this->cnName;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->enName) {
             $res['EnName'] = $this->enName;
         }
+
         if (null !== $this->picUrl) {
             $res['PicUrl'] = $this->picUrl;
         }
@@ -63,23 +61,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CnName'])) {
             $model->cnName = $map['CnName'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['EnName'])) {
             $model->enName = $map['EnName'];
         }
+
         if (isset($map['PicUrl'])) {
             $model->picUrl = $map['PicUrl'];
         }

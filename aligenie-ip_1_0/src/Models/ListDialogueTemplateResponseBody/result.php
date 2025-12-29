@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListDialogueTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListDialogueTemplateResponseBody\result\templateDetail;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -15,48 +15,49 @@ class result extends Model
     public $templateDetail;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $templateId;
 
     /**
-     * @example 物品多轮模板
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @example GOODS
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'templateDetail' => 'TemplateDetail',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'type'           => 'Type',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->templateDetail) {
+            $this->templateDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateDetail) {
-            $res['TemplateDetail'] = null !== $this->templateDetail ? $this->templateDetail->toMap() : null;
+            $res['TemplateDetail'] = null !== $this->templateDetail ? $this->templateDetail->toArray($noStream) : $this->templateDetail;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -64,23 +65,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateDetail'])) {
             $model->templateDetail = templateDetail::fromMap($map['TemplateDetail']);
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

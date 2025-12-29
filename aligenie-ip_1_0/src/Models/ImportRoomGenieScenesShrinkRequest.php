@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportRoomGenieScenesShrinkRequest extends Model
 {
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 1211
-     *
      * @var string
      */
     public $roomNo;
@@ -27,24 +23,27 @@ class ImportRoomGenieScenesShrinkRequest extends Model
      */
     public $sceneListShrink;
     protected $_name = [
-        'hotelId'         => 'HotelId',
-        'roomNo'          => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'roomNo' => 'RoomNo',
         'sceneListShrink' => 'SceneList',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
+
         if (null !== $this->sceneListShrink) {
             $res['SceneList'] = $this->sceneListShrink;
         }
@@ -52,20 +51,22 @@ class ImportRoomGenieScenesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportRoomGenieScenesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }
+
         if (isset($map['SceneList'])) {
             $model->sceneListShrink = $map['SceneList'];
         }

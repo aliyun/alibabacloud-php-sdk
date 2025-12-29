@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushVoiceBoxCommandsShrinkRequest extends Model
 {
@@ -24,23 +24,26 @@ class PushVoiceBoxCommandsShrinkRequest extends Model
     public $roomNo;
     protected $_name = [
         'commandsShrink' => 'Commands',
-        'hotelId'        => 'HotelId',
-        'roomNo'         => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'roomNo' => 'RoomNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandsShrink) {
             $res['Commands'] = $this->commandsShrink;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
@@ -48,20 +51,22 @@ class PushVoiceBoxCommandsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushVoiceBoxCommandsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commands'])) {
             $model->commandsShrink = $map['Commands'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }

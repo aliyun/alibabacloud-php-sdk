@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AddOrUpdateScreenSaverRequest\hotelScreenSaver;
-use AlibabaCloud\Tea\Model;
 
 class AddOrUpdateScreenSaverRequest extends Model
 {
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
@@ -21,38 +19,44 @@ class AddOrUpdateScreenSaverRequest extends Model
      */
     public $hotelScreenSaver;
     protected $_name = [
-        'hotelId'          => 'HotelId',
+        'hotelId' => 'HotelId',
         'hotelScreenSaver' => 'HotelScreenSaver',
     ];
 
     public function validate()
     {
+        if (null !== $this->hotelScreenSaver) {
+            $this->hotelScreenSaver->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->hotelScreenSaver) {
-            $res['HotelScreenSaver'] = null !== $this->hotelScreenSaver ? $this->hotelScreenSaver->toMap() : null;
+            $res['HotelScreenSaver'] = null !== $this->hotelScreenSaver ? $this->hotelScreenSaver->toArray($noStream) : $this->hotelScreenSaver;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddOrUpdateScreenSaverRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['HotelScreenSaver'])) {
             $model->hotelScreenSaver = hotelScreenSaver::fromMap($map['HotelScreenSaver']);
         }

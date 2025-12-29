@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelRoomsRequest\hotelAdminRoom;
-use AlibabaCloud\Tea\Model;
 
 class ListHotelRoomsRequest extends Model
 {
@@ -15,26 +15,29 @@ class ListHotelRoomsRequest extends Model
     public $hotelAdminRoom;
 
     /**
-     * @example e6dd44fd16084db8a60d69fd625d9f0f
-     *
      * @var string
      */
     public $hotelId;
     protected $_name = [
         'hotelAdminRoom' => 'HotelAdminRoom',
-        'hotelId'        => 'HotelId',
+        'hotelId' => 'HotelId',
     ];
 
     public function validate()
     {
+        if (null !== $this->hotelAdminRoom) {
+            $this->hotelAdminRoom->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelAdminRoom) {
-            $res['HotelAdminRoom'] = null !== $this->hotelAdminRoom ? $this->hotelAdminRoom->toMap() : null;
+            $res['HotelAdminRoom'] = null !== $this->hotelAdminRoom ? $this->hotelAdminRoom->toArray($noStream) : $this->hotelAdminRoom;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
@@ -42,17 +45,18 @@ class ListHotelRoomsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelRoomsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelAdminRoom'])) {
             $model->hotelAdminRoom = hotelAdminRoom::fromMap($map['HotelAdminRoom']);
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }

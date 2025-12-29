@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySceneListShrinkRequest extends Model
 {
     /**
-     * @example af7***536
-     *
      * @var string
      */
     public $hotelId;
@@ -30,28 +28,32 @@ class QuerySceneListShrinkRequest extends Model
      */
     public $templateInfoIdsShrink;
     protected $_name = [
-        'hotelId'               => 'HotelId',
-        'sceneStatesShrink'     => 'SceneStates',
-        'sceneTypesShrink'      => 'SceneTypes',
+        'hotelId' => 'HotelId',
+        'sceneStatesShrink' => 'SceneStates',
+        'sceneTypesShrink' => 'SceneTypes',
         'templateInfoIdsShrink' => 'TemplateInfoIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->sceneStatesShrink) {
             $res['SceneStates'] = $this->sceneStatesShrink;
         }
+
         if (null !== $this->sceneTypesShrink) {
             $res['SceneTypes'] = $this->sceneTypesShrink;
         }
+
         if (null !== $this->templateInfoIdsShrink) {
             $res['TemplateInfoIds'] = $this->templateInfoIdsShrink;
         }
@@ -59,23 +61,26 @@ class QuerySceneListShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySceneListShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['SceneStates'])) {
             $model->sceneStatesShrink = $map['SceneStates'];
         }
+
         if (isset($map['SceneTypes'])) {
             $model->sceneTypesShrink = $map['SceneTypes'];
         }
+
         if (isset($map['TemplateInfoIds'])) {
             $model->templateInfoIdsShrink = $map['TemplateInfoIds'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomControlDevicesRequest\locationDevices\devices\multiKeySwitchExt;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class switchList extends Model
 {
@@ -33,32 +33,47 @@ class switchList extends Model
      */
     public $location;
     protected $_name = [
-        'aliasList'   => 'AliasList',
-        'category'    => 'Category',
+        'aliasList' => 'AliasList',
+        'category' => 'Category',
         'deviceIndex' => 'DeviceIndex',
-        'deviceName'  => 'DeviceName',
-        'location'    => 'Location',
+        'deviceName' => 'DeviceName',
+        'location' => 'Location',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aliasList)) {
+            Model::validateArray($this->aliasList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasList) {
-            $res['AliasList'] = $this->aliasList;
+            if (\is_array($this->aliasList)) {
+                $res['AliasList'] = [];
+                $n1 = 0;
+                foreach ($this->aliasList as $item1) {
+                    $res['AliasList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->deviceIndex) {
             $res['DeviceIndex'] = $this->deviceIndex;
         }
+
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
@@ -66,28 +81,37 @@ class switchList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return switchList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasList'])) {
             if (!empty($map['AliasList'])) {
-                $model->aliasList = $map['AliasList'];
+                $model->aliasList = [];
+                $n1 = 0;
+                foreach ($map['AliasList'] as $item1) {
+                    $model->aliasList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DeviceIndex'])) {
             $model->deviceIndex = $map['DeviceIndex'];
         }
+
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }

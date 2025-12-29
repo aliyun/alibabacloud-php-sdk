@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListTicketsResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dialogs extends Model
 {
@@ -18,20 +18,22 @@ class dialogs extends Model
      */
     public $question;
     protected $_name = [
-        'answer'   => 'Answer',
+        'answer' => 'Answer',
         'question' => 'Question',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
         }
+
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
@@ -39,17 +41,18 @@ class dialogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
         }
+
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }

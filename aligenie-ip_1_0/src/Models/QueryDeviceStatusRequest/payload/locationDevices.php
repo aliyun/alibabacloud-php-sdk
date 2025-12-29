@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryDeviceStatusRequest\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class locationDevices extends Model
 {
     /**
-     * @example night_light
-     *
      * @var string
      */
     public $deviceNumber;
 
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceType;
 
     /**
-     * @example room
-     *
      * @var string
      */
     public $location;
     protected $_name = [
         'deviceNumber' => 'DeviceNumber',
-        'deviceType'   => 'DeviceType',
-        'location'     => 'Location',
+        'deviceType' => 'DeviceType',
+        'location' => 'Location',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceNumber) {
             $res['DeviceNumber'] = $this->deviceNumber;
         }
+
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
@@ -54,20 +51,22 @@ class locationDevices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return locationDevices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceNumber'])) {
             $model->deviceNumber = $map['DeviceNumber'];
         }
+
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }

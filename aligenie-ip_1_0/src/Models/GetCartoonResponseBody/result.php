@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetCartoonResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example https://ai***.mp4
-     *
      * @var string
      */
     public $startVideoMd5;
 
     /**
-     * @example 40c8***97
-     *
      * @var string
      */
     public $startVideoUrl;
@@ -28,14 +24,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->startVideoMd5) {
             $res['StartVideoMd5'] = $this->startVideoMd5;
         }
+
         if (null !== $this->startVideoUrl) {
             $res['StartVideoUrl'] = $this->startVideoUrl;
         }
@@ -43,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StartVideoMd5'])) {
             $model->startVideoMd5 = $map['StartVideoMd5'];
         }
+
         if (isset($map['StartVideoUrl'])) {
             $model->startVideoUrl = $map['StartVideoUrl'];
         }

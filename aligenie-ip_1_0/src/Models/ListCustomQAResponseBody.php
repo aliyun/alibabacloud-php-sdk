@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListCustomQAResponseBody\page;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListCustomQAResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListCustomQAResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
@@ -23,8 +21,6 @@ class ListCustomQAResponseBody extends Model
     public $page;
 
     /**
-     * @example 0EC7***726E
-     *
      * @var string
      */
     public $requestId;
@@ -35,44 +31,54 @@ class ListCustomQAResponseBody extends Model
     public $result;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
-        'message'    => 'Message',
-        'page'       => 'Page',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
+        'message' => 'Message',
+        'page' => 'Page',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -80,32 +86,37 @@ class ListCustomQAResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomQAResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

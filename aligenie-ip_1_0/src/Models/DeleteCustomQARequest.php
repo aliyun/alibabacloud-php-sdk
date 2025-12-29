@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCustomQARequest extends Model
 {
@@ -14,26 +14,36 @@ class DeleteCustomQARequest extends Model
     public $customQAIds;
 
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
     protected $_name = [
         'customQAIds' => 'CustomQAIds',
-        'hotelId'     => 'HotelId',
+        'hotelId' => 'HotelId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->customQAIds)) {
+            Model::validateArray($this->customQAIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customQAIds) {
-            $res['CustomQAIds'] = $this->customQAIds;
+            if (\is_array($this->customQAIds)) {
+                $res['CustomQAIds'] = [];
+                $n1 = 0;
+                foreach ($this->customQAIds as $item1) {
+                    $res['CustomQAIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
@@ -41,19 +51,25 @@ class DeleteCustomQARequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCustomQARequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomQAIds'])) {
             if (!empty($map['CustomQAIds'])) {
-                $model->customQAIds = $map['CustomQAIds'];
+                $model->customQAIds = [];
+                $n1 = 0;
+                foreach ($map['CustomQAIds'] as $item1) {
+                    $model->customQAIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }

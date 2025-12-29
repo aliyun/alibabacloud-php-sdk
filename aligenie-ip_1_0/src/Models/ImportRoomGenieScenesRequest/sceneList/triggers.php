@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList\triggers\attributeValues;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList\triggers\device;
-use AlibabaCloud\Tea\Model;
 
 class triggers extends Model
 {
@@ -26,40 +26,59 @@ class triggers extends Model
     public $device;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
     protected $_name = [
         'attributeValues' => 'AttributeValues',
-        'corpusList'      => 'CorpusList',
-        'device'          => 'Device',
-        'type'            => 'Type',
+        'corpusList' => 'CorpusList',
+        'device' => 'Device',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->attributeValues)) {
+            Model::validateArray($this->attributeValues);
+        }
+        if (\is_array($this->corpusList)) {
+            Model::validateArray($this->corpusList);
+        }
+        if (null !== $this->device) {
+            $this->device->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeValues) {
-            $res['AttributeValues'] = [];
-            if (null !== $this->attributeValues && \is_array($this->attributeValues)) {
-                $n = 0;
-                foreach ($this->attributeValues as $item) {
-                    $res['AttributeValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attributeValues)) {
+                $res['AttributeValues'] = [];
+                $n1 = 0;
+                foreach ($this->attributeValues as $item1) {
+                    $res['AttributeValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->corpusList) {
-            $res['CorpusList'] = $this->corpusList;
+            if (\is_array($this->corpusList)) {
+                $res['CorpusList'] = [];
+                $n1 = 0;
+                foreach ($this->corpusList as $item1) {
+                    $res['CorpusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->device) {
-            $res['Device'] = null !== $this->device ? $this->device->toMap() : null;
+            $res['Device'] = null !== $this->device ? $this->device->toArray($noStream) : $this->device;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -67,31 +86,40 @@ class triggers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return triggers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeValues'])) {
             if (!empty($map['AttributeValues'])) {
                 $model->attributeValues = [];
-                $n                      = 0;
-                foreach ($map['AttributeValues'] as $item) {
-                    $model->attributeValues[$n++] = null !== $item ? attributeValues::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AttributeValues'] as $item1) {
+                    $model->attributeValues[$n1] = attributeValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CorpusList'])) {
             if (!empty($map['CorpusList'])) {
-                $model->corpusList = $map['CorpusList'];
+                $model->corpusList = [];
+                $n1 = 0;
+                foreach ($map['CorpusList'] as $item1) {
+                    $model->corpusList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Device'])) {
             $model->device = device::fromMap($map['Device']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

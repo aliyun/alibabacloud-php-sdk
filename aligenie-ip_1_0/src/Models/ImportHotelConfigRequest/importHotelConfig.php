@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportHotelConfigRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportHotelConfigRequest\importHotelConfig\rcuCustomScenes;
-use AlibabaCloud\Tea\Model;
 
 class importHotelConfig extends Model
 {
@@ -19,17 +19,22 @@ class importHotelConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->rcuCustomScenes)) {
+            Model::validateArray($this->rcuCustomScenes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rcuCustomScenes) {
-            $res['RcuCustomScenes'] = [];
-            if (null !== $this->rcuCustomScenes && \is_array($this->rcuCustomScenes)) {
-                $n = 0;
-                foreach ($this->rcuCustomScenes as $item) {
-                    $res['RcuCustomScenes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rcuCustomScenes)) {
+                $res['RcuCustomScenes'] = [];
+                $n1 = 0;
+                foreach ($this->rcuCustomScenes as $item1) {
+                    $res['RcuCustomScenes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class importHotelConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return importHotelConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RcuCustomScenes'])) {
             if (!empty($map['RcuCustomScenes'])) {
                 $model->rcuCustomScenes = [];
-                $n                      = 0;
-                foreach ($map['RcuCustomScenes'] as $item) {
-                    $model->rcuCustomScenes[$n++] = null !== $item ? rcuCustomScenes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RcuCustomScenes'] as $item1) {
+                    $model->rcuCustomScenes[$n1] = rcuCustomScenes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

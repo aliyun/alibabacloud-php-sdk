@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ControlRoomDeviceRequest extends Model
 {
     /**
-     * @example thing.attribute.set
-     * thing.attribute.adjust
      * @var string
      */
     public $cmd;
@@ -21,15 +19,11 @@ class ControlRoomDeviceRequest extends Model
     public $deviceIndex;
 
     /**
-     * @example INFRARED49122575595
-     *
      * @var string
      */
     public $deviceNumber;
 
     /**
-     * @example a7***83
-     *
      * @var string
      */
     public $hotelId;
@@ -40,42 +34,54 @@ class ControlRoomDeviceRequest extends Model
     public $properties;
 
     /**
-     * @example 1211
-     *
      * @var string
      */
     public $roomNo;
     protected $_name = [
-        'cmd'          => 'Cmd',
-        'deviceIndex'  => 'DeviceIndex',
+        'cmd' => 'Cmd',
+        'deviceIndex' => 'DeviceIndex',
         'deviceNumber' => 'DeviceNumber',
-        'hotelId'      => 'HotelId',
-        'properties'   => 'Properties',
-        'roomNo'       => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'properties' => 'Properties',
+        'roomNo' => 'RoomNo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cmd) {
             $res['Cmd'] = $this->cmd;
         }
+
         if (null !== $this->deviceIndex) {
             $res['DeviceIndex'] = $this->deviceIndex;
         }
+
         if (null !== $this->deviceNumber) {
             $res['DeviceNumber'] = $this->deviceNumber;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['Properties'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
@@ -83,29 +89,39 @@ class ControlRoomDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ControlRoomDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cmd'])) {
             $model->cmd = $map['Cmd'];
         }
+
         if (isset($map['DeviceIndex'])) {
             $model->deviceIndex = $map['DeviceIndex'];
         }
+
         if (isset($map['DeviceNumber'])) {
             $model->deviceNumber = $map['DeviceNumber'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                foreach ($map['Properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }

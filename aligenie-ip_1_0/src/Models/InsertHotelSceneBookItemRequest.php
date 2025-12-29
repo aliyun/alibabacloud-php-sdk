@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\InsertHotelSceneBookItemRequest\addHotelSceneItemReq;
-use AlibabaCloud\Tea\Model;
 
 class InsertHotelSceneBookItemRequest extends Model
 {
     /**
-     * @description addHotelSceneItemReq
-     *
      * @var addHotelSceneItemReq
      */
     public $addHotelSceneItemReq;
 
     /**
-     * @description hotelID
-     *
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
     protected $_name = [
         'addHotelSceneItemReq' => 'AddHotelSceneItemReq',
-        'hotelId'              => 'HotelId',
+        'hotelId' => 'HotelId',
     ];
 
     public function validate()
     {
+        if (null !== $this->addHotelSceneItemReq) {
+            $this->addHotelSceneItemReq->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addHotelSceneItemReq) {
-            $res['AddHotelSceneItemReq'] = null !== $this->addHotelSceneItemReq ? $this->addHotelSceneItemReq->toMap() : null;
+            $res['AddHotelSceneItemReq'] = null !== $this->addHotelSceneItemReq ? $this->addHotelSceneItemReq->toArray($noStream) : $this->addHotelSceneItemReq;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
@@ -46,17 +45,18 @@ class InsertHotelSceneBookItemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertHotelSceneBookItemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddHotelSceneItemReq'])) {
             $model->addHotelSceneItemReq = addHotelSceneItemReq::fromMap($map['AddHotelSceneItemReq']);
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }

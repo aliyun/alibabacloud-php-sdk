@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetWelcomeTextAndMusicResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class GetWelcomeTextAndMusicResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class GetWelcomeTextAndMusicResponseBody extends Model
     public $extentions;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 0EC7*726E
-     *
      * @var string
      */
     public $requestId;
@@ -34,38 +30,52 @@ class GetWelcomeTextAndMusicResponseBody extends Model
     public $result;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
         'extentions' => 'Extentions',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extentions)) {
+            Model::validateArray($this->extentions);
+        }
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extentions) {
-            $res['Extentions'] = $this->extentions;
+            if (\is_array($this->extentions)) {
+                $res['Extentions'] = [];
+                foreach ($this->extentions as $key1 => $value1) {
+                    $res['Extentions'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -73,26 +83,35 @@ class GetWelcomeTextAndMusicResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWelcomeTextAndMusicResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extentions'])) {
-            $model->extentions = $map['Extentions'];
+            if (!empty($map['Extentions'])) {
+                $model->extentions = [];
+                foreach ($map['Extentions'] as $key1 => $value1) {
+                    $model->extentions[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

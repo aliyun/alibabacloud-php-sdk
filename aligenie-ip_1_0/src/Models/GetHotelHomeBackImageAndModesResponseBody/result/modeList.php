@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetHotelHomeBackImageAndModesResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modeList extends Model
 {
     /**
-     * @example 浪漫模式
-     *
      * @var string
      */
     public $cnName;
 
     /**
-     * @example romantic
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/changjingmoshi/langman.png
-     *
      * @var string
      */
     public $icon;
     protected $_name = [
         'cnName' => 'CnName',
-        'code'   => 'Code',
-        'icon'   => 'Icon',
+        'code' => 'Code',
+        'icon' => 'Icon',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cnName) {
             $res['CnName'] = $this->cnName;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
@@ -54,20 +51,22 @@ class modeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CnName'])) {
             $model->cnName = $map['CnName'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }

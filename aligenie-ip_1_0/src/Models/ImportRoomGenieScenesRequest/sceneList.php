@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList\actions;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList\triggers;
-use AlibabaCloud\Tea\Model;
 
 class sceneList extends Model
 {
@@ -21,15 +21,11 @@ class sceneList extends Model
     public $description;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $display;
 
     /**
-     * @example http://xxx.com/yyy.png
-     *
      * @var string
      */
     public $icon;
@@ -40,8 +36,6 @@ class sceneList extends Model
     public $sceneName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $triggerLogical;
@@ -51,52 +45,67 @@ class sceneList extends Model
      */
     public $triggers;
     protected $_name = [
-        'actions'        => 'Actions',
-        'description'    => 'Description',
-        'display'        => 'Display',
-        'icon'           => 'Icon',
-        'sceneName'      => 'SceneName',
+        'actions' => 'Actions',
+        'description' => 'Description',
+        'display' => 'Display',
+        'icon' => 'Icon',
+        'sceneName' => 'SceneName',
         'triggerLogical' => 'TriggerLogical',
-        'triggers'       => 'Triggers',
+        'triggers' => 'Triggers',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        if (\is_array($this->triggers)) {
+            Model::validateArray($this->triggers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actions) {
-            $res['Actions'] = [];
-            if (null !== $this->actions && \is_array($this->actions)) {
-                $n = 0;
-                foreach ($this->actions as $item) {
-                    $res['Actions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actions)) {
+                $res['Actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['Actions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->display) {
             $res['Display'] = $this->display;
         }
+
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
+
         if (null !== $this->triggerLogical) {
             $res['TriggerLogical'] = $this->triggerLogical;
         }
+
         if (null !== $this->triggers) {
-            $res['Triggers'] = [];
-            if (null !== $this->triggers && \is_array($this->triggers)) {
-                $n = 0;
-                foreach ($this->triggers as $item) {
-                    $res['Triggers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->triggers)) {
+                $res['Triggers'] = [];
+                $n1 = 0;
+                foreach ($this->triggers as $item1) {
+                    $res['Triggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,44 +113,52 @@ class sceneList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sceneList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n              = 0;
-                foreach ($map['Actions'] as $item) {
-                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Actions'] as $item1) {
+                    $model->actions[$n1] = actions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Display'])) {
             $model->display = $map['Display'];
         }
+
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
+
         if (isset($map['TriggerLogical'])) {
             $model->triggerLogical = $map['TriggerLogical'];
         }
+
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n               = 0;
-                foreach ($map['Triggers'] as $item) {
-                    $model->triggers[$n++] = null !== $item ? triggers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Triggers'] as $item1) {
+                    $model->triggers[$n1] = triggers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

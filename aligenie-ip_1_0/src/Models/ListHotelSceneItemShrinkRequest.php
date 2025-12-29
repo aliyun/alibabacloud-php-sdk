@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListHotelSceneItemShrinkRequest extends Model
 {
@@ -18,20 +18,22 @@ class ListHotelSceneItemShrinkRequest extends Model
      */
     public $userInfoShrink;
     protected $_name = [
-        'payloadShrink'  => 'Payload',
+        'payloadShrink' => 'Payload',
         'userInfoShrink' => 'UserInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payloadShrink) {
             $res['Payload'] = $this->payloadShrink;
         }
+
         if (null !== $this->userInfoShrink) {
             $res['UserInfo'] = $this->userInfoShrink;
         }
@@ -39,17 +41,18 @@ class ListHotelSceneItemShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelSceneItemShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Payload'])) {
             $model->payloadShrink = $map['Payload'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfoShrink = $map['UserInfo'];
         }

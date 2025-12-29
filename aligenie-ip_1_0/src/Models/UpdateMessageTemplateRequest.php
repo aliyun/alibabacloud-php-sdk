@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMessageTemplateRequest extends Model
 {
@@ -14,8 +14,6 @@ class UpdateMessageTemplateRequest extends Model
     public $templateDetail;
 
     /**
-     * @example 123123
-     *
      * @var int
      */
     public $templateId;
@@ -26,23 +24,26 @@ class UpdateMessageTemplateRequest extends Model
     public $templateName;
     protected $_name = [
         'templateDetail' => 'TemplateDetail',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateDetail) {
             $res['TemplateDetail'] = $this->templateDetail;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -50,20 +51,22 @@ class UpdateMessageTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMessageTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateDetail'])) {
             $model->templateDetail = $map['TemplateDetail'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

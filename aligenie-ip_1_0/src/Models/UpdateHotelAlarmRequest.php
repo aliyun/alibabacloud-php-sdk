@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateHotelAlarmRequest\alarms;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateHotelAlarmRequest\scheduleInfo;
-use AlibabaCloud\Tea\Model;
 
 class UpdateHotelAlarmRequest extends Model
 {
@@ -16,8 +16,6 @@ class UpdateHotelAlarmRequest extends Model
     public $alarms;
 
     /**
-     * @example a7a381a668bc485980bed3876a75e013
-     *
      * @var string
      */
     public $hotelId;
@@ -27,57 +25,70 @@ class UpdateHotelAlarmRequest extends Model
      */
     public $scheduleInfo;
     protected $_name = [
-        'alarms'       => 'Alarms',
-        'hotelId'      => 'HotelId',
+        'alarms' => 'Alarms',
+        'hotelId' => 'HotelId',
         'scheduleInfo' => 'ScheduleInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alarms)) {
+            Model::validateArray($this->alarms);
+        }
+        if (null !== $this->scheduleInfo) {
+            $this->scheduleInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarms) {
-            $res['Alarms'] = [];
-            if (null !== $this->alarms && \is_array($this->alarms)) {
-                $n = 0;
-                foreach ($this->alarms as $item) {
-                    $res['Alarms'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alarms)) {
+                $res['Alarms'] = [];
+                $n1 = 0;
+                foreach ($this->alarms as $item1) {
+                    $res['Alarms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->scheduleInfo) {
-            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toMap() : null;
+            $res['ScheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toArray($noStream) : $this->scheduleInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateHotelAlarmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alarms'])) {
             if (!empty($map['Alarms'])) {
                 $model->alarms = [];
-                $n             = 0;
-                foreach ($map['Alarms'] as $item) {
-                    $model->alarms[$n++] = null !== $item ? alarms::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Alarms'] as $item1) {
+                    $model->alarms[$n1] = alarms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['ScheduleInfo'])) {
             $model->scheduleInfo = scheduleInfo::fromMap($map['ScheduleInfo']);
         }

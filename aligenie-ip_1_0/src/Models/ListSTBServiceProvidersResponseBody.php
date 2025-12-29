@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSTBServiceProvidersResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 1036C376-7A37-5A73-BE8B-C6DB40107EC1
-     *
      * @var string
      */
     public $requestId;
@@ -28,34 +24,51 @@ class ListSTBServiceProvidersResponseBody extends Model
     public $result;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                foreach ($this->result as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['Result'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['Result'][$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -63,23 +76,38 @@ class ListSTBServiceProvidersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSTBServiceProvidersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                foreach ($map['Result'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->result[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->result[$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

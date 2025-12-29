@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCustomQAShrinkRequest extends Model
 {
     /**
-     * @example 520a0c0***5eb
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example ***
-     *
      * @var string
      */
     public $keyword;
@@ -27,24 +23,27 @@ class ListCustomQAShrinkRequest extends Model
      */
     public $pageShrink;
     protected $_name = [
-        'hotelId'    => 'HotelId',
-        'keyword'    => 'Keyword',
+        'hotelId' => 'HotelId',
+        'keyword' => 'Keyword',
         'pageShrink' => 'Page',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageShrink) {
             $res['Page'] = $this->pageShrink;
         }
@@ -52,20 +51,22 @@ class ListCustomQAShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomQAShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Page'])) {
             $model->pageShrink = $map['Page'];
         }

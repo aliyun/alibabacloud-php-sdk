@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListDialogueTemplateResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListDialogueTemplateResponseBody\result\templateDetail\firstDialogueTemplate;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListDialogueTemplateResponseBody\result\templateDetail\secondDialogueTemplate;
-use AlibabaCloud\Tea\Model;
 
 class templateDetail extends Model
 {
@@ -20,38 +20,47 @@ class templateDetail extends Model
      */
     public $secondDialogueTemplate;
     protected $_name = [
-        'firstDialogueTemplate'  => 'FirstDialogueTemplate',
+        'firstDialogueTemplate' => 'FirstDialogueTemplate',
         'secondDialogueTemplate' => 'SecondDialogueTemplate',
     ];
 
     public function validate()
     {
+        if (null !== $this->firstDialogueTemplate) {
+            $this->firstDialogueTemplate->validate();
+        }
+        if (null !== $this->secondDialogueTemplate) {
+            $this->secondDialogueTemplate->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firstDialogueTemplate) {
-            $res['FirstDialogueTemplate'] = null !== $this->firstDialogueTemplate ? $this->firstDialogueTemplate->toMap() : null;
+            $res['FirstDialogueTemplate'] = null !== $this->firstDialogueTemplate ? $this->firstDialogueTemplate->toArray($noStream) : $this->firstDialogueTemplate;
         }
+
         if (null !== $this->secondDialogueTemplate) {
-            $res['SecondDialogueTemplate'] = null !== $this->secondDialogueTemplate ? $this->secondDialogueTemplate->toMap() : null;
+            $res['SecondDialogueTemplate'] = null !== $this->secondDialogueTemplate ? $this->secondDialogueTemplate->toArray($noStream) : $this->secondDialogueTemplate;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirstDialogueTemplate'])) {
             $model->firstDialogueTemplate = firstDialogueTemplate::fromMap($map['FirstDialogueTemplate']);
         }
+
         if (isset($map['SecondDialogueTemplate'])) {
             $model->secondDialogueTemplate = secondDialogueTemplate::fromMap($map['SecondDialogueTemplate']);
         }

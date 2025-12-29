@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCustomQAShrinkRequest extends Model
 {
@@ -14,8 +14,6 @@ class AddCustomQAShrinkRequest extends Model
     public $answersShrink;
 
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
@@ -26,8 +24,6 @@ class AddCustomQAShrinkRequest extends Model
     public $keyWordsShrink;
 
     /**
-     * @example ***
-     *
      * @var string
      */
     public $majorQuestion;
@@ -37,32 +33,37 @@ class AddCustomQAShrinkRequest extends Model
      */
     public $supplementaryQuestionsShrink;
     protected $_name = [
-        'answersShrink'                => 'Answers',
-        'hotelId'                      => 'HotelId',
-        'keyWordsShrink'               => 'KeyWords',
-        'majorQuestion'                => 'MajorQuestion',
+        'answersShrink' => 'Answers',
+        'hotelId' => 'HotelId',
+        'keyWordsShrink' => 'KeyWords',
+        'majorQuestion' => 'MajorQuestion',
         'supplementaryQuestionsShrink' => 'SupplementaryQuestions',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answersShrink) {
             $res['Answers'] = $this->answersShrink;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->keyWordsShrink) {
             $res['KeyWords'] = $this->keyWordsShrink;
         }
+
         if (null !== $this->majorQuestion) {
             $res['MajorQuestion'] = $this->majorQuestion;
         }
+
         if (null !== $this->supplementaryQuestionsShrink) {
             $res['SupplementaryQuestions'] = $this->supplementaryQuestionsShrink;
         }
@@ -70,26 +71,30 @@ class AddCustomQAShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCustomQAShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answers'])) {
             $model->answersShrink = $map['Answers'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['KeyWords'])) {
             $model->keyWordsShrink = $map['KeyWords'];
         }
+
         if (isset($map['MajorQuestion'])) {
             $model->majorQuestion = $map['MajorQuestion'];
         }
+
         if (isset($map['SupplementaryQuestions'])) {
             $model->supplementaryQuestionsShrink = $map['SupplementaryQuestions'];
         }

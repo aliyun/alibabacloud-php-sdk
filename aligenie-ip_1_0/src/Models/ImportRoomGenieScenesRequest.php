@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ImportRoomGenieScenesRequest\sceneList;
-use AlibabaCloud\Tea\Model;
 
 class ImportRoomGenieScenesRequest extends Model
 {
     /**
-     * @example a7a3***013
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 1211
-     *
      * @var string
      */
     public $roomNo;
@@ -28,30 +24,37 @@ class ImportRoomGenieScenesRequest extends Model
      */
     public $sceneList;
     protected $_name = [
-        'hotelId'   => 'HotelId',
-        'roomNo'    => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'roomNo' => 'RoomNo',
         'sceneList' => 'SceneList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->sceneList)) {
+            Model::validateArray($this->sceneList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
+
         if (null !== $this->sceneList) {
-            $res['SceneList'] = [];
-            if (null !== $this->sceneList && \is_array($this->sceneList)) {
-                $n = 0;
-                foreach ($this->sceneList as $item) {
-                    $res['SceneList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sceneList)) {
+                $res['SceneList'] = [];
+                $n1 = 0;
+                foreach ($this->sceneList as $item1) {
+                    $res['SceneList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,26 +62,29 @@ class ImportRoomGenieScenesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportRoomGenieScenesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }
+
         if (isset($map['SceneList'])) {
             if (!empty($map['SceneList'])) {
                 $model->sceneList = [];
-                $n                = 0;
-                foreach ($map['SceneList'] as $item) {
-                    $model->sceneList[$n++] = null !== $item ? sceneList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SceneList'] as $item1) {
+                    $model->sceneList[$n1] = sceneList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHotelAlarmResponseBody extends Model
 {
@@ -19,52 +19,59 @@ class DeleteHotelAlarmResponseBody extends Model
     public $message;
 
     /**
-     * @example 43***881
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $result;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
         'extentions' => 'Extentions',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extentions)) {
+            Model::validateArray($this->extentions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extentions) {
-            $res['Extentions'] = $this->extentions;
+            if (\is_array($this->extentions)) {
+                $res['Extentions'] = [];
+                foreach ($this->extentions as $key1 => $value1) {
+                    $res['Extentions'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -72,26 +79,35 @@ class DeleteHotelAlarmResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHotelAlarmResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extentions'])) {
-            $model->extentions = $map['Extentions'];
+            if (!empty($map['Extentions'])) {
+                $model->extentions = [];
+                foreach ($map['Extentions'] as $key1 => $value1) {
+                    $model->extentions[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

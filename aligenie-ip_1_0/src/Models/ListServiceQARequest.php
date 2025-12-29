@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListServiceQARequest\page;
-use AlibabaCloud\Tea\Model;
 
 class ListServiceQARequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $active;
 
     /**
-     * @example a7***83
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example ***
-     *
      * @var string
      */
     public $keyword;
@@ -35,52 +29,62 @@ class ListServiceQARequest extends Model
      */
     public $page;
     protected $_name = [
-        'active'  => 'Active',
+        'active' => 'Active',
         'hotelId' => 'HotelId',
         'keyword' => 'Keyword',
-        'page'    => 'Page',
+        'page' => 'Page',
     ];
 
     public function validate()
     {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceQARequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }

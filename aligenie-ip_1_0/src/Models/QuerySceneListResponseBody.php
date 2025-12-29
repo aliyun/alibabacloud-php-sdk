@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListResponseBody\results;
-use AlibabaCloud\Tea\Model;
 
 class QuerySceneListResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example FAFCD152-4791-5F2F-B0BE-2DC06FD4F05B
-     *
      * @var string
      */
     public $requestId;
@@ -29,40 +25,46 @@ class QuerySceneListResponseBody extends Model
     public $results;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'results'    => 'Results',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'results' => 'Results',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1 = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -70,29 +72,33 @@ class QuerySceneListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySceneListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

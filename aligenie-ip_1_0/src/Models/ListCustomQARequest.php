@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListCustomQARequest\page;
-use AlibabaCloud\Tea\Model;
 
 class ListCustomQARequest extends Model
 {
     /**
-     * @example 520a0c0***5eb
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example ***
-     *
      * @var string
      */
     public $keyword;
@@ -30,43 +26,51 @@ class ListCustomQARequest extends Model
     protected $_name = [
         'hotelId' => 'HotelId',
         'keyword' => 'Keyword',
-        'page'    => 'Page',
+        'page' => 'Page',
     ];
 
     public function validate()
     {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomQARequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }

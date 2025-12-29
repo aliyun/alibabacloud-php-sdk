@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AuditHotelRequest\auditHotelReq;
-use AlibabaCloud\Tea\Model;
 
 class AuditHotelRequest extends Model
 {
@@ -19,23 +19,27 @@ class AuditHotelRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->auditHotelReq) {
+            $this->auditHotelReq->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditHotelReq) {
-            $res['AuditHotelReq'] = null !== $this->auditHotelReq ? $this->auditHotelReq->toMap() : null;
+            $res['AuditHotelReq'] = null !== $this->auditHotelReq ? $this->auditHotelReq->toArray($noStream) : $this->auditHotelReq;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuditHotelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

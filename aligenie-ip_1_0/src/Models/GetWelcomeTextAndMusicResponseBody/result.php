@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetWelcomeTextAndMusicResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example a7***83
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example http://ailabsaicloudservice.alicdn.com/tmp/a.wav
-     *
      * @var string
      */
     public $musicUrl;
@@ -27,24 +23,27 @@ class result extends Model
      */
     public $text;
     protected $_name = [
-        'hotelId'  => 'HotelId',
+        'hotelId' => 'HotelId',
         'musicUrl' => 'MusicUrl',
-        'text'     => 'Text',
+        'text' => 'Text',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->musicUrl) {
             $res['MusicUrl'] = $this->musicUrl;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -52,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['MusicUrl'])) {
             $model->musicUrl = $map['MusicUrl'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

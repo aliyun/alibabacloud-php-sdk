@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSceneCategoryRequest extends Model
 {
     /**
-     * @description hotelId
-     *
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example REPAIR
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'hotelId' => 'HotelId',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -45,17 +41,18 @@ class ListSceneCategoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSceneCategoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

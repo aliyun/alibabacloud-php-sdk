@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateHotelAlarmRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateHotelAlarmRequest\scheduleInfo\once;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\UpdateHotelAlarmRequest\scheduleInfo\weekly;
-use AlibabaCloud\Tea\Model;
 
 class scheduleInfo extends Model
 {
@@ -16,10 +16,6 @@ class scheduleInfo extends Model
     public $once;
 
     /**
-     * @description ONCE, WEEKLY
-     *
-     * @example ONCE
-     *
      * @var string
      */
     public $type;
@@ -29,45 +25,56 @@ class scheduleInfo extends Model
      */
     public $weekly;
     protected $_name = [
-        'once'   => 'Once',
-        'type'   => 'Type',
+        'once' => 'Once',
+        'type' => 'Type',
         'weekly' => 'Weekly',
     ];
 
     public function validate()
     {
+        if (null !== $this->once) {
+            $this->once->validate();
+        }
+        if (null !== $this->weekly) {
+            $this->weekly->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->once) {
-            $res['Once'] = null !== $this->once ? $this->once->toMap() : null;
+            $res['Once'] = null !== $this->once ? $this->once->toArray($noStream) : $this->once;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weekly) {
-            $res['Weekly'] = null !== $this->weekly ? $this->weekly->toMap() : null;
+            $res['Weekly'] = null !== $this->weekly ? $this->weekly->toArray($noStream) : $this->weekly;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scheduleInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Once'])) {
             $model->once = once::fromMap($map['Once']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Weekly'])) {
             $model->weekly = weekly::fromMap($map['Weekly']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelInfoResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListHotelInfoResponseBody extends Model
 {
@@ -30,44 +30,59 @@ class ListHotelInfoResponseBody extends Model
     public $result;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $statusCode;
     protected $_name = [
         'extentions' => 'Extentions',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'statusCode' => 'StatusCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extentions)) {
+            Model::validateArray($this->extentions);
+        }
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extentions) {
-            $res['Extentions'] = $this->extentions;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extentions)) {
+                $res['Extentions'] = [];
+                foreach ($this->extentions as $key1 => $value1) {
+                    $res['Extentions'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->result) {
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -75,32 +90,42 @@ class ListHotelInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extentions'])) {
-            $model->extentions = $map['Extentions'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Result'])) {
-            if (!empty($map['Result'])) {
-                $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+            if (!empty($map['Extentions'])) {
+                $model->extentions = [];
+                foreach ($map['Extentions'] as $key1 => $value1) {
+                    $model->extentions[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Result'])) {
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

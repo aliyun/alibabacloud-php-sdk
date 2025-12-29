@@ -4,20 +4,21 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushWelcomeTextAndMusicRequest extends Model
 {
     /**
-     * @example af7***536
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 1211
-     *
+     * @var string
+     */
+    public $roomName;
+
+    /**
      * @var string
      */
     public $roomNo;
@@ -27,47 +28,74 @@ class PushWelcomeTextAndMusicRequest extends Model
      */
     public $templateVariable;
     protected $_name = [
-        'hotelId'          => 'HotelId',
-        'roomNo'           => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'roomName' => 'RoomName',
+        'roomNo' => 'RoomNo',
         'templateVariable' => 'TemplateVariable',
     ];
 
     public function validate()
     {
+        if (\is_array($this->templateVariable)) {
+            Model::validateArray($this->templateVariable);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
+        if (null !== $this->roomName) {
+            $res['RoomName'] = $this->roomName;
+        }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
+
         if (null !== $this->templateVariable) {
-            $res['TemplateVariable'] = $this->templateVariable;
+            if (\is_array($this->templateVariable)) {
+                $res['TemplateVariable'] = [];
+                foreach ($this->templateVariable as $key1 => $value1) {
+                    $res['TemplateVariable'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushWelcomeTextAndMusicRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
+        if (isset($map['RoomName'])) {
+            $model->roomName = $map['RoomName'];
+        }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }
+
         if (isset($map['TemplateVariable'])) {
-            $model->templateVariable = $map['TemplateVariable'];
+            if (!empty($map['TemplateVariable'])) {
+                $model->templateVariable = [];
+                foreach ($map['TemplateVariable'] as $key1 => $value1) {
+                    $model->templateVariable[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

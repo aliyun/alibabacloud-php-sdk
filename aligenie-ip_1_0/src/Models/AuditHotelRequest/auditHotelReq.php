@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\AuditHotelRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class auditHotelReq extends Model
 {
     /**
-     * @example 同意
-     *
      * @var string
      */
     public $auditOpinion;
 
     /**
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
     protected $_name = [
         'auditOpinion' => 'AuditOpinion',
-        'hotelId'      => 'HotelId',
-        'status'       => 'Status',
+        'hotelId' => 'HotelId',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditOpinion) {
             $res['AuditOpinion'] = $this->auditOpinion;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -54,20 +51,22 @@ class auditHotelReq extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return auditHotelReq
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditOpinion'])) {
             $model->auditOpinion = $map['AuditOpinion'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

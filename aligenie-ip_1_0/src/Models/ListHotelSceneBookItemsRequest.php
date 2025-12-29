@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneBookItemsRequest\page;
-use AlibabaCloud\Tea\Model;
 
 class ListHotelSceneBookItemsRequest extends Model
 {
     /**
-     * @description hotelID
-     *
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
@@ -24,30 +20,34 @@ class ListHotelSceneBookItemsRequest extends Model
     public $page;
 
     /**
-     * @example FOOD
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'hotelId' => 'HotelId',
-        'page'    => 'Page',
-        'type'    => 'Type',
+        'page' => 'Page',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,20 +55,22 @@ class ListHotelSceneBookItemsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelSceneBookItemsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

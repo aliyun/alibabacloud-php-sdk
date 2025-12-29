@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateHotelSceneBookItemShrinkRequest extends Model
 {
     /**
-     * @description hotelID
-     *
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @description updateHotelSceneBookReq
-     *
      * @var string
      */
     public $updateHotelSceneBookReqShrink;
     protected $_name = [
-        'hotelId'                       => 'HotelId',
+        'hotelId' => 'HotelId',
         'updateHotelSceneBookReqShrink' => 'UpdateHotelSceneBookReq',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->updateHotelSceneBookReqShrink) {
             $res['UpdateHotelSceneBookReq'] = $this->updateHotelSceneBookReqShrink;
         }
@@ -45,17 +41,18 @@ class UpdateHotelSceneBookItemShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateHotelSceneBookItemShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['UpdateHotelSceneBookReq'])) {
             $model->updateHotelSceneBookReqShrink = $map['UpdateHotelSceneBookReq'];
         }

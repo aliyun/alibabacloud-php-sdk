@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesResponseBody\result\devices;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QueryRoomControlDevicesResponseBody\result\devices\multiKeySwitchExt\switchList;
-use AlibabaCloud\Tea\Model;
 
 class multiKeySwitchExt extends Model
 {
@@ -19,17 +19,22 @@ class multiKeySwitchExt extends Model
 
     public function validate()
     {
+        if (\is_array($this->switchList)) {
+            Model::validateArray($this->switchList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->switchList) {
-            $res['SwitchList'] = [];
-            if (null !== $this->switchList && \is_array($this->switchList)) {
-                $n = 0;
-                foreach ($this->switchList as $item) {
-                    $res['SwitchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->switchList)) {
+                $res['SwitchList'] = [];
+                $n1 = 0;
+                foreach ($this->switchList as $item1) {
+                    $res['SwitchList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class multiKeySwitchExt extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return multiKeySwitchExt
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SwitchList'])) {
             if (!empty($map['SwitchList'])) {
                 $model->switchList = [];
-                $n                 = 0;
-                foreach ($map['SwitchList'] as $item) {
-                    $model->switchList[$n++] = null !== $item ? switchList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SwitchList'] as $item1) {
+                    $model->switchList[$n1] = switchList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pushHotelMessageReq extends Model
 {
     /**
-     * @example e6dd44fd16084db8a60d69fd625d9f0f
-     *
      * @var string
      */
     public $hotelId;
@@ -21,41 +19,49 @@ class pushHotelMessageReq extends Model
     public $paramMap;
 
     /**
-     * @example 102
-     *
      * @var string
      */
     public $roomNo;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'hotelId'    => 'HotelId',
-        'paramMap'   => 'ParamMap',
-        'roomNo'     => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'paramMap' => 'ParamMap',
+        'roomNo' => 'RoomNo',
         'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->paramMap)) {
+            Model::validateArray($this->paramMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->paramMap) {
-            $res['ParamMap'] = $this->paramMap;
+            if (\is_array($this->paramMap)) {
+                $res['ParamMap'] = [];
+                foreach ($this->paramMap as $key1 => $value1) {
+                    $res['ParamMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -63,23 +69,31 @@ class pushHotelMessageReq extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pushHotelMessageReq
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['ParamMap'])) {
-            $model->paramMap = $map['ParamMap'];
+            if (!empty($map['ParamMap'])) {
+                $model->paramMap = [];
+                foreach ($map['ParamMap'] as $key1 => $value1) {
+                    $model->paramMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

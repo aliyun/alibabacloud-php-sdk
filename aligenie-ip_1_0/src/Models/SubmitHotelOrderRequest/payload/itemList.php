@@ -4,58 +4,71 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\SubmitHotelOrderRequest\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class itemList extends Model
 {
     /**
-     * @example 152860
-     *
      * @var int
      */
     public $itemId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $quantity;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
-        'itemId'   => 'ItemId',
+        'itemId' => 'ItemId',
         'quantity' => 'Quantity',
+        'remark' => 'Remark',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
+
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return itemList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
+
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

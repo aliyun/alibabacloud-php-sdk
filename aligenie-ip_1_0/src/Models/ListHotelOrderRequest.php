@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelOrderRequest\payload;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelOrderRequest\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListHotelOrderRequest extends Model
 {
@@ -20,38 +20,47 @@ class ListHotelOrderRequest extends Model
      */
     public $userInfo;
     protected $_name = [
-        'payload'  => 'Payload',
+        'payload' => 'Payload',
         'userInfo' => 'UserInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->payload) {
+            $this->payload->validate();
+        }
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payload) {
-            $res['Payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+            $res['Payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Payload'])) {
             $model->payload = payload::fromMap($map['Payload']);
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

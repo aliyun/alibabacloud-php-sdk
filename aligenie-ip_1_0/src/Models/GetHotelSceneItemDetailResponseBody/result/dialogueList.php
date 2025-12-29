@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\GetHotelSceneItemDetailResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dialogueList extends Model
 {
     /**
-     * @example 1666164774
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 336
-     *
      * @var string
      */
     public $dialogueId;
@@ -28,15 +24,11 @@ class dialogueList extends Model
     public $noAnswer;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $noAnswerTemplate;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $process;
@@ -47,15 +39,11 @@ class dialogueList extends Model
     public $question;
 
     /**
-     * @example 10336
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @example 1666164774
-     *
      * @var int
      */
     public $updateTime;
@@ -66,58 +54,66 @@ class dialogueList extends Model
     public $yesAnswer;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $yesAnswerTemplate;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'dialogueId'        => 'DialogueId',
-        'noAnswer'          => 'NoAnswer',
-        'noAnswerTemplate'  => 'NoAnswerTemplate',
-        'process'           => 'Process',
-        'question'          => 'Question',
-        'serviceId'         => 'ServiceId',
-        'updateTime'        => 'UpdateTime',
-        'yesAnswer'         => 'YesAnswer',
+        'createTime' => 'CreateTime',
+        'dialogueId' => 'DialogueId',
+        'noAnswer' => 'NoAnswer',
+        'noAnswerTemplate' => 'NoAnswerTemplate',
+        'process' => 'Process',
+        'question' => 'Question',
+        'serviceId' => 'ServiceId',
+        'updateTime' => 'UpdateTime',
+        'yesAnswer' => 'YesAnswer',
         'yesAnswerTemplate' => 'YesAnswerTemplate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
         }
+
         if (null !== $this->noAnswer) {
             $res['NoAnswer'] = $this->noAnswer;
         }
+
         if (null !== $this->noAnswerTemplate) {
             $res['NoAnswerTemplate'] = $this->noAnswerTemplate;
         }
+
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
+
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->yesAnswer) {
             $res['YesAnswer'] = $this->yesAnswer;
         }
+
         if (null !== $this->yesAnswerTemplate) {
             $res['YesAnswerTemplate'] = $this->yesAnswerTemplate;
         }
@@ -125,41 +121,50 @@ class dialogueList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialogueList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
         }
+
         if (isset($map['NoAnswer'])) {
             $model->noAnswer = $map['NoAnswer'];
         }
+
         if (isset($map['NoAnswerTemplate'])) {
             $model->noAnswerTemplate = $map['NoAnswerTemplate'];
         }
+
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }
+
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['YesAnswer'])) {
             $model->yesAnswer = $map['YesAnswer'];
         }
+
         if (isset($map['YesAnswerTemplate'])) {
             $model->yesAnswerTemplate = $map['YesAnswerTemplate'];
         }

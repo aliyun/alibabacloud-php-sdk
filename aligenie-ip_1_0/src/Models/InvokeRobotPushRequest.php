@@ -4,49 +4,56 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InvokeRobotPushRequest extends Model
 {
     /**
-     * @example af7***536
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example GET
-     *
      * @var string
      */
     public $pushType;
 
     /**
-     * @example 1211
-     *
+     * @var string
+     */
+    public $roomName;
+
+    /**
      * @var string
      */
     public $roomNo;
     protected $_name = [
-        'hotelId'  => 'HotelId',
+        'hotelId' => 'HotelId',
         'pushType' => 'PushType',
-        'roomNo'   => 'RoomNo',
+        'roomName' => 'RoomName',
+        'roomNo' => 'RoomNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
         }
+
+        if (null !== $this->roomName) {
+            $res['RoomName'] = $this->roomName;
+        }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
@@ -54,20 +61,26 @@ class InvokeRobotPushRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeRobotPushRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
         }
+
+        if (isset($map['RoomName'])) {
+            $model->roomName = $map['RoomName'];
+        }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchAddHotelRoomShrinkRequest extends Model
 {
     /**
-     * @example e6dd44fd16084db8a60d69fd625d9f0f
-     *
      * @var string
      */
     public $hotelId;
@@ -20,20 +18,22 @@ class BatchAddHotelRoomShrinkRequest extends Model
      */
     public $roomNoListShrink;
     protected $_name = [
-        'hotelId'          => 'HotelId',
+        'hotelId' => 'HotelId',
         'roomNoListShrink' => 'RoomNoList',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->roomNoListShrink) {
             $res['RoomNoList'] = $this->roomNoListShrink;
         }
@@ -41,17 +41,18 @@ class BatchAddHotelRoomShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddHotelRoomShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['RoomNoList'])) {
             $model->roomNoListShrink = $map['RoomNoList'];
         }

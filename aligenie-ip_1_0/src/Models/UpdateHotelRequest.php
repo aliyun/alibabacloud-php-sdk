@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateHotelRequest extends Model
 {
     /**
-     * @example 31342884
-     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @example 2022-02-22 00:00:00
-     *
      * @var string
      */
     public $estOpenTime;
@@ -28,15 +24,11 @@ class UpdateHotelRequest extends Model
     public $hotelAddress;
 
     /**
-     * @example a*****@hotel.com
-     *
      * @var string
      */
     public $hotelEmail;
 
     /**
-     * @example e6dd44fd16084db8a60d69fd625d9f0f
-     *
      * @var string
      */
     public $hotelId;
@@ -47,8 +39,6 @@ class UpdateHotelRequest extends Model
     public $hotelName;
 
     /**
-     * @example 130***
-     *
      * @var string
      */
     public $phoneNumber;
@@ -64,69 +54,86 @@ class UpdateHotelRequest extends Model
     public $remark;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $roomNum;
 
     /**
-     * @example AAEVK***UE3d3Z2ETwh
-     *
      * @var string
      */
     public $tbOpenId;
     protected $_name = [
-        'appKey'       => 'AppKey',
-        'estOpenTime'  => 'EstOpenTime',
+        'appKey' => 'AppKey',
+        'estOpenTime' => 'EstOpenTime',
         'hotelAddress' => 'HotelAddress',
-        'hotelEmail'   => 'HotelEmail',
-        'hotelId'      => 'HotelId',
-        'hotelName'    => 'HotelName',
-        'phoneNumber'  => 'PhoneNumber',
-        'relatedPks'   => 'RelatedPks',
-        'remark'       => 'Remark',
-        'roomNum'      => 'RoomNum',
-        'tbOpenId'     => 'TbOpenId',
+        'hotelEmail' => 'HotelEmail',
+        'hotelId' => 'HotelId',
+        'hotelName' => 'HotelName',
+        'phoneNumber' => 'PhoneNumber',
+        'relatedPks' => 'RelatedPks',
+        'remark' => 'Remark',
+        'roomNum' => 'RoomNum',
+        'tbOpenId' => 'TbOpenId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->relatedPks)) {
+            Model::validateArray($this->relatedPks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->estOpenTime) {
             $res['EstOpenTime'] = $this->estOpenTime;
         }
+
         if (null !== $this->hotelAddress) {
             $res['HotelAddress'] = $this->hotelAddress;
         }
+
         if (null !== $this->hotelEmail) {
             $res['HotelEmail'] = $this->hotelEmail;
         }
+
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->hotelName) {
             $res['HotelName'] = $this->hotelName;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->relatedPks) {
-            $res['RelatedPks'] = $this->relatedPks;
+            if (\is_array($this->relatedPks)) {
+                $res['RelatedPks'] = [];
+                $n1 = 0;
+                foreach ($this->relatedPks as $item1) {
+                    $res['RelatedPks'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->roomNum) {
             $res['RoomNum'] = $this->roomNum;
         }
+
         if (null !== $this->tbOpenId) {
             $res['TbOpenId'] = $this->tbOpenId;
         }
@@ -134,46 +141,61 @@ class UpdateHotelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateHotelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['EstOpenTime'])) {
             $model->estOpenTime = $map['EstOpenTime'];
         }
+
         if (isset($map['HotelAddress'])) {
             $model->hotelAddress = $map['HotelAddress'];
         }
+
         if (isset($map['HotelEmail'])) {
             $model->hotelEmail = $map['HotelEmail'];
         }
+
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['HotelName'])) {
             $model->hotelName = $map['HotelName'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['RelatedPks'])) {
             if (!empty($map['RelatedPks'])) {
-                $model->relatedPks = $map['RelatedPks'];
+                $model->relatedPks = [];
+                $n1 = 0;
+                foreach ($map['RelatedPks'] as $item1) {
+                    $model->relatedPks[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['RoomNum'])) {
             $model->roomNum = $map['RoomNum'];
         }
+
         if (isset($map['TbOpenId'])) {
             $model->tbOpenId = $map['TbOpenId'];
         }

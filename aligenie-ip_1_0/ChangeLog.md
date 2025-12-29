@@ -1,3 +1,7 @@
+2025-12-29 Version: 1.1.1
+- Update API ImportRoomControlDevices: add request parameters EnableMeshDeviceImport.
+
+
 2024-02-29 Version: 1.1.0
 - Support API AddCustomQAV2.
 - Support API PmsEventReport.

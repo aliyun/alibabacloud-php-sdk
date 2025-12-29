@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class templateInfoDTOList extends Model
 {
@@ -14,37 +14,36 @@ class templateInfoDTOList extends Model
     public $description;
 
     /**
-     * @example 6962
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 101
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'id'          => 'Id',
-        'name'        => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -52,20 +51,22 @@ class templateInfoDTOList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateInfoDTOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\PushHotelMessageRequest\pushHotelMessageReq;
-use AlibabaCloud\Tea\Model;
 
 class PushHotelMessageRequest extends Model
 {
     /**
-     * @description pushHotelMessageReq
-     *
      * @var pushHotelMessageReq
      */
     public $pushHotelMessageReq;
@@ -21,23 +19,27 @@ class PushHotelMessageRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->pushHotelMessageReq) {
+            $this->pushHotelMessageReq->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pushHotelMessageReq) {
-            $res['PushHotelMessageReq'] = null !== $this->pushHotelMessageReq ? $this->pushHotelMessageReq->toMap() : null;
+            $res['PushHotelMessageReq'] = null !== $this->pushHotelMessageReq ? $this->pushHotelMessageReq->toArray($noStream) : $this->pushHotelMessageReq;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushHotelMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

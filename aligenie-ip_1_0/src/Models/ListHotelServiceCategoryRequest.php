@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelServiceCategoryRequest\payload;
-use AlibabaCloud\Tea\Model;
 
 class ListHotelServiceCategoryRequest extends Model
 {
@@ -19,23 +19,27 @@ class ListHotelServiceCategoryRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->payload) {
+            $this->payload->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payload) {
-            $res['Payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+            $res['Payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHotelServiceCategoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,21 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushWelcomeTextAndMusicShrinkRequest extends Model
 {
     /**
-     * @example af7***536
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 1211
-     *
+     * @var string
+     */
+    public $roomName;
+
+    /**
      * @var string
      */
     public $roomNo;
@@ -27,24 +28,32 @@ class PushWelcomeTextAndMusicShrinkRequest extends Model
      */
     public $templateVariableShrink;
     protected $_name = [
-        'hotelId'                => 'HotelId',
-        'roomNo'                 => 'RoomNo',
+        'hotelId' => 'HotelId',
+        'roomName' => 'RoomName',
+        'roomNo' => 'RoomNo',
         'templateVariableShrink' => 'TemplateVariable',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
+        if (null !== $this->roomName) {
+            $res['RoomName'] = $this->roomName;
+        }
+
         if (null !== $this->roomNo) {
             $res['RoomNo'] = $this->roomNo;
         }
+
         if (null !== $this->templateVariableShrink) {
             $res['TemplateVariable'] = $this->templateVariableShrink;
         }
@@ -52,20 +61,26 @@ class PushWelcomeTextAndMusicShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushWelcomeTextAndMusicShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
+        if (isset($map['RoomName'])) {
+            $model->roomName = $map['RoomName'];
+        }
+
         if (isset($map['RoomNo'])) {
             $model->roomNo = $map['RoomNo'];
         }
+
         if (isset($map['TemplateVariable'])) {
             $model->templateVariableShrink = $map['TemplateVariable'];
         }

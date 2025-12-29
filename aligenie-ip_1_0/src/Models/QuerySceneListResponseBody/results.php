@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\QuerySceneListResponseBody\results\templateInfoDTOList;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
-     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/changjingmoshi/shuimian.png
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @example 73
-     *
      * @var string
      */
     public $sceneId;
@@ -29,22 +25,16 @@ class results extends Model
     public $sceneName;
 
     /**
-     * @example external
-     *
      * @var string
      */
     public $sceneSource;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $sceneState;
 
     /**
-     * @example common
-     *
      * @var string
      */
     public $sceneType;
@@ -59,50 +49,62 @@ class results extends Model
      */
     public $unavailableReason;
     protected $_name = [
-        'icon'                => 'Icon',
-        'sceneId'             => 'SceneId',
-        'sceneName'           => 'SceneName',
-        'sceneSource'         => 'SceneSource',
-        'sceneState'          => 'SceneState',
-        'sceneType'           => 'SceneType',
+        'icon' => 'Icon',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
+        'sceneSource' => 'SceneSource',
+        'sceneState' => 'SceneState',
+        'sceneType' => 'SceneType',
         'templateInfoDTOList' => 'TemplateInfoDTOList',
-        'unavailableReason'   => 'UnavailableReason',
+        'unavailableReason' => 'UnavailableReason',
     ];
 
     public function validate()
     {
+        if (\is_array($this->templateInfoDTOList)) {
+            Model::validateArray($this->templateInfoDTOList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
+
         if (null !== $this->sceneSource) {
             $res['SceneSource'] = $this->sceneSource;
         }
+
         if (null !== $this->sceneState) {
             $res['SceneState'] = $this->sceneState;
         }
+
         if (null !== $this->sceneType) {
             $res['SceneType'] = $this->sceneType;
         }
+
         if (null !== $this->templateInfoDTOList) {
-            $res['TemplateInfoDTOList'] = [];
-            if (null !== $this->templateInfoDTOList && \is_array($this->templateInfoDTOList)) {
-                $n = 0;
-                foreach ($this->templateInfoDTOList as $item) {
-                    $res['TemplateInfoDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templateInfoDTOList)) {
+                $res['TemplateInfoDTOList'] = [];
+                $n1 = 0;
+                foreach ($this->templateInfoDTOList as $item1) {
+                    $res['TemplateInfoDTOList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->unavailableReason) {
             $res['UnavailableReason'] = $this->unavailableReason;
         }
@@ -110,41 +112,49 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
+
         if (isset($map['SceneSource'])) {
             $model->sceneSource = $map['SceneSource'];
         }
+
         if (isset($map['SceneState'])) {
             $model->sceneState = $map['SceneState'];
         }
+
         if (isset($map['SceneType'])) {
             $model->sceneType = $map['SceneType'];
         }
+
         if (isset($map['TemplateInfoDTOList'])) {
             if (!empty($map['TemplateInfoDTOList'])) {
                 $model->templateInfoDTOList = [];
-                $n                          = 0;
-                foreach ($map['TemplateInfoDTOList'] as $item) {
-                    $model->templateInfoDTOList[$n++] = null !== $item ? templateInfoDTOList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TemplateInfoDTOList'] as $item1) {
+                    $model->templateInfoDTOList[$n1] = templateInfoDTOList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['UnavailableReason'])) {
             $model->unavailableReason = $map['UnavailableReason'];
         }

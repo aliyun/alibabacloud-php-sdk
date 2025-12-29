@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHotelSceneItemDetailRequest extends Model
 {
     /**
-     * @description hotelID
-     *
-     * @example 80d84ea8ed9e422fbad52715c8fc56f1
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example 10336
-     *
      * @var int
      */
     public $itemId;
@@ -30,23 +24,26 @@ class GetHotelSceneItemDetailRequest extends Model
     public $name;
     protected $_name = [
         'hotelId' => 'HotelId',
-        'itemId'  => 'ItemId',
-        'name'    => 'Name',
+        'itemId' => 'ItemId',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -54,20 +51,22 @@ class GetHotelSceneItemDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotelSceneItemDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

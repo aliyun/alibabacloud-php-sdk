@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUnionIdRequest extends Model
 {
     /**
-     * @example 125****0946
-     *
      * @var string
      */
     public $encodeKey;
 
     /**
-     * @example HOTEL
-     *
      * @var string
      */
     public $encodeType;
 
     /**
-     * @example 62a319****abdc
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example DEVICE_ID
-     *
      * @var string
      */
     public $idType;
     protected $_name = [
-        'encodeKey'  => 'EncodeKey',
+        'encodeKey' => 'EncodeKey',
         'encodeType' => 'EncodeType',
-        'id'         => 'Id',
-        'idType'     => 'IdType',
+        'id' => 'Id',
+        'idType' => 'IdType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encodeKey) {
             $res['EncodeKey'] = $this->encodeKey;
         }
+
         if (null !== $this->encodeType) {
             $res['EncodeType'] = $this->encodeType;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->idType) {
             $res['IdType'] = $this->idType;
         }
@@ -65,23 +61,26 @@ class GetUnionIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUnionIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncodeKey'])) {
             $model->encodeKey = $map['EncodeKey'];
         }
+
         if (isset($map['EncodeType'])) {
             $model->encodeType = $map['EncodeType'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IdType'])) {
             $model->idType = $map['IdType'];
         }

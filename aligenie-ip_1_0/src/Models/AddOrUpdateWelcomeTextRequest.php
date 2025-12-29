@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddOrUpdateWelcomeTextRequest extends Model
 {
     /**
-     * @example af7***536
-     *
      * @var string
      */
     public $hotelId;
 
     /**
-     * @example http://ailabsaicloudservice.alicdn.com/tmp/a.wav
-     *
      * @var string
      */
     public $musicUrl;
@@ -27,24 +23,27 @@ class AddOrUpdateWelcomeTextRequest extends Model
      */
     public $welcomeText;
     protected $_name = [
-        'hotelId'     => 'HotelId',
-        'musicUrl'    => 'MusicUrl',
+        'hotelId' => 'HotelId',
+        'musicUrl' => 'MusicUrl',
         'welcomeText' => 'WelcomeText',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotelId) {
             $res['HotelId'] = $this->hotelId;
         }
+
         if (null !== $this->musicUrl) {
             $res['MusicUrl'] = $this->musicUrl;
         }
+
         if (null !== $this->welcomeText) {
             $res['WelcomeText'] = $this->welcomeText;
         }
@@ -52,20 +51,22 @@ class AddOrUpdateWelcomeTextRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddOrUpdateWelcomeTextRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotelId'])) {
             $model->hotelId = $map['HotelId'];
         }
+
         if (isset($map['MusicUrl'])) {
             $model->musicUrl = $map['MusicUrl'];
         }
+
         if (isset($map['WelcomeText'])) {
             $model->welcomeText = $map['WelcomeText'];
         }

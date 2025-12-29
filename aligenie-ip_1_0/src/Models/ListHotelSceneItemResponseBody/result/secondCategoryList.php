@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneItemResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AliGenie\Vip_1_0\Models\ListHotelSceneItemResponseBody\result\secondCategoryList\itemList;
-use AlibabaCloud\Tea\Model;
 
 class secondCategoryList extends Model
 {
@@ -15,32 +15,36 @@ class secondCategoryList extends Model
     public $itemList;
 
     /**
-     * @example 客用品类
-     *
      * @var string
      */
     public $secondCategoryName;
     protected $_name = [
-        'itemList'           => 'ItemList',
+        'itemList' => 'ItemList',
         'secondCategoryName' => 'SecondCategoryName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->itemList)) {
+            Model::validateArray($this->itemList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemList) {
-            $res['ItemList'] = [];
-            if (null !== $this->itemList && \is_array($this->itemList)) {
-                $n = 0;
-                foreach ($this->itemList as $item) {
-                    $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->itemList)) {
+                $res['ItemList'] = [];
+                $n1 = 0;
+                foreach ($this->itemList as $item1) {
+                    $res['ItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->secondCategoryName) {
             $res['SecondCategoryName'] = $this->secondCategoryName;
         }
@@ -48,23 +52,25 @@ class secondCategoryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secondCategoryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
-                $n               = 0;
-                foreach ($map['ItemList'] as $item) {
-                    $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ItemList'] as $item1) {
+                    $model->itemList[$n1] = itemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SecondCategoryName'])) {
             $model->secondCategoryName = $map['SecondCategoryName'];
         }
