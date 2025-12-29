@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListGitOrganizationsRequest extends Model
+class StartDebugExecutionRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $bindType;
-
     /**
      * @var string
      */
@@ -21,23 +16,22 @@ class ListGitOrganizationsRequest extends Model
     /**
      * @var string
      */
-    public $owner;
-
-    /**
-     * @var string
-     */
-    public $platform;
+    public $properties;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'bindType' => 'BindType',
         'clientToken' => 'ClientToken',
-        'owner' => 'Owner',
-        'platform' => 'Platform',
+        'properties' => 'Properties',
         'regionId' => 'RegionId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -48,24 +42,20 @@ class ListGitOrganizationsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bindType) {
-            $res['BindType'] = $this->bindType;
-        }
-
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
 
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -79,24 +69,20 @@ class ListGitOrganizationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BindType'])) {
-            $model->bindType = $map['BindType'];
-        }
-
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
 
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

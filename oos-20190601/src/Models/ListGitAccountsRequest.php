@@ -11,6 +11,11 @@ class ListGitAccountsRequest extends Model
     /**
      * @var string
      */
+    public $bindType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -28,6 +33,7 @@ class ListGitAccountsRequest extends Model
      */
     public $roleName;
     protected $_name = [
+        'bindType' => 'BindType',
         'clientToken' => 'ClientToken',
         'platform' => 'Platform',
         'regionId' => 'RegionId',
@@ -42,6 +48,10 @@ class ListGitAccountsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bindType) {
+            $res['BindType'] = $this->bindType;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -69,6 +79,10 @@ class ListGitAccountsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindType'])) {
+            $model->bindType = $map['BindType'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

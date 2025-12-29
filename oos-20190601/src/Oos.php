@@ -181,6 +181,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\StartDebugExecutionRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\StartDebugExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartExecutionShrinkRequest;
@@ -4333,6 +4335,10 @@ class Oos extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4483,6 +4489,10 @@ class Oos extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -6589,6 +6599,75 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setServiceSettingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启动一个调试执行.
+     *
+     * @param request - StartDebugExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDebugExecutionResponse
+     *
+     * @param StartDebugExecutionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartDebugExecutionResponse
+     */
+    public function startDebugExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->properties) {
+            @$query['Properties'] = $request->properties;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartDebugExecution',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartDebugExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动一个调试执行.
+     *
+     * @param request - StartDebugExecutionRequest
+     *
+     * @returns StartDebugExecutionResponse
+     *
+     * @param StartDebugExecutionRequest $request
+     *
+     * @return StartDebugExecutionResponse
+     */
+    public function startDebugExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDebugExecutionWithOptions($request, $runtime);
     }
 
     /**
