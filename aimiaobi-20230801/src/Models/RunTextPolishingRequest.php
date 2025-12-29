@@ -26,11 +26,17 @@ class RunTextPolishingRequest extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'content' => 'Content',
         'originContent' => 'OriginContent',
         'prompt' => 'Prompt',
+        'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -52,6 +58,10 @@ class RunTextPolishingRequest extends Model
 
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->workspaceId) {
@@ -79,6 +89,10 @@ class RunTextPolishingRequest extends Model
 
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['WorkspaceId'])) {

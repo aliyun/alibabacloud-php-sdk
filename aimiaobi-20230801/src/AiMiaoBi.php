@@ -14409,6 +14409,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Prompt'] = $request->prompt;
         }
 
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -14470,6 +14474,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
 
         if (null !== $request->workspaceId) {
