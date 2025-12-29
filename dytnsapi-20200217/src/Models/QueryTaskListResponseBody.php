@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListResponseBody\data;
 
-class PhoneNumberConvertServiceResponseBody extends Model
+class QueryTaskListResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +15,7 @@ class PhoneNumberConvertServiceResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -37,8 +37,8 @@ class PhoneNumberConvertServiceResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -51,14 +51,7 @@ class PhoneNumberConvertServiceResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->message) {
@@ -85,14 +78,7 @@ class PhoneNumberConvertServiceResponseBody extends Model
         }
 
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['Message'])) {

@@ -83,7 +83,8 @@ class paramList extends Model
                 $res['ValueDict'] = [];
                 $n1 = 0;
                 foreach ($this->valueDict as $item1) {
-                    $res['ValueDict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ValueDict'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class paramList extends Model
                 $model->valueDict = [];
                 $n1 = 0;
                 foreach ($map['ValueDict'] as $item1) {
-                    $model->valueDict[$n1++] = valueDict::fromMap($item1);
+                    $model->valueDict[$n1] = valueDict::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

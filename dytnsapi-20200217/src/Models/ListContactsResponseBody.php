@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ListContactsResponseBody\data;
 
-class PhoneNumberConvertServiceResponseBody extends Model
+class ListContactsResponseBody extends Model
 {
     /**
      * @var string

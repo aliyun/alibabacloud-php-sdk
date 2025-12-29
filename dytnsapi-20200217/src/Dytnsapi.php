@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyThreeElementsVerificationR
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyThreeElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DeleteContactsRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DeleteContactsResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ListContactsRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ListContactsResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptRequest;
@@ -63,6 +67,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberStatusForVoiceResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryAvailableAuthCodeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryAvailableAuthCodeResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPackageTypeInfoRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPackageTypeInfoResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberOnlineTimeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberOnlineTimeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneTwiceTelVerifyRequest;
@@ -73,6 +79,9 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagInfoBySelectionRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagInfoBySelectionResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagListPageRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagListPageResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListShrinkRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationRequest;
@@ -85,6 +94,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDConversionRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDConversionResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UpdateContactsRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UpdateContactsResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -557,6 +568,75 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->companyTwoElementsVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预警联系人删除.
+     *
+     * @param request - DeleteContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactsResponse
+     *
+     * @param DeleteContactsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteContactsResponse
+     */
+    public function deleteContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContacts',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预警联系人删除.
+     *
+     * @param request - DeleteContactsRequest
+     *
+     * @returns DeleteContactsResponse
+     *
+     * @param DeleteContactsRequest $request
+     *
+     * @return DeleteContactsResponse
+     */
+    public function deleteContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContactsWithOptions($request, $runtime);
     }
 
     /**
@@ -1067,7 +1147,6 @@ class Dytnsapi extends OpenApiClient
         return $this->describePhoneNumberAnalysisTransparentWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the carrier, registration location, and mobile number portability information of a phone number.
      *
@@ -1932,6 +2011,79 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * 预警联系人查询.
+     *
+     * @param request - ListContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListContactsResponse
+     */
+    public function listContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContacts',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预警联系人查询.
+     *
+     * @param request - ListContactsRequest
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $request
+     *
+     * @return ListContactsResponse
+     */
+    public function listContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContactsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - PhoneNumberConvertServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2620,6 +2772,75 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * 套餐包类型信息查询.
+     *
+     * @param request - QueryPackageTypeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPackageTypeInfoResponse
+     *
+     * @param QueryPackageTypeInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryPackageTypeInfoResponse
+     */
+    public function queryPackageTypeInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPackageTypeInfo',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPackageTypeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 套餐包类型信息查询.
+     *
+     * @param request - QueryPackageTypeInfoRequest
+     *
+     * @returns QueryPackageTypeInfoResponse
+     *
+     * @param QueryPackageTypeInfoRequest $request
+     *
+     * @return QueryPackageTypeInfoResponse
+     */
+    public function queryPackageTypeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPackageTypeInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * 在网时长专用接口.
      *
      * @param request - QueryPhoneNumberOnlineTimeRequest
@@ -2994,6 +3215,109 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryTagListPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询离线任务列表.
+     *
+     * @param tmpReq - QueryTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTaskListResponse
+     *
+     * @param QueryTaskListRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryTaskListResponse
+     */
+    public function queryTaskListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryTaskListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->result) {
+            $request->resultShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->result, 'Result', 'json');
+        }
+
+        if (null !== $tmpReq->taskType) {
+            $request->taskTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskType, 'TaskType', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->resultShrink) {
+            @$query['Result'] = $request->resultShrink;
+        }
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskTypeShrink) {
+            @$query['TaskType'] = $request->taskTypeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryTaskList',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询离线任务列表.
+     *
+     * @param request - QueryTaskListRequest
+     *
+     * @returns QueryTaskListResponse
+     *
+     * @param QueryTaskListRequest $request
+     *
+     * @return QueryTaskListResponse
+     */
+    public function queryTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTaskListWithOptions($request, $runtime);
     }
 
     /**
@@ -3540,5 +3864,102 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uAIDVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预警联系人更新.
+     *
+     * @param request - UpdateContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContactsResponse
+     *
+     * @param UpdateContactsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateContactsResponse
+     */
+    public function updateContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactEmail) {
+            @$query['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPhone) {
+            @$query['ContactPhone'] = $request->contactPhone;
+        }
+
+        if (null !== $request->mailStatus) {
+            @$query['MailStatus'] = $request->mailStatus;
+        }
+
+        if (null !== $request->openStatusWarning) {
+            @$query['OpenStatusWarning'] = $request->openStatusWarning;
+        }
+
+        if (null !== $request->opentAttributionWarning) {
+            @$query['OpentAttributionWarning'] = $request->opentAttributionWarning;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneStatus) {
+            @$query['PhoneStatus'] = $request->phoneStatus;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContacts',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预警联系人更新.
+     *
+     * @param request - UpdateContactsRequest
+     *
+     * @returns UpdateContactsResponse
+     *
+     * @param UpdateContactsRequest $request
+     *
+     * @return UpdateContactsResponse
+     */
+    public function updateContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContactsWithOptions($request, $runtime);
     }
 }

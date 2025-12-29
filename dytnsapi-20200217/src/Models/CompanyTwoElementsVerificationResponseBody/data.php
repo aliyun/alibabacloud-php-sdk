@@ -58,7 +58,8 @@ class data extends Model
                 $res['InconsistentData'] = [];
                 $n1 = 0;
                 foreach ($this->inconsistentData as $item1) {
-                    $res['InconsistentData'][$n1++] = $item1;
+                    $res['InconsistentData'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class data extends Model
                 $model->inconsistentData = [];
                 $n1 = 0;
                 foreach ($map['InconsistentData'] as $item1) {
-                    $model->inconsistentData[$n1++] = $item1;
+                    $model->inconsistentData[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

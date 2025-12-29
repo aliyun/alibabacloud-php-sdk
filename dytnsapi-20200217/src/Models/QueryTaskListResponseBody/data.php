@@ -2,37 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
+namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponseBody\data;
 
-class PhoneNumberConvertServiceResponseBody extends Model
+class data extends Model
 {
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var data[]
+     * @var string[]
      */
     public $data;
 
     /**
-     * @var string
+     * @var int
      */
-    public $message;
+    public $pageNo;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $totalCount;
     protected $_name = [
-        'code' => 'Code',
         'data' => 'Data',
-        'message' => 'Message',
-        'requestId' => 'RequestId',
+        'pageNo' => 'PageNo',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,27 +39,23 @@ class PhoneNumberConvertServiceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Data'][$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -80,27 +69,23 @@ class PhoneNumberConvertServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
+                    $model->data[$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
