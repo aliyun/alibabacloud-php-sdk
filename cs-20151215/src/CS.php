@@ -146,6 +146,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstanceResourcesResponse;
@@ -226,6 +228,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateNodePoolComponentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateResourcesDeleteProtectionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateResourcesDeleteProtectionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
@@ -6317,6 +6321,79 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 为ACK集群节点池安装节点组件.
+     *
+     * @param request - InstallNodePoolComponentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallNodePoolComponentsResponse
+     *
+     * @param string                           $clusterId
+     * @param string                           $nodePoolId
+     * @param InstallNodePoolComponentsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return InstallNodePoolComponentsResponse
+     */
+    public function installNodePoolComponentsWithOptions($clusterId, $nodePoolId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
+        }
+
+        if (null !== $request->nodeNames) {
+            @$body['nodeNames'] = $request->nodeNames;
+        }
+
+        if (null !== $request->rollingPolicy) {
+            @$body['rollingPolicy'] = $request->rollingPolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallNodePoolComponents',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodePoolId) . '/components',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallNodePoolComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为ACK集群节点池安装节点组件.
+     *
+     * @param request - InstallNodePoolComponentsRequest
+     *
+     * @returns InstallNodePoolComponentsResponse
+     *
+     * @param string                           $clusterId
+     * @param string                           $nodePoolId
+     * @param InstallNodePoolComponentsRequest $request
+     *
+     * @return InstallNodePoolComponentsResponse
+     */
+    public function installNodePoolComponents($clusterId, $nodePoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->installNodePoolComponentsWithOptions($clusterId, $nodePoolId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
      *
      * @param request - ListAddonsRequest
@@ -9481,6 +9558,91 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新节点组件.
+     *
+     * @param request - UpdateNodePoolComponentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNodePoolComponentResponse
+     *
+     * @param string                         $clusterId
+     * @param string                         $nodepoolId
+     * @param UpdateNodePoolComponentRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateNodePoolComponentResponse
+     */
+    public function updateNodePoolComponentWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->disableRolling) {
+            @$body['disableRolling'] = $request->disableRolling;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->nodeNames) {
+            @$body['nodeNames'] = $request->nodeNames;
+        }
+
+        if (null !== $request->rollingPolicy) {
+            @$body['rollingPolicy'] = $request->rollingPolicy;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNodePoolComponent',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/nodepools/' . Url::percentEncode($nodepoolId) . '/component',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNodePoolComponentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新节点组件.
+     *
+     * @param request - UpdateNodePoolComponentRequest
+     *
+     * @returns UpdateNodePoolComponentResponse
+     *
+     * @param string                         $clusterId
+     * @param string                         $nodepoolId
+     * @param UpdateNodePoolComponentRequest $request
+     *
+     * @return UpdateNodePoolComponentResponse
+     */
+    public function updateNodePoolComponent($clusterId, $nodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNodePoolComponentWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
     }
 
     /**
