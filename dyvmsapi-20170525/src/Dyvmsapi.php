@@ -47,6 +47,9 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListServiceInstanceForPageRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListServiceInstanceForPageResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListServiceInstanceForPageShrinkRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PauseVideoFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PauseVideoFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\PlayVideoFileRequest;
@@ -1995,6 +1998,97 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHotlineTransferRegisterFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询服务实例列表.
+     *
+     * @param tmpReq - ListServiceInstanceForPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceInstanceForPageResponse
+     *
+     * @param ListServiceInstanceForPageRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListServiceInstanceForPageResponse
+     */
+    public function listServiceInstanceForPageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListServiceInstanceForPageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pager) {
+            $request->pagerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pager, 'Pager', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pagerShrink) {
+            @$query['Pager'] = $request->pagerShrink;
+        }
+
+        if (null !== $request->relationNumber) {
+            @$query['RelationNumber'] = $request->relationNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->usageId) {
+            @$query['UsageId'] = $request->usageId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceInstanceForPage',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceInstanceForPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询服务实例列表.
+     *
+     * @param request - ListServiceInstanceForPageRequest
+     *
+     * @returns ListServiceInstanceForPageResponse
+     *
+     * @param ListServiceInstanceForPageRequest $request
+     *
+     * @return ListServiceInstanceForPageResponse
+     */
+    public function listServiceInstanceForPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceForPageWithOptions($request, $runtime);
     }
 
     /**
