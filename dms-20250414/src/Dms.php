@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
@@ -66,6 +68,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeDatabaseRequest;
@@ -1367,6 +1371,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * DescribeCustomAgent.
+     *
+     * @param request - DescribeCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomAgentResponse
+     *
+     * @param DescribeCustomAgentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCustomAgentResponse
+     */
+    public function describeCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeCustomAgent.
+     *
+     * @param request - DescribeCustomAgentRequest
+     *
+     * @returns DescribeCustomAgentResponse
+     *
+     * @param DescribeCustomAgentRequest $request
+     *
+     * @return DescribeCustomAgentResponse
+     */
+    public function describeCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * DescribeDataAgentSession.
      *
      * @param request - DescribeDataAgentSessionRequest
@@ -2198,6 +2263,83 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAirflowsWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListCustomAgent.
+     *
+     * @param request - ListCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentResponse
+     *
+     * @param ListCustomAgentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCustomAgentResponse
+     */
+    public function listCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryAllReleased) {
+            @$query['QueryAllReleased'] = $request->queryAllReleased;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListCustomAgent.
+     *
+     * @param request - ListCustomAgentRequest
+     *
+     * @returns ListCustomAgentResponse
+     *
+     * @param ListCustomAgentRequest $request
+     *
+     * @return ListCustomAgentResponse
+     */
+    public function listCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAgentWithOptions($request, $runtime);
     }
 
     /**
