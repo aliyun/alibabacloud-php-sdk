@@ -22,10 +22,16 @@ class sessionConfig extends Model
      * @var string
      */
     public $language;
+
+    /**
+     * @var string
+     */
+    public $reportWaterMark;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
         'language' => 'Language',
+        'reportWaterMark' => 'ReportWaterMark',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class sessionConfig extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->reportWaterMark) {
+            $res['ReportWaterMark'] = $this->reportWaterMark;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class sessionConfig extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['ReportWaterMark'])) {
+            $model->reportWaterMark = $map['ReportWaterMark'];
         }
 
         return $model;
