@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ReleaseSortScriptResponseBody\result;
 
 class ReleaseSortScriptResponseBody extends Model
 {
@@ -12,12 +13,21 @@ class ReleaseSortScriptResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var result
+     */
+    public $result;
     protected $_name = [
         'requestId' => 'requestId',
+        'result' => 'result',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
         parent::validate();
     }
 
@@ -26,6 +36,10 @@ class ReleaseSortScriptResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->result) {
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
@@ -41,6 +55,10 @@ class ReleaseSortScriptResponseBody extends Model
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['result'])) {
+            $model->result = result::fromMap($map['result']);
         }
 
         return $model;

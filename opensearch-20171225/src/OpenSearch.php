@@ -203,6 +203,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionResourceRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionResourceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSearchStrategyRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSearchStrategyResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSortScriptRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSortScriptResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSummariesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateSummariesResponse;
@@ -1553,6 +1554,10 @@ class OpenSearch extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
         if (null !== $request->scope) {
             @$body['scope'] = $request->scope;
         }
@@ -8261,23 +8266,32 @@ class OpenSearch extends OpenApiClient
      * @remarks
      * You can call this operation to modify the description of a sort script.
      *
+     * @param request - UpdateSortScriptRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSortScriptResponse
      *
-     * @param string         $appGroupIdentity
-     * @param string         $appVersionId
-     * @param string         $scriptName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $appGroupIdentity
+     * @param string                  $appVersionId
+     * @param string                  $scriptName
+     * @param UpdateSortScriptRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return UpdateSortScriptResponse
      */
-    public function updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
+    public function updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $request, $headers, $runtime)
     {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateSortScript',
@@ -8300,20 +8314,23 @@ class OpenSearch extends OpenApiClient
      * @remarks
      * You can call this operation to modify the description of a sort script.
      *
+     * @param request - UpdateSortScriptRequest
+     *
      * @returns UpdateSortScriptResponse
      *
-     * @param string $appGroupIdentity
-     * @param string $appVersionId
-     * @param string $scriptName
+     * @param string                  $appGroupIdentity
+     * @param string                  $appVersionId
+     * @param string                  $scriptName
+     * @param UpdateSortScriptRequest $request
      *
      * @return UpdateSortScriptResponse
      */
-    public function updateSortScript($appGroupIdentity, $appVersionId, $scriptName)
+    public function updateSortScript($appGroupIdentity, $appVersionId, $scriptName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime);
+        return $this->updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $request, $headers, $runtime);
     }
 
     /**

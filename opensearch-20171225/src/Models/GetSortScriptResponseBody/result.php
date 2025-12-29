@@ -16,6 +16,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $modifyTime;
 
     /**
@@ -39,6 +44,7 @@ class result extends Model
     public $type;
     protected $_name = [
         'createTime' => 'createTime',
+        'description' => 'description',
         'modifyTime' => 'modifyTime',
         'scope' => 'scope',
         'scriptName' => 'scriptName',
@@ -56,6 +62,10 @@ class result extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->modifyTime) {
@@ -91,6 +101,10 @@ class result extends Model
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['modifyTime'])) {
