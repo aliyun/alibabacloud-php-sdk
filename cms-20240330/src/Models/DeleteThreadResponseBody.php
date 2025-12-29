@@ -9,16 +9,10 @@ use AlibabaCloud\Dara\Model;
 class DeleteThreadResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $deleted;
-
-    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'deleted' => 'deleted',
         'requestId' => 'requestId',
     ];
 
@@ -30,10 +24,6 @@ class DeleteThreadResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->deleted) {
-            $res['deleted'] = $this->deleted;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,10 +39,6 @@ class DeleteThreadResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['deleted'])) {
-            $model->deleted = $map['deleted'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
