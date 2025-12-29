@@ -16,6 +16,11 @@ class DescribeShardingNetworkAddressRequest extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $nodeId;
 
     /**
@@ -39,6 +44,7 @@ class DescribeShardingNetworkAddressRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'networkType' => 'NetworkType',
         'nodeId' => 'NodeId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -56,6 +62,10 @@ class DescribeShardingNetworkAddressRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
 
         if (null !== $this->nodeId) {
@@ -91,6 +101,10 @@ class DescribeShardingNetworkAddressRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
 
         if (isset($map['NodeId'])) {

@@ -66,6 +66,11 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $searchId;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
@@ -79,6 +84,7 @@ class DescribeDBInstancePerformanceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'roleId' => 'RoleId',
+        'searchId' => 'SearchId',
         'startTime' => 'StartTime',
     ];
 
@@ -132,6 +138,10 @@ class DescribeDBInstancePerformanceRequest extends Model
 
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
+        }
+
+        if (null !== $this->searchId) {
+            $res['SearchId'] = $this->searchId;
         }
 
         if (null !== $this->startTime) {
@@ -191,6 +201,10 @@ class DescribeDBInstancePerformanceRequest extends Model
 
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
+        }
+
+        if (isset($map['SearchId'])) {
+            $model->searchId = $map['SearchId'];
         }
 
         if (isset($map['StartTime'])) {

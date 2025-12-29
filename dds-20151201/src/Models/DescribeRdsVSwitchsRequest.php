@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceSSLRequest extends Model
+class DescribeRdsVSwitchsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $forceEncryption;
-
     /**
      * @var string
      */
@@ -27,6 +17,11 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -41,21 +36,20 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
-    public $SSLAction;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $switchMode;
+    public $zoneId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'forceEncryption' => 'ForceEncryption',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'SSLAction' => 'SSLAction',
-        'switchMode' => 'SwitchMode',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -66,20 +60,16 @@ class ModifyDBInstanceSSLRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-
-        if (null !== $this->forceEncryption) {
-            $res['ForceEncryption'] = $this->forceEncryption;
-        }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -90,12 +80,12 @@ class ModifyDBInstanceSSLRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->SSLAction) {
-            $res['SSLAction'] = $this->SSLAction;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
-        if (null !== $this->switchMode) {
-            $res['SwitchMode'] = $this->switchMode;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -109,20 +99,16 @@ class ModifyDBInstanceSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-
-        if (isset($map['ForceEncryption'])) {
-            $model->forceEncryption = $map['ForceEncryption'];
-        }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -133,12 +119,12 @@ class ModifyDBInstanceSSLRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['SSLAction'])) {
-            $model->SSLAction = $map['SSLAction'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
-        if (isset($map['SwitchMode'])) {
-            $model->switchMode = $map['SwitchMode'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

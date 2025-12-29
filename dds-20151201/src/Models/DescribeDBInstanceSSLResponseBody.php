@@ -16,6 +16,11 @@ class DescribeDBInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
+    public $forceEncryption;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -29,6 +34,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $SSLStatus;
     protected $_name = [
         'certCommonName' => 'CertCommonName',
+        'forceEncryption' => 'ForceEncryption',
         'requestId' => 'RequestId',
         'SSLExpiredTime' => 'SSLExpiredTime',
         'SSLStatus' => 'SSLStatus',
@@ -44,6 +50,10 @@ class DescribeDBInstanceSSLResponseBody extends Model
         $res = [];
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
+        }
+
+        if (null !== $this->forceEncryption) {
+            $res['ForceEncryption'] = $this->forceEncryption;
         }
 
         if (null !== $this->requestId) {
@@ -71,6 +81,10 @@ class DescribeDBInstanceSSLResponseBody extends Model
         $model = new self();
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
+        }
+
+        if (isset($map['ForceEncryption'])) {
+            $model->forceEncryption = $map['ForceEncryption'];
         }
 
         if (isset($map['RequestId'])) {

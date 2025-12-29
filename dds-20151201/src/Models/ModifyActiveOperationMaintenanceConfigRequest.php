@@ -6,17 +6,27 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceSSLRequest extends Model
+class ModifyActiveOperationMaintenanceConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $cycleTime;
 
     /**
      * @var string
      */
-    public $forceEncryption;
+    public $cycleType;
+
+    /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
 
     /**
      * @var string
@@ -39,23 +49,19 @@ class ModifyDBInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $SSLAction;
-
-    /**
-     * @var string
-     */
-    public $switchMode;
+    public $status;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'forceEncryption' => 'ForceEncryption',
+        'cycleTime' => 'CycleTime',
+        'cycleType' => 'CycleType',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'SSLAction' => 'SSLAction',
-        'switchMode' => 'SwitchMode',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -66,12 +72,20 @@ class ModifyDBInstanceSSLRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->cycleTime) {
+            $res['CycleTime'] = $this->cycleTime;
         }
 
-        if (null !== $this->forceEncryption) {
-            $res['ForceEncryption'] = $this->forceEncryption;
+        if (null !== $this->cycleType) {
+            $res['CycleType'] = $this->cycleType;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->ownerAccount) {
@@ -90,12 +104,8 @@ class ModifyDBInstanceSSLRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->SSLAction) {
-            $res['SSLAction'] = $this->SSLAction;
-        }
-
-        if (null !== $this->switchMode) {
-            $res['SwitchMode'] = $this->switchMode;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -109,12 +119,20 @@ class ModifyDBInstanceSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['CycleTime'])) {
+            $model->cycleTime = $map['CycleTime'];
         }
 
-        if (isset($map['ForceEncryption'])) {
-            $model->forceEncryption = $map['ForceEncryption'];
+        if (isset($map['CycleType'])) {
+            $model->cycleType = $map['CycleType'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -133,12 +151,8 @@ class ModifyDBInstanceSSLRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['SSLAction'])) {
-            $model->SSLAction = $map['SSLAction'];
-        }
-
-        if (isset($map['SwitchMode'])) {
-            $model->switchMode = $map['SwitchMode'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

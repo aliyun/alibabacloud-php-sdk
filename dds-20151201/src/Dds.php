@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\AllocateNodePrivateNetworkAddressReque
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocateNodePrivateNetworkAddressResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocatePublicNetworkAddressRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocatePublicNetworkAddressResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckRecoveryConditionRequest;
@@ -29,8 +31,12 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRoleTagRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRoleTagResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteBackupRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DeleteGlobalSecurityIPGroupRequest;
@@ -125,6 +131,10 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParameterTemplatesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParameterTemplatesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRdsVpcsRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRdsVpcsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRdsVSwitchsRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceRequest;
@@ -133,6 +143,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRestoreDBInstanceListRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRestoreDBInstanceListResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleTagStatusRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleTagStatusResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRunningLogRecordsRequest;
@@ -149,6 +161,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeVpcsForMongoDBRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeVpcsForMongoDBResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DestroyInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DestroyInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\EvaluateResourceRequest;
@@ -161,12 +175,16 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationMaintenanceConfigRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationMaintenanceConfigResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditLogFilterRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditLogFilterResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditPolicyResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupExpireTimeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupExpireTimeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceAttributeRequest;
@@ -266,7 +284,7 @@ class Dds extends OpenApiClient
             'cn-wulanchabu' => 'mongodb.aliyuncs.com',
             'cn-hangzhou' => 'mongodb.aliyuncs.com',
             'cn-shanghai' => 'mongodb.aliyuncs.com',
-            'cn-shenzhen' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen' => 'mongodb.cn-shenzhen.aliyuncs.com',
             'cn-heyuan' => 'mongodb.aliyuncs.com',
             'cn-guangzhou' => 'mongodb.cn-guangzhou.aliyuncs.com',
             'cn-chengdu' => 'mongodb.cn-chengdu.aliyuncs.com',
@@ -596,6 +614,79 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocatePublicNetworkAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CancelActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelActiveOperationTasks',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CancelActiveOperationTasksRequest
+     *
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -1602,6 +1693,79 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param request - CreateNodeRoleTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNodeRoleTagResponse
+     *
+     * @param CreateNodeRoleTagRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateNodeRoleTagResponse
+     */
+    public function createNodeRoleTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->shardList) {
+            @$query['ShardList'] = $request->shardList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNodeRoleTag',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNodeRoleTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateNodeRoleTagRequest
+     *
+     * @returns CreateNodeRoleTagResponse
+     *
+     * @param CreateNodeRoleTagRequest $request
+     *
+     * @return CreateNodeRoleTagResponse
+     */
+    public function createNodeRoleTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNodeRoleTagWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
      *
      * @remarks
@@ -1814,6 +1978,83 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createShardingDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除MongoDB备份集.
+     *
+     * @param request - DeleteBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupResponse
+     *
+     * @param DeleteBackupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBackupResponse
+     */
+    public function deleteBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除MongoDB备份集.
+     *
+     * @param request - DeleteBackupRequest
+     *
+     * @returns DeleteBackupResponse
+     *
+     * @param DeleteBackupRequest $request
+     *
+     * @return DeleteBackupResponse
+     */
+    public function deleteBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupWithOptions($request, $runtime);
     }
 
     /**
@@ -3498,7 +3739,35 @@ class Dds extends OpenApiClient
     public function describeBackupStorageWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3507,7 +3776,7 @@ class Dds extends OpenApiClient
             'version' => '2015-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -3551,7 +3820,35 @@ class Dds extends OpenApiClient
     public function describeBackupTasksWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->backupJobId) {
+            @$query['BackupJobId'] = $request->backupJobId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3560,7 +3857,7 @@ class Dds extends OpenApiClient
             'version' => '2015-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -3842,7 +4139,39 @@ class Dds extends OpenApiClient
     public function describeClusterRecoverTimeWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->destRegion) {
+            @$query['DestRegion'] = $request->destRegion;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->srcRegion) {
+            @$query['SrcRegion'] = $request->srcRegion;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3851,7 +4180,7 @@ class Dds extends OpenApiClient
             'version' => '2015-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -4187,6 +4516,10 @@ class Dds extends OpenApiClient
 
         if (null !== $request->roleId) {
             @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->searchId) {
+            @$query['SearchId'] = $request->searchId;
         }
 
         if (null !== $request->startTime) {
@@ -5047,7 +5380,31 @@ class Dds extends OpenApiClient
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5056,7 +5413,7 @@ class Dds extends OpenApiClient
             'version' => '2015-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -5409,7 +5766,43 @@ class Dds extends OpenApiClient
     public function describeInstanceRecoverTimeWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->destRegion) {
+            @$query['DestRegion'] = $request->destRegion;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->srcRegion) {
+            @$query['SrcRegion'] = $request->srcRegion;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5418,7 +5811,7 @@ class Dds extends OpenApiClient
             'version' => '2015-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -6044,6 +6437,156 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeRdsVSwitchsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdsVSwitchsResponse
+     *
+     * @param DescribeRdsVSwitchsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRdsVSwitchsResponse
+     */
+    public function describeRdsVSwitchsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsVSwitchs',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeRdsVSwitchsRequest
+     *
+     * @returns DescribeRdsVSwitchsResponse
+     *
+     * @param DescribeRdsVSwitchsRequest $request
+     *
+     * @return DescribeRdsVSwitchsResponse
+     */
+    public function describeRdsVSwitchs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVSwitchsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeRdsVpcsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdsVpcsResponse
+     *
+     * @param DescribeRdsVpcsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsVpcs',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeRdsVpcsRequest
+     *
+     * @returns DescribeRdsVpcsResponse
+     *
+     * @param DescribeRdsVpcsRequest $request
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVpcsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
      *
      * @remarks
@@ -6375,6 +6918,75 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRestoreDBInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeRoleTagStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoleTagStatusResponse
+     *
+     * @param DescribeRoleTagStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRoleTagStatusResponse
+     */
+    public function describeRoleTagStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRoleTagStatus',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRoleTagStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeRoleTagStatusRequest
+     *
+     * @returns DescribeRoleTagStatusResponse
+     *
+     * @param DescribeRoleTagStatusRequest $request
+     *
+     * @return DescribeRoleTagStatusResponse
+     */
+    public function describeRoleTagStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoleTagStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -6761,6 +7373,10 @@ class Dds extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
         if (null !== $request->nodeId) {
             @$query['NodeId'] = $request->nodeId;
         }
@@ -7111,6 +7727,91 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeVpcsForMongoDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcsForMongoDBResponse
+     *
+     * @param DescribeVpcsForMongoDBRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVpcsForMongoDBResponse
+     */
+    public function describeVpcsForMongoDBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcsForMongoDB',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcsForMongoDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeVpcsForMongoDBRequest
+     *
+     * @returns DescribeVpcsForMongoDBResponse
+     *
+     * @param DescribeVpcsForMongoDBRequest $request
+     *
+     * @return DescribeVpcsForMongoDBResponse
+     */
+    public function describeVpcsForMongoDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcsForMongoDBWithOptions($request, $runtime);
     }
 
     /**
@@ -7706,6 +8407,91 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param request - ModifyActiveOperationMaintenanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyActiveOperationMaintenanceConfigResponse
+     *
+     * @param ModifyActiveOperationMaintenanceConfigRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ModifyActiveOperationMaintenanceConfigResponse
+     */
+    public function modifyActiveOperationMaintenanceConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cycleTime) {
+            @$query['CycleTime'] = $request->cycleTime;
+        }
+
+        if (null !== $request->cycleType) {
+            @$query['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->maintainEndTime) {
+            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+
+        if (null !== $request->maintainStartTime) {
+            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyActiveOperationMaintenanceConfig',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyActiveOperationMaintenanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ModifyActiveOperationMaintenanceConfigRequest
+     *
+     * @returns ModifyActiveOperationMaintenanceConfigResponse
+     *
+     * @param ModifyActiveOperationMaintenanceConfigRequest $request
+     *
+     * @return ModifyActiveOperationMaintenanceConfigResponse
+     */
+    public function modifyActiveOperationMaintenanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationMaintenanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
@@ -7976,6 +8762,87 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAuditPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改MongoDB备份集的过期时间.
+     *
+     * @param request - ModifyBackupExpireTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBackupExpireTimeResponse
+     *
+     * @param ModifyBackupExpireTimeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyBackupExpireTimeResponse
+     */
+    public function modifyBackupExpireTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupExpireTime) {
+            @$query['BackupExpireTime'] = $request->backupExpireTime;
+        }
+
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBackupExpireTime',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBackupExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改MongoDB备份集的过期时间.
+     *
+     * @param request - ModifyBackupExpireTimeRequest
+     *
+     * @returns ModifyBackupExpireTimeResponse
+     *
+     * @param ModifyBackupExpireTimeRequest $request
+     *
+     * @return ModifyBackupExpireTimeResponse
+     */
+    public function modifyBackupExpireTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupExpireTimeWithOptions($request, $runtime);
     }
 
     /**
@@ -8957,6 +9824,10 @@ class Dds extends OpenApiClient
         $query = [];
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->forceEncryption) {
+            @$query['ForceEncryption'] = $request->forceEncryption;
         }
 
         if (null !== $request->ownerAccount) {

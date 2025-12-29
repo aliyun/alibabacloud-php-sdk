@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceSSLRequest extends Model
+class CreateNodeRoleTagRequest extends Model
 {
     /**
      * @var string
      */
     public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $forceEncryption;
 
     /**
      * @var string
@@ -41,21 +36,14 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
-    public $SSLAction;
-
-    /**
-     * @var string
-     */
-    public $switchMode;
+    public $shardList;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'forceEncryption' => 'ForceEncryption',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'SSLAction' => 'SSLAction',
-        'switchMode' => 'SwitchMode',
+        'shardList' => 'ShardList',
     ];
 
     public function validate()
@@ -68,10 +56,6 @@ class ModifyDBInstanceSSLRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-
-        if (null !== $this->forceEncryption) {
-            $res['ForceEncryption'] = $this->forceEncryption;
         }
 
         if (null !== $this->ownerAccount) {
@@ -90,12 +74,8 @@ class ModifyDBInstanceSSLRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->SSLAction) {
-            $res['SSLAction'] = $this->SSLAction;
-        }
-
-        if (null !== $this->switchMode) {
-            $res['SwitchMode'] = $this->switchMode;
+        if (null !== $this->shardList) {
+            $res['ShardList'] = $this->shardList;
         }
 
         return $res;
@@ -111,10 +91,6 @@ class ModifyDBInstanceSSLRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
-        }
-
-        if (isset($map['ForceEncryption'])) {
-            $model->forceEncryption = $map['ForceEncryption'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -133,12 +109,8 @@ class ModifyDBInstanceSSLRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['SSLAction'])) {
-            $model->SSLAction = $map['SSLAction'];
-        }
-
-        if (isset($map['SwitchMode'])) {
-            $model->switchMode = $map['SwitchMode'];
+        if (isset($map['ShardList'])) {
+            $model->shardList = $map['ShardList'];
         }
 
         return $model;
