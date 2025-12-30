@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorDetail;
 
     /**
@@ -88,6 +93,7 @@ class data extends Model
         'common' => 'common',
         'createTime' => 'createTime',
         'description' => 'description',
+        'errorCode' => 'errorCode',
         'errorDetail' => 'errorDetail',
         'gender' => 'gender',
         'id' => 'id',
@@ -126,6 +132,10 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
 
         if (null !== $this->errorDetail) {
@@ -197,6 +207,10 @@ class data extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
 
         if (isset($map['errorDetail'])) {
