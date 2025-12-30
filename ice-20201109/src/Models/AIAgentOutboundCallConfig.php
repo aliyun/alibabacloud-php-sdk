@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ambientSoundConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\asrConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\autoSpeechConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\backChannelingConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\llmConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\ttsConfig;
@@ -29,6 +30,11 @@ class AIAgentOutboundCallConfig extends Model
      * @var autoSpeechConfig
      */
     public $autoSpeechConfig;
+
+    /**
+     * @var backChannelingConfig
+     */
+    public $backChannelingConfig;
 
     /**
      * @var bool
@@ -78,6 +84,7 @@ class AIAgentOutboundCallConfig extends Model
         'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
         'autoSpeechConfig' => 'AutoSpeechConfig',
+        'backChannelingConfig' => 'BackChannelingConfig',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'experimentalConfig' => 'ExperimentalConfig',
         'greeting' => 'Greeting',
@@ -99,6 +106,9 @@ class AIAgentOutboundCallConfig extends Model
         }
         if (null !== $this->autoSpeechConfig) {
             $this->autoSpeechConfig->validate();
+        }
+        if (null !== $this->backChannelingConfig) {
+            $this->backChannelingConfig->validate();
         }
         if (null !== $this->interruptConfig) {
             $this->interruptConfig->validate();
@@ -128,6 +138,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (null !== $this->autoSpeechConfig) {
             $res['AutoSpeechConfig'] = null !== $this->autoSpeechConfig ? $this->autoSpeechConfig->toArray($noStream) : $this->autoSpeechConfig;
+        }
+
+        if (null !== $this->backChannelingConfig) {
+            $res['BackChannelingConfig'] = null !== $this->backChannelingConfig ? $this->backChannelingConfig->toArray($noStream) : $this->backChannelingConfig;
         }
 
         if (null !== $this->enableIntelligentSegment) {
@@ -187,6 +201,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (isset($map['AutoSpeechConfig'])) {
             $model->autoSpeechConfig = autoSpeechConfig::fromMap($map['AutoSpeechConfig']);
+        }
+
+        if (isset($map['BackChannelingConfig'])) {
+            $model->backChannelingConfig = backChannelingConfig::fromMap($map['BackChannelingConfig']);
         }
 
         if (isset($map['EnableIntelligentSegment'])) {

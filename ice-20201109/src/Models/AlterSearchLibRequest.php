@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateSearchLibRequest extends Model
+class AlterSearchLibRequest extends Model
 {
     /**
      * @var string

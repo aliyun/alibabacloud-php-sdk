@@ -11,6 +11,11 @@ class turnDetectionConfig extends Model
     /**
      * @var string
      */
+    public $eagerness;
+
+    /**
+     * @var string
+     */
     public $mode;
 
     /**
@@ -23,6 +28,7 @@ class turnDetectionConfig extends Model
      */
     public $turnEndWords;
     protected $_name = [
+        'eagerness' => 'Eagerness',
         'mode' => 'Mode',
         'semanticWaitDuration' => 'SemanticWaitDuration',
         'turnEndWords' => 'TurnEndWords',
@@ -39,6 +45,10 @@ class turnDetectionConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eagerness) {
+            $res['Eagerness'] = $this->eagerness;
+        }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -69,6 +79,10 @@ class turnDetectionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Eagerness'])) {
+            $model->eagerness = $map['Eagerness'];
+        }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

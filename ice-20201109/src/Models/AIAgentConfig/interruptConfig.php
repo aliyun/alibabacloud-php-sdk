@@ -17,9 +17,15 @@ class interruptConfig extends Model
      * @var string[]
      */
     public $interruptWords;
+
+    /**
+     * @var string
+     */
+    public $noInterruptMode;
     protected $_name = [
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
         'interruptWords' => 'InterruptWords',
+        'noInterruptMode' => 'NoInterruptMode',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class interruptConfig extends Model
             }
         }
 
+        if (null !== $this->noInterruptMode) {
+            $res['NoInterruptMode'] = $this->noInterruptMode;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class interruptConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NoInterruptMode'])) {
+            $model->noInterruptMode = $map['NoInterruptMode'];
         }
 
         return $model;

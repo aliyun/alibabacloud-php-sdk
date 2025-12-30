@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetShrinkRequest;
@@ -1783,6 +1785,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->alterSearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改库.
+     *
+     * @param request - AlterSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AlterSearchLibResponse
+     *
+     * @param AlterSearchLibRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AlterSearchLibResponse
+     */
+    public function alterSearchLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->searchLibConfig) {
+            @$query['SearchLibConfig'] = $request->searchLibConfig;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AlterSearchLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AlterSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改库.
+     *
+     * @param request - AlterSearchLibRequest
+     *
+     * @returns AlterSearchLibResponse
+     *
+     * @param AlterSearchLibRequest $request
+     *
+     * @return AlterSearchLibResponse
+     */
+    public function alterSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->alterSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -4355,6 +4418,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->searchLibConfig) {
+            @$query['SearchLibConfig'] = $request->searchLibConfig;
+        }
+
         if (null !== $request->searchLibName) {
             @$query['SearchLibName'] = $request->searchLibName;
         }

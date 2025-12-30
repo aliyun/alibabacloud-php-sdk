@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class interruptConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $eagerness;
+
+    /**
      * @var bool
      */
     public $enableVoiceInterrupt;
@@ -17,9 +22,16 @@ class interruptConfig extends Model
      * @var string[]
      */
     public $interruptWords;
+
+    /**
+     * @var string
+     */
+    public $noInterruptMode;
     protected $_name = [
+        'eagerness' => 'Eagerness',
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
         'interruptWords' => 'InterruptWords',
+        'noInterruptMode' => 'NoInterruptMode',
     ];
 
     public function validate()
@@ -33,6 +45,10 @@ class interruptConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eagerness) {
+            $res['Eagerness'] = $this->eagerness;
+        }
+
         if (null !== $this->enableVoiceInterrupt) {
             $res['EnableVoiceInterrupt'] = $this->enableVoiceInterrupt;
         }
@@ -48,6 +64,10 @@ class interruptConfig extends Model
             }
         }
 
+        if (null !== $this->noInterruptMode) {
+            $res['NoInterruptMode'] = $this->noInterruptMode;
+        }
+
         return $res;
     }
 
@@ -59,6 +79,10 @@ class interruptConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Eagerness'])) {
+            $model->eagerness = $map['Eagerness'];
+        }
+
         if (isset($map['EnableVoiceInterrupt'])) {
             $model->enableVoiceInterrupt = $map['EnableVoiceInterrupt'];
         }
@@ -72,6 +96,10 @@ class interruptConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NoInterruptMode'])) {
+            $model->noInterruptMode = $map['NoInterruptMode'];
         }
 
         return $model;

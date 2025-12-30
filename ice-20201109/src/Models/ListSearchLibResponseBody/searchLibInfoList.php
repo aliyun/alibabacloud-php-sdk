@@ -17,6 +17,11 @@ class searchLibInfoList extends Model
     /**
      * @var string
      */
+    public $searchLibConfig;
+
+    /**
+     * @var string
+     */
     public $searchLibName;
 
     /**
@@ -25,6 +30,7 @@ class searchLibInfoList extends Model
     public $status;
     protected $_name = [
         'indexInfo' => 'IndexInfo',
+        'searchLibConfig' => 'SearchLibConfig',
         'searchLibName' => 'SearchLibName',
         'status' => 'Status',
     ];
@@ -49,6 +55,10 @@ class searchLibInfoList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->searchLibConfig) {
+            $res['SearchLibConfig'] = $this->searchLibConfig;
         }
 
         if (null !== $this->searchLibName) {
@@ -79,6 +89,10 @@ class searchLibInfoList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SearchLibConfig'])) {
+            $model->searchLibConfig = $map['SearchLibConfig'];
         }
 
         if (isset($map['SearchLibName'])) {
