@@ -16,6 +16,11 @@ class SubmitIntentionForPartnerResponseBody extends Model
     /**
      * @var string
      */
+    public $extInfo;
+
+    /**
+     * @var string
+     */
     public $intentionBizId;
 
     /**
@@ -29,6 +34,7 @@ class SubmitIntentionForPartnerResponseBody extends Model
     public $success;
     protected $_name = [
         'errorMsg' => 'ErrorMsg',
+        'extInfo' => 'ExtInfo',
         'intentionBizId' => 'IntentionBizId',
         'requestId' => 'RequestId',
         'success' => 'Success',
@@ -44,6 +50,10 @@ class SubmitIntentionForPartnerResponseBody extends Model
         $res = [];
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
 
         if (null !== $this->intentionBizId) {
@@ -71,6 +81,10 @@ class SubmitIntentionForPartnerResponseBody extends Model
         $model = new self();
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
 
         if (isset($map['IntentionBizId'])) {
