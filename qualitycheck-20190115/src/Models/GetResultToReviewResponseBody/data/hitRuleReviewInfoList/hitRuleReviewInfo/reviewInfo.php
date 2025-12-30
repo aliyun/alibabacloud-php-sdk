@@ -12,6 +12,11 @@ class reviewInfo extends Model
     /**
      * @var string
      */
+    public $comment;
+
+    /**
+     * @var string
+     */
     public $hitId;
 
     /**
@@ -39,6 +44,7 @@ class reviewInfo extends Model
      */
     public $sentenceReviewResults;
     protected $_name = [
+        'comment' => 'Comment',
         'hitId' => 'HitId',
         'reviewResult' => 'ReviewResult',
         'reviewTime' => 'ReviewTime',
@@ -58,6 +64,10 @@ class reviewInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+
         if (null !== $this->hitId) {
             $res['HitId'] = $this->hitId;
         }
@@ -93,6 +103,10 @@ class reviewInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+
         if (isset($map['HitId'])) {
             $model->hitId = $map['HitId'];
         }
