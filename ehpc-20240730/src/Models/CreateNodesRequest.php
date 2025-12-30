@@ -44,6 +44,11 @@ class CreateNodesRequest extends Model
     public $hostnameSuffix;
 
     /**
+     * @var string[]
+     */
+    public $hostnames;
+
+    /**
      * @var string
      */
     public $keepAlive;
@@ -75,6 +80,7 @@ class CreateNodesRequest extends Model
         'HPCInterConnect' => 'HPCInterConnect',
         'hostnamePrefix' => 'HostnamePrefix',
         'hostnameSuffix' => 'HostnameSuffix',
+        'hostnames' => 'Hostnames',
         'keepAlive' => 'KeepAlive',
         'queueName' => 'QueueName',
         'ramRole' => 'RamRole',
@@ -86,6 +92,9 @@ class CreateNodesRequest extends Model
     {
         if (null !== $this->computeNode) {
             $this->computeNode->validate();
+        }
+        if (\is_array($this->hostnames)) {
+            Model::validateArray($this->hostnames);
         }
         parent::validate();
     }
@@ -119,6 +128,17 @@ class CreateNodesRequest extends Model
 
         if (null !== $this->hostnameSuffix) {
             $res['HostnameSuffix'] = $this->hostnameSuffix;
+        }
+
+        if (null !== $this->hostnames) {
+            if (\is_array($this->hostnames)) {
+                $res['Hostnames'] = [];
+                $n1 = 0;
+                foreach ($this->hostnames as $item1) {
+                    $res['Hostnames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->keepAlive) {
@@ -178,6 +198,17 @@ class CreateNodesRequest extends Model
 
         if (isset($map['HostnameSuffix'])) {
             $model->hostnameSuffix = $map['HostnameSuffix'];
+        }
+
+        if (isset($map['Hostnames'])) {
+            if (!empty($map['Hostnames'])) {
+                $model->hostnames = [];
+                $n1 = 0;
+                foreach ($map['Hostnames'] as $item1) {
+                    $model->hostnames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['KeepAlive'])) {

@@ -46,6 +46,11 @@ class CreateNodesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $hostnamesShrink;
+
+    /**
+     * @var string
+     */
     public $keepAlive;
 
     /**
@@ -75,6 +80,7 @@ class CreateNodesShrinkRequest extends Model
         'HPCInterConnect' => 'HPCInterConnect',
         'hostnamePrefix' => 'HostnamePrefix',
         'hostnameSuffix' => 'HostnameSuffix',
+        'hostnamesShrink' => 'Hostnames',
         'keepAlive' => 'KeepAlive',
         'queueName' => 'QueueName',
         'ramRole' => 'RamRole',
@@ -116,6 +122,10 @@ class CreateNodesShrinkRequest extends Model
 
         if (null !== $this->hostnameSuffix) {
             $res['HostnameSuffix'] = $this->hostnameSuffix;
+        }
+
+        if (null !== $this->hostnamesShrink) {
+            $res['Hostnames'] = $this->hostnamesShrink;
         }
 
         if (null !== $this->keepAlive) {
@@ -175,6 +185,10 @@ class CreateNodesShrinkRequest extends Model
 
         if (isset($map['HostnameSuffix'])) {
             $model->hostnameSuffix = $map['HostnameSuffix'];
+        }
+
+        if (isset($map['Hostnames'])) {
+            $model->hostnamesShrink = $map['Hostnames'];
         }
 
         if (isset($map['KeepAlive'])) {

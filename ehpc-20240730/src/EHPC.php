@@ -605,6 +605,10 @@ class EHPC extends OpenApiClient
             $request->computeNodeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->computeNode, 'ComputeNode', 'json');
         }
 
+        if (null !== $tmpReq->hostnames) {
+            $request->hostnamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
+        }
+
         $query = [];
         if (null !== $request->clusterId) {
             @$query['ClusterId'] = $request->clusterId;
@@ -632,6 +636,10 @@ class EHPC extends OpenApiClient
 
         if (null !== $request->hostnameSuffix) {
             @$query['HostnameSuffix'] = $request->hostnameSuffix;
+        }
+
+        if (null !== $request->hostnamesShrink) {
+            @$query['Hostnames'] = $request->hostnamesShrink;
         }
 
         if (null !== $request->keepAlive) {

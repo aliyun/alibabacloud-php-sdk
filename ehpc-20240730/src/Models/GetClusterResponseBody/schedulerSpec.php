@@ -11,8 +11,14 @@ class schedulerSpec extends Model
     /**
      * @var bool
      */
+    public $enablePowerSaving;
+
+    /**
+     * @var bool
+     */
     public $enableTopologyAwareness;
     protected $_name = [
+        'enablePowerSaving' => 'EnablePowerSaving',
         'enableTopologyAwareness' => 'EnableTopologyAwareness',
     ];
 
@@ -24,6 +30,10 @@ class schedulerSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enablePowerSaving) {
+            $res['EnablePowerSaving'] = $this->enablePowerSaving;
+        }
+
         if (null !== $this->enableTopologyAwareness) {
             $res['EnableTopologyAwareness'] = $this->enableTopologyAwareness;
         }
@@ -39,6 +49,10 @@ class schedulerSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnablePowerSaving'])) {
+            $model->enablePowerSaving = $map['EnablePowerSaving'];
+        }
+
         if (isset($map['EnableTopologyAwareness'])) {
             $model->enableTopologyAwareness = $map['EnableTopologyAwareness'];
         }
