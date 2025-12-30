@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionRecordRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionRecordResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionZoneRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionZoneResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\BindInstanceDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\BindInstanceDomainsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainGroupRequest;
@@ -1774,6 +1776,79 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecursionZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+     *
+     * @param request - AddRspDomainServerHoldStatusForGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRspDomainServerHoldStatusForGatewayResponse
+     *
+     * @param AddRspDomainServerHoldStatusForGatewayRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return AddRspDomainServerHoldStatusForGatewayResponse
+     */
+    public function addRspDomainServerHoldStatusForGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->statusMsg) {
+            @$query['StatusMsg'] = $request->statusMsg;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddRspDomainServerHoldStatusForGateway',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddRspDomainServerHoldStatusForGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+     *
+     * @param request - AddRspDomainServerHoldStatusForGatewayRequest
+     *
+     * @returns AddRspDomainServerHoldStatusForGatewayResponse
+     *
+     * @param AddRspDomainServerHoldStatusForGatewayRequest $request
+     *
+     * @return AddRspDomainServerHoldStatusForGatewayResponse
+     */
+    public function addRspDomainServerHoldStatusForGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRspDomainServerHoldStatusForGatewayWithOptions($request, $runtime);
     }
 
     /**

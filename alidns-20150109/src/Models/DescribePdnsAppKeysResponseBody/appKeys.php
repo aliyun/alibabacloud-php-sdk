@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysResponseBody\appKeys\bindEdgeDnsClusters;
 
 class appKeys extends Model
 {
@@ -12,6 +13,11 @@ class appKeys extends Model
      * @var string
      */
     public $appKeyId;
+
+    /**
+     * @var bindEdgeDnsClusters[]
+     */
+    public $bindEdgeDnsClusters;
 
     /**
      * @var string
@@ -34,6 +40,7 @@ class appKeys extends Model
     public $state;
     protected $_name = [
         'appKeyId' => 'AppKeyId',
+        'bindEdgeDnsClusters' => 'BindEdgeDnsClusters',
         'createDate' => 'CreateDate',
         'createTimestamp' => 'CreateTimestamp',
         'remark' => 'Remark',
@@ -42,6 +49,9 @@ class appKeys extends Model
 
     public function validate()
     {
+        if (\is_array($this->bindEdgeDnsClusters)) {
+            Model::validateArray($this->bindEdgeDnsClusters);
+        }
         parent::validate();
     }
 
@@ -50,6 +60,17 @@ class appKeys extends Model
         $res = [];
         if (null !== $this->appKeyId) {
             $res['AppKeyId'] = $this->appKeyId;
+        }
+
+        if (null !== $this->bindEdgeDnsClusters) {
+            if (\is_array($this->bindEdgeDnsClusters)) {
+                $res['BindEdgeDnsClusters'] = [];
+                $n1 = 0;
+                foreach ($this->bindEdgeDnsClusters as $item1) {
+                    $res['BindEdgeDnsClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->createDate) {
@@ -81,6 +102,17 @@ class appKeys extends Model
         $model = new self();
         if (isset($map['AppKeyId'])) {
             $model->appKeyId = $map['AppKeyId'];
+        }
+
+        if (isset($map['BindEdgeDnsClusters'])) {
+            if (!empty($map['BindEdgeDnsClusters'])) {
+                $model->bindEdgeDnsClusters = [];
+                $n1 = 0;
+                foreach ($map['BindEdgeDnsClusters'] as $item1) {
+                    $model->bindEdgeDnsClusters[$n1] = bindEdgeDnsClusters::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CreateDate'])) {
