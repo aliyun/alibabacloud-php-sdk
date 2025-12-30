@@ -53,6 +53,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizMetricRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizMetricResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizMetricShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitShrinkRequest;
@@ -105,6 +108,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizMetricRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizMetricResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizMetricShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeSourceRequest;
@@ -160,8 +166,13 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizMetricByNameRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizMetricByNameResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizMetricByNameShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetComputeSourceRequest;
@@ -459,6 +470,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesS
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizMetricRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizMetricResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizMetricShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitShrinkRequest;
@@ -1709,6 +1723,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建业务指标.
+     *
+     * @param tmpReq - CreateBizMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizMetricResponse
+     *
+     * @param CreateBizMetricRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBizMetricResponse
+     */
+    public function createBizMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBizMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createBizMetricCommand) {
+            $request->createBizMetricCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createBizMetricCommand, 'CreateBizMetricCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createBizMetricCommandShrink) {
+            @$body['CreateBizMetricCommand'] = $request->createBizMetricCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBizMetric',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBizMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建业务指标.
+     *
+     * @param request - CreateBizMetricRequest
+     *
+     * @returns CreateBizMetricResponse
+     *
+     * @param CreateBizMetricRequest $request
+     *
+     * @return CreateBizMetricResponse
+     */
+    public function createBizMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBizMetricWithOptions($request, $runtime);
     }
 
     /**
@@ -2967,6 +3050,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除业务指标.
+     *
+     * @param tmpReq - DeleteBizMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizMetricResponse
+     *
+     * @param DeleteBizMetricRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBizMetricResponse
+     */
+    public function deleteBizMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteBizMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteBizMetricCommand) {
+            $request->deleteBizMetricCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteBizMetricCommand, 'DeleteBizMetricCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteBizMetricCommandShrink) {
+            @$body['DeleteBizMetricCommand'] = $request->deleteBizMetricCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBizMetric',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBizMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除业务指标.
+     *
+     * @param request - DeleteBizMetricRequest
+     *
+     * @returns DeleteBizMetricResponse
+     *
+     * @param DeleteBizMetricRequest $request
+     *
+     * @return DeleteBizMetricResponse
+     */
+    public function deleteBizMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBizMetricWithOptions($request, $runtime);
     }
 
     /**
@@ -4586,6 +4738,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询业务指标详情.
+     *
+     * @param tmpReq - GetBizMetricByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizMetricByNameResponse
+     *
+     * @param GetBizMetricByNameRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBizMetricByNameResponse
+     */
+    public function getBizMetricByNameWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetBizMetricByNameShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizMetricByNameQuery) {
+            $request->bizMetricByNameQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizMetricByNameQuery, 'BizMetricByNameQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->bizMetricByNameQueryShrink) {
+            @$body['BizMetricByNameQuery'] = $request->bizMetricByNameQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetBizMetricByName',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBizMetricByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询业务指标详情.
+     *
+     * @param request - GetBizMetricByNameRequest
+     *
+     * @returns GetBizMetricByNameResponse
+     *
+     * @param GetBizMetricByNameRequest $request
+     *
+     * @return GetBizMetricByNameResponse
+     */
+    public function getBizMetricByName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBizMetricByNameWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取数据板块详情。
      *
      * @param request - GetBizUnitInfoRequest
@@ -4644,6 +4865,67 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBizUnitInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据源连通性检查任务。
+     *
+     * @param request - GetCheckConnectivityJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCheckConnectivityJobsResponse
+     *
+     * @param GetCheckConnectivityJobsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetCheckConnectivityJobsResponse
+     */
+    public function getCheckConnectivityJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataSourceId) {
+            @$query['DataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCheckConnectivityJobs',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCheckConnectivityJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据源连通性检查任务。
+     *
+     * @param request - GetCheckConnectivityJobsRequest
+     *
+     * @returns GetCheckConnectivityJobsResponse
+     *
+     * @param GetCheckConnectivityJobsRequest $request
+     *
+     * @return GetCheckConnectivityJobsResponse
+     */
+    public function getCheckConnectivityJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCheckConnectivityJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -12507,6 +12789,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新业务指标.
+     *
+     * @param tmpReq - UpdateBizMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizMetricResponse
+     *
+     * @param UpdateBizMetricRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateBizMetricResponse
+     */
+    public function updateBizMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateBizMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateBizMetricCommand) {
+            $request->updateBizMetricCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateBizMetricCommand, 'UpdateBizMetricCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateBizMetricCommandShrink) {
+            @$body['UpdateBizMetricCommand'] = $request->updateBizMetricCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBizMetric',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBizMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新业务指标.
+     *
+     * @param request - UpdateBizMetricRequest
+     *
+     * @returns UpdateBizMetricResponse
+     *
+     * @param UpdateBizMetricRequest $request
+     *
+     * @return UpdateBizMetricResponse
+     */
+    public function updateBizMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBizMetricWithOptions($request, $runtime);
     }
 
     /**
