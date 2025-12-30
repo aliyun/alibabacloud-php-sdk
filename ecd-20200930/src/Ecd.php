@@ -386,6 +386,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFileDownloadUrlRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFileDownloadUrlResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTransferFilesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsRequest;
@@ -17017,6 +17019,67 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件列表.
+     *
+     * @param request - ListTransferFileDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTransferFileDownloadUrlResponse
+     *
+     * @param ListTransferFileDownloadUrlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListTransferFileDownloadUrlResponse
+     */
+    public function listTransferFileDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileIds) {
+            @$query['FileIds'] = $request->fileIds;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTransferFileDownloadUrl',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTransferFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件列表.
+     *
+     * @param request - ListTransferFileDownloadUrlRequest
+     *
+     * @returns ListTransferFileDownloadUrlResponse
+     *
+     * @param ListTransferFileDownloadUrlRequest $request
+     *
+     * @return ListTransferFileDownloadUrlResponse
+     */
+    public function listTransferFileDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTransferFileDownloadUrlWithOptions($request, $runtime);
     }
 
     /**
