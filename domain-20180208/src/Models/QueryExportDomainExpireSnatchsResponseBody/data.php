@@ -116,6 +116,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $icpNumber;
+
+    /**
+     * @var bool
+     */
+    public $icpStatus;
+
+    /**
+     * @var string
+     */
     public $introduction;
 
     /**
@@ -239,6 +249,8 @@ class data extends Model
         'expireDate' => 'ExpireDate',
         'extend' => 'Extend',
         'freezeAmount' => 'FreezeAmount',
+        'icpNumber' => 'IcpNumber',
+        'icpStatus' => 'IcpStatus',
         'introduction' => 'Introduction',
         'isPremium' => 'IsPremium',
         'partnerTypes' => 'PartnerTypes',
@@ -352,6 +364,14 @@ class data extends Model
 
         if (null !== $this->freezeAmount) {
             $res['FreezeAmount'] = $this->freezeAmount;
+        }
+
+        if (null !== $this->icpNumber) {
+            $res['IcpNumber'] = $this->icpNumber;
+        }
+
+        if (null !== $this->icpStatus) {
+            $res['IcpStatus'] = $this->icpStatus;
         }
 
         if (null !== $this->introduction) {
@@ -531,6 +551,14 @@ class data extends Model
 
         if (isset($map['FreezeAmount'])) {
             $model->freezeAmount = $map['FreezeAmount'];
+        }
+
+        if (isset($map['IcpNumber'])) {
+            $model->icpNumber = $map['IcpNumber'];
+        }
+
+        if (isset($map['IcpStatus'])) {
+            $model->icpStatus = $map['IcpStatus'];
         }
 
         if (isset($map['Introduction'])) {

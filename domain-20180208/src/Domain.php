@@ -388,6 +388,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 出价.
+     *
      * @param request - BidDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -433,6 +435,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 出价.
+     *
      * @param request - BidDomainRequest
      *
      * @returns BidDomainResponse
