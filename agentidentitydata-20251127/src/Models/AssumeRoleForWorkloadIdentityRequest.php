@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class AssumeRoleForWorkloadIdentityRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $durationSeconds;
 
