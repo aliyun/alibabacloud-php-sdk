@@ -3561,6 +3561,10 @@ class Pvtz extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->priorityForwardConfigs) {
+            @$query['PriorityForwardConfigs'] = $request->priorityForwardConfigs;
+        }
+
         if (null !== $request->ruleId) {
             @$query['RuleId'] = $request->ruleId;
         }

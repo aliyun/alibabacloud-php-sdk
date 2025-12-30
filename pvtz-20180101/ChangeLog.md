@@ -1,3 +1,8 @@
+2025-12-30 Version: 1.5.3
+- Update API DescribeResolverRules: add response parameters Body.Rules.$.PriorityForwardConfigs.
+- Update API UpdateResolverRule: add request parameters PriorityForwardConfigs.
+
+
 2025-11-25 Version: 1.5.3
 - Update SDK.
 

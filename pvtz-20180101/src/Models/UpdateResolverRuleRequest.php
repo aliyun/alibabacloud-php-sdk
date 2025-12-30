@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateResolverRuleRequest\forwardIp;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\UpdateResolverRuleRequest\priorityForwardConfigs;
 
 class UpdateResolverRuleRequest extends Model
 {
@@ -30,6 +31,11 @@ class UpdateResolverRuleRequest extends Model
     public $name;
 
     /**
+     * @var priorityForwardConfigs[]
+     */
+    public $priorityForwardConfigs;
+
+    /**
      * @var string
      */
     public $ruleId;
@@ -38,6 +44,7 @@ class UpdateResolverRuleRequest extends Model
         'forwardIp' => 'ForwardIp',
         'lang' => 'Lang',
         'name' => 'Name',
+        'priorityForwardConfigs' => 'PriorityForwardConfigs',
         'ruleId' => 'RuleId',
     ];
 
@@ -45,6 +52,9 @@ class UpdateResolverRuleRequest extends Model
     {
         if (\is_array($this->forwardIp)) {
             Model::validateArray($this->forwardIp);
+        }
+        if (\is_array($this->priorityForwardConfigs)) {
+            Model::validateArray($this->priorityForwardConfigs);
         }
         parent::validate();
     }
@@ -73,6 +83,17 @@ class UpdateResolverRuleRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->priorityForwardConfigs) {
+            if (\is_array($this->priorityForwardConfigs)) {
+                $res['PriorityForwardConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->priorityForwardConfigs as $item1) {
+                    $res['PriorityForwardConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ruleId) {
@@ -111,6 +132,17 @@ class UpdateResolverRuleRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PriorityForwardConfigs'])) {
+            if (!empty($map['PriorityForwardConfigs'])) {
+                $model->priorityForwardConfigs = [];
+                $n1 = 0;
+                foreach ($map['PriorityForwardConfigs'] as $item1) {
+                    $model->priorityForwardConfigs[$n1] = priorityForwardConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RuleId'])) {

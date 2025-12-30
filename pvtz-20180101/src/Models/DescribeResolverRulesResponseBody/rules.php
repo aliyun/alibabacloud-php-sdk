@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\bindEdgeDnsClusters;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\bindVpcs;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\forwardIps;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeResolverRulesResponseBody\rules\priorityForwardConfigs;
 
 class rules extends Model
 {
@@ -57,6 +58,11 @@ class rules extends Model
     public $name;
 
     /**
+     * @var priorityForwardConfigs[]
+     */
+    public $priorityForwardConfigs;
+
+    /**
      * @var string
      */
     public $type;
@@ -85,6 +91,7 @@ class rules extends Model
         'forwardIps' => 'ForwardIps',
         'id' => 'Id',
         'name' => 'Name',
+        'priorityForwardConfigs' => 'PriorityForwardConfigs',
         'type' => 'Type',
         'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
@@ -101,6 +108,9 @@ class rules extends Model
         }
         if (\is_array($this->forwardIps)) {
             Model::validateArray($this->forwardIps);
+        }
+        if (\is_array($this->priorityForwardConfigs)) {
+            Model::validateArray($this->priorityForwardConfigs);
         }
         parent::validate();
     }
@@ -163,6 +173,17 @@ class rules extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->priorityForwardConfigs) {
+            if (\is_array($this->priorityForwardConfigs)) {
+                $res['PriorityForwardConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->priorityForwardConfigs as $item1) {
+                    $res['PriorityForwardConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -247,6 +268,17 @@ class rules extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PriorityForwardConfigs'])) {
+            if (!empty($map['PriorityForwardConfigs'])) {
+                $model->priorityForwardConfigs = [];
+                $n1 = 0;
+                foreach ($map['PriorityForwardConfigs'] as $item1) {
+                    $model->priorityForwardConfigs[$n1] = priorityForwardConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Type'])) {
