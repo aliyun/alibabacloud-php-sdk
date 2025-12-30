@@ -86,6 +86,7 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListImagesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListImagesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineNetworkInfoRequest;
@@ -2653,19 +2654,34 @@ class Eflocontroller extends OpenApiClient
     /**
      * 机器列表.
      *
-     * @param request - ListHyperNodesRequest
+     * @param tmpReq - ListHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListHyperNodesResponse
      *
-     * @param ListHyperNodesRequest $request
+     * @param ListHyperNodesRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return ListHyperNodesResponse
      */
-    public function listHyperNodesWithOptions($request, $runtime)
+    public function listHyperNodesWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListHyperNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operatingStates) {
+            $request->operatingStatesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operatingStates, 'OperatingStates', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->operatingStatesShrink) {
+            @$query['OperatingStates'] = $request->operatingStatesShrink;
+        }
+
         $body = [];
         if (null !== $request->clusterName) {
             @$body['ClusterName'] = $request->clusterName;
@@ -2708,6 +2724,7 @@ class Eflocontroller extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

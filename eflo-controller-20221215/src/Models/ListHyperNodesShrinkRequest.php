@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesRequest\tags;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesShrinkRequest\tags;
 
-class ListHyperNodesRequest extends Model
+class ListHyperNodesShrinkRequest extends Model
 {
     /**
      * @var string
@@ -50,9 +50,9 @@ class ListHyperNodesRequest extends Model
     public $nodeGroupName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $operatingStates;
+    public $operatingStatesShrink;
 
     /**
      * @var string
@@ -77,7 +77,7 @@ class ListHyperNodesRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'nodeGroupName' => 'NodeGroupName',
-        'operatingStates' => 'OperatingStates',
+        'operatingStatesShrink' => 'OperatingStates',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
         'zoneId' => 'ZoneId',
@@ -85,9 +85,6 @@ class ListHyperNodesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->operatingStates)) {
-            Model::validateArray($this->operatingStates);
-        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -129,15 +126,8 @@ class ListHyperNodesRequest extends Model
             $res['NodeGroupName'] = $this->nodeGroupName;
         }
 
-        if (null !== $this->operatingStates) {
-            if (\is_array($this->operatingStates)) {
-                $res['OperatingStates'] = [];
-                $n1 = 0;
-                foreach ($this->operatingStates as $item1) {
-                    $res['OperatingStates'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->operatingStatesShrink) {
+            $res['OperatingStates'] = $this->operatingStatesShrink;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -203,14 +193,7 @@ class ListHyperNodesRequest extends Model
         }
 
         if (isset($map['OperatingStates'])) {
-            if (!empty($map['OperatingStates'])) {
-                $model->operatingStates = [];
-                $n1 = 0;
-                foreach ($map['OperatingStates'] as $item1) {
-                    $model->operatingStates[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->operatingStatesShrink = $map['OperatingStates'];
         }
 
         if (isset($map['ResourceGroupId'])) {
