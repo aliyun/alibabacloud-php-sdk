@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cms\V20240330;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
@@ -136,6 +138,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesResponse
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsShrinkRequest;
@@ -144,6 +149,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupRequest;
@@ -213,6 +223,75 @@ class Cms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 修改资源所属资源组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourcegroup',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改资源所属资源组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5475,6 +5554,93 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查标签接口.
+     *
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查标签接口.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 列出会话.
      *
      * @param tmpReq - ListThreadsRequest
@@ -5711,6 +5877,158 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->putWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删标签接口.
+     *
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['tagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删标签接口.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
