@@ -39,6 +39,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateQualityCheckTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskHeaders;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateVideoCreationTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\DashscopeAsyncTaskFinishEventHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\DashscopeAsyncTaskFinishEventRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\DashscopeAsyncTaskFinishEventResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryRequest;
@@ -1155,6 +1158,78 @@ class DianJin extends OpenApiClient
         $headers = new CreateVideoCreationTaskHeaders([]);
 
         return $this->createVideoCreationTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Dashscope异步任务完成事件处理.
+     *
+     * @param Request - DashscopeAsyncTaskFinishEventRequest
+     * @param headers - DashscopeAsyncTaskFinishEventHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DashscopeAsyncTaskFinishEventResponse
+     *
+     * @param string                               $workspaceId
+     * @param DashscopeAsyncTaskFinishEventRequest $request
+     * @param DashscopeAsyncTaskFinishEventHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DashscopeAsyncTaskFinishEventResponse
+     */
+    public function dashscopeAsyncTaskFinishEventWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DashscopeAsyncTaskFinishEvent',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/event/dashscopeAsyncTaskFinish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DashscopeAsyncTaskFinishEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Dashscope异步任务完成事件处理.
+     *
+     * @param Request - DashscopeAsyncTaskFinishEventRequest
+     *
+     * @returns DashscopeAsyncTaskFinishEventResponse
+     *
+     * @param string                               $workspaceId
+     * @param DashscopeAsyncTaskFinishEventRequest $request
+     *
+     * @return DashscopeAsyncTaskFinishEventResponse
+     */
+    public function dashscopeAsyncTaskFinishEvent($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DashscopeAsyncTaskFinishEventHeaders([]);
+
+        return $this->dashscopeAsyncTaskFinishEventWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
