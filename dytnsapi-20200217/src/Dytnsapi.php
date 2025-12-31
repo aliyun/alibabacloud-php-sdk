@@ -84,6 +84,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTaskListShrinkRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryUsageStatisticsByTagIdResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\SaveContactsRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\SaveContactsResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationRequest;
@@ -3403,6 +3405,103 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryUsageStatisticsByTagIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预警联系人保存.
+     *
+     * @param request - SaveContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveContactsResponse
+     *
+     * @param SaveContactsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SaveContactsResponse
+     */
+    public function saveContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->contactEmail) {
+            @$query['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPhone) {
+            @$query['ContactPhone'] = $request->contactPhone;
+        }
+
+        if (null !== $request->mailStatus) {
+            @$query['MailStatus'] = $request->mailStatus;
+        }
+
+        if (null !== $request->openStatusWarning) {
+            @$query['OpenStatusWarning'] = $request->openStatusWarning;
+        }
+
+        if (null !== $request->opentAttributionWarning) {
+            @$query['OpentAttributionWarning'] = $request->opentAttributionWarning;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneStatus) {
+            @$query['PhoneStatus'] = $request->phoneStatus;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SaveContacts',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预警联系人保存.
+     *
+     * @param request - SaveContactsRequest
+     *
+     * @returns SaveContactsResponse
+     *
+     * @param SaveContactsRequest $request
+     *
+     * @return SaveContactsResponse
+     */
+    public function saveContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveContactsWithOptions($request, $runtime);
     }
 
     /**
