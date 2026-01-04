@@ -156,6 +156,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTableRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTableResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTargetGroupRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTargetGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSnatEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSnatEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSslVpnClientCertRequest;
@@ -272,6 +274,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteTableRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteTableResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteTargetGroupRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteRouteTargetGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteSnatEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteSnatEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteSslVpnClientCertRequest;
@@ -504,6 +508,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusRequ
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetRouteTargetGroupRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetRouteTargetGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcGatewayEndpointAttributeRequest;
@@ -554,6 +560,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolCidrBlocksReque
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolCidrBlocksResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListRouteTargetGroupsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListRouteTargetGroupsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesForExpressConnectRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesForExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesRequest;
@@ -736,6 +744,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\StartFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\StartFailoverTestJobResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\StopFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\StopFailoverTestJobResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\SwitchActiveRouteTargetRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\SwitchActiveRouteTargetResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesForExpressConnectRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesForExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesRequest;
@@ -780,6 +790,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNetworkAclEntriesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNetworkAclEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdatePublicIpAddressPoolAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdatePublicIpAddressPoolAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateRouteTargetGroupRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateRouteTargetGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateTrafficMirrorFilterAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateTrafficMirrorFilterAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateTrafficMirrorFilterRuleAttributeRequest;
@@ -9019,6 +9031,111 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Create Route Target Group.
+     *
+     * @remarks
+     * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+     *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+     * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+     * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+     * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+     *
+     * @param request - CreateRouteTargetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRouteTargetGroupResponse
+     *
+     * @param CreateRouteTargetGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateRouteTargetGroupResponse
+     */
+    public function createRouteTargetGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configMode) {
+            @$query['ConfigMode'] = $request->configMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->routeTargetGroupDescription) {
+            @$query['RouteTargetGroupDescription'] = $request->routeTargetGroupDescription;
+        }
+
+        if (null !== $request->routeTargetGroupName) {
+            @$query['RouteTargetGroupName'] = $request->routeTargetGroupName;
+        }
+
+        if (null !== $request->routeTargetMemberList) {
+            @$query['RouteTargetMemberList'] = $request->routeTargetMemberList;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRouteTargetGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRouteTargetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Route Target Group.
+     *
+     * @remarks
+     * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+     *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+     * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+     * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+     * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+     *
+     * @param request - CreateRouteTargetGroupRequest
+     *
+     * @returns CreateRouteTargetGroupResponse
+     *
+     * @param CreateRouteTargetGroupRequest $request
+     *
+     * @return CreateRouteTargetGroupResponse
+     */
+    public function createRouteTargetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteTargetGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a router interface.
      *
      * @remarks
@@ -15264,6 +15381,85 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Route Target Group.
+     *
+     * @remarks
+     * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+     *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+     *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+     *
+     * @param request - DeleteRouteTargetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRouteTargetGroupResponse
+     *
+     * @param DeleteRouteTargetGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteRouteTargetGroupResponse
+     */
+    public function deleteRouteTargetGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeTargetGroupId) {
+            @$query['RouteTargetGroupId'] = $request->routeTargetGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRouteTargetGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRouteTargetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Route Target Group.
+     *
+     * @remarks
+     * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+     *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+     *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+     *
+     * @param request - DeleteRouteTargetGroupRequest
+     *
+     * @returns DeleteRouteTargetGroupResponse
+     *
+     * @param DeleteRouteTargetGroupRequest $request
+     *
+     * @return DeleteRouteTargetGroupResponse
+     */
+    public function deleteRouteTargetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteTargetGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -26348,6 +26544,81 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Get the route target group.
+     *
+     * @remarks
+     * Get the information of the route target group instance.
+     *
+     * @param request - GetRouteTargetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRouteTargetGroupResponse
+     *
+     * @param GetRouteTargetGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRouteTargetGroupResponse
+     */
+    public function getRouteTargetGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeTargetGroupId) {
+            @$query['RouteTargetGroupId'] = $request->routeTargetGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRouteTargetGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRouteTargetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get the route target group.
+     *
+     * @remarks
+     * Get the information of the route target group instance.
+     *
+     * @param request - GetRouteTargetGroupRequest
+     *
+     * @returns GetRouteTargetGroupResponse
+     *
+     * @param GetRouteTargetGroupRequest $request
+     *
+     * @return GetRouteTargetGroupResponse
+     */
+    public function getRouteTargetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRouteTargetGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status of the traffic mirror feature.
      *
      * @param request - GetTrafficMirrorServiceStatusRequest
@@ -28557,6 +28828,101 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPublicIpAddressPoolsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Batch query for route target groups.
+     *
+     * @remarks
+     * Lists the route target groups.
+     *
+     * @param request - ListRouteTargetGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRouteTargetGroupsResponse
+     *
+     * @param ListRouteTargetGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRouteTargetGroupsResponse
+     */
+    public function listRouteTargetGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->routeTargetGroupIds) {
+            @$query['RouteTargetGroupIds'] = $request->routeTargetGroupIds;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRouteTargetGroups',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRouteTargetGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Batch query for route target groups.
+     *
+     * @remarks
+     * Lists the route target groups.
+     *
+     * @param request - ListRouteTargetGroupsRequest
+     *
+     * @returns ListRouteTargetGroupsResponse
+     *
+     * @param ListRouteTargetGroupsRequest $request
+     *
+     * @return ListRouteTargetGroupsResponse
+     */
+    public function listRouteTargetGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRouteTargetGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -37778,6 +38144,81 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Switch Active and Standby For RouteTargetGroup.
+     *
+     * @remarks
+     * Switch Active and Standby For RouteTargetGroup.
+     *
+     * @param request - SwitchActiveRouteTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchActiveRouteTargetResponse
+     *
+     * @param SwitchActiveRouteTargetRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SwitchActiveRouteTargetResponse
+     */
+    public function switchActiveRouteTargetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeTargetGroupId) {
+            @$query['RouteTargetGroupId'] = $request->routeTargetGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchActiveRouteTarget',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchActiveRouteTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Switch Active and Standby For RouteTargetGroup.
+     *
+     * @remarks
+     * Switch Active and Standby For RouteTargetGroup.
+     *
+     * @param request - SwitchActiveRouteTargetRequest
+     *
+     * @returns SwitchActiveRouteTargetResponse
+     *
+     * @param SwitchActiveRouteTargetRequest $request
+     *
+     * @return SwitchActiveRouteTargetResponse
+     */
+    public function switchActiveRouteTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchActiveRouteTargetWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates and adds tags to resources.
      *
      * @remarks
@@ -39994,6 +40435,93 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePublicIpAddressPoolAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Route Target Group.
+     *
+     * @remarks
+     * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+     *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+     *
+     * @param request - UpdateRouteTargetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRouteTargetGroupResponse
+     *
+     * @param UpdateRouteTargetGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateRouteTargetGroupResponse
+     */
+    public function updateRouteTargetGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeTargetGroupDescription) {
+            @$query['RouteTargetGroupDescription'] = $request->routeTargetGroupDescription;
+        }
+
+        if (null !== $request->routeTargetGroupId) {
+            @$query['RouteTargetGroupId'] = $request->routeTargetGroupId;
+        }
+
+        if (null !== $request->routeTargetGroupName) {
+            @$query['RouteTargetGroupName'] = $request->routeTargetGroupName;
+        }
+
+        if (null !== $request->routeTargetMemberList) {
+            @$query['RouteTargetMemberList'] = $request->routeTargetMemberList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRouteTargetGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRouteTargetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Route Target Group.
+     *
+     * @remarks
+     * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+     *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+     *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+     *
+     * @param request - UpdateRouteTargetGroupRequest
+     *
+     * @returns UpdateRouteTargetGroupResponse
+     *
+     * @param UpdateRouteTargetGroupRequest $request
+     *
+     * @return UpdateRouteTargetGroupResponse
+     */
+    public function updateRouteTargetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRouteTargetGroupWithOptions($request, $runtime);
     }
 
     /**
