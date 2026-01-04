@@ -454,6 +454,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\JoinVSwitchesToEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinVSwitchesToEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\LeaveSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\LeaveSecurityGroupResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListAICPublicKeyDeliveriesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListAICPublicKeyDeliveriesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListAICPublicKeysRequest;
@@ -462,6 +463,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListBucketsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListBucketsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ListClusterAddonInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListObjectsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListObjectsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListProductAbilitiesResponse;
@@ -15868,6 +15871,50 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 查询可用的组件列表.
+     *
+     * @param request - ListAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddonsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddonsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListAddons',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询可用的组件列表.
+     *
+     * @returns ListAddonsResponse
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddons()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAddonsWithOptions($runtime);
+    }
+
+    /**
      * Queries the created applications.
      *
      * @param request - ListApplicationsRequest
@@ -16015,6 +16062,63 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBucketsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询集群已安装的组件实例列表.
+     *
+     * @param request - ListClusterAddonInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterAddonInstancesResponse
+     *
+     * @param ListClusterAddonInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListClusterAddonInstancesResponse
+     */
+    public function listClusterAddonInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListClusterAddonInstances',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClusterAddonInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群已安装的组件实例列表.
+     *
+     * @param request - ListClusterAddonInstancesRequest
+     *
+     * @returns ListClusterAddonInstancesResponse
+     *
+     * @param ListClusterAddonInstancesRequest $request
+     *
+     * @return ListClusterAddonInstancesResponse
+     */
+    public function listClusterAddonInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClusterAddonInstancesWithOptions($request, $runtime);
     }
 
     /**
