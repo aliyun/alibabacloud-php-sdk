@@ -1,3 +1,7 @@
+2026-01-04 Version: 2.8.0
+- Support API DescribeDomainCcProtectSwitch.
+
+
 2025-12-16 Version: 2.7.1
 - Update API ModifyNetworkRuleAttribute: add request parameters Module.
 

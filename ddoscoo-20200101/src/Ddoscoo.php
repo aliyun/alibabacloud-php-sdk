@@ -133,6 +133,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainCcProtectSwitchRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainCcProtectSwitchResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewRequest;
@@ -4842,6 +4844,63 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainBpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeDomainCcProtectSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDomainCcProtectSwitchResponse
+     *
+     * @param DescribeDomainCcProtectSwitchRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainCcProtectSwitchResponse
+     */
+    public function describeDomainCcProtectSwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDomainCcProtectSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDomainCcProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeDomainCcProtectSwitchRequest
+     *
+     * @returns DescribeDomainCcProtectSwitchResponse
+     *
+     * @param DescribeDomainCcProtectSwitchRequest $request
+     *
+     * @return DescribeDomainCcProtectSwitchResponse
+     */
+    public function describeDomainCcProtectSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainCcProtectSwitchWithOptions($request, $runtime);
     }
 
     /**
