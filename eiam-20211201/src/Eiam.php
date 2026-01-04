@@ -8461,6 +8461,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->applicationCreationType) {
+            @$query['ApplicationCreationType'] = $request->applicationCreationType;
+        }
+
         if (null !== $request->applicationIds) {
             @$query['ApplicationIds'] = $request->applicationIds;
         }

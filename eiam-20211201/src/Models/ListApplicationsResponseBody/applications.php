@@ -11,6 +11,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $applicationCreationType;
+
+    /**
+     * @var string
+     */
     public $applicationId;
 
     /**
@@ -64,6 +69,21 @@ class applications extends Model
     public $managedServiceCode;
 
     /**
+     * @var string
+     */
+    public $resourceServerIdentifier;
+
+    /**
+     * @var string
+     */
+    public $resourceServerSourceType;
+
+    /**
+     * @var string
+     */
+    public $resourceServerStatus;
+
+    /**
      * @var bool
      */
     public $serviceManaged;
@@ -83,6 +103,7 @@ class applications extends Model
      */
     public $updateTime;
     protected $_name = [
+        'applicationCreationType' => 'ApplicationCreationType',
         'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
@@ -94,6 +115,9 @@ class applications extends Model
         'instanceId' => 'InstanceId',
         'logoUrl' => 'LogoUrl',
         'managedServiceCode' => 'ManagedServiceCode',
+        'resourceServerIdentifier' => 'ResourceServerIdentifier',
+        'resourceServerSourceType' => 'ResourceServerSourceType',
+        'resourceServerStatus' => 'ResourceServerStatus',
         'serviceManaged' => 'ServiceManaged',
         'ssoType' => 'SsoType',
         'status' => 'Status',
@@ -108,6 +132,10 @@ class applications extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationCreationType) {
+            $res['ApplicationCreationType'] = $this->applicationCreationType;
+        }
+
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
@@ -152,6 +180,18 @@ class applications extends Model
             $res['ManagedServiceCode'] = $this->managedServiceCode;
         }
 
+        if (null !== $this->resourceServerIdentifier) {
+            $res['ResourceServerIdentifier'] = $this->resourceServerIdentifier;
+        }
+
+        if (null !== $this->resourceServerSourceType) {
+            $res['ResourceServerSourceType'] = $this->resourceServerSourceType;
+        }
+
+        if (null !== $this->resourceServerStatus) {
+            $res['ResourceServerStatus'] = $this->resourceServerStatus;
+        }
+
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
         }
@@ -179,6 +219,10 @@ class applications extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationCreationType'])) {
+            $model->applicationCreationType = $map['ApplicationCreationType'];
+        }
+
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
@@ -221,6 +265,18 @@ class applications extends Model
 
         if (isset($map['ManagedServiceCode'])) {
             $model->managedServiceCode = $map['ManagedServiceCode'];
+        }
+
+        if (isset($map['ResourceServerIdentifier'])) {
+            $model->resourceServerIdentifier = $map['ResourceServerIdentifier'];
+        }
+
+        if (isset($map['ResourceServerSourceType'])) {
+            $model->resourceServerSourceType = $map['ResourceServerSourceType'];
+        }
+
+        if (isset($map['ResourceServerStatus'])) {
+            $model->resourceServerStatus = $map['ResourceServerStatus'];
         }
 
         if (isset($map['ServiceManaged'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListApplicationsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $applicationCreationType;
+
+    /**
      * @var string[]
      */
     public $applicationIds;
@@ -58,6 +63,7 @@ class ListApplicationsRequest extends Model
      */
     public $status;
     protected $_name = [
+        'applicationCreationType' => 'ApplicationCreationType',
         'applicationIds' => 'ApplicationIds',
         'applicationName' => 'ApplicationName',
         'authorizationType' => 'AuthorizationType',
@@ -81,6 +87,10 @@ class ListApplicationsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationCreationType) {
+            $res['ApplicationCreationType'] = $this->applicationCreationType;
+        }
+
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
@@ -139,6 +149,10 @@ class ListApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationCreationType'])) {
+            $model->applicationCreationType = $map['ApplicationCreationType'];
+        }
+
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];

@@ -16,6 +16,11 @@ class application extends Model
     /**
      * @var string
      */
+    public $applicationCreationType;
+
+    /**
+     * @var string
+     */
     public $applicationId;
 
     /**
@@ -96,6 +101,11 @@ class application extends Model
     /**
      * @var string
      */
+    public $resourceServerSourceType;
+
+    /**
+     * @var string
+     */
     public $resourceServerStatus;
 
     /**
@@ -119,6 +129,7 @@ class application extends Model
     public $updateTime;
     protected $_name = [
         'apiInvokeStatus' => 'ApiInvokeStatus',
+        'applicationCreationType' => 'ApplicationCreationType',
         'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
@@ -135,6 +146,7 @@ class application extends Model
         'm2MClientStatus' => 'M2MClientStatus',
         'managedServiceCode' => 'ManagedServiceCode',
         'resourceServerIdentifier' => 'ResourceServerIdentifier',
+        'resourceServerSourceType' => 'ResourceServerSourceType',
         'resourceServerStatus' => 'ResourceServerStatus',
         'serviceManaged' => 'ServiceManaged',
         'ssoType' => 'SsoType',
@@ -155,6 +167,10 @@ class application extends Model
         $res = [];
         if (null !== $this->apiInvokeStatus) {
             $res['ApiInvokeStatus'] = $this->apiInvokeStatus;
+        }
+
+        if (null !== $this->applicationCreationType) {
+            $res['ApplicationCreationType'] = $this->applicationCreationType;
         }
 
         if (null !== $this->applicationId) {
@@ -228,6 +244,10 @@ class application extends Model
             $res['ResourceServerIdentifier'] = $this->resourceServerIdentifier;
         }
 
+        if (null !== $this->resourceServerSourceType) {
+            $res['ResourceServerSourceType'] = $this->resourceServerSourceType;
+        }
+
         if (null !== $this->resourceServerStatus) {
             $res['ResourceServerStatus'] = $this->resourceServerStatus;
         }
@@ -261,6 +281,10 @@ class application extends Model
         $model = new self();
         if (isset($map['ApiInvokeStatus'])) {
             $model->apiInvokeStatus = $map['ApiInvokeStatus'];
+        }
+
+        if (isset($map['ApplicationCreationType'])) {
+            $model->applicationCreationType = $map['ApplicationCreationType'];
         }
 
         if (isset($map['ApplicationId'])) {
@@ -332,6 +356,10 @@ class application extends Model
 
         if (isset($map['ResourceServerIdentifier'])) {
             $model->resourceServerIdentifier = $map['ResourceServerIdentifier'];
+        }
+
+        if (isset($map['ResourceServerSourceType'])) {
+            $model->resourceServerSourceType = $map['ResourceServerSourceType'];
         }
 
         if (isset($map['ResourceServerStatus'])) {
