@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteSecurityPolicyRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteSecurityPolicyResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteServerGroupResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeCapacityReservationRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeCapacityReservationResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeZonesRequest;
@@ -124,6 +126,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerJoinSecurityGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerJoinSecurityGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerLeaveSecurityGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\LoadBalancerLeaveSecurityGroupResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ModifyCapacityReservationRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ModifyCapacityReservationResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveEntriesFromAclRequest;
@@ -2389,6 +2393,63 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteServerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资源预留.
+     *
+     * @param request - DescribeCapacityReservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCapacityReservationResponse
+     *
+     * @param DescribeCapacityReservationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCapacityReservationResponse
+     */
+    public function describeCapacityReservationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCapacityReservation',
+            'version' => '2020-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCapacityReservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源预留.
+     *
+     * @param request - DescribeCapacityReservationRequest
+     *
+     * @returns DescribeCapacityReservationResponse
+     *
+     * @param DescribeCapacityReservationRequest $request
+     *
+     * @return DescribeCapacityReservationResponse
+     */
+    public function describeCapacityReservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCapacityReservationWithOptions($request, $runtime);
     }
 
     /**
@@ -4925,6 +4986,79 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->loadBalancerLeaveSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改资源预留.
+     *
+     * @param request - ModifyCapacityReservationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCapacityReservationResponse
+     *
+     * @param ModifyCapacityReservationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyCapacityReservationResponse
+     */
+    public function modifyCapacityReservationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+
+        if (null !== $request->minimumLoadBalancerCapacity) {
+            @$query['MinimumLoadBalancerCapacity'] = $request->minimumLoadBalancerCapacity;
+        }
+
+        if (null !== $request->resetCapacityReservation) {
+            @$query['ResetCapacityReservation'] = $request->resetCapacityReservation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCapacityReservation',
+            'version' => '2020-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCapacityReservationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改资源预留.
+     *
+     * @param request - ModifyCapacityReservationRequest
+     *
+     * @returns ModifyCapacityReservationResponse
+     *
+     * @param ModifyCapacityReservationRequest $request
+     *
+     * @return ModifyCapacityReservationResponse
+     */
+    public function modifyCapacityReservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCapacityReservationWithOptions($request, $runtime);
     }
 
     /**
