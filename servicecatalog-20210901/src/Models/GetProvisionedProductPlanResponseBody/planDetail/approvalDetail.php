@@ -4,52 +4,58 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail\approvalDetail\operationRecords;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail\approvalDetail\todoTaskActivities;
-use AlibabaCloud\Tea\Model;
 
 class approvalDetail extends Model
 {
     /**
-     * @description An array that consists of operations that are performed by the operator.
-     *
      * @var operationRecords[]
      */
     public $operationRecords;
 
     /**
-     * @description An array that consists of operations that are being performed by the plan.
-     *
      * @var todoTaskActivities[]
      */
     public $todoTaskActivities;
     protected $_name = [
-        'operationRecords'   => 'OperationRecords',
+        'operationRecords' => 'OperationRecords',
         'todoTaskActivities' => 'TodoTaskActivities',
     ];
 
     public function validate()
     {
+        if (\is_array($this->operationRecords)) {
+            Model::validateArray($this->operationRecords);
+        }
+        if (\is_array($this->todoTaskActivities)) {
+            Model::validateArray($this->todoTaskActivities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationRecords) {
-            $res['OperationRecords'] = [];
-            if (null !== $this->operationRecords && \is_array($this->operationRecords)) {
-                $n = 0;
-                foreach ($this->operationRecords as $item) {
-                    $res['OperationRecords'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operationRecords)) {
+                $res['OperationRecords'] = [];
+                $n1 = 0;
+                foreach ($this->operationRecords as $item1) {
+                    $res['OperationRecords'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->todoTaskActivities) {
-            $res['TodoTaskActivities'] = [];
-            if (null !== $this->todoTaskActivities && \is_array($this->todoTaskActivities)) {
-                $n = 0;
-                foreach ($this->todoTaskActivities as $item) {
-                    $res['TodoTaskActivities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->todoTaskActivities)) {
+                $res['TodoTaskActivities'] = [];
+                $n1 = 0;
+                foreach ($this->todoTaskActivities as $item1) {
+                    $res['TodoTaskActivities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,29 +63,32 @@ class approvalDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approvalDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationRecords'])) {
             if (!empty($map['OperationRecords'])) {
                 $model->operationRecords = [];
-                $n                       = 0;
-                foreach ($map['OperationRecords'] as $item) {
-                    $model->operationRecords[$n++] = null !== $item ? operationRecords::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OperationRecords'] as $item1) {
+                    $model->operationRecords[$n1] = operationRecords::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TodoTaskActivities'])) {
             if (!empty($map['TodoTaskActivities'])) {
                 $model->todoTaskActivities = [];
-                $n                         = 0;
-                foreach ($map['TodoTaskActivities'] as $item) {
-                    $model->todoTaskActivities[$n++] = null !== $item ? todoTaskActivities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TodoTaskActivities'] as $item1) {
+                    $model->todoTaskActivities[$n1] = todoTaskActivities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

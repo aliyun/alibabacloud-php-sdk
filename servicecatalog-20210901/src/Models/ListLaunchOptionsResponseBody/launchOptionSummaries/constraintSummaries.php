@@ -4,94 +4,118 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ListLaunchOptionsResponseBody\launchOptionSummaries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class constraintSummaries extends Model
 {
     /**
-     * @description The type of the constraint. Valid values:
-     *
-     * 4.  StackRegion
-     * @example Launch
-     *
      * @var string
      */
     public $constraintType;
 
     /**
-     * @description The description of the constraint.
-     *
-     * @example Launch as local role TestRole
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The types of operations that require approval. If the type of the constraint is Approval, this parameter is not empty.
-     *
      * @var string[]
      */
     public $operationTypes;
 
     /**
-     * @description The regions in which users can launch the service. If the type of the constraint is StackRegion, this parameter is not empty.
-     *
      * @var string[]
      */
     public $stackRegions;
     protected $_name = [
         'constraintType' => 'ConstraintType',
-        'description'    => 'Description',
+        'description' => 'Description',
         'operationTypes' => 'OperationTypes',
-        'stackRegions'   => 'StackRegions',
+        'stackRegions' => 'StackRegions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->operationTypes)) {
+            Model::validateArray($this->operationTypes);
+        }
+        if (\is_array($this->stackRegions)) {
+            Model::validateArray($this->stackRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->constraintType) {
             $res['ConstraintType'] = $this->constraintType;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->operationTypes) {
-            $res['OperationTypes'] = $this->operationTypes;
+            if (\is_array($this->operationTypes)) {
+                $res['OperationTypes'] = [];
+                $n1 = 0;
+                foreach ($this->operationTypes as $item1) {
+                    $res['OperationTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->stackRegions) {
-            $res['StackRegions'] = $this->stackRegions;
+            if (\is_array($this->stackRegions)) {
+                $res['StackRegions'] = [];
+                $n1 = 0;
+                foreach ($this->stackRegions as $item1) {
+                    $res['StackRegions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return constraintSummaries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConstraintType'])) {
             $model->constraintType = $map['ConstraintType'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['OperationTypes'])) {
             if (!empty($map['OperationTypes'])) {
-                $model->operationTypes = $map['OperationTypes'];
+                $model->operationTypes = [];
+                $n1 = 0;
+                foreach ($map['OperationTypes'] as $item1) {
+                    $model->operationTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StackRegions'])) {
             if (!empty($map['StackRegions'])) {
-                $model->stackRegions = $map['StackRegions'];
+                $model->stackRegions = [];
+                $n1 = 0;
+                foreach ($map['StackRegions'] as $item1) {
+                    $model->stackRegions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

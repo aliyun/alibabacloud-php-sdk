@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePortfolioRequest extends Model
 {
     /**
-     * @description The ID of the product portfolio.
-     *
-     * @example port-bp1yt7582g****
-     *
      * @var string
      */
     public $portfolioId;
@@ -22,9 +18,10 @@ class DeletePortfolioRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->portfolioId) {
@@ -34,11 +31,11 @@ class DeletePortfolioRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePortfolioRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

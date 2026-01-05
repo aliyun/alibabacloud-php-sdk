@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetProvisionedProductRequest extends Model
 {
     /**
-     * @description The ID of the product instance.
-     *
-     * @example pp-bp1ddg1n2a****
-     *
      * @var string
      */
     public $provisionedProductId;
@@ -22,9 +18,10 @@ class GetProvisionedProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->provisionedProductId) {
@@ -34,11 +31,11 @@ class GetProvisionedProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProvisionedProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

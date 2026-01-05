@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteProvisionedProductPlanResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0FEEF92D-4052-5202-87D0-3D8EC16F81BF
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteProvisionedProductPlanResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteProvisionedProductPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteProvisionedProductPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

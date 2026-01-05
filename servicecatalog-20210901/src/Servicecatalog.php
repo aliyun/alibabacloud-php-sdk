@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ApproveProvisionedProductPlanRequest;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ApproveProvisionedProductPlanResponse;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\AssociatePrincipalWithPortfolioRequest;
@@ -117,11 +116,10 @@ use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\UpdateProvisionedProductReq
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\UpdateProvisionedProductResponse;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\UpdateTagOptionRequest;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\UpdateTagOptionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Servicecatalog extends OpenApiClient
 {
@@ -146,17 +144,25 @@ class Servicecatalog extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Reviews a plan.
+     *
+     * @param request - ApproveProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApproveProvisionedProductPlanResponse
+     *
      * @param ApproveProvisionedProductPlanRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -164,36 +170,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function approveProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->approvalAction)) {
-            $body['ApprovalAction'] = $request->approvalAction;
+        if (null !== $request->approvalAction) {
+            @$body['ApprovalAction'] = $request->approvalAction;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApproveProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApproveProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApproveProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Reviews a plan.
+     *
+     * @param request - ApproveProvisionedProductPlanRequest
+     *
+     * @returns ApproveProvisionedProductPlanResponse
+     *
      * @param ApproveProvisionedProductPlanRequest $request
      *
      * @return ApproveProvisionedProductPlanResponse
@@ -206,6 +221,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * 将产品组合授权给某个RAM实体.
+     *
+     * @param request - AssociatePrincipalWithPortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociatePrincipalWithPortfolioResponse
+     *
      * @param AssociatePrincipalWithPortfolioRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -213,36 +235,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function associatePrincipalWithPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->principalId)) {
-            $body['PrincipalId'] = $request->principalId;
+
+        if (null !== $request->principalId) {
+            @$body['PrincipalId'] = $request->principalId;
         }
-        if (!Utils::isUnset($request->principalType)) {
-            $body['PrincipalType'] = $request->principalType;
+
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociatePrincipalWithPortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociatePrincipalWithPortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociatePrincipalWithPortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 将产品组合授权给某个RAM实体.
+     *
+     * @param request - AssociatePrincipalWithPortfolioRequest
+     *
+     * @returns AssociatePrincipalWithPortfolioResponse
+     *
      * @param AssociatePrincipalWithPortfolioRequest $request
      *
      * @return AssociatePrincipalWithPortfolioResponse
@@ -255,6 +286,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Adds a product to a product portfolio.
+     *
+     * @param request - AssociateProductWithPortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateProductWithPortfolioResponse
+     *
      * @param AssociateProductWithPortfolioRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -262,33 +300,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function associateProductWithPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociateProductWithPortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateProductWithPortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateProductWithPortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds a product to a product portfolio.
+     *
+     * @param request - AssociateProductWithPortfolioRequest
+     *
+     * @returns AssociateProductWithPortfolioResponse
+     *
      * @param AssociateProductWithPortfolioRequest $request
      *
      * @return AssociateProductWithPortfolioResponse
@@ -301,6 +347,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Associates the tag option with a resource.
+     *
+     * @param request - AssociateTagOptionWithResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateTagOptionWithResourceResponse
+     *
      * @param AssociateTagOptionWithResourceRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -308,33 +361,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function associateTagOptionWithResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tagOptionId)) {
-            $body['TagOptionId'] = $request->tagOptionId;
+
+        if (null !== $request->tagOptionId) {
+            @$body['TagOptionId'] = $request->tagOptionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociateTagOptionWithResource',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateTagOptionWithResource',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateTagOptionWithResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Associates the tag option with a resource.
+     *
+     * @param request - AssociateTagOptionWithResourceRequest
+     *
+     * @returns AssociateTagOptionWithResourceResponse
+     *
      * @param AssociateTagOptionWithResourceRequest $request
      *
      * @return AssociateTagOptionWithResourceResponse
@@ -347,6 +408,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Cancels a plan.
+     *
+     * @param request - CancelProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelProvisionedProductPlanResponse
+     *
      * @param CancelProvisionedProductPlanRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -354,30 +422,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function cancelProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Cancels a plan.
+     *
+     * @param request - CancelProvisionedProductPlanRequest
+     *
+     * @returns CancelProvisionedProductPlanResponse
+     *
      * @param CancelProvisionedProductPlanRequest $request
      *
      * @return CancelProvisionedProductPlanResponse
@@ -390,6 +465,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Replicates a product.
+     *
+     * @param request - CopyProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyProductResponse
+     *
      * @param CopyProductRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -397,33 +479,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function copyProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sourceProductArn)) {
-            $body['SourceProductArn'] = $request->sourceProductArn;
+        if (null !== $request->sourceProductArn) {
+            @$body['SourceProductArn'] = $request->sourceProductArn;
         }
-        if (!Utils::isUnset($request->targetProductName)) {
-            $body['TargetProductName'] = $request->targetProductName;
+
+        if (null !== $request->targetProductName) {
+            @$body['TargetProductName'] = $request->targetProductName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Replicates a product.
+     *
+     * @param request - CopyProductRequest
+     *
+     * @returns CopyProductResponse
+     *
      * @param CopyProductRequest $request
      *
      * @return CopyProductResponse
@@ -436,6 +526,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Creates a constraint.
+     *
+     * @param request - CreateConstraintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConstraintResponse
+     *
      * @param CreateConstraintRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -443,42 +540,53 @@ class Servicecatalog extends OpenApiClient
      */
     public function createConstraintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->constraintType)) {
-            $body['ConstraintType'] = $request->constraintType;
+
+        if (null !== $request->constraintType) {
+            @$body['ConstraintType'] = $request->constraintType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConstraint',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConstraint',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateConstraintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a constraint.
+     *
+     * @param request - CreateConstraintRequest
+     *
+     * @returns CreateConstraintResponse
+     *
      * @param CreateConstraintRequest $request
      *
      * @return CreateConstraintResponse
@@ -491,6 +599,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Creates a product portfolio.
+     *
+     * @param request - CreatePortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePortfolioResponse
+     *
      * @param CreatePortfolioRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -498,36 +613,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function createPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->portfolioName)) {
-            $body['PortfolioName'] = $request->portfolioName;
+
+        if (null !== $request->portfolioName) {
+            @$body['PortfolioName'] = $request->portfolioName;
         }
-        if (!Utils::isUnset($request->providerName)) {
-            $body['ProviderName'] = $request->providerName;
+
+        if (null !== $request->providerName) {
+            @$body['ProviderName'] = $request->providerName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a product portfolio.
+     *
+     * @param request - CreatePortfolioRequest
+     *
+     * @returns CreatePortfolioResponse
+     *
      * @param CreatePortfolioRequest $request
      *
      * @return CreatePortfolioResponse
@@ -540,64 +664,86 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * Before you call the CreateProduct operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
-     *   *
-     * @param CreateProductRequest $tmpReq  CreateProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a product.
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @remarks
+     * Before you call the CreateProduct operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
+     *
+     * @param tmpReq - CreateProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProductResponse
      */
     public function createProductWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateProductShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->productVersionParameters)) {
-            $request->productVersionParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->productVersionParameters, 'ProductVersionParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->productVersionParameters) {
+            $request->productVersionParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->productVersionParameters, 'ProductVersionParameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->productName)) {
-            $body['ProductName'] = $request->productName;
+
+        if (null !== $request->productName) {
+            @$body['ProductName'] = $request->productName;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->productVersionParametersShrink)) {
-            $body['ProductVersionParameters'] = $request->productVersionParametersShrink;
+
+        if (null !== $request->productVersionParametersShrink) {
+            @$body['ProductVersionParameters'] = $request->productVersionParametersShrink;
         }
-        if (!Utils::isUnset($request->providerName)) {
-            $body['ProviderName'] = $request->providerName;
+
+        if (null !== $request->providerName) {
+            @$body['ProviderName'] = $request->providerName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $body['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$body['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Before you call the CreateProduct operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
-     *   *
-     * @param CreateProductRequest $request CreateProductRequest
+     * Creates a product.
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @remarks
+     * Before you call the CreateProduct operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
+     *
+     * @param request - CreateProductRequest
+     *
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $request
+     *
+     * @return CreateProductResponse
      */
     public function createProduct($request)
     {
@@ -607,62 +753,84 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * Before you call the CreateProductVersion operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
-     *   *
-     * @param CreateProductVersionRequest $request CreateProductVersionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a product version.
      *
-     * @return CreateProductVersionResponse CreateProductVersionResponse
+     * @remarks
+     * Before you call the CreateProductVersion operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
+     *
+     * @param request - CreateProductVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProductVersionResponse
+     *
+     * @param CreateProductVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateProductVersionResponse
      */
     public function createProductVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
+        if (null !== $request->active) {
+            @$body['Active'] = $request->active;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->guidance)) {
-            $body['Guidance'] = $request->guidance;
+
+        if (null !== $request->guidance) {
+            @$body['Guidance'] = $request->guidance;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionName)) {
-            $body['ProductVersionName'] = $request->productVersionName;
+
+        if (null !== $request->productVersionName) {
+            @$body['ProductVersionName'] = $request->productVersionName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $body['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$body['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->templateUrl)) {
-            $body['TemplateUrl'] = $request->templateUrl;
+
+        if (null !== $request->templateUrl) {
+            @$body['TemplateUrl'] = $request->templateUrl;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProductVersion',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProductVersion',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateProductVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Before you call the CreateProductVersion operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
-     *   *
-     * @param CreateProductVersionRequest $request CreateProductVersionRequest
+     * Creates a product version.
      *
-     * @return CreateProductVersionResponse CreateProductVersionResponse
+     * @remarks
+     * Before you call the CreateProductVersion operation, you must call the [CreateTemplate](~~CreateTemplate~~) operation to create a template.
+     *
+     * @param request - CreateProductVersionRequest
+     *
+     * @returns CreateProductVersionResponse
+     *
+     * @param CreateProductVersionRequest $request
+     *
+     * @return CreateProductVersionResponse
      */
     public function createProductVersion($request)
     {
@@ -672,6 +840,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Creates a plan.
+     *
+     * @param request - CreateProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProvisionedProductPlanResponse
+     *
      * @param CreateProvisionedProductPlanRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -679,60 +854,77 @@ class Servicecatalog extends OpenApiClient
      */
     public function createProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->planName)) {
-            $body['PlanName'] = $request->planName;
+
+        if (null !== $request->planName) {
+            @$body['PlanName'] = $request->planName;
         }
-        if (!Utils::isUnset($request->planType)) {
-            $body['PlanType'] = $request->planType;
+
+        if (null !== $request->planType) {
+            @$body['PlanType'] = $request->planType;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
-        if (!Utils::isUnset($request->provisionedProductName)) {
-            $body['ProvisionedProductName'] = $request->provisionedProductName;
+
+        if (null !== $request->provisionedProductName) {
+            @$body['ProvisionedProductName'] = $request->provisionedProductName;
         }
-        if (!Utils::isUnset($request->stackRegionId)) {
-            $body['StackRegionId'] = $request->stackRegionId;
+
+        if (null !== $request->stackRegionId) {
+            @$body['StackRegionId'] = $request->stackRegionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a plan.
+     *
+     * @param request - CreateProvisionedProductPlanRequest
+     *
+     * @returns CreateProvisionedProductPlanResponse
+     *
      * @param CreateProvisionedProductPlanRequest $request
      *
      * @return CreateProvisionedProductPlanResponse
@@ -745,6 +937,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Creates a tag option.
+     *
+     * @param request - CreateTagOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagOptionResponse
+     *
      * @param CreateTagOptionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -752,33 +951,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function createTagOptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->key)) {
-            $body['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$body['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTagOption',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTagOption',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTagOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a tag option.
+     *
+     * @param request - CreateTagOptionRequest
+     *
+     * @returns CreateTagOptionResponse
+     *
      * @param CreateTagOptionRequest $request
      *
      * @return CreateTagOptionResponse
@@ -791,6 +998,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Creates a template. Service Catalog saves the template based on the parameters that you specify and returns the URL of the template.
+     *
+     * @param request - CreateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
      * @param CreateTemplateRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -798,36 +1012,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function createTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $body['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$body['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->terraformVariables)) {
-            $body['TerraformVariables'] = $request->terraformVariables;
+
+        if (null !== $request->terraformVariables) {
+            @$body['TerraformVariables'] = $request->terraformVariables;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTemplate',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a template. Service Catalog saves the template based on the parameters that you specify and returns the URL of the template.
+     *
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
      * @param CreateTemplateRequest $request
      *
      * @return CreateTemplateResponse
@@ -840,6 +1063,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a constraint.
+     *
+     * @param request - DeleteConstraintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConstraintResponse
+     *
      * @param DeleteConstraintRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -847,30 +1077,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deleteConstraintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->constraintId)) {
-            $body['ConstraintId'] = $request->constraintId;
+        if (null !== $request->constraintId) {
+            @$body['ConstraintId'] = $request->constraintId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConstraint',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConstraint',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteConstraintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a constraint.
+     *
+     * @param request - DeleteConstraintRequest
+     *
+     * @returns DeleteConstraintResponse
+     *
      * @param DeleteConstraintRequest $request
      *
      * @return DeleteConstraintResponse
@@ -883,6 +1120,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a product portfolio.
+     *
+     * @param request - DeletePortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePortfolioResponse
+     *
      * @param DeletePortfolioRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -890,30 +1134,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deletePortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a product portfolio.
+     *
+     * @param request - DeletePortfolioRequest
+     *
+     * @returns DeletePortfolioResponse
+     *
      * @param DeletePortfolioRequest $request
      *
      * @return DeletePortfolioResponse
@@ -926,6 +1177,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a product.
+     *
+     * @param request - DeleteProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProductResponse
+     *
      * @param DeleteProductRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -933,30 +1191,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deleteProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a product.
+     *
+     * @param request - DeleteProductRequest
+     *
+     * @returns DeleteProductResponse
+     *
      * @param DeleteProductRequest $request
      *
      * @return DeleteProductResponse
@@ -969,6 +1234,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a product version.
+     *
+     * @param request - DeleteProductVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProductVersionResponse
+     *
      * @param DeleteProductVersionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -976,30 +1248,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deleteProductVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProductVersion',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProductVersion',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteProductVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a product version.
+     *
+     * @param request - DeleteProductVersionRequest
+     *
+     * @returns DeleteProductVersionResponse
+     *
      * @param DeleteProductVersionRequest $request
      *
      * @return DeleteProductVersionResponse
@@ -1012,6 +1291,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a plan.
+     *
+     * @param request - DeleteProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProvisionedProductPlanResponse
+     *
      * @param DeleteProvisionedProductPlanRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1019,30 +1305,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deleteProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a plan.
+     *
+     * @param request - DeleteProvisionedProductPlanRequest
+     *
+     * @returns DeleteProvisionedProductPlanResponse
+     *
      * @param DeleteProvisionedProductPlanRequest $request
      *
      * @return DeleteProvisionedProductPlanResponse
@@ -1055,6 +1348,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Deletes a tag option.
+     *
+     * @param request - DeleteTagOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagOptionResponse
+     *
      * @param DeleteTagOptionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1062,30 +1362,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function deleteTagOptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->tagOptionId)) {
-            $body['TagOptionId'] = $request->tagOptionId;
+        if (null !== $request->tagOptionId) {
+            @$body['TagOptionId'] = $request->tagOptionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTagOption',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTagOption',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTagOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a tag option.
+     *
+     * @param request - DeleteTagOptionRequest
+     *
+     * @returns DeleteTagOptionResponse
+     *
      * @param DeleteTagOptionRequest $request
      *
      * @return DeleteTagOptionResponse
@@ -1098,6 +1405,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Disassociates a tag option from a resource.
+     *
+     * @param request - DisAssociateTagOptionFromResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisAssociateTagOptionFromResourceResponse
+     *
      * @param DisAssociateTagOptionFromResourceRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -1105,33 +1419,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function disAssociateTagOptionFromResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tagOptionId)) {
-            $body['TagOptionId'] = $request->tagOptionId;
+
+        if (null !== $request->tagOptionId) {
+            @$body['TagOptionId'] = $request->tagOptionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisAssociateTagOptionFromResource',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisAssociateTagOptionFromResource',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisAssociateTagOptionFromResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Disassociates a tag option from a resource.
+     *
+     * @param request - DisAssociateTagOptionFromResourceRequest
+     *
+     * @returns DisAssociateTagOptionFromResourceResponse
+     *
      * @param DisAssociateTagOptionFromResourceRequest $request
      *
      * @return DisAssociateTagOptionFromResourceResponse
@@ -1144,6 +1466,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Revokes the permissions to access a product portfolio.
+     *
+     * @param request - DisassociatePrincipalFromPortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisassociatePrincipalFromPortfolioResponse
+     *
      * @param DisassociatePrincipalFromPortfolioRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -1151,36 +1480,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function disassociatePrincipalFromPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->principalId)) {
-            $body['PrincipalId'] = $request->principalId;
+
+        if (null !== $request->principalId) {
+            @$body['PrincipalId'] = $request->principalId;
         }
-        if (!Utils::isUnset($request->principalType)) {
-            $body['PrincipalType'] = $request->principalType;
+
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisassociatePrincipalFromPortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociatePrincipalFromPortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisassociatePrincipalFromPortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Revokes the permissions to access a product portfolio.
+     *
+     * @param request - DisassociatePrincipalFromPortfolioRequest
+     *
+     * @returns DisassociatePrincipalFromPortfolioResponse
+     *
      * @param DisassociatePrincipalFromPortfolioRequest $request
      *
      * @return DisassociatePrincipalFromPortfolioResponse
@@ -1193,6 +1531,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Removes a product from the product portfolio.
+     *
+     * @param request - DisassociateProductFromPortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisassociateProductFromPortfolioResponse
+     *
      * @param DisassociateProductFromPortfolioRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1200,33 +1545,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function disassociateProductFromPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateProductFromPortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateProductFromPortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisassociateProductFromPortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes a product from the product portfolio.
+     *
+     * @param request - DisassociateProductFromPortfolioRequest
+     *
+     * @returns DisassociateProductFromPortfolioResponse
+     *
      * @param DisassociateProductFromPortfolioRequest $request
      *
      * @return DisassociateProductFromPortfolioResponse
@@ -1239,6 +1592,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Runs a plan.
+     *
+     * @param request - ExecuteProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteProvisionedProductPlanResponse
+     *
      * @param ExecuteProvisionedProductPlanRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1246,30 +1606,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function executeProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExecuteProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Runs a plan.
+     *
+     * @param request - ExecuteProvisionedProductPlanRequest
+     *
+     * @returns ExecuteProvisionedProductPlanResponse
+     *
      * @param ExecuteProvisionedProductPlanRequest $request
      *
      * @return ExecuteProvisionedProductPlanResponse
@@ -1282,6 +1649,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the information about a constraint.
+     *
+     * @param request - GetConstraintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConstraintResponse
+     *
      * @param GetConstraintRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1289,30 +1663,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getConstraintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->constraintId)) {
-            $query['ConstraintId'] = $request->constraintId;
+        if (null !== $request->constraintId) {
+            @$query['ConstraintId'] = $request->constraintId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConstraint',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConstraint',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetConstraintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a constraint.
+     *
+     * @param request - GetConstraintRequest
+     *
+     * @returns GetConstraintResponse
+     *
      * @param GetConstraintRequest $request
      *
      * @return GetConstraintResponse
@@ -1325,6 +1706,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the information about a product portfolio.
+     *
+     * @param request - GetPortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPortfolioResponse
+     *
      * @param GetPortfolioRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1332,30 +1720,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getPortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $query['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$query['PortfolioId'] = $request->portfolioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a product portfolio.
+     *
+     * @param request - GetPortfolioRequest
+     *
+     * @returns GetPortfolioResponse
+     *
      * @param GetPortfolioRequest $request
      *
      * @return GetPortfolioResponse
@@ -1368,6 +1763,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the information about a product as the administrator.
+     *
+     * @param request - GetProductAsAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductAsAdminResponse
+     *
      * @param GetProductAsAdminRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1375,30 +1777,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getProductAsAdminWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProductAsAdmin',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProductAsAdmin',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProductAsAdminResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a product as the administrator.
+     *
+     * @param request - GetProductAsAdminRequest
+     *
+     * @returns GetProductAsAdminResponse
+     *
      * @param GetProductAsAdminRequest $request
      *
      * @return GetProductAsAdminResponse
@@ -1411,44 +1820,60 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](~~405233~~).
-     *   *
-     * @param GetProductAsEndUserRequest $request GetProductAsEndUserRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a product as a user.
      *
-     * @return GetProductAsEndUserResponse GetProductAsEndUserResponse
+     * @remarks
+     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](https://help.aliyun.com/document_detail/405233.html).
+     *
+     * @param request - GetProductAsEndUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductAsEndUserResponse
+     *
+     * @param GetProductAsEndUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProductAsEndUserResponse
      */
     public function getProductAsEndUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProductAsEndUser',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProductAsEndUser',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProductAsEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](~~405233~~).
-     *   *
-     * @param GetProductAsEndUserRequest $request GetProductAsEndUserRequest
+     * Queries the information about a product as a user.
      *
-     * @return GetProductAsEndUserResponse GetProductAsEndUserResponse
+     * @remarks
+     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](https://help.aliyun.com/document_detail/405233.html).
+     *
+     * @param request - GetProductAsEndUserRequest
+     *
+     * @returns GetProductAsEndUserResponse
+     *
+     * @param GetProductAsEndUserRequest $request
+     *
+     * @return GetProductAsEndUserResponse
      */
     public function getProductAsEndUser($request)
     {
@@ -1458,6 +1883,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the details of a product version.
+     *
+     * @param request - GetProductVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductVersionResponse
+     *
      * @param GetProductVersionRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1465,30 +1897,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getProductVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productVersionId)) {
-            $query['ProductVersionId'] = $request->productVersionId;
+        if (null !== $request->productVersionId) {
+            @$query['ProductVersionId'] = $request->productVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProductVersion',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProductVersion',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProductVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a product version.
+     *
+     * @param request - GetProductVersionRequest
+     *
+     * @returns GetProductVersionResponse
+     *
      * @param GetProductVersionRequest $request
      *
      * @return GetProductVersionResponse
@@ -1501,6 +1940,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the information about a product instance.
+     *
+     * @param request - GetProvisionedProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProvisionedProductResponse
+     *
      * @param GetProvisionedProductRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1508,30 +1954,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getProvisionedProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->provisionedProductId)) {
-            $query['ProvisionedProductId'] = $request->provisionedProductId;
+        if (null !== $request->provisionedProductId) {
+            @$query['ProvisionedProductId'] = $request->provisionedProductId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProvisionedProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProvisionedProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProvisionedProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a product instance.
+     *
+     * @param request - GetProvisionedProductRequest
+     *
+     * @returns GetProvisionedProductResponse
+     *
      * @param GetProvisionedProductRequest $request
      *
      * @return GetProvisionedProductResponse
@@ -1544,6 +1997,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the details of a plan.
+     *
+     * @param request - GetProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProvisionedProductPlanResponse
+     *
      * @param GetProvisionedProductPlanRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1551,30 +2011,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a plan.
+     *
+     * @param request - GetProvisionedProductPlanRequest
+     *
+     * @returns GetProvisionedProductPlanResponse
+     *
      * @param GetProvisionedProductPlanRequest $request
      *
      * @return GetProvisionedProductPlanResponse
@@ -1587,6 +2054,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the details of a tag option.
+     *
+     * @param request - GetTagOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTagOptionResponse
+     *
      * @param GetTagOptionRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1594,27 +2068,33 @@ class Servicecatalog extends OpenApiClient
      */
     public function getTagOptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTagOption',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTagOption',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTagOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a tag option.
+     *
+     * @param request - GetTagOptionRequest
+     *
+     * @returns GetTagOptionResponse
+     *
      * @param GetTagOptionRequest $request
      *
      * @return GetTagOptionResponse
@@ -1627,6 +2107,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the information about a task.
+     *
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
      * @param GetTaskRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1634,30 +2121,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function getTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTask',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTask',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a task.
+     *
+     * @param request - GetTaskRequest
+     *
+     * @returns GetTaskResponse
+     *
      * @param GetTaskRequest $request
      *
      * @return GetTaskResponse
@@ -1670,6 +2164,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the details of a template.
+     *
+     * @param request - GetTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
      * @param GetTemplateRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1677,33 +2178,41 @@ class Servicecatalog extends OpenApiClient
      */
     public function getTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $query['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$query['ProductVersionId'] = $request->productVersionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplate',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a template.
+     *
+     * @param request - GetTemplateRequest
+     *
+     * @returns GetTemplateResponse
+     *
      * @param GetTemplateRequest $request
      *
      * @return GetTemplateResponse
@@ -1716,6 +2225,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Launches a product.
+     *
+     * @param request - LaunchProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LaunchProductResponse
+     *
      * @param LaunchProductRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1723,48 +2239,61 @@ class Servicecatalog extends OpenApiClient
      */
     public function launchProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
-        if (!Utils::isUnset($request->provisionedProductName)) {
-            $body['ProvisionedProductName'] = $request->provisionedProductName;
+
+        if (null !== $request->provisionedProductName) {
+            @$body['ProvisionedProductName'] = $request->provisionedProductName;
         }
-        if (!Utils::isUnset($request->stackRegionId)) {
-            $body['StackRegionId'] = $request->stackRegionId;
+
+        if (null !== $request->stackRegionId) {
+            @$body['StackRegionId'] = $request->stackRegionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LaunchProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LaunchProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LaunchProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Launches a product.
+     *
+     * @param request - LaunchProductRequest
+     *
+     * @returns LaunchProductResponse
+     *
      * @param LaunchProductRequest $request
      *
      * @return LaunchProductResponse
@@ -1777,6 +2306,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries launch options.
+     *
+     * @param request - ListLaunchOptionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLaunchOptionsResponse
+     *
      * @param ListLaunchOptionsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1784,30 +2320,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function listLaunchOptionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLaunchOptions',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLaunchOptions',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListLaunchOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries launch options.
+     *
+     * @param request - ListLaunchOptionsRequest
+     *
+     * @returns ListLaunchOptionsResponse
+     *
      * @param ListLaunchOptionsRequest $request
      *
      * @return ListLaunchOptionsResponse
@@ -1820,6 +2363,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * The number of entries returned per page.
+     *
+     * @param request - ListPortfoliosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPortfoliosResponse
+     *
      * @param ListPortfoliosRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1827,48 +2377,61 @@ class Servicecatalog extends OpenApiClient
      */
     public function listPortfoliosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPortfolios',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPortfolios',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPortfoliosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * The number of entries returned per page.
+     *
+     * @param request - ListPortfoliosRequest
+     *
+     * @returns ListPortfoliosResponse
+     *
      * @param ListPortfoliosRequest $request
      *
      * @return ListPortfoliosResponse
@@ -1881,6 +2444,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the Resource Access Management (RAM) users and RAM roles that are granted the permissions to access a product portfolio.
+     *
+     * @param request - ListPrincipalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPrincipalsResponse
+     *
      * @param ListPrincipalsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1888,30 +2458,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function listPrincipalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->portfolioId)) {
-            $query['PortfolioId'] = $request->portfolioId;
+        if (null !== $request->portfolioId) {
+            @$query['PortfolioId'] = $request->portfolioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrincipals',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrincipals',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPrincipalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the Resource Access Management (RAM) users and RAM roles that are granted the permissions to access a product portfolio.
+     *
+     * @param request - ListPrincipalsRequest
+     *
+     * @returns ListPrincipalsResponse
+     *
      * @param ListPrincipalsRequest $request
      *
      * @return ListPrincipalsResponse
@@ -1924,6 +2501,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the versions of a product.
+     *
+     * @param request - ListProductVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductVersionsResponse
+     *
      * @param ListProductVersionsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1931,30 +2515,37 @@ class Servicecatalog extends OpenApiClient
      */
     public function listProductVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProductVersions',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductVersions',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the versions of a product.
+     *
+     * @param request - ListProductVersionsRequest
+     *
+     * @returns ListProductVersionsResponse
+     *
      * @param ListProductVersionsRequest $request
      *
      * @return ListProductVersionsResponse
@@ -1967,6 +2558,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries products as an administrator.
+     *
+     * @param request - ListProductsAsAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsAsAdminResponse
+     *
      * @param ListProductsAsAdminRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1974,48 +2572,61 @@ class Servicecatalog extends OpenApiClient
      */
     public function listProductsAsAdminWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $query['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$query['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProductsAsAdmin',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductsAsAdmin',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductsAsAdminResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries products as an administrator.
+     *
+     * @param request - ListProductsAsAdminRequest
+     *
+     * @returns ListProductsAsAdminResponse
+     *
      * @param ListProductsAsAdminRequest $request
      *
      * @return ListProductsAsAdminResponse
@@ -2028,56 +2639,76 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](~~405233~~).
-     *   *
-     * @param ListProductsAsEndUserRequest $request ListProductsAsEndUserRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries products as a user.
      *
-     * @return ListProductsAsEndUserResponse ListProductsAsEndUserResponse
+     * @remarks
+     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](https://help.aliyun.com/document_detail/405233.html).
+     *
+     * @param request - ListProductsAsEndUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsAsEndUserResponse
+     *
+     * @param ListProductsAsEndUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListProductsAsEndUserResponse
      */
     public function listProductsAsEndUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProductsAsEndUser',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductsAsEndUser',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductsAsEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](~~405233~~).
-     *   *
-     * @param ListProductsAsEndUserRequest $request ListProductsAsEndUserRequest
+     * Queries products as a user.
      *
-     * @return ListProductsAsEndUserResponse ListProductsAsEndUserResponse
+     * @remarks
+     * Make sure that you are granted the permissions to manage relevant products as a user by an administrator. For more information, see [Manage access permissions](https://help.aliyun.com/document_detail/405233.html).
+     *
+     * @param request - ListProductsAsEndUserRequest
+     *
+     * @returns ListProductsAsEndUserResponse
+     *
+     * @param ListProductsAsEndUserRequest $request
+     *
+     * @return ListProductsAsEndUserResponse
      */
     public function listProductsAsEndUser($request)
     {
@@ -2087,6 +2718,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries a list of plan reviewers.
+     *
+     * @param request - ListProvisionedProductPlanApproversRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProvisionedProductPlanApproversResponse
+     *
      * @param ListProvisionedProductPlanApproversRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -2094,27 +2732,33 @@ class Servicecatalog extends OpenApiClient
      */
     public function listProvisionedProductPlanApproversWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProvisionedProductPlanApprovers',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProvisionedProductPlanApprovers',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProvisionedProductPlanApproversResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of plan reviewers.
+     *
+     * @param request - ListProvisionedProductPlanApproversRequest
+     *
+     * @returns ListProvisionedProductPlanApproversResponse
+     *
      * @param ListProvisionedProductPlanApproversRequest $request
      *
      * @return ListProvisionedProductPlanApproversResponse
@@ -2127,6 +2771,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries a list of plans. You can query plans from the end user dimension or from the review dimension.
+     *
+     * @param request - ListProvisionedProductPlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProvisionedProductPlansResponse
+     *
      * @param ListProvisionedProductPlansRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2134,51 +2785,65 @@ class Servicecatalog extends OpenApiClient
      */
     public function listProvisionedProductPlansWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessLevelFilter)) {
-            $query['AccessLevelFilter'] = $request->accessLevelFilter;
+        if (null !== $request->accessLevelFilter) {
+            @$query['AccessLevelFilter'] = $request->accessLevelFilter;
         }
-        if (!Utils::isUnset($request->approvalFilter)) {
-            $query['ApprovalFilter'] = $request->approvalFilter;
+
+        if (null !== $request->approvalFilter) {
+            @$query['ApprovalFilter'] = $request->approvalFilter;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->provisionedProductId)) {
-            $query['ProvisionedProductId'] = $request->provisionedProductId;
+
+        if (null !== $request->provisionedProductId) {
+            @$query['ProvisionedProductId'] = $request->provisionedProductId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProvisionedProductPlans',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProvisionedProductPlans',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProvisionedProductPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of plans. You can query plans from the end user dimension or from the review dimension.
+     *
+     * @param request - ListProvisionedProductPlansRequest
+     *
+     * @returns ListProvisionedProductPlansResponse
+     *
      * @param ListProvisionedProductPlansRequest $request
      *
      * @return ListProvisionedProductPlansResponse
@@ -2191,6 +2856,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries product instances.
+     *
+     * @param request - ListProvisionedProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProvisionedProductsResponse
+     *
      * @param ListProvisionedProductsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2198,45 +2870,57 @@ class Servicecatalog extends OpenApiClient
      */
     public function listProvisionedProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessLevelFilter)) {
-            $query['AccessLevelFilter'] = $request->accessLevelFilter;
+        if (null !== $request->accessLevelFilter) {
+            @$query['AccessLevelFilter'] = $request->accessLevelFilter;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProvisionedProducts',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProvisionedProducts',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProvisionedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries product instances.
+     *
+     * @param request - ListProvisionedProductsRequest
+     *
+     * @returns ListProvisionedProductsResponse
+     *
      * @param ListProvisionedProductsRequest $request
      *
      * @return ListProvisionedProductsResponse
@@ -2249,29 +2933,40 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries regions.
+     *
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegions',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries regions.
+     *
+     * @returns ListRegionsResponse
+     *
      * @return ListRegionsResponse
      */
     public function listRegions()
@@ -2282,6 +2977,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries the resources that are associated with a tag option.
+     *
+     * @param request - ListResourcesForTagOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcesForTagOptionResponse
+     *
      * @param ListResourcesForTagOptionRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2289,27 +2991,33 @@ class Servicecatalog extends OpenApiClient
      */
     public function listResourcesForTagOptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourcesForTagOption',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourcesForTagOption',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourcesForTagOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the resources that are associated with a tag option.
+     *
+     * @param request - ListResourcesForTagOptionRequest
+     *
+     * @returns ListResourcesForTagOptionResponse
+     *
      * @param ListResourcesForTagOptionRequest $request
      *
      * @return ListResourcesForTagOptionResponse
@@ -2322,6 +3030,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Queries a list of tag options.
+     *
+     * @param tmpReq - ListTagOptionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagOptionsResponse
+     *
      * @param ListTagOptionsRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
@@ -2329,32 +3044,39 @@ class Servicecatalog extends OpenApiClient
      */
     public function listTagOptionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagOptionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filters)) {
-            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagOptions',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagOptions',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of tag options.
+     *
+     * @param request - ListTagOptionsRequest
+     *
+     * @returns ListTagOptionsResponse
+     *
      * @param ListTagOptionsRequest $request
      *
      * @return ListTagOptionsResponse
@@ -2367,6 +3089,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * The page number of the returned page.
+     *
+     * @param request - ListTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
      * @param ListTasksRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2374,42 +3103,53 @@ class Servicecatalog extends OpenApiClient
      */
     public function listTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->provisionedProductId)) {
-            $query['ProvisionedProductId'] = $request->provisionedProductId;
+
+        if (null !== $request->provisionedProductId) {
+            @$query['ProvisionedProductId'] = $request->provisionedProductId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTasks',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * The page number of the returned page.
+     *
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
      * @param ListTasksRequest $request
      *
      * @return ListTasksResponse
@@ -2422,44 +3162,60 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * After a product instance is terminated, the product instance is deleted from the product instance list. End users cannot manage the product instance throughout its lifecycle. Proceed with caution.
-     *   *
-     * @param TerminateProvisionedProductRequest $request TerminateProvisionedProductRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Terminates a product instance.
      *
-     * @return TerminateProvisionedProductResponse TerminateProvisionedProductResponse
+     * @remarks
+     * After a product instance is terminated, the product instance is deleted from the product instance list. End users cannot manage the product instance throughout its lifecycle. Proceed with caution.
+     *
+     * @param request - TerminateProvisionedProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TerminateProvisionedProductResponse
+     *
+     * @param TerminateProvisionedProductRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return TerminateProvisionedProductResponse
      */
     public function terminateProvisionedProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->provisionedProductId)) {
-            $body['ProvisionedProductId'] = $request->provisionedProductId;
+        if (null !== $request->provisionedProductId) {
+            @$body['ProvisionedProductId'] = $request->provisionedProductId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TerminateProvisionedProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminateProvisionedProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TerminateProvisionedProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After a product instance is terminated, the product instance is deleted from the product instance list. End users cannot manage the product instance throughout its lifecycle. Proceed with caution.
-     *   *
-     * @param TerminateProvisionedProductRequest $request TerminateProvisionedProductRequest
+     * Terminates a product instance.
      *
-     * @return TerminateProvisionedProductResponse TerminateProvisionedProductResponse
+     * @remarks
+     * After a product instance is terminated, the product instance is deleted from the product instance list. End users cannot manage the product instance throughout its lifecycle. Proceed with caution.
+     *
+     * @param request - TerminateProvisionedProductRequest
+     *
+     * @returns TerminateProvisionedProductResponse
+     *
+     * @param TerminateProvisionedProductRequest $request
+     *
+     * @return TerminateProvisionedProductResponse
      */
     public function terminateProvisionedProduct($request)
     {
@@ -2469,6 +3225,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Updates the information about a constraint.
+     *
+     * @param request - UpdateConstraintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConstraintResponse
+     *
      * @param UpdateConstraintRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2476,36 +3239,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateConstraintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->constraintId)) {
-            $body['ConstraintId'] = $request->constraintId;
+
+        if (null !== $request->constraintId) {
+            @$body['ConstraintId'] = $request->constraintId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConstraint',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConstraint',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateConstraintResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the information about a constraint.
+     *
+     * @param request - UpdateConstraintRequest
+     *
+     * @returns UpdateConstraintResponse
+     *
      * @param UpdateConstraintRequest $request
      *
      * @return UpdateConstraintResponse
@@ -2518,6 +3290,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * The ID of the product portfolio.
+     *
+     * @param request - UpdatePortfolioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePortfolioResponse
+     *
      * @param UpdatePortfolioRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2525,39 +3304,49 @@ class Servicecatalog extends OpenApiClient
      */
     public function updatePortfolioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->portfolioName)) {
-            $body['PortfolioName'] = $request->portfolioName;
+
+        if (null !== $request->portfolioName) {
+            @$body['PortfolioName'] = $request->portfolioName;
         }
-        if (!Utils::isUnset($request->providerName)) {
-            $body['ProviderName'] = $request->providerName;
+
+        if (null !== $request->providerName) {
+            @$body['ProviderName'] = $request->providerName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePortfolio',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePortfolio',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdatePortfolioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * The ID of the product portfolio.
+     *
+     * @param request - UpdatePortfolioRequest
+     *
+     * @returns UpdatePortfolioResponse
+     *
      * @param UpdatePortfolioRequest $request
      *
      * @return UpdatePortfolioResponse
@@ -2570,6 +3359,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * The ID of the product.
+     *
+     * @param request - UpdateProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProductResponse
+     *
      * @param UpdateProductRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2577,39 +3373,49 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productName)) {
-            $body['ProductName'] = $request->productName;
+
+        if (null !== $request->productName) {
+            @$body['ProductName'] = $request->productName;
         }
-        if (!Utils::isUnset($request->providerName)) {
-            $body['ProviderName'] = $request->providerName;
+
+        if (null !== $request->providerName) {
+            @$body['ProviderName'] = $request->providerName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * The ID of the product.
+     *
+     * @param request - UpdateProductRequest
+     *
+     * @returns UpdateProductResponse
+     *
      * @param UpdateProductRequest $request
      *
      * @return UpdateProductResponse
@@ -2622,6 +3428,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Updates the information about a product version.
+     *
+     * @param request - UpdateProductVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProductVersionResponse
+     *
      * @param UpdateProductVersionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2629,42 +3442,53 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateProductVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
+        if (null !== $request->active) {
+            @$body['Active'] = $request->active;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->guidance)) {
-            $body['Guidance'] = $request->guidance;
+
+        if (null !== $request->guidance) {
+            @$body['Guidance'] = $request->guidance;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
-        if (!Utils::isUnset($request->productVersionName)) {
-            $body['ProductVersionName'] = $request->productVersionName;
+
+        if (null !== $request->productVersionName) {
+            @$body['ProductVersionName'] = $request->productVersionName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProductVersion',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProductVersion',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProductVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the information about a product version.
+     *
+     * @param request - UpdateProductVersionRequest
+     *
+     * @returns UpdateProductVersionResponse
+     *
      * @param UpdateProductVersionRequest $request
      *
      * @return UpdateProductVersionResponse
@@ -2677,6 +3501,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Updates the information about a product instance.
+     *
+     * @param request - UpdateProvisionedProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProvisionedProductResponse
+     *
      * @param UpdateProvisionedProductRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2684,45 +3515,57 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateProvisionedProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
-        if (!Utils::isUnset($request->provisionedProductId)) {
-            $body['ProvisionedProductId'] = $request->provisionedProductId;
+
+        if (null !== $request->provisionedProductId) {
+            @$body['ProvisionedProductId'] = $request->provisionedProductId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProvisionedProduct',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProvisionedProduct',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProvisionedProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the information about a product instance.
+     *
+     * @param request - UpdateProvisionedProductRequest
+     *
+     * @returns UpdateProvisionedProductResponse
+     *
      * @param UpdateProvisionedProductRequest $request
      *
      * @return UpdateProvisionedProductResponse
@@ -2735,6 +3578,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Updates a plan.
+     *
+     * @param request - UpdateProvisionedProductPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProvisionedProductPlanResponse
+     *
      * @param UpdateProvisionedProductPlanRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2742,48 +3592,61 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateProvisionedProductPlanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $body['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$body['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->portfolioId)) {
-            $body['PortfolioId'] = $request->portfolioId;
+
+        if (null !== $request->portfolioId) {
+            @$body['PortfolioId'] = $request->portfolioId;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersionId)) {
-            $body['ProductVersionId'] = $request->productVersionId;
+
+        if (null !== $request->productVersionId) {
+            @$body['ProductVersionId'] = $request->productVersionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProvisionedProductPlan',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProvisionedProductPlan',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProvisionedProductPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates a plan.
+     *
+     * @param request - UpdateProvisionedProductPlanRequest
+     *
+     * @returns UpdateProvisionedProductPlanResponse
+     *
      * @param UpdateProvisionedProductPlanRequest $request
      *
      * @return UpdateProvisionedProductPlanResponse
@@ -2796,6 +3659,13 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
+     * Updates the tag option.
+     *
+     * @param request - UpdateTagOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTagOptionResponse
+     *
      * @param UpdateTagOptionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2803,36 +3673,45 @@ class Servicecatalog extends OpenApiClient
      */
     public function updateTagOptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['Active'] = $request->active;
+        if (null !== $request->active) {
+            @$body['Active'] = $request->active;
         }
-        if (!Utils::isUnset($request->tagOptionId)) {
-            $body['TagOptionId'] = $request->tagOptionId;
+
+        if (null !== $request->tagOptionId) {
+            @$body['TagOptionId'] = $request->tagOptionId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTagOption',
-            'version'     => '2021-09-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTagOption',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTagOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the tag option.
+     *
+     * @param request - UpdateTagOptionRequest
+     *
+     * @returns UpdateTagOptionResponse
+     *
      * @param UpdateTagOptionRequest $request
      *
      * @return UpdateTagOptionResponse

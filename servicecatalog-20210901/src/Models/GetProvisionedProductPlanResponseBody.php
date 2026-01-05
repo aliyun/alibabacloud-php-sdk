@@ -4,83 +4,89 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\productDetail;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\productVersionDetail;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\resourceChanges;
-use AlibabaCloud\Tea\Model;
 
 class GetProvisionedProductPlanResponseBody extends Model
 {
     /**
-     * @description The details of the plan.
-     *
      * @var planDetail
      */
     public $planDetail;
 
     /**
-     * @description The details of the product.
-     *
      * @var productDetail
      */
     public $productDetail;
 
     /**
-     * @description The details of the product version.
-     *
      * @var productVersionDetail
      */
     public $productVersionDetail;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0FEEF92D-4052-5202-87D0-3D8EC16F81BF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the resources to be changed in the plan.
-     *
      * @var resourceChanges[]
      */
     public $resourceChanges;
     protected $_name = [
-        'planDetail'           => 'PlanDetail',
-        'productDetail'        => 'ProductDetail',
+        'planDetail' => 'PlanDetail',
+        'productDetail' => 'ProductDetail',
         'productVersionDetail' => 'ProductVersionDetail',
-        'requestId'            => 'RequestId',
-        'resourceChanges'      => 'ResourceChanges',
+        'requestId' => 'RequestId',
+        'resourceChanges' => 'ResourceChanges',
     ];
 
     public function validate()
     {
+        if (null !== $this->planDetail) {
+            $this->planDetail->validate();
+        }
+        if (null !== $this->productDetail) {
+            $this->productDetail->validate();
+        }
+        if (null !== $this->productVersionDetail) {
+            $this->productVersionDetail->validate();
+        }
+        if (\is_array($this->resourceChanges)) {
+            Model::validateArray($this->resourceChanges);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->planDetail) {
-            $res['PlanDetail'] = null !== $this->planDetail ? $this->planDetail->toMap() : null;
+            $res['PlanDetail'] = null !== $this->planDetail ? $this->planDetail->toArray($noStream) : $this->planDetail;
         }
+
         if (null !== $this->productDetail) {
-            $res['ProductDetail'] = null !== $this->productDetail ? $this->productDetail->toMap() : null;
+            $res['ProductDetail'] = null !== $this->productDetail ? $this->productDetail->toArray($noStream) : $this->productDetail;
         }
+
         if (null !== $this->productVersionDetail) {
-            $res['ProductVersionDetail'] = null !== $this->productVersionDetail ? $this->productVersionDetail->toMap() : null;
+            $res['ProductVersionDetail'] = null !== $this->productVersionDetail ? $this->productVersionDetail->toArray($noStream) : $this->productVersionDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceChanges) {
-            $res['ResourceChanges'] = [];
-            if (null !== $this->resourceChanges && \is_array($this->resourceChanges)) {
-                $n = 0;
-                foreach ($this->resourceChanges as $item) {
-                    $res['ResourceChanges'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceChanges)) {
+                $res['ResourceChanges'] = [];
+                $n1 = 0;
+                foreach ($this->resourceChanges as $item1) {
+                    $res['ResourceChanges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,32 +94,37 @@ class GetProvisionedProductPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProvisionedProductPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlanDetail'])) {
             $model->planDetail = planDetail::fromMap($map['PlanDetail']);
         }
+
         if (isset($map['ProductDetail'])) {
             $model->productDetail = productDetail::fromMap($map['ProductDetail']);
         }
+
         if (isset($map['ProductVersionDetail'])) {
             $model->productVersionDetail = productVersionDetail::fromMap($map['ProductVersionDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceChanges'])) {
             if (!empty($map['ResourceChanges'])) {
                 $model->resourceChanges = [];
-                $n                      = 0;
-                foreach ($map['ResourceChanges'] as $item) {
-                    $model->resourceChanges[$n++] = null !== $item ? resourceChanges::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceChanges'] as $item1) {
+                    $model->resourceChanges[$n1] = resourceChanges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

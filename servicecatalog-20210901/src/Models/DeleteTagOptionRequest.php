@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTagOptionRequest extends Model
 {
     /**
-     * @description The ID of the tag option.
-     *
-     * @example tag-bp1u6mdf3d****
-     *
      * @var string
      */
     public $tagOptionId;
@@ -22,9 +18,10 @@ class DeleteTagOptionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagOptionId) {
@@ -34,11 +31,11 @@ class DeleteTagOptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTagOptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

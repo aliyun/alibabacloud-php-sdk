@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail\approvalDetail\todoTaskActivities;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetProvisionedProductPlanResponseBody\planDetail\approvalDetail\todoTaskActivities\tasks\operator;
-use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
     /**
-     * @description The operator who performs operations on the plan.
-     *
      * @var operator
      */
     public $operator;
@@ -21,23 +19,27 @@ class tasks extends Model
 
     public function validate()
     {
+        if (null !== $this->operator) {
+            $this->operator->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operator) {
-            $res['Operator'] = null !== $this->operator ? $this->operator->toMap() : null;
+            $res['Operator'] = null !== $this->operator ? $this->operator->toArray($noStream) : $this->operator;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

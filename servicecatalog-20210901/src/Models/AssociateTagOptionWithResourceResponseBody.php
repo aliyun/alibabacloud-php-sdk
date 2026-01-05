@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateTagOptionWithResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example DC833558-AFF4-5935-9AB6-8A12EE7D****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AssociateTagOptionWithResourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AssociateTagOptionWithResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateTagOptionWithResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

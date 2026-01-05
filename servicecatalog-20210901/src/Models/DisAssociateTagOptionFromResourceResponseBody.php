@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisAssociateTagOptionFromResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 7E23D1F3-4333-587B-909C-39EA4626****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisAssociateTagOptionFromResourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisAssociateTagOptionFromResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisAssociateTagOptionFromResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\GetTaskResponseBody\taskDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outputs extends Model
 {
     /**
-     * @description The description of the output parameter for the template.
-     *
-     * @example The ECS instance ID.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the output parameter for the template.
-     *
-     * @example instance_id
-     *
      * @var string
      */
     public $outputKey;
 
     /**
-     * @description The value of the output parameter for the template.
-     *
-     * @example i-xxxxxx
-     *
      * @var string
      */
     public $outputValue;
     protected $_name = [
         'description' => 'Description',
-        'outputKey'   => 'OutputKey',
+        'outputKey' => 'OutputKey',
         'outputValue' => 'OutputValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->outputKey) {
             $res['OutputKey'] = $this->outputKey;
         }
+
         if (null !== $this->outputValue) {
             $res['OutputValue'] = $this->outputValue;
         }
@@ -60,20 +51,22 @@ class outputs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outputs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['OutputKey'])) {
             $model->outputKey = $map['OutputKey'];
         }
+
         if (isset($map['OutputValue'])) {
             $model->outputValue = $map['OutputValue'];
         }

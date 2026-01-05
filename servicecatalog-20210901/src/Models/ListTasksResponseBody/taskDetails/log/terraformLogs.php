@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ListTasksResponseBody\taskDetails\log;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class terraformLogs extends Model
 {
     /**
-     * @example apply
-     *
      * @var string
      */
     public $command;
 
     /**
-     * @example Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example stdout
-     *
      * @var string
      */
     public $stream;
     protected $_name = [
         'command' => 'Command',
         'content' => 'Content',
-        'stream'  => 'Stream',
+        'stream' => 'Stream',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -54,20 +51,22 @@ class terraformLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terraformLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

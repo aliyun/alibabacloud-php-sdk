@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ListProvisionedProductPlanApproversResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class approvers extends Model
 {
     /**
-     * @description The name of the reviewer.
-     *
-     * @example approver-1
-     *
      * @var string
      */
     public $principalName;
 
     /**
-     * @description The type of the Resource Access Management (RAM) entity of the reviewer. Valid values:
-     *
-     *   RamUser: a RAM user
-     *   RamRole: a RAM role
-     *
-     * @example RamUser
-     *
      * @var string
      */
     public $principalType;
@@ -35,14 +24,16 @@ class approvers extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->principalName) {
             $res['PrincipalName'] = $this->principalName;
         }
+
         if (null !== $this->principalType) {
             $res['PrincipalType'] = $this->principalType;
         }
@@ -50,17 +41,18 @@ class approvers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approvers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrincipalName'])) {
             $model->principalName = $map['PrincipalName'];
         }
+
         if (isset($map['PrincipalType'])) {
             $model->principalType = $map['PrincipalType'];
         }

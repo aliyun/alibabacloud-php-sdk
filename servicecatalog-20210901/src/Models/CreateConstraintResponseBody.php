@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateConstraintResponseBody extends Model
 {
     /**
-     * @description The ID of the constraint.
-     *
-     * @example cons-bp1yx7x42v****
-     *
      * @var string
      */
     public $constraintId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0FEEF92D-4052-5202-87D0-3D8EC16F81BF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'constraintId' => 'ConstraintId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->constraintId) {
             $res['ConstraintId'] = $this->constraintId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateConstraintResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConstraintResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConstraintId'])) {
             $model->constraintId = $map['ConstraintId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

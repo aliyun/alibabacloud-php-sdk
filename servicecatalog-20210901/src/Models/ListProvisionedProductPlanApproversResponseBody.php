@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Servicecatalog\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicecatalog\V20210901\Models\ListProvisionedProductPlanApproversResponseBody\approvers;
-use AlibabaCloud\Tea\Model;
 
 class ListProvisionedProductPlanApproversResponseBody extends Model
 {
     /**
-     * @description An array that consists of reviewers.
-     *
      * @var approvers[]
      */
     public $approvers;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0FEEF92D-4052-5202-87D0-3D8EC16F****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +25,26 @@ class ListProvisionedProductPlanApproversResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->approvers)) {
+            Model::validateArray($this->approvers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approvers) {
-            $res['Approvers'] = [];
-            if (null !== $this->approvers && \is_array($this->approvers)) {
-                $n = 0;
-                foreach ($this->approvers as $item) {
-                    $res['Approvers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->approvers)) {
+                $res['Approvers'] = [];
+                $n1 = 0;
+                foreach ($this->approvers as $item1) {
+                    $res['Approvers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class ListProvisionedProductPlanApproversResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProvisionedProductPlanApproversResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Approvers'])) {
             if (!empty($map['Approvers'])) {
                 $model->approvers = [];
-                $n                = 0;
-                foreach ($map['Approvers'] as $item) {
-                    $model->approvers[$n++] = null !== $item ? approvers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Approvers'] as $item1) {
+                    $model->approvers[$n1] = approvers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
