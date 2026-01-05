@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\ListEndpointsResponseBody\endpoints;
-use AlibabaCloud\Tea\Model;
 
 class ListEndpointsResponseBody extends Model
 {
@@ -15,43 +15,46 @@ class ListEndpointsResponseBody extends Model
     public $endpoints;
 
     /**
-     * @example A731A84D-55C9-44F7-99BB-E1CF0CF19197
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'endpoints'  => 'Endpoints',
-        'requestId'  => 'RequestId',
+        'endpoints' => 'Endpoints',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,26 +62,29 @@ class ListEndpointsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEndpointsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['Endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

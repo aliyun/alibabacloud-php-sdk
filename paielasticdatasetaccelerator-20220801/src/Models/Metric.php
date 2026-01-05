@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Metric extends Model
 {
     /**
-     * @example 1655897743
-     *
      * @var string
      */
     public $timestamp;
 
     /**
-     * @example 98.35
-     *
      * @var float
      */
     public $value;
     protected $_name = [
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +41,18 @@ class Metric extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Metric
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

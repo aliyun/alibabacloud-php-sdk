@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEndpointResponseBody extends Model
 {
     /**
-     * @example end-5zk866779me51jgu3w
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @example A731A84D-55C9-44F7-99BB-E1CF0CF19197
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'endpointId' => 'EndpointId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

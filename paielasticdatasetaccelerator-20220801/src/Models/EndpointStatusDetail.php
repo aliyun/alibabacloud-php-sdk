@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EndpointStatusDetail extends Model
 {
     /**
-     * @example { 	"slot-j6co2fcd": {   	"Ip": "10.0.0.2", 		"Port": 7001 	}, 	"slot-asdgys4d": {   	"Ip": "10.0.0.3", 		"Port": 7002 	} }
-     *
      * @var IpPort[]
      */
     public $ipPortMapping;
@@ -20,16 +18,20 @@ class EndpointStatusDetail extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipPortMapping)) {
+            Model::validateArray($this->ipPortMapping);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipPortMapping) {
-            $res['IpPortMapping'] = [];
-            if (null !== $this->ipPortMapping && \is_array($this->ipPortMapping)) {
-                foreach ($this->ipPortMapping as $key => $val) {
-                    $res['IpPortMapping'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->ipPortMapping)) {
+                $res['IpPortMapping'] = [];
+                foreach ($this->ipPortMapping as $key1 => $value1) {
+                    $res['IpPortMapping'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -37,16 +39,21 @@ class EndpointStatusDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EndpointStatusDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpPortMapping'])) {
-            $model->ipPortMapping = $map['IpPortMapping'];
+            if (!empty($map['IpPortMapping'])) {
+                $model->ipPortMapping = [];
+                foreach ($map['IpPortMapping'] as $key1 => $value1) {
+                    $model->ipPortMapping[$key1] = IpPort::fromMap($value1);
+                }
+            }
         }
 
         return $model;

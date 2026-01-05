@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeComponentShrinkRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $renderTemplate;
@@ -21,19 +19,21 @@ class DescribeComponentShrinkRequest extends Model
     public $valuesShrink;
     protected $_name = [
         'renderTemplate' => 'RenderTemplate',
-        'valuesShrink'   => 'Values',
+        'valuesShrink' => 'Values',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->renderTemplate) {
             $res['RenderTemplate'] = $this->renderTemplate;
         }
+
         if (null !== $this->valuesShrink) {
             $res['Values'] = $this->valuesShrink;
         }
@@ -41,17 +41,18 @@ class DescribeComponentShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RenderTemplate'])) {
             $model->renderTemplate = $map['RenderTemplate'];
         }
+
         if (isset($map['Values'])) {
             $model->valuesShrink = $map['Values'];
         }

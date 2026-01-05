@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IpPort extends Model
 {
     /**
-     * @example 10.0.0.5
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 3306
-     *
      * @var string
      */
     public $port;
     protected $_name = [
-        'ip'   => 'Ip',
+        'ip' => 'Ip',
         'port' => 'Port',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -43,17 +41,18 @@ class IpPort extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IpPort
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

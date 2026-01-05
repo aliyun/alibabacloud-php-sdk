@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\BindEndpointResponse;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\CreateEndpointRequest;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\CreateEndpointResponse;
@@ -54,11 +54,10 @@ use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\UpdateInstanc
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\UpdateSlotRequest;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\UpdateSlotResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PAIElasticDatasetAccelerator extends OpenApiClient
 {
@@ -83,17 +82,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 将一个挂载点关联到一个数据集加速槽上。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindEndpointResponse
+     *
      * @param string         $EndpointId
      * @param string         $SlotId
      * @param string[]       $headers
@@ -107,21 +114,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'BindEndpoint',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints/' . OpenApiUtilClient::getEncodeParam($EndpointId) . '/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BindEndpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints/' . Url::percentEncode($EndpointId) . '/slots/' . Url::percentEncode($SlotId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 将一个挂载点关联到一个数据集加速槽上。
+     *
+     * @returns BindEndpointResponse
+     *
      * @param string $EndpointId
      * @param string $SlotId
      *
@@ -136,6 +147,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 创建并注册一个数据集加速槽挂载点。
+     *
+     * @param request - CreateEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEndpointResponse
+     *
      * @param CreateEndpointRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -144,43 +163,54 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function createEndpointWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $body['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$body['VswitchId'] = $request->vswitchId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEndpoint',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateEndpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建并注册一个数据集加速槽挂载点。
+     *
+     * @param request - CreateEndpointRequest
+     *
+     * @returns CreateEndpointResponse
+     *
      * @param CreateEndpointRequest $request
      *
      * @return CreateEndpointResponse
@@ -194,6 +224,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 创建数据集加速实例.
+     *
+     * @param request - CreateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -202,58 +240,74 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->capacity)) {
-            $body['Capacity'] = $request->capacity;
+        if (null !== $request->capacity) {
+            @$body['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->maxEndpoint)) {
-            $body['MaxEndpoint'] = $request->maxEndpoint;
+
+        if (null !== $request->maxEndpoint) {
+            @$body['MaxEndpoint'] = $request->maxEndpoint;
         }
-        if (!Utils::isUnset($request->maxSlot)) {
-            $body['MaxSlot'] = $request->maxSlot;
+
+        if (null !== $request->maxSlot) {
+            @$body['MaxSlot'] = $request->maxSlot;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $body['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$body['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->providerType)) {
-            $body['ProviderType'] = $request->providerType;
+
+        if (null !== $request->providerType) {
+            @$body['ProviderType'] = $request->providerType;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $body['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$body['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建数据集加速实例.
+     *
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      *
      * @return CreateInstanceResponse
@@ -267,6 +321,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 创建并注册一个 数据集加速槽。
+     *
+     * @param request - CreateSlotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSlotResponse
+     *
      * @param CreateSlotRequest $request
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
@@ -275,61 +337,78 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function createSlotWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->capacity)) {
-            $body['Capacity'] = $request->capacity;
+        if (null !== $request->capacity) {
+            @$body['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endpointIds)) {
-            $body['EndpointIds'] = $request->endpointIds;
+
+        if (null !== $request->endpointIds) {
+            @$body['EndpointIds'] = $request->endpointIds;
         }
-        if (!Utils::isUnset($request->endpoints)) {
-            $body['Endpoints'] = $request->endpoints;
+
+        if (null !== $request->endpoints) {
+            @$body['Endpoints'] = $request->endpoints;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ioType)) {
-            $body['IoType'] = $request->ioType;
+
+        if (null !== $request->ioType) {
+            @$body['IoType'] = $request->ioType;
         }
-        if (!Utils::isUnset($request->lifeCycle)) {
-            $body['LifeCycle'] = $request->lifeCycle;
+
+        if (null !== $request->lifeCycle) {
+            @$body['LifeCycle'] = $request->lifeCycle;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $body['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$body['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->storageUri)) {
-            $body['StorageUri'] = $request->storageUri;
+
+        if (null !== $request->storageUri) {
+            @$body['StorageUri'] = $request->storageUri;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建并注册一个 数据集加速槽。
+     *
+     * @param request - CreateSlotRequest
+     *
+     * @returns CreateSlotResponse
+     *
      * @param CreateSlotRequest $request
      *
      * @return CreateSlotResponse
@@ -343,6 +422,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 同时创建并注册多个数据集加速槽，并使用相同的一组数据加速槽挂载点。
+     *
+     * @param request - CreateSlotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSlotsResponse
+     *
      * @param CreateSlotsRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -351,34 +438,42 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function createSlotsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->slots)) {
-            $body['Slots'] = $request->slots;
+
+        if (null !== $request->slots) {
+            @$body['Slots'] = $request->slots;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSlots',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/batch/slots/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSlots',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/batch/slots/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSlotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 同时创建并注册多个数据集加速槽，并使用相同的一组数据加速槽挂载点。
+     *
+     * @param request - CreateSlotsRequest
+     *
+     * @returns CreateSlotsResponse
+     *
      * @param CreateSlotsRequest $request
      *
      * @return CreateSlotsResponse
@@ -392,6 +487,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 针对一个资源，创建一个标签。
+     *
+     * @param request - CreateTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagResponse
+     *
      * @param CreateTagRequest $request
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
@@ -400,40 +503,50 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function createTagWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->key)) {
-            $body['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$body['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTag',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTag',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 针对一个资源，创建一个标签。
+     *
+     * @param request - CreateTagRequest
+     *
+     * @returns CreateTagResponse
+     *
      * @param CreateTagRequest $request
      *
      * @return CreateTagResponse
@@ -447,6 +560,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 删除一个数据集加速槽挂载点。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEndpointResponse
+     *
      * @param string         $EndpointId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -459,21 +579,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteEndpoint',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints/' . OpenApiUtilClient::getEncodeParam($EndpointId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteEndpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints/' . Url::percentEncode($EndpointId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除一个数据集加速槽挂载点。
+     *
+     * @returns DeleteEndpointResponse
+     *
      * @param string $EndpointId
      *
      * @return DeleteEndpointResponse
@@ -487,6 +611,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 删除一个数据集加速实例。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param string         $InstanceId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -499,21 +630,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除一个数据集加速实例。
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param string $InstanceId
      *
      * @return DeleteInstanceResponse
@@ -527,6 +662,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 删除一个数据集加速槽。
+     *
+     * @param request - DeleteSlotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSlotResponse
+     *
      * @param string            $SlotId
      * @param DeleteSlotRequest $request
      * @param string[]          $headers
@@ -536,31 +679,38 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function deleteSlotWithOptions($SlotId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除一个数据集加速槽。
+     *
+     * @param request - DeleteSlotRequest
+     *
+     * @returns DeleteSlotResponse
+     *
      * @param string            $SlotId
      * @param DeleteSlotRequest $request
      *
@@ -575,6 +725,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 删除一个资源上的一个标签。
+     *
+     * @param request - DeleteTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagResponse
+     *
      * @param DeleteTagRequest $request
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
@@ -583,37 +741,46 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function deleteTagWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTag',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tags',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTag',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 删除一个资源上的一个标签。
+     *
+     * @param request - DeleteTagRequest
+     *
+     * @returns DeleteTagResponse
+     *
      * @param DeleteTagRequest $request
      *
      * @return DeleteTagResponse
@@ -627,6 +794,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取指定数据集加速组件的信息。
+     *
+     * @param tmpReq - DescribeComponentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentResponse
+     *
      * @param string                   $ComponentId
      * @param DescribeComponentRequest $tmpReq
      * @param string[]                 $headers
@@ -636,39 +811,48 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function describeComponentWithOptions($ComponentId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeComponentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->values)) {
-            $request->valuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->values) {
+            $request->valuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->renderTemplate)) {
-            $query['RenderTemplate'] = $request->renderTemplate;
+        if (null !== $request->renderTemplate) {
+            @$query['RenderTemplate'] = $request->renderTemplate;
         }
-        if (!Utils::isUnset($request->valuesShrink)) {
-            $query['Values'] = $request->valuesShrink;
+
+        if (null !== $request->valuesShrink) {
+            @$query['Values'] = $request->valuesShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponent',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/components/' . OpenApiUtilClient::getEncodeParam($ComponentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeComponent',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/components/' . Url::percentEncode($ComponentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeComponentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定数据集加速组件的信息。
+     *
+     * @param request - DescribeComponentRequest
+     *
+     * @returns DescribeComponentResponse
+     *
      * @param string                   $ComponentId
      * @param DescribeComponentRequest $request
      *
@@ -683,6 +867,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取指定数据集加速槽挂载点的信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEndpointResponse
+     *
      * @param string         $EndpointId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -695,21 +886,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeEndpoint',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints/' . OpenApiUtilClient::getEncodeParam($EndpointId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeEndpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints/' . Url::percentEncode($EndpointId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定数据集加速槽挂载点的信息。
+     *
+     * @returns DescribeEndpointResponse
+     *
      * @param string $EndpointId
      *
      * @return DescribeEndpointResponse
@@ -723,6 +918,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取指定数据集加速实例信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceResponse
+     *
      * @param string         $InstanceId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -735,21 +937,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定数据集加速实例信息。
+     *
+     * @returns DescribeInstanceResponse
+     *
      * @param string $InstanceId
      *
      * @return DescribeInstanceResponse
@@ -763,6 +969,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取指定数据集加速槽的信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSlotResponse
+     *
      * @param string         $SlotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -775,21 +988,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取指定数据集加速槽的信息。
+     *
+     * @returns DescribeSlotResponse
+     *
      * @param string $SlotId
      *
      * @return DescribeSlotResponse
@@ -803,6 +1020,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取数据集加速组件的信息列表。
+     *
+     * @param request - ListComponentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComponentsResponse
+     *
      * @param ListComponentsRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -811,49 +1036,62 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function listComponentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->componentIds)) {
-            $query['ComponentIds'] = $request->componentIds;
+        if (null !== $request->componentIds) {
+            @$query['ComponentIds'] = $request->componentIds;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListComponents',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/components',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListComponents',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/components',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取数据集加速组件的信息列表。
+     *
+     * @param request - ListComponentsRequest
+     *
+     * @returns ListComponentsResponse
+     *
      * @param ListComponentsRequest $request
      *
      * @return ListComponentsResponse
@@ -867,6 +1105,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取数据集加速槽挂载点的信息列表。
+     *
+     * @param request - ListEndpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEndpointsResponse
+     *
      * @param ListEndpointsRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
@@ -875,55 +1121,70 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function listEndpointsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointIds)) {
-            $query['EndpointIds'] = $request->endpointIds;
+        if (null !== $request->endpointIds) {
+            @$query['EndpointIds'] = $request->endpointIds;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->slotIds)) {
-            $query['SlotIds'] = $request->slotIds;
+
+        if (null !== $request->slotIds) {
+            @$query['SlotIds'] = $request->slotIds;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEndpoints',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEndpoints',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取数据集加速槽挂载点的信息列表。
+     *
+     * @param request - ListEndpointsRequest
+     *
+     * @returns ListEndpointsResponse
+     *
      * @param ListEndpointsRequest $request
      *
      * @return ListEndpointsResponse
@@ -937,6 +1198,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取数据集加速实例信息列表。
+     *
+     * @param request - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
      * @param ListInstancesRequest $request
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
@@ -945,55 +1214,70 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
+
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取数据集加速实例信息列表。
+     *
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
      * @param ListInstancesRequest $request
      *
      * @return ListInstancesResponse
@@ -1007,6 +1291,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取数据集加速槽的信息列表。
+     *
+     * @param request - ListSlotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSlotsResponse
+     *
      * @param ListSlotsRequest $request
      * @param string[]         $headers
      * @param RuntimeOptions   $runtime
@@ -1015,61 +1307,78 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function listSlotsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointIds)) {
-            $query['EndpointIds'] = $request->endpointIds;
+        if (null !== $request->endpointIds) {
+            @$query['EndpointIds'] = $request->endpointIds;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
+
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
         }
-        if (!Utils::isUnset($request->slotIds)) {
-            $query['SlotIds'] = $request->slotIds;
+
+        if (null !== $request->slotIds) {
+            @$query['SlotIds'] = $request->slotIds;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->storageUri)) {
-            $query['StorageUri'] = $request->storageUri;
+
+        if (null !== $request->storageUri) {
+            @$query['StorageUri'] = $request->storageUri;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSlots',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSlots',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSlotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取数据集加速槽的信息列表。
+     *
+     * @param request - ListSlotsRequest
+     *
+     * @returns ListSlotsResponse
+     *
      * @param ListSlotsRequest $request
      *
      * @return ListSlotsResponse
@@ -1083,6 +1392,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 获取标签列表信息。
+     *
+     * @param request - ListTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagsResponse
+     *
      * @param ListTagsRequest $request
      * @param string[]        $headers
      * @param RuntimeOptions  $runtime
@@ -1091,52 +1408,66 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function listTagsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTags',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTags',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取标签列表信息。
+     *
+     * @param request - ListTagsRequest
+     *
+     * @returns ListTagsResponse
+     *
      * @param ListTagsRequest $request
      *
      * @return ListTagsResponse
@@ -1150,6 +1481,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 查询并获取监控指标信息。
+     *
+     * @param tmpReq - QueryInstanceMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInstanceMetricsResponse
+     *
      * @param string                      $InstanceId
      * @param QueryInstanceMetricsRequest $tmpReq
      * @param string[]                    $headers
@@ -1159,48 +1498,60 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function queryInstanceMetricsWithOptions($InstanceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryInstanceMetricsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dimensions)) {
-            $request->dimensionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dimensionsShrink)) {
-            $query['Dimensions'] = $request->dimensionsShrink;
+        if (null !== $request->dimensionsShrink) {
+            @$query['Dimensions'] = $request->dimensionsShrink;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceMetrics',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/metrics/action/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryInstanceMetrics',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/metrics/action/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInstanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询并获取监控指标信息。
+     *
+     * @param request - QueryInstanceMetricsRequest
+     *
+     * @returns QueryInstanceMetricsResponse
+     *
      * @param string                      $InstanceId
      * @param QueryInstanceMetricsRequest $request
      *
@@ -1215,6 +1566,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 查询并获取监控指标信息.
+     *
+     * @param tmpReq - QuerySlotMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySlotMetricsResponse
+     *
      * @param string                  $SlotId
      * @param QuerySlotMetricsRequest $tmpReq
      * @param string[]                $headers
@@ -1224,48 +1583,60 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function querySlotMetricsWithOptions($SlotId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QuerySlotMetricsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dimensions)) {
-            $request->dimensionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dimensionsShrink)) {
-            $query['Dimensions'] = $request->dimensionsShrink;
+        if (null !== $request->dimensionsShrink) {
+            @$query['Dimensions'] = $request->dimensionsShrink;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySlotMetrics',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '/metrics/action/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QuerySlotMetrics',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '/metrics/action/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySlotMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询并获取监控指标信息.
+     *
+     * @param request - QuerySlotMetricsRequest
+     *
+     * @returns QuerySlotMetricsResponse
+     *
      * @param string                  $SlotId
      * @param QuerySlotMetricsRequest $request
      *
@@ -1280,6 +1651,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 查询当前账号下数据集加速相关的统计信息。
+     *
+     * @param request - QueryStatisticRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryStatisticResponse
+     *
      * @param QueryStatisticRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
@@ -1288,37 +1667,46 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function queryStatisticWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $query['Fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$query['Fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryStatistic',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/action/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryStatistic',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/action/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 查询当前账号下数据集加速相关的统计信息。
+     *
+     * @param request - QueryStatisticRequest
+     *
+     * @returns QueryStatisticResponse
+     *
      * @param QueryStatisticRequest $request
      *
      * @return QueryStatisticResponse
@@ -1332,6 +1720,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 重载数据加速槽的数据.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReloadSlotResponse
+     *
      * @param string         $SlotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -1344,21 +1739,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ReloadSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '/action/reload',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReloadSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '/action/reload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReloadSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 重载数据加速槽的数据.
+     *
+     * @returns ReloadSlotResponse
+     *
      * @param string $SlotId
      *
      * @return ReloadSlotResponse
@@ -1372,6 +1771,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 停止一个数据集加速槽。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopSlotResponse
+     *
      * @param string         $SlotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -1384,21 +1790,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '/action/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '/action/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 停止一个数据集加速槽。
+     *
+     * @returns StopSlotResponse
+     *
      * @param string $SlotId
      *
      * @return StopSlotResponse
@@ -1412,6 +1822,13 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 取消挂载点关联和指定数据集加速槽的关联关系。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindEndpointResponse
+     *
      * @param string         $EndpointId
      * @param string         $SlotId
      * @param string[]       $headers
@@ -1425,21 +1842,25 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'UnbindEndpoint',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/endpoints/' . OpenApiUtilClient::getEncodeParam($EndpointId) . '/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnbindEndpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/endpoints/' . Url::percentEncode($EndpointId) . '/slots/' . Url::percentEncode($SlotId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnbindEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 取消挂载点关联和指定数据集加速槽的关联关系。
+     *
+     * @returns UnbindEndpointResponse
+     *
      * @param string $EndpointId
      * @param string $SlotId
      *
@@ -1454,6 +1875,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 更新一个数据集加速实例的信息。
+     *
+     * @param request - UpdateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceResponse
+     *
      * @param string                $InstanceId
      * @param UpdateInstanceRequest $request
      * @param string[]              $headers
@@ -1463,37 +1892,46 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->maxSlot)) {
-            $body['MaxSlot'] = $request->maxSlot;
+
+        if (null !== $request->maxSlot) {
+            @$body['MaxSlot'] = $request->maxSlot;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新一个数据集加速实例的信息。
+     *
+     * @param request - UpdateInstanceRequest
+     *
+     * @returns UpdateInstanceResponse
+     *
      * @param string                $InstanceId
      * @param UpdateInstanceRequest $request
      *
@@ -1508,6 +1946,14 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
     }
 
     /**
+     * 更新一个数据集加速槽的信息。
+     *
+     * @param request - UpdateSlotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSlotResponse
+     *
      * @param string            $SlotId
      * @param UpdateSlotRequest $request
      * @param string[]          $headers
@@ -1517,49 +1963,62 @@ class PAIElasticDatasetAccelerator extends OpenApiClient
      */
     public function updateSlotWithOptions($SlotId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->capacity)) {
-            $body['Capacity'] = $request->capacity;
+        if (null !== $request->capacity) {
+            @$body['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->lifeCycle)) {
-            $body['LifeCycle'] = $request->lifeCycle;
+
+        if (null !== $request->lifeCycle) {
+            @$body['LifeCycle'] = $request->lifeCycle;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $body['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$body['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->storageUri)) {
-            $body['StorageUri'] = $request->storageUri;
+
+        if (null !== $request->storageUri) {
+            @$body['StorageUri'] = $request->storageUri;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSlot',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/slots/' . OpenApiUtilClient::getEncodeParam($SlotId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSlot',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/slots/' . Url::percentEncode($SlotId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 更新一个数据集加速槽的信息。
+     *
+     * @param request - UpdateSlotRequest
+     *
+     * @returns UpdateSlotResponse
+     *
      * @param string            $SlotId
      * @param UpdateSlotRequest $request
      *

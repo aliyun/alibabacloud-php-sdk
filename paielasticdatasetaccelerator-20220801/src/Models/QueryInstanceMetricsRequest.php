@@ -4,71 +4,74 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryInstanceMetricsRequest extends Model
 {
     /**
-     * @example SlotIDs: xxx
-     *
      * @var mixed[]
      */
     public $dimensions;
 
     /**
-     * @example 2020-11-08T16:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example StorageUsage
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @example 2020-11-08T15:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example 5m
-     *
      * @var string
      */
     public $timeStep;
     protected $_name = [
         'dimensions' => 'Dimensions',
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'metricType' => 'MetricType',
-        'startTime'  => 'StartTime',
-        'timeStep'   => 'TimeStep',
+        'startTime' => 'StartTime',
+        'timeStep' => 'TimeStep',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                foreach ($this->dimensions as $key1 => $value1) {
+                    $res['Dimensions'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->timeStep) {
             $res['TimeStep'] = $this->timeStep;
         }
@@ -76,26 +79,35 @@ class QueryInstanceMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryInstanceMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
+            if (!empty($map['Dimensions'])) {
+                $model->dimensions = [];
+                foreach ($map['Dimensions'] as $key1 => $value1) {
+                    $model->dimensions[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TimeStep'])) {
             $model->timeStep = $map['TimeStep'];
         }

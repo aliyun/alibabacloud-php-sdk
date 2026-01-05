@@ -4,36 +4,28 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\CreateSlotsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\CreateSlotsRequest\slots\tags;
 use AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models\SlotLifeCycle;
-use AlibabaCloud\Tea\Model;
 
 class slots extends Model
 {
     /**
-     * @example 30.0G
-     *
      * @var string
      */
     public $capacity;
 
     /**
-     * @example xgboost数据集加速槽
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example end-my1tk3jggooi5uwks5,end-n69468yvjz8d12as7d,end-tga4omjrepklkg1onn
-     *
      * @var string
      */
     public $endpointIds;
 
     /**
-     * @example inst-my1tk3jggooi5uwks5
-     *
      * @var string
      */
     public $instanceId;
@@ -49,22 +41,16 @@ class slots extends Model
     public $lifeCycle;
 
     /**
-     * @example slot_1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @example oss://pai-vision-data-hz2.oss-cn-hangzhou-internal.aliyuncs.com/data/VOCdevkit/VOC2007/ImageSets/Main/val.txt
-     *
      * @var string
      */
     public $storageUri;
@@ -74,58 +60,75 @@ class slots extends Model
      */
     public $tags;
     protected $_name = [
-        'capacity'    => 'Capacity',
+        'capacity' => 'Capacity',
         'description' => 'Description',
         'endpointIds' => 'EndpointIds',
-        'instanceId'  => 'InstanceId',
-        'ioType'      => 'IoType',
-        'lifeCycle'   => 'LifeCycle',
-        'name'        => 'Name',
+        'instanceId' => 'InstanceId',
+        'ioType' => 'IoType',
+        'lifeCycle' => 'LifeCycle',
+        'name' => 'Name',
         'storageType' => 'StorageType',
-        'storageUri'  => 'StorageUri',
-        'tags'        => 'Tags',
+        'storageUri' => 'StorageUri',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (null !== $this->lifeCycle) {
+            $this->lifeCycle->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->endpointIds) {
             $res['EndpointIds'] = $this->endpointIds;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ioType) {
             $res['IoType'] = $this->ioType;
         }
+
         if (null !== $this->lifeCycle) {
-            $res['LifeCycle'] = null !== $this->lifeCycle ? $this->lifeCycle->toMap() : null;
+            $res['LifeCycle'] = null !== $this->lifeCycle ? $this->lifeCycle->toArray($noStream) : $this->lifeCycle;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+
         if (null !== $this->storageUri) {
             $res['StorageUri'] = $this->storageUri;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,47 +136,57 @@ class slots extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slots
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EndpointIds'])) {
             $model->endpointIds = $map['EndpointIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IoType'])) {
             $model->ioType = $map['IoType'];
         }
+
         if (isset($map['LifeCycle'])) {
             $model->lifeCycle = SlotLifeCycle::fromMap($map['LifeCycle']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }
+
         if (isset($map['StorageUri'])) {
             $model->storageUri = $map['StorageUri'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

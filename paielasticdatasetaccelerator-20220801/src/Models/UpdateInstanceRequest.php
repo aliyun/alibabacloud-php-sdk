@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\PAIElasticDatasetAccelerator\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @example xgboost数据集加速实例
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 20
-     *
      * @var string
      */
     public $maxSlot;
 
     /**
-     * @example acc_instance_1
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'maxSlot'     => 'MaxSlot',
-        'name'        => 'Name',
+        'maxSlot' => 'MaxSlot',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->maxSlot) {
             $res['MaxSlot'] = $this->maxSlot;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -54,20 +51,22 @@ class UpdateInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['MaxSlot'])) {
             $model->maxSlot = $map['MaxSlot'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
