@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ClonePolarFsBasicSnapshotRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ClonePolarFsBasicSnapshotResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseAITaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseDBClusterMigrationRequest;
@@ -1946,6 +1948,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 支持基础版支持clone文件或目录快照.
+     *
+     * @param request - ClonePolarFsBasicSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClonePolarFsBasicSnapshotResponse
+     *
+     * @param ClonePolarFsBasicSnapshotRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ClonePolarFsBasicSnapshotResponse
+     */
+    public function clonePolarFsBasicSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->sourcePath) {
+            @$query['SourcePath'] = $request->sourcePath;
+        }
+
+        if (null !== $request->targetPath) {
+            @$query['TargetPath'] = $request->targetPath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClonePolarFsBasicSnapshot',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClonePolarFsBasicSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 支持基础版支持clone文件或目录快照.
+     *
+     * @param request - ClonePolarFsBasicSnapshotRequest
+     *
+     * @returns ClonePolarFsBasicSnapshotResponse
+     *
+     * @param ClonePolarFsBasicSnapshotRequest $request
+     *
+     * @return ClonePolarFsBasicSnapshotResponse
+     */
+    public function clonePolarFsBasicSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clonePolarFsBasicSnapshotWithOptions($request, $runtime);
     }
 
     /**
