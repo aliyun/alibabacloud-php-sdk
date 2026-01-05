@@ -21,7 +21,7 @@ class resources extends Model
     public $dataSource;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

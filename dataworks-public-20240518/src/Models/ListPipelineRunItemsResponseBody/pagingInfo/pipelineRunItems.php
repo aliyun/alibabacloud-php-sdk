@@ -14,7 +14,7 @@ class pipelineRunItems extends Model
     public $createTime;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

@@ -19,7 +19,7 @@ class trigger extends Model
     public $endTime;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

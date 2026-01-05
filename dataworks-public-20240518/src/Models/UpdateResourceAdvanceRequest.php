@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Stream;
 class UpdateResourceAdvanceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

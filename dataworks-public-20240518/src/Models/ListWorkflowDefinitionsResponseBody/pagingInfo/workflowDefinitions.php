@@ -20,7 +20,7 @@ class workflowDefinitions extends Model
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

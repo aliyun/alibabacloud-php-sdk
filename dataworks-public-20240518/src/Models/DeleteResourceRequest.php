@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class DeleteResourceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

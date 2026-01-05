@@ -72,7 +72,7 @@ class functions extends Model
     public $fileResource;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

@@ -627,29 +627,62 @@ class Dataworkspublic extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'dataworks.ap-northeast-1.aliyuncs.com',
-            'ap-south-1' => 'dataworks.ap-south-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'dataworks.aliyuncs.com',
+            'ap-south-1' => 'dataworks.aliyuncs.com',
             'ap-southeast-1' => 'dataworks.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2' => 'dataworks.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-2' => 'dataworks.aliyuncs.com',
             'ap-southeast-3' => 'dataworks.ap-southeast-3.aliyuncs.com',
             'ap-southeast-5' => 'dataworks.ap-southeast-5.aliyuncs.com',
             'cn-beijing' => 'dataworks.cn-beijing.aliyuncs.com',
+            'cn-beijing-finance-1' => 'dataworks.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'dataworks.aliyuncs.com',
+            'cn-beijing-gov-1' => 'dataworks.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'dataworks.aliyuncs.com',
             'cn-chengdu' => 'dataworks.cn-chengdu.aliyuncs.com',
+            'cn-edge-1' => 'dataworks.aliyuncs.com',
+            'cn-fujian' => 'dataworks.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'dataworks.aliyuncs.com',
             'cn-hangzhou' => 'dataworks.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'dataworks.aliyuncs.com',
             'cn-hongkong' => 'dataworks.cn-hongkong.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'dataworks.aliyuncs.com',
             'cn-huhehaote' => 'dataworks.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'dataworks.aliyuncs.com',
+            'cn-north-2-gov-1' => 'dataworks.cn-north-2-gov-1.aliyuncs.com',
             'cn-qingdao' => 'dataworks.aliyuncs.com',
+            'cn-qingdao-nebula' => 'dataworks.aliyuncs.com',
             'cn-shanghai' => 'dataworks.cn-shanghai.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'dataworks.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai-inner' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'dataworks.aliyuncs.com',
             'cn-shenzhen' => 'dataworks.cn-shenzhen.aliyuncs.com',
-            'cn-zhangjiakou' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'dataworks.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen-inner' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'dataworks.aliyuncs.com',
+            'cn-wuhan' => 'dataworks.aliyuncs.com',
+            'cn-wulanchabu' => 'dataworks.cn-wulanchabu.aliyuncs.com',
+            'cn-yushanfang' => 'dataworks.aliyuncs.com',
+            'cn-zhangbei' => 'dataworks.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'dataworks.aliyuncs.com',
+            'cn-zhangjiakou' => 'dataworks.cn-zhangjiakou.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'dataworks.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'dataworks.aliyuncs.com',
             'eu-central-1' => 'dataworks.eu-central-1.aliyuncs.com',
             'eu-west-1' => 'dataworks.eu-west-1.aliyuncs.com',
+            'eu-west-1-oxs' => 'dataworks.aliyuncs.com',
             'me-east-1' => 'dataworks.me-east-1.aliyuncs.com',
+            'rus-west-1-pop' => 'dataworks.aliyuncs.com',
             'us-east-1' => 'dataworks.us-east-1.aliyuncs.com',
             'us-west-1' => 'dataworks.us-west-1.aliyuncs.com',
-            'cn-hangzhou-finance' => 'dataworks.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'dataworks.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'dataworks.aliyuncs.com',
-            'cn-north-2-gov-1' => 'dataworks.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -775,7 +808,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+     * Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+     *
+     * @remarks
+     * >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
      *
      * @param Request - AbolishPipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -818,7 +854,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+     * Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+     *
+     * @remarks
+     * >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
      *
      * @param Request - AbolishPipelineRunRequest
      *
@@ -2708,7 +2747,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
      *
      * @param tmpReq - CreateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2777,7 +2816,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
      *
      * @param Request - CreateDatasetRequest
      *
@@ -2795,7 +2834,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集版本.
+     * Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
      *
      * @param tmpReq - CreateDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2856,7 +2895,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集版本.
+     * Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
      *
      * @param Request - CreateDatasetVersionRequest
      *
@@ -3187,7 +3226,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建身份凭证
+     * Creates an identity credential.
+     *
+     * @remarks
+     * >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
      *
      * @param tmpReq - CreateIdentifyCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3232,7 +3274,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建身份凭证
+     * Creates an identity credential.
+     *
+     * @remarks
+     * >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
      *
      * @param Request - CreateIdentifyCredentialRequest
      *
@@ -3548,10 +3593,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a process for deploying or undeploying an entity in Data Studio.
+     * Creates a deployment process for entities in the Data Studio (new version).
      *
      * @remarks
-     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     * >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+     * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
      *
      * @param tmpReq - CreatePipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3608,10 +3654,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a process for deploying or undeploying an entity in Data Studio.
+     * Creates a deployment process for entities in the Data Studio (new version).
      *
      * @remarks
-     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     * >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+     * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
      *
      * @param Request - CreatePipelineRunRequest
      *
@@ -4882,6 +4929,11 @@ class Dataworkspublic extends OpenApiClient
     /**
      * 验证用.
      *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
+     *
      * @param Request - DeleteComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4924,6 +4976,11 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * 验证用.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
      *
      * @param Request - DeleteComputeResourceRequest
      *
@@ -5638,7 +5695,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - DeleteDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5677,7 +5734,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - DeleteDatasetRequest
      *
@@ -5695,7 +5752,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除数据集版本.
+     * Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - DeleteDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5734,7 +5791,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除数据集版本.
+     * Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - DeleteDatasetVersionRequest
      *
@@ -8463,7 +8520,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本.
+     * Gets information for a given dataset version.
      *
      * @param Request - GetDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8502,7 +8559,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本.
+     * Gets information for a given dataset version.
      *
      * @param Request - GetDatasetVersionRequest
      *
@@ -12247,7 +12304,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本列表.
+     * Retrieves the version list for a given dataset.
      *
      * @param Request - ListDatasetVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12306,7 +12363,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本列表.
+     * Retrieves the version list for a given dataset.
      *
      * @param Request - ListDatasetVersionsRequest
      *
@@ -12324,7 +12381,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集列表.
+     * Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
      *
      * @param tmpReq - ListDatasetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12409,7 +12466,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集列表.
+     * Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
      *
      * @param Request - ListDatasetsRequest
      *
@@ -13149,7 +13206,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+     * 查询实体血缘.
      *
      * @param Request - ListLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13184,7 +13241,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+     * 查询实体血缘.
      *
      * @param Request - ListLineagesRequest
      *
@@ -15356,7 +15413,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 预览数据集版本内容.
+     * Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream.
      *
      * @param Request - PreviewDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15395,7 +15452,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 预览数据集版本内容.
+     * Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream.
      *
      * @param Request - PreviewDatasetVersionRequest
      *
@@ -18356,7 +18413,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
      *
      * @param Request - UpdateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18407,7 +18464,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
      *
      * @param Request - UpdateDatasetRequest
      *
@@ -18425,7 +18482,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新数据集版本信息.
+     * Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - UpdateDatasetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18468,7 +18525,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新数据集版本信息.
+     * Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
      *
      * @param Request - UpdateDatasetVersionRequest
      *

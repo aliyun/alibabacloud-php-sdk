@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class CreateNodeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $containerId;
 

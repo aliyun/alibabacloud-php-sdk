@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class RenameNodeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

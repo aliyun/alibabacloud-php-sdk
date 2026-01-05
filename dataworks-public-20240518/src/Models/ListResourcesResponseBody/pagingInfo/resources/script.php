@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesResponseBody\
 class script extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

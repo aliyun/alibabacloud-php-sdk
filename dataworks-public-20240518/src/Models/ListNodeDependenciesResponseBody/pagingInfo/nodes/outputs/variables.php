@@ -15,7 +15,7 @@ class variables extends Model
     public $artifactType;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 

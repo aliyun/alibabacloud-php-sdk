@@ -32,7 +32,7 @@ class nodes extends Model
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
     public $id;
 
