@@ -502,6 +502,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamWatermarkRulesReque
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamWatermarkRulesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamWatermarksRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamWatermarksResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveTagResourcesRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveTagResourcesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveTopDomainsByFlowRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveTopDomainsByFlowResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveTrafficDomainLogRequest;
@@ -22293,6 +22295,85 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLiveStreamsTotalCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the tags of domain names.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
+     *
+     * @param request - DescribeLiveTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLiveTagResourcesResponse
+     *
+     * @param DescribeLiveTagResourcesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLiveTagResourcesResponse
+     */
+    public function describeLiveTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLiveTagResources',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLiveTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tags of domain names.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account.
+     *
+     * @param request - DescribeLiveTagResourcesRequest
+     *
+     * @returns DescribeLiveTagResourcesResponse
+     *
+     * @param DescribeLiveTagResourcesRequest $request
+     *
+     * @return DescribeLiveTagResourcesResponse
+     */
+    public function describeLiveTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveTagResourcesWithOptions($request, $runtime);
     }
 
     /**
