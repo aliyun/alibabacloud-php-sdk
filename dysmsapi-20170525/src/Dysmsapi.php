@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAppIcpRecordRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAppIcpRecordResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterShrinkRequest;
@@ -33,6 +35,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTrademarkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTrademarkResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
@@ -58,6 +62,9 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsOcrOssInfoRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsOcrOssInfoResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateListRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateListResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateListShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ListTagResourcesRequest;
@@ -85,6 +92,9 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySingleSmsQualificationRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySingleSmsQualificationResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAppIcpRecordRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAppIcpRecordResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAppIcpRecordShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterShrinkRequest;
@@ -98,6 +108,9 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTrademarkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTrademarkResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTrademarkShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\RequiredPhoneCodeRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\RequiredPhoneCodeResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchCardSmsRequest;
@@ -950,6 +963,95 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 创建APP-ICP备案对客openAPI.
+     *
+     * @param request - CreateSmsAppIcpRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSmsAppIcpRecordResponse
+     *
+     * @param CreateSmsAppIcpRecordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSmsAppIcpRecordResponse
+     */
+    public function createSmsAppIcpRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appApprovalDate) {
+            @$query['AppApprovalDate'] = $request->appApprovalDate;
+        }
+
+        if (null !== $request->appIcpLicenseNumber) {
+            @$query['AppIcpLicenseNumber'] = $request->appIcpLicenseNumber;
+        }
+
+        if (null !== $request->appIcpRecordPic) {
+            @$query['AppIcpRecordPic'] = $request->appIcpRecordPic;
+        }
+
+        if (null !== $request->appPrincipalUnitName) {
+            @$query['AppPrincipalUnitName'] = $request->appPrincipalUnitName;
+        }
+
+        if (null !== $request->appServiceName) {
+            @$query['AppServiceName'] = $request->appServiceName;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSmsAppIcpRecord',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSmsAppIcpRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建APP-ICP备案对客openAPI.
+     *
+     * @param request - CreateSmsAppIcpRecordRequest
+     *
+     * @returns CreateSmsAppIcpRecordResponse
+     *
+     * @param CreateSmsAppIcpRecordRequest $request
+     *
+     * @return CreateSmsAppIcpRecordResponse
+     */
+    public function createSmsAppIcpRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsAppIcpRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建委托授权书.
      *
      * @param tmpReq - CreateSmsAuthorizationLetterRequest
@@ -1300,6 +1402,91 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建商标对客openAPI.
+     *
+     * @param request - CreateSmsTrademarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSmsTrademarkResponse
+     *
+     * @param CreateSmsTrademarkRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSmsTrademarkResponse
+     */
+    public function createSmsTrademarkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->trademarkApplicantName) {
+            @$query['TrademarkApplicantName'] = $request->trademarkApplicantName;
+        }
+
+        if (null !== $request->trademarkEffExpDate) {
+            @$query['TrademarkEffExpDate'] = $request->trademarkEffExpDate;
+        }
+
+        if (null !== $request->trademarkName) {
+            @$query['TrademarkName'] = $request->trademarkName;
+        }
+
+        if (null !== $request->trademarkPic) {
+            @$query['TrademarkPic'] = $request->trademarkPic;
+        }
+
+        if (null !== $request->trademarkRegistrationNumber) {
+            @$query['TrademarkRegistrationNumber'] = $request->trademarkRegistrationNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSmsTrademark',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSmsTrademarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建商标对客openAPI.
+     *
+     * @param request - CreateSmsTrademarkRequest
+     *
+     * @returns CreateSmsTrademarkResponse
+     *
+     * @param CreateSmsTrademarkRequest $request
+     *
+     * @return CreateSmsTrademarkResponse
+     */
+    public function createSmsTrademark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsTrademarkWithOptions($request, $runtime);
     }
 
     /**
@@ -2392,6 +2579,113 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 查询模板列表详情（新接口）.
+     *
+     * @param tmpReq - GetSmsTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmsTemplateListResponse
+     *
+     * @param GetSmsTemplateListRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSmsTemplateListResponse
+     */
+    public function getSmsTemplateListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSmsTemplateListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->usableStateList) {
+            $request->usableStateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->usableStateList, 'UsableStateList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        if (null !== $request->templateCode) {
+            @$query['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateTag) {
+            @$query['TemplateTag'] = $request->templateTag;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->usableStateListShrink) {
+            @$query['UsableStateList'] = $request->usableStateListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSmsTemplateList',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSmsTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模板列表详情（新接口）.
+     *
+     * @param request - GetSmsTemplateListRequest
+     *
+     * @returns GetSmsTemplateListResponse
+     *
+     * @param GetSmsTemplateListRequest $request
+     *
+     * @return GetSmsTemplateListResponse
+     */
+    public function getSmsTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmsTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tags of a message template.
      *
      * @remarks
@@ -3423,6 +3717,81 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 查询APP-ICP备案对客openAPI.
+     *
+     * @param tmpReq - QuerySmsAppIcpRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySmsAppIcpRecordResponse
+     *
+     * @param QuerySmsAppIcpRecordRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QuerySmsAppIcpRecordResponse
+     */
+    public function querySmsAppIcpRecordWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuerySmsAppIcpRecordShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appIcpRecordIdList) {
+            $request->appIcpRecordIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appIcpRecordIdList, 'AppIcpRecordIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appIcpRecordIdListShrink) {
+            @$query['AppIcpRecordIdList'] = $request->appIcpRecordIdListShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySmsAppIcpRecord',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySmsAppIcpRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询APP-ICP备案对客openAPI.
+     *
+     * @param request - QuerySmsAppIcpRecordRequest
+     *
+     * @returns QuerySmsAppIcpRecordResponse
+     *
+     * @param QuerySmsAppIcpRecordRequest $request
+     *
+     * @return QuerySmsAppIcpRecordResponse
+     */
+    public function querySmsAppIcpRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsAppIcpRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询委托授权书.
      *
      * @param tmpReq - QuerySmsAuthorizationLetterRequest
@@ -3937,6 +4306,81 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySmsTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询商标对客openAPI.
+     *
+     * @param tmpReq - QuerySmsTrademarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySmsTrademarkResponse
+     *
+     * @param QuerySmsTrademarkRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuerySmsTrademarkResponse
+     */
+    public function querySmsTrademarkWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuerySmsTrademarkShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->trademarkIdList) {
+            $request->trademarkIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trademarkIdList, 'TrademarkIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->trademarkIdListShrink) {
+            @$query['TrademarkIdList'] = $request->trademarkIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySmsTrademark',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySmsTrademarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询商标对客openAPI.
+     *
+     * @param request - QuerySmsTrademarkRequest
+     *
+     * @returns QuerySmsTrademarkResponse
+     *
+     * @param QuerySmsTrademarkRequest $request
+     *
+     * @return QuerySmsTrademarkResponse
+     */
+    public function querySmsTrademark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsTrademarkWithOptions($request, $runtime);
     }
 
     /**
