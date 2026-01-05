@@ -94,6 +94,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
@@ -114,6 +116,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginClassesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginClassesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesRequest;
@@ -4046,6 +4050,77 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询消费者授权规则列表.
+     *
+     * @param request - ListConsumerAuthorizationRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerAuthorizationRulesResponse
+     *
+     * @param string                                $consumerId
+     * @param ListConsumerAuthorizationRulesRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListConsumerAuthorizationRulesResponse
+     */
+    public function listConsumerAuthorizationRulesWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiNameLike) {
+            @$query['apiNameLike'] = $request->apiNameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumerAuthorizationRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . Url::percentEncode($consumerId) . '/authorization-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumerAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者授权规则列表.
+     *
+     * @param request - ListConsumerAuthorizationRulesRequest
+     *
+     * @returns ListConsumerAuthorizationRulesResponse
+     *
+     * @param string                                $consumerId
+     * @param ListConsumerAuthorizationRulesRequest $request
+     *
+     * @return ListConsumerAuthorizationRulesResponse
+     */
+    public function listConsumerAuthorizationRules($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerAuthorizationRulesWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of consumers.
      *
      * @param request - ListConsumersRequest
@@ -4975,6 +5050,107 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * ListPluginClasses.
+     *
+     * @param request - ListPluginClassesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPluginClassesResponse
+     *
+     * @param ListPluginClassesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPluginClassesResponse
+     */
+    public function listPluginClassesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliasLike) {
+            @$query['aliasLike'] = $request->aliasLike;
+        }
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        if (null !== $request->excludeBuiltinAiProxy) {
+            @$query['excludeBuiltinAiProxy'] = $request->excludeBuiltinAiProxy;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->installed) {
+            @$query['installed'] = $request->installed;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPluginClasses',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-classes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPluginClassesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListPluginClasses.
+     *
+     * @param request - ListPluginClassesRequest
+     *
+     * @returns ListPluginClassesResponse
+     *
+     * @param ListPluginClassesRequest $request
+     *
+     * @return ListPluginClassesResponse
+     */
+    public function listPluginClasses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginClassesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries plug-ins.
      *
      * @param request - ListPluginsRequest
@@ -5647,7 +5823,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 同步外部MCP server.
+     * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
      *
      * @param request - SyncMCPServersRequest
      * @param headers - map
@@ -5705,7 +5881,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 同步外部MCP server.
+     * Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
      *
      * @param request - SyncMCPServersRequest
      *
