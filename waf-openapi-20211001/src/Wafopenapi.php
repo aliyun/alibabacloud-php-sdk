@@ -8341,6 +8341,10 @@ class Wafopenapi extends OpenApiClient
             @$query['Domain'] = $request->domain;
         }
 
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
