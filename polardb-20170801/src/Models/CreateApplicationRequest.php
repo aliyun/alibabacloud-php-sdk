@@ -23,6 +23,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var bool
      */
+    public $autoCreatePolarFs;
+
+    /**
+     * @var bool
+     */
     public $autoRenew;
 
     /**
@@ -107,6 +112,7 @@ class CreateApplicationRequest extends Model
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
+        'autoCreatePolarFs' => 'AutoCreatePolarFs',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
         'components' => 'Components',
@@ -146,6 +152,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+
+        if (null !== $this->autoCreatePolarFs) {
+            $res['AutoCreatePolarFs'] = $this->autoCreatePolarFs;
         }
 
         if (null !== $this->autoRenew) {
@@ -247,6 +257,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+
+        if (isset($map['AutoCreatePolarFs'])) {
+            $model->autoCreatePolarFs = $map['AutoCreatePolarFs'];
         }
 
         if (isset($map['AutoRenew'])) {

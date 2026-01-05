@@ -2600,6 +2600,10 @@ class Polardb extends OpenApiClient
             @$query['Architecture'] = $request->architecture;
         }
 
+        if (null !== $request->autoCreatePolarFs) {
+            @$query['AutoCreatePolarFs'] = $request->autoCreatePolarFs;
+        }
+
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
