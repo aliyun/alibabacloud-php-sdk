@@ -43,10 +43,16 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
@@ -1371,6 +1377,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * DeleteFileUpload.
+     *
+     * @param request - DeleteFileUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileUploadResponse
+     *
+     * @param DeleteFileUploadRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFileUploadResponse
+     */
+    public function deleteFileUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFileUpload',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteFileUpload.
+     *
+     * @param request - DeleteFileUploadRequest
+     *
+     * @returns DeleteFileUploadResponse
+     *
+     * @param DeleteFileUploadRequest $request
+     *
+     * @return DeleteFileUploadResponse
+     */
+    public function deleteFileUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
      * DescribeCustomAgent.
      *
      * @param request - DescribeCustomAgentRequest
@@ -1494,6 +1565,140 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeFileUploadSignature.
+     *
+     * @param request - DescribeFileUploadSignatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFileUploadSignatureResponse
+     *
+     * @param DescribeFileUploadSignatureRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeFileUploadSignatureResponse
+     */
+    public function describeFileUploadSignatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFileUploadSignature',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFileUploadSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeFileUploadSignature.
+     *
+     * @param request - DescribeFileUploadSignatureRequest
+     *
+     * @returns DescribeFileUploadSignatureResponse
+     *
+     * @param DescribeFileUploadSignatureRequest $request
+     *
+     * @return DescribeFileUploadSignatureResponse
+     */
+    public function describeFileUploadSignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFileUploadSignatureWithOptions($request, $runtime);
+    }
+
+    /**
+     * FileUploadCallback.
+     *
+     * @param request - FileUploadCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileUploadCallbackResponse
+     *
+     * @param FileUploadCallbackRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FileUploadCallbackResponse
+     */
+    public function fileUploadCallbackWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->fileSize) {
+            @$query['FileSize'] = $request->fileSize;
+        }
+
+        if (null !== $request->filename) {
+            @$query['Filename'] = $request->filename;
+        }
+
+        if (null !== $request->uploadLocation) {
+            @$query['UploadLocation'] = $request->uploadLocation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FileUploadCallback',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FileUploadCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * FileUploadCallback.
+     *
+     * @param request - FileUploadCallbackRequest
+     *
+     * @returns FileUploadCallbackResponse
+     *
+     * @param FileUploadCallbackRequest $request
+     *
+     * @return FileUploadCallbackResponse
+     */
+    public function fileUploadCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fileUploadCallbackWithOptions($request, $runtime);
     }
 
     /**
