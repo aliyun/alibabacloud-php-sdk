@@ -19,6 +19,11 @@ class instanceRenewAttribute extends Model
     public $duration;
 
     /**
+     * @var bool
+     */
+    public $enableExpectedRenewDay;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -35,6 +40,7 @@ class instanceRenewAttribute extends Model
     protected $_name = [
         'autoRenewEnabled' => 'AutoRenewEnabled',
         'duration' => 'Duration',
+        'enableExpectedRenewDay' => 'EnableExpectedRenewDay',
         'instanceId' => 'InstanceId',
         'periodUnit' => 'PeriodUnit',
         'renewalStatus' => 'RenewalStatus',
@@ -54,6 +60,10 @@ class instanceRenewAttribute extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->enableExpectedRenewDay) {
+            $res['EnableExpectedRenewDay'] = $this->enableExpectedRenewDay;
         }
 
         if (null !== $this->instanceId) {
@@ -85,6 +95,10 @@ class instanceRenewAttribute extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['EnableExpectedRenewDay'])) {
+            $model->enableExpectedRenewDay = $map['EnableExpectedRenewDay'];
         }
 
         if (isset($map['InstanceId'])) {

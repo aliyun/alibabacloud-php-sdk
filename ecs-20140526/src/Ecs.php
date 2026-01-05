@@ -356,6 +356,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLimitationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLimitationResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLockedSnapshotsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLockedSnapshotsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeManagedInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeManagedInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysRequest;
@@ -511,6 +513,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\LockSnapshotRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\LockSnapshotResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyExRequest;
@@ -743,6 +747,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\UnassociateEipAddressRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\UnassociateEipAddressResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\UnassociateHaVipRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\UnassociateHaVipResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\UnlockSnapshotRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\UnlockSnapshotResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\UntagResourcesResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -20072,6 +20078,99 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+     *
+     * @param request - DescribeLockedSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLockedSnapshotsResponse
+     *
+     * @param DescribeLockedSnapshotsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeLockedSnapshotsResponse
+     */
+    public function describeLockedSnapshotsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->lockStatus) {
+            @$query['LockStatus'] = $request->lockStatus;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->snapshotIds) {
+            @$query['SnapshotIds'] = $request->snapshotIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLockedSnapshots',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLockedSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+     *
+     * @param request - DescribeLockedSnapshotsRequest
+     *
+     * @returns DescribeLockedSnapshotsResponse
+     *
+     * @param DescribeLockedSnapshotsRequest $request
+     *
+     * @return DescribeLockedSnapshotsResponse
+     */
+    public function describeLockedSnapshots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLockedSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries managed instances.
      *
      * @remarks
@@ -26188,7 +26287,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 禁用弹性网卡QoS限速设置.
+     * Disables Elastic Network Interface (ENI) QoS speed setting.
      *
      * @param request - DisableNetworkInterfaceQoSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26251,7 +26350,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 禁用弹性网卡QoS限速设置.
+     * Disables Elastic Network Interface (ENI) QoS speed setting.
      *
      * @param request - DisableNetworkInterfaceQoSRequest
      *
@@ -28319,6 +28418,115 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+     *
+     * @remarks
+     * You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+     * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+     * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+     * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+     *
+     * @param request - LockSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LockSnapshotResponse
+     *
+     * @param LockSnapshotRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LockSnapshotResponse
+     */
+    public function lockSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->coolOffPeriod) {
+            @$query['CoolOffPeriod'] = $request->coolOffPeriod;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->lockDuration) {
+            @$query['LockDuration'] = $request->lockDuration;
+        }
+
+        if (null !== $request->lockMode) {
+            @$query['LockMode'] = $request->lockMode;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LockSnapshot',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LockSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+     *
+     * @remarks
+     * You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+     * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+     * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+     * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+     *
+     * @param request - LockSnapshotRequest
+     *
+     * @returns LockSnapshotResponse
+     *
+     * @param LockSnapshotRequest $request
+     *
+     * @return LockSnapshotResponse
+     */
+    public function lockSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lockSnapshotWithOptions($request, $runtime);
     }
 
     /**
@@ -41089,6 +41297,91 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassociateHaVipWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+     *
+     * @param request - UnlockSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnlockSnapshotResponse
+     *
+     * @param UnlockSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnlockSnapshotResponse
+     */
+    public function unlockSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnlockSnapshot',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnlockSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+     *
+     * @param request - UnlockSnapshotRequest
+     *
+     * @returns UnlockSnapshotResponse
+     *
+     * @param UnlockSnapshotRequest $request
+     *
+     * @return UnlockSnapshotResponse
+     */
+    public function unlockSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unlockSnapshotWithOptions($request, $runtime);
     }
 
     /**
