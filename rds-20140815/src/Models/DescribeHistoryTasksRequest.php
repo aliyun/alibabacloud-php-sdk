@@ -54,7 +54,7 @@ class DescribeHistoryTasksRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var int
+     * @var string
      */
     public $resourceOwnerAccount;
 
