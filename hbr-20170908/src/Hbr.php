@@ -2352,6 +2352,8 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * 删除客户端.
+     *
      * @param request - DeleteClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2397,6 +2399,8 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * 删除客户端.
+     *
      * @param request - DeleteClientRequest
      *
      * @returns DeleteClientResponse

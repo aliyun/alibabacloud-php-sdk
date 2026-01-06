@@ -24,6 +24,11 @@ class crossAccount extends Model
     public $crossAccountRoleName;
 
     /**
+     * @var string
+     */
+    public $crossAccountType;
+
+    /**
      * @var int
      */
     public $crossAccountUserId;
@@ -46,6 +51,7 @@ class crossAccount extends Model
         'alias' => 'Alias',
         'createdTime' => 'CreatedTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType' => 'CrossAccountType',
         'crossAccountUserId' => 'CrossAccountUserId',
         'id' => 'Id',
         'ownerId' => 'OwnerId',
@@ -70,6 +76,10 @@ class crossAccount extends Model
 
         if (null !== $this->crossAccountRoleName) {
             $res['CrossAccountRoleName'] = $this->crossAccountRoleName;
+        }
+
+        if (null !== $this->crossAccountType) {
+            $res['CrossAccountType'] = $this->crossAccountType;
         }
 
         if (null !== $this->crossAccountUserId) {
@@ -109,6 +119,10 @@ class crossAccount extends Model
 
         if (isset($map['CrossAccountRoleName'])) {
             $model->crossAccountRoleName = $map['CrossAccountRoleName'];
+        }
+
+        if (isset($map['CrossAccountType'])) {
+            $model->crossAccountType = $map['CrossAccountType'];
         }
 
         if (isset($map['CrossAccountUserId'])) {
