@@ -812,6 +812,10 @@ class Cas extends OpenApiClient
             @$query['MessageType'] = $request->messageType;
         }
 
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1554,6 +1558,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->plaintext) {
             @$query['Plaintext'] = $request->plaintext;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
         }
 
         $req = new OpenApiRequest([
@@ -2756,6 +2764,10 @@ class Cas extends OpenApiClient
             @$query['SigningAlgorithm'] = $request->signingAlgorithm;
         }
 
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3265,6 +3277,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->signingAlgorithm) {
             @$query['SigningAlgorithm'] = $request->signingAlgorithm;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
         }
 
         $req = new OpenApiRequest([

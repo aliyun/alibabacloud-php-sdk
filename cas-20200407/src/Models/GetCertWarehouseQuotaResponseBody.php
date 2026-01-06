@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetCertWarehouseQuotaResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $appTotalQuota;
+
+    /**
+     * @var int
+     */
+    public $appUseCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -23,6 +33,8 @@ class GetCertWarehouseQuotaResponseBody extends Model
      */
     public $useCount;
     protected $_name = [
+        'appTotalQuota' => 'AppTotalQuota',
+        'appUseCount' => 'AppUseCount',
         'requestId' => 'RequestId',
         'totalQuota' => 'TotalQuota',
         'useCount' => 'UseCount',
@@ -36,6 +48,14 @@ class GetCertWarehouseQuotaResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appTotalQuota) {
+            $res['AppTotalQuota'] = $this->appTotalQuota;
+        }
+
+        if (null !== $this->appUseCount) {
+            $res['AppUseCount'] = $this->appUseCount;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,6 +79,14 @@ class GetCertWarehouseQuotaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppTotalQuota'])) {
+            $model->appTotalQuota = $map['AppTotalQuota'];
+        }
+
+        if (isset($map['AppUseCount'])) {
+            $model->appUseCount = $map['AppUseCount'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

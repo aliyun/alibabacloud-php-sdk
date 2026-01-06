@@ -32,12 +32,18 @@ class DecryptRequest extends Model
      * @var string
      */
     public $messageType;
+
+    /**
+     * @var int
+     */
+    public $warehouseId;
     protected $_name = [
         'algorithm' => 'Algorithm',
         'certIdentifier' => 'CertIdentifier',
         'ciphertextBlob' => 'CiphertextBlob',
         'customIdentifier' => 'CustomIdentifier',
         'messageType' => 'MessageType',
+        'warehouseId' => 'WarehouseId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DecryptRequest extends Model
 
         if (null !== $this->messageType) {
             $res['MessageType'] = $this->messageType;
+        }
+
+        if (null !== $this->warehouseId) {
+            $res['WarehouseId'] = $this->warehouseId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DecryptRequest extends Model
 
         if (isset($map['MessageType'])) {
             $model->messageType = $map['MessageType'];
+        }
+
+        if (isset($map['WarehouseId'])) {
+            $model->warehouseId = $map['WarehouseId'];
         }
 
         return $model;

@@ -37,6 +37,11 @@ class VerifyRequest extends Model
      * @var string
      */
     public $signingAlgorithm;
+
+    /**
+     * @var string
+     */
+    public $warehouseId;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
         'customIdentifier' => 'CustomIdentifier',
@@ -44,6 +49,7 @@ class VerifyRequest extends Model
         'messageType' => 'MessageType',
         'signatureValue' => 'SignatureValue',
         'signingAlgorithm' => 'SigningAlgorithm',
+        'warehouseId' => 'WarehouseId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class VerifyRequest extends Model
 
         if (null !== $this->signingAlgorithm) {
             $res['SigningAlgorithm'] = $this->signingAlgorithm;
+        }
+
+        if (null !== $this->warehouseId) {
+            $res['WarehouseId'] = $this->warehouseId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class VerifyRequest extends Model
 
         if (isset($map['SigningAlgorithm'])) {
             $model->signingAlgorithm = $map['SigningAlgorithm'];
+        }
+
+        if (isset($map['WarehouseId'])) {
+            $model->warehouseId = $map['WarehouseId'];
         }
 
         return $model;

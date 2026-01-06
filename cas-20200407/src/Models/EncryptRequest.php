@@ -32,12 +32,18 @@ class EncryptRequest extends Model
      * @var string
      */
     public $plaintext;
+
+    /**
+     * @var int
+     */
+    public $warehouseId;
     protected $_name = [
         'algorithm' => 'Algorithm',
         'certIdentifier' => 'CertIdentifier',
         'customIdentifier' => 'CustomIdentifier',
         'messageType' => 'MessageType',
         'plaintext' => 'Plaintext',
+        'warehouseId' => 'WarehouseId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class EncryptRequest extends Model
 
         if (null !== $this->plaintext) {
             $res['Plaintext'] = $this->plaintext;
+        }
+
+        if (null !== $this->warehouseId) {
+            $res['WarehouseId'] = $this->warehouseId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class EncryptRequest extends Model
 
         if (isset($map['Plaintext'])) {
             $model->plaintext = $map['Plaintext'];
+        }
+
+        if (isset($map['WarehouseId'])) {
+            $model->warehouseId = $map['WarehouseId'];
         }
 
         return $model;

@@ -32,12 +32,18 @@ class SignRequest extends Model
      * @var string
      */
     public $signingAlgorithm;
+
+    /**
+     * @var int
+     */
+    public $warehouseId;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
         'customIdentifier' => 'CustomIdentifier',
         'message' => 'Message',
         'messageType' => 'MessageType',
         'signingAlgorithm' => 'SigningAlgorithm',
+        'warehouseId' => 'WarehouseId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class SignRequest extends Model
 
         if (null !== $this->signingAlgorithm) {
             $res['SigningAlgorithm'] = $this->signingAlgorithm;
+        }
+
+        if (null !== $this->warehouseId) {
+            $res['WarehouseId'] = $this->warehouseId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class SignRequest extends Model
 
         if (isset($map['SigningAlgorithm'])) {
             $model->signingAlgorithm = $map['SigningAlgorithm'];
+        }
+
+        if (isset($map['WarehouseId'])) {
+            $model->warehouseId = $map['WarehouseId'];
         }
 
         return $model;
