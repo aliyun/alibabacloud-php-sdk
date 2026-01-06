@@ -11,6 +11,16 @@ class ChatBIFileUploadCallbackRequest extends Model
     /**
      * @var string
      */
+    public $authMessage;
+
+    /**
+     * @var string
+     */
+    public $authType;
+
+    /**
+     * @var string
+     */
     public $characterSetName;
 
     /**
@@ -38,6 +48,8 @@ class ChatBIFileUploadCallbackRequest extends Model
      */
     public $tableType;
     protected $_name = [
+        'authMessage' => 'AuthMessage',
+        'authType' => 'AuthType',
         'characterSetName' => 'CharacterSetName',
         'dbName' => 'DbName',
         'fileName' => 'FileName',
@@ -54,6 +66,14 @@ class ChatBIFileUploadCallbackRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authMessage) {
+            $res['AuthMessage'] = $this->authMessage;
+        }
+
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
         }
@@ -89,6 +109,14 @@ class ChatBIFileUploadCallbackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthMessage'])) {
+            $model->authMessage = $map['AuthMessage'];
+        }
+
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
         }

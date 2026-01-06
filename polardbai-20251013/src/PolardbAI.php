@@ -65,16 +65,24 @@ use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalEmbeddingRequest
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalEmbeddingResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DownloadMultimodalSearchTaskResultMetadataRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DownloadMultimodalSearchTaskResultMetadataResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\GetUserTokenRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\GetUserTokenResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResultRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResultResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UploadOSSMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UploadOSSMultimodalDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ValidateDatabaseUserTokenRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ValidateDatabaseUserTokenResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ValidateUserTokenRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ValidateUserTokenResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -131,6 +139,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -192,6 +208,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -253,6 +277,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -318,6 +350,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -391,6 +431,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -456,6 +504,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -545,6 +601,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -606,6 +670,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->fileName) {
             @$query['FileName'] = $request->fileName;
         }
@@ -667,6 +739,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->characterSetName) {
             @$query['CharacterSetName'] = $request->characterSetName;
         }
@@ -744,6 +824,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -809,6 +897,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -874,6 +970,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -943,6 +1047,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1012,6 +1124,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1077,6 +1197,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1150,6 +1278,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1227,6 +1363,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1300,6 +1444,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1391,6 +1543,14 @@ class PolardbAI extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1425,6 +1585,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->selectData) {
             @$query['SelectData'] = $request->selectData;
+        }
+
+        if (null !== $request->thinkingMode) {
+            @$query['ThinkingMode'] = $request->thinkingMode;
         }
 
         $req = new OpenApiRequest([
@@ -1480,6 +1644,14 @@ class PolardbAI extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1514,6 +1686,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->selectData) {
             @$query['SelectData'] = $request->selectData;
+        }
+
+        if (null !== $request->thinkingMode) {
+            @$query['ThinkingMode'] = $request->thinkingMode;
         }
 
         $req = new OpenApiRequest([
@@ -1569,6 +1745,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->columnsExcluded) {
             @$query['ColumnsExcluded'] = $request->columnsExcluded;
         }
@@ -1646,6 +1830,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1711,6 +1903,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -1784,6 +1984,14 @@ class PolardbAI extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
         if (null !== $request->dbName) {
             @$query['DbName'] = $request->dbName;
         }
@@ -2233,6 +2441,71 @@ class PolardbAI extends OpenApiClient
     }
 
     /**
+     * 获得鉴权token.
+     *
+     * @param request - GetUserTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserTokenResponse
+     *
+     * @param GetUserTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUserTokenResponse
+     */
+    public function getUserTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserToken',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得鉴权token.
+     *
+     * @param request - GetUserTokenRequest
+     *
+     * @returns GetUserTokenResponse
+     *
+     * @param GetUserTokenRequest $request
+     *
+     * @return GetUserTokenResponse
+     */
+    public function getUserToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询多模态数据集列表.
      *
      * @param request - ListMultimodalDatasetRequest
@@ -2432,6 +2705,75 @@ class PolardbAI extends OpenApiClient
     }
 
     /**
+     * 查询search task结果列表.
+     *
+     * @param request - ListMultimodalSearchTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultimodalSearchTaskResultResponse
+     *
+     * @param ListMultimodalSearchTaskResultRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListMultimodalSearchTaskResultResponse
+     */
+    public function listMultimodalSearchTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultimodalSearchTaskResult',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultimodalSearchTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询search task结果列表.
+     *
+     * @param request - ListMultimodalSearchTaskResultRequest
+     *
+     * @returns ListMultimodalSearchTaskResultResponse
+     *
+     * @param ListMultimodalSearchTaskResultRequest $request
+     *
+     * @return ListMultimodalSearchTaskResultResponse
+     */
+    public function listMultimodalSearchTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultimodalSearchTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新数据集信息.
      *
      * @param request - UpdateMultimodalDatasetRequest
@@ -2563,5 +2905,139 @@ class PolardbAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadOSSMultimodalDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预检验鉴权token.
+     *
+     * @param request - ValidateDatabaseUserTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateDatabaseUserTokenResponse
+     *
+     * @param ValidateDatabaseUserTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ValidateDatabaseUserTokenResponse
+     */
+    public function validateDatabaseUserTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateDatabaseUserToken',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateDatabaseUserTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预检验鉴权token.
+     *
+     * @param request - ValidateDatabaseUserTokenRequest
+     *
+     * @returns ValidateDatabaseUserTokenResponse
+     *
+     * @param ValidateDatabaseUserTokenRequest $request
+     *
+     * @return ValidateDatabaseUserTokenResponse
+     */
+    public function validateDatabaseUserToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateDatabaseUserTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预检验鉴权token.
+     *
+     * @param request - ValidateUserTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateUserTokenResponse
+     *
+     * @param ValidateUserTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ValidateUserTokenResponse
+     */
+    public function validateUserTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authMessage) {
+            @$query['AuthMessage'] = $request->authMessage;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateUserToken',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateUserTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预检验鉴权token.
+     *
+     * @param request - ValidateUserTokenRequest
+     *
+     * @returns ValidateUserTokenResponse
+     *
+     * @param ValidateUserTokenRequest $request
+     *
+     * @return ValidateUserTokenResponse
+     */
+    public function validateUserToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateUserTokenWithOptions($request, $runtime);
     }
 }

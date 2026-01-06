@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PolardbAI\V20251013\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ChatBIFileUploadRequest extends Model
+class ValidateDatabaseUserTokenRequest extends Model
 {
     /**
      * @var string
@@ -21,17 +21,17 @@ class ChatBIFileUploadRequest extends Model
     /**
      * @var string
      */
-    public $fileName;
+    public $DBClusterId;
 
     /**
      * @var string
      */
-    public $instanceName;
+    public $DBName;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
-        'fileName' => 'FileName',
-        'instanceName' => 'InstanceName',
+        'DBClusterId' => 'DBClusterId',
+        'DBName' => 'DBName',
     ];
 
     public function validate()
@@ -50,12 +50,12 @@ class ChatBIFileUploadRequest extends Model
             $res['AuthType'] = $this->authType;
         }
 
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         return $res;
@@ -77,12 +77,12 @@ class ChatBIFileUploadRequest extends Model
             $model->authType = $map['AuthType'];
         }
 
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         return $model;

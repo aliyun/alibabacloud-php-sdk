@@ -12,6 +12,16 @@ class ChatBIPredictSseRequest extends Model
     /**
      * @var string
      */
+    public $authMessage;
+
+    /**
+     * @var string
+     */
+    public $authType;
+
+    /**
+     * @var string
+     */
     public $dbName;
 
     /**
@@ -53,7 +63,14 @@ class ChatBIPredictSseRequest extends Model
      * @var bool
      */
     public $selectData;
+
+    /**
+     * @var bool
+     */
+    public $thinkingMode;
     protected $_name = [
+        'authMessage' => 'AuthMessage',
+        'authType' => 'AuthType',
         'dbName' => 'DbName',
         'generateChart' => 'GenerateChart',
         'generateSummary' => 'GenerateSummary',
@@ -63,6 +80,7 @@ class ChatBIPredictSseRequest extends Model
         'question' => 'Question',
         'schemaIndexTableName' => 'SchemaIndexTableName',
         'selectData' => 'SelectData',
+        'thinkingMode' => 'ThinkingMode',
     ];
 
     public function validate()
@@ -76,6 +94,14 @@ class ChatBIPredictSseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authMessage) {
+            $res['AuthMessage'] = $this->authMessage;
+        }
+
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
@@ -112,6 +138,10 @@ class ChatBIPredictSseRequest extends Model
             $res['SelectData'] = $this->selectData;
         }
 
+        if (null !== $this->thinkingMode) {
+            $res['ThinkingMode'] = $this->thinkingMode;
+        }
+
         return $res;
     }
 
@@ -123,6 +153,14 @@ class ChatBIPredictSseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthMessage'])) {
+            $model->authMessage = $map['AuthMessage'];
+        }
+
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
@@ -157,6 +195,10 @@ class ChatBIPredictSseRequest extends Model
 
         if (isset($map['SelectData'])) {
             $model->selectData = $map['SelectData'];
+        }
+
+        if (isset($map['ThinkingMode'])) {
+            $model->thinkingMode = $map['ThinkingMode'];
         }
 
         return $model;

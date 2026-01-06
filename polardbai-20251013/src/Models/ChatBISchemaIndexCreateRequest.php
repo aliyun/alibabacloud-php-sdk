@@ -11,6 +11,16 @@ class ChatBISchemaIndexCreateRequest extends Model
     /**
      * @var string
      */
+    public $authMessage;
+
+    /**
+     * @var string
+     */
+    public $authType;
+
+    /**
+     * @var string
+     */
     public $columnsExcluded;
 
     /**
@@ -38,6 +48,8 @@ class ChatBISchemaIndexCreateRequest extends Model
      */
     public $toSample;
     protected $_name = [
+        'authMessage' => 'AuthMessage',
+        'authType' => 'AuthType',
         'columnsExcluded' => 'ColumnsExcluded',
         'dbName' => 'DbName',
         'instanceName' => 'InstanceName',
@@ -54,6 +66,14 @@ class ChatBISchemaIndexCreateRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authMessage) {
+            $res['AuthMessage'] = $this->authMessage;
+        }
+
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->columnsExcluded) {
             $res['ColumnsExcluded'] = $this->columnsExcluded;
         }
@@ -89,6 +109,14 @@ class ChatBISchemaIndexCreateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthMessage'])) {
+            $model->authMessage = $map['AuthMessage'];
+        }
+
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['ColumnsExcluded'])) {
             $model->columnsExcluded = $map['ColumnsExcluded'];
         }

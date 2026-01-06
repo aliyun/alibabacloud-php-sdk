@@ -11,6 +11,16 @@ class ChatBIFileTemplateDownloadRequest extends Model
     /**
      * @var string
      */
+    public $authMessage;
+
+    /**
+     * @var string
+     */
+    public $authType;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -18,6 +28,8 @@ class ChatBIFileTemplateDownloadRequest extends Model
      */
     public $tableType;
     protected $_name = [
+        'authMessage' => 'AuthMessage',
+        'authType' => 'AuthType',
         'instanceName' => 'InstanceName',
         'tableType' => 'TableType',
     ];
@@ -30,6 +42,14 @@ class ChatBIFileTemplateDownloadRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authMessage) {
+            $res['AuthMessage'] = $this->authMessage;
+        }
+
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -49,6 +69,14 @@ class ChatBIFileTemplateDownloadRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthMessage'])) {
+            $model->authMessage = $map['AuthMessage'];
+        }
+
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
