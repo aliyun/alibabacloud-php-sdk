@@ -2887,6 +2887,10 @@ class Eventbridge extends OpenApiClient
             @$query['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

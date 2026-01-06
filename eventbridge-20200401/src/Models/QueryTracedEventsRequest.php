@@ -47,6 +47,11 @@ class QueryTracedEventsRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $subject;
     protected $_name = [
         'endTime' => 'EndTime',
         'eventBusName' => 'EventBusName',
@@ -56,6 +61,7 @@ class QueryTracedEventsRequest extends Model
         'matchedRule' => 'MatchedRule',
         'nextToken' => 'NextToken',
         'startTime' => 'StartTime',
+        'subject' => 'Subject',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class QueryTracedEventsRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->subject) {
+            $res['Subject'] = $this->subject;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class QueryTracedEventsRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Subject'])) {
+            $model->subject = $map['Subject'];
         }
 
         return $model;
