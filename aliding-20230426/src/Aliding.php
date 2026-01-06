@@ -452,6 +452,41 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingInfoShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingListShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberEventHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberEventRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberEventResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberEventShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberEventShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMemberListShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMetricDataHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMetricDataRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMetricDataResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMetricDataShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkMeetingMetricDataShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionInfoShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDingtalkProjectionListShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentResponse;
@@ -958,6 +993,8 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRobotUnsubscriptionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRobotUnsubscriptionResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoRequest;
@@ -10725,6 +10762,732 @@ class Aliding extends OpenApiClient
         $headers = new GetDeptNoHeaders([]);
 
         return $this->getDeptNoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉会议信息.
+     *
+     * @param tmpReq - GetDingtalkMeetingInfoRequest
+     * @param tmpHeader - GetDingtalkMeetingInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkMeetingInfoResponse
+     *
+     * @param GetDingtalkMeetingInfoRequest $tmpReq
+     * @param GetDingtalkMeetingInfoHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDingtalkMeetingInfoResponse
+     */
+    public function getDingtalkMeetingInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkMeetingInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkMeetingInfoShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkMeetingInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkMeetingInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkMeetingInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉会议信息.
+     *
+     * @param request - GetDingtalkMeetingInfoRequest
+     *
+     * @returns GetDingtalkMeetingInfoResponse
+     *
+     * @param GetDingtalkMeetingInfoRequest $request
+     *
+     * @return GetDingtalkMeetingInfoResponse
+     */
+    public function getDingtalkMeetingInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkMeetingInfoHeaders([]);
+
+        return $this->getDingtalkMeetingInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉会议列表.
+     *
+     * @param tmpReq - GetDingtalkMeetingListRequest
+     * @param tmpHeader - GetDingtalkMeetingListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkMeetingListResponse
+     *
+     * @param GetDingtalkMeetingListRequest $tmpReq
+     * @param GetDingtalkMeetingListHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDingtalkMeetingListResponse
+     */
+    public function getDingtalkMeetingListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkMeetingListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkMeetingListShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->roomCode) {
+            @$body['roomCode'] = $request->roomCode;
+        }
+
+        if (null !== $request->roomName) {
+            @$body['roomName'] = $request->roomName;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workNo) {
+            @$body['workNo'] = $request->workNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkMeetingList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkMeetingList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkMeetingListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉会议列表.
+     *
+     * @param request - GetDingtalkMeetingListRequest
+     *
+     * @returns GetDingtalkMeetingListResponse
+     *
+     * @param GetDingtalkMeetingListRequest $request
+     *
+     * @return GetDingtalkMeetingListResponse
+     */
+    public function getDingtalkMeetingList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkMeetingListHeaders([]);
+
+        return $this->getDingtalkMeetingListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉会议成员事件.
+     *
+     * @param tmpReq - GetDingtalkMeetingMemberEventRequest
+     * @param tmpHeader - GetDingtalkMeetingMemberEventHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkMeetingMemberEventResponse
+     *
+     * @param GetDingtalkMeetingMemberEventRequest $tmpReq
+     * @param GetDingtalkMeetingMemberEventHeaders $tmpHeader
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetDingtalkMeetingMemberEventResponse
+     */
+    public function getDingtalkMeetingMemberEventWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkMeetingMemberEventShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkMeetingMemberEventShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->beginTime) {
+            @$body['beginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->workNo) {
+            @$body['workNo'] = $request->workNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkMeetingMemberEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkMeetingMemberEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkMeetingMemberEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉会议成员事件.
+     *
+     * @param request - GetDingtalkMeetingMemberEventRequest
+     *
+     * @returns GetDingtalkMeetingMemberEventResponse
+     *
+     * @param GetDingtalkMeetingMemberEventRequest $request
+     *
+     * @return GetDingtalkMeetingMemberEventResponse
+     */
+    public function getDingtalkMeetingMemberEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkMeetingMemberEventHeaders([]);
+
+        return $this->getDingtalkMeetingMemberEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉会议成员列表.
+     *
+     * @param tmpReq - GetDingtalkMeetingMemberListRequest
+     * @param tmpHeader - GetDingtalkMeetingMemberListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkMeetingMemberListResponse
+     *
+     * @param GetDingtalkMeetingMemberListRequest $tmpReq
+     * @param GetDingtalkMeetingMemberListHeaders $tmpHeader
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDingtalkMeetingMemberListResponse
+     */
+    public function getDingtalkMeetingMemberListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkMeetingMemberListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkMeetingMemberListShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->clusterName) {
+            @$body['clusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkMeetingMemberList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkMeetingMemberList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkMeetingMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉会议成员列表.
+     *
+     * @param request - GetDingtalkMeetingMemberListRequest
+     *
+     * @returns GetDingtalkMeetingMemberListResponse
+     *
+     * @param GetDingtalkMeetingMemberListRequest $request
+     *
+     * @return GetDingtalkMeetingMemberListResponse
+     */
+    public function getDingtalkMeetingMemberList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkMeetingMemberListHeaders([]);
+
+        return $this->getDingtalkMeetingMemberListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取会议指标数据.
+     *
+     * @param tmpReq - GetDingtalkMeetingMetricDataRequest
+     * @param tmpHeader - GetDingtalkMeetingMetricDataHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkMeetingMetricDataResponse
+     *
+     * @param GetDingtalkMeetingMetricDataRequest $tmpReq
+     * @param GetDingtalkMeetingMetricDataHeaders $tmpHeader
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDingtalkMeetingMetricDataResponse
+     */
+    public function getDingtalkMeetingMetricDataWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkMeetingMetricDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkMeetingMetricDataShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->beginTime) {
+            @$body['beginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->typeName) {
+            @$body['typeName'] = $request->typeName;
+        }
+
+        if (null !== $request->workNo) {
+            @$body['workNo'] = $request->workNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkMeetingMetricData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkMeetingMetricData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkMeetingMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会议指标数据.
+     *
+     * @param request - GetDingtalkMeetingMetricDataRequest
+     *
+     * @returns GetDingtalkMeetingMetricDataResponse
+     *
+     * @param GetDingtalkMeetingMetricDataRequest $request
+     *
+     * @return GetDingtalkMeetingMetricDataResponse
+     */
+    public function getDingtalkMeetingMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkMeetingMetricDataHeaders([]);
+
+        return $this->getDingtalkMeetingMetricDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉投屏信息.
+     *
+     * @param tmpReq - GetDingtalkProjectionInfoRequest
+     * @param tmpHeader - GetDingtalkProjectionInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkProjectionInfoResponse
+     *
+     * @param GetDingtalkProjectionInfoRequest $tmpReq
+     * @param GetDingtalkProjectionInfoHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDingtalkProjectionInfoResponse
+     */
+    public function getDingtalkProjectionInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkProjectionInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkProjectionInfoShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->client) {
+            @$body['client'] = $request->client;
+        }
+
+        if (null !== $request->endTs) {
+            @$body['endTs'] = $request->endTs;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->pubWorkNo) {
+            @$body['pubWorkNo'] = $request->pubWorkNo;
+        }
+
+        if (null !== $request->roomId) {
+            @$body['roomId'] = $request->roomId;
+        }
+
+        if (null !== $request->startTs) {
+            @$body['startTs'] = $request->startTs;
+        }
+
+        if (null !== $request->subUid) {
+            @$body['subUid'] = $request->subUid;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkProjectionInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkProjectionInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkProjectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉投屏信息.
+     *
+     * @param request - GetDingtalkProjectionInfoRequest
+     *
+     * @returns GetDingtalkProjectionInfoResponse
+     *
+     * @param GetDingtalkProjectionInfoRequest $request
+     *
+     * @return GetDingtalkProjectionInfoResponse
+     */
+    public function getDingtalkProjectionInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkProjectionInfoHeaders([]);
+
+        return $this->getDingtalkProjectionInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取钉钉投屏列表.
+     *
+     * @param tmpReq - GetDingtalkProjectionListRequest
+     * @param tmpHeader - GetDingtalkProjectionListHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDingtalkProjectionListResponse
+     *
+     * @param GetDingtalkProjectionListRequest $tmpReq
+     * @param GetDingtalkProjectionListHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDingtalkProjectionListResponse
+     */
+    public function getDingtalkProjectionListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetDingtalkProjectionListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetDingtalkProjectionListShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
+        }
+
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['orgId'] = $request->orgId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectorWorkNo) {
+            @$body['projectorWorkNo'] = $request->projectorWorkNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDingtalkProjectionList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getDingtalkProjectionList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDingtalkProjectionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取钉钉投屏列表.
+     *
+     * @param request - GetDingtalkProjectionListRequest
+     *
+     * @returns GetDingtalkProjectionListResponse
+     *
+     * @param GetDingtalkProjectionListRequest $request
+     *
+     * @return GetDingtalkProjectionListResponse
+     */
+    public function getDingtalkProjectionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDingtalkProjectionListHeaders([]);
+
+        return $this->getDingtalkProjectionListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -21115,6 +21878,79 @@ class Aliding extends OpenApiClient
         $headers = new QueryReportDetailHeaders([]);
 
         return $this->queryReportDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询钉钉机器人退订工号.
+     *
+     * @param request - QueryRobotUnsubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRobotUnsubscriptionResponse
+     *
+     * @param QueryRobotUnsubscriptionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRobotUnsubscriptionResponse
+     */
+    public function queryRobotUnsubscriptionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->robotCode) {
+            @$body['RobotCode'] = $request->robotCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRobotUnsubscription',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/robot/queryRobotUnsubscription',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRobotUnsubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询钉钉机器人退订工号.
+     *
+     * @param request - QueryRobotUnsubscriptionRequest
+     *
+     * @returns QueryRobotUnsubscriptionResponse
+     *
+     * @param QueryRobotUnsubscriptionRequest $request
+     *
+     * @return QueryRobotUnsubscriptionResponse
+     */
+    public function queryRobotUnsubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryRobotUnsubscriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
