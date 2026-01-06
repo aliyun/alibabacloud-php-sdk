@@ -299,6 +299,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatRequest;
@@ -13197,6 +13199,119 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHALogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 事件中心事件列表.
+     *
+     * @param request - DescribeHistoryEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryEventsResponse
+     *
+     * @param DescribeHistoryEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeHistoryEventsResponse
+     */
+    public function describeHistoryEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->archiveStatus) {
+            @$query['ArchiveStatus'] = $request->archiveStatus;
+        }
+
+        if (null !== $request->eventCategory) {
+            @$query['EventCategory'] = $request->eventCategory;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventLevel) {
+            @$query['EventLevel'] = $request->eventLevel;
+        }
+
+        if (null !== $request->eventStatus) {
+            @$query['EventStatus'] = $request->eventStatus;
+        }
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryEvents',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 事件中心事件列表.
+     *
+     * @param request - DescribeHistoryEventsRequest
+     *
+     * @returns DescribeHistoryEventsResponse
+     *
+     * @param DescribeHistoryEventsRequest $request
+     *
+     * @return DescribeHistoryEventsResponse
+     */
+    public function describeHistoryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryEventsWithOptions($request, $runtime);
     }
 
     /**
