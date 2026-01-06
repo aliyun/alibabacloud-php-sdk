@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyRCDiskChargeTypeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $autoRenew;
@@ -48,6 +53,7 @@ class ModifyRCDiskChargeTypeRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
         'businessInfo' => 'BusinessInfo',
@@ -66,6 +72,10 @@ class ModifyRCDiskChargeTypeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -109,6 +119,10 @@ class ModifyRCDiskChargeTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }

@@ -31215,6 +31215,10 @@ class Rds extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
@@ -36733,6 +36737,10 @@ class Rds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->stoppedMode) {
+            @$query['StoppedMode'] = $request->stoppedMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -36814,6 +36822,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->stoppedMode) {
+            @$query['StoppedMode'] = $request->stoppedMode;
         }
 
         $req = new OpenApiRequest([

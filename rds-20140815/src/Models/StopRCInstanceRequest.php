@@ -22,10 +22,16 @@ class StopRCInstanceRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stoppedMode;
     protected $_name = [
         'forceStop' => 'ForceStop',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'stoppedMode' => 'StoppedMode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class StopRCInstanceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->stoppedMode) {
+            $res['StoppedMode'] = $this->stoppedMode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class StopRCInstanceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['StoppedMode'])) {
+            $model->stoppedMode = $map['StoppedMode'];
         }
 
         return $model;
