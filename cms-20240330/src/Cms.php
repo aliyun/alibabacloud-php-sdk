@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceObservabilityResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateThreadRequest;
@@ -1387,6 +1388,59 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createServiceWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建应用可观测实例.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceObservabilityResponse
+     *
+     * @param string         $workspace
+     * @param string         $type
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateServiceObservabilityResponse
+     */
+    public function createServiceObservabilityWithOptions($workspace, $type, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceObservability',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service-observability/' . Url::percentEncode($type) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceObservabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用可观测实例.
+     *
+     * @returns CreateServiceObservabilityResponse
+     *
+     * @param string $workspace
+     * @param string $type
+     *
+     * @return CreateServiceObservabilityResponse
+     */
+    public function createServiceObservability($workspace, $type)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceObservabilityWithOptions($workspace, $type, $headers, $runtime);
     }
 
     /**
@@ -4436,6 +4490,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->employeeType) {
+            @$query['employeeType'] = $request->employeeType;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }

@@ -30,6 +30,11 @@ class GetDigitalEmployeeResponseBody extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $employeeType;
+
+    /**
      * @var knowledges
      */
     public $knowledges;
@@ -63,6 +68,7 @@ class GetDigitalEmployeeResponseBody extends Model
         'defaultRule' => 'defaultRule',
         'description' => 'description',
         'displayName' => 'displayName',
+        'employeeType' => 'employeeType',
         'knowledges' => 'knowledges',
         'name' => 'name',
         'regionId' => 'regionId',
@@ -96,6 +102,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->employeeType) {
+            $res['employeeType'] = $this->employeeType;
         }
 
         if (null !== $this->knowledges) {
@@ -147,6 +157,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['employeeType'])) {
+            $model->employeeType = $map['employeeType'];
         }
 
         if (isset($map['knowledges'])) {

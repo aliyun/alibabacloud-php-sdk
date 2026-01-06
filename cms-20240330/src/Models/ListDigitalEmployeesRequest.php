@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListDigitalEmployeesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $employeeType;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -23,6 +28,7 @@ class ListDigitalEmployeesRequest extends Model
      */
     public $nextToken;
     protected $_name = [
+        'employeeType' => 'employeeType',
         'maxResults' => 'maxResults',
         'name' => 'name',
         'nextToken' => 'nextToken',
@@ -36,6 +42,10 @@ class ListDigitalEmployeesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->employeeType) {
+            $res['employeeType'] = $this->employeeType;
+        }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
@@ -59,6 +69,10 @@ class ListDigitalEmployeesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['employeeType'])) {
+            $model->employeeType = $map['employeeType'];
+        }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
