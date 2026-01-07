@@ -14,6 +14,11 @@ class resultObject extends Model
     public $certifyId;
 
     /**
+     * @var float
+     */
+    public $guardRiskScore;
+
+    /**
      * @var string
      */
     public $riskExtends;
@@ -24,6 +29,7 @@ class resultObject extends Model
     public $riskTags;
     protected $_name = [
         'certifyId' => 'CertifyId',
+        'guardRiskScore' => 'GuardRiskScore',
         'riskExtends' => 'RiskExtends',
         'riskTags' => 'RiskTags',
     ];
@@ -38,6 +44,10 @@ class resultObject extends Model
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+
+        if (null !== $this->guardRiskScore) {
+            $res['GuardRiskScore'] = $this->guardRiskScore;
         }
 
         if (null !== $this->riskExtends) {
@@ -61,6 +71,10 @@ class resultObject extends Model
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+
+        if (isset($map['GuardRiskScore'])) {
+            $model->guardRiskScore = $map['GuardRiskScore'];
         }
 
         if (isset($map['RiskExtends'])) {
