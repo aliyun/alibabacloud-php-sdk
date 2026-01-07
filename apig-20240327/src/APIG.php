@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionRequest;
@@ -60,6 +62,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSourceResponse;
@@ -86,6 +89,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
@@ -124,6 +128,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretReferencesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretReferencesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsRequest;
@@ -165,6 +173,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateSecretRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceVersionRequest;
@@ -1653,6 +1663,87 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 创建密钥.
+     *
+     * @param request - CreateSecretRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecretResponse
+     *
+     * @param CreateSecretRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecretWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$body['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->kmsConfig) {
+            @$body['kmsConfig'] = $request->kmsConfig;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->secretData) {
+            @$body['secretData'] = $request->secretData;
+        }
+
+        if (null !== $request->secretSource) {
+            @$body['secretSource'] = $request->secretSource;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecret',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建密钥.
+     *
+     * @param request - CreateSecretRequest
+     *
+     * @returns CreateSecretResponse
+     *
+     * @param CreateSecretRequest $request
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSecretWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a service.
      *
      * @remarks
@@ -2561,6 +2652,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deletePolicyAttachmentWithOptions($policyAttachmentId, $headers, $runtime);
+    }
+
+    /**
+     * 删除密钥.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecretResponse
+     *
+     * @param string         $secretId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecretWithOptions($secretId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecret',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets/' . Url::percentEncode($secretId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除密钥.
+     *
+     * @returns DeleteSecretResponse
+     *
+     * @param string $secretId
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecret($secretId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSecretWithOptions($secretId, $headers, $runtime);
     }
 
     /**
@@ -3708,6 +3850,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getResourceOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询密钥值
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecretValueResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSecretValueResponse
+     */
+    public function getSecretValueWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSecretValue',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets/name/' . Url::percentEncode($name) . '/value',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询密钥值
+     *
+     * @returns GetSecretValueResponse
+     *
+     * @param string $name
+     *
+     * @return GetSecretValueResponse
+     */
+    public function getSecretValue($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSecretValueWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -5411,6 +5604,146 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listPolicyClassesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询密钥的引用详情.
+     *
+     * @param request - ListSecretReferencesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecretReferencesResponse
+     *
+     * @param string                      $secretId
+     * @param ListSecretReferencesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSecretReferencesResponse
+     */
+    public function listSecretReferencesWithOptions($secretId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecretReferences',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets/' . Url::percentEncode($secretId) . '/references',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecretReferencesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询密钥的引用详情.
+     *
+     * @param request - ListSecretReferencesRequest
+     *
+     * @returns ListSecretReferencesResponse
+     *
+     * @param string                      $secretId
+     * @param ListSecretReferencesRequest $request
+     *
+     * @return ListSecretReferencesResponse
+     */
+    public function listSecretReferences($secretId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSecretReferencesWithOptions($secretId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询密钥列表.
+     *
+     * @param request - ListSecretsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecretsResponse
+     *
+     * @param ListSecretsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecretsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecrets',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询密钥列表.
+     *
+     * @param request - ListSecretsRequest
+     *
+     * @returns ListSecretsResponse
+     *
+     * @param ListSecretsRequest $request
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSecretsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7132,6 +7465,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updatePolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新消费者.
+     *
+     * @param request - UpdateSecretRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecretResponse
+     *
+     * @param string              $secretId
+     * @param UpdateSecretRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecretWithOptions($secretId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->secretData) {
+            @$body['secretData'] = $request->secretData;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecret',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets/' . Url::percentEncode($secretId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新消费者.
+     *
+     * @param request - UpdateSecretRequest
+     *
+     * @returns UpdateSecretResponse
+     *
+     * @param string              $secretId
+     * @param UpdateSecretRequest $request
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecret($secretId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSecretWithOptions($secretId, $request, $headers, $runtime);
     }
 
     /**
