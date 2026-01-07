@@ -47,7 +47,17 @@ class RealtimeDialogAssistRequest extends Model
     /**
      * @var string
      */
+    public $scriptContentPlayed;
+
+    /**
+     * @var string
+     */
     public $sessionId;
+
+    /**
+     * @var bool
+     */
+    public $userVad;
     protected $_name = [
         'analysis' => 'analysis',
         'bizType' => 'bizType',
@@ -56,7 +66,9 @@ class RealtimeDialogAssistRequest extends Model
         'hangUpDialog' => 'hangUpDialog',
         'metaData' => 'metaData',
         'requestId' => 'requestId',
+        'scriptContentPlayed' => 'scriptContentPlayed',
         'sessionId' => 'sessionId',
+        'userVad' => 'userVad',
     ];
 
     public function validate()
@@ -113,8 +125,16 @@ class RealtimeDialogAssistRequest extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->scriptContentPlayed) {
+            $res['scriptContentPlayed'] = $this->scriptContentPlayed;
+        }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->userVad) {
+            $res['userVad'] = $this->userVad;
         }
 
         return $res;
@@ -168,8 +188,16 @@ class RealtimeDialogAssistRequest extends Model
             $model->requestId = $map['requestId'];
         }
 
+        if (isset($map['scriptContentPlayed'])) {
+            $model->scriptContentPlayed = $map['scriptContentPlayed'];
+        }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
+        }
+
+        if (isset($map['userVad'])) {
+            $model->userVad = $map['userVad'];
         }
 
         return $model;

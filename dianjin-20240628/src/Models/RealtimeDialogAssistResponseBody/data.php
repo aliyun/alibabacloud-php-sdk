@@ -32,6 +32,11 @@ class data extends Model
     public $conversationModel;
 
     /**
+     * @var bool
+     */
+    public $interrupt;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -45,6 +50,7 @@ class data extends Model
         'assistScripts' => 'assistScripts',
         'assistSop' => 'assistSop',
         'conversationModel' => 'conversationModel',
+        'interrupt' => 'interrupt',
         'requestId' => 'requestId',
         'sessionId' => 'sessionId',
     ];
@@ -103,6 +109,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->interrupt) {
+            $res['interrupt'] = $this->interrupt;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -157,6 +167,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['interrupt'])) {
+            $model->interrupt = $map['interrupt'];
         }
 
         if (isset($map['requestId'])) {

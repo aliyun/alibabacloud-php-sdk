@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class conversationModel extends Model
 {
     /**
+     * @var int
+     */
+    public $begin;
+
+    /**
+     * @var string
+     */
+    public $beginTime;
+
+    /**
      * @var string
      */
     public $content;
@@ -31,6 +41,11 @@ class conversationModel extends Model
     /**
      * @var int
      */
+    public $end;
+
+    /**
+     * @var int
+     */
     public $role;
 
     /**
@@ -38,10 +53,13 @@ class conversationModel extends Model
      */
     public $type;
     protected $_name = [
+        'begin' => 'begin',
+        'beginTime' => 'beginTime',
         'content' => 'content',
         'customerId' => 'customerId',
         'customerServiceId' => 'customerServiceId',
         'customerServiceType' => 'customerServiceType',
+        'end' => 'end',
         'role' => 'role',
         'type' => 'type',
     ];
@@ -54,6 +72,14 @@ class conversationModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->begin) {
+            $res['begin'] = $this->begin;
+        }
+
+        if (null !== $this->beginTime) {
+            $res['beginTime'] = $this->beginTime;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -68,6 +94,10 @@ class conversationModel extends Model
 
         if (null !== $this->customerServiceType) {
             $res['customerServiceType'] = $this->customerServiceType;
+        }
+
+        if (null !== $this->end) {
+            $res['end'] = $this->end;
         }
 
         if (null !== $this->role) {
@@ -89,6 +119,14 @@ class conversationModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['begin'])) {
+            $model->begin = $map['begin'];
+        }
+
+        if (isset($map['beginTime'])) {
+            $model->beginTime = $map['beginTime'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -103,6 +141,10 @@ class conversationModel extends Model
 
         if (isset($map['customerServiceType'])) {
             $model->customerServiceType = $map['customerServiceType'];
+        }
+
+        if (isset($map['end'])) {
+            $model->end = $map['end'];
         }
 
         if (isset($map['role'])) {

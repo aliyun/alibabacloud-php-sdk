@@ -3357,8 +3357,16 @@ class DianJin extends OpenApiClient
             @$body['requestId'] = $request->requestId;
         }
 
+        if (null !== $request->scriptContentPlayed) {
+            @$body['scriptContentPlayed'] = $request->scriptContentPlayed;
+        }
+
         if (null !== $request->sessionId) {
             @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->userVad) {
+            @$body['userVad'] = $request->userVad;
         }
 
         $req = new OpenApiRequest([
