@@ -171,6 +171,10 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\EnableSmbAclRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\EnableSmbAclResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\GetDirectoryOrFilePropertiesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\GetDirectoryOrFilePropertiesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetFilesetRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetFilesetResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetProtocolMountTargetRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\GetProtocolMountTargetResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\GetRecycleBinAttributeResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesRequest;
@@ -6884,6 +6888,144 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDirectoryOrFilePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询特定智能目录.
+     *
+     * @param request - GetFilesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFilesetResponse
+     *
+     * @param GetFilesetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetFilesetResponse
+     */
+    public function getFilesetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileset',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询特定智能目录.
+     *
+     * @param request - GetFilesetRequest
+     *
+     * @returns GetFilesetResponse
+     *
+     * @param GetFilesetRequest $request
+     *
+     * @return GetFilesetResponse
+     */
+    public function getFileset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFilesetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询协议机挂载点.
+     *
+     * @param request - GetProtocolMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProtocolMountTargetResponse
+     *
+     * @param GetProtocolMountTargetRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetProtocolMountTargetResponse
+     */
+    public function getProtocolMountTargetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->exportId) {
+            @$query['ExportId'] = $request->exportId;
+        }
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProtocolMountTarget',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询协议机挂载点.
+     *
+     * @param request - GetProtocolMountTargetRequest
+     *
+     * @returns GetProtocolMountTargetResponse
+     *
+     * @param GetProtocolMountTargetRequest $request
+     *
+     * @return GetProtocolMountTargetResponse
+     */
+    public function getProtocolMountTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProtocolMountTargetWithOptions($request, $runtime);
     }
 
     /**
