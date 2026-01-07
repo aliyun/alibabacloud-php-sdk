@@ -41,6 +41,11 @@ class protectSwitchList extends Model
     /**
      * @var string
      */
+    public $ccGlobalSwitch;
+
+    /**
+     * @var string
+     */
     public $ccTemplate;
 
     /**
@@ -64,6 +69,7 @@ class protectSwitchList extends Model
         'blackWhiteListEnable' => 'BlackWhiteListEnable',
         'ccCustomRuleEnable' => 'CcCustomRuleEnable',
         'ccEnable' => 'CcEnable',
+        'ccGlobalSwitch' => 'CcGlobalSwitch',
         'ccTemplate' => 'CcTemplate',
         'domain' => 'Domain',
         'preciseRuleEnable' => 'PreciseRuleEnable',
@@ -100,6 +106,10 @@ class protectSwitchList extends Model
 
         if (null !== $this->ccEnable) {
             $res['CcEnable'] = $this->ccEnable;
+        }
+
+        if (null !== $this->ccGlobalSwitch) {
+            $res['CcGlobalSwitch'] = $this->ccGlobalSwitch;
         }
 
         if (null !== $this->ccTemplate) {
@@ -151,6 +161,10 @@ class protectSwitchList extends Model
 
         if (isset($map['CcEnable'])) {
             $model->ccEnable = $map['CcEnable'];
+        }
+
+        if (isset($map['CcGlobalSwitch'])) {
+            $model->ccGlobalSwitch = $map['CcGlobalSwitch'];
         }
 
         if (isset($map['CcTemplate'])) {

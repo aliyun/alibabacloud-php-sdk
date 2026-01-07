@@ -1,3 +1,7 @@
+2026-01-07 Version: 2.8.1
+- Update API DescribeDomainCcProtectSwitch: add response parameters Body.ProtectSwitchList.$.CcGlobalSwitch.
+
+
 2026-01-04 Version: 2.8.0
 - Support API DescribeDomainCcProtectSwitch.
 
