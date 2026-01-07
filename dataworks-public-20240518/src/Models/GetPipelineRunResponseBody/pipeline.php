@@ -22,6 +22,11 @@ class pipeline extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -51,6 +56,7 @@ class pipeline extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
+        'description' => 'Description',
         'id' => 'Id',
         'message' => 'Message',
         'modifyTime' => 'ModifyTime',
@@ -76,6 +82,10 @@ class pipeline extends Model
 
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->id) {
@@ -126,6 +136,10 @@ class pipeline extends Model
 
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Id'])) {

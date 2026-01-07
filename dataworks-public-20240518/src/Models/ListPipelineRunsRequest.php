@@ -14,6 +14,11 @@ class ListPipelineRunsRequest extends Model
     public $creator;
 
     /**
+     * @var string
+     */
+    public $objectId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -34,6 +39,7 @@ class ListPipelineRunsRequest extends Model
     public $status;
     protected $_name = [
         'creator' => 'Creator',
+        'objectId' => 'ObjectId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -50,6 +56,10 @@ class ListPipelineRunsRequest extends Model
         $res = [];
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
         }
 
         if (null !== $this->pageNumber) {
@@ -81,6 +91,10 @@ class ListPipelineRunsRequest extends Model
         $model = new self();
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
         }
 
         if (isset($map['PageNumber'])) {
