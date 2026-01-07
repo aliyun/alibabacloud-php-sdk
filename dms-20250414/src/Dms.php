@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dms\V20250414;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsShrinkRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeDatabaseShrinkRequest;
@@ -34,6 +38,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeFunctionRequest;
@@ -57,6 +63,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentSubAccountInfoResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeDatabaseRequest;
@@ -76,6 +86,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeDatabaseRequest;
@@ -99,11 +113,17 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentWorkspaceMemberRoleRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentWorkspaceMemberRoleResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeDatabaseShrinkRequest;
@@ -153,6 +173,75 @@ class Dms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 为空间添加用户.
+     *
+     * @param request - AddUserToDataAgentWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserToDataAgentWorkspaceResponse
+     *
+     * @param AddUserToDataAgentWorkspaceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddUserToDataAgentWorkspaceResponse
+     */
+    public function addUserToDataAgentWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserToDataAgentWorkspace',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserToDataAgentWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为空间添加用户.
+     *
+     * @param request - AddUserToDataAgentWorkspaceRequest
+     *
+     * @returns AddUserToDataAgentWorkspaceResponse
+     *
+     * @param AddUserToDataAgentWorkspaceRequest $request
+     *
+     * @return AddUserToDataAgentWorkspaceResponse
+     */
+    public function addUserToDataAgentWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserToDataAgentWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -668,6 +757,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 创建DataAgent工作空间.
+     *
+     * @param request - CreateDataAgentWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentWorkspaceResponse
+     *
+     * @param CreateDataAgentWorkspaceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDataAgentWorkspaceResponse
+     */
+    public function createDataAgentWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->workspaceDesc) {
+            @$query['WorkspaceDesc'] = $request->workspaceDesc;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentWorkspace',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建DataAgent工作空间.
+     *
+     * @param request - CreateDataAgentWorkspaceRequest
+     *
+     * @returns CreateDataAgentWorkspaceResponse
+     *
+     * @param CreateDataAgentWorkspaceRequest $request
+     *
+     * @return CreateDataAgentWorkspaceResponse
+     */
+    public function createDataAgentWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * 新建湖仓数据库.
      *
      * @param tmpReq - CreateDataLakeDatabaseRequest
@@ -1072,6 +1226,67 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAirflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除DataAgent工作空间.
+     *
+     * @param request - DeleteDataAgentWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentWorkspaceResponse
+     *
+     * @param DeleteDataAgentWorkspaceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDataAgentWorkspaceResponse
+     */
+    public function deleteDataAgentWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentWorkspace',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除DataAgent工作空间.
+     *
+     * @param request - DeleteDataAgentWorkspaceRequest
+     *
+     * @returns DeleteDataAgentWorkspaceResponse
+     *
+     * @param DeleteDataAgentWorkspaceRequest $request
+     *
+     * @return DeleteDataAgentWorkspaceResponse
+     */
+    public function deleteDataAgentWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -1895,6 +2110,128 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 获取主账号下的子账号信息.
+     *
+     * @param request - GetDataAgentSubAccountInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentSubAccountInfoResponse
+     *
+     * @param GetDataAgentSubAccountInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataAgentSubAccountInfoResponse
+     */
+    public function getDataAgentSubAccountInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->subAccountId) {
+            @$query['SubAccountId'] = $request->subAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentSubAccountInfo',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentSubAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取主账号下的子账号信息.
+     *
+     * @param request - GetDataAgentSubAccountInfoRequest
+     *
+     * @returns GetDataAgentSubAccountInfoResponse
+     *
+     * @param GetDataAgentSubAccountInfoRequest $request
+     *
+     * @return GetDataAgentSubAccountInfoResponse
+     */
+    public function getDataAgentSubAccountInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentSubAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取空间信息.
+     *
+     * @param request - GetDataAgentWorkspaceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataAgentWorkspaceInfoResponse
+     *
+     * @param GetDataAgentWorkspaceInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataAgentWorkspaceInfoResponse
+     */
+    public function getDataAgentWorkspaceInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataAgentWorkspaceInfo',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataAgentWorkspaceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取空间信息.
+     *
+     * @param request - GetDataAgentWorkspaceInfoRequest
+     *
+     * @returns GetDataAgentWorkspaceInfoResponse
+     *
+     * @param GetDataAgentWorkspaceInfoRequest $request
+     *
+     * @return GetDataAgentWorkspaceInfoResponse
+     */
+    public function getDataAgentWorkspaceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataAgentWorkspaceInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取uc的数据库目录.
      *
      * @param request - GetDataLakeCatalogRequest
@@ -2545,6 +2882,188 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取主账号下的空间（分页）.
+     *
+     * @param request - ListDataAgentWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentWorkspaceResponse
+     *
+     * @param ListDataAgentWorkspaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataAgentWorkspaceResponse
+     */
+    public function listDataAgentWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        if (null !== $request->workspaceType) {
+            @$query['WorkspaceType'] = $request->workspaceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentWorkspace',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取主账号下的空间（分页）.
+     *
+     * @param request - ListDataAgentWorkspaceRequest
+     *
+     * @returns ListDataAgentWorkspaceResponse
+     *
+     * @param ListDataAgentWorkspaceRequest $request
+     *
+     * @return ListDataAgentWorkspaceResponse
+     */
+    public function listDataAgentWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取空间所有成员.
+     *
+     * @param request - ListDataAgentWorkspaceMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentWorkspaceMemberResponse
+     *
+     * @param ListDataAgentWorkspaceMemberRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDataAgentWorkspaceMemberResponse
+     */
+    public function listDataAgentWorkspaceMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchMemberId) {
+            @$query['SearchMemberId'] = $request->searchMemberId;
+        }
+
+        if (null !== $request->searchRoleName) {
+            @$query['SearchRoleName'] = $request->searchRoleName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentWorkspaceMember',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentWorkspaceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取空间所有成员.
+     *
+     * @param request - ListDataAgentWorkspaceMemberRequest
+     *
+     * @returns ListDataAgentWorkspaceMemberResponse
+     *
+     * @param ListDataAgentWorkspaceMemberRequest $request
+     *
+     * @return ListDataAgentWorkspaceMemberResponse
+     */
+    public function listDataAgentWorkspaceMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentWorkspaceMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -3449,6 +3968,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 从空间中移除用户.
+     *
+     * @param request - RemoveUserToDataAgentWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserToDataAgentWorkspaceResponse
+     *
+     * @param RemoveUserToDataAgentWorkspaceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemoveUserToDataAgentWorkspaceResponse
+     */
+    public function removeUserToDataAgentWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUserToDataAgentWorkspace',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveUserToDataAgentWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从空间中移除用户.
+     *
+     * @param request - RemoveUserToDataAgentWorkspaceRequest
+     *
+     * @returns RemoveUserToDataAgentWorkspaceResponse
+     *
+     * @param RemoveUserToDataAgentWorkspaceRequest $request
+     *
+     * @return RemoveUserToDataAgentWorkspaceResponse
+     */
+    public function removeUserToDataAgentWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserToDataAgentWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * SendChatMessage.
      *
      * @param tmpReq - SendChatMessageRequest
@@ -3646,6 +4230,144 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAirflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新空间的信息.
+     *
+     * @param request - UpdateDataAgentSpaceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataAgentSpaceInfoResponse
+     *
+     * @param UpdateDataAgentSpaceInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateDataAgentSpaceInfoResponse
+     */
+    public function updateDataAgentSpaceInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->workspaceDesc) {
+            @$query['WorkspaceDesc'] = $request->workspaceDesc;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataAgentSpaceInfo',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataAgentSpaceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新空间的信息.
+     *
+     * @param request - UpdateDataAgentSpaceInfoRequest
+     *
+     * @returns UpdateDataAgentSpaceInfoResponse
+     *
+     * @param UpdateDataAgentSpaceInfoRequest $request
+     *
+     * @return UpdateDataAgentSpaceInfoResponse
+     */
+    public function updateDataAgentSpaceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataAgentSpaceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 调整空间成员的角色.
+     *
+     * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataAgentWorkspaceMemberRoleResponse
+     *
+     * @param UpdateDataAgentWorkspaceMemberRoleRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateDataAgentWorkspaceMemberRoleResponse
+     */
+    public function updateDataAgentWorkspaceMemberRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataAgentWorkspaceMemberRole',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataAgentWorkspaceMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调整空间成员的角色.
+     *
+     * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
+     *
+     * @returns UpdateDataAgentWorkspaceMemberRoleResponse
+     *
+     * @param UpdateDataAgentWorkspaceMemberRoleRequest $request
+     *
+     * @return UpdateDataAgentWorkspaceMemberRoleResponse
+     */
+    public function updateDataAgentWorkspaceMemberRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataAgentWorkspaceMemberRoleWithOptions($request, $runtime);
     }
 
     /**
