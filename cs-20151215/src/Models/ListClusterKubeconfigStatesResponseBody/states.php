@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponseBody\states\cloudServiceRoles;
 
 class states extends Model
 {
@@ -44,6 +45,11 @@ class states extends Model
     public $certState;
 
     /**
+     * @var cloudServiceRoles[]
+     */
+    public $cloudServiceRoles;
+
+    /**
      * @var bool
      */
     public $revokable;
@@ -55,11 +61,15 @@ class states extends Model
         'accountType' => 'account_type',
         'certExpireTime' => 'cert_expire_time',
         'certState' => 'cert_state',
+        'cloudServiceRoles' => 'cloud_service_roles',
         'revokable' => 'revokable',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cloudServiceRoles)) {
+            Model::validateArray($this->cloudServiceRoles);
+        }
         parent::validate();
     }
 
@@ -92,6 +102,17 @@ class states extends Model
 
         if (null !== $this->certState) {
             $res['cert_state'] = $this->certState;
+        }
+
+        if (null !== $this->cloudServiceRoles) {
+            if (\is_array($this->cloudServiceRoles)) {
+                $res['cloud_service_roles'] = [];
+                $n1 = 0;
+                foreach ($this->cloudServiceRoles as $item1) {
+                    $res['cloud_service_roles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->revokable) {
@@ -135,6 +156,17 @@ class states extends Model
 
         if (isset($map['cert_state'])) {
             $model->certState = $map['cert_state'];
+        }
+
+        if (isset($map['cloud_service_roles'])) {
+            if (!empty($map['cloud_service_roles'])) {
+                $model->cloudServiceRoles = [];
+                $n1 = 0;
+                foreach ($map['cloud_service_roles'] as $item1) {
+                    $model->cloudServiceRoles[$n1] = cloudServiceRoles::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['revokable'])) {

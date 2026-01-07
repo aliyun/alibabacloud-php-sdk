@@ -6736,6 +6736,10 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudServiceKubeConfig) {
+            @$query['cloudServiceKubeConfig'] = $request->cloudServiceKubeConfig;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }

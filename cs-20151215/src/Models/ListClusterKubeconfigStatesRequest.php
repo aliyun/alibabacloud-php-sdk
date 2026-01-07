@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListClusterKubeconfigStatesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cloudServiceKubeConfig;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -18,6 +23,7 @@ class ListClusterKubeconfigStatesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'cloudServiceKubeConfig' => 'cloudServiceKubeConfig',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
     ];
@@ -30,6 +36,10 @@ class ListClusterKubeconfigStatesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudServiceKubeConfig) {
+            $res['cloudServiceKubeConfig'] = $this->cloudServiceKubeConfig;
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -49,6 +59,10 @@ class ListClusterKubeconfigStatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cloudServiceKubeConfig'])) {
+            $model->cloudServiceKubeConfig = $map['cloudServiceKubeConfig'];
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
