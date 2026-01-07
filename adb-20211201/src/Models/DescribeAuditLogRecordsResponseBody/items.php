@@ -29,6 +29,11 @@ class items extends Model
     public $executeTimestamp;
 
     /**
+     * @var bool
+     */
+    public $hasDiagnosticInfo;
+
+    /**
      * @var string
      */
     public $hostAddress;
@@ -67,6 +72,7 @@ class items extends Model
         'DBName' => 'DBName',
         'executeTime' => 'ExecuteTime',
         'executeTimestamp' => 'ExecuteTimestamp',
+        'hasDiagnosticInfo' => 'HasDiagnosticInfo',
         'hostAddress' => 'HostAddress',
         'processID' => 'ProcessID',
         'SQLText' => 'SQLText',
@@ -98,6 +104,10 @@ class items extends Model
 
         if (null !== $this->executeTimestamp) {
             $res['ExecuteTimestamp'] = $this->executeTimestamp;
+        }
+
+        if (null !== $this->hasDiagnosticInfo) {
+            $res['HasDiagnosticInfo'] = $this->hasDiagnosticInfo;
         }
 
         if (null !== $this->hostAddress) {
@@ -153,6 +163,10 @@ class items extends Model
 
         if (isset($map['ExecuteTimestamp'])) {
             $model->executeTimestamp = $map['ExecuteTimestamp'];
+        }
+
+        if (isset($map['HasDiagnosticInfo'])) {
+            $model->hasDiagnosticInfo = $map['HasDiagnosticInfo'];
         }
 
         if (isset($map['HostAddress'])) {

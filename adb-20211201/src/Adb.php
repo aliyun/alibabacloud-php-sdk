@@ -6159,7 +6159,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询自动续费参数.
+     * Queries the auto-renewal status of a subscription cluster.
      *
      * @param tmpReq - DescribeAutoRenewalAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6236,7 +6236,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询自动续费参数.
+     * Queries the auto-renewal status of a subscription cluster.
      *
      * @param request - DescribeAutoRenewalAttributeRequest
      *
@@ -16818,7 +16818,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改自动续费配置.
+     * Configures auto-renewal for a subscription cluster.
      *
      * @param request - ModifyAutoRenewalAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16889,7 +16889,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改自动续费配置.
+     * Configures auto-renewal for a subscription cluster.
      *
      * @param request - ModifyAutoRenewalAttributeRequest
      *
