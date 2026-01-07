@@ -5,6 +5,16 @@
 namespace AlibabaCloud\SDK\AccountCenter\V20241209;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactAddRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactAddResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactDeleteRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactDeleteResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactEditRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactEditResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactQueryDetailRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactQueryDetailResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactQueryPageListRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\AccountContactQueryPageListResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountChangeLoginPasswordRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountChangeLoginPasswordResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountChangeSecurityEmailRequest;
@@ -33,6 +43,16 @@ use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountUpdateSecur
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountUpdateSecurityMobileLoginStatusResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountUpdateSessionExpireTimeRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseAccountUpdateSessionExpireTimeResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactAddRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactAddResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactDeleteRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactDeleteResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactEditRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactEditResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryDetailRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryDetailResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryPageListRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseContactQueryPageListResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgQueryLoadTreeRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseOrgQueryLoadTreeResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseRegisterAccountRequest;
@@ -57,6 +77,10 @@ use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseTodoQueryAccountTo
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseTodoQueryAccountTodoListResponse;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseUninvitedAdminInviteJoinEnterpriseRequest;
 use AlibabaCloud\SDK\AccountCenter\V20241209\Models\EnterpriseUninvitedAdminInviteJoinEnterpriseResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\SendAsyncEmailCaptchaRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\SendAsyncEmailCaptchaResponse;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\SendAsyncMobileCaptchaRequest;
+use AlibabaCloud\SDK\AccountCenter\V20241209\Models\SendAsyncMobileCaptchaResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -94,6 +118,461 @@ class AccountCenter extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加私有联系人.
+     *
+     * @param request - AccountContactAddRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccountContactAddResponse
+     *
+     * @param AccountContactAddRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AccountContactAddResponse
+     */
+    public function accountContactAddWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->asyncEmailVerify) {
+            @$body['AsyncEmailVerify'] = $request->asyncEmailVerify;
+        }
+
+        if (null !== $request->asyncMobileVerify) {
+            @$body['AsyncMobileVerify'] = $request->asyncMobileVerify;
+        }
+
+        if (null !== $request->contactEmail) {
+            @$body['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactMobile) {
+            @$body['ContactMobile'] = $request->contactMobile;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPosition) {
+            @$body['ContactPosition'] = $request->contactPosition;
+        }
+
+        if (null !== $request->emailCode) {
+            @$body['EmailCode'] = $request->emailCode;
+        }
+
+        if (null !== $request->mobileCode) {
+            @$body['MobileCode'] = $request->mobileCode;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AccountContactAdd',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AccountContactAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加私有联系人.
+     *
+     * @param request - AccountContactAddRequest
+     *
+     * @returns AccountContactAddResponse
+     *
+     * @param AccountContactAddRequest $request
+     *
+     * @return AccountContactAddResponse
+     */
+    public function accountContactAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accountContactAddWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除私有联系人.
+     *
+     * @param request - AccountContactDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccountContactDeleteResponse
+     *
+     * @param AccountContactDeleteRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AccountContactDeleteResponse
+     */
+    public function accountContactDeleteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AccountContactDelete',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AccountContactDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除私有联系人.
+     *
+     * @param request - AccountContactDeleteRequest
+     *
+     * @returns AccountContactDeleteResponse
+     *
+     * @param AccountContactDeleteRequest $request
+     *
+     * @return AccountContactDeleteResponse
+     */
+    public function accountContactDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accountContactDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改私有联系人.
+     *
+     * @param request - AccountContactEditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccountContactEditResponse
+     *
+     * @param AccountContactEditRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AccountContactEditResponse
+     */
+    public function accountContactEditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->asyncEmailVerify) {
+            @$body['AsyncEmailVerify'] = $request->asyncEmailVerify;
+        }
+
+        if (null !== $request->asyncMobileVerify) {
+            @$body['AsyncMobileVerify'] = $request->asyncMobileVerify;
+        }
+
+        if (null !== $request->contactEmail) {
+            @$body['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactMobile) {
+            @$body['ContactMobile'] = $request->contactMobile;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPosition) {
+            @$body['ContactPosition'] = $request->contactPosition;
+        }
+
+        if (null !== $request->emailCode) {
+            @$body['EmailCode'] = $request->emailCode;
+        }
+
+        if (null !== $request->mobileCode) {
+            @$body['MobileCode'] = $request->mobileCode;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AccountContactEdit',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AccountContactEditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改私有联系人.
+     *
+     * @param request - AccountContactEditRequest
+     *
+     * @returns AccountContactEditResponse
+     *
+     * @param AccountContactEditRequest $request
+     *
+     * @return AccountContactEditResponse
+     */
+    public function accountContactEdit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accountContactEditWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询联系人详情.
+     *
+     * @param request - AccountContactQueryDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccountContactQueryDetailResponse
+     *
+     * @param AccountContactQueryDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AccountContactQueryDetailResponse
+     */
+    public function accountContactQueryDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AccountContactQueryDetail',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AccountContactQueryDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人详情.
+     *
+     * @param request - AccountContactQueryDetailRequest
+     *
+     * @returns AccountContactQueryDetailResponse
+     *
+     * @param AccountContactQueryDetailRequest $request
+     *
+     * @return AccountContactQueryDetailResponse
+     */
+    public function accountContactQueryDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accountContactQueryDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询联系人列表.
+     *
+     * @param request - AccountContactQueryPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AccountContactQueryPageListResponse
+     *
+     * @param AccountContactQueryPageListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AccountContactQueryPageListResponse
+     */
+    public function accountContactQueryPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->showCompleteInfo) {
+            @$query['ShowCompleteInfo'] = $request->showCompleteInfo;
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->privateContact) {
+            @$body['PrivateContact'] = $request->privateContact;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AccountContactQueryPageList',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AccountContactQueryPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人列表.
+     *
+     * @param request - AccountContactQueryPageListRequest
+     *
+     * @returns AccountContactQueryPageListResponse
+     *
+     * @param AccountContactQueryPageListRequest $request
+     *
+     * @return AccountContactQueryPageListResponse
+     */
+    public function accountContactQueryPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accountContactQueryPageListWithOptions($request, $runtime);
     }
 
     /**
@@ -1271,6 +1750,461 @@ class AccountCenter extends OpenApiClient
     }
 
     /**
+     * 增加企业联系人.
+     *
+     * @param request - EnterpriseContactAddRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseContactAddResponse
+     *
+     * @param EnterpriseContactAddRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EnterpriseContactAddResponse
+     */
+    public function enterpriseContactAddWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->asyncEmailVerify) {
+            @$body['AsyncEmailVerify'] = $request->asyncEmailVerify;
+        }
+
+        if (null !== $request->asyncMobileVerify) {
+            @$body['AsyncMobileVerify'] = $request->asyncMobileVerify;
+        }
+
+        if (null !== $request->contactEmail) {
+            @$body['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactMobile) {
+            @$body['ContactMobile'] = $request->contactMobile;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPosition) {
+            @$body['ContactPosition'] = $request->contactPosition;
+        }
+
+        if (null !== $request->emailCode) {
+            @$body['EmailCode'] = $request->emailCode;
+        }
+
+        if (null !== $request->mobileCode) {
+            @$body['MobileCode'] = $request->mobileCode;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseContactAdd',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseContactAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加企业联系人.
+     *
+     * @param request - EnterpriseContactAddRequest
+     *
+     * @returns EnterpriseContactAddResponse
+     *
+     * @param EnterpriseContactAddRequest $request
+     *
+     * @return EnterpriseContactAddResponse
+     */
+    public function enterpriseContactAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseContactAddWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除企业联系人.
+     *
+     * @param request - EnterpriseContactDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseContactDeleteResponse
+     *
+     * @param EnterpriseContactDeleteRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnterpriseContactDeleteResponse
+     */
+    public function enterpriseContactDeleteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseContactDelete',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseContactDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除企业联系人.
+     *
+     * @param request - EnterpriseContactDeleteRequest
+     *
+     * @returns EnterpriseContactDeleteResponse
+     *
+     * @param EnterpriseContactDeleteRequest $request
+     *
+     * @return EnterpriseContactDeleteResponse
+     */
+    public function enterpriseContactDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseContactDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改私企业联系人.
+     *
+     * @param request - EnterpriseContactEditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseContactEditResponse
+     *
+     * @param EnterpriseContactEditRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnterpriseContactEditResponse
+     */
+    public function enterpriseContactEditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->asyncEmailVerify) {
+            @$body['AsyncEmailVerify'] = $request->asyncEmailVerify;
+        }
+
+        if (null !== $request->asyncMobileVerify) {
+            @$body['AsyncMobileVerify'] = $request->asyncMobileVerify;
+        }
+
+        if (null !== $request->contactEmail) {
+            @$body['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactMobile) {
+            @$body['ContactMobile'] = $request->contactMobile;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->contactPosition) {
+            @$body['ContactPosition'] = $request->contactPosition;
+        }
+
+        if (null !== $request->emailCode) {
+            @$body['EmailCode'] = $request->emailCode;
+        }
+
+        if (null !== $request->mobileCode) {
+            @$body['MobileCode'] = $request->mobileCode;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseContactEdit',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseContactEditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改私企业联系人.
+     *
+     * @param request - EnterpriseContactEditRequest
+     *
+     * @returns EnterpriseContactEditResponse
+     *
+     * @param EnterpriseContactEditRequest $request
+     *
+     * @return EnterpriseContactEditResponse
+     */
+    public function enterpriseContactEdit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseContactEditWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询联系人详情.
+     *
+     * @param request - EnterpriseContactQueryDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseContactQueryDetailResponse
+     *
+     * @param EnterpriseContactQueryDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return EnterpriseContactQueryDetailResponse
+     */
+    public function enterpriseContactQueryDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseContactQueryDetail',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseContactQueryDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人详情.
+     *
+     * @param request - EnterpriseContactQueryDetailRequest
+     *
+     * @returns EnterpriseContactQueryDetailResponse
+     *
+     * @param EnterpriseContactQueryDetailRequest $request
+     *
+     * @return EnterpriseContactQueryDetailResponse
+     */
+    public function enterpriseContactQueryDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseContactQueryDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询联系人列表.
+     *
+     * @param request - EnterpriseContactQueryPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnterpriseContactQueryPageListResponse
+     *
+     * @param EnterpriseContactQueryPageListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return EnterpriseContactQueryPageListResponse
+     */
+    public function enterpriseContactQueryPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->showCompleteInfo) {
+            @$query['ShowCompleteInfo'] = $request->showCompleteInfo;
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->orientedEcId) {
+            @$body['OrientedEcId'] = $request->orientedEcId;
+        }
+
+        if (null !== $request->orientedLeId) {
+            @$body['OrientedLeId'] = $request->orientedLeId;
+        }
+
+        if (null !== $request->orientedNbId) {
+            @$body['OrientedNbId'] = $request->orientedNbId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->privateContact) {
+            @$body['PrivateContact'] = $request->privateContact;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->sharedContact) {
+            @$body['SharedContact'] = $request->sharedContact;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnterpriseContactQueryPageList',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnterpriseContactQueryPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人列表.
+     *
+     * @param request - EnterpriseContactQueryPageListRequest
+     *
+     * @returns EnterpriseContactQueryPageListResponse
+     *
+     * @param EnterpriseContactQueryPageListRequest $request
+     *
+     * @return EnterpriseContactQueryPageListResponse
+     */
+    public function enterpriseContactQueryPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enterpriseContactQueryPageListWithOptions($request, $runtime);
+    }
+
+    /**
      * 组织目录树查询.
      *
      * @param request - EnterpriseOrgQueryLoadTreeRequest
@@ -2336,5 +3270,135 @@ class AccountCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enterpriseUninvitedAdminInviteJoinEnterpriseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 账号中心发送异步验证邮件.
+     *
+     * @param request - SendAsyncEmailCaptchaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendAsyncEmailCaptchaResponse
+     *
+     * @param SendAsyncEmailCaptchaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SendAsyncEmailCaptchaResponse
+     */
+    public function sendAsyncEmailCaptchaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactInfo) {
+            @$body['ContactInfo'] = $request->contactInfo;
+        }
+
+        if (null !== $request->contactorId) {
+            @$body['ContactorId'] = $request->contactorId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendAsyncEmailCaptcha',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendAsyncEmailCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 账号中心发送异步验证邮件.
+     *
+     * @param request - SendAsyncEmailCaptchaRequest
+     *
+     * @returns SendAsyncEmailCaptchaResponse
+     *
+     * @param SendAsyncEmailCaptchaRequest $request
+     *
+     * @return SendAsyncEmailCaptchaResponse
+     */
+    public function sendAsyncEmailCaptcha($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendAsyncEmailCaptchaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 账号中心发送异步验证短信
+     *
+     * @param request - SendAsyncMobileCaptchaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendAsyncMobileCaptchaResponse
+     *
+     * @param SendAsyncMobileCaptchaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SendAsyncMobileCaptchaResponse
+     */
+    public function sendAsyncMobileCaptchaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->contactInfo) {
+            @$body['ContactInfo'] = $request->contactInfo;
+        }
+
+        if (null !== $request->contactorId) {
+            @$body['ContactorId'] = $request->contactorId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendAsyncMobileCaptcha',
+            'version' => '2024-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendAsyncMobileCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 账号中心发送异步验证短信
+     *
+     * @param request - SendAsyncMobileCaptchaRequest
+     *
+     * @returns SendAsyncMobileCaptchaResponse
+     *
+     * @param SendAsyncMobileCaptchaRequest $request
+     *
+     * @return SendAsyncMobileCaptchaResponse
+     */
+    public function sendAsyncMobileCaptcha($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendAsyncMobileCaptchaWithOptions($request, $runtime);
     }
 }
