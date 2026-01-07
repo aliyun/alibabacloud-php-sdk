@@ -62,6 +62,11 @@ class ListResourceInstancesShrinkRequest extends Model
      * @var string
      */
     public $sort;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'chargeType' => 'ChargeType',
         'filter' => 'Filter',
@@ -74,6 +79,7 @@ class ListResourceInstancesShrinkRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'sort' => 'Sort',
+        'zone' => 'Zone',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class ListResourceInstancesShrinkRequest extends Model
 
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class ListResourceInstancesShrinkRequest extends Model
 
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

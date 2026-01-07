@@ -4995,6 +4995,10 @@ class Eas extends OpenApiClient
             @$query['Sort'] = $request->sort;
         }
 
+        if (null !== $request->zone) {
+            @$query['Zone'] = $request->zone;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5377,8 +5381,16 @@ class Eas extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
+        }
+
         if (null !== $request->replicaName) {
             @$query['ReplicaName'] = $request->replicaName;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
 
         if (null !== $request->resourceType) {
@@ -5529,6 +5541,10 @@ class Eas extends OpenApiClient
         $query = [];
         if (null !== $request->autoscalerEnabled) {
             @$query['AutoscalerEnabled'] = $request->autoscalerEnabled;
+        }
+
+        if (null !== $request->callerUid) {
+            @$query['CallerUid'] = $request->callerUid;
         }
 
         if (null !== $request->cronscalerEnabled) {

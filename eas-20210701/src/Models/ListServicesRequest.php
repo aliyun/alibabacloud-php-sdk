@@ -14,6 +14,11 @@ class ListServicesRequest extends Model
     public $autoscalerEnabled;
 
     /**
+     * @var string
+     */
+    public $callerUid;
+
+    /**
      * @var bool
      */
     public $cronscalerEnabled;
@@ -134,6 +139,7 @@ class ListServicesRequest extends Model
     public $workspaceId;
     protected $_name = [
         'autoscalerEnabled' => 'AutoscalerEnabled',
+        'callerUid' => 'CallerUid',
         'cronscalerEnabled' => 'CronscalerEnabled',
         'filter' => 'Filter',
         'gateway' => 'Gateway',
@@ -173,6 +179,10 @@ class ListServicesRequest extends Model
         $res = [];
         if (null !== $this->autoscalerEnabled) {
             $res['AutoscalerEnabled'] = $this->autoscalerEnabled;
+        }
+
+        if (null !== $this->callerUid) {
+            $res['CallerUid'] = $this->callerUid;
         }
 
         if (null !== $this->cronscalerEnabled) {
@@ -289,6 +299,10 @@ class ListServicesRequest extends Model
         $model = new self();
         if (isset($map['AutoscalerEnabled'])) {
             $model->autoscalerEnabled = $map['AutoscalerEnabled'];
+        }
+
+        if (isset($map['CallerUid'])) {
+            $model->callerUid = $map['CallerUid'];
         }
 
         if (isset($map['CronscalerEnabled'])) {

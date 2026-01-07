@@ -71,7 +71,17 @@ class ListServiceInstancesRequest extends Model
     /**
      * @var string
      */
+    public $quotaId;
+
+    /**
+     * @var string
+     */
     public $replicaName;
+
+    /**
+     * @var string
+     */
+    public $resource;
 
     /**
      * @var string
@@ -100,7 +110,9 @@ class ListServiceInstancesRequest extends Model
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'quotaId' => 'QuotaId',
         'replicaName' => 'ReplicaName',
+        'resource' => 'Resource',
         'resourceType' => 'ResourceType',
         'role' => 'Role',
         'sort' => 'Sort',
@@ -162,8 +174,16 @@ class ListServiceInstancesRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
+        }
+
         if (null !== $this->replicaName) {
             $res['ReplicaName'] = $this->replicaName;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->resourceType) {
@@ -237,8 +257,16 @@ class ListServiceInstancesRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
+        }
+
         if (isset($map['ReplicaName'])) {
             $model->replicaName = $map['ReplicaName'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['ResourceType'])) {
