@@ -14,6 +14,11 @@ class ListGroupsForApplicationRequest extends Model
     public $applicationId;
 
     /**
+     * @var string
+     */
+    public $applicationRoleId;
+
+    /**
      * @var string[]
      */
     public $groupIds;
@@ -34,6 +39,7 @@ class ListGroupsForApplicationRequest extends Model
     public $pageSize;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'applicationRoleId' => 'ApplicationRoleId',
         'groupIds' => 'GroupIds',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
@@ -53,6 +59,10 @@ class ListGroupsForApplicationRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->applicationRoleId) {
+            $res['ApplicationRoleId'] = $this->applicationRoleId;
         }
 
         if (null !== $this->groupIds) {
@@ -91,6 +101,10 @@ class ListGroupsForApplicationRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ApplicationRoleId'])) {
+            $model->applicationRoleId = $map['ApplicationRoleId'];
         }
 
         if (isset($map['GroupIds'])) {

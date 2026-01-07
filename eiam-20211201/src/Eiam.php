@@ -762,6 +762,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->groupIds) {
             @$query['GroupIds'] = $request->groupIds;
         }
@@ -827,6 +831,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -890,6 +898,10 @@ class Eiam extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
         }
 
         if (null !== $request->instanceId) {
@@ -9797,6 +9809,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->groupIds) {
             @$query['GroupIds'] = $request->groupIds;
         }
@@ -10604,6 +10620,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -11010,6 +11030,10 @@ class Eiam extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
         }
 
         if (null !== $request->instanceId) {
@@ -11617,6 +11641,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->groupIds) {
             @$query['GroupIds'] = $request->groupIds;
         }
@@ -11682,6 +11710,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -11745,6 +11777,10 @@ class Eiam extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
         }
 
         if (null !== $request->instanceId) {

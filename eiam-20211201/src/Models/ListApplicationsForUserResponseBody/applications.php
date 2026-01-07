@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserResponseBody\applications\applicationRoles;
 
 class applications extends Model
 {
@@ -12,6 +13,11 @@ class applications extends Model
      * @var string
      */
     public $applicationId;
+
+    /**
+     * @var applicationRoles[]
+     */
+    public $applicationRoles;
 
     /**
      * @var bool
@@ -24,12 +30,16 @@ class applications extends Model
     public $hasInheritAuthorization;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'applicationRoles' => 'ApplicationRoles',
         'hasDirectAuthorization' => 'HasDirectAuthorization',
         'hasInheritAuthorization' => 'HasInheritAuthorization',
     ];
 
     public function validate()
     {
+        if (\is_array($this->applicationRoles)) {
+            Model::validateArray($this->applicationRoles);
+        }
         parent::validate();
     }
 
@@ -38,6 +48,17 @@ class applications extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->applicationRoles) {
+            if (\is_array($this->applicationRoles)) {
+                $res['ApplicationRoles'] = [];
+                $n1 = 0;
+                foreach ($this->applicationRoles as $item1) {
+                    $res['ApplicationRoles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->hasDirectAuthorization) {
@@ -61,6 +82,17 @@ class applications extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ApplicationRoles'])) {
+            if (!empty($map['ApplicationRoles'])) {
+                $model->applicationRoles = [];
+                $n1 = 0;
+                foreach ($map['ApplicationRoles'] as $item1) {
+                    $model->applicationRoles[$n1] = applicationRoles::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['HasDirectAuthorization'])) {

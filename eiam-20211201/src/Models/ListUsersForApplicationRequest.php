@@ -16,6 +16,11 @@ class ListUsersForApplicationRequest extends Model
     /**
      * @var string
      */
+    public $applicationRoleId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -34,6 +39,7 @@ class ListUsersForApplicationRequest extends Model
     public $userIds;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'applicationRoleId' => 'ApplicationRoleId',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -53,6 +59,10 @@ class ListUsersForApplicationRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->applicationRoleId) {
+            $res['ApplicationRoleId'] = $this->applicationRoleId;
         }
 
         if (null !== $this->instanceId) {
@@ -91,6 +101,10 @@ class ListUsersForApplicationRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ApplicationRoleId'])) {
+            $model->applicationRoleId = $map['ApplicationRoleId'];
         }
 
         if (isset($map['InstanceId'])) {
