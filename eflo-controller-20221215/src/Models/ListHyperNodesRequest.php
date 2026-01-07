@@ -30,6 +30,11 @@ class ListHyperNodesRequest extends Model
     public $hyperNodeId;
 
     /**
+     * @var string[]
+     */
+    public $hyperNodeIds;
+
+    /**
      * @var string
      */
     public $machineType;
@@ -73,6 +78,7 @@ class ListHyperNodesRequest extends Model
         'commodityCode' => 'CommodityCode',
         'hpnZone' => 'HpnZone',
         'hyperNodeId' => 'HyperNodeId',
+        'hyperNodeIds' => 'HyperNodeIds',
         'machineType' => 'MachineType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -85,6 +91,9 @@ class ListHyperNodesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->hyperNodeIds)) {
+            Model::validateArray($this->hyperNodeIds);
+        }
         if (\is_array($this->operatingStates)) {
             Model::validateArray($this->operatingStates);
         }
@@ -111,6 +120,17 @@ class ListHyperNodesRequest extends Model
 
         if (null !== $this->hyperNodeId) {
             $res['HyperNodeId'] = $this->hyperNodeId;
+        }
+
+        if (null !== $this->hyperNodeIds) {
+            if (\is_array($this->hyperNodeIds)) {
+                $res['HyperNodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->hyperNodeIds as $item1) {
+                    $res['HyperNodeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->machineType) {
@@ -184,6 +204,17 @@ class ListHyperNodesRequest extends Model
 
         if (isset($map['HyperNodeId'])) {
             $model->hyperNodeId = $map['HyperNodeId'];
+        }
+
+        if (isset($map['HyperNodeIds'])) {
+            if (!empty($map['HyperNodeIds'])) {
+                $model->hyperNodeIds = [];
+                $n1 = 0;
+                foreach ($map['HyperNodeIds'] as $item1) {
+                    $model->hyperNodeIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MachineType'])) {

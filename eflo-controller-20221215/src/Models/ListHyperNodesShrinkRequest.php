@@ -32,6 +32,11 @@ class ListHyperNodesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $hyperNodeIdsShrink;
+
+    /**
+     * @var string
+     */
     public $machineType;
 
     /**
@@ -73,6 +78,7 @@ class ListHyperNodesShrinkRequest extends Model
         'commodityCode' => 'CommodityCode',
         'hpnZone' => 'HpnZone',
         'hyperNodeId' => 'HyperNodeId',
+        'hyperNodeIdsShrink' => 'HyperNodeIds',
         'machineType' => 'MachineType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -108,6 +114,10 @@ class ListHyperNodesShrinkRequest extends Model
 
         if (null !== $this->hyperNodeId) {
             $res['HyperNodeId'] = $this->hyperNodeId;
+        }
+
+        if (null !== $this->hyperNodeIdsShrink) {
+            $res['HyperNodeIds'] = $this->hyperNodeIdsShrink;
         }
 
         if (null !== $this->machineType) {
@@ -174,6 +184,10 @@ class ListHyperNodesShrinkRequest extends Model
 
         if (isset($map['HyperNodeId'])) {
             $model->hyperNodeId = $map['HyperNodeId'];
+        }
+
+        if (isset($map['HyperNodeIds'])) {
+            $model->hyperNodeIdsShrink = $map['HyperNodeIds'];
         }
 
         if (isset($map['MachineType'])) {

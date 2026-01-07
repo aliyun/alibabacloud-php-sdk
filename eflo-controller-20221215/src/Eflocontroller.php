@@ -2669,6 +2669,10 @@ class Eflocontroller extends OpenApiClient
         $tmpReq->validate();
         $request = new ListHyperNodesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hyperNodeIds) {
+            $request->hyperNodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hyperNodeIds, 'HyperNodeIds', 'json');
+        }
+
         if (null !== $tmpReq->operatingStates) {
             $request->operatingStatesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operatingStates, 'OperatingStates', 'json');
         }
@@ -2676,6 +2680,10 @@ class Eflocontroller extends OpenApiClient
         $query = [];
         if (null !== $request->commodityCode) {
             @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->hyperNodeIdsShrink) {
+            @$query['HyperNodeIds'] = $request->hyperNodeIdsShrink;
         }
 
         if (null !== $request->operatingStatesShrink) {
