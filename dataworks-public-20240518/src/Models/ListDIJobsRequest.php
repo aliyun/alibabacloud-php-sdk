@@ -42,6 +42,11 @@ class ListDIJobsRequest extends Model
      * @var string
      */
     public $sourceDataSourceType;
+
+    /**
+     * @var string
+     */
+    public $specType;
     protected $_name = [
         'destinationDataSourceType' => 'DestinationDataSourceType',
         'migrationType' => 'MigrationType',
@@ -50,6 +55,7 @@ class ListDIJobsRequest extends Model
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'sourceDataSourceType' => 'SourceDataSourceType',
+        'specType' => 'SpecType',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ListDIJobsRequest extends Model
 
         if (null !== $this->sourceDataSourceType) {
             $res['SourceDataSourceType'] = $this->sourceDataSourceType;
+        }
+
+        if (null !== $this->specType) {
+            $res['SpecType'] = $this->specType;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ListDIJobsRequest extends Model
 
         if (isset($map['SourceDataSourceType'])) {
             $model->sourceDataSourceType = $map['SourceDataSourceType'];
+        }
+
+        if (isset($map['SpecType'])) {
+            $model->specType = $map['SpecType'];
         }
 
         return $model;
