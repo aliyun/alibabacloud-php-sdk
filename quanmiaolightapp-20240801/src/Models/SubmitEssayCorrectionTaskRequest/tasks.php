@@ -16,6 +16,11 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $customId;
+
+    /**
+     * @var string
+     */
     public $grade;
 
     /**
@@ -39,6 +44,7 @@ class tasks extends Model
     public $totalScore;
     protected $_name = [
         'answer' => 'answer',
+        'customId' => 'customId',
         'grade' => 'grade',
         'otherReviewPoints' => 'otherReviewPoints',
         'question' => 'question',
@@ -56,6 +62,10 @@ class tasks extends Model
         $res = [];
         if (null !== $this->answer) {
             $res['answer'] = $this->answer;
+        }
+
+        if (null !== $this->customId) {
+            $res['customId'] = $this->customId;
         }
 
         if (null !== $this->grade) {
@@ -91,6 +101,10 @@ class tasks extends Model
         $model = new self();
         if (isset($map['answer'])) {
             $model->answer = $map['answer'];
+        }
+
+        if (isset($map['customId'])) {
+            $model->customId = $map['customId'];
         }
 
         if (isset($map['grade'])) {
