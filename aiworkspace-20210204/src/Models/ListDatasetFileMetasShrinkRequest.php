@@ -99,6 +99,11 @@ class ListDatasetFileMetasShrinkRequest extends Model
     public $queryType;
 
     /**
+     * @var string
+     */
+    public $queryVideo;
+
+    /**
      * @var float
      */
     public $scoreThreshold;
@@ -156,6 +161,7 @@ class ListDatasetFileMetasShrinkRequest extends Model
         'queryTagsIncludeAnyShrink' => 'QueryTagsIncludeAny',
         'queryText' => 'QueryText',
         'queryType' => 'QueryType',
+        'queryVideo' => 'QueryVideo',
         'scoreThreshold' => 'ScoreThreshold',
         'sortBy' => 'SortBy',
         'startFileUpdateTime' => 'StartFileUpdateTime',
@@ -244,6 +250,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+
+        if (null !== $this->queryVideo) {
+            $res['QueryVideo'] = $this->queryVideo;
         }
 
         if (null !== $this->scoreThreshold) {
@@ -359,6 +369,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+
+        if (isset($map['QueryVideo'])) {
+            $model->queryVideo = $map['QueryVideo'];
         }
 
         if (isset($map['ScoreThreshold'])) {

@@ -5193,6 +5193,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['QueryType'] = $request->queryType;
         }
 
+        if (null !== $request->queryVideo) {
+            @$query['QueryVideo'] = $request->queryVideo;
+        }
+
         if (null !== $request->scoreThreshold) {
             @$query['ScoreThreshold'] = $request->scoreThreshold;
         }
