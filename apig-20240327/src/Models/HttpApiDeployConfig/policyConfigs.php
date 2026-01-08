@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiFallbackConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiSecurityGuardConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiTokenRateLimitConfig;
 
 class policyConfigs extends Model
 {
@@ -13,6 +15,16 @@ class policyConfigs extends Model
      * @var aiFallbackConfig
      */
     public $aiFallbackConfig;
+
+    /**
+     * @var aiSecurityGuardConfig
+     */
+    public $aiSecurityGuardConfig;
+
+    /**
+     * @var aiTokenRateLimitConfig
+     */
+    public $aiTokenRateLimitConfig;
 
     /**
      * @var bool
@@ -25,6 +37,8 @@ class policyConfigs extends Model
     public $type;
     protected $_name = [
         'aiFallbackConfig' => 'aiFallbackConfig',
+        'aiSecurityGuardConfig' => 'aiSecurityGuardConfig',
+        'aiTokenRateLimitConfig' => 'aiTokenRateLimitConfig',
         'enable' => 'enable',
         'type' => 'type',
     ];
@@ -34,6 +48,12 @@ class policyConfigs extends Model
         if (null !== $this->aiFallbackConfig) {
             $this->aiFallbackConfig->validate();
         }
+        if (null !== $this->aiSecurityGuardConfig) {
+            $this->aiSecurityGuardConfig->validate();
+        }
+        if (null !== $this->aiTokenRateLimitConfig) {
+            $this->aiTokenRateLimitConfig->validate();
+        }
         parent::validate();
     }
 
@@ -42,6 +62,14 @@ class policyConfigs extends Model
         $res = [];
         if (null !== $this->aiFallbackConfig) {
             $res['aiFallbackConfig'] = null !== $this->aiFallbackConfig ? $this->aiFallbackConfig->toArray($noStream) : $this->aiFallbackConfig;
+        }
+
+        if (null !== $this->aiSecurityGuardConfig) {
+            $res['aiSecurityGuardConfig'] = null !== $this->aiSecurityGuardConfig ? $this->aiSecurityGuardConfig->toArray($noStream) : $this->aiSecurityGuardConfig;
+        }
+
+        if (null !== $this->aiTokenRateLimitConfig) {
+            $res['aiTokenRateLimitConfig'] = null !== $this->aiTokenRateLimitConfig ? $this->aiTokenRateLimitConfig->toArray($noStream) : $this->aiTokenRateLimitConfig;
         }
 
         if (null !== $this->enable) {
@@ -65,6 +93,14 @@ class policyConfigs extends Model
         $model = new self();
         if (isset($map['aiFallbackConfig'])) {
             $model->aiFallbackConfig = aiFallbackConfig::fromMap($map['aiFallbackConfig']);
+        }
+
+        if (isset($map['aiSecurityGuardConfig'])) {
+            $model->aiSecurityGuardConfig = aiSecurityGuardConfig::fromMap($map['aiSecurityGuardConfig']);
+        }
+
+        if (isset($map['aiTokenRateLimitConfig'])) {
+            $model->aiTokenRateLimitConfig = aiTokenRateLimitConfig::fromMap($map['aiTokenRateLimitConfig']);
         }
 
         if (isset($map['enable'])) {
