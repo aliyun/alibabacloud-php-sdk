@@ -399,6 +399,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfi
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDomainListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDomainListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDomainRelationListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDomainRelationListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDropTrafficTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDropTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallIPSWhitelistRequest;
@@ -16073,6 +16077,204 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcFirewallDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询VPC互访的域名信息.
+     *
+     * @param request - DescribeVpcFirewallDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallDomainListResponse
+     *
+     * @param DescribeVpcFirewallDomainListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVpcFirewallDomainListResponse
+     */
+    public function describeVpcFirewallDomainListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->isAITraffic) {
+            @$query['IsAITraffic'] = $request->isAITraffic;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->srcIP) {
+            @$query['SrcIP'] = $request->srcIP;
+        }
+
+        if (null !== $request->srcVpcId) {
+            @$query['SrcVpcId'] = $request->srcVpcId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallDomainList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询VPC互访的域名信息.
+     *
+     * @param request - DescribeVpcFirewallDomainListRequest
+     *
+     * @returns DescribeVpcFirewallDomainListResponse
+     *
+     * @param DescribeVpcFirewallDomainListRequest $request
+     *
+     * @return DescribeVpcFirewallDomainListResponse
+     */
+    public function describeVpcFirewallDomainList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallDomainListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询VPC互访的域名信息.
+     *
+     * @param request - DescribeVpcFirewallDomainRelationListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallDomainRelationListResponse
+     *
+     * @param DescribeVpcFirewallDomainRelationListRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeVpcFirewallDomainRelationListResponse
+     */
+    public function describeVpcFirewallDomainRelationListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->domainList) {
+            @$query['DomainList'] = $request->domainList;
+        }
+
+        if (null !== $request->dstIP) {
+            @$query['DstIP'] = $request->dstIP;
+        }
+
+        if (null !== $request->dstVpcId) {
+            @$query['DstVpcId'] = $request->dstVpcId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->srcIP) {
+            @$query['SrcIP'] = $request->srcIP;
+        }
+
+        if (null !== $request->srcVpcId) {
+            @$query['SrcVpcId'] = $request->srcVpcId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallDomainRelationList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallDomainRelationListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询VPC互访的域名信息.
+     *
+     * @param request - DescribeVpcFirewallDomainRelationListRequest
+     *
+     * @returns DescribeVpcFirewallDomainRelationListResponse
+     *
+     * @param DescribeVpcFirewallDomainRelationListRequest $request
+     *
+     * @return DescribeVpcFirewallDomainRelationListResponse
+     */
+    public function describeVpcFirewallDomainRelationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallDomainRelationListWithOptions($request, $runtime);
     }
 
     /**
