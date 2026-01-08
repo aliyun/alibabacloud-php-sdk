@@ -16,6 +16,11 @@ class ModifyLifecyclePolicyRequest extends Model
     /**
      * @var string
      */
+    public $lifecyclePolicyId;
+
+    /**
+     * @var string
+     */
     public $lifecyclePolicyName;
 
     /**
@@ -34,6 +39,7 @@ class ModifyLifecyclePolicyRequest extends Model
     public $storageType;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
+        'lifecyclePolicyId' => 'LifecyclePolicyId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
         'lifecycleRuleName' => 'LifecycleRuleName',
         'path' => 'Path',
@@ -50,6 +56,10 @@ class ModifyLifecyclePolicyRequest extends Model
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
+        }
+
+        if (null !== $this->lifecyclePolicyId) {
+            $res['LifecyclePolicyId'] = $this->lifecyclePolicyId;
         }
 
         if (null !== $this->lifecyclePolicyName) {
@@ -81,6 +91,10 @@ class ModifyLifecyclePolicyRequest extends Model
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
+        }
+
+        if (isset($map['LifecyclePolicyId'])) {
+            $model->lifecyclePolicyId = $map['LifecyclePolicyId'];
         }
 
         if (isset($map['LifecyclePolicyName'])) {

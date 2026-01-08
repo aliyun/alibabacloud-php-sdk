@@ -11,6 +11,11 @@ class CreateLifecyclePolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $lifecyclePolicyId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -18,6 +23,7 @@ class CreateLifecyclePolicyResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'lifecyclePolicyId' => 'LifecyclePolicyId',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
@@ -30,6 +36,10 @@ class CreateLifecyclePolicyResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->lifecyclePolicyId) {
+            $res['LifecyclePolicyId'] = $this->lifecyclePolicyId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,6 +59,10 @@ class CreateLifecyclePolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LifecyclePolicyId'])) {
+            $model->lifecyclePolicyId = $map['LifecyclePolicyId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

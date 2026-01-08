@@ -16,9 +16,15 @@ class DeleteLifecyclePolicyRequest extends Model
     /**
      * @var string
      */
+    public $lifecyclePolicyId;
+
+    /**
+     * @var string
+     */
     public $lifecyclePolicyName;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
+        'lifecyclePolicyId' => 'LifecyclePolicyId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
     ];
 
@@ -32,6 +38,10 @@ class DeleteLifecyclePolicyRequest extends Model
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
+        }
+
+        if (null !== $this->lifecyclePolicyId) {
+            $res['LifecyclePolicyId'] = $this->lifecyclePolicyId;
         }
 
         if (null !== $this->lifecyclePolicyName) {
@@ -51,6 +61,10 @@ class DeleteLifecyclePolicyRequest extends Model
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
+        }
+
+        if (isset($map['LifecyclePolicyId'])) {
+            $model->lifecyclePolicyId = $map['LifecyclePolicyId'];
         }
 
         if (isset($map['LifecyclePolicyName'])) {

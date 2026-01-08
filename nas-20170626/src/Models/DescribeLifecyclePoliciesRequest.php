@@ -11,12 +11,27 @@ class DescribeLifecyclePoliciesRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $fileSystemId;
 
     /**
      * @var string
      */
+    public $lifecyclePolicyId;
+
+    /**
+     * @var string
+     */
     public $lifecyclePolicyName;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePolicyType;
 
     /**
      * @var int
@@ -31,12 +46,21 @@ class DescribeLifecyclePoliciesRequest extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $storageType;
     protected $_name = [
+        'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
+        'lifecyclePolicyId' => 'LifecyclePolicyId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
+        'lifecyclePolicyType' => 'LifecyclePolicyType',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'path' => 'Path',
         'storageType' => 'StorageType',
     ];
 
@@ -48,12 +72,24 @@ class DescribeLifecyclePoliciesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
 
+        if (null !== $this->lifecyclePolicyId) {
+            $res['LifecyclePolicyId'] = $this->lifecyclePolicyId;
+        }
+
         if (null !== $this->lifecyclePolicyName) {
             $res['LifecyclePolicyName'] = $this->lifecyclePolicyName;
+        }
+
+        if (null !== $this->lifecyclePolicyType) {
+            $res['LifecyclePolicyType'] = $this->lifecyclePolicyType;
         }
 
         if (null !== $this->pageNumber) {
@@ -62,6 +98,10 @@ class DescribeLifecyclePoliciesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         if (null !== $this->storageType) {
@@ -79,12 +119,24 @@ class DescribeLifecyclePoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
 
+        if (isset($map['LifecyclePolicyId'])) {
+            $model->lifecyclePolicyId = $map['LifecyclePolicyId'];
+        }
+
         if (isset($map['LifecyclePolicyName'])) {
             $model->lifecyclePolicyName = $map['LifecyclePolicyName'];
+        }
+
+        if (isset($map['LifecyclePolicyType'])) {
+            $model->lifecyclePolicyType = $map['LifecyclePolicyType'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -93,6 +145,10 @@ class DescribeLifecyclePoliciesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         if (isset($map['StorageType'])) {

@@ -2666,12 +2666,20 @@ class NAS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->fileSystemId) {
             @$query['FileSystemId'] = $request->fileSystemId;
         }
 
         if (null !== $request->lifecyclePolicyName) {
             @$query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
+        }
+
+        if (null !== $request->lifecyclePolicyType) {
+            @$query['LifecyclePolicyType'] = $request->lifecyclePolicyType;
         }
 
         if (null !== $request->lifecycleRuleName) {
@@ -2686,8 +2694,16 @@ class NAS extends OpenApiClient
             @$query['Paths'] = $request->paths;
         }
 
+        if (null !== $request->retrieveRules) {
+            @$query['RetrieveRules'] = $request->retrieveRules;
+        }
+
         if (null !== $request->storageType) {
             @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->transitRules) {
+            @$query['TransitRules'] = $request->transitRules;
         }
 
         $req = new OpenApiRequest([
@@ -3995,6 +4011,10 @@ class NAS extends OpenApiClient
         $query = [];
         if (null !== $request->fileSystemId) {
             @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
         }
 
         if (null !== $request->lifecyclePolicyName) {
@@ -8261,6 +8281,10 @@ class NAS extends OpenApiClient
         $query = [];
         if (null !== $request->fileSystemId) {
             @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
         }
 
         if (null !== $request->lifecyclePolicyName) {
