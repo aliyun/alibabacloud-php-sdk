@@ -154,6 +154,10 @@ class SasRasp extends OpenApiClient
             @$query['EndTimestamp'] = $request->endTimestamp;
         }
 
+        if (null !== $request->handleStatus) {
+            @$query['HandleStatus'] = $request->handleStatus;
+        }
+
         if (null !== $request->handlerType) {
             @$query['HandlerType'] = $request->handlerType;
         }

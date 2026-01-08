@@ -39,6 +39,11 @@ class DescribeAttacksRequest extends Model
     public $endTimestamp;
 
     /**
+     * @var int
+     */
+    public $handleStatus;
+
+    /**
      * @var string
      */
     public $handlerType;
@@ -109,6 +114,7 @@ class DescribeAttacksRequest extends Model
         'attackType' => 'AttackType',
         'attackUrl' => 'AttackUrl',
         'endTimestamp' => 'EndTimestamp',
+        'handleStatus' => 'HandleStatus',
         'handlerType' => 'HandlerType',
         'hostname' => 'Hostname',
         'ip' => 'Ip',
@@ -154,6 +160,10 @@ class DescribeAttacksRequest extends Model
 
         if (null !== $this->endTimestamp) {
             $res['EndTimestamp'] = $this->endTimestamp;
+        }
+
+        if (null !== $this->handleStatus) {
+            $res['HandleStatus'] = $this->handleStatus;
         }
 
         if (null !== $this->handlerType) {
@@ -241,6 +251,10 @@ class DescribeAttacksRequest extends Model
 
         if (isset($map['EndTimestamp'])) {
             $model->endTimestamp = $map['EndTimestamp'];
+        }
+
+        if (isset($map['HandleStatus'])) {
+            $model->handleStatus = $map['HandleStatus'];
         }
 
         if (isset($map['HandlerType'])) {
