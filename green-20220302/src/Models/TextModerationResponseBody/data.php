@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponseBody\data\ext;
 
 class data extends Model
 {
@@ -29,6 +30,11 @@ class data extends Model
     public $deviceId;
 
     /**
+     * @var ext
+     */
+    public $ext;
+
+    /**
      * @var string
      */
     public $labels;
@@ -47,6 +53,7 @@ class data extends Model
         'dataId' => 'dataId',
         'descriptions' => 'descriptions',
         'deviceId' => 'deviceId',
+        'ext' => 'ext',
         'labels' => 'labels',
         'manualTaskId' => 'manualTaskId',
         'reason' => 'reason',
@@ -54,6 +61,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->ext) {
+            $this->ext->validate();
+        }
         parent::validate();
     }
 
@@ -74,6 +84,10 @@ class data extends Model
 
         if (null !== $this->deviceId) {
             $res['deviceId'] = $this->deviceId;
+        }
+
+        if (null !== $this->ext) {
+            $res['ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
         }
 
         if (null !== $this->labels) {
@@ -113,6 +127,10 @@ class data extends Model
 
         if (isset($map['deviceId'])) {
             $model->deviceId = $map['deviceId'];
+        }
+
+        if (isset($map['ext'])) {
+            $model->ext = ext::fromMap($map['ext']);
         }
 
         if (isset($map['labels'])) {

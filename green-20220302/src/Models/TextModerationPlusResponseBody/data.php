@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\advice;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\attackResult;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\ext;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\result;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\sensitiveResult;
 
@@ -41,6 +42,11 @@ class data extends Model
      * @var string
      */
     public $detectedLanguage;
+
+    /**
+     * @var ext
+     */
+    public $ext;
 
     /**
      * @var string
@@ -83,6 +89,7 @@ class data extends Model
         'attackResult' => 'AttackResult',
         'dataId' => 'DataId',
         'detectedLanguage' => 'DetectedLanguage',
+        'ext' => 'Ext',
         'manualTaskId' => 'ManualTaskId',
         'result' => 'Result',
         'riskLevel' => 'RiskLevel',
@@ -99,6 +106,9 @@ class data extends Model
         }
         if (\is_array($this->attackResult)) {
             Model::validateArray($this->attackResult);
+        }
+        if (null !== $this->ext) {
+            $this->ext->validate();
         }
         if (\is_array($this->result)) {
             Model::validateArray($this->result);
@@ -148,6 +158,10 @@ class data extends Model
 
         if (null !== $this->detectedLanguage) {
             $res['DetectedLanguage'] = $this->detectedLanguage;
+        }
+
+        if (null !== $this->ext) {
+            $res['Ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
         }
 
         if (null !== $this->manualTaskId) {
@@ -239,6 +253,10 @@ class data extends Model
 
         if (isset($map['DetectedLanguage'])) {
             $model->detectedLanguage = $map['DetectedLanguage'];
+        }
+
+        if (isset($map['Ext'])) {
+            $model->ext = ext::fromMap($map['Ext']);
         }
 
         if (isset($map['ManualTaskId'])) {
