@@ -11,6 +11,11 @@ class datasets extends Model
     /**
      * @var string
      */
+    public $actualMountAccess;
+
+    /**
+     * @var string
+     */
     public $datasetId;
 
     /**
@@ -48,6 +53,7 @@ class datasets extends Model
      */
     public $uri;
     protected $_name = [
+        'actualMountAccess' => 'ActualMountAccess',
         'datasetId' => 'DatasetId',
         'datasetVersion' => 'DatasetVersion',
         'dynamic' => 'Dynamic',
@@ -66,6 +72,10 @@ class datasets extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actualMountAccess) {
+            $res['ActualMountAccess'] = $this->actualMountAccess;
+        }
+
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -109,6 +119,10 @@ class datasets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActualMountAccess'])) {
+            $model->actualMountAccess = $map['ActualMountAccess'];
+        }
+
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
