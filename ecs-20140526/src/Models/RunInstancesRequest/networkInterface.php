@@ -74,6 +74,11 @@ class networkInterface extends Model
     public $rxQueueSize;
 
     /**
+     * @var int
+     */
+    public $secondaryPrivateIpAddressCount;
+
+    /**
      * @var string
      */
     public $securityGroupId;
@@ -111,6 +116,7 @@ class networkInterface extends Model
         'queueNumber' => 'QueueNumber',
         'queuePairNumber' => 'QueuePairNumber',
         'rxQueueSize' => 'RxQueueSize',
+        'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
         'sourceDestCheck' => 'SourceDestCheck',
@@ -189,6 +195,10 @@ class networkInterface extends Model
 
         if (null !== $this->rxQueueSize) {
             $res['RxQueueSize'] = $this->rxQueueSize;
+        }
+
+        if (null !== $this->secondaryPrivateIpAddressCount) {
+            $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
         }
 
         if (null !== $this->securityGroupId) {
@@ -286,6 +296,10 @@ class networkInterface extends Model
 
         if (isset($map['RxQueueSize'])) {
             $model->rxQueueSize = $map['RxQueueSize'];
+        }
+
+        if (isset($map['SecondaryPrivateIpAddressCount'])) {
+            $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
         }
 
         if (isset($map['SecurityGroupId'])) {
