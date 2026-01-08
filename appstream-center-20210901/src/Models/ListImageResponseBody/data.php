@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBod
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\appList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\imageRegionDistributeList;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\tagList;
 
 class data extends Model
 {
@@ -61,6 +62,11 @@ class data extends Model
     public $driverList;
 
     /**
+     * @var string
+     */
+    public $environmentId;
+
+    /**
      * @var string[]
      */
     public $featureList;
@@ -89,6 +95,11 @@ class data extends Model
      * @var string
      */
     public $imageCreateMode;
+
+    /**
+     * @var string
+     */
+    public $imageIconUrl;
 
     /**
      * @var string
@@ -176,6 +187,11 @@ class data extends Model
     public $protocolType;
 
     /**
+     * @var int
+     */
+    public $rating;
+
+    /**
      * @var string
      */
     public $resourceInstanceCategory;
@@ -204,6 +220,11 @@ class data extends Model
      * @var int
      */
     public $systemDiskSize;
+
+    /**
+     * @var tagList[]
+     */
+    public $tagList;
 
     /**
      * @var string
@@ -235,12 +256,14 @@ class data extends Model
         'description' => 'Description',
         'distro' => 'Distro',
         'driverList' => 'DriverList',
+        'environmentId' => 'EnvironmentId',
         'featureList' => 'FeatureList',
         'fotaChannel' => 'FotaChannel',
         'fotaVersion' => 'FotaVersion',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'imageCreateMode' => 'ImageCreateMode',
+        'imageIconUrl' => 'ImageIconUrl',
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'imageRegionDistributeList' => 'ImageRegionDistributeList',
@@ -258,12 +281,14 @@ class data extends Model
         'platformName' => 'PlatformName',
         'productType' => 'ProductType',
         'protocolType' => 'ProtocolType',
+        'rating' => 'Rating',
         'resourceInstanceCategory' => 'ResourceInstanceCategory',
         'scene' => 'Scene',
         'sessionType' => 'SessionType',
         'status' => 'Status',
         'supportedLanguageList' => 'SupportedLanguageList',
         'systemDiskSize' => 'SystemDiskSize',
+        'tagList' => 'TagList',
         'versionId' => 'VersionId',
         'versionName' => 'VersionName',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
@@ -289,6 +314,9 @@ class data extends Model
         }
         if (\is_array($this->supportedLanguageList)) {
             Model::validateArray($this->supportedLanguageList);
+        }
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
         }
         parent::validate();
     }
@@ -350,6 +378,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->environmentId) {
+            $res['EnvironmentId'] = $this->environmentId;
+        }
+
         if (null !== $this->featureList) {
             if (\is_array($this->featureList)) {
                 $res['FeatureList'] = [];
@@ -379,6 +411,10 @@ class data extends Model
 
         if (null !== $this->imageCreateMode) {
             $res['ImageCreateMode'] = $this->imageCreateMode;
+        }
+
+        if (null !== $this->imageIconUrl) {
+            $res['ImageIconUrl'] = $this->imageIconUrl;
         }
 
         if (null !== $this->imageId) {
@@ -463,6 +499,10 @@ class data extends Model
             $res['ProtocolType'] = $this->protocolType;
         }
 
+        if (null !== $this->rating) {
+            $res['Rating'] = $this->rating;
+        }
+
         if (null !== $this->resourceInstanceCategory) {
             $res['ResourceInstanceCategory'] = $this->resourceInstanceCategory;
         }
@@ -492,6 +532,17 @@ class data extends Model
 
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+
+        if (null !== $this->tagList) {
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->versionId) {
@@ -575,6 +626,10 @@ class data extends Model
             }
         }
 
+        if (isset($map['EnvironmentId'])) {
+            $model->environmentId = $map['EnvironmentId'];
+        }
+
         if (isset($map['FeatureList'])) {
             if (!empty($map['FeatureList'])) {
                 $model->featureList = [];
@@ -604,6 +659,10 @@ class data extends Model
 
         if (isset($map['ImageCreateMode'])) {
             $model->imageCreateMode = $map['ImageCreateMode'];
+        }
+
+        if (isset($map['ImageIconUrl'])) {
+            $model->imageIconUrl = $map['ImageIconUrl'];
         }
 
         if (isset($map['ImageId'])) {
@@ -688,6 +747,10 @@ class data extends Model
             $model->protocolType = $map['ProtocolType'];
         }
 
+        if (isset($map['Rating'])) {
+            $model->rating = $map['Rating'];
+        }
+
         if (isset($map['ResourceInstanceCategory'])) {
             $model->resourceInstanceCategory = $map['ResourceInstanceCategory'];
         }
@@ -717,6 +780,17 @@ class data extends Model
 
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+
+        if (isset($map['TagList'])) {
+            if (!empty($map['TagList'])) {
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = tagList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VersionId'])) {
