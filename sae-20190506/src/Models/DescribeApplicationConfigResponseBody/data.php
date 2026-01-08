@@ -199,6 +199,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $idleHour;
+
+    /**
+     * @var string
+     */
     public $imagePullSecrets;
 
     /**
@@ -552,6 +557,7 @@ class data extends Model
         'gpuType' => 'GpuType',
         'headlessPvtzDiscovery' => 'HeadlessPvtzDiscovery',
         'html' => 'Html',
+        'idleHour' => 'IdleHour',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
         'initContainersConfig' => 'InitContainersConfig',
@@ -809,6 +815,10 @@ class data extends Model
 
         if (null !== $this->html) {
             $res['Html'] = $this->html;
+        }
+
+        if (null !== $this->idleHour) {
+            $res['IdleHour'] = $this->idleHour;
         }
 
         if (null !== $this->imagePullSecrets) {
@@ -1281,6 +1291,10 @@ class data extends Model
 
         if (isset($map['Html'])) {
             $model->html = $map['Html'];
+        }
+
+        if (isset($map['IdleHour'])) {
+            $model->idleHour = $map['IdleHour'];
         }
 
         if (isset($map['ImagePullSecrets'])) {

@@ -26,11 +26,17 @@ class UpdateAppModeRequest extends Model
     /**
      * @var string
      */
+    public $idleHour;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
     protected $_name = [
         'appId' => 'AppId',
         'appIds' => 'AppIds',
         'enableIdle' => 'EnableIdle',
+        'idleHour' => 'IdleHour',
         'namespaceId' => 'NamespaceId',
     ];
 
@@ -52,6 +58,10 @@ class UpdateAppModeRequest extends Model
 
         if (null !== $this->enableIdle) {
             $res['EnableIdle'] = $this->enableIdle;
+        }
+
+        if (null !== $this->idleHour) {
+            $res['IdleHour'] = $this->idleHour;
         }
 
         if (null !== $this->namespaceId) {
@@ -79,6 +89,10 @@ class UpdateAppModeRequest extends Model
 
         if (isset($map['EnableIdle'])) {
             $model->enableIdle = $map['EnableIdle'];
+        }
+
+        if (isset($map['IdleHour'])) {
+            $model->idleHour = $map['IdleHour'];
         }
 
         if (isset($map['NamespaceId'])) {

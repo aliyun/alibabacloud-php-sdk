@@ -6378,6 +6378,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Disables ARMS monitoring.
+     *
      * @param request - DisableArmsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6418,6 +6420,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Disables ARMS monitoring.
+     *
      * @param request - DisableArmsRequest
      *
      * @returns DisableArmsResponse
@@ -9705,7 +9709,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 恢复实例的流量.
+     * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
      *
      * @param request - ResumeTrafficRequest
      * @param headers - map
@@ -9751,7 +9755,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 恢复实例的流量.
+     * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
      *
      * @param request - ResumeTrafficRequest
      *
@@ -10180,7 +10184,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 将流量从实例中摘除.
+     * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
      *
      * @param request - SuspendTrafficRequest
      * @param headers - map
@@ -10226,7 +10230,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 将流量从实例中摘除.
+     * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
      *
      * @param request - SuspendTrafficRequest
      *
@@ -10565,6 +10569,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->enableIdle) {
             @$query['EnableIdle'] = $request->enableIdle;
+        }
+
+        if (null !== $request->idleHour) {
+            @$query['IdleHour'] = $request->idleHour;
         }
 
         if (null !== $request->namespaceId) {
