@@ -38,6 +38,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $statusReason;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -55,6 +60,7 @@ class data extends Model
         'finishTime' => 'finishTime',
         'mediaDetectionTaskResult' => 'mediaDetectionTaskResult',
         'startTime' => 'startTime',
+        'statusReason' => 'statusReason',
         'taskId' => 'taskId',
         'taskStatus' => 'taskStatus',
         'videoUrl' => 'videoUrl',
@@ -92,6 +98,10 @@ class data extends Model
 
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
+        }
+
+        if (null !== $this->statusReason) {
+            $res['statusReason'] = $this->statusReason;
         }
 
         if (null !== $this->taskId) {
@@ -135,6 +145,10 @@ class data extends Model
 
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
+        }
+
+        if (isset($map['statusReason'])) {
+            $model->statusReason = $map['statusReason'];
         }
 
         if (isset($map['taskId'])) {
