@@ -28358,6 +28358,10 @@ class Vpc extends OpenApiClient
             @$query['IpOrigin'] = $request->ipOrigin;
         }
 
+        if (null !== $request->ipv4Prefix) {
+            @$query['Ipv4Prefix'] = $request->ipv4Prefix;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }

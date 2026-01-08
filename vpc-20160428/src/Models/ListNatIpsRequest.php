@@ -26,6 +26,11 @@ class ListNatIpsRequest extends Model
     /**
      * @var string
      */
+    public $ipv4Prefix;
+
+    /**
+     * @var string
+     */
     public $maxResults;
 
     /**
@@ -86,6 +91,7 @@ class ListNatIpsRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'ipOrigin' => 'IpOrigin',
+        'ipv4Prefix' => 'Ipv4Prefix',
         'maxResults' => 'MaxResults',
         'natGatewayId' => 'NatGatewayId',
         'natIpCidr' => 'NatIpCidr',
@@ -124,6 +130,10 @@ class ListNatIpsRequest extends Model
 
         if (null !== $this->ipOrigin) {
             $res['IpOrigin'] = $this->ipOrigin;
+        }
+
+        if (null !== $this->ipv4Prefix) {
+            $res['Ipv4Prefix'] = $this->ipv4Prefix;
         }
 
         if (null !== $this->maxResults) {
@@ -209,6 +219,10 @@ class ListNatIpsRequest extends Model
 
         if (isset($map['IpOrigin'])) {
             $model->ipOrigin = $map['IpOrigin'];
+        }
+
+        if (isset($map['Ipv4Prefix'])) {
+            $model->ipv4Prefix = $map['Ipv4Prefix'];
         }
 
         if (isset($map['MaxResults'])) {
