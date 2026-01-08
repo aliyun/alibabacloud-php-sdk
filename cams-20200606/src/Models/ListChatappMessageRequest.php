@@ -4,69 +4,52 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappMessageRequest\page;
-use AlibabaCloud\Tea\Model;
 
 class ListChatappMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 8613800****
-     *
      * @var string
      */
     public $businessNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example WHATSAPP
-     *
      * @var string
      */
     public $channelType;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $clientAcceptStatus;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @example 1727057232686
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example UP
-     *
+     * @var string
+     */
+    public $endTimeStr;
+
+    /**
      * @var string
      */
     public $eventAction;
 
     /**
-     * @example 9292****
-     *
      * @var string
      */
     public $groupMessageId;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $messageStatus;
@@ -77,8 +60,6 @@ class ListChatappMessageRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var page
      */
     public $page;
@@ -94,22 +75,21 @@ class ListChatappMessageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 1727057232686
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @example 9938***
-     *
+     * @var string
+     */
+    public $startTimeStr;
+
+    /**
      * @var string
      */
     public $templateCode;
 
     /**
-     * @example 86138***
-     *
      * @var string
      */
     public $userNumber;
@@ -119,6 +99,7 @@ class ListChatappMessageRequest extends Model
         'clientAcceptStatus' => 'ClientAcceptStatus',
         'custSpaceId' => 'CustSpaceId',
         'endTime' => 'EndTime',
+        'endTimeStr' => 'EndTimeStr',
         'eventAction' => 'EventAction',
         'groupMessageId' => 'GroupMessageId',
         'messageStatus' => 'MessageStatus',
@@ -127,57 +108,86 @@ class ListChatappMessageRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startTime' => 'StartTime',
+        'startTimeStr' => 'StartTimeStr',
         'templateCode' => 'TemplateCode',
         'userNumber' => 'UserNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->page) {
+            $this->page->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessNumber) {
             $res['BusinessNumber'] = $this->businessNumber;
         }
+
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
+
         if (null !== $this->clientAcceptStatus) {
             $res['ClientAcceptStatus'] = $this->clientAcceptStatus;
         }
+
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
+        if (null !== $this->endTimeStr) {
+            $res['EndTimeStr'] = $this->endTimeStr;
+        }
+
         if (null !== $this->eventAction) {
             $res['EventAction'] = $this->eventAction;
         }
+
         if (null !== $this->groupMessageId) {
             $res['GroupMessageId'] = $this->groupMessageId;
         }
+
         if (null !== $this->messageStatus) {
             $res['MessageStatus'] = $this->messageStatus;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
+            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
+        if (null !== $this->startTimeStr) {
+            $res['StartTimeStr'] = $this->startTimeStr;
+        }
+
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
+
         if (null !== $this->userNumber) {
             $res['UserNumber'] = $this->userNumber;
         }
@@ -185,56 +195,78 @@ class ListChatappMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListChatappMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessNumber'])) {
             $model->businessNumber = $map['BusinessNumber'];
         }
+
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
+
         if (isset($map['ClientAcceptStatus'])) {
             $model->clientAcceptStatus = $map['ClientAcceptStatus'];
         }
+
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
+        if (isset($map['EndTimeStr'])) {
+            $model->endTimeStr = $map['EndTimeStr'];
+        }
+
         if (isset($map['EventAction'])) {
             $model->eventAction = $map['EventAction'];
         }
+
         if (isset($map['GroupMessageId'])) {
             $model->groupMessageId = $map['GroupMessageId'];
         }
+
         if (isset($map['MessageStatus'])) {
             $model->messageStatus = $map['MessageStatus'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
+        if (isset($map['StartTimeStr'])) {
+            $model->startTimeStr = $map['StartTimeStr'];
+        }
+
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
+
         if (isset($map['UserNumber'])) {
             $model->userNumber = $map['UserNumber'];
         }

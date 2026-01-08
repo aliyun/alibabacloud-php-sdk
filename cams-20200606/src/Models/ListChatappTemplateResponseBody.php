@@ -4,74 +4,42 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponseBody\listTemplate;
-use AlibabaCloud\Tea\Model;
 
 class ListChatappTemplateResponseBody extends Model
 {
     /**
-     * @description The details about the access denial.
-     *
-     * @example None
-     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The message templates.
-     *
      * @var listTemplate[]
      */
     public $listTemplate;
 
     /**
-     * @description The error message returned.
-     *
-     * @example User not authorized to operate on the specified resource.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 90E63D28-E31D-1EB2-8939-A9486641****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -85,35 +53,48 @@ class ListChatappTemplateResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->listTemplate)) {
+            Model::validateArray($this->listTemplate);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->listTemplate) {
-            $res['ListTemplate'] = [];
-            if (null !== $this->listTemplate && \is_array($this->listTemplate)) {
-                $n = 0;
-                foreach ($this->listTemplate as $item) {
-                    $res['ListTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listTemplate)) {
+                $res['ListTemplate'] = [];
+                $n1 = 0;
+                foreach ($this->listTemplate as $item1) {
+                    $res['ListTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -121,38 +102,45 @@ class ListChatappTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListChatappTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ListTemplate'])) {
             if (!empty($map['ListTemplate'])) {
                 $model->listTemplate = [];
-                $n = 0;
-                foreach ($map['ListTemplate'] as $item) {
-                    $model->listTemplate[$n++] = null !== $item ? listTemplate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ListTemplate'] as $item1) {
+                    $model->listTemplate[$n1] = listTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @example 861382***
-     *
      * @var string
      */
     public $participantNumber;
@@ -18,9 +16,12 @@ class list_ extends Model
         'participantNumber' => 'ParticipantNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->participantNumber) {
@@ -30,11 +31,11 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\productAction\sections;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class productItems extends Model
 {
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $productRetailerId;
@@ -18,9 +16,12 @@ class productItems extends Model
         'productRetailerId' => 'ProductRetailerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productRetailerId) {
@@ -30,11 +31,11 @@ class productItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

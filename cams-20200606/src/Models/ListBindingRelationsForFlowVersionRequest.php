@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBindingRelationsForFlowVersionRequest extends Model
 {
     /**
-     * @description Channel type. Values:
-     * - INSTAGRAM
-     * - WHATSAPP
-     * - MESSENGER
-     * This parameter is required.
-     * @example WHATSAPP
-     *
      * @var string
      */
     public $channelType;
 
     /**
-     * @description Process code. View the process code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 9ccc41**************************
-     *
      * @var string
      */
     public $flowCode;
@@ -53,23 +40,30 @@ class ListBindingRelationsForFlowVersionRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
+
         if (null !== $this->flowCode) {
             $res['FlowCode'] = $this->flowCode;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -77,26 +71,30 @@ class ListBindingRelationsForFlowVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBindingRelationsForFlowVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
+
         if (isset($map['FlowCode'])) {
             $model->flowCode = $map['FlowCode'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

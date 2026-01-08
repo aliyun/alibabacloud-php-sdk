@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\CreateFlowResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The categories of the Flow.
-     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description The Flow ID.
-     *
-     * @example 333993838***
-     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description The name of the Flow.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $flowName;
@@ -38,17 +28,32 @@ class data extends Model
         'flowName' => 'FlowName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['Categories'] = $this->categories;
+            if (\is_array($this->categories)) {
+                $res['Categories'] = [];
+                $n1 = 0;
+                foreach ($this->categories as $item1) {
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
@@ -56,22 +61,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
-                $model->categories = $map['Categories'];
+                $model->categories = [];
+                $n1 = 0;
+                foreach ($map['Categories'] as $item1) {
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }

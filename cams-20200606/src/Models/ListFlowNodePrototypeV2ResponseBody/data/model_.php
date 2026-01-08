@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListFlowNodePrototypeV2ResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class model_ extends Model
 {
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $groupCode;
 
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $publicExtend;
 
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $status;
@@ -42,20 +34,26 @@ class model_ extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->groupCode) {
             $res['GroupCode'] = $this->groupCode;
         }
+
         if (null !== $this->publicExtend) {
             $res['PublicExtend'] = $this->publicExtend;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,23 +61,26 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['GroupCode'])) {
             $model->groupCode = $map['GroupCode'];
         }
+
         if (isset($map['PublicExtend'])) {
             $model->publicExtend = $map['PublicExtend'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

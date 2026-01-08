@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappHealthStatusResponseBody\data\entities;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates whether the messages can be sent.
-     *
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $canSendMessage;
 
     /**
-     * @description The queried entities.
-     *
      * @var entities[]
      */
     public $entities;
@@ -29,20 +23,28 @@ class data extends Model
         'entities' => 'Entities',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->entities)) {
+            Model::validateArray($this->entities);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canSendMessage) {
             $res['CanSendMessage'] = $this->canSendMessage;
         }
+
         if (null !== $this->entities) {
-            $res['Entities'] = [];
-            if (null !== $this->entities && \is_array($this->entities)) {
-                $n = 0;
-                foreach ($this->entities as $item) {
-                    $res['Entities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entities)) {
+                $res['Entities'] = [];
+                $n1 = 0;
+                foreach ($this->entities as $item1) {
+                    $res['Entities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanSendMessage'])) {
             $model->canSendMessage = $map['CanSendMessage'];
         }
+
         if (isset($map['Entities'])) {
             if (!empty($map['Entities'])) {
                 $model->entities = [];
-                $n = 0;
-                foreach ($map['Entities'] as $item) {
-                    $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Entities'] as $item1) {
+                    $model->entities[$n1] = entities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

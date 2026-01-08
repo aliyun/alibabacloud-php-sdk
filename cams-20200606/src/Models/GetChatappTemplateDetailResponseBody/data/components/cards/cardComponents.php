@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components\cards;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data\components\cards\cardComponents\buttons;
-use AlibabaCloud\Tea\Model;
 
 class cardComponents extends Model
 {
     /**
-     * @description The buttons of the carousel card.
-     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description The type of the header in the carousel template. The header can only be an image or a video. The headers of all carousel cards must be the same. The type of the media resources that are included in the message. Valid values: IMGAGE and VIDEO.
-     *
-     * @example HEADER
-     *
      * @var string
      */
     public $format;
 
     /**
-     * @description The text of the carousel card.
-     *
-     * @example Body
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description The component type.
-     *
-     * @example HEADER
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The URL.
-     *
-     * @example https://aliyun.com
-     *
      * @var string
      */
     public $url;
@@ -59,29 +41,40 @@ class cardComponents extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->buttons)) {
+            Model::validateArray($this->buttons);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buttons) {
-            $res['Buttons'] = [];
-            if (null !== $this->buttons && \is_array($this->buttons)) {
-                $n = 0;
-                foreach ($this->buttons as $item) {
-                    $res['Buttons'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->buttons)) {
+                $res['Buttons'] = [];
+                $n1 = 0;
+                foreach ($this->buttons as $item1) {
+                    $res['Buttons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -89,32 +82,37 @@ class cardComponents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cardComponents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
-                $n = 0;
-                foreach ($map['Buttons'] as $item) {
-                    $model->buttons[$n++] = null !== $item ? buttons::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Buttons'] as $item1) {
+                    $model->buttons[$n1] = buttons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

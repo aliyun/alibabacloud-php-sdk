@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flowAction extends Model
 {
@@ -14,8 +14,6 @@ class flowAction extends Model
     public $flowActionData;
 
     /**
-     * @example 示例值
-     *
      * @var string
      */
     public $flowToken;
@@ -24,14 +22,26 @@ class flowAction extends Model
         'flowToken' => 'FlowToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->flowActionData)) {
+            Model::validateArray($this->flowActionData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowActionData) {
-            $res['FlowActionData'] = $this->flowActionData;
+            if (\is_array($this->flowActionData)) {
+                $res['FlowActionData'] = [];
+                foreach ($this->flowActionData as $key1 => $value1) {
+                    $res['FlowActionData'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->flowToken) {
             $res['FlowToken'] = $this->flowToken;
         }
@@ -39,17 +49,23 @@ class flowAction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flowAction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowActionData'])) {
-            $model->flowActionData = $map['FlowActionData'];
+            if (!empty($map['FlowActionData'])) {
+                $model->flowActionData = [];
+                foreach ($map['FlowActionData'] as $key1 => $value1) {
+                    $model->flowActionData[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['FlowToken'])) {
             $model->flowToken = $map['FlowToken'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFlowVersionShrinkRequest extends Model
 {
     /**
-     * @description Business tenant code, default is “ALICOM_OPAAS”.
-     *
-     * @example ALICOM_OPAAS
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @description Business extension information, default is “{}”.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $bizExtendShrink;
 
     /**
-     * @description Flow code.
-     *
-     * @example f4912c16943b4dfba44bd6fedacf****
-     *
      * @var string
      */
     public $flowCode;
@@ -41,19 +29,11 @@ class ListFlowVersionShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description Current page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description Page size.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
@@ -69,10 +49,6 @@ class ListFlowVersionShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Flow version status.
-     *
-     * @example DRAFT
-     *
      * @var string
      */
     public $status;
@@ -88,35 +64,46 @@ class ListFlowVersionShrinkRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->bizExtendShrink) {
             $res['BizExtend'] = $this->bizExtendShrink;
         }
+
         if (null !== $this->flowCode) {
             $res['FlowCode'] = $this->flowCode;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -124,38 +111,46 @@ class ListFlowVersionShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFlowVersionShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['BizExtend'])) {
             $model->bizExtendShrink = $map['BizExtend'];
         }
+
         if (isset($map['FlowCode'])) {
             $model->flowCode = $map['FlowCode'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

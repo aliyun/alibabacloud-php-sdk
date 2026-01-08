@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListChatGroupParticipantsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class page extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -26,14 +22,18 @@ class page extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -41,17 +41,18 @@ class page extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return page
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

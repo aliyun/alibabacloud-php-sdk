@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FlowUnbindPhoneRequest extends Model
 {
     /**
-     * @description Message channel type
-     *
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $channelType;
 
     /**
-     * @description Flow code.
-     *
-     * This parameter is required.
-     *
-     * @example 示例值
-     *
      * @var string
      */
     public $flowCode;
 
     /**
-     * @description Flow version
-     *
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $flowVersion;
@@ -43,8 +29,6 @@ class FlowUnbindPhoneRequest extends Model
     public $ownerId;
 
     /**
-     * @description Phone numbers or PageIds under the channel instance, etc.
-     *
      * @var string[]
      */
     public $phoneNumbers;
@@ -68,29 +52,48 @@ class FlowUnbindPhoneRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->phoneNumbers)) {
+            Model::validateArray($this->phoneNumbers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
+
         if (null !== $this->flowCode) {
             $res['FlowCode'] = $this->flowCode;
         }
+
         if (null !== $this->flowVersion) {
             $res['FlowVersion'] = $this->flowVersion;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->phoneNumbers) {
-            $res['PhoneNumbers'] = $this->phoneNumbers;
+            if (\is_array($this->phoneNumbers)) {
+                $res['PhoneNumbers'] = [];
+                $n1 = 0;
+                foreach ($this->phoneNumbers as $item1) {
+                    $res['PhoneNumbers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -98,34 +101,45 @@ class FlowUnbindPhoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FlowUnbindPhoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
+
         if (isset($map['FlowCode'])) {
             $model->flowCode = $map['FlowCode'];
         }
+
         if (isset($map['FlowVersion'])) {
             $model->flowVersion = $map['FlowVersion'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PhoneNumbers'])) {
             if (!empty($map['PhoneNumbers'])) {
-                $model->phoneNumbers = $map['PhoneNumbers'];
+                $model->phoneNumbers = [];
+                $n1 = 0;
+                foreach ($map['PhoneNumbers'] as $item1) {
+                    $model->phoneNumbers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

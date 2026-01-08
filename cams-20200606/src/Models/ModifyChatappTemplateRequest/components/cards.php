@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest\components;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest\components\cards\cardComponents;
-use AlibabaCloud\Tea\Model;
 
 class cards extends Model
 {
     /**
-     * @description The components of the carousel card.
-     *
-     * This parameter is required.
-     *
      * @var cardComponents[]
      */
     public $cardComponents;
@@ -21,17 +17,24 @@ class cards extends Model
         'cardComponents' => 'CardComponents',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cardComponents)) {
+            Model::validateArray($this->cardComponents);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cardComponents) {
-            $res['CardComponents'] = [];
-            if (null !== $this->cardComponents && \is_array($this->cardComponents)) {
-                $n = 0;
-                foreach ($this->cardComponents as $item) {
-                    $res['CardComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cardComponents)) {
+                $res['CardComponents'] = [];
+                $n1 = 0;
+                foreach ($this->cardComponents as $item1) {
+                    $res['CardComponents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class cards extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cards
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CardComponents'])) {
             if (!empty($map['CardComponents'])) {
                 $model->cardComponents = [];
-                $n = 0;
-                foreach ($map['CardComponents'] as $item) {
-                    $model->cardComponents[$n++] = null !== $item ? cardComponents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CardComponents'] as $item1) {
+                    $model->cardComponents[$n1] = cardComponents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

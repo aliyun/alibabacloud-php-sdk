@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatFlowTemplateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Content of the returned data.
-     *
-     * @example 无
-     *
      * @var mixed[]
      */
     public $response;
@@ -20,28 +16,44 @@ class data extends Model
         'response' => 'Response',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->response)) {
+            Model::validateArray($this->response);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->response) {
-            $res['Response'] = $this->response;
+            if (\is_array($this->response)) {
+                $res['Response'] = [];
+                foreach ($this->response as $key1 => $value1) {
+                    $res['Response'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Response'])) {
-            $model->response = $map['Response'];
+            if (!empty($map['Response'])) {
+                $model->response = [];
+                foreach ($map['Response'] as $key1 => $value1) {
+                    $model->response[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

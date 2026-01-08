@@ -1,0 +1,132 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cams\V20200606\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ListDmAccountRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageIndex;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $sendType;
+    protected $_name = [
+        'keyword' => 'Keyword',
+        'ownerId' => 'OwnerId',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sendType' => 'SendType',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->sendType) {
+            $res['SendType'] = $this->sendType;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SendType'])) {
+            $model->sendType = $map['SendType'];
+        }
+
+        return $model;
+    }
+}

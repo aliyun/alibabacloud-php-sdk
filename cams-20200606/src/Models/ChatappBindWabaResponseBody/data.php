@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ChatappBindWabaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
-     *
-     * @example C02029392939939
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp Business Account (WABA).
-     *
-     * @example 2939828282
-     *
      * @var string
      */
     public $wabaId;
@@ -30,14 +22,18 @@ class data extends Model
         'wabaId' => 'WabaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->wabaId) {
             $res['WabaId'] = $this->wabaId;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['WabaId'])) {
             $model->wabaId = $map['WabaId'];
         }
