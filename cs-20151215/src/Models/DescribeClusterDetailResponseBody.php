@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\controlPlaneConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\controlPlaneEndpointsConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\rrsaConfig;
 
@@ -46,6 +47,11 @@ class DescribeClusterDetailResponseBody extends Model
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
+
+    /**
+     * @var controlPlaneEndpointsConfig
+     */
+    public $controlPlaneEndpointsConfig;
 
     /**
      * @var string
@@ -234,6 +240,7 @@ class DescribeClusterDetailResponseBody extends Model
         'clusterType' => 'cluster_type',
         'containerCidr' => 'container_cidr',
         'controlPlaneConfig' => 'control_plane_config',
+        'controlPlaneEndpointsConfig' => 'control_plane_endpoints_config',
         'created' => 'created',
         'currentVersion' => 'current_version',
         'deletionProtection' => 'deletion_protection',
@@ -279,6 +286,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
+        }
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $this->controlPlaneEndpointsConfig->validate();
         }
         if (\is_array($this->extraSans)) {
             Model::validateArray($this->extraSans);
@@ -333,6 +343,10 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (null !== $this->controlPlaneConfig) {
             $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
+        }
+
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $res['control_plane_endpoints_config'] = null !== $this->controlPlaneEndpointsConfig ? $this->controlPlaneEndpointsConfig->toArray($noStream) : $this->controlPlaneEndpointsConfig;
         }
 
         if (null !== $this->created) {
@@ -542,6 +556,10 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (isset($map['control_plane_config'])) {
             $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
+        }
+
+        if (isset($map['control_plane_endpoints_config'])) {
+            $model->controlPlaneEndpointsConfig = controlPlaneEndpointsConfig::fromMap($map['control_plane_endpoints_config']);
         }
 
         if (isset($map['created'])) {

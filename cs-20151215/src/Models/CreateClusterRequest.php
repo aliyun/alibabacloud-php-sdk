@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\auditLogConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneEndpointsConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\rrsaConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
@@ -88,6 +89,11 @@ class CreateClusterRequest extends Model
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
+
+    /**
+     * @var controlPlaneEndpointsConfig
+     */
+    public $controlPlaneEndpointsConfig;
 
     /**
      * @var string[]
@@ -539,6 +545,7 @@ class CreateClusterRequest extends Model
         'clusterType' => 'cluster_type',
         'containerCidr' => 'container_cidr',
         'controlPlaneConfig' => 'control_plane_config',
+        'controlPlaneEndpointsConfig' => 'control_plane_endpoints_config',
         'controlplaneLogComponents' => 'controlplane_log_components',
         'controlplaneLogProject' => 'controlplane_log_project',
         'controlplaneLogTtl' => 'controlplane_log_ttl',
@@ -644,6 +651,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
+        }
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $this->controlPlaneEndpointsConfig->validate();
         }
         if (\is_array($this->controlplaneLogComponents)) {
             Model::validateArray($this->controlplaneLogComponents);
@@ -783,6 +793,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->controlPlaneConfig) {
             $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
+        }
+
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $res['control_plane_endpoints_config'] = null !== $this->controlPlaneEndpointsConfig ? $this->controlPlaneEndpointsConfig->toArray($noStream) : $this->controlPlaneEndpointsConfig;
         }
 
         if (null !== $this->controlplaneLogComponents) {
@@ -1328,6 +1342,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['control_plane_config'])) {
             $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
+        }
+
+        if (isset($map['control_plane_endpoints_config'])) {
+            $model->controlPlaneEndpointsConfig = controlPlaneEndpointsConfig::fromMap($map['control_plane_endpoints_config']);
         }
 
         if (isset($map['controlplane_log_components'])) {

@@ -1200,6 +1200,10 @@ class CS extends OpenApiClient
             @$body['control_plane_config'] = $request->controlPlaneConfig;
         }
 
+        if (null !== $request->controlPlaneEndpointsConfig) {
+            @$body['control_plane_endpoints_config'] = $request->controlPlaneEndpointsConfig;
+        }
+
         if (null !== $request->controlplaneLogComponents) {
             @$body['controlplane_log_components'] = $request->controlplaneLogComponents;
         }
@@ -7196,6 +7200,10 @@ class CS extends OpenApiClient
 
         if (null !== $request->controlPlaneConfig) {
             @$body['control_plane_config'] = $request->controlPlaneConfig;
+        }
+
+        if (null !== $request->controlPlaneEndpointsConfig) {
+            @$body['control_plane_endpoints_config'] = $request->controlPlaneEndpointsConfig;
         }
 
         if (null !== $request->deletionProtection) {

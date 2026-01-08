@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\apiServerCustomCertSans;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\controlPlaneConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\controlPlaneEndpointsConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\systemEventsLogging;
 
@@ -41,6 +42,11 @@ class ModifyClusterRequest extends Model
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
+
+    /**
+     * @var controlPlaneEndpointsConfig
+     */
+    public $controlPlaneEndpointsConfig;
 
     /**
      * @var bool
@@ -108,6 +114,7 @@ class ModifyClusterRequest extends Model
         'apiServerEipId' => 'api_server_eip_id',
         'clusterName' => 'cluster_name',
         'controlPlaneConfig' => 'control_plane_config',
+        'controlPlaneEndpointsConfig' => 'control_plane_endpoints_config',
         'deletionProtection' => 'deletion_protection',
         'enableRrsa' => 'enable_rrsa',
         'ingressDomainRebinding' => 'ingress_domain_rebinding',
@@ -132,6 +139,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
+        }
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $this->controlPlaneEndpointsConfig->validate();
         }
         if (null !== $this->maintenanceWindow) {
             $this->maintenanceWindow->validate();
@@ -180,6 +190,10 @@ class ModifyClusterRequest extends Model
 
         if (null !== $this->controlPlaneConfig) {
             $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
+        }
+
+        if (null !== $this->controlPlaneEndpointsConfig) {
+            $res['control_plane_endpoints_config'] = null !== $this->controlPlaneEndpointsConfig ? $this->controlPlaneEndpointsConfig->toArray($noStream) : $this->controlPlaneEndpointsConfig;
         }
 
         if (null !== $this->deletionProtection) {
@@ -277,6 +291,10 @@ class ModifyClusterRequest extends Model
 
         if (isset($map['control_plane_config'])) {
             $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
+        }
+
+        if (isset($map['control_plane_endpoints_config'])) {
+            $model->controlPlaneEndpointsConfig = controlPlaneEndpointsConfig::fromMap($map['control_plane_endpoints_config']);
         }
 
         if (isset($map['deletion_protection'])) {
