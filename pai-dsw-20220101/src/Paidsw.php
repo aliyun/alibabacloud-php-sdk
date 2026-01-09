@@ -1664,12 +1664,20 @@ class Paidsw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->audience) {
+            @$query['Audience'] = $request->audience;
+        }
+
         if (null !== $request->expireTime) {
             @$query['ExpireTime'] = $request->expireTime;
         }
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([
