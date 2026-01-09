@@ -174,6 +174,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileRecycledMetaVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileRecycledMetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyShrinkRequest;
@@ -1054,6 +1056,10 @@ class Cloudauth extends OpenApiClient
 
         if (null !== $request->checkFileName) {
             @$query['CheckFileName'] = $request->checkFileName;
+        }
+
+        if (null !== $request->deviceRiskPlus) {
+            @$query['DeviceRiskPlus'] = $request->deviceRiskPlus;
         }
 
         if (null !== $request->miniProgramName) {
@@ -7383,6 +7389,71 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 手机号二次放号核验.
+     *
+     * @param Request - MobileRecycledMetaVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MobileRecycledMetaVerifyResponse
+     *
+     * @param MobileRecycledMetaVerifyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MobileRecycledMetaVerifyResponse
+     */
+    public function mobileRecycledMetaVerifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->paramType) {
+            @$query['ParamType'] = $request->paramType;
+        }
+
+        if (null !== $request->registerDate) {
+            @$query['RegisterDate'] = $request->registerDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MobileRecycledMetaVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MobileRecycledMetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手机号二次放号核验.
+     *
+     * @param Request - MobileRecycledMetaVerifyRequest
+     *
+     * @returns MobileRecycledMetaVerifyResponse
+     *
+     * @param MobileRecycledMetaVerifyRequest $request
+     *
+     * @return MobileRecycledMetaVerifyResponse
+     */
+    public function mobileRecycledMetaVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobileRecycledMetaVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * Modify Black and White List Policy.
      *
      * @remarks
@@ -8385,6 +8456,10 @@ class Cloudauth extends OpenApiClient
 
         if (null !== $request->checkFileName) {
             @$query['CheckFileName'] = $request->checkFileName;
+        }
+
+        if (null !== $request->deviceRiskPlus) {
+            @$query['DeviceRiskPlus'] = $request->deviceRiskPlus;
         }
 
         if (null !== $request->miniProgramName) {

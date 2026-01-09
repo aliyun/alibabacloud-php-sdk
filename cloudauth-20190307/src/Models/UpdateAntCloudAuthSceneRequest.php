@@ -26,6 +26,11 @@ class UpdateAntCloudAuthSceneRequest extends Model
     /**
      * @var string
      */
+    public $deviceRiskPlus;
+
+    /**
+     * @var string
+     */
     public $miniProgramName;
 
     /**
@@ -66,6 +71,7 @@ class UpdateAntCloudAuthSceneRequest extends Model
         'bindMiniProgram' => 'BindMiniProgram',
         'checkFileBody' => 'CheckFileBody',
         'checkFileName' => 'CheckFileName',
+        'deviceRiskPlus' => 'DeviceRiskPlus',
         'miniProgramName' => 'MiniProgramName',
         'platform' => 'Platform',
         'returnPicCount' => 'ReturnPicCount',
@@ -94,6 +100,10 @@ class UpdateAntCloudAuthSceneRequest extends Model
 
         if (null !== $this->checkFileName) {
             $res['CheckFileName'] = $this->checkFileName;
+        }
+
+        if (null !== $this->deviceRiskPlus) {
+            $res['DeviceRiskPlus'] = $this->deviceRiskPlus;
         }
 
         if (null !== $this->miniProgramName) {
@@ -149,6 +159,10 @@ class UpdateAntCloudAuthSceneRequest extends Model
 
         if (isset($map['CheckFileName'])) {
             $model->checkFileName = $map['CheckFileName'];
+        }
+
+        if (isset($map['DeviceRiskPlus'])) {
+            $model->deviceRiskPlus = $map['DeviceRiskPlus'];
         }
 
         if (isset($map['MiniProgramName'])) {

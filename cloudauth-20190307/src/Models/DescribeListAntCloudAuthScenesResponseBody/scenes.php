@@ -31,6 +31,11 @@ class scenes extends Model
     /**
      * @var string
      */
+    public $deviceRiskPlus;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -87,6 +92,7 @@ class scenes extends Model
         'bindMiniProgram' => 'BindMiniProgram',
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
+        'deviceRiskPlus' => 'DeviceRiskPlus',
         'domain' => 'Domain',
         'miniProgramName' => 'MiniProgramName',
         'modifier' => 'Modifier',
@@ -122,6 +128,10 @@ class scenes extends Model
 
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+
+        if (null !== $this->deviceRiskPlus) {
+            $res['DeviceRiskPlus'] = $this->deviceRiskPlus;
         }
 
         if (null !== $this->domain) {
@@ -193,6 +203,10 @@ class scenes extends Model
 
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+
+        if (isset($map['DeviceRiskPlus'])) {
+            $model->deviceRiskPlus = $map['DeviceRiskPlus'];
         }
 
         if (isset($map['Domain'])) {
