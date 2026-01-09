@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateDataSet2Request;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateDataSet2Response;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateDataSetRequest;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateDataSetResponse;
+use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateInstanceTaskRequest;
+use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateInstanceTaskResponse;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateKnowLedgeRequest;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateKnowLedgeResponse;
 use AlibabaCloud\SDK\Umengfinplus\V20220913\Models\CreateKnowLedgeShrinkRequest;
@@ -647,6 +649,99 @@ class Umengfinplus extends OpenApiClient
         $headers = [];
 
         return $this->createDataSet2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建友准达实例任务
+     *
+     * @param request - CreateInstanceTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceTaskResponse
+     *
+     * @param CreateInstanceTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateInstanceTaskResponse
+     */
+    public function createInstanceTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->calbackUrl) {
+            @$body['CalbackUrl'] = $request->calbackUrl;
+        }
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->datasetIds) {
+            @$body['DatasetIds'] = $request->datasetIds;
+        }
+
+        if (null !== $request->monitorType) {
+            @$body['MonitorType'] = $request->monitorType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputConfig) {
+            @$body['OutputConfig'] = $request->outputConfig;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['RequestId'] = $request->requestId;
+        }
+
+        if (null !== $request->scoreStrategyConfig) {
+            @$body['ScoreStrategyConfig'] = $request->scoreStrategyConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceTask',
+            'version' => '2022-09-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/CreateInstanceTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建友准达实例任务
+     *
+     * @param request - CreateInstanceTaskRequest
+     *
+     * @returns CreateInstanceTaskResponse
+     *
+     * @param CreateInstanceTaskRequest $request
+     *
+     * @return CreateInstanceTaskResponse
+     */
+    public function createInstanceTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
