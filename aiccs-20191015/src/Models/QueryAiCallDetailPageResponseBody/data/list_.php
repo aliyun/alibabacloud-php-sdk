@@ -71,6 +71,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $outId;
+
+    /**
+     * @var string
+     */
     public $recordingFilePath;
 
     /**
@@ -95,6 +100,7 @@ class list_ extends Model
         'importedTime' => 'ImportedTime',
         'majorIntent' => 'MajorIntent',
         'options' => 'Options',
+        'outId' => 'OutId',
         'recordingFilePath' => 'RecordingFilePath',
         'status' => 'Status',
         'taskId' => 'TaskId',
@@ -154,6 +160,10 @@ class list_ extends Model
 
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
 
         if (null !== $this->recordingFilePath) {
@@ -225,6 +235,10 @@ class list_ extends Model
 
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
 
         if (isset($map['RecordingFilePath'])) {

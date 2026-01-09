@@ -66,6 +66,11 @@ class list_ extends Model
     /**
      * @var bool
      */
+    public $withActivePrompt;
+
+    /**
+     * @var bool
+     */
     public $withConfig;
     protected $_name = [
         'agentId' => 'AgentId',
@@ -79,6 +84,7 @@ class list_ extends Model
         'lastOnlineTime' => 'LastOnlineTime',
         'modifyTime' => 'ModifyTime',
         'status' => 'Status',
+        'withActivePrompt' => 'WithActivePrompt',
         'withConfig' => 'WithConfig',
     ];
 
@@ -132,6 +138,10 @@ class list_ extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->withActivePrompt) {
+            $res['WithActivePrompt'] = $this->withActivePrompt;
         }
 
         if (null !== $this->withConfig) {
@@ -191,6 +201,10 @@ class list_ extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['WithActivePrompt'])) {
+            $model->withActivePrompt = $map['WithActivePrompt'];
         }
 
         if (isset($map['WithConfig'])) {
