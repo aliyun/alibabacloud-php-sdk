@@ -45,6 +45,11 @@ class DescribeDBInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -56,6 +61,7 @@ class DescribeDBInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'tag' => 'Tag',
     ];
 
@@ -96,6 +102,10 @@ class DescribeDBInstancesRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->tag) {
@@ -146,6 +156,10 @@ class DescribeDBInstancesRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['Tag'])) {

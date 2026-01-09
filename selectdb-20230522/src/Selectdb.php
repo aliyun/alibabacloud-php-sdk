@@ -1916,6 +1916,10 @@ class Selectdb extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
         if (null !== $request->tagShrink) {
             @$query['Tag'] = $request->tagShrink;
         }
