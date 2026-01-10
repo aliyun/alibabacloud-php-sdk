@@ -31,6 +31,11 @@ class CreateOrderRequest extends Model
     /**
      * @var string
      */
+    public $realLoginUserUid;
+
+    /**
+     * @var string
+     */
     public $relatedUserList;
 
     /**
@@ -42,6 +47,7 @@ class CreateOrderRequest extends Model
         'comment' => 'Comment',
         'pluginParam' => 'PluginParam',
         'pluginType' => 'PluginType',
+        'realLoginUserUid' => 'RealLoginUserUid',
         'relatedUserList' => 'RelatedUserList',
         'tid' => 'Tid',
     ];
@@ -76,6 +82,10 @@ class CreateOrderRequest extends Model
 
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
+        }
+
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
 
         if (null !== $this->relatedUserList) {
@@ -116,6 +126,10 @@ class CreateOrderRequest extends Model
 
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
+        }
+
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
 
         if (isset($map['RelatedUserList'])) {

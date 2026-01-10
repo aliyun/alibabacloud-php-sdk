@@ -4880,6 +4880,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['PluginType'] = $request->pluginType;
         }
 
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
+
         if (null !== $request->relatedUserList) {
             @$query['RelatedUserList'] = $request->relatedUserList;
         }

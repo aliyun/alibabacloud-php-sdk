@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $edition;
 
     /**
@@ -61,7 +66,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $regionCode;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -85,6 +100,7 @@ class data extends Model
     protected $_name = [
         'appUuid' => 'AppUuid',
         'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'edition' => 'Edition',
         'enterpriseInternetUrl' => 'EnterpriseInternetUrl',
         'enterpriseIntranetUrl' => 'EnterpriseIntranetUrl',
@@ -93,7 +109,9 @@ class data extends Model
         'internetUrl' => 'InternetUrl',
         'intranetUrl' => 'IntranetUrl',
         'majorVersion' => 'MajorVersion',
+        'regionCode' => 'RegionCode',
         'securityGroupId' => 'SecurityGroupId',
+        'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'workspaceId' => 'WorkspaceId',
@@ -114,6 +132,10 @@ class data extends Model
 
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->edition) {
@@ -148,8 +170,16 @@ class data extends Model
             $res['MajorVersion'] = $this->majorVersion;
         }
 
+        if (null !== $this->regionCode) {
+            $res['RegionCode'] = $this->regionCode;
+        }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->vSwitchId) {
@@ -187,6 +217,10 @@ class data extends Model
             $model->createdTime = $map['CreatedTime'];
         }
 
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
@@ -219,8 +253,16 @@ class data extends Model
             $model->majorVersion = $map['MajorVersion'];
         }
 
+        if (isset($map['RegionCode'])) {
+            $model->regionCode = $map['RegionCode'];
+        }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['VSwitchId'])) {
