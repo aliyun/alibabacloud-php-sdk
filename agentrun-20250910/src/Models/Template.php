@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\Template\mcpState;
 class Template extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowAnonymousManage;
+
+    /**
      * @var ContainerConfiguration
      */
     public $containerConfiguration;
@@ -140,6 +145,7 @@ class Template extends Model
      */
     public $templateVersion;
     protected $_name = [
+        'allowAnonymousManage' => 'allowAnonymousManage',
         'containerConfiguration' => 'containerConfiguration',
         'cpu' => 'cpu',
         'createdAt' => 'createdAt',
@@ -203,6 +209,10 @@ class Template extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowAnonymousManage) {
+            $res['allowAnonymousManage'] = $this->allowAnonymousManage;
+        }
+
         if (null !== $this->containerConfiguration) {
             $res['containerConfiguration'] = null !== $this->containerConfiguration ? $this->containerConfiguration->toArray($noStream) : $this->containerConfiguration;
         }
@@ -335,6 +345,10 @@ class Template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowAnonymousManage'])) {
+            $model->allowAnonymousManage = $map['allowAnonymousManage'];
+        }
+
         if (isset($map['containerConfiguration'])) {
             $model->containerConfiguration = ContainerConfiguration::fromMap($map['containerConfiguration']);
         }

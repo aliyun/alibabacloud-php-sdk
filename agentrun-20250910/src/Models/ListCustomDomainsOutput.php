@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListMemoryRequest extends Model
+class ListCustomDomainsOutput extends Model
 {
+    /**
+     * @var CustomDomain[]
+     */
+    public $items;
+
     /**
      * @var int
      */
@@ -19,23 +24,38 @@ class ListMemoryRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $pattern;
+    public $total;
     protected $_name = [
+        'items' => 'items',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
-        'pattern' => 'pattern',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->items) {
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -44,8 +64,8 @@ class ListMemoryRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->pattern) {
-            $res['pattern'] = $this->pattern;
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
         }
 
         return $res;
@@ -59,6 +79,17 @@ class ListMemoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['items'])) {
+            if (!empty($map['items'])) {
+                $model->items = [];
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1] = CustomDomain::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
@@ -67,8 +98,8 @@ class ListMemoryRequest extends Model
             $model->pageSize = $map['pageSize'];
         }
 
-        if (isset($map['pattern'])) {
-            $model->pattern = $map['pattern'];
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
 
         return $model;

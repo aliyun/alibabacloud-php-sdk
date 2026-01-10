@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateTemplateInput extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowAnonymousManage;
+
+    /**
      * @var ArmsConfiguration
      */
     public $armsConfiguration;
@@ -78,6 +83,7 @@ class UpdateTemplateInput extends Model
      */
     public $templateConfiguration;
     protected $_name = [
+        'allowAnonymousManage' => 'allowAnonymousManage',
         'armsConfiguration' => 'armsConfiguration',
         'containerConfiguration' => 'containerConfiguration',
         'cpu' => 'cpu',
@@ -126,6 +132,10 @@ class UpdateTemplateInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowAnonymousManage) {
+            $res['allowAnonymousManage'] = $this->allowAnonymousManage;
+        }
+
         if (null !== $this->armsConfiguration) {
             $res['armsConfiguration'] = null !== $this->armsConfiguration ? $this->armsConfiguration->toArray($noStream) : $this->armsConfiguration;
         }
@@ -210,6 +220,10 @@ class UpdateTemplateInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowAnonymousManage'])) {
+            $model->allowAnonymousManage = $map['allowAnonymousManage'];
+        }
+
         if (isset($map['armsConfiguration'])) {
             $model->armsConfiguration = ArmsConfiguration::fromMap($map['armsConfiguration']);
         }

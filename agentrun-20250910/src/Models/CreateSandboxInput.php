@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CreateSandboxInput extends Model
 {
     /**
+     * @var NASConfig
+     */
+    public $nasConfig;
+
+    /**
+     * @var OSSMountConfig
+     */
+    public $ossMountConfig;
+
+    /**
      * @var string
      */
     public $sandboxId;
@@ -23,6 +33,8 @@ class CreateSandboxInput extends Model
      */
     public $templateName;
     protected $_name = [
+        'nasConfig' => 'nasConfig',
+        'ossMountConfig' => 'ossMountConfig',
         'sandboxId' => 'sandboxId',
         'sandboxIdleTimeoutSeconds' => 'sandboxIdleTimeoutSeconds',
         'templateName' => 'templateName',
@@ -30,12 +42,26 @@ class CreateSandboxInput extends Model
 
     public function validate()
     {
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
+        }
+        if (null !== $this->ossMountConfig) {
+            $this->ossMountConfig->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
+        }
+
         if (null !== $this->sandboxId) {
             $res['sandboxId'] = $this->sandboxId;
         }
@@ -59,6 +85,14 @@ class CreateSandboxInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+
         if (isset($map['sandboxId'])) {
             $model->sandboxId = $map['sandboxId'];
         }

@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\RetrieveMemoryResponseBody\data;
 
-class RetrieveMemoryResponseBody extends Model
+class CustomDomainResult extends Model
 {
     /**
      * @var string
@@ -15,7 +14,7 @@ class RetrieveMemoryResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var CustomDomain
      */
     public $data;
 
@@ -68,7 +67,7 @@ class RetrieveMemoryResponseBody extends Model
         }
 
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            $model->data = CustomDomain::fromMap($map['data']);
         }
 
         if (isset($map['requestId'])) {
