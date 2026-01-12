@@ -37,6 +37,9 @@ use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyElasticResourceSpecShrinkRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceSpecRequest;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceSpecResponse;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceSpecShrinkRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceVswitchRequest;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceVswitchResponse;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyInstanceVswitchShrinkRequest;
@@ -1051,6 +1054,105 @@ class Foasconsole extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyElasticResourceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * 对包年实例升降配，对按量实例修改resource quota.
+     *
+     * @param tmpReq - ModifyInstanceSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceSpecResponse
+     *
+     * @param ModifyInstanceSpecRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpecWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstanceSpecShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->haResourceSpec) {
+            $request->haResourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haResourceSpec, 'HaResourceSpec', 'json');
+        }
+
+        if (null !== $tmpReq->haVSwitchIds) {
+            $request->haVSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->haVSwitchIds, 'HaVSwitchIds', 'json');
+        }
+
+        if (null !== $tmpReq->resourceSpec) {
+            $request->resourceSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSpec, 'ResourceSpec', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->ha) {
+            @$body['Ha'] = $request->ha;
+        }
+
+        if (null !== $request->haResourceSpecShrink) {
+            @$body['HaResourceSpec'] = $request->haResourceSpecShrink;
+        }
+
+        if (null !== $request->haVSwitchIdsShrink) {
+            @$body['HaVSwitchIds'] = $request->haVSwitchIdsShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceSpecShrink) {
+            @$body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceSpec',
+            'version' => '2021-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对包年实例升降配，对按量实例修改resource quota.
+     *
+     * @param request - ModifyInstanceSpecRequest
+     *
+     * @returns ModifyInstanceSpecResponse
+     *
+     * @param ModifyInstanceSpecRequest $request
+     *
+     * @return ModifyInstanceSpecResponse
+     */
+    public function modifyInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceSpecWithOptions($request, $runtime);
     }
 
     /**

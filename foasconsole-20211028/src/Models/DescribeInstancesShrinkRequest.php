@@ -19,6 +19,11 @@ class DescribeInstancesShrinkRequest extends Model
     public $chargeType;
 
     /**
+     * @var bool
+     */
+    public $elastic;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -60,6 +65,7 @@ class DescribeInstancesShrinkRequest extends Model
     protected $_name = [
         'architectureType' => 'ArchitectureType',
         'chargeType' => 'ChargeType',
+        'elastic' => 'Elastic',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'namespaceName' => 'NamespaceName',
@@ -84,6 +90,10 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->elastic) {
+            $res['Elastic'] = $this->elastic;
         }
 
         if (null !== $this->instanceId) {
@@ -135,6 +145,10 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['Elastic'])) {
+            $model->elastic = $map['Elastic'];
         }
 
         if (isset($map['InstanceId'])) {
