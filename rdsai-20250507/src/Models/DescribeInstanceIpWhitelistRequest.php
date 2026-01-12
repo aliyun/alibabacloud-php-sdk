@@ -11,6 +11,11 @@ class DescribeInstanceIpWhitelistRequest extends Model
     /**
      * @var string
      */
+    public $groupName;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -18,6 +23,7 @@ class DescribeInstanceIpWhitelistRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'groupName' => 'GroupName',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class DescribeInstanceIpWhitelistRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -49,6 +59,10 @@ class DescribeInstanceIpWhitelistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
