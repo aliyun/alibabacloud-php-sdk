@@ -31,6 +31,11 @@ class CustomDomain extends Model
     /**
      * @var string
      */
+    public $domainType;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
@@ -52,6 +57,7 @@ class CustomDomain extends Model
         'createdAt' => 'createdAt',
         'description' => 'description',
         'domainName' => 'domainName',
+        'domainType' => 'domainType',
         'protocol' => 'protocol',
         'routeConfig' => 'routeConfig',
         'tlsConfig' => 'tlsConfig',
@@ -89,6 +95,10 @@ class CustomDomain extends Model
 
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
+        }
+
+        if (null !== $this->domainType) {
+            $res['domainType'] = $this->domainType;
         }
 
         if (null !== $this->protocol) {
@@ -132,6 +142,10 @@ class CustomDomain extends Model
 
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
+        }
+
+        if (isset($map['domainType'])) {
+            $model->domainType = $map['domainType'];
         }
 
         if (isset($map['protocol'])) {

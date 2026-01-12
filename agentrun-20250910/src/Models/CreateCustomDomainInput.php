@@ -26,6 +26,11 @@ class CreateCustomDomainInput extends Model
     /**
      * @var string
      */
+    public $domainType;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
@@ -41,6 +46,7 @@ class CreateCustomDomainInput extends Model
         'certConfig' => 'certConfig',
         'description' => 'description',
         'domainName' => 'domainName',
+        'domainType' => 'domainType',
         'protocol' => 'protocol',
         'routeConfig' => 'routeConfig',
         'tlsConfig' => 'tlsConfig',
@@ -73,6 +79,10 @@ class CreateCustomDomainInput extends Model
 
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
+        }
+
+        if (null !== $this->domainType) {
+            $res['domainType'] = $this->domainType;
         }
 
         if (null !== $this->protocol) {
@@ -108,6 +118,10 @@ class CreateCustomDomainInput extends Model
 
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
+        }
+
+        if (isset($map['domainType'])) {
+            $model->domainType = $map['domainType'];
         }
 
         if (isset($map['protocol'])) {

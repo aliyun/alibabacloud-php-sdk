@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelServiceRequest;
@@ -31,6 +33,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
@@ -43,6 +46,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
@@ -59,6 +63,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProxiesRequest;
@@ -79,6 +85,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceRequest;
@@ -495,6 +503,62 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createCredentialWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建知识库.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBaseWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBase',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/knowledgebases',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建知识库.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKnowledgeBaseWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1006,6 +1070,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
+     * 删除知识库.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param string         $knowledgeBaseName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBase',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/knowledgebases/' . Url::percentEncode($knowledgeBaseName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除知识库.
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param string $knowledgeBaseName
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBase($knowledgeBaseName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
     }
 
     /**
@@ -1572,6 +1687,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
+     * 获取知识库.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param string         $knowledgeBaseName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBase',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/knowledgebases/' . Url::percentEncode($knowledgeBaseName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取知识库.
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param string $knowledgeBaseName
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBase($knowledgeBaseName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
     }
 
     /**
@@ -2258,6 +2424,75 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->listCredentialsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出知识库.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBasesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBases',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/knowledgebases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出知识库.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKnowledgeBasesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3005,6 +3240,64 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateCredentialWithOptions($credentialName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param string                     $knowledgeBaseName
+     * @param UpdateKnowledgeBaseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/knowledgebases/' . Url::percentEncode($knowledgeBaseName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param string                     $knowledgeBaseName
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($knowledgeBaseName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime);
     }
 
     /**
