@@ -51,6 +51,11 @@ class historyDetail extends Model
     /**
      * @var string
      */
+    public $subJobMessage;
+
+    /**
+     * @var string
+     */
     public $subJobStatus;
 
     /**
@@ -81,6 +86,7 @@ class historyDetail extends Model
         'sourceDBCluster' => 'SourceDBCluster',
         'status' => 'Status',
         'subJob' => 'SubJob',
+        'subJobMessage' => 'SubJobMessage',
         'subJobStatus' => 'SubJobStatus',
         'targetControlVersion' => 'TargetControlVersion',
         'targetDBCluster' => 'TargetDBCluster',
@@ -126,6 +132,10 @@ class historyDetail extends Model
 
         if (null !== $this->subJob) {
             $res['SubJob'] = $this->subJob;
+        }
+
+        if (null !== $this->subJobMessage) {
+            $res['SubJobMessage'] = $this->subJobMessage;
         }
 
         if (null !== $this->subJobStatus) {
@@ -189,6 +199,10 @@ class historyDetail extends Model
 
         if (isset($map['SubJob'])) {
             $model->subJob = $map['SubJob'];
+        }
+
+        if (isset($map['SubJobMessage'])) {
+            $model->subJobMessage = $map['SubJobMessage'];
         }
 
         if (isset($map['SubJobStatus'])) {
