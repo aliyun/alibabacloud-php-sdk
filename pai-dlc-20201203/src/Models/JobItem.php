@@ -122,7 +122,7 @@ class JobItem extends Model
     public $jobMaxRunningTimeMinutes;
 
     /**
-     * @var JobReplicaStatus
+     * @var JobReplicaStatus[]
      */
     public $jobReplicaStatuses;
 
@@ -372,8 +372,8 @@ class JobItem extends Model
         if (\is_array($this->envs)) {
             Model::validateArray($this->envs);
         }
-        if (null !== $this->jobReplicaStatuses) {
-            $this->jobReplicaStatuses->validate();
+        if (\is_array($this->jobReplicaStatuses)) {
+            Model::validateArray($this->jobReplicaStatuses);
         }
         if (\is_array($this->jobSpecs)) {
             Model::validateArray($this->jobSpecs);
@@ -506,7 +506,14 @@ class JobItem extends Model
         }
 
         if (null !== $this->jobReplicaStatuses) {
-            $res['JobReplicaStatuses'] = null !== $this->jobReplicaStatuses ? $this->jobReplicaStatuses->toArray($noStream) : $this->jobReplicaStatuses;
+            if (\is_array($this->jobReplicaStatuses)) {
+                $res['JobReplicaStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->jobReplicaStatuses as $item1) {
+                    $res['JobReplicaStatuses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->jobSpecs) {
@@ -797,7 +804,14 @@ class JobItem extends Model
         }
 
         if (isset($map['JobReplicaStatuses'])) {
-            $model->jobReplicaStatuses = JobReplicaStatus::fromMap($map['JobReplicaStatuses']);
+            if (!empty($map['JobReplicaStatuses'])) {
+                $model->jobReplicaStatuses = [];
+                $n1 = 0;
+                foreach ($map['JobReplicaStatuses'] as $item1) {
+                    $model->jobReplicaStatuses[$n1] = JobReplicaStatus::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['JobSpecs'])) {

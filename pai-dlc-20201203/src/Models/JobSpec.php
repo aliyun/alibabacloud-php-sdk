@@ -79,6 +79,11 @@ class JobSpec extends Model
     public $spotSpec;
 
     /**
+     * @var StartupDependency[]
+     */
+    public $startupDependencies;
+
+    /**
      * @var SystemDisk
      */
     public $systemDisk;
@@ -107,6 +112,7 @@ class JobSpec extends Model
         'restartPolicy' => 'RestartPolicy',
         'serviceSpec' => 'ServiceSpec',
         'spotSpec' => 'SpotSpec',
+        'startupDependencies' => 'StartupDependencies',
         'systemDisk' => 'SystemDisk',
         'type' => 'Type',
         'useSpotInstance' => 'UseSpotInstance',
@@ -137,6 +143,9 @@ class JobSpec extends Model
         }
         if (null !== $this->spotSpec) {
             $this->spotSpec->validate();
+        }
+        if (\is_array($this->startupDependencies)) {
+            Model::validateArray($this->startupDependencies);
         }
         if (null !== $this->systemDisk) {
             $this->systemDisk->validate();
@@ -208,6 +217,17 @@ class JobSpec extends Model
 
         if (null !== $this->spotSpec) {
             $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toArray($noStream) : $this->spotSpec;
+        }
+
+        if (null !== $this->startupDependencies) {
+            if (\is_array($this->startupDependencies)) {
+                $res['StartupDependencies'] = [];
+                $n1 = 0;
+                foreach ($this->startupDependencies as $item1) {
+                    $res['StartupDependencies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->systemDisk) {
@@ -294,6 +314,17 @@ class JobSpec extends Model
 
         if (isset($map['SpotSpec'])) {
             $model->spotSpec = SpotSpec::fromMap($map['SpotSpec']);
+        }
+
+        if (isset($map['StartupDependencies'])) {
+            if (!empty($map['StartupDependencies'])) {
+                $model->startupDependencies = [];
+                $n1 = 0;
+                foreach ($map['StartupDependencies'] as $item1) {
+                    $model->startupDependencies[$n1] = StartupDependency::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SystemDisk'])) {
