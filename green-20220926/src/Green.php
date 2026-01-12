@@ -4996,6 +4996,10 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
+        }
+
         if (null !== $request->messages) {
             @$body['Messages'] = $request->messages;
         }
@@ -5059,6 +5063,10 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
+        }
+
         if (null !== $request->messages) {
             @$body['Messages'] = $request->messages;
         }

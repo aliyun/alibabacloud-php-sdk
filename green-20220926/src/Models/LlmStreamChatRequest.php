@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class LlmStreamChatRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $channel;
+
+    /**
      * @var mixed
      */
     public $messages;
@@ -28,6 +33,7 @@ class LlmStreamChatRequest extends Model
      */
     public $type;
     protected $_name = [
+        'channel' => 'Channel',
         'messages' => 'Messages',
         'temperature' => 'Temperature',
         'topP' => 'TopP',
@@ -42,6 +48,10 @@ class LlmStreamChatRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
+        }
+
         if (null !== $this->messages) {
             $res['Messages'] = $this->messages;
         }
@@ -69,6 +79,10 @@ class LlmStreamChatRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
+        }
+
         if (isset($map['Messages'])) {
             $model->messages = $map['Messages'];
         }

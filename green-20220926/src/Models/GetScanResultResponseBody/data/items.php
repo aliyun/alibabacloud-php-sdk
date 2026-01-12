@@ -42,6 +42,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $attackLevel;
 
     /**
@@ -103,6 +108,11 @@ class items extends Model
      * @var string
      */
     public $imageUrl;
+
+    /**
+     * @var string[]
+     */
+    public $imageUrls;
 
     /**
      * @var string
@@ -285,6 +295,7 @@ class items extends Model
         'apiRiskLevel' => 'ApiRiskLevel',
         'apiService' => 'ApiService',
         'apiTaskId' => 'ApiTaskId',
+        'appId' => 'AppId',
         'attackLevel' => 'AttackLevel',
         'content' => 'Content',
         'dataId' => 'DataId',
@@ -298,6 +309,7 @@ class items extends Model
         'imageLabels' => 'ImageLabels',
         'imageService' => 'ImageService',
         'imageUrl' => 'ImageUrl',
+        'imageUrls' => 'ImageUrls',
         'labels' => 'Labels',
         'liveId' => 'LiveId',
         'maliciousFileLevel' => 'MaliciousFileLevel',
@@ -349,6 +361,9 @@ class items extends Model
         if (\is_array($this->imageLabels)) {
             Model::validateArray($this->imageLabels);
         }
+        if (\is_array($this->imageUrls)) {
+            Model::validateArray($this->imageUrls);
+        }
         if (\is_array($this->noLabels)) {
             Model::validateArray($this->noLabels);
         }
@@ -389,6 +404,10 @@ class items extends Model
 
         if (null !== $this->apiTaskId) {
             $res['ApiTaskId'] = $this->apiTaskId;
+        }
+
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
 
         if (null !== $this->attackLevel) {
@@ -472,6 +491,17 @@ class items extends Model
 
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->imageUrls) {
+            if (\is_array($this->imageUrls)) {
+                $res['ImageUrls'] = [];
+                $n1 = 0;
+                foreach ($this->imageUrls as $item1) {
+                    $res['ImageUrls'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->labels) {
@@ -687,6 +717,10 @@ class items extends Model
             $model->apiTaskId = $map['ApiTaskId'];
         }
 
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+
         if (isset($map['AttackLevel'])) {
             $model->attackLevel = $map['AttackLevel'];
         }
@@ -768,6 +802,17 @@ class items extends Model
 
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['ImageUrls'])) {
+            if (!empty($map['ImageUrls'])) {
+                $model->imageUrls = [];
+                $n1 = 0;
+                foreach ($map['ImageUrls'] as $item1) {
+                    $model->imageUrls[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Labels'])) {
