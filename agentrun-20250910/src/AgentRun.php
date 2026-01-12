@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryCollectionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelServiceRequest;
@@ -34,6 +36,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
@@ -47,6 +50,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
@@ -65,6 +69,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryCollectionsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryCollectionsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProxiesRequest;
@@ -87,6 +93,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryCollectionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceRequest;
@@ -559,6 +567,62 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createKnowledgeBaseWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 添加记忆存储.
+     *
+     * @param request - CreateMemoryCollectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryCollectionResponse
+     *
+     * @param CreateMemoryCollectionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMemoryCollectionResponse
+     */
+    public function createMemoryCollectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemoryCollection',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memory-collections',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加记忆存储.
+     *
+     * @param request - CreateMemoryCollectionRequest
+     *
+     * @returns CreateMemoryCollectionResponse
+     *
+     * @param CreateMemoryCollectionRequest $request
+     *
+     * @return CreateMemoryCollectionResponse
+     */
+    public function createMemoryCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryCollectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1121,6 +1185,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
+    }
+
+    /**
+     * 删除记忆存储.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryCollectionResponse
+     *
+     * @param string         $memoryCollectionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMemoryCollectionResponse
+     */
+    public function deleteMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemoryCollection',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memory-collections/' . Url::percentEncode($memoryCollectionName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除记忆存储.
+     *
+     * @returns DeleteMemoryCollectionResponse
+     *
+     * @param string $memoryCollectionName
+     *
+     * @return DeleteMemoryCollectionResponse
+     */
+    public function deleteMemoryCollection($memoryCollectionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime);
     }
 
     /**
@@ -1738,6 +1853,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
+    }
+
+    /**
+     * 查询记忆存储详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryCollectionResponse
+     *
+     * @param string         $memoryCollectionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMemoryCollectionResponse
+     */
+    public function getMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryCollection',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memory-collections/' . Url::percentEncode($memoryCollectionName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆存储详情.
+     *
+     * @returns GetMemoryCollectionResponse
+     *
+     * @param string $memoryCollectionName
+     *
+     * @return GetMemoryCollectionResponse
+     */
+    public function getMemoryCollection($memoryCollectionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime);
     }
 
     /**
@@ -2493,6 +2659,83 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->listKnowledgeBasesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询记忆存储列表.
+     *
+     * @param request - ListMemoryCollectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryCollectionsResponse
+     *
+     * @param ListMemoryCollectionsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMemoryCollectionsResponse
+     */
+    public function listMemoryCollectionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memoryCollectionName) {
+            @$query['memoryCollectionName'] = $request->memoryCollectionName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryCollections',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memory-collections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆存储列表.
+     *
+     * @param request - ListMemoryCollectionsRequest
+     *
+     * @returns ListMemoryCollectionsResponse
+     *
+     * @param ListMemoryCollectionsRequest $request
+     *
+     * @return ListMemoryCollectionsResponse
+     */
+    public function listMemoryCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryCollectionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3298,6 +3541,64 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改记忆存储信息.
+     *
+     * @param request - UpdateMemoryCollectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryCollectionResponse
+     *
+     * @param string                        $memoryCollectionName
+     * @param UpdateMemoryCollectionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMemoryCollectionResponse
+     */
+    public function updateMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemoryCollection',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memory-collections/' . Url::percentEncode($memoryCollectionName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改记忆存储信息.
+     *
+     * @param request - UpdateMemoryCollectionRequest
+     *
+     * @returns UpdateMemoryCollectionResponse
+     *
+     * @param string                        $memoryCollectionName
+     * @param UpdateMemoryCollectionRequest $request
+     *
+     * @return UpdateMemoryCollectionResponse
+     */
+    public function updateMemoryCollection($memoryCollectionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime);
     }
 
     /**
