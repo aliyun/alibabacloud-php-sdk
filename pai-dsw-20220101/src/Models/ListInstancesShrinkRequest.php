@@ -21,6 +21,16 @@ class ListInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $createTimeAfter;
+
+    /**
+     * @var string
+     */
+    public $createTimeBefore;
+
+    /**
+     * @var string
+     */
     public $createUserId;
 
     /**
@@ -145,6 +155,8 @@ class ListInstancesShrinkRequest extends Model
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'accessibility' => 'Accessibility',
+        'createTimeAfter' => 'CreateTimeAfter',
+        'createTimeBefore' => 'CreateTimeBefore',
         'createUserId' => 'CreateUserId',
         'gpuType' => 'GpuType',
         'imageName' => 'ImageName',
@@ -186,6 +198,14 @@ class ListInstancesShrinkRequest extends Model
 
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->createTimeAfter) {
+            $res['CreateTimeAfter'] = $this->createTimeAfter;
+        }
+
+        if (null !== $this->createTimeBefore) {
+            $res['CreateTimeBefore'] = $this->createTimeBefore;
         }
 
         if (null !== $this->createUserId) {
@@ -305,6 +325,14 @@ class ListInstancesShrinkRequest extends Model
 
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['CreateTimeAfter'])) {
+            $model->createTimeAfter = $map['CreateTimeAfter'];
+        }
+
+        if (isset($map['CreateTimeBefore'])) {
+            $model->createTimeBefore = $map['CreateTimeBefore'];
         }
 
         if (isset($map['CreateUserId'])) {

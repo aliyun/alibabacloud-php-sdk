@@ -2087,6 +2087,14 @@ class Paidsw extends OpenApiClient
             @$query['Accessibility'] = $request->accessibility;
         }
 
+        if (null !== $request->createTimeAfter) {
+            @$query['CreateTimeAfter'] = $request->createTimeAfter;
+        }
+
+        if (null !== $request->createTimeBefore) {
+            @$query['CreateTimeBefore'] = $request->createTimeBefore;
+        }
+
         if (null !== $request->createUserId) {
             @$query['CreateUserId'] = $request->createUserId;
         }
