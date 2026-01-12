@@ -1794,6 +1794,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Assigns multiple cloud computers to users in a batch.
+     *
      * @remarks
      *   The cloud computers for which you want to change their policies must be in the Running state.
      * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
@@ -1860,6 +1862,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Assigns multiple cloud computers to users in a batch.
+     *
      * @remarks
      *   The cloud computers for which you want to change their policies must be in the Running state.
      * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
@@ -6365,6 +6369,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->eid) {
+            @$query['Eid'] = $request->eid;
         }
 
         if (null !== $request->enableAdminAccess) {
@@ -14372,6 +14380,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->eid) {
+            @$query['Eid'] = $request->eid;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }

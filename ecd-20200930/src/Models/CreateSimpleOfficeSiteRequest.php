@@ -64,6 +64,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $eid;
+
+    /**
      * @var bool
      */
     public $enableAdminAccess;
@@ -119,6 +124,7 @@ class CreateSimpleOfficeSiteRequest extends Model
         'cloudBoxOfficeSite' => 'CloudBoxOfficeSite',
         'desktopAccessType' => 'DesktopAccessType',
         'domainName' => 'DomainName',
+        'eid' => 'Eid',
         'enableAdminAccess' => 'EnableAdminAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
         'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
@@ -183,6 +189,10 @@ class CreateSimpleOfficeSiteRequest extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->eid) {
+            $res['Eid'] = $this->eid;
         }
 
         if (null !== $this->enableAdminAccess) {
@@ -281,6 +291,10 @@ class CreateSimpleOfficeSiteRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['Eid'])) {
+            $model->eid = $map['Eid'];
         }
 
         if (isset($map['EnableAdminAccess'])) {

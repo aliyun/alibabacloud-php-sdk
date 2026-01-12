@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeSubnetsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $eid;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -38,6 +43,7 @@ class DescribeSubnetsRequest extends Model
      */
     public $subnetId;
     protected $_name = [
+        'eid' => 'Eid',
         'maxResults' => 'MaxResults',
         'name' => 'Name',
         'nextToken' => 'NextToken',
@@ -54,6 +60,10 @@ class DescribeSubnetsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eid) {
+            $res['Eid'] = $this->eid;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -89,6 +99,10 @@ class DescribeSubnetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Eid'])) {
+            $model->eid = $map['Eid'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

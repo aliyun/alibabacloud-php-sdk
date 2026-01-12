@@ -142,6 +142,11 @@ class officeSites extends Model
     public $domainUserName;
 
     /**
+     * @var string
+     */
+    public $eid;
+
+    /**
      * @var bool
      */
     public $enableAdminAccess;
@@ -160,6 +165,11 @@ class officeSites extends Model
      * @var bool
      */
     public $enableServiceRoute;
+
+    /**
+     * @var string
+     */
+    public $envType;
 
     /**
      * @var string[]
@@ -352,10 +362,12 @@ class officeSites extends Model
         'domainName' => 'DomainName',
         'domainPassword' => 'DomainPassword',
         'domainUserName' => 'DomainUserName',
+        'eid' => 'Eid',
         'enableAdminAccess' => 'EnableAdminAccess',
         'enableCrossDesktopAccess' => 'EnableCrossDesktopAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
         'enableServiceRoute' => 'EnableServiceRoute',
+        'envType' => 'EnvType',
         'fileSystemIds' => 'FileSystemIds',
         'isLdap' => 'IsLdap',
         'ldapUrl' => 'LdapUrl',
@@ -548,6 +560,10 @@ class officeSites extends Model
             $res['DomainUserName'] = $this->domainUserName;
         }
 
+        if (null !== $this->eid) {
+            $res['Eid'] = $this->eid;
+        }
+
         if (null !== $this->enableAdminAccess) {
             $res['EnableAdminAccess'] = $this->enableAdminAccess;
         }
@@ -562,6 +578,10 @@ class officeSites extends Model
 
         if (null !== $this->enableServiceRoute) {
             $res['EnableServiceRoute'] = $this->enableServiceRoute;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->fileSystemIds) {
@@ -867,6 +887,10 @@ class officeSites extends Model
             $model->domainUserName = $map['DomainUserName'];
         }
 
+        if (isset($map['Eid'])) {
+            $model->eid = $map['Eid'];
+        }
+
         if (isset($map['EnableAdminAccess'])) {
             $model->enableAdminAccess = $map['EnableAdminAccess'];
         }
@@ -881,6 +905,10 @@ class officeSites extends Model
 
         if (isset($map['EnableServiceRoute'])) {
             $model->enableServiceRoute = $map['EnableServiceRoute'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['FileSystemIds'])) {
