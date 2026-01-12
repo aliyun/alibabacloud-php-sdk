@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClustersV1Request;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClustersV1Response;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultRequest;
@@ -8036,6 +8038,71 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeClusterKubeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询集群列表.
+     *
+     * @param request - DescribeClustersV1Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClustersV1Response
+     *
+     * @param DescribeClustersV1Request $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeClustersV1Response
+     */
+    public function describeClustersV1WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->ensRegionId) {
+            @$query['EnsRegionId'] = $request->ensRegionId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClustersV1',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClustersV1Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群列表.
+     *
+     * @param request - DescribeClustersV1Request
+     *
+     * @returns DescribeClustersV1Response
+     *
+     * @param DescribeClustersV1Request $request
+     *
+     * @return DescribeClustersV1Response
+     */
+    public function describeClustersV1($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClustersV1WithOptions($request, $runtime);
     }
 
     /**
@@ -15871,7 +15938,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询可用的组件列表.
+     * Querying the details of a cluster component.
      *
      * @param request - ListAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15901,7 +15968,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询可用的组件列表.
+     * Querying the details of a cluster component.
      *
      * @returns ListAddonsResponse
      *
@@ -16065,7 +16132,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群已安装的组件实例列表.
+     * List of Installed Addon Instances in the Cluster.
      *
      * @param request - ListClusterAddonInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16104,7 +16171,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群已安装的组件实例列表.
+     * List of Installed Addon Instances in the Cluster.
      *
      * @param request - ListClusterAddonInstancesRequest
      *

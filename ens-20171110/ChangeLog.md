@@ -1,3 +1,7 @@
+2026-01-12 Version: 8.2.0
+- Support API DescribeClustersV1.
+
+
 2026-01-04 Version: 8.1.0
 - Support API ListAddons.
 - Support API ListClusterAddonInstances.
