@@ -31,6 +31,16 @@ class groupList extends Model
     /**
      * @var string
      */
+    public $rayInteractiveAccessAddr;
+
+    /**
+     * @var string
+     */
+    public $rayVpcWebUIAddr;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
@@ -42,6 +52,8 @@ class groupList extends Model
         'groupName' => 'GroupName',
         'isDefault' => 'IsDefault',
         'properties' => 'Properties',
+        'rayInteractiveAccessAddr' => 'RayInteractiveAccessAddr',
+        'rayVpcWebUIAddr' => 'RayVpcWebUIAddr',
         'state' => 'State',
         'webUI' => 'WebUI',
     ];
@@ -76,6 +88,14 @@ class groupList extends Model
                     $res['Properties'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->rayInteractiveAccessAddr) {
+            $res['RayInteractiveAccessAddr'] = $this->rayInteractiveAccessAddr;
+        }
+
+        if (null !== $this->rayVpcWebUIAddr) {
+            $res['RayVpcWebUIAddr'] = $this->rayVpcWebUIAddr;
         }
 
         if (null !== $this->state) {
@@ -116,6 +136,14 @@ class groupList extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['RayInteractiveAccessAddr'])) {
+            $model->rayInteractiveAccessAddr = $map['RayInteractiveAccessAddr'];
+        }
+
+        if (isset($map['RayVpcWebUIAddr'])) {
+            $model->rayVpcWebUIAddr = $map['RayVpcWebUIAddr'];
         }
 
         if (isset($map['State'])) {
