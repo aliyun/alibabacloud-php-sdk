@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardForBase64Request;
@@ -974,6 +976,67 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->manualModerationResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 多模态AgentAPI同步检测接口.
+     *
+     * @param request - MultiModalAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalAgentResponse
+     *
+     * @param MultiModalAgentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MultiModalAgentResponse
+     */
+    public function multiModalAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appID) {
+            @$body['AppID'] = $request->appID;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalAgent',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态AgentAPI同步检测接口.
+     *
+     * @param request - MultiModalAgentRequest
+     *
+     * @returns MultiModalAgentResponse
+     *
+     * @param MultiModalAgentRequest $request
+     *
+     * @return MultiModalAgentResponse
+     */
+    public function multiModalAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalAgentWithOptions($request, $runtime);
     }
 
     /**
