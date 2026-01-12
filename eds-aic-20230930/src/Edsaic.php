@@ -9,6 +9,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupAndroidInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupAppRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketRequest;
@@ -150,6 +154,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAndroidInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAppRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsRequest;
@@ -369,6 +377,156 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 整机备份.
+     *
+     * @param request - BackupAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BackupAndroidInstanceResponse
+     *
+     * @param BackupAndroidInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BackupAndroidInstanceResponse
+     */
+    public function backupAndroidInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
+        }
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BackupAndroidInstance',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BackupAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 整机备份.
+     *
+     * @param request - BackupAndroidInstanceRequest
+     *
+     * @returns BackupAndroidInstanceResponse
+     *
+     * @param BackupAndroidInstanceRequest $request
+     *
+     * @return BackupAndroidInstanceResponse
+     */
+    public function backupAndroidInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->backupAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用备份.
+     *
+     * @param request - BackupAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BackupAppResponse
+     *
+     * @param BackupAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return BackupAppResponse
+     */
+    public function backupAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
+        }
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->sourceAppList) {
+            @$query['SourceAppList'] = $request->sourceAppList;
+        }
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BackupApp',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BackupAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用备份.
+     *
+     * @param request - BackupAppRequest
+     *
+     * @returns BackupAppResponse
+     *
+     * @param BackupAppRequest $request
+     *
+     * @return BackupAppResponse
+     */
+    public function backupApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->backupAppWithOptions($request, $runtime);
     }
 
     /**
@@ -5593,6 +5751,152 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootAndroidInstancesInGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 整机恢复.
+     *
+     * @param request - RecoverAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverAndroidInstanceResponse
+     *
+     * @param RecoverAndroidInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecoverAndroidInstanceResponse
+     */
+    public function recoverAndroidInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
+        }
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
+        }
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
+        }
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RecoverAndroidInstance',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecoverAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 整机恢复.
+     *
+     * @param request - RecoverAndroidInstanceRequest
+     *
+     * @returns RecoverAndroidInstanceResponse
+     *
+     * @param RecoverAndroidInstanceRequest $request
+     *
+     * @return RecoverAndroidInstanceResponse
+     */
+    public function recoverAndroidInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复应用.
+     *
+     * @param request - RecoverAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverAppResponse
+     *
+     * @param RecoverAppRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RecoverAppResponse
+     */
+    public function recoverAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
+        }
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
+        }
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
+        }
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RecoverApp',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecoverAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复应用.
+     *
+     * @param request - RecoverAppRequest
+     *
+     * @returns RecoverAppResponse
+     *
+     * @param RecoverAppRequest $request
+     *
+     * @return RecoverAppResponse
+     */
+    public function recoverApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverAppWithOptions($request, $runtime);
     }
 
     /**

@@ -1,3 +1,10 @@
+2026-01-12 Version: 4.15.0
+- Support API BackupAndroidInstance.
+- Support API BackupApp.
+- Support API RecoverAndroidInstance.
+- Support API RecoverApp.
+
+
 2026-01-05 Version: 4.14.2
 - Generated php 2023-09-30 for eds-aic.
 
