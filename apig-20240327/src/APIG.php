@@ -7176,6 +7176,10 @@ class APIG extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->policyConfigs) {
+            @$body['policyConfigs'] = $request->policyConfigs;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
