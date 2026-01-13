@@ -19,6 +19,11 @@ class DescribeGlobalDesktopRecordsRequest extends Model
     public $desktopName;
 
     /**
+     * @var string[]
+     */
+    public $desktopStatusList;
+
+    /**
      * @var string
      */
     public $desktopType;
@@ -32,6 +37,11 @@ class DescribeGlobalDesktopRecordsRequest extends Model
      * @var string
      */
     public $endUserId;
+
+    /**
+     * @var string[]
+     */
+    public $excludeDesktopStatusList;
 
     /**
      * @var string
@@ -85,9 +95,11 @@ class DescribeGlobalDesktopRecordsRequest extends Model
     protected $_name = [
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
+        'desktopStatusList' => 'DesktopStatusList',
         'desktopType' => 'DesktopType',
         'endTime' => 'EndTime',
         'endUserId' => 'EndUserId',
+        'excludeDesktopStatusList' => 'ExcludeDesktopStatusList',
         'officeSiteId' => 'OfficeSiteId',
         'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
@@ -104,6 +116,12 @@ class DescribeGlobalDesktopRecordsRequest extends Model
     {
         if (\is_array($this->desktopId)) {
             Model::validateArray($this->desktopId);
+        }
+        if (\is_array($this->desktopStatusList)) {
+            Model::validateArray($this->desktopStatusList);
+        }
+        if (\is_array($this->excludeDesktopStatusList)) {
+            Model::validateArray($this->excludeDesktopStatusList);
         }
         parent::validate();
     }
@@ -126,6 +144,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
             $res['DesktopName'] = $this->desktopName;
         }
 
+        if (null !== $this->desktopStatusList) {
+            if (\is_array($this->desktopStatusList)) {
+                $res['DesktopStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->desktopStatusList as $item1) {
+                    $res['DesktopStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->desktopType) {
             $res['DesktopType'] = $this->desktopType;
         }
@@ -136,6 +165,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->excludeDesktopStatusList) {
+            if (\is_array($this->excludeDesktopStatusList)) {
+                $res['ExcludeDesktopStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->excludeDesktopStatusList as $item1) {
+                    $res['ExcludeDesktopStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->officeSiteId) {
@@ -204,6 +244,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
             $model->desktopName = $map['DesktopName'];
         }
 
+        if (isset($map['DesktopStatusList'])) {
+            if (!empty($map['DesktopStatusList'])) {
+                $model->desktopStatusList = [];
+                $n1 = 0;
+                foreach ($map['DesktopStatusList'] as $item1) {
+                    $model->desktopStatusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DesktopType'])) {
             $model->desktopType = $map['DesktopType'];
         }
@@ -214,6 +265,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['ExcludeDesktopStatusList'])) {
+            if (!empty($map['ExcludeDesktopStatusList'])) {
+                $model->excludeDesktopStatusList = [];
+                $n1 = 0;
+                foreach ($map['ExcludeDesktopStatusList'] as $item1) {
+                    $model->excludeDesktopStatusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OfficeSiteId'])) {

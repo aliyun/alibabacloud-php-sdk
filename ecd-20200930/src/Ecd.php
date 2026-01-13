@@ -10609,6 +10609,10 @@ class Ecd extends OpenApiClient
             @$query['MemorySize'] = $request->memorySize;
         }
 
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
         if (null !== $request->orderBy) {
             @$query['OrderBy'] = $request->orderBy;
         }
@@ -11724,6 +11728,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopName'] = $request->desktopName;
         }
 
+        if (null !== $request->desktopStatusList) {
+            @$query['DesktopStatusList'] = $request->desktopStatusList;
+        }
+
         if (null !== $request->desktopType) {
             @$query['DesktopType'] = $request->desktopType;
         }
@@ -11734,6 +11742,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->endUserId) {
             @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->excludeDesktopStatusList) {
+            @$query['ExcludeDesktopStatusList'] = $request->excludeDesktopStatusList;
         }
 
         if (null !== $request->officeSiteId) {

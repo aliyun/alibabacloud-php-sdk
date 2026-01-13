@@ -51,6 +51,16 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $envId;
+
+    /**
+     * @var string
+     */
+    public $envType;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
@@ -126,6 +136,8 @@ class snapshots extends Model
         'desktopName' => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
         'diskStatus' => 'DiskStatus',
+        'envId' => 'EnvId',
+        'envType' => 'EnvType',
         'osType' => 'OsType',
         'progress' => 'Progress',
         'protocolType' => 'ProtocolType',
@@ -180,6 +192,14 @@ class snapshots extends Model
 
         if (null !== $this->diskStatus) {
             $res['DiskStatus'] = $this->diskStatus;
+        }
+
+        if (null !== $this->envId) {
+            $res['EnvId'] = $this->envId;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->osType) {
@@ -279,6 +299,14 @@ class snapshots extends Model
 
         if (isset($map['DiskStatus'])) {
             $model->diskStatus = $map['DiskStatus'];
+        }
+
+        if (isset($map['EnvId'])) {
+            $model->envId = $map['EnvId'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['OsType'])) {

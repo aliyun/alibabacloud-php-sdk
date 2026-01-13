@@ -34,6 +34,16 @@ class desktopTypes extends Model
     public $desktopTypeStatus;
 
     /**
+     * @var string
+     */
+    public $envId;
+
+    /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @var float
      */
     public $gpuCount;
@@ -83,6 +93,8 @@ class desktopTypes extends Model
         'description' => 'Description',
         'desktopTypeId' => 'DesktopTypeId',
         'desktopTypeStatus' => 'DesktopTypeStatus',
+        'envId' => 'EnvId',
+        'envType' => 'EnvType',
         'gpuCount' => 'GpuCount',
         'gpuMemory' => 'GpuMemory',
         'gpuSpec' => 'GpuSpec',
@@ -123,6 +135,14 @@ class desktopTypes extends Model
 
         if (null !== $this->desktopTypeStatus) {
             $res['DesktopTypeStatus'] = $this->desktopTypeStatus;
+        }
+
+        if (null !== $this->envId) {
+            $res['EnvId'] = $this->envId;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->gpuCount) {
@@ -197,6 +217,14 @@ class desktopTypes extends Model
 
         if (isset($map['DesktopTypeStatus'])) {
             $model->desktopTypeStatus = $map['DesktopTypeStatus'];
+        }
+
+        if (isset($map['EnvId'])) {
+            $model->envId = $map['EnvId'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['GpuCount'])) {

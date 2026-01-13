@@ -66,6 +66,11 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
     public $orderBy;
 
     /**
@@ -114,6 +119,7 @@ class DescribeDesktopTypesRequest extends Model
         'gpuMemory' => 'GpuMemory',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'memorySize' => 'MemorySize',
+        'officeSiteId' => 'OfficeSiteId',
         'orderBy' => 'OrderBy',
         'orderType' => 'OrderType',
         'regionId' => 'RegionId',
@@ -187,6 +193,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
         if (null !== $this->orderBy) {
@@ -288,6 +298,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
 
         if (isset($map['OrderBy'])) {
