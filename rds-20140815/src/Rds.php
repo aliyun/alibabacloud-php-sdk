@@ -639,6 +639,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecRequest;
@@ -20923,6 +20925,10 @@ class Rds extends OpenApiClient
             @$query['DiskId'] = $request->diskId;
         }
 
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -31196,6 +31202,83 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改块存储属性.
+     *
+     * @param request - ModifyRCDiskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRCDiskAttributeResponse
+     *
+     * @param ModifyRCDiskAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyRCDiskAttributeResponse
+     */
+    public function modifyRCDiskAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->burstingEnabled) {
+            @$query['BurstingEnabled'] = $request->burstingEnabled;
+        }
+
+        if (null !== $request->deleteWithInstance) {
+            @$query['DeleteWithInstance'] = $request->deleteWithInstance;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
+        }
+
+        if (null !== $request->diskName) {
+            @$query['DiskName'] = $request->diskName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRCDiskAttribute',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRCDiskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改块存储属性.
+     *
+     * @param request - ModifyRCDiskAttributeRequest
+     *
+     * @returns ModifyRCDiskAttributeResponse
+     *
+     * @param ModifyRCDiskAttributeRequest $request
+     *
+     * @return ModifyRCDiskAttributeResponse
+     */
+    public function modifyRCDiskAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCDiskAttributeWithOptions($request, $runtime);
     }
 
     /**
