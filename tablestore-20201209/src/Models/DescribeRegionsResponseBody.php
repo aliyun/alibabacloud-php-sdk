@@ -20,7 +20,7 @@ class DescribeRegionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'regions' => 'Regions',
-        'requestId' => 'requestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -46,7 +46,7 @@ class DescribeRegionsResponseBody extends Model
         }
 
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -71,8 +71,8 @@ class DescribeRegionsResponseBody extends Model
             }
         }
 
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

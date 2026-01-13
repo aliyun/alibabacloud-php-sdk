@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Tablestore\V20201209;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindInstance2VpcRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindInstance2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyRequest;
@@ -30,8 +32,14 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByInstanceRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByVpcRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByVpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitRequest;
@@ -77,6 +85,79 @@ class Tablestore extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 绑定vpc.
+     *
+     * @param request - BindInstance2VpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindInstance2VpcResponse
+     *
+     * @param BindInstance2VpcRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BindInstance2VpcResponse
+     */
+    public function bindInstance2VpcWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->instanceVpcName) {
+            @$body['InstanceVpcName'] = $request->instanceVpcName;
+        }
+
+        if (null !== $request->virtualSwitchId) {
+            @$body['VirtualSwitchId'] = $request->virtualSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindInstance2Vpc',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/bindinstance2vpc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BindInstance2VpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定vpc.
+     *
+     * @param request - BindInstance2VpcRequest
+     *
+     * @returns BindInstance2VpcResponse
+     *
+     * @param BindInstance2VpcRequest $request
+     *
+     * @return BindInstance2VpcResponse
+     */
+    public function bindInstance2Vpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bindInstance2VpcWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -975,6 +1056,144 @@ class Tablestore extends OpenApiClient
     }
 
     /**
+     * 获取实例的vpcInfo列表.
+     *
+     * @param request - ListVpcInfoByInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVpcInfoByInstanceResponse
+     *
+     * @param ListVpcInfoByInstanceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListVpcInfoByInstanceResponse
+     */
+    public function listVpcInfoByInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVpcInfoByInstance',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listvpcinfobyinstance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVpcInfoByInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例的vpcInfo列表.
+     *
+     * @param request - ListVpcInfoByInstanceRequest
+     *
+     * @returns ListVpcInfoByInstanceResponse
+     *
+     * @param ListVpcInfoByInstanceRequest $request
+     *
+     * @return ListVpcInfoByInstanceResponse
+     */
+    public function listVpcInfoByInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVpcInfoByInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取实例的vpcInfo列表.
+     *
+     * @param request - ListVpcInfoByVpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVpcInfoByVpcResponse
+     *
+     * @param ListVpcInfoByVpcRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVpcInfoByVpcResponse
+     */
+    public function listVpcInfoByVpcWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVpcInfoByVpc',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listvpcinfobyvpc',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVpcInfoByVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例的vpcInfo列表.
+     *
+     * @param request - ListVpcInfoByVpcRequest
+     *
+     * @returns ListVpcInfoByVpcResponse
+     *
+     * @param ListVpcInfoByVpcRequest $request
+     *
+     * @return ListVpcInfoByVpcResponse
+     */
+    public function listVpcInfoByVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVpcInfoByVpcWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Adds tags to instances.
      *
      * @param request - TagResourcesRequest
@@ -1041,6 +1260,71 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 解绑vpc.
+     *
+     * @param request - UnbindInstance2VpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindInstance2VpcResponse
+     *
+     * @param UnbindInstance2VpcRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UnbindInstance2VpcResponse
+     */
+    public function unbindInstance2VpcWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->instanceVpcName) {
+            @$body['InstanceVpcName'] = $request->instanceVpcName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindInstance2Vpc',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/unbindinstance2vpc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindInstance2VpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑vpc.
+     *
+     * @param request - UnbindInstance2VpcRequest
+     *
+     * @returns UnbindInstance2VpcResponse
+     *
+     * @param UnbindInstance2VpcRequest $request
+     *
+     * @return UnbindInstance2VpcResponse
+     */
+    public function unbindInstance2Vpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unbindInstance2VpcWithOptions($request, $headers, $runtime);
     }
 
     /**
