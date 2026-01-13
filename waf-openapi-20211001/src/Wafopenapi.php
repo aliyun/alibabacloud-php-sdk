@@ -150,6 +150,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessedPo
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessedPortsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceListRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceListResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountRequest;
@@ -352,6 +354,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventDetailReques
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventTopMetricRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeThreatEventTopMetricResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTypeRequest;
@@ -6302,6 +6306,99 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudResourceAccessedPortsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云产品接入资源列表.
+     *
+     * @param request - DescribeCloudResourceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudResourceListResponse
+     *
+     * @param DescribeCloudResourceListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCloudResourceListResponse
+     */
+    public function describeCloudResourceListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudResourceList',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudResourceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云产品接入资源列表.
+     *
+     * @param request - DescribeCloudResourceListRequest
+     *
+     * @returns DescribeCloudResourceListResponse
+     *
+     * @param DescribeCloudResourceListRequest $request
+     *
+     * @return DescribeCloudResourceListResponse
+     */
+    public function describeCloudResourceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudResourceListWithOptions($request, $runtime);
     }
 
     /**
@@ -13900,6 +13997,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeThreatEventDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询安全事件Top攻击统计数据.
+     *
+     * @param request - DescribeThreatEventTopMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeThreatEventTopMetricResponse
+     *
+     * @param DescribeThreatEventTopMetricRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeThreatEventTopMetricResponse
+     */
+    public function describeThreatEventTopMetricWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeThreatEventTopMetric',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeThreatEventTopMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询安全事件Top攻击统计数据.
+     *
+     * @param request - DescribeThreatEventTopMetricRequest
+     *
+     * @returns DescribeThreatEventTopMetricResponse
+     *
+     * @param DescribeThreatEventTopMetricRequest $request
+     *
+     * @return DescribeThreatEventTopMetricResponse
+     */
+    public function describeThreatEventTopMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeThreatEventTopMetricWithOptions($request, $runtime);
     }
 
     /**
