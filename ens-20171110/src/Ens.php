@@ -448,6 +448,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ImportImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportImageShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\InitializeENSECKServiceRoleResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinSecurityGroupRequest;
@@ -8041,7 +8042,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群列表.
+     * Queries a list of clusters.
      *
      * @param request - DescribeClustersV1Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8088,7 +8089,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群列表.
+     * Queries a list of clusters.
      *
      * @param request - DescribeClustersV1Request
      *
@@ -15515,6 +15516,50 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+     *
+     * @param request - InitializeENSECKServiceRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeENSECKServiceRoleResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return InitializeENSECKServiceRoleResponse
+     */
+    public function initializeENSECKServiceRoleWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'InitializeENSECKServiceRole',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitializeENSECKServiceRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+     *
+     * @returns InitializeENSECKServiceRoleResponse
+     *
+     * @return InitializeENSECKServiceRoleResponse
+     */
+    public function initializeENSECKServiceRole()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initializeENSECKServiceRoleWithOptions($runtime);
     }
 
     /**

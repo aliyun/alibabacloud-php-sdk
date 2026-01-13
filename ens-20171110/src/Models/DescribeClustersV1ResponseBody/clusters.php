@@ -77,6 +77,11 @@ class clusters extends Model
     /**
      * @var string
      */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -97,6 +102,7 @@ class clusters extends Model
         'podVswitchIds' => 'PodVswitchIds',
         'publicAccess' => 'PublicAccess',
         'serviceCidr' => 'ServiceCidr',
+        'state' => 'State',
         'vpcId' => 'VpcId',
         'vswitchIds' => 'VswitchIds',
     ];
@@ -175,6 +181,10 @@ class clusters extends Model
 
         if (null !== $this->serviceCidr) {
             $res['ServiceCidr'] = $this->serviceCidr;
+        }
+
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         if (null !== $this->vpcId) {
@@ -260,6 +270,10 @@ class clusters extends Model
 
         if (isset($map['ServiceCidr'])) {
             $model->serviceCidr = $map['ServiceCidr'];
+        }
+
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         if (isset($map['VpcId'])) {

@@ -1,3 +1,8 @@
+2026-01-13 Version: 8.3.0
+- Support API InitializeENSECKServiceRole.
+- Update API DescribeClustersV1: add response parameters Body.Clusters.$.State.
+
+
 2026-01-12 Version: 8.2.0
 - Support API DescribeClustersV1.
 
