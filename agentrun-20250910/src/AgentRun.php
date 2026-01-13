@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCustomDomainRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryCollectionRequest;
@@ -35,6 +37,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
@@ -49,6 +52,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
@@ -67,6 +71,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCustomDomainsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCustomDomainsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryCollectionsRequest;
@@ -91,6 +97,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCustomDomainRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryCollectionRequest;
@@ -511,6 +519,62 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createCredentialWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建自定义域名.
+     *
+     * @param request - CreateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCustomDomainResponse
+     */
+    public function createCustomDomainWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomDomain',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/custom-domains',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义域名.
+     *
+     * @param request - CreateCustomDomainRequest
+     *
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     *
+     * @return CreateCustomDomainResponse
+     */
+    public function createCustomDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCustomDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1134,6 +1198,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
+     * Delete a custom domain.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomDomainResponse
+     *
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteCustomDomainResponse
+     */
+    public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomDomain',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete a custom domain.
+     *
+     * @returns DeleteCustomDomainResponse
+     *
+     * @param string $domainName
+     *
+     * @return DeleteCustomDomainResponse
+     */
+    public function deleteCustomDomain($domainName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -1802,6 +1917,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
+     * 获取自定义域名详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomDomainResponse
+     *
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCustomDomainResponse
+     */
+    public function getCustomDomainWithOptions($domainName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomDomain',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义域名详情.
+     *
+     * @returns GetCustomDomainResponse
+     *
+     * @param string $domainName
+     *
+     * @return GetCustomDomainResponse
+     */
+    public function getCustomDomain($domainName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -2590,6 +2756,83 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->listCredentialsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 自定义域名列表.
+     *
+     * @param request - ListCustomDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCustomDomainsResponse
+     */
+    public function listCustomDomainsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['domainName'] = $request->domainName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceName) {
+            @$query['resourceName'] = $request->resourceName;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomDomains',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/custom-domains',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 自定义域名列表.
+     *
+     * @param request - ListCustomDomainsRequest
+     *
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     *
+     * @return ListCustomDomainsResponse
+     */
+    public function listCustomDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3483,6 +3726,64 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateCredentialWithOptions($credentialName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新自定义域名.
+     *
+     * @param request - UpdateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCustomDomainResponse
+     */
+    public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomDomain',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义域名.
+     *
+     * @param request - UpdateCustomDomainRequest
+     *
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     *
+     * @return UpdateCustomDomainResponse
+     */
+    public function updateCustomDomain($domainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
