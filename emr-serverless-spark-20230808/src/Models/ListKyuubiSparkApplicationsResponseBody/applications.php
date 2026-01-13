@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkAp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RunLog;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Tag;
 
 class applications extends Model
 {
@@ -70,6 +71,11 @@ class applications extends Model
     public $state;
 
     /**
+     * @var Tag[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $vcoreSeconds;
@@ -91,6 +97,7 @@ class applications extends Model
         'runLog' => 'runLog',
         'startTime' => 'startTime',
         'state' => 'state',
+        'tags' => 'tags',
         'vcoreSeconds' => 'vcoreSeconds',
         'webUI' => 'webUI',
     ];
@@ -99,6 +106,9 @@ class applications extends Model
     {
         if (null !== $this->runLog) {
             $this->runLog->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -152,6 +162,17 @@ class applications extends Model
 
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vcoreSeconds) {
@@ -219,6 +240,17 @@ class applications extends Model
 
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['vcoreSeconds'])) {

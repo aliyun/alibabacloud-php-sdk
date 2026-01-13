@@ -11,6 +11,11 @@ class catalogs extends Model
     /**
      * @var string
      */
+    public $alias;
+
+    /**
+     * @var string
+     */
     public $catalogId;
 
     /**
@@ -53,6 +58,7 @@ class catalogs extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'alias' => 'alias',
         'catalogId' => 'catalogId',
         'catalogProvider' => 'catalogProvider',
         'catalogType' => 'catalogType',
@@ -78,6 +84,10 @@ class catalogs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alias) {
+            $res['alias'] = $this->alias;
+        }
+
         if (null !== $this->catalogId) {
             $res['catalogId'] = $this->catalogId;
         }
@@ -137,6 +147,10 @@ class catalogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['alias'])) {
+            $model->alias = $map['alias'];
+        }
+
         if (isset($map['catalogId'])) {
             $model->catalogId = $map['catalogId'];
         }
