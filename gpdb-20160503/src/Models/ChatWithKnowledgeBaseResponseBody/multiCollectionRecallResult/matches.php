@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseResponseBody\multiCollectionRecallResult;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseResponseBody\multiCollectionRecallResult\matches\metadata;
 
 class matches extends Model
 {
@@ -35,7 +34,7 @@ class matches extends Model
     public $loaderMetadata;
 
     /**
-     * @var metadata
+     * @var mixed[]
      */
     public $metadata;
 
@@ -73,8 +72,8 @@ class matches extends Model
 
     public function validate()
     {
-        if (null !== $this->metadata) {
-            $this->metadata->validate();
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
         }
         if (\is_array($this->vector)) {
             Model::validateArray($this->vector);
@@ -106,7 +105,12 @@ class matches extends Model
         }
 
         if (null !== $this->metadata) {
-            $res['Metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+            if (\is_array($this->metadata)) {
+                $res['Metadata'] = [];
+                foreach ($this->metadata as $key1 => $value1) {
+                    $res['Metadata'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->rerankScore) {
@@ -164,7 +168,12 @@ class matches extends Model
         }
 
         if (isset($map['Metadata'])) {
-            $model->metadata = metadata::fromMap($map['Metadata']);
+            if (!empty($map['Metadata'])) {
+                $model->metadata = [];
+                foreach ($map['Metadata'] as $key1 => $value1) {
+                    $model->metadata[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['RerankScore'])) {

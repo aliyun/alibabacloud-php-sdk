@@ -4740,7 +4740,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除IP分组.
+     * Deletes an IP whitelist group from an instance.
      *
      * @param Request - DeleteDBInstanceIPArrayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4783,7 +4783,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除IP分组.
+     * Deletes an IP whitelist group from an instance.
      *
      * @param Request - DeleteDBInstanceIPArrayRequest
      *
@@ -4941,7 +4941,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库.
+     * Deletes a database from an instance.
      *
      * @param Request - DeleteDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4984,7 +4984,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库.
+     * Deletes a database from an instance.
      *
      * @param Request - DeleteDatabaseRequest
      *
@@ -5657,7 +5657,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 关闭私有RAG服务
+     * Deletes a private RAG service.
      *
      * @param Request - DeletePrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5696,7 +5696,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 关闭私有RAG服务
+     * Deletes a private RAG service.
      *
      * @param Request - DeletePrivateRAGServiceRequest
      *
@@ -6203,7 +6203,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 部署私有RAG服务
+     * Deploy a private RAG service.
+     *
+     * @remarks
+     * 1.  Before you deploy the private RAG service, create an initial account.
+     * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
      *
      * @param Request - DeployPrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6250,7 +6254,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 部署私有RAG服务
+     * Deploy a private RAG service.
+     *
+     * @remarks
+     * 1.  Before you deploy the private RAG service, create an initial account.
+     * 2.  The private RAG service supports vector interfaces. When you call this operation, you must configure a CA certificate.
      *
      * @param Request - DeployPrivateRAGServiceRequest
      *
@@ -8547,7 +8555,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 描述数据库.
+     * Describes the basic information about an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8590,7 +8598,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 描述数据库.
+     * Describes the basic information about an AnalyticDB for PostgreSQL database.
      *
      * @param Request - DescribeDatabaseRequest
      *
@@ -9145,7 +9153,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取安装在某个数据库上的插件信息.
+     * Describes the extension information.
      *
      * @param Request - DescribeExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9192,7 +9200,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取安装在某个数据库上的插件信息.
+     * Describes the extension information.
      *
      * @param Request - DescribeExtensionRequest
      *
@@ -10111,7 +10119,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取私有RAG服务详情.
+     * Obtains the details of a private RAG service.
      *
      * @param Request - DescribePrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10150,7 +10158,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取私有RAG服务详情.
+     * Obtains the details of a private RAG service.
      *
      * @param Request - DescribePrivateRAGServiceRequest
      *
@@ -11640,7 +11648,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取私有RAG服务可部署可用区.
+     * Obtains the deployable zone of the private RAG service.
      *
      * @param Request - DescribeZonesPrivateRAGServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11683,7 +11691,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取私有RAG服务可部署可用区.
+     * Obtains the deployable zone of the private RAG service.
      *
      * @param Request - DescribeZonesPrivateRAGServiceRequest
      *
@@ -13499,7 +13507,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取安装在某个数据库上的所有插件信息.
+     * List all extensions installed in the instance.
      *
      * @param Request - ListDatabaseExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13542,7 +13550,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取安装在某个数据库上的所有插件信息.
+     * List all extensions installed in the instance.
      *
      * @param Request - ListDatabaseExtensionsRequest
      *
@@ -14018,7 +14026,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 列举数据库.
+     * List all databases in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ListInstanceDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14065,7 +14073,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 列举数据库.
+     * List all databases in an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ListInstanceDatabasesRequest
      *
