@@ -407,6 +407,10 @@ class IQS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->callerId) {
+            @$query['callerId'] = $request->callerId;
+        }
+
         if (null !== $request->endDate) {
             @$query['endDate'] = $request->endDate;
         }

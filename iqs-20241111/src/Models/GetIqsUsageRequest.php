@@ -11,6 +11,11 @@ class GetIqsUsageRequest extends Model
     /**
      * @var string
      */
+    public $callerId;
+
+    /**
+     * @var string
+     */
     public $endDate;
 
     /**
@@ -18,6 +23,7 @@ class GetIqsUsageRequest extends Model
      */
     public $startDate;
     protected $_name = [
+        'callerId' => 'callerId',
         'endDate' => 'endDate',
         'startDate' => 'startDate',
     ];
@@ -30,6 +36,10 @@ class GetIqsUsageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callerId) {
+            $res['callerId'] = $this->callerId;
+        }
+
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
@@ -49,6 +59,10 @@ class GetIqsUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['callerId'])) {
+            $model->callerId = $map['callerId'];
+        }
+
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
