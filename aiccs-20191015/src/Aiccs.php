@@ -294,6 +294,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryInboundCallIdRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryInboundCallIdResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QuerySkillGroupsRequest;
@@ -9503,6 +9505,79 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryHotlineNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询呼入CallId.
+     *
+     * @param request - QueryInboundCallIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInboundCallIdResponse
+     *
+     * @param QueryInboundCallIdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryInboundCallIdResponse
+     */
+    public function queryInboundCallIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callDate) {
+            @$query['CallDate'] = $request->callDate;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryInboundCallId',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryInboundCallIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询呼入CallId.
+     *
+     * @param request - QueryInboundCallIdRequest
+     *
+     * @returns QueryInboundCallIdResponse
+     *
+     * @param QueryInboundCallIdRequest $request
+     *
+     * @return QueryInboundCallIdResponse
+     */
+    public function queryInboundCallId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInboundCallIdWithOptions($request, $runtime);
     }
 
     /**
