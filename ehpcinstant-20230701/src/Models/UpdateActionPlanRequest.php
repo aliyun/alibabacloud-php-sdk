@@ -22,10 +22,16 @@ class UpdateActionPlanRequest extends Model
      * @var string
      */
     public $enabled;
+
+    /**
+     * @var int
+     */
+    public $intervalMinutes;
     protected $_name = [
         'actionPlanId' => 'ActionPlanId',
         'desiredCapacity' => 'DesiredCapacity',
         'enabled' => 'Enabled',
+        'intervalMinutes' => 'IntervalMinutes',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpdateActionPlanRequest extends Model
 
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+
+        if (null !== $this->intervalMinutes) {
+            $res['IntervalMinutes'] = $this->intervalMinutes;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class UpdateActionPlanRequest extends Model
 
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+
+        if (isset($map['IntervalMinutes'])) {
+            $model->intervalMinutes = $map['IntervalMinutes'];
         }
 
         return $model;

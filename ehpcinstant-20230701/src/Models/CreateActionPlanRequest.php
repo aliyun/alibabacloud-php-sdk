@@ -31,6 +31,11 @@ class CreateActionPlanRequest extends Model
     public $desiredCapacity;
 
     /**
+     * @var int
+     */
+    public $intervalMinutes;
+
+    /**
      * @var string
      */
     public $level;
@@ -64,6 +69,7 @@ class CreateActionPlanRequest extends Model
         'allocationSpec' => 'AllocationSpec',
         'appId' => 'AppId',
         'desiredCapacity' => 'DesiredCapacity',
+        'intervalMinutes' => 'IntervalMinutes',
         'level' => 'Level',
         'prologScript' => 'PrologScript',
         'regions' => 'Regions',
@@ -100,6 +106,10 @@ class CreateActionPlanRequest extends Model
 
         if (null !== $this->desiredCapacity) {
             $res['DesiredCapacity'] = $this->desiredCapacity;
+        }
+
+        if (null !== $this->intervalMinutes) {
+            $res['IntervalMinutes'] = $this->intervalMinutes;
         }
 
         if (null !== $this->level) {
@@ -165,6 +175,10 @@ class CreateActionPlanRequest extends Model
 
         if (isset($map['DesiredCapacity'])) {
             $model->desiredCapacity = $map['DesiredCapacity'];
+        }
+
+        if (isset($map['IntervalMinutes'])) {
+            $model->intervalMinutes = $map['IntervalMinutes'];
         }
 
         if (isset($map['Level'])) {

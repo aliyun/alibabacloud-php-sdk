@@ -254,6 +254,10 @@ class EhpcInstant extends OpenApiClient
             @$query['DesiredCapacity'] = $request->desiredCapacity;
         }
 
+        if (null !== $request->intervalMinutes) {
+            @$query['IntervalMinutes'] = $request->intervalMinutes;
+        }
+
         if (null !== $request->level) {
             @$query['Level'] = $request->level;
         }
@@ -1349,7 +1353,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询Executor的事件信息.
+     * Queries the running event list of one or more executers.
+     *
+     * @remarks
+     * Queries job executor information.
      *
      * @param tmpReq - ListExecutorEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,7 +1409,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询Executor的事件信息.
+     * Queries the running event list of one or more executers.
+     *
+     * @remarks
+     * Queries job executor information.
      *
      * @param request - ListExecutorEventsRequest
      *
@@ -2168,6 +2178,10 @@ class EhpcInstant extends OpenApiClient
 
         if (null !== $request->enabled) {
             @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->intervalMinutes) {
+            @$query['IntervalMinutes'] = $request->intervalMinutes;
         }
 
         $req = new OpenApiRequest([

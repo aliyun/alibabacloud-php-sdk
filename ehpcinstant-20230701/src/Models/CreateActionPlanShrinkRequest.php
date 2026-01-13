@@ -29,6 +29,11 @@ class CreateActionPlanShrinkRequest extends Model
     public $desiredCapacity;
 
     /**
+     * @var int
+     */
+    public $intervalMinutes;
+
+    /**
      * @var string
      */
     public $level;
@@ -62,6 +67,7 @@ class CreateActionPlanShrinkRequest extends Model
         'allocationSpec' => 'AllocationSpec',
         'appId' => 'AppId',
         'desiredCapacity' => 'DesiredCapacity',
+        'intervalMinutes' => 'IntervalMinutes',
         'level' => 'Level',
         'prologScript' => 'PrologScript',
         'regionsShrink' => 'Regions',
@@ -92,6 +98,10 @@ class CreateActionPlanShrinkRequest extends Model
 
         if (null !== $this->desiredCapacity) {
             $res['DesiredCapacity'] = $this->desiredCapacity;
+        }
+
+        if (null !== $this->intervalMinutes) {
+            $res['IntervalMinutes'] = $this->intervalMinutes;
         }
 
         if (null !== $this->level) {
@@ -143,6 +153,10 @@ class CreateActionPlanShrinkRequest extends Model
 
         if (isset($map['DesiredCapacity'])) {
             $model->desiredCapacity = $map['DesiredCapacity'];
+        }
+
+        if (isset($map['IntervalMinutes'])) {
+            $model->intervalMinutes = $map['IntervalMinutes'];
         }
 
         if (isset($map['Level'])) {
