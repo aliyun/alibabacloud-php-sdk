@@ -172,6 +172,11 @@ class trafficControlTasks extends Model
     /**
      * @var string
      */
+    public $statisBehaviorConditionExpress;
+
+    /**
+     * @var string
+     */
     public $statisBehaviorConditionType;
 
     /**
@@ -236,6 +241,7 @@ class trafficControlTasks extends Model
         'startTime' => 'StartTime',
         'statisBahaviorConditionExpress' => 'StatisBahaviorConditionExpress',
         'statisBehaviorConditionArray' => 'StatisBehaviorConditionArray',
+        'statisBehaviorConditionExpress' => 'StatisBehaviorConditionExpress',
         'statisBehaviorConditionType' => 'StatisBehaviorConditionType',
         'trafficControlTargets' => 'TrafficControlTargets',
         'trafficControlTaskId' => 'TrafficControlTaskId',
@@ -432,6 +438,10 @@ class trafficControlTasks extends Model
 
         if (null !== $this->statisBehaviorConditionArray) {
             $res['StatisBehaviorConditionArray'] = $this->statisBehaviorConditionArray;
+        }
+
+        if (null !== $this->statisBehaviorConditionExpress) {
+            $res['StatisBehaviorConditionExpress'] = $this->statisBehaviorConditionExpress;
         }
 
         if (null !== $this->statisBehaviorConditionType) {
@@ -641,6 +651,10 @@ class trafficControlTasks extends Model
 
         if (isset($map['StatisBehaviorConditionArray'])) {
             $model->statisBehaviorConditionArray = $map['StatisBehaviorConditionArray'];
+        }
+
+        if (isset($map['StatisBehaviorConditionExpress'])) {
+            $model->statisBehaviorConditionExpress = $map['StatisBehaviorConditionExpress'];
         }
 
         if (isset($map['StatisBehaviorConditionType'])) {

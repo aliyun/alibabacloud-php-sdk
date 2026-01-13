@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ApplyEngineConfigRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ApplyEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCheckJobDataRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCheckJobDataResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChangeRecallManagementServiceVersionRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChangeRecallManagementServiceVersionResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckTrafficControlTaskExpressionRequest;
@@ -54,6 +56,16 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceVersionConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceVersionConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceVersionRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementServiceVersionResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleItemRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleItemResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateResourceRuleRequest;
@@ -92,6 +104,14 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceVersionConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceVersionConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceVersionRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementServiceVersionResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleItemRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleItemResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteResourceRuleRequest;
@@ -137,6 +157,18 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLaboratoryResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLayerResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementJobRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceVersionConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceVersionConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceVersionRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementServiceVersionResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetResourceRuleRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSampleConsistencyJobRequest;
@@ -190,6 +222,16 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLayersRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLayersResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListParamsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListParamsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementJobsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementJobsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementServicesRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementServicesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementServiceVersionsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementServiceVersionsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementTablesRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementTablesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementTableVersionsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListRecallManagementTableVersionsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListResourceRulesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListResourceRulesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListSampleConsistencyJobsRequest;
@@ -210,12 +252,18 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineExperimentRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineExperimentResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineLaboratoryResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OfflineRecallManagementServiceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineExperimentGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineExperimentRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineExperimentResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineLaboratoryResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\OnlineRecallManagementServiceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PublishRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PublishRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleRequest;
@@ -269,6 +317,14 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateLayerRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateLayerResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateParamRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateParamResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementServiceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementServiceVersionConfigRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementServiceVersionConfigResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleItemRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleItemResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateResourceRuleRequest;
@@ -486,6 +542,73 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->backflowFeatureConsistencyCheckJobDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更改召回管理服务的版本.
+     *
+     * @param request - ChangeRecallManagementServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param ChangeRecallManagementServiceVersionRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ChangeRecallManagementServiceVersionResponse
+     */
+    public function changeRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->recallManagementServiceVersionId) {
+            @$body['RecallManagementServiceVersionId'] = $request->recallManagementServiceVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeRecallManagementServiceVersion',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/action/changeversion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeRecallManagementServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更改召回管理服务的版本.
+     *
+     * @param request - ChangeRecallManagementServiceVersionRequest
+     *
+     * @returns ChangeRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param ChangeRecallManagementServiceVersionRequest $request
+     *
+     * @return ChangeRecallManagementServiceVersionResponse
+     */
+    public function changeRecallManagementServiceVersion($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2377,6 +2500,417 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 创建召回管理初始化配置。
+     *
+     * @param request - CreateRecallManagementConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecallManagementConfigResponse
+     *
+     * @param CreateRecallManagementConfigRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateRecallManagementConfigResponse
+     */
+    public function createRecallManagementConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkConfigs) {
+            @$body['NetworkConfigs'] = $request->networkConfigs;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecallManagementConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementconfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecallManagementConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建召回管理初始化配置。
+     *
+     * @param request - CreateRecallManagementConfigRequest
+     *
+     * @returns CreateRecallManagementConfigResponse
+     *
+     * @param CreateRecallManagementConfigRequest $request
+     *
+     * @return CreateRecallManagementConfigResponse
+     */
+    public function createRecallManagementConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRecallManagementConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建召回管理服务
+     *
+     * @param request - CreateRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecallManagementServiceResponse
+     *
+     * @param CreateRecallManagementServiceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateRecallManagementServiceResponse
+     */
+    public function createRecallManagementServiceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建召回管理服务
+     *
+     * @param request - CreateRecallManagementServiceRequest
+     *
+     * @returns CreateRecallManagementServiceResponse
+     *
+     * @param CreateRecallManagementServiceRequest $request
+     *
+     * @return CreateRecallManagementServiceResponse
+     */
+    public function createRecallManagementService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRecallManagementServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建召回管理版本.
+     *
+     * @param request - CreateRecallManagementServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param CreateRecallManagementServiceVersionRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateRecallManagementServiceVersionResponse
+     */
+    public function createRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->sourceRecallManagementServiceVersionId) {
+            @$body['SourceRecallManagementServiceVersionId'] = $request->sourceRecallManagementServiceVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecallManagementServiceVersion',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecallManagementServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建召回管理版本.
+     *
+     * @param request - CreateRecallManagementServiceVersionRequest
+     *
+     * @returns CreateRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param CreateRecallManagementServiceVersionRequest $request
+     *
+     * @return CreateRecallManagementServiceVersionResponse
+     */
+    public function createRecallManagementServiceVersion($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建召回管理服务版本配置.
+     *
+     * @param request - CreateRecallManagementServiceVersionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param CreateRecallManagementServiceVersionConfigRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return CreateRecallManagementServiceVersionConfigResponse
+     */
+    public function createRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configType) {
+            @$body['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mergeConfig) {
+            @$body['MergeConfig'] = $request->mergeConfig;
+        }
+
+        if (null !== $request->recallConfig) {
+            @$body['RecallConfig'] = $request->recallConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecallManagementServiceVersionConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '/configs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecallManagementServiceVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建召回管理服务版本配置.
+     *
+     * @param request - CreateRecallManagementServiceVersionConfigRequest
+     *
+     * @returns CreateRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param CreateRecallManagementServiceVersionConfigRequest $request
+     *
+     * @return CreateRecallManagementServiceVersionConfigResponse
+     */
+    public function createRecallManagementServiceVersionConfig($RecallManagementServiceId, $RecallManagementServiceVersionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建召回管理表。
+     *
+     * @param request - CreateRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRecallManagementTableResponse
+     *
+     * @param CreateRecallManagementTableRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateRecallManagementTableResponse
+     */
+    public function createRecallManagementTableWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->dataSource) {
+            @$body['DataSource'] = $request->dataSource;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableDataSizeFluctuationThreshold) {
+            @$body['EnableDataSizeFluctuationThreshold'] = $request->enableDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->enableRowCountFluctuationThreshold) {
+            @$body['EnableRowCountFluctuationThreshold'] = $request->enableRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxDataSizeFluctuationThreshold) {
+            @$body['MaxDataSizeFluctuationThreshold'] = $request->maxDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->maxRowCountFluctuationThreshold) {
+            @$body['MaxRowCountFluctuationThreshold'] = $request->maxRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->maxcomputeProjectName) {
+            @$body['MaxcomputeProjectName'] = $request->maxcomputeProjectName;
+        }
+
+        if (null !== $request->maxcomputeSchema) {
+            @$body['MaxcomputeSchema'] = $request->maxcomputeSchema;
+        }
+
+        if (null !== $request->maxcomputeTableName) {
+            @$body['MaxcomputeTableName'] = $request->maxcomputeTableName;
+        }
+
+        if (null !== $request->minDataSizeFluctuationThreshold) {
+            @$body['MinDataSizeFluctuationThreshold'] = $request->minDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->minRowCountFluctuationThreshold) {
+            @$body['MinRowCountFluctuationThreshold'] = $request->minRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->recallType) {
+            @$body['RecallType'] = $request->recallType;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建召回管理表。
+     *
+     * @param request - CreateRecallManagementTableRequest
+     *
+     * @returns CreateRecallManagementTableResponse
+     *
+     * @param CreateRecallManagementTableRequest $request
+     *
+     * @return CreateRecallManagementTableResponse
+     */
+    public function createRecallManagementTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRecallManagementTableWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建资源规则.
      *
      * @param request - CreateResourceRuleRequest
@@ -3867,6 +4401,264 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->deleteParamWithOptions($ParamId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除指定召回管理服务
+     *
+     * @param request - DeleteRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param DeleteRecallManagementServiceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteRecallManagementServiceResponse
+     */
+    public function deleteRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定召回管理服务
+     *
+     * @param request - DeleteRecallManagementServiceRequest
+     *
+     * @returns DeleteRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param DeleteRecallManagementServiceRequest $request
+     *
+     * @return DeleteRecallManagementServiceResponse
+     */
+    public function deleteRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除指定召回管理服务版本.
+     *
+     * @param request - DeleteRecallManagementServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param string                                      $RecallManagementServiceVersionId
+     * @param DeleteRecallManagementServiceVersionRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DeleteRecallManagementServiceVersionResponse
+     */
+    public function deleteRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecallManagementServiceVersion',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecallManagementServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定召回管理服务版本.
+     *
+     * @param request - DeleteRecallManagementServiceVersionRequest
+     *
+     * @returns DeleteRecallManagementServiceVersionResponse
+     *
+     * @param string                                      $RecallManagementServiceId
+     * @param string                                      $RecallManagementServiceVersionId
+     * @param DeleteRecallManagementServiceVersionRequest $request
+     *
+     * @return DeleteRecallManagementServiceVersionResponse
+     */
+    public function deleteRecallManagementServiceVersion($RecallManagementServiceId, $RecallManagementServiceVersionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除召回管理服务版本配置.
+     *
+     * @param request - DeleteRecallManagementServiceVersionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param string                                            $RecallManagementServiceVersionConfigId
+     * @param DeleteRecallManagementServiceVersionConfigRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DeleteRecallManagementServiceVersionConfigResponse
+     */
+    public function deleteRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecallManagementServiceVersionConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '/configs/' . Url::percentEncode($RecallManagementServiceVersionConfigId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecallManagementServiceVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除召回管理服务版本配置.
+     *
+     * @param request - DeleteRecallManagementServiceVersionConfigRequest
+     *
+     * @returns DeleteRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param string                                            $RecallManagementServiceVersionConfigId
+     * @param DeleteRecallManagementServiceVersionConfigRequest $request
+     *
+     * @return DeleteRecallManagementServiceVersionConfigResponse
+     */
+    public function deleteRecallManagementServiceVersionConfig($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除指定召回管理表。
+     *
+     * @param request - DeleteRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param DeleteRecallManagementTableRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteRecallManagementTableResponse
+     */
+    public function deleteRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定召回管理表。
+     *
+     * @param request - DeleteRecallManagementTableRequest
+     *
+     * @returns DeleteRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param DeleteRecallManagementTableRequest $request
+     *
+     * @return DeleteRecallManagementTableResponse
+     */
+    public function deleteRecallManagementTable($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime);
     }
 
     /**
@@ -5365,6 +6157,388 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->getLayerWithOptions($LayerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理初始化配置。
+     *
+     * @param request - GetRecallManagementConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementConfigResponse
+     *
+     * @param GetRecallManagementConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetRecallManagementConfigResponse
+     */
+    public function getRecallManagementConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementconfigs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理初始化配置。
+     *
+     * @param request - GetRecallManagementConfigRequest
+     *
+     * @returns GetRecallManagementConfigResponse
+     *
+     * @param GetRecallManagementConfigRequest $request
+     *
+     * @return GetRecallManagementConfigResponse
+     */
+    public function getRecallManagementConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理任务详情。
+     *
+     * @param request - GetRecallManagementJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementJobResponse
+     *
+     * @param string                        $RecallManagementJobId
+     * @param GetRecallManagementJobRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRecallManagementJobResponse
+     */
+    public function getRecallManagementJobWithOptions($RecallManagementJobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementJob',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementjobs/' . Url::percentEncode($RecallManagementJobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理任务详情。
+     *
+     * @param request - GetRecallManagementJobRequest
+     *
+     * @returns GetRecallManagementJobResponse
+     *
+     * @param string                        $RecallManagementJobId
+     * @param GetRecallManagementJobRequest $request
+     *
+     * @return GetRecallManagementJobResponse
+     */
+    public function getRecallManagementJob($RecallManagementJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementJobWithOptions($RecallManagementJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取指定召回管理服务详细信息.
+     *
+     * @param request - GetRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementServiceResponse
+     *
+     * @param string                            $RecallManagementServiceId
+     * @param GetRecallManagementServiceRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetRecallManagementServiceResponse
+     */
+    public function getRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定召回管理服务详细信息.
+     *
+     * @param request - GetRecallManagementServiceRequest
+     *
+     * @returns GetRecallManagementServiceResponse
+     *
+     * @param string                            $RecallManagementServiceId
+     * @param GetRecallManagementServiceRequest $request
+     *
+     * @return GetRecallManagementServiceResponse
+     */
+    public function getRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取指定召回管理版本详细信息.
+     *
+     * @param request - GetRecallManagementServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementServiceVersionResponse
+     *
+     * @param string                                   $RecallManagementServiceId
+     * @param string                                   $RecallManagementServiceVersionId
+     * @param GetRecallManagementServiceVersionRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetRecallManagementServiceVersionResponse
+     */
+    public function getRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementServiceVersion',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定召回管理版本详细信息.
+     *
+     * @param request - GetRecallManagementServiceVersionRequest
+     *
+     * @returns GetRecallManagementServiceVersionResponse
+     *
+     * @param string                                   $RecallManagementServiceId
+     * @param string                                   $RecallManagementServiceVersionId
+     * @param GetRecallManagementServiceVersionRequest $request
+     *
+     * @return GetRecallManagementServiceVersionResponse
+     */
+    public function getRecallManagementServiceVersion($RecallManagementServiceId, $RecallManagementServiceVersionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理服务版本配置详细信息.
+     *
+     * @param request - GetRecallManagementServiceVersionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                         $RecallManagementServiceId
+     * @param string                                         $RecallManagementServiceVersionId
+     * @param string                                         $RecallManagementServiceVersionConfigId
+     * @param GetRecallManagementServiceVersionConfigRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return GetRecallManagementServiceVersionConfigResponse
+     */
+    public function getRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementServiceVersionConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '/configs/' . Url::percentEncode($RecallManagementServiceVersionConfigId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementServiceVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理服务版本配置详细信息.
+     *
+     * @param request - GetRecallManagementServiceVersionConfigRequest
+     *
+     * @returns GetRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                         $RecallManagementServiceId
+     * @param string                                         $RecallManagementServiceVersionId
+     * @param string                                         $RecallManagementServiceVersionConfigId
+     * @param GetRecallManagementServiceVersionConfigRequest $request
+     *
+     * @return GetRecallManagementServiceVersionConfigResponse
+     */
+    public function getRecallManagementServiceVersionConfig($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取指定召回管理表详细信息。
+     *
+     * @param request - GetRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecallManagementTableResponse
+     *
+     * @param string                          $RecallManagementTableId
+     * @param GetRecallManagementTableRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetRecallManagementTableResponse
+     */
+    public function getRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定召回管理表详细信息。
+     *
+     * @param request - GetRecallManagementTableRequest
+     *
+     * @returns GetRecallManagementTableResponse
+     *
+     * @param string                          $RecallManagementTableId
+     * @param GetRecallManagementTableRequest $request
+     *
+     * @return GetRecallManagementTableResponse
+     */
+    public function getRecallManagementTable($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime);
     }
 
     /**
@@ -7252,6 +8426,435 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 获取召回管理任务列表。
+     *
+     * @param request - ListRecallManagementJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecallManagementJobsResponse
+     *
+     * @param ListRecallManagementJobsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRecallManagementJobsResponse
+     */
+    public function listRecallManagementJobsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->condition) {
+            @$query['Condition'] = $request->condition;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecallManagementJobs',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementjobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecallManagementJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理任务列表。
+     *
+     * @param request - ListRecallManagementJobsRequest
+     *
+     * @returns ListRecallManagementJobsResponse
+     *
+     * @param ListRecallManagementJobsRequest $request
+     *
+     * @return ListRecallManagementJobsResponse
+     */
+    public function listRecallManagementJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRecallManagementJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理服务下的版本列表.
+     *
+     * @param request - ListRecallManagementServiceVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecallManagementServiceVersionsResponse
+     *
+     * @param string                                     $RecallManagementServiceId
+     * @param ListRecallManagementServiceVersionsRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListRecallManagementServiceVersionsResponse
+     */
+    public function listRecallManagementServiceVersionsWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecallManagementServiceVersions',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecallManagementServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理服务下的版本列表.
+     *
+     * @param request - ListRecallManagementServiceVersionsRequest
+     *
+     * @returns ListRecallManagementServiceVersionsResponse
+     *
+     * @param string                                     $RecallManagementServiceId
+     * @param ListRecallManagementServiceVersionsRequest $request
+     *
+     * @return ListRecallManagementServiceVersionsResponse
+     */
+    public function listRecallManagementServiceVersions($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRecallManagementServiceVersionsWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理服务列表.
+     *
+     * @param request - ListRecallManagementServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecallManagementServicesResponse
+     *
+     * @param ListRecallManagementServicesRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListRecallManagementServicesResponse
+     */
+    public function listRecallManagementServicesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecallManagementServices',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecallManagementServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理服务列表.
+     *
+     * @param request - ListRecallManagementServicesRequest
+     *
+     * @returns ListRecallManagementServicesResponse
+     *
+     * @param ListRecallManagementServicesRequest $request
+     *
+     * @return ListRecallManagementServicesResponse
+     */
+    public function listRecallManagementServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRecallManagementServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理表版本列表。
+     *
+     * @param request - ListRecallManagementTableVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecallManagementTableVersionsResponse
+     *
+     * @param string                                   $RecallManagementTableId
+     * @param ListRecallManagementTableVersionsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListRecallManagementTableVersionsResponse
+     */
+    public function listRecallManagementTableVersionsWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecallManagementTableVersions',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecallManagementTableVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理表版本列表。
+     *
+     * @param request - ListRecallManagementTableVersionsRequest
+     *
+     * @returns ListRecallManagementTableVersionsResponse
+     *
+     * @param string                                   $RecallManagementTableId
+     * @param ListRecallManagementTableVersionsRequest $request
+     *
+     * @return ListRecallManagementTableVersionsResponse
+     */
+    public function listRecallManagementTableVersions($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRecallManagementTableVersionsWithOptions($RecallManagementTableId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取召回管理表列表。
+     *
+     * @param request - ListRecallManagementTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecallManagementTablesResponse
+     *
+     * @param ListRecallManagementTablesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListRecallManagementTablesResponse
+     */
+    public function listRecallManagementTablesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecallManagementTables',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRecallManagementTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取召回管理表列表。
+     *
+     * @param request - ListRecallManagementTablesRequest
+     *
+     * @returns ListRecallManagementTablesResponse
+     *
+     * @param ListRecallManagementTablesRequest $request
+     *
+     * @return ListRecallManagementTablesResponse
+     */
+    public function listRecallManagementTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRecallManagementTablesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取资源规则列表.
      *
      * @param request - ListResourceRulesRequest
@@ -8016,6 +9619,69 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 下线召回管理服务
+     *
+     * @param request - OfflineRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineRecallManagementServiceResponse
+     *
+     * @param string                                $RecallManagementServiceId
+     * @param OfflineRecallManagementServiceRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return OfflineRecallManagementServiceResponse
+     */
+    public function offlineRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/action/offline',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下线召回管理服务
+     *
+     * @param request - OfflineRecallManagementServiceRequest
+     *
+     * @returns OfflineRecallManagementServiceResponse
+     *
+     * @param string                                $RecallManagementServiceId
+     * @param OfflineRecallManagementServiceRequest $request
+     *
+     * @return OfflineRecallManagementServiceResponse
+     */
+    public function offlineRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->offlineRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 上线实验.
      *
      * @param request - OnlineExperimentRequest
@@ -8202,6 +9868,144 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->onlineLaboratoryWithOptions($LaboratoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 上线召回管理服务
+     *
+     * @param request - OnlineRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OnlineRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param OnlineRecallManagementServiceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return OnlineRecallManagementServiceResponse
+     */
+    public function onlineRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OnlineRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/action/online',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OnlineRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上线召回管理服务
+     *
+     * @param request - OnlineRecallManagementServiceRequest
+     *
+     * @returns OnlineRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param OnlineRecallManagementServiceRequest $request
+     *
+     * @return OnlineRecallManagementServiceResponse
+     */
+    public function onlineRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->onlineRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 将maxcompute的表同步到召回引擎中。
+     *
+     * @param request - PublishRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishRecallManagementTableResponse
+     *
+     * @param string                              $RecallManagementTableId
+     * @param PublishRecallManagementTableRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return PublishRecallManagementTableResponse
+     */
+    public function publishRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mode) {
+            @$body['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->partition) {
+            @$body['Partition'] = $request->partition;
+        }
+
+        if (null !== $request->skipThresholdCheck) {
+            @$body['SkipThresholdCheck'] = $request->skipThresholdCheck;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '/action/publish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将maxcompute的表同步到召回引擎中。
+     *
+     * @param request - PublishRecallManagementTableRequest
+     *
+     * @returns PublishRecallManagementTableResponse
+     *
+     * @param string                              $RecallManagementTableId
+     * @param PublishRecallManagementTableRequest $request
+     *
+     * @return PublishRecallManagementTableResponse
+     */
+    public function publishRecallManagementTable($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->publishRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime);
     }
 
     /**
@@ -10387,6 +12191,318 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 更新召回管理初始化配置。
+     *
+     * @param request - UpdateRecallManagementConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRecallManagementConfigResponse
+     *
+     * @param UpdateRecallManagementConfigRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateRecallManagementConfigResponse
+     */
+    public function updateRecallManagementConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkConfigs) {
+            @$body['NetworkConfigs'] = $request->networkConfigs;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRecallManagementConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementconfigs',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRecallManagementConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新召回管理初始化配置。
+     *
+     * @param request - UpdateRecallManagementConfigRequest
+     *
+     * @returns UpdateRecallManagementConfigResponse
+     *
+     * @param UpdateRecallManagementConfigRequest $request
+     *
+     * @return UpdateRecallManagementConfigResponse
+     */
+    public function updateRecallManagementConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRecallManagementConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新召回管理服务信息.
+     *
+     * @param request - UpdateRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param UpdateRecallManagementServiceRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateRecallManagementServiceResponse
+     */
+    public function updateRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新召回管理服务信息.
+     *
+     * @param request - UpdateRecallManagementServiceRequest
+     *
+     * @returns UpdateRecallManagementServiceResponse
+     *
+     * @param string                               $RecallManagementServiceId
+     * @param UpdateRecallManagementServiceRequest $request
+     *
+     * @return UpdateRecallManagementServiceResponse
+     */
+    public function updateRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新召回管理服务版本配置.
+     *
+     * @param request - UpdateRecallManagementServiceVersionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param string                                            $RecallManagementServiceVersionConfigId
+     * @param UpdateRecallManagementServiceVersionConfigRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return UpdateRecallManagementServiceVersionConfigResponse
+     */
+    public function updateRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->configType) {
+            @$body['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mergeConfig) {
+            @$body['MergeConfig'] = $request->mergeConfig;
+        }
+
+        if (null !== $request->recallConfig) {
+            @$body['RecallConfig'] = $request->recallConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRecallManagementServiceVersionConfig',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/versions/' . Url::percentEncode($RecallManagementServiceVersionId) . '/configs/' . Url::percentEncode($RecallManagementServiceVersionConfigId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRecallManagementServiceVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新召回管理服务版本配置.
+     *
+     * @param request - UpdateRecallManagementServiceVersionConfigRequest
+     *
+     * @returns UpdateRecallManagementServiceVersionConfigResponse
+     *
+     * @param string                                            $RecallManagementServiceId
+     * @param string                                            $RecallManagementServiceVersionId
+     * @param string                                            $RecallManagementServiceVersionConfigId
+     * @param UpdateRecallManagementServiceVersionConfigRequest $request
+     *
+     * @return UpdateRecallManagementServiceVersionConfigResponse
+     */
+    public function updateRecallManagementServiceVersionConfig($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新召回管理表。
+     *
+     * @param request - UpdateRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param UpdateRecallManagementTableRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateRecallManagementTableResponse
+     */
+    public function updateRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enableDataSizeFluctuationThreshold) {
+            @$body['EnableDataSizeFluctuationThreshold'] = $request->enableDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->enableRowCountFluctuationThreshold) {
+            @$body['EnableRowCountFluctuationThreshold'] = $request->enableRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->indexVersionId) {
+            @$body['IndexVersionId'] = $request->indexVersionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxDataSizeFluctuationThreshold) {
+            @$body['MaxDataSizeFluctuationThreshold'] = $request->maxDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->maxRowCountFluctuationThreshold) {
+            @$body['MaxRowCountFluctuationThreshold'] = $request->maxRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->minDataSizeFluctuationThreshold) {
+            @$body['MinDataSizeFluctuationThreshold'] = $request->minDataSizeFluctuationThreshold;
+        }
+
+        if (null !== $request->minRowCountFluctuationThreshold) {
+            @$body['MinRowCountFluctuationThreshold'] = $request->minRowCountFluctuationThreshold;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新召回管理表。
+     *
+     * @param request - UpdateRecallManagementTableRequest
+     *
+     * @returns UpdateRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param UpdateRecallManagementTableRequest $request
+     *
+     * @return UpdateRecallManagementTableResponse
+     */
+    public function updateRecallManagementTable($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取资源规则列表.
      *
      * @param request - UpdateResourceRuleRequest
@@ -10943,6 +13059,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->statisBaeaviorConditionArray) {
             @$body['StatisBaeaviorConditionArray'] = $request->statisBaeaviorConditionArray;
+        }
+
+        if (null !== $request->statisBehaviorConditionArray) {
+            @$body['StatisBehaviorConditionArray'] = $request->statisBehaviorConditionArray;
         }
 
         if (null !== $request->statisBehaviorConditionExpress) {

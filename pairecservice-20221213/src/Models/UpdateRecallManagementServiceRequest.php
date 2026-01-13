@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
+class UpdateRecallManagementServiceRequest extends Model
 {
     /**
-     * @var float
+     * @var string
      */
-    public $traffic;
+    public $description;
 
     /**
-     * @var int
+     * @var string
      */
-    public $recorfTime;
+    public $instanceId;
     protected $_name = [
-        'traffic' => 'Traffic',
-        'recorfTime' => 'RecorfTime',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->traffic) {
-            $res['Traffic'] = $this->traffic;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
-        if (null !== $this->recorfTime) {
-            $res['RecorfTime'] = $this->recorfTime;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Traffic'])) {
-            $model->traffic = $map['Traffic'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
-        if (isset($map['RecorfTime'])) {
-            $model->recorfTime = $map['RecorfTime'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

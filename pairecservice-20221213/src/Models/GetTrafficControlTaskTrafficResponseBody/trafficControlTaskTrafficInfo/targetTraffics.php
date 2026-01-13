@@ -17,10 +17,10 @@ class targetTraffics extends Model
     /**
      * @var string
      */
-    public $trafficContorlTargetId;
+    public $trafficControlTargetId;
     protected $_name = [
         'data' => 'Data',
-        'trafficContorlTargetId' => 'TrafficContorlTargetId',
+        'trafficControlTargetId' => 'TrafficControlTargetId',
     ];
 
     public function validate()
@@ -43,8 +43,8 @@ class targetTraffics extends Model
             }
         }
 
-        if (null !== $this->trafficContorlTargetId) {
-            $res['TrafficContorlTargetId'] = $this->trafficContorlTargetId;
+        if (null !== $this->trafficControlTargetId) {
+            $res['TrafficControlTargetId'] = $this->trafficControlTargetId;
         }
 
         return $res;
@@ -67,8 +67,8 @@ class targetTraffics extends Model
             }
         }
 
-        if (isset($map['TrafficContorlTargetId'])) {
-            $model->trafficContorlTargetId = $map['TrafficContorlTargetId'];
+        if (isset($map['TrafficControlTargetId'])) {
+            $model->trafficControlTargetId = $map['TrafficControlTargetId'];
         }
 
         return $model;
