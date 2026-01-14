@@ -31,12 +31,18 @@ class ListRegistryModulesRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
         'namespaceName' => 'namespaceName',
         'nextToken' => 'nextToken',
+        'status' => 'status',
         'type' => 'type',
     ];
 
@@ -62,6 +68,10 @@ class ListRegistryModulesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->type) {
@@ -93,6 +103,10 @@ class ListRegistryModulesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['type'])) {

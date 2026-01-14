@@ -3594,6 +3594,10 @@ class IaCService extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
         if (null !== $request->type) {
             @$query['type'] = $request->type;
         }
