@@ -107,7 +107,8 @@ class TaskCallListRequest extends Model
                 $res['IntentTags'] = [];
                 $n1 = 0;
                 foreach ($this->intentTags as $item1) {
-                    $res['IntentTags'][$n1++] = $item1;
+                    $res['IntentTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -117,7 +118,8 @@ class TaskCallListRequest extends Model
                 $res['Numbers'] = [];
                 $n1 = 0;
                 foreach ($this->numbers as $item1) {
-                    $res['Numbers'][$n1++] = $item1;
+                    $res['Numbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class TaskCallListRequest extends Model
                 $model->intentTags = [];
                 $n1 = 0;
                 foreach ($map['IntentTags'] as $item1) {
-                    $model->intentTags[$n1++] = $item1;
+                    $model->intentTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +187,8 @@ class TaskCallListRequest extends Model
                 $model->numbers = [];
                 $n1 = 0;
                 foreach ($map['Numbers'] as $item1) {
-                    $model->numbers[$n1++] = $item1;
+                    $model->numbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

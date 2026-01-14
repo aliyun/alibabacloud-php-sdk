@@ -32,7 +32,8 @@ class callTimeList extends Model
                 $res['CallTime'] = [];
                 $n1 = 0;
                 foreach ($this->callTime as $item1) {
-                    $res['CallTime'][$n1++] = $item1;
+                    $res['CallTime'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class callTimeList extends Model
                 $model->callTime = [];
                 $n1 = 0;
                 foreach ($map['CallTime'] as $item1) {
-                    $model->callTime[$n1++] = $item1;
+                    $model->callTime[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

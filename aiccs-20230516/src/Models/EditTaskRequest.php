@@ -169,7 +169,8 @@ class EditTaskRequest extends Model
                 $res['CallTimeList'] = [];
                 $n1 = 0;
                 foreach ($this->callTimeList as $item1) {
-                    $res['CallTimeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CallTimeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +228,8 @@ class EditTaskRequest extends Model
                 $res['RepeatReason'] = [];
                 $n1 = 0;
                 foreach ($this->repeatReason as $item1) {
-                    $res['RepeatReason'][$n1++] = $item1;
+                    $res['RepeatReason'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +239,8 @@ class EditTaskRequest extends Model
                 $res['RepeatTimes'] = [];
                 $n1 = 0;
                 foreach ($this->repeatTimes as $item1) {
-                    $res['RepeatTimes'][$n1++] = $item1;
+                    $res['RepeatTimes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +258,8 @@ class EditTaskRequest extends Model
                 $res['SendSmsPlan'] = [];
                 $n1 = 0;
                 foreach ($this->sendSmsPlan as $item1) {
-                    $res['SendSmsPlan'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SendSmsPlan'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -292,7 +296,8 @@ class EditTaskRequest extends Model
                 $model->callTimeList = [];
                 $n1 = 0;
                 foreach ($map['CallTimeList'] as $item1) {
-                    $model->callTimeList[$n1++] = callTimeList::fromMap($item1);
+                    $model->callTimeList[$n1] = callTimeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +355,8 @@ class EditTaskRequest extends Model
                 $model->repeatReason = [];
                 $n1 = 0;
                 foreach ($map['RepeatReason'] as $item1) {
-                    $model->repeatReason[$n1++] = $item1;
+                    $model->repeatReason[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -360,7 +366,8 @@ class EditTaskRequest extends Model
                 $model->repeatTimes = [];
                 $n1 = 0;
                 foreach ($map['RepeatTimes'] as $item1) {
-                    $model->repeatTimes[$n1++] = $item1;
+                    $model->repeatTimes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -378,7 +385,8 @@ class EditTaskRequest extends Model
                 $model->sendSmsPlan = [];
                 $n1 = 0;
                 foreach ($map['SendSmsPlan'] as $item1) {
-                    $model->sendSmsPlan[$n1++] = sendSmsPlan::fromMap($item1);
+                    $model->sendSmsPlan[$n1] = sendSmsPlan::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

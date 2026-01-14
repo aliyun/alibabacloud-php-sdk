@@ -5,18 +5,34 @@
 namespace AlibabaCloud\SDK\Aiccs\V20230516;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddAgentGroupRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddAgentGroupResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddAgentRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddAgentResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddBlacklistShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCallListRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCallListResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCallListShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCancelCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCancelCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentCancelCallShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentGroupPageRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentGroupPageResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentImportNumberRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentImportNumberResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentImportNumberShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentRecoverCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentRecoverCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AgentRecoverCallShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\CallChatListRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\CallChatListResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\CallNumberDetailRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\CallNumberDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\DetailsRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\DetailsResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\DetailsShrinkRequest;
@@ -29,9 +45,20 @@ use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2Request;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2Response;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberV2ShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\JoinAgentGroupRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\JoinAgentGroupResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\JoinAgentGroupShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\PageShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QueryAgentInfoRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QueryAgentInfoResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuickAddTaskRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuickAddTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuickAddTaskShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuitAgentGroupRequest;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuitAgentGroupResponse;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuitAgentGroupShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\SmsTemplateCreateRequest;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\SmsTemplateCreateResponse;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\SmsTemplatePageListRequest;
@@ -95,6 +122,160 @@ class Aiccs extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建坐席.
+     *
+     * @param request - AddAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAgentResponse
+     *
+     * @param AddAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AddAgentResponse
+     */
+    public function addAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
+        }
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
+        }
+
+        if (null !== $request->extensionPwd) {
+            @$query['ExtensionPwd'] = $request->extensionPwd;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAgent',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建坐席.
+     *
+     * @param request - AddAgentRequest
+     *
+     * @returns AddAgentResponse
+     *
+     * @param AddAgentRequest $request
+     *
+     * @return AddAgentResponse
+     */
+    public function addAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建坐席组接口.
+     *
+     * @param request - AddAgentGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAgentGroupResponse
+     *
+     * @param AddAgentGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddAgentGroupResponse
+     */
+    public function addAgentGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentGroupName) {
+            @$query['AgentGroupName'] = $request->agentGroupName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAgentGroup',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAgentGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建坐席组接口.
+     *
+     * @param request - AddAgentGroupRequest
+     *
+     * @returns AddAgentGroupResponse
+     *
+     * @param AddAgentGroupRequest $request
+     *
+     * @return AddAgentGroupResponse
+     */
+    public function addAgentGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAgentGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -340,6 +521,121 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 坐席外呼查询外呼记录.
+     *
+     * @param tmpReq - AgentCallListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AgentCallListResponse
+     *
+     * @param AgentCallListRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AgentCallListResponse
+     */
+    public function agentCallListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AgentCallListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numberMD5s) {
+            $request->numberMD5sShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numberMD5s, 'NumberMD5s', 'json');
+        }
+
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
+        }
+
+        if (null !== $request->callDate) {
+            @$query['CallDate'] = $request->callDate;
+        }
+
+        if (null !== $request->endCallDate) {
+            @$query['EndCallDate'] = $request->endCallDate;
+        }
+
+        if (null !== $request->numberMD5sShrink) {
+            @$query['NumberMD5s'] = $request->numberMD5sShrink;
+        }
+
+        if (null !== $request->numbersShrink) {
+            @$query['Numbers'] = $request->numbersShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AgentCallList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AgentCallListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 坐席外呼查询外呼记录.
+     *
+     * @param request - AgentCallListRequest
+     *
+     * @returns AgentCallListResponse
+     *
+     * @param AgentCallListRequest $request
+     *
+     * @return AgentCallListResponse
+     */
+    public function agentCallList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->agentCallListWithOptions($request, $runtime);
+    }
+
+    /**
      * 坐席取消号码外呼
      *
      * @param tmpReq - AgentCancelCallRequest
@@ -428,6 +724,182 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->agentCancelCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * 坐席组分页查询.
+     *
+     * @param request - AgentGroupPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AgentGroupPageResponse
+     *
+     * @param AgentGroupPageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AgentGroupPageResponse
+     */
+    public function agentGroupPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentGroupId) {
+            @$query['AgentGroupId'] = $request->agentGroupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AgentGroupPage',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AgentGroupPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 坐席组分页查询.
+     *
+     * @param request - AgentGroupPageRequest
+     *
+     * @returns AgentGroupPageResponse
+     *
+     * @param AgentGroupPageRequest $request
+     *
+     * @return AgentGroupPageResponse
+     */
+    public function agentGroupPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->agentGroupPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 坐席外呼导入号码
+     *
+     * @param tmpReq - AgentImportNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AgentImportNumberResponse
+     *
+     * @param AgentImportNumberRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AgentImportNumberResponse
+     */
+    public function agentImportNumberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AgentImportNumberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customers) {
+            $request->customersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customers, 'Customers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
+        }
+
+        if (null !== $request->callType) {
+            @$query['CallType'] = $request->callType;
+        }
+
+        if (null !== $request->customersShrink) {
+            @$query['Customers'] = $request->customersShrink;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AgentImportNumber',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AgentImportNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 坐席外呼导入号码
+     *
+     * @param request - AgentImportNumberRequest
+     *
+     * @returns AgentImportNumberResponse
+     *
+     * @param AgentImportNumberRequest $request
+     *
+     * @return AgentImportNumberResponse
+     */
+    public function agentImportNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->agentImportNumberWithOptions($request, $runtime);
     }
 
     /**
@@ -527,6 +999,152 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->agentRecoverCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取聊天内容.
+     *
+     * @param request - CallChatListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CallChatListResponse
+     *
+     * @param CallChatListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CallChatListResponse
+     */
+    public function callChatListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CallChatList',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CallChatListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取聊天内容.
+     *
+     * @param request - CallChatListRequest
+     *
+     * @returns CallChatListResponse
+     *
+     * @param CallChatListRequest $request
+     *
+     * @return CallChatListResponse
+     */
+    public function callChatList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->callChatListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取号码外呼详情.
+     *
+     * @param request - CallNumberDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CallNumberDetailResponse
+     *
+     * @param CallNumberDetailRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CallNumberDetailResponse
+     */
+    public function callNumberDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CallNumberDetail',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CallNumberDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取号码外呼详情.
+     *
+     * @param request - CallNumberDetailRequest
+     *
+     * @returns CallNumberDetailResponse
+     *
+     * @param CallNumberDetailRequest $request
+     *
+     * @return CallNumberDetailResponse
+     */
+    public function callNumberDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->callNumberDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -968,6 +1586,85 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 绑定坐席组.
+     *
+     * @param tmpReq - JoinAgentGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns JoinAgentGroupResponse
+     *
+     * @param JoinAgentGroupRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return JoinAgentGroupResponse
+     */
+    public function joinAgentGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new JoinAgentGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentGroupId) {
+            @$query['AgentGroupId'] = $request->agentGroupId;
+        }
+
+        if (null !== $request->agentIdsShrink) {
+            @$query['AgentIds'] = $request->agentIdsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'JoinAgentGroup',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return JoinAgentGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定坐席组.
+     *
+     * @param request - JoinAgentGroupRequest
+     *
+     * @returns JoinAgentGroupResponse
+     *
+     * @param JoinAgentGroupRequest $request
+     *
+     * @return JoinAgentGroupResponse
+     */
+    public function joinAgentGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->joinAgentGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询企业黑名单.
      *
      * @param tmpReq - PageRequest
@@ -1048,6 +1745,261 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询坐席具体信息.
+     *
+     * @param request - QueryAgentInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAgentInfoResponse
+     *
+     * @param QueryAgentInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryAgentInfoResponse
+     */
+    public function queryAgentInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentTag) {
+            @$query['AgentTag'] = $request->agentTag;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAgentInfo',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAgentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询坐席具体信息.
+     *
+     * @param request - QueryAgentInfoRequest
+     *
+     * @returns QueryAgentInfoResponse
+     *
+     * @param QueryAgentInfoRequest $request
+     *
+     * @return QueryAgentInfoResponse
+     */
+    public function queryAgentInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAgentInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 快速创建任务接口.
+     *
+     * @param tmpReq - QuickAddTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuickAddTaskResponse
+     *
+     * @param QuickAddTaskRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QuickAddTaskResponse
+     */
+    public function quickAddTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuickAddTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callTimeList) {
+            $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentGroupId) {
+            @$query['AgentGroupId'] = $request->agentGroupId;
+        }
+
+        if (null !== $request->callTimeListShrink) {
+            @$query['CallTimeList'] = $request->callTimeListShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->referenceTaskId) {
+            @$query['ReferenceTaskId'] = $request->referenceTaskId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->smsTemplateId) {
+            @$query['SmsTemplateId'] = $request->smsTemplateId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuickAddTask',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuickAddTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 快速创建任务接口.
+     *
+     * @param request - QuickAddTaskRequest
+     *
+     * @returns QuickAddTaskResponse
+     *
+     * @param QuickAddTaskRequest $request
+     *
+     * @return QuickAddTaskResponse
+     */
+    public function quickAddTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->quickAddTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑坐席组.
+     *
+     * @param tmpReq - QuitAgentGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuitAgentGroupResponse
+     *
+     * @param QuitAgentGroupRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QuitAgentGroupResponse
+     */
+    public function quitAgentGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuitAgentGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentGroupId) {
+            @$query['AgentGroupId'] = $request->agentGroupId;
+        }
+
+        if (null !== $request->agentIdsShrink) {
+            @$query['AgentIds'] = $request->agentIdsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuitAgentGroup',
+            'version' => '2023-05-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuitAgentGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑坐席组.
+     *
+     * @param request - QuitAgentGroupRequest
+     *
+     * @returns QuitAgentGroupResponse
+     *
+     * @param QuitAgentGroupRequest $request
+     *
+     * @return QuitAgentGroupResponse
+     */
+    public function quitAgentGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->quitAgentGroupWithOptions($request, $runtime);
     }
 
     /**

@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Aiccs\V20230516\Models\ImportNumberResponseBody\model_;
 class ImportNumberResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var int
      */
     public $code;
@@ -39,6 +44,7 @@ class ImportNumberResponseBody extends Model
      */
     public $timestamp;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'message' => 'Message',
         'model' => 'Model',
@@ -58,6 +64,10 @@ class ImportNumberResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -93,6 +103,10 @@ class ImportNumberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

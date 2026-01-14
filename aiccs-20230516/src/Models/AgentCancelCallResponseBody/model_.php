@@ -32,7 +32,8 @@ class model_ extends Model
                 $res['UnHandleNumbers'] = [];
                 $n1 = 0;
                 foreach ($this->unHandleNumbers as $item1) {
-                    $res['UnHandleNumbers'][$n1++] = $item1;
+                    $res['UnHandleNumbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class model_ extends Model
                 $model->unHandleNumbers = [];
                 $n1 = 0;
                 foreach ($map['UnHandleNumbers'] as $item1) {
-                    $model->unHandleNumbers[$n1++] = $item1;
+                    $model->unHandleNumbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

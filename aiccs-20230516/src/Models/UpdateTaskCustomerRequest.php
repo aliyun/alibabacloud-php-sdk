@@ -57,7 +57,8 @@ class UpdateTaskCustomerRequest extends Model
                 $res['Customers'] = [];
                 $n1 = 0;
                 foreach ($this->customers as $item1) {
-                    $res['Customers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Customers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class UpdateTaskCustomerRequest extends Model
                 $model->customers = [];
                 $n1 = 0;
                 foreach ($map['Customers'] as $item1) {
-                    $model->customers[$n1++] = customers::fromMap($item1);
+                    $model->customers[$n1] = customers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

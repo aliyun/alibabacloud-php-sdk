@@ -66,11 +66,12 @@ class model_ extends Model
                 $n1 = 0;
                 foreach ($this->intentTags as $item1) {
                     if (\is_array($item1)) {
-                        $res['IntentTags'][$n1++] = [];
+                        $res['IntentTags'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['IntentTags'][$n1++][$key2] = $value2;
+                            $res['IntentTags'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +81,8 @@ class model_ extends Model
                 $res['PersonalityTags'] = [];
                 $n1 = 0;
                 foreach ($this->personalityTags as $item1) {
-                    $res['PersonalityTags'][$n1++] = $item1;
+                    $res['PersonalityTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,11 +120,12 @@ class model_ extends Model
                 $n1 = 0;
                 foreach ($map['IntentTags'] as $item1) {
                     if (!empty($item1)) {
-                        $model->intentTags[$n1++] = [];
+                        $model->intentTags[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->intentTags[$n1++][$key2] = $value2;
+                            $model->intentTags[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +135,8 @@ class model_ extends Model
                 $model->personalityTags = [];
                 $n1 = 0;
                 foreach ($map['PersonalityTags'] as $item1) {
-                    $model->personalityTags[$n1++] = $item1;
+                    $model->personalityTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

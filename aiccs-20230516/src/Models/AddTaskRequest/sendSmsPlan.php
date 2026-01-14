@@ -38,7 +38,8 @@ class sendSmsPlan extends Model
                 $res['IntentTags'] = [];
                 $n1 = 0;
                 foreach ($this->intentTags as $item1) {
-                    $res['IntentTags'][$n1++] = $item1;
+                    $res['IntentTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class sendSmsPlan extends Model
                 $model->intentTags = [];
                 $n1 = 0;
                 foreach ($map['IntentTags'] as $item1) {
-                    $model->intentTags[$n1++] = $item1;
+                    $model->intentTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

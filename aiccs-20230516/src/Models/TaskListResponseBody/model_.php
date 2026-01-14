@@ -210,7 +210,8 @@ class model_ extends Model
                 $res['IntentTags'] = [];
                 $n1 = 0;
                 foreach ($this->intentTags as $item1) {
-                    $res['IntentTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IntentTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -232,7 +233,8 @@ class model_ extends Model
                 $res['PersonalityTags'] = [];
                 $n1 = 0;
                 foreach ($this->personalityTags as $item1) {
-                    $res['PersonalityTags'][$n1++] = $item1;
+                    $res['PersonalityTags'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -329,7 +331,8 @@ class model_ extends Model
                 $model->intentTags = [];
                 $n1 = 0;
                 foreach ($map['IntentTags'] as $item1) {
-                    $model->intentTags[$n1++] = intentTags::fromMap($item1);
+                    $model->intentTags[$n1] = intentTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -351,7 +354,8 @@ class model_ extends Model
                 $model->personalityTags = [];
                 $n1 = 0;
                 foreach ($map['PersonalityTags'] as $item1) {
-                    $model->personalityTags[$n1++] = $item1;
+                    $model->personalityTags[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
