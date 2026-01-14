@@ -872,6 +872,10 @@ class Nlb extends OpenApiClient
             @$bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
         }
 
+        if (null !== $request->ipVersionAffinityMode) {
+            @$body['IpVersionAffinityMode'] = $request->ipVersionAffinityMode;
+        }
+
         if (null !== $request->preserveClientIpEnabled) {
             @$body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
         }
@@ -4072,6 +4076,10 @@ class Nlb extends OpenApiClient
         $bodyFlat = [];
         if (null !== $request->healthCheckConfig) {
             @$bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+
+        if (null !== $request->ipVersionAffinityMode) {
+            @$body['IpVersionAffinityMode'] = $request->ipVersionAffinityMode;
         }
 
         if (null !== $request->preserveClientIpEnabled) {

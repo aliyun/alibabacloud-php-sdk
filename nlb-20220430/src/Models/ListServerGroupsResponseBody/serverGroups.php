@@ -41,6 +41,11 @@ class serverGroups extends Model
     public $healthCheck;
 
     /**
+     * @var string
+     */
+    public $ipVersionAffinityMode;
+
+    /**
      * @var bool
      */
     public $preserveClientIpEnabled;
@@ -111,6 +116,7 @@ class serverGroups extends Model
         'connectionDrainEnabled' => 'ConnectionDrainEnabled',
         'connectionDrainTimeout' => 'ConnectionDrainTimeout',
         'healthCheck' => 'HealthCheck',
+        'ipVersionAffinityMode' => 'IpVersionAffinityMode',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
         'protocol' => 'Protocol',
         'regionId' => 'RegionId',
@@ -165,6 +171,10 @@ class serverGroups extends Model
 
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toArray($noStream) : $this->healthCheck;
+        }
+
+        if (null !== $this->ipVersionAffinityMode) {
+            $res['IpVersionAffinityMode'] = $this->ipVersionAffinityMode;
         }
 
         if (null !== $this->preserveClientIpEnabled) {
@@ -266,6 +276,10 @@ class serverGroups extends Model
 
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
+        }
+
+        if (isset($map['IpVersionAffinityMode'])) {
+            $model->ipVersionAffinityMode = $map['IpVersionAffinityMode'];
         }
 
         if (isset($map['PreserveClientIpEnabled'])) {

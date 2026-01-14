@@ -35,6 +35,11 @@ class UpdateServerGroupAttributeRequest extends Model
     public $healthCheckConfig;
 
     /**
+     * @var string
+     */
+    public $ipVersionAffinityMode;
+
+    /**
      * @var bool
      */
     public $preserveClientIpEnabled;
@@ -64,6 +69,7 @@ class UpdateServerGroupAttributeRequest extends Model
         'connectionDrainTimeout' => 'ConnectionDrainTimeout',
         'dryRun' => 'DryRun',
         'healthCheckConfig' => 'HealthCheckConfig',
+        'ipVersionAffinityMode' => 'IpVersionAffinityMode',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
         'regionId' => 'RegionId',
         'scheduler' => 'Scheduler',
@@ -100,6 +106,10 @@ class UpdateServerGroupAttributeRequest extends Model
 
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
+        }
+
+        if (null !== $this->ipVersionAffinityMode) {
+            $res['IpVersionAffinityMode'] = $this->ipVersionAffinityMode;
         }
 
         if (null !== $this->preserveClientIpEnabled) {
@@ -151,6 +161,10 @@ class UpdateServerGroupAttributeRequest extends Model
 
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
+        }
+
+        if (isset($map['IpVersionAffinityMode'])) {
+            $model->ipVersionAffinityMode = $map['IpVersionAffinityMode'];
         }
 
         if (isset($map['PreserveClientIpEnabled'])) {
