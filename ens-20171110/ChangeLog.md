@@ -1,3 +1,7 @@
+2026-01-14 Version: 8.4.0
+- Support API DeleteCluster.
+
+
 2026-01-13 Version: 8.3.0
 - Support API InitializeENSECKServiceRole.
 - Update API DescribeClustersV1: add response parameters Body.Clusters.$.State.

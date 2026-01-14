@@ -138,6 +138,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketLifecycleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketLifecycleResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEipRequest;
@@ -5490,6 +5492,63 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBucketLifecycleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除集群.
+     *
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
+     */
+    public function deleteClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCluster',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除集群.
+     *
+     * @param request - DeleteClusterRequest
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
+     */
+    public function deleteCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClusterWithOptions($request, $runtime);
     }
 
     /**
