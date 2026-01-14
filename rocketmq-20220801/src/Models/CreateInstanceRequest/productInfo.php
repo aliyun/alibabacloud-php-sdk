@@ -47,6 +47,11 @@ class productInfo extends Model
      * @var string
      */
     public $storageSecretKey;
+
+    /**
+     * @var bool
+     */
+    public $traceOn;
     protected $_name = [
         'autoScaling' => 'autoScaling',
         'capacityType' => 'capacityType',
@@ -56,6 +61,7 @@ class productInfo extends Model
         'sendReceiveRatio' => 'sendReceiveRatio',
         'storageEncryption' => 'storageEncryption',
         'storageSecretKey' => 'storageSecretKey',
+        'traceOn' => 'traceOn',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class productInfo extends Model
 
         if (null !== $this->storageSecretKey) {
             $res['storageSecretKey'] = $this->storageSecretKey;
+        }
+
+        if (null !== $this->traceOn) {
+            $res['traceOn'] = $this->traceOn;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class productInfo extends Model
 
         if (isset($map['storageSecretKey'])) {
             $model->storageSecretKey = $map['storageSecretKey'];
+        }
+
+        if (isset($map['traceOn'])) {
+            $model->traceOn = $map['traceOn'];
         }
 
         return $model;
