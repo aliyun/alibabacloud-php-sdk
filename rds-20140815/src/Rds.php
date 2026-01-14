@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolShrinkRequest;
@@ -603,6 +605,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDERequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDEResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeShrinkRequest;
@@ -6145,6 +6149,97 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRCDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom image for an RDS Custom instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Usage
+     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+     *
+     * @param request - CreateRCImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRCImageResponse
+     *
+     * @param CreateRCImageRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRCImageResponse
+     */
+    public function createRCImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRCImage',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRCImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom image for an RDS Custom instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Usage
+     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+     *
+     * @param request - CreateRCImageRequest
+     *
+     * @returns CreateRCImageResponse
+     *
+     * @param CreateRCImageRequest $request
+     *
+     * @return CreateRCImageResponse
+     */
+    public function createRCImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRCImageWithOptions($request, $runtime);
     }
 
     /**
@@ -29187,6 +29282,67 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 修改实例向量支持状态
+     *
+     * @param request - ModifyDBInstanceVectorSupportStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceVectorSupportStatusResponse
+     *
+     * @param ModifyDBInstanceVectorSupportStatusRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyDBInstanceVectorSupportStatusResponse
+     */
+    public function modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceVectorSupportStatus',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceVectorSupportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例向量支持状态
+     *
+     * @param request - ModifyDBInstanceVectorSupportStatusRequest
+     *
+     * @returns ModifyDBInstanceVectorSupportStatusResponse
+     *
+     * @param ModifyDBInstanceVectorSupportStatusRequest $request
+     *
+     * @return ModifyDBInstanceVectorSupportStatusResponse
+     */
+    public function modifyDBInstanceVectorSupportStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
      *
      * @remarks
@@ -31326,12 +31482,20 @@ class Rds extends OpenApiClient
             @$query['PayType'] = $request->payType;
         }
 
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
         if (null !== $request->promotionCode) {
             @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
 
         $req = new OpenApiRequest([

@@ -46,12 +46,22 @@ class ModifyRCDiskChargeTypeRequest extends Model
     /**
      * @var string
      */
+    public $period;
+
+    /**
+     * @var string
+     */
     public $promotionCode;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $usedTime;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -60,8 +70,10 @@ class ModifyRCDiskChargeTypeRequest extends Model
         'clientToken' => 'ClientToken',
         'instanceId' => 'InstanceId',
         'payType' => 'PayType',
+        'period' => 'Period',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()
@@ -100,12 +112,20 @@ class ModifyRCDiskChargeTypeRequest extends Model
             $res['PayType'] = $this->payType;
         }
 
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+
         if (null !== $this->promotionCode) {
             $res['PromotionCode'] = $this->promotionCode;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
         }
 
         return $res;
@@ -147,12 +167,20 @@ class ModifyRCDiskChargeTypeRequest extends Model
             $model->payType = $map['PayType'];
         }
 
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+
         if (isset($map['PromotionCode'])) {
             $model->promotionCode = $map['PromotionCode'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
         }
 
         return $model;
