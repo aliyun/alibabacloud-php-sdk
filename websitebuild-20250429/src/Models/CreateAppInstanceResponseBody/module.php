@@ -22,10 +22,16 @@ class module extends Model
      * @var string
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $siteHost;
     protected $_name = [
         'bizId' => 'BizId',
         'instanceId' => 'InstanceId',
         'orderId' => 'OrderId',
+        'siteHost' => 'SiteHost',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class module extends Model
 
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+
+        if (null !== $this->siteHost) {
+            $res['SiteHost'] = $this->siteHost;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class module extends Model
 
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+
+        if (isset($map['SiteHost'])) {
+            $model->siteHost = $map['SiteHost'];
         }
 
         return $model;
