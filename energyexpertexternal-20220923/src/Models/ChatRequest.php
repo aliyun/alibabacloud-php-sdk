@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ChatRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $documentIds;
+
+    /**
      * @var string
      */
     public $question;
@@ -18,18 +23,33 @@ class ChatRequest extends Model
      */
     public $sessionId;
     protected $_name = [
+        'documentIds' => 'documentIds',
         'question' => 'question',
         'sessionId' => 'sessionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->documentIds)) {
+            Model::validateArray($this->documentIds);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->documentIds) {
+            if (\is_array($this->documentIds)) {
+                $res['documentIds'] = [];
+                $n1 = 0;
+                foreach ($this->documentIds as $item1) {
+                    $res['documentIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->question) {
             $res['question'] = $this->question;
         }
@@ -49,6 +69,17 @@ class ChatRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['documentIds'])) {
+            if (!empty($map['documentIds'])) {
+                $model->documentIds = [];
+                $n1 = 0;
+                foreach ($map['documentIds'] as $item1) {
+                    $model->documentIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['question'])) {
             $model->question = $map['question'];
         }
