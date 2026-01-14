@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\chatHistoryConfig
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\contentModerationConfig;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\credentialConfig;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\dataSources;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\deploymentStages;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\ecsSpec;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\envs;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\labels;
@@ -20,6 +21,11 @@ class Deployment extends Model
      * @var string
      */
     public $accessibility;
+
+    /**
+     * @var bool
+     */
+    public $autoApproval;
 
     /**
      * @var chatHistoryConfig
@@ -57,7 +63,7 @@ class Deployment extends Model
     public $deploymentId;
 
     /**
-     * @var string
+     * @var deploymentStages[]
      */
     public $deploymentStages;
 
@@ -152,6 +158,7 @@ class Deployment extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'autoApproval' => 'AutoApproval',
         'chatHistoryConfig' => 'ChatHistoryConfig',
         'contentModerationConfig' => 'ContentModerationConfig',
         'creator' => 'Creator',
@@ -194,6 +201,9 @@ class Deployment extends Model
         if (\is_array($this->dataSources)) {
             Model::validateArray($this->dataSources);
         }
+        if (\is_array($this->deploymentStages)) {
+            Model::validateArray($this->deploymentStages);
+        }
         if (null !== $this->ecsSpec) {
             $this->ecsSpec->validate();
         }
@@ -214,6 +224,10 @@ class Deployment extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->autoApproval) {
+            $res['AutoApproval'] = $this->autoApproval;
         }
 
         if (null !== $this->chatHistoryConfig) {
@@ -252,7 +266,14 @@ class Deployment extends Model
         }
 
         if (null !== $this->deploymentStages) {
-            $res['DeploymentStages'] = $this->deploymentStages;
+            if (\is_array($this->deploymentStages)) {
+                $res['DeploymentStages'] = [];
+                $n1 = 0;
+                foreach ($this->deploymentStages as $item1) {
+                    $res['DeploymentStages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->deploymentStatus) {
@@ -356,6 +377,10 @@ class Deployment extends Model
             $model->accessibility = $map['Accessibility'];
         }
 
+        if (isset($map['AutoApproval'])) {
+            $model->autoApproval = $map['AutoApproval'];
+        }
+
         if (isset($map['ChatHistoryConfig'])) {
             $model->chatHistoryConfig = chatHistoryConfig::fromMap($map['ChatHistoryConfig']);
         }
@@ -392,7 +417,14 @@ class Deployment extends Model
         }
 
         if (isset($map['DeploymentStages'])) {
-            $model->deploymentStages = $map['DeploymentStages'];
+            if (!empty($map['DeploymentStages'])) {
+                $model->deploymentStages = [];
+                $n1 = 0;
+                foreach ($map['DeploymentStages'] as $item1) {
+                    $model->deploymentStages[$n1] = deploymentStages::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DeploymentStatus'])) {

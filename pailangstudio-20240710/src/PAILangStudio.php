@@ -18,12 +18,16 @@ use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetKnowledgeBaseJobRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetKnowledgeBaseJobResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetKnowledgeBaseRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetKnowledgeBaseResponse;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBaseChunksRequest;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBaseChunksResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBaseJobsRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBaseJobsResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\RetrieveKnowledgeBaseRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\RetrieveKnowledgeBaseResponse;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\UpdateKnowledgeBaseChunkRequest;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\UpdateKnowledgeBaseChunkResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\UpdateKnowledgeBaseJobRequest;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\UpdateKnowledgeBaseJobResponse;
 use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\UpdateKnowledgeBaseRequest;
@@ -532,6 +536,85 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
+     * 获取知识库切片列表.
+     *
+     * @param request - ListKnowledgeBaseChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseChunksResponse
+     *
+     * @param string                         $KnowledgeBaseId
+     * @param ListKnowledgeBaseChunksRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListKnowledgeBaseChunksResponse
+     */
+    public function listKnowledgeBaseChunksWithOptions($KnowledgeBaseId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->chunkStatus) {
+            @$query['ChunkStatus'] = $request->chunkStatus;
+        }
+
+        if (null !== $request->metaData) {
+            @$query['MetaData'] = $request->metaData;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->versionName) {
+            @$query['VersionName'] = $request->versionName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseChunks',
+            'version' => '2024-07-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/langstudio/knowledgebases/' . Url::percentEncode($KnowledgeBaseId) . '/knowledgebasechunks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取知识库切片列表.
+     *
+     * @param request - ListKnowledgeBaseChunksRequest
+     *
+     * @returns ListKnowledgeBaseChunksResponse
+     *
+     * @param string                         $KnowledgeBaseId
+     * @param ListKnowledgeBaseChunksRequest $request
+     *
+     * @return ListKnowledgeBaseChunksResponse
+     */
+    public function listKnowledgeBaseChunks($KnowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKnowledgeBaseChunksWithOptions($KnowledgeBaseId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取知识库任务列表.
      *
      * @param request - ListKnowledgeBaseJobsRequest
@@ -911,6 +994,75 @@ class PAILangStudio extends OpenApiClient
         $headers = [];
 
         return $this->updateKnowledgeBaseWithOptions($KnowledgeBaseId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新知识库切片.
+     *
+     * @param request - UpdateKnowledgeBaseChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseChunkResponse
+     *
+     * @param string                          $KnowledgeBaseId
+     * @param string                          $KnowledgeBaseChunkId
+     * @param UpdateKnowledgeBaseChunkRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateKnowledgeBaseChunkResponse
+     */
+    public function updateKnowledgeBaseChunkWithOptions($KnowledgeBaseId, $KnowledgeBaseChunkId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chunkContent) {
+            @$body['ChunkContent'] = $request->chunkContent;
+        }
+
+        if (null !== $request->chunkStatus) {
+            @$body['ChunkStatus'] = $request->chunkStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBaseChunk',
+            'version' => '2024-07-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/langstudio/knowledgebases/' . Url::percentEncode($KnowledgeBaseId) . '/knowledgebasechunks/' . Url::percentEncode($KnowledgeBaseChunkId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新知识库切片.
+     *
+     * @param request - UpdateKnowledgeBaseChunkRequest
+     *
+     * @returns UpdateKnowledgeBaseChunkResponse
+     *
+     * @param string                          $KnowledgeBaseId
+     * @param string                          $KnowledgeBaseChunkId
+     * @param UpdateKnowledgeBaseChunkRequest $request
+     *
+     * @return UpdateKnowledgeBaseChunkResponse
+     */
+    public function updateKnowledgeBaseChunk($KnowledgeBaseId, $KnowledgeBaseChunkId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKnowledgeBaseChunkWithOptions($KnowledgeBaseId, $KnowledgeBaseChunkId, $request, $headers, $runtime);
     }
 
     /**
