@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var int
      */
+    public $auditMode;
+
+    /**
+     * @var int
+     */
     public $category;
 
     /**
@@ -141,6 +146,11 @@ class items extends Model
     /**
      * @var int
      */
+    public $threatAnalysisStatus;
+
+    /**
+     * @var int
+     */
     public $userId;
 
     /**
@@ -148,6 +158,7 @@ class items extends Model
      */
     public $warnLevel;
     protected $_name = [
+        'auditMode' => 'AuditMode',
         'category' => 'Category',
         'categoryName' => 'CategoryName',
         'content' => 'Content',
@@ -174,6 +185,7 @@ class items extends Model
         'supportForm' => 'SupportForm',
         'target' => 'Target',
         'templateRuleIds' => 'TemplateRuleIds',
+        'threatAnalysisStatus' => 'ThreatAnalysisStatus',
         'userId' => 'UserId',
         'warnLevel' => 'WarnLevel',
     ];
@@ -186,6 +198,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->auditMode) {
+            $res['AuditMode'] = $this->auditMode;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -290,6 +306,10 @@ class items extends Model
             $res['TemplateRuleIds'] = $this->templateRuleIds;
         }
 
+        if (null !== $this->threatAnalysisStatus) {
+            $res['ThreatAnalysisStatus'] = $this->threatAnalysisStatus;
+        }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -309,6 +329,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditMode'])) {
+            $model->auditMode = $map['AuditMode'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -411,6 +435,10 @@ class items extends Model
 
         if (isset($map['TemplateRuleIds'])) {
             $model->templateRuleIds = $map['TemplateRuleIds'];
+        }
+
+        if (isset($map['ThreatAnalysisStatus'])) {
+            $model->threatAnalysisStatus = $map['ThreatAnalysisStatus'];
         }
 
         if (isset($map['UserId'])) {
