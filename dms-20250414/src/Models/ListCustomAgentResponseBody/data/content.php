@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponseBody\data
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponseBody\data\content\executionConfig;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponseBody\data\content\knowledgeConfigList;
 
 class content extends Model
 {
@@ -70,6 +71,11 @@ class content extends Model
     public $knowledge;
 
     /**
+     * @var knowledgeConfigList[]
+     */
+    public $knowledgeConfigList;
+
+    /**
      * @var string
      */
     public $modifier;
@@ -131,6 +137,7 @@ class content extends Model
         'gmtModified' => 'GmtModified',
         'instruction' => 'Instruction',
         'knowledge' => 'Knowledge',
+        'knowledgeConfigList' => 'KnowledgeConfigList',
         'modifier' => 'Modifier',
         'modifierUserName' => 'ModifierUserName',
         'name' => 'Name',
@@ -147,6 +154,9 @@ class content extends Model
     {
         if (null !== $this->executionConfig) {
             $this->executionConfig->validate();
+        }
+        if (\is_array($this->knowledgeConfigList)) {
+            Model::validateArray($this->knowledgeConfigList);
         }
         parent::validate();
     }
@@ -200,6 +210,17 @@ class content extends Model
 
         if (null !== $this->knowledge) {
             $res['Knowledge'] = $this->knowledge;
+        }
+
+        if (null !== $this->knowledgeConfigList) {
+            if (\is_array($this->knowledgeConfigList)) {
+                $res['KnowledgeConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->knowledgeConfigList as $item1) {
+                    $res['KnowledgeConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->modifier) {
@@ -299,6 +320,17 @@ class content extends Model
 
         if (isset($map['Knowledge'])) {
             $model->knowledge = $map['Knowledge'];
+        }
+
+        if (isset($map['KnowledgeConfigList'])) {
+            if (!empty($map['KnowledgeConfigList'])) {
+                $model->knowledgeConfigList = [];
+                $n1 = 0;
+                foreach ($map['KnowledgeConfigList'] as $item1) {
+                    $model->knowledgeConfigList[$n1] = knowledgeConfigList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Modifier'])) {
