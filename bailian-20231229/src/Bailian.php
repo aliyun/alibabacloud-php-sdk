@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexMonitorRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexMonitorResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetParseSettingsRequest;
@@ -149,7 +151,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * 添加类目.
+     * Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+     *
+     * @remarks
+     *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+     * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+     * *   You can create up to 1,000 categories in each workspace.
+     * *   This interface is not idempotent.
+     * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
      *
      * @param request - AddCategoryRequest
      * @param headers - map
@@ -200,7 +209,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * 添加类目.
+     * Creates a category in the specified workspace to categorize and manage documents. You can create up to 1,000 categories in each workspace.
+     *
+     * @remarks
+     *   You cannot use API to create structured table. To create a table, go to [Data Management](https://bailian.console.alibabacloud.com/#/data-center) in the console. You can associate a knowledge base with ApsaraDB for RDS to automatically update structured knowledge base. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
+     * *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:AddCategory) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+     * *   You can create up to 1,000 categories in each workspace.
+     * *   This interface is not idempotent.
+     * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
      *
      * @param request - AddCategoryRequest
      *
@@ -513,7 +529,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * 申请临时文件存储上传许可.
+     * This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+     *
+     * @remarks
+     * 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
      *
      * @param request - ApplyTempStorageLeaseRequest
      * @param headers - map
@@ -560,7 +579,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * 申请临时文件存储上传许可.
+     * This interface is intended for pro-code deployment only; other scenarios are currently not supported. It is used to apply for a temporary file upload lease. After obtaining the lease, you must upload the file manually.
+     *
+     * @remarks
+     * 1\\. This interface is intended for pro-code deployment only; other scenarios are currently not supported. 2. After obtaining the temporary file upload lease via this interface, upload the file manually.
      *
      * @param request - ApplyTempStorageLeaseRequest
      *
@@ -2073,6 +2095,77 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取索引监控情况.
+     *
+     * @param request - GetIndexMonitorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexMonitorResponse
+     *
+     * @param string                 $WorkspaceId
+     * @param GetIndexMonitorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetIndexMonitorResponse
+     */
+    public function getIndexMonitorWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIndexMonitor',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/rag/index/monitor',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIndexMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取索引监控情况.
+     *
+     * @param request - GetIndexMonitorRequest
+     *
+     * @returns GetIndexMonitorResponse
+     *
+     * @param string                 $WorkspaceId
+     * @param GetIndexMonitorRequest $request
+     *
+     * @return GetIndexMonitorResponse
+     */
+    public function getIndexMonitor($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIndexMonitorWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
