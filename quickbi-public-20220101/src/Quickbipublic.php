@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetDataSourceConnectionInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetDataSourceConnectionInfoResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskListRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
@@ -120,6 +122,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWhitePortalMenuRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWhitePortalMenuResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersRequest;
@@ -193,6 +197,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySmartqPermissionByCubeI
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySmartqPermissionByCubeIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryTicketInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryTicketInfoResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserByMobileAccountRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserByMobileAccountResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserGroupListByParentIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserGroupListByParentIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserGroupMemberRequest;
@@ -2945,6 +2951,75 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 获取订阅任务列表信息.
+     *
+     * @param request - GetMailTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMailTaskListResponse
+     *
+     * @param GetMailTaskListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMailTaskListResponse
+     */
+    public function getMailTaskListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->paused) {
+            @$query['Paused'] = $request->paused;
+        }
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMailTaskList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMailTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取订阅任务列表信息.
+     *
+     * @param request - GetMailTaskListRequest
+     *
+     * @returns GetMailTaskListResponse
+     *
+     * @param GetMailTaskListRequest $request
+     *
+     * @return GetMailTaskListResponse
+     */
+    public function getMailTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMailTaskListWithOptions($request, $runtime);
+    }
+
+    /**
      * Check the running status of mail tasks within an organization.
      *
      * @param request - GetMailTaskStatusRequest
@@ -4093,6 +4168,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserGroupsByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据门户菜单的白名单列表.
+     *
+     * @param request - ListWhitePortalMenuRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWhitePortalMenuResponse
+     *
+     * @param ListWhitePortalMenuRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWhitePortalMenuResponse
+     */
+    public function listWhitePortalMenuWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataportalId) {
+            @$query['DataportalId'] = $request->dataportalId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWhitePortalMenu',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWhitePortalMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据门户菜单的白名单列表.
+     *
+     * @param request - ListWhitePortalMenuRequest
+     *
+     * @returns ListWhitePortalMenuResponse
+     *
+     * @param ListWhitePortalMenuRequest $request
+     *
+     * @return ListWhitePortalMenuResponse
+     */
+    public function listWhitePortalMenu($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWhitePortalMenuWithOptions($request, $runtime);
     }
 
     /**
@@ -6505,6 +6637,67 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryTicketInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据绑定的第三方账号ID查询UserId.
+     *
+     * @param request - QueryUserByMobileAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserByMobileAccountResponse
+     *
+     * @param QueryUserByMobileAccountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryUserByMobileAccountResponse
+     */
+    public function queryUserByMobileAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mobileType) {
+            @$query['MobileType'] = $request->mobileType;
+        }
+
+        if (null !== $request->mobileUserId) {
+            @$query['MobileUserId'] = $request->mobileUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserByMobileAccount',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserByMobileAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据绑定的第三方账号ID查询UserId.
+     *
+     * @param request - QueryUserByMobileAccountRequest
+     *
+     * @returns QueryUserByMobileAccountResponse
+     *
+     * @param QueryUserByMobileAccountRequest $request
+     *
+     * @return QueryUserByMobileAccountResponse
+     */
+    public function queryUserByMobileAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserByMobileAccountWithOptions($request, $runtime);
     }
 
     /**

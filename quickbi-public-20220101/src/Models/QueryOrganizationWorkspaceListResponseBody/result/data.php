@@ -66,6 +66,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $realOwnerAccountName;
+
+    /**
+     * @var string
+     */
     public $workspaceDescription;
 
     /**
@@ -89,6 +94,7 @@ class data extends Model
         'organizationId' => 'OrganizationId',
         'owner' => 'Owner',
         'ownerAccountName' => 'OwnerAccountName',
+        'realOwnerAccountName' => 'RealOwnerAccountName',
         'workspaceDescription' => 'WorkspaceDescription',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
@@ -144,6 +150,10 @@ class data extends Model
 
         if (null !== $this->ownerAccountName) {
             $res['OwnerAccountName'] = $this->ownerAccountName;
+        }
+
+        if (null !== $this->realOwnerAccountName) {
+            $res['RealOwnerAccountName'] = $this->realOwnerAccountName;
         }
 
         if (null !== $this->workspaceDescription) {
@@ -211,6 +221,10 @@ class data extends Model
 
         if (isset($map['OwnerAccountName'])) {
             $model->ownerAccountName = $map['OwnerAccountName'];
+        }
+
+        if (isset($map['RealOwnerAccountName'])) {
+            $model->realOwnerAccountName = $map['RealOwnerAccountName'];
         }
 
         if (isset($map['WorkspaceDescription'])) {
