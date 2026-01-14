@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteBlackWhiteListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesShrinkRequest;
@@ -118,6 +120,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayCircuitBreakerRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayDomainRequest;
@@ -299,6 +303,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayCircuitBreakerRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainRequest;
@@ -455,6 +462,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceStatu
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerStatusResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayCircuitBreakerRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayConfigRequest;
@@ -4810,6 +4820,75 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 删除黑白名单.
+     *
+     * @param request - DeleteBlackWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBlackWhiteListResponse
+     *
+     * @param DeleteBlackWhiteListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteBlackWhiteListResponse
+     */
+    public function deleteBlackWhiteListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->gatewayUniqueId) {
+            @$query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBlackWhiteList',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBlackWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除黑白名单.
+     *
+     * @param request - DeleteBlackWhiteListRequest
+     *
+     * @returns DeleteBlackWhiteListResponse
+     *
+     * @param DeleteBlackWhiteListRequest $request
+     *
+     * @return DeleteBlackWhiteListResponse
+     */
+    public function deleteBlackWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBlackWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes circuit breaking rules.
      *
      * @param tmpReq - DeleteCircuitBreakerRulesRequest
@@ -5152,6 +5231,71 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网关认证
+     *
+     * @param request - DeleteGatewayAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayAuthResponse
+     *
+     * @param DeleteGatewayAuthRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGatewayAuthResponse
+     */
+    public function deleteGatewayAuthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->gatewayUniqueId) {
+            @$query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGatewayAuth',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关认证
+     *
+     * @param request - DeleteGatewayAuthRequest
+     *
+     * @returns DeleteGatewayAuthResponse
+     *
+     * @param DeleteGatewayAuthRequest $request
+     *
+     * @return DeleteGatewayAuthResponse
+     */
+    public function deleteGatewayAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayAuthWithOptions($request, $runtime);
     }
 
     /**
@@ -11695,6 +11839,89 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 查询网关认证
+     *
+     * @param tmpReq - ListGatewayAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayAuthResponse
+     *
+     * @param ListGatewayAuthRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGatewayAuthResponse
+     */
+    public function listGatewayAuthWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListGatewayAuthShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterParams) {
+            $request->filterParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterParams, 'FilterParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->descSort) {
+            @$query['DescSort'] = $request->descSort;
+        }
+
+        if (null !== $request->filterParamsShrink) {
+            @$query['FilterParams'] = $request->filterParamsShrink;
+        }
+
+        if (null !== $request->orderItem) {
+            @$query['OrderItem'] = $request->orderItem;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayAuth',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关认证
+     *
+     * @param request - ListGatewayAuthRequest
+     *
+     * @returns ListGatewayAuthResponse
+     *
+     * @param ListGatewayAuthRequest $request
+     *
+     * @return ListGatewayAuthResponse
+     */
+    public function listGatewayAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayAuthWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of consumers on which a gateway performs authentication operations.
      *
      * @param request - ListGatewayAuthConsumerRequest
@@ -17029,6 +17256,177 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFlowRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新网关认证
+     *
+     * @param tmpReq - UpdateGatewayAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayAuthResponse
+     *
+     * @param UpdateGatewayAuthRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGatewayAuthResponse
+     */
+    public function updateGatewayAuthWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateGatewayAuthShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authResourceList) {
+            $request->authResourceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authResourceList, 'AuthResourceList', 'json');
+        }
+
+        if (null !== $tmpReq->deleteResourceIdList) {
+            $request->deleteResourceIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteResourceIdList, 'DeleteResourceIdList', 'json');
+        }
+
+        if (null !== $tmpReq->externalAuthZJSON) {
+            $request->externalAuthZJSONShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalAuthZJSON, 'ExternalAuthZJSON', 'json');
+        }
+
+        if (null !== $tmpReq->scopesList) {
+            $request->scopesListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scopesList, 'ScopesList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->authResourceConfig) {
+            @$query['AuthResourceConfig'] = $request->authResourceConfig;
+        }
+
+        if (null !== $request->authResourceListShrink) {
+            @$query['AuthResourceList'] = $request->authResourceListShrink;
+        }
+
+        if (null !== $request->authResourceMode) {
+            @$query['AuthResourceMode'] = $request->authResourceMode;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientSecret) {
+            @$query['ClientSecret'] = $request->clientSecret;
+        }
+
+        if (null !== $request->cookieDomain) {
+            @$query['CookieDomain'] = $request->cookieDomain;
+        }
+
+        if (null !== $request->deleteResourceIdListShrink) {
+            @$query['DeleteResourceIdList'] = $request->deleteResourceIdListShrink;
+        }
+
+        if (null !== $request->externalAuthZJSONShrink) {
+            @$query['ExternalAuthZJSON'] = $request->externalAuthZJSONShrink;
+        }
+
+        if (null !== $request->gatewayUniqueId) {
+            @$query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->isWhite) {
+            @$query['IsWhite'] = $request->isWhite;
+        }
+
+        if (null !== $request->issuer) {
+            @$query['Issuer'] = $request->issuer;
+        }
+
+        if (null !== $request->jwks) {
+            @$query['Jwks'] = $request->jwks;
+        }
+
+        if (null !== $request->loginUrl) {
+            @$query['LoginUrl'] = $request->loginUrl;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->redirectUrl) {
+            @$query['RedirectUrl'] = $request->redirectUrl;
+        }
+
+        if (null !== $request->scopesListShrink) {
+            @$query['ScopesList'] = $request->scopesListShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->sub) {
+            @$query['Sub'] = $request->sub;
+        }
+
+        if (null !== $request->tokenName) {
+            @$query['TokenName'] = $request->tokenName;
+        }
+
+        if (null !== $request->tokenNamePrefix) {
+            @$query['TokenNamePrefix'] = $request->tokenNamePrefix;
+        }
+
+        if (null !== $request->tokenPass) {
+            @$query['TokenPass'] = $request->tokenPass;
+        }
+
+        if (null !== $request->tokenPosition) {
+            @$query['TokenPosition'] = $request->tokenPosition;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayAuth',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关认证
+     *
+     * @param request - UpdateGatewayAuthRequest
+     *
+     * @returns UpdateGatewayAuthResponse
+     *
+     * @param UpdateGatewayAuthRequest $request
+     *
+     * @return UpdateGatewayAuthResponse
+     */
+    public function updateGatewayAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayAuthWithOptions($request, $runtime);
     }
 
     /**
