@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAclAttributeResponseBody extends Model
 {
     /**
-     * @description The ACL ID.
-     *
-     * @example nacl-hp34s2h0xx1ht4nwo****
-     *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aclId'     => 'AclId',
+        'aclId' => 'AclId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class UpdateAclAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAclAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

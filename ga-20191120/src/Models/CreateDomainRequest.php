@@ -4,57 +4,66 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDomainRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $acceleratorIds;
 
     /**
-     * @description The accelerated domain name to be added.
-     *
-     * Wildcard domain names are supported. A wildcard domain name must start with `*.`, such as `*.example.com`.
-     *
-     * This parameter is required.
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * @example cn-hangzhou
-     *
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorIds' => 'AcceleratorIds',
-        'domain'         => 'Domain',
-        'regionId'       => 'RegionId',
+        'domain' => 'Domain',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->acceleratorIds)) {
+            Model::validateArray($this->acceleratorIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorIds) {
-            $res['AcceleratorIds'] = $this->acceleratorIds;
+            if (\is_array($this->acceleratorIds)) {
+                $res['AcceleratorIds'] = [];
+                $n1 = 0;
+                foreach ($this->acceleratorIds as $item1) {
+                    $res['AcceleratorIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,22 +71,33 @@ class CreateDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorIds'])) {
             if (!empty($map['AcceleratorIds'])) {
-                $model->acceleratorIds = $map['AcceleratorIds'];
+                $model->acceleratorIds = [];
+                $n1 = 0;
+                foreach ($map['AcceleratorIds'] as $item1) {
+                    $model->acceleratorIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

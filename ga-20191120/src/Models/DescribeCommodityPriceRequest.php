@@ -4,63 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityPriceRequest\orders;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCommodityPriceRequest extends Model
 {
     /**
-     * @description The commodity orders.
-     *
-     * This parameter is required.
      * @var orders[]
      */
     public $orders;
 
     /**
-     * @description The coupon code.
-     *
-     * >  This parameter is unavailable on the China site (aliyun.com).
-     * @example 50003298014****
-     *
      * @var string
      */
     public $promotionOptionNo;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'orders'            => 'Orders',
+        'orders' => 'Orders',
         'promotionOptionNo' => 'PromotionOptionNo',
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->orders)) {
+            Model::validateArray($this->orders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orders) {
-            $res['Orders'] = [];
-            if (null !== $this->orders && \is_array($this->orders)) {
-                $n = 0;
-                foreach ($this->orders as $item) {
-                    $res['Orders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orders)) {
+                $res['Orders'] = [];
+                $n1 = 0;
+                foreach ($this->orders as $item1) {
+                    $res['Orders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -68,26 +62,29 @@ class DescribeCommodityPriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCommodityPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Orders'])) {
             if (!empty($map['Orders'])) {
                 $model->orders = [];
-                $n             = 0;
-                foreach ($map['Orders'] as $item) {
-                    $model->orders[$n++] = null !== $item ? orders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Orders'] as $item1) {
+                    $model->orders[$n1] = orders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

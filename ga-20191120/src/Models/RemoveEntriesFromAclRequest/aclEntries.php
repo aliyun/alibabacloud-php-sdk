@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aclEntries extends Model
 {
     /**
-     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to delete from the ACL. You can delete a maximum of 50 entries at a time.
-     *
-     * >  This parameter is required.
-     * @example 10.0.XX.XX/24
-     *
      * @var string
      */
     public $entry;
@@ -23,9 +18,10 @@ class aclEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entry) {
@@ -35,11 +31,11 @@ class aclEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,64 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCommonAreasRequest extends Model
 {
     /**
-     * @description The IP version used to connect to the GA instance. Valid values:
-     *
-     *   **IPv4** (default)
-     *   **IPv6**
-     *
-     * @example IPv4
-     *
      * @var string
      */
     public $ipVersion;
 
     /**
-     * @description Specifies whether to query regions where endpoint groups of GA can be deployed. Valid values:
-     *
-     *   **true**: yes
-     *   **false** (default): no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isEpg;
 
     /**
-     * @description Specifies whether to query regions supported by GA. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isIpSet;
     protected $_name = [
         'ipVersion' => 'IpVersion',
-        'isEpg'     => 'IsEpg',
-        'isIpSet'   => 'IsIpSet',
+        'isEpg' => 'IsEpg',
+        'isIpSet' => 'IsIpSet',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+
         if (null !== $this->isEpg) {
             $res['IsEpg'] = $this->isEpg;
         }
+
         if (null !== $this->isIpSet) {
             $res['IsIpSet'] = $this->isIpSet;
         }
@@ -69,20 +51,22 @@ class ListCommonAreasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCommonAreasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+
         if (isset($map['IsEpg'])) {
             $model->isEpg = $map['IsEpg'];
         }
+
         if (isset($map['IsIpSet'])) {
             $model->isIpSet = $map['IsIpSet'];
         }

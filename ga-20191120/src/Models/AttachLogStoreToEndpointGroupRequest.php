@@ -4,128 +4,136 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachLogStoreToEndpointGroupRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * This parameter is required.
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
+     * @var string[]
+     */
+    public $accessLogRecordCustomizedHeaderList;
+
+    /**
+     * @var bool
+     */
+    public $accessLogRecordCustomizedHeadersEnabled;
+
+    /**
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The IDs of the endpoint groups.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $endpointGroupIds;
 
     /**
-     * @description The ID of the listener.
-     *
-     * This parameter is required.
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the Logstore.
-     *
-     * This parameter is required.
-     * @example lsn-01
-     *
      * @var string
      */
     public $slsLogStoreName;
 
     /**
-     * @description The name of the Log Service project.
-     *
-     * This parameter is required.
-     * @example pn-01
-     *
      * @var string
      */
     public $slsProjectName;
 
     /**
-     * @description The region ID of the Log Service project.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $slsRegionId;
     protected $_name = [
-        'acceleratorId'    => 'AcceleratorId',
-        'clientToken'      => 'ClientToken',
+        'acceleratorId' => 'AcceleratorId',
+        'accessLogRecordCustomizedHeaderList' => 'AccessLogRecordCustomizedHeaderList',
+        'accessLogRecordCustomizedHeadersEnabled' => 'AccessLogRecordCustomizedHeadersEnabled',
+        'clientToken' => 'ClientToken',
         'endpointGroupIds' => 'EndpointGroupIds',
-        'listenerId'       => 'ListenerId',
-        'regionId'         => 'RegionId',
-        'slsLogStoreName'  => 'SlsLogStoreName',
-        'slsProjectName'   => 'SlsProjectName',
-        'slsRegionId'      => 'SlsRegionId',
+        'listenerId' => 'ListenerId',
+        'regionId' => 'RegionId',
+        'slsLogStoreName' => 'SlsLogStoreName',
+        'slsProjectName' => 'SlsProjectName',
+        'slsRegionId' => 'SlsRegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accessLogRecordCustomizedHeaderList)) {
+            Model::validateArray($this->accessLogRecordCustomizedHeaderList);
+        }
+        if (\is_array($this->endpointGroupIds)) {
+            Model::validateArray($this->endpointGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
+        if (null !== $this->accessLogRecordCustomizedHeaderList) {
+            if (\is_array($this->accessLogRecordCustomizedHeaderList)) {
+                $res['AccessLogRecordCustomizedHeaderList'] = [];
+                $n1 = 0;
+                foreach ($this->accessLogRecordCustomizedHeaderList as $item1) {
+                    $res['AccessLogRecordCustomizedHeaderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->accessLogRecordCustomizedHeadersEnabled) {
+            $res['AccessLogRecordCustomizedHeadersEnabled'] = $this->accessLogRecordCustomizedHeadersEnabled;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->endpointGroupIds) {
-            $res['EndpointGroupIds'] = $this->endpointGroupIds;
+            if (\is_array($this->endpointGroupIds)) {
+                $res['EndpointGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->endpointGroupIds as $item1) {
+                    $res['EndpointGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->slsLogStoreName) {
             $res['SlsLogStoreName'] = $this->slsLogStoreName;
         }
+
         if (null !== $this->slsProjectName) {
             $res['SlsProjectName'] = $this->slsProjectName;
         }
+
         if (null !== $this->slsRegionId) {
             $res['SlsRegionId'] = $this->slsRegionId;
         }
@@ -133,37 +141,64 @@ class AttachLogStoreToEndpointGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachLogStoreToEndpointGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
+        if (isset($map['AccessLogRecordCustomizedHeaderList'])) {
+            if (!empty($map['AccessLogRecordCustomizedHeaderList'])) {
+                $model->accessLogRecordCustomizedHeaderList = [];
+                $n1 = 0;
+                foreach ($map['AccessLogRecordCustomizedHeaderList'] as $item1) {
+                    $model->accessLogRecordCustomizedHeaderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AccessLogRecordCustomizedHeadersEnabled'])) {
+            $model->accessLogRecordCustomizedHeadersEnabled = $map['AccessLogRecordCustomizedHeadersEnabled'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['EndpointGroupIds'])) {
             if (!empty($map['EndpointGroupIds'])) {
-                $model->endpointGroupIds = $map['EndpointGroupIds'];
+                $model->endpointGroupIds = [];
+                $n1 = 0;
+                foreach ($map['EndpointGroupIds'] as $item1) {
+                    $model->endpointGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SlsLogStoreName'])) {
             $model->slsLogStoreName = $map['SlsLogStoreName'];
         }
+
         if (isset($map['SlsProjectName'])) {
             $model->slsProjectName = $map['SlsProjectName'];
         }
+
         if (isset($map['SlsRegionId'])) {
             $model->slsRegionId = $map['SlsRegionId'];
         }

@@ -4,43 +4,67 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DetachDdosFromAcceleratorRequest\ddosConfigList;
 
 class DetachDdosFromAcceleratorRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * This parameter is required.
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * @example cn-hangzhou
-     *
+     * @var ddosConfigList[]
+     */
+    public $ddosConfigList;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
-        'regionId'      => 'RegionId',
+        'ddosConfigList' => 'DdosConfigList',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ddosConfigList)) {
+            Model::validateArray($this->ddosConfigList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
+        if (null !== $this->ddosConfigList) {
+            if (\is_array($this->ddosConfigList)) {
+                $res['DdosConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->ddosConfigList as $item1) {
+                    $res['DdosConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,17 +72,33 @@ class DetachDdosFromAcceleratorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachDdosFromAcceleratorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
+        if (isset($map['DdosConfigList'])) {
+            if (!empty($map['DdosConfigList'])) {
+                $model->ddosConfigList = [];
+                $n1 = 0;
+                foreach ($map['DdosConfigList'] as $item1) {
+                    $model->ddosConfigList[$n1] = ddosConfigList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

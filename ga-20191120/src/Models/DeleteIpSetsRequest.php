@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIpSetsRequest extends Model
 {
     /**
-     * @description The IDs of the acceleration regions that you want to delete.
-     *
-     * This parameter is required.
-     * @example ips-bp11c9mpphtb1xkds****
-     *
      * @var string[]
      */
     public $ipSetIds;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +24,26 @@ class DeleteIpSetsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipSetIds)) {
+            Model::validateArray($this->ipSetIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipSetIds) {
-            $res['IpSetIds'] = $this->ipSetIds;
+            if (\is_array($this->ipSetIds)) {
+                $res['IpSetIds'] = [];
+                $n1 = 0;
+                foreach ($this->ipSetIds as $item1) {
+                    $res['IpSetIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,19 +51,25 @@ class DeleteIpSetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIpSetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpSetIds'])) {
             if (!empty($map['IpSetIds'])) {
-                $model->ipSetIds = $map['IpSetIds'];
+                $model->ipSetIds = [];
+                $n1 = 0;
+                foreach ($map['IpSetIds'] as $item1) {
+                    $model->ipSetIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

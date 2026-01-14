@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class forwardingRules extends Model
 {
     /**
-     * @description The ID of the forwarding rule.
-     *
-     * @example frule-bp1dii16gu9qdvb34****
-     *
      * @var string
      */
     public $forwardingRuleId;
@@ -22,9 +18,10 @@ class forwardingRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forwardingRuleId) {
@@ -34,11 +31,11 @@ class forwardingRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return forwardingRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

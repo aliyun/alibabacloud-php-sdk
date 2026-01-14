@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends Model
 {
     /**
-     * @description The IDs of the endpoint group mappings.
-     *
      * @var string[]
      */
     public $destinationIds;
 
     /**
-     * @description The IDs of the endpoint group mappings.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'destinationIds' => 'DestinationIds',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->destinationIds)) {
+            Model::validateArray($this->destinationIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationIds) {
-            $res['DestinationIds'] = $this->destinationIds;
+            if (\is_array($this->destinationIds)) {
+                $res['DestinationIds'] = [];
+                $n1 = 0;
+                foreach ($this->destinationIds as $item1) {
+                    $res['DestinationIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +51,25 @@ class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomRoutingEndpointGroupDestinationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationIds'])) {
             if (!empty($map['DestinationIds'])) {
-                $model->destinationIds = $map['DestinationIds'];
+                $model->destinationIds = [];
+                $n1 = 0;
+                foreach ($map['DestinationIds'] as $item1) {
+                    $model->destinationIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

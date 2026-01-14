@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The ID of the SSL certificate.
-     *
-     * > This parameter is required only when you create an HTTPS listener.
-     * @example 449****-cn-hangzhou
-     *
      * @var string
      */
     public $id;
@@ -23,9 +18,10 @@ class certificates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -35,11 +31,11 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

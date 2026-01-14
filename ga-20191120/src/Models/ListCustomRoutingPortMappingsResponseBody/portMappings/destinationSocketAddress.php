@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsResponseBody\portMappings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class destinationSocketAddress extends Model
 {
     /**
-     * @description The service IP address of the backend instance.
-     *
-     * @example 10.0.XX.XX
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description The service port of the backend instance.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $port;
     protected $_name = [
         'ipAddress' => 'IpAddress',
-        'port'      => 'Port',
+        'port' => 'Port',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -47,17 +41,18 @@ class destinationSocketAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return destinationSocketAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

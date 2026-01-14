@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponseBody\policies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class portRanges extends Model
 {
     /**
-     * @description The first port of the port range used by the traffic destination to process requests.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $fromPort;
 
     /**
-     * @description The last port of the port range used by the traffic destination to process requests.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $toPort;
     protected $_name = [
         'fromPort' => 'FromPort',
-        'toPort'   => 'ToPort',
+        'toPort' => 'ToPort',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromPort) {
             $res['FromPort'] = $this->fromPort;
         }
+
         if (null !== $this->toPort) {
             $res['ToPort'] = $this->toPort;
         }
@@ -47,17 +41,18 @@ class portRanges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portRanges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromPort'])) {
             $model->fromPort = $map['FromPort'];
         }
+
         if (isset($map['ToPort'])) {
             $model->toPort = $map['ToPort'];
         }

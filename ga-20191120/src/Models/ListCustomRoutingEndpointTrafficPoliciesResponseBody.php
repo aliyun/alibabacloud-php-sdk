@@ -4,86 +4,77 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponseBody\policies;
-use AlibabaCloud\Tea\Model;
 
 class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description A list of traffic policies.
-     *
      * @var policies[]
      */
     public $policies;
 
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->policies)) {
+            Model::validateArray($this->policies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->policies) {
-            $res['Policies'] = [];
-            if (null !== $this->policies && \is_array($this->policies)) {
-                $n = 0;
-                foreach ($this->policies as $item) {
-                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policies)) {
+                $res['Policies'] = [];
+                $n1 = 0;
+                foreach ($this->policies as $item1) {
+                    $res['Policies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +82,37 @@ class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomRoutingEndpointTrafficPoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
-                foreach ($map['Policies'] as $item) {
-                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Policies'] as $item1) {
+                    $model->policies[$n1] = policies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

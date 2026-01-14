@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAccelerateAreasResponseBody\areas;
-use AlibabaCloud\Tea\Model;
 
 class ListAccelerateAreasResponseBody extends Model
 {
     /**
-     * @description The information about the areas.
-     *
      * @var areas[]
      */
     public $areas;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'areas'     => 'Areas',
+        'areas' => 'Areas',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->areas)) {
+            Model::validateArray($this->areas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->areas) {
-            $res['Areas'] = [];
-            if (null !== $this->areas && \is_array($this->areas)) {
-                $n = 0;
-                foreach ($this->areas as $item) {
-                    $res['Areas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->areas)) {
+                $res['Areas'] = [];
+                $n1 = 0;
+                foreach ($this->areas as $item1) {
+                    $res['Areas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class ListAccelerateAreasResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAccelerateAreasResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Areas'])) {
             if (!empty($map['Areas'])) {
                 $model->areas = [];
-                $n            = 0;
-                foreach ($map['Areas'] as $item) {
-                    $model->areas[$n++] = null !== $item ? areas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Areas'] as $item1) {
+                    $model->areas[$n1] = areas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

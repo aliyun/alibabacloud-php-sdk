@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIpsetsBandwidthLimitResponseBody extends Model
 {
     /**
-     * @description The type of the bandwidth that is allocated.
-     *
-     *   **ShareBandwidth:** shared bandwidth.
-     *   **ExclusiveBandwidth:** dedicated bandwidth.
-     *
-     * @example ShareBandwidth
-     *
      * @var string
      */
     public $bandwidthAllocationType;
 
     /**
-     * @description The maximum bandwidth of the acceleration area. Unit: Mbit/s.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $bandwidthLimit;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'bandwidthAllocationType' => 'BandwidthAllocationType',
-        'bandwidthLimit'          => 'BandwidthLimit',
-        'requestId'               => 'RequestId',
+        'bandwidthLimit' => 'BandwidthLimit',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthAllocationType) {
             $res['BandwidthAllocationType'] = $this->bandwidthAllocationType;
         }
+
         if (null !== $this->bandwidthLimit) {
             $res['BandwidthLimit'] = $this->bandwidthLimit;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,20 +51,22 @@ class GetIpsetsBandwidthLimitResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIpsetsBandwidthLimitResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthAllocationType'])) {
             $model->bandwidthAllocationType = $map['BandwidthAllocationType'];
         }
+
         if (isset($map['BandwidthLimit'])) {
             $model->bandwidthLimit = $map['BandwidthLimit'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

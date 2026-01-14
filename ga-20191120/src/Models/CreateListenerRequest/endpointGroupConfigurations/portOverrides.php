@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\endpointGroupConfigurations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class portOverrides extends Model
 {
     /**
-     * @description The endpoint port that is mapped to the listener port.
-     *
-     * You can specify up to five endpoint ports.
-     *
-     * >*   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
-     * >*   Only HTTP and HTTPS intelligent routing listeners support port mappings.
-     * @example 80
-     *
      * @var int
      */
     public $endpointPort;
 
     /**
-     * @description The listener port that is mapped to the endpoint port.
-     *
-     * You can specify up to five listener ports.
-     *
-     * > *   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
-     * >*   Only HTTP and HTTPS intelligent routing listeners support port mappings.
-     * >*   The listener port in a port mapping must be the port that is used by the current listener.
-     * @example 443
-     *
      * @var int
      */
     public $listenerPort;
@@ -41,14 +24,16 @@ class portOverrides extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointPort) {
             $res['EndpointPort'] = $this->endpointPort;
         }
+
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
@@ -56,17 +41,18 @@ class portOverrides extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portOverrides
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointPort'])) {
             $model->endpointPort = $map['EndpointPort'];
         }
+
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }

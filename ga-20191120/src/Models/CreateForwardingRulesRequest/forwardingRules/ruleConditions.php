@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesRequest\forwardingRules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesRequest\forwardingRules\ruleConditions\hostConfig;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesRequest\forwardingRules\ruleConditions\pathConfig;
-use AlibabaCloud\Tea\Model;
 
 class ruleConditions extends Model
 {
@@ -30,28 +30,38 @@ class ruleConditions extends Model
      */
     public $ruleConditionValue;
     protected $_name = [
-        'hostConfig'         => 'HostConfig',
-        'pathConfig'         => 'PathConfig',
-        'ruleConditionType'  => 'RuleConditionType',
+        'hostConfig' => 'HostConfig',
+        'pathConfig' => 'PathConfig',
+        'ruleConditionType' => 'RuleConditionType',
         'ruleConditionValue' => 'RuleConditionValue',
     ];
 
     public function validate()
     {
+        if (null !== $this->hostConfig) {
+            $this->hostConfig->validate();
+        }
+        if (null !== $this->pathConfig) {
+            $this->pathConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostConfig) {
-            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toMap() : null;
+            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toArray($noStream) : $this->hostConfig;
         }
+
         if (null !== $this->pathConfig) {
-            $res['PathConfig'] = null !== $this->pathConfig ? $this->pathConfig->toMap() : null;
+            $res['PathConfig'] = null !== $this->pathConfig ? $this->pathConfig->toArray($noStream) : $this->pathConfig;
         }
+
         if (null !== $this->ruleConditionType) {
             $res['RuleConditionType'] = $this->ruleConditionType;
         }
+
         if (null !== $this->ruleConditionValue) {
             $res['RuleConditionValue'] = $this->ruleConditionValue;
         }
@@ -59,23 +69,26 @@ class ruleConditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleConditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostConfig'])) {
             $model->hostConfig = hostConfig::fromMap($map['HostConfig']);
         }
+
         if (isset($map['PathConfig'])) {
             $model->pathConfig = pathConfig::fromMap($map['PathConfig']);
         }
+
         if (isset($map['RuleConditionType'])) {
             $model->ruleConditionType = $map['RuleConditionType'];
         }
+
         if (isset($map['RuleConditionValue'])) {
             $model->ruleConditionValue = $map['RuleConditionValue'];
         }

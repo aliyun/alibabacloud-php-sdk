@@ -4,149 +4,130 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinationResponseBody\portMappings\destinationSocketAddress;
-use AlibabaCloud\Tea\Model;
 
 class portMappings extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The acceleration port.
-     *
-     * @example 3000
-     *
      * @var int
      */
     public $acceleratorPort;
 
     /**
-     * @description The service IP address and port of the backend instance.
-     *
      * @var destinationSocketAddress
      */
     public $destinationSocketAddress;
 
     /**
-     * @description The access policy of traffic for the backend instance.
-     *
-     *   **allow**: allows traffic to the backend instance.
-     *   **deny**: denies all traffic to the backend instance.
-     *
-     * @example allow
-     *
      * @var string
      */
     public $destinationTrafficState;
 
     /**
-     * @description The ID of the endpoint group.
-     *
-     * @example epg-bp14sz7ftcwwjgrdm****
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description The ID of the region in which the endpoint group resides.
-     *
-     * @example us-west-1
-     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
-     * @description The ID of the endpoint.
-     *
-     * @example ep-bp14sz7ftcwwjgrdm****
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The ID of the listener.
-     *
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The protocol of the backend service.
-     *
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The name of the endpoint (vSwitch).
-     *
-     * @example vsw-test01
-     *
      * @var string
      */
     public $vswitch;
     protected $_name = [
-        'acceleratorId'            => 'AcceleratorId',
-        'acceleratorPort'          => 'AcceleratorPort',
+        'acceleratorId' => 'AcceleratorId',
+        'acceleratorPort' => 'AcceleratorPort',
         'destinationSocketAddress' => 'DestinationSocketAddress',
-        'destinationTrafficState'  => 'DestinationTrafficState',
-        'endpointGroupId'          => 'EndpointGroupId',
-        'endpointGroupRegion'      => 'EndpointGroupRegion',
-        'endpointId'               => 'EndpointId',
-        'listenerId'               => 'ListenerId',
-        'protocols'                => 'Protocols',
-        'vswitch'                  => 'Vswitch',
+        'destinationTrafficState' => 'DestinationTrafficState',
+        'endpointGroupId' => 'EndpointGroupId',
+        'endpointGroupRegion' => 'EndpointGroupRegion',
+        'endpointId' => 'EndpointId',
+        'listenerId' => 'ListenerId',
+        'protocols' => 'Protocols',
+        'vswitch' => 'Vswitch',
     ];
 
     public function validate()
     {
+        if (null !== $this->destinationSocketAddress) {
+            $this->destinationSocketAddress->validate();
+        }
+        if (\is_array($this->protocols)) {
+            Model::validateArray($this->protocols);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->acceleratorPort) {
             $res['AcceleratorPort'] = $this->acceleratorPort;
         }
+
         if (null !== $this->destinationSocketAddress) {
-            $res['DestinationSocketAddress'] = null !== $this->destinationSocketAddress ? $this->destinationSocketAddress->toMap() : null;
+            $res['DestinationSocketAddress'] = null !== $this->destinationSocketAddress ? $this->destinationSocketAddress->toArray($noStream) : $this->destinationSocketAddress;
         }
+
         if (null !== $this->destinationTrafficState) {
             $res['DestinationTrafficState'] = $this->destinationTrafficState;
         }
+
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
         }
+
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
         }
+
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->protocols) {
-            $res['Protocols'] = $this->protocols;
+            if (\is_array($this->protocols)) {
+                $res['Protocols'] = [];
+                $n1 = 0;
+                foreach ($this->protocols as $item1) {
+                    $res['Protocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->vswitch) {
             $res['Vswitch'] = $this->vswitch;
         }
@@ -154,43 +135,57 @@ class portMappings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portMappings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['AcceleratorPort'])) {
             $model->acceleratorPort = $map['AcceleratorPort'];
         }
+
         if (isset($map['DestinationSocketAddress'])) {
             $model->destinationSocketAddress = destinationSocketAddress::fromMap($map['DestinationSocketAddress']);
         }
+
         if (isset($map['DestinationTrafficState'])) {
             $model->destinationTrafficState = $map['DestinationTrafficState'];
         }
+
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
         }
+
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
         }
+
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['Protocols'])) {
             if (!empty($map['Protocols'])) {
-                $model->protocols = $map['Protocols'];
+                $model->protocols = [];
+                $n1 = 0;
+                foreach ($map['Protocols'] as $item1) {
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Vswitch'])) {
             $model->vswitch = $map['Vswitch'];
         }

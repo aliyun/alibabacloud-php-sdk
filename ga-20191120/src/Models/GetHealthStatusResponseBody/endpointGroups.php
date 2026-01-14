@@ -4,92 +4,87 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusResponseBody\endpointGroups\endpoints;
-use AlibabaCloud\Tea\Model;
 
 class endpointGroups extends Model
 {
     /**
-     * @description The ID of the endpoint group.
-     *
-     * @example epg-bp14sz7ftcwwjgrdm****
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description The type of the endpoint group. Valid values:
-     *
-     *   **default:** the default endpoint group.
-     *   **virtual:** a virtual endpoint group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $endpointGroupType;
 
     /**
-     * @description The information about the endpoints.
-     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
-     * @description The IDs of the forwarding rules.
-     *
      * @var string[]
      */
     public $forwardingRuleIds;
 
     /**
-     * @description The health status of the endpoint group. Valid values:
-     *
-     *   **init:** The endpoint group is being initialized.
-     *   **normal:** The endpoint group is normal.
-     *   **abnormal:** The endpoint group is abnormal.
-     *   **partiallyAbnormal:** The endpoint group is partially abnormal.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $healthStatus;
     protected $_name = [
-        'endpointGroupId'   => 'EndpointGroupId',
+        'endpointGroupId' => 'EndpointGroupId',
         'endpointGroupType' => 'EndpointGroupType',
-        'endpoints'         => 'Endpoints',
+        'endpoints' => 'Endpoints',
         'forwardingRuleIds' => 'ForwardingRuleIds',
-        'healthStatus'      => 'HealthStatus',
+        'healthStatus' => 'HealthStatus',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        if (\is_array($this->forwardingRuleIds)) {
+            Model::validateArray($this->forwardingRuleIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
         }
+
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
         }
+
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->forwardingRuleIds) {
-            $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
+            if (\is_array($this->forwardingRuleIds)) {
+                $res['ForwardingRuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->forwardingRuleIds as $item1) {
+                    $res['ForwardingRuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
         }
@@ -97,34 +92,44 @@ class endpointGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
         }
+
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
         }
+
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['Endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ForwardingRuleIds'])) {
             if (!empty($map['ForwardingRuleIds'])) {
-                $model->forwardingRuleIds = $map['ForwardingRuleIds'];
+                $model->forwardingRuleIds = [];
+                $n1 = 0;
+                foreach ($map['ForwardingRuleIds'] as $item1) {
+                    $model->forwardingRuleIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
         }

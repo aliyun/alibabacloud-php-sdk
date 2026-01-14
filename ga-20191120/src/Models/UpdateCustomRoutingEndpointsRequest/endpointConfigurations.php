@@ -4,68 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsRequest\endpointConfigurations\policyConfigurations;
-use AlibabaCloud\Tea\Model;
 
 class endpointConfigurations extends Model
 {
     /**
-     * @description The ID of the endpoint.
-     *
-     * You can specify up to 20 endpoint IDs.
-     * @example ep-bp1dmlohjjz4kqaun****
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The configurations of the policy.
-     *
      * @var policyConfigurations[]
      */
     public $policyConfigurations;
 
     /**
-     * @description The access policy of traffic for the specified endpoint. Default value: DenyAll. Valid values:
-     *
-     *   **DenyAll**: denies all traffic to the endpoint.
-     *
-     *   **AllowAll**: allows all traffic to the endpoint.
-     *
-     *   **AllowCustom**: allows traffic only to specified destinations.
-     *
-     * You can specify up to 20 access policies of traffic for the specified endpoint.
-     * @example DenyAll
-     *
      * @var string
      */
     public $trafficToEndpointPolicy;
     protected $_name = [
-        'endpointId'              => 'EndpointId',
-        'policyConfigurations'    => 'PolicyConfigurations',
+        'endpointId' => 'EndpointId',
+        'policyConfigurations' => 'PolicyConfigurations',
         'trafficToEndpointPolicy' => 'TrafficToEndpointPolicy',
     ];
 
     public function validate()
     {
+        if (\is_array($this->policyConfigurations)) {
+            Model::validateArray($this->policyConfigurations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->policyConfigurations) {
-            $res['PolicyConfigurations'] = [];
-            if (null !== $this->policyConfigurations && \is_array($this->policyConfigurations)) {
-                $n = 0;
-                foreach ($this->policyConfigurations as $item) {
-                    $res['PolicyConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyConfigurations)) {
+                $res['PolicyConfigurations'] = [];
+                $n1 = 0;
+                foreach ($this->policyConfigurations as $item1) {
+                    $res['PolicyConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->trafficToEndpointPolicy) {
             $res['TrafficToEndpointPolicy'] = $this->trafficToEndpointPolicy;
         }
@@ -73,26 +62,29 @@ class endpointConfigurations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointConfigurations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['PolicyConfigurations'])) {
             if (!empty($map['PolicyConfigurations'])) {
                 $model->policyConfigurations = [];
-                $n                           = 0;
-                foreach ($map['PolicyConfigurations'] as $item) {
-                    $model->policyConfigurations[$n++] = null !== $item ? policyConfigurations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PolicyConfigurations'] as $item1) {
+                    $model->policyConfigurations[$n1] = policyConfigurations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TrafficToEndpointPolicy'])) {
             $model->trafficToEndpointPolicy = $map['TrafficToEndpointPolicy'];
         }

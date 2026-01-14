@@ -4,53 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BandwidthPackageRemoveAcceleratorResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
      * @var string[]
      */
     public $accelerators;
 
     /**
-     * @description The ID of the bandwidth plan.
-     *
-     * @example gbwp-bp1sgzldyj6b4q7cx****
-     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B7770CB9-9745-4FE5-9EDA-D14B01A12A50
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'accelerators'       => 'Accelerators',
+        'accelerators' => 'Accelerators',
         'bandwidthPackageId' => 'BandwidthPackageId',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accelerators)) {
+            Model::validateArray($this->accelerators);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accelerators) {
-            $res['Accelerators'] = $this->accelerators;
+            if (\is_array($this->accelerators)) {
+                $res['Accelerators'] = [];
+                $n1 = 0;
+                foreach ($this->accelerators as $item1) {
+                    $res['Accelerators'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +61,29 @@ class BandwidthPackageRemoveAcceleratorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BandwidthPackageRemoveAcceleratorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accelerators'])) {
             if (!empty($map['Accelerators'])) {
-                $model->accelerators = $map['Accelerators'];
+                $model->accelerators = [];
+                $n1 = 0;
+                foreach ($map['Accelerators'] as $item1) {
+                    $model->accelerators[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

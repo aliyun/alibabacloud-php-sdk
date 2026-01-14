@@ -4,55 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDomainAcceleratorRelationRequest extends Model
 {
     /**
-     * @description The ID of the GA instance to be disassociated. You can specify up to 50 IDs.
-     *
-     * If you leave this parameter empty, all GA instances associated with the specified domain name are disassociated.
      * @var string[]
      */
     public $acceleratorIds;
 
     /**
-     * @description The accelerated domain name to be disassociated.
-     *
-     * This parameter is required.
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorIds' => 'AcceleratorIds',
-        'domain'         => 'Domain',
-        'regionId'       => 'RegionId',
+        'domain' => 'Domain',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->acceleratorIds)) {
+            Model::validateArray($this->acceleratorIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorIds) {
-            $res['AcceleratorIds'] = $this->acceleratorIds;
+            if (\is_array($this->acceleratorIds)) {
+                $res['AcceleratorIds'] = [];
+                $n1 = 0;
+                foreach ($this->acceleratorIds as $item1) {
+                    $res['AcceleratorIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -60,22 +61,29 @@ class DeleteDomainAcceleratorRelationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDomainAcceleratorRelationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorIds'])) {
             if (!empty($map['AcceleratorIds'])) {
-                $model->acceleratorIds = $map['AcceleratorIds'];
+                $model->acceleratorIds = [];
+                $n1 = 0;
+                foreach ($map['AcceleratorIds'] as $item1) {
+                    $model->acceleratorIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

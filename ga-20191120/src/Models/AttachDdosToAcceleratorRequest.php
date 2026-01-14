@@ -4,74 +4,87 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AttachDdosToAcceleratorRequest\ddosConfigList;
 
 class AttachDdosToAcceleratorRequest extends Model
 {
     /**
-     * @description The ID of the GA instance with which the Anti-DDoS Pro/Premium instance is associated.
-     *
-     * This parameter is required.
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The ID of the Anti-DDoS Pro/Premium instance to be associated with the GA instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-zz11vq7j****
-     *
+     * @var ddosConfigList[]
+     */
+    public $ddosConfigList;
+
+    /**
      * @var string
      */
     public $ddosId;
 
     /**
-     * @description The region where the Anti-DDoS Pro/Premium instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: regions in the Chinese mainland
-     *   **ap-southeast-1**: regions outside the Chinese mainland
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * @example cn-hangzhou
-     *
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
-        'ddosId'        => 'DdosId',
-        'ddosRegionId'  => 'DdosRegionId',
-        'regionId'      => 'RegionId',
+        'ddosConfigList' => 'DdosConfigList',
+        'ddosId' => 'DdosId',
+        'ddosRegionId' => 'DdosRegionId',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ddosConfigList)) {
+            Model::validateArray($this->ddosConfigList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
+        if (null !== $this->ddosConfigList) {
+            if (\is_array($this->ddosConfigList)) {
+                $res['DdosConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->ddosConfigList as $item1) {
+                    $res['DdosConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->ddosId) {
             $res['DdosId'] = $this->ddosId;
         }
+
         if (null !== $this->ddosRegionId) {
             $res['DdosRegionId'] = $this->ddosRegionId;
         }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -79,23 +92,41 @@ class AttachDdosToAcceleratorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachDdosToAcceleratorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
+        if (isset($map['DdosConfigList'])) {
+            if (!empty($map['DdosConfigList'])) {
+                $model->ddosConfigList = [];
+                $n1 = 0;
+                foreach ($map['DdosConfigList'] as $item1) {
+                    $model->ddosConfigList[$n1] = ddosConfigList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DdosId'])) {
             $model->ddosId = $map['DdosId'];
         }
+
         if (isset($map['DdosRegionId'])) {
             $model->ddosRegionId = $map['DdosRegionId'];
         }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

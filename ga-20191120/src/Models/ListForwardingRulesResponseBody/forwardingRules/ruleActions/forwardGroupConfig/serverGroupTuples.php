@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody\forwardingRules\ruleActions\forwardGroupConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serverGroupTuples extends Model
 {
     /**
-     * @description The endpoint group ID.
-     *
-     * >  GA instances created after July 12, 2022 support all forwarding condition types and action types. We recommend that you query forwarding conditions and actions by calling the **RuleActionType** and **RuleActionValue** operations.
-     * @example epg-bp1enpdcrqhl78g6r****
-     *
      * @var string
      */
     public $endpointGroupId;
@@ -23,9 +18,10 @@ class serverGroupTuples extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointGroupId) {
@@ -35,11 +31,11 @@ class serverGroupTuples extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serverGroupTuples
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

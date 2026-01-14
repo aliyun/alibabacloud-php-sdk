@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class basicBandwidthPackage extends Model
 {
     /**
-     * @description The bandwidth value of the basic bandwidth plan. Unit: Mbit/s.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description The bandwidth type that is provided by the basic bandwidth plan. Valid values:
-     *
-     *   **Basic**
-     *   **Enhanced**
-     *   **Advanced**
-     *
-     * @example Basic
-     *
      * @var string
      */
     public $bandwidthType;
 
     /**
-     * @description The ID of the basic bandwidth plan.
-     *
-     * @example gbwp-bp1d8xk8bg139j0fw****
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'bandwidth'     => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'bandwidthType' => 'BandwidthType',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+
         if (null !== $this->bandwidthType) {
             $res['BandwidthType'] = $this->bandwidthType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -64,20 +51,22 @@ class basicBandwidthPackage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return basicBandwidthPackage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+
         if (isset($map['BandwidthType'])) {
             $model->bandwidthType = $map['BandwidthType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

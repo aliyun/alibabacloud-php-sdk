@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\AssociateAdditionalCertificatesWithListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The domain name that is specified by the certificate. You can associate each domain name with only one additional certificate.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The ID of the certificate. Only server certificates are supported.
-     *
-     * This parameter is required.
-     * @example 6092**-cn-hangzhou
-     *
      * @var string
      */
     public $id;
     protected $_name = [
         'domain' => 'Domain',
-        'id'     => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,17 +41,18 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

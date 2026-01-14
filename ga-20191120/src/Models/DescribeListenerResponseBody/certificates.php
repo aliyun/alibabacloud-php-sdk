@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The ID of the SSL certificate.
-     *
-     * @example 449****-cn-hangzhou
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The type of the SSL certificate.
-     *
-     * Only **Server** may be returned, which indicates a server certificate.
-     * @example Server
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -48,17 +41,18 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

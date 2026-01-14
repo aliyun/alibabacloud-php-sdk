@@ -4,43 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAvailableAccelerateAreasRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * @example ga-bp1yeeq8yfoyszmqy****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
+     * @var string
+     */
+    public $accessMode;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
-        'regionId'      => 'RegionId',
+        'accessMode' => 'AccessMode',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = $this->accessMode;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,17 +51,22 @@ class ListAvailableAccelerateAreasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAvailableAccelerateAreasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = $map['AccessMode'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

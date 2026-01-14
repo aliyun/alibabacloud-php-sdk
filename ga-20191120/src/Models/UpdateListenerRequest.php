@@ -4,373 +4,309 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\backendPorts;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\portRanges;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest\XForwardedForConfig;
-use AlibabaCloud\Tea\Model;
 
 class UpdateListenerRequest extends Model
 {
     /**
-     * @description The range of ports that are used by backend servers to receive requests.
-     *
      * @var backendPorts[]
      */
     public $backendPorts;
 
     /**
-     * @description The SSL certificate.
-     *
      * @var certificates[]
      */
     public $certificates;
 
     /**
-     * @description Specifies whether to enable client affinity for the listener.
-     *
-     *   If this parameter is left empty, client affinity is disabled. After client affinity is disabled, requests from a specific client IP address may be forwarded to different endpoints.
-     *   To enable client affinity, set this parameter to **SOURCE_IP**. In this case, when a client accesses stateful applications, requests from the same client are always forwarded to the same endpoint regardless of the source port or protocol.
-     *
-     * @example SOURCE_IP
-     *
      * @var string
      */
     public $clientAffinity;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The description of the listener.
-     *
-     * The description can be up to 200 characters in length and cannot start with `http://` or `https://`.
-     * @example Listener
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The maximum version of the HTTP protocol. Valid values:
-     *
-     *   **http3**
-     *   **http2**
-     *   **http1.1**
-     *
-     * >  Only HTTPS listeners support this parameter.
-     * @example http2
-     *
      * @var string
      */
     public $httpVersion;
 
     /**
-     * @description The timeout period for idle connections. Unit: seconds.
-     *
-     *   TCP: 10-900. Default value: 900. Unit: seconds.
-     *   UDP: 10-20. Default value: 20. Unit: seconds.
-     *   HTTP/HTTPS: 1-60. Default value: 15. Unit: seconds.
-     *
-     * @example 900
-     *
      * @var int
      */
     public $idleTimeout;
 
     /**
-     * @description The ID of the listener.
-     *
-     * This parameter is required.
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The name of the listener.
-     *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
-     * @example Listener
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The listener ports that are used to receive requests and forward the requests to endpoints.
-     *
-     * Valid values: **1** to **65499**.
-     *
-     * The maximum number of ports that can be configured varies based on the routing type and protocol of the listener. For more information, see [Listener overview](https://help.aliyun.com/document_detail/153216.html).
      * @var portRanges[]
      */
     public $portRanges;
 
     /**
-     * @description The network transmission protocol that is used by the listener. Valid values:
-     *
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **http**: HTTP
-     *   **https**: HTTPS
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description Specifies whether to reserve client IP addresses. Default value: false. Valid values:
-     *
-     *   **true**: enables client IP preservation. After client IP addresses are reserved, you can view client IP addresses on the endpoints.
-     *   **false** (default): disables client IP preservation.
-     *
-     * > This parameter will be deprecated in the API operations that are used to configure listeners. We recommend that you set this parameter when you call API operations to configure endpoint groups. For more information about the **ProxyProtocol** parameter, see [CreateEndpointGroup](https://help.aliyun.com/document_detail/153259.html) and [UpdateEndpointGroup](https://help.aliyun.com/document_detail/153262.html).
-     * @example false
-     *
      * @var string
      */
     public $proxyProtocol;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The timeout period for HTTP or HTTPS requests.
-     *
-     * >  This parameter takes effect only for HTTP or HTTPS listeners. If the backend server does not respond within the timeout period, GA returns an HTTP 504 error code to the client.
-     * @example 60
-     *
      * @var int
      */
     public $requestTimeout;
 
     /**
-     * @description The ID of the security policy. Valid values:
-     *
-     *   **tls_cipher_policy_1_0**
-     *
-     *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
-     *
-     *   **tls_cipher_policy_1_1**
-     *
-     *   Supported TLS versions: TLS 1.1 and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
-     *
-     *   **tls_cipher_policy_1_2**
-     *
-     *   Supported TLS version: TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
-     *
-     *   **tls_cipher_policy_1_2_strict**
-     *
-     *   Supported TLS version: TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
-     *
-     *   **tls_cipher_policy_1_2_strict_with_1_3**
-     *
-     *   Supported TLS versions: TLS 1.2 and TLS 1.3
-     *   Supported cipher suites: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_CCM_SHA256, TLS_AES_128_CCM_8_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
-     *
-     * > This parameter is available only when you create an HTTPS listener.
-     * @example tls_cipher_policy_1_0
-     *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description The `XForward` headers.
-     *
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;
     protected $_name = [
-        'backendPorts'        => 'BackendPorts',
-        'certificates'        => 'Certificates',
-        'clientAffinity'      => 'ClientAffinity',
-        'clientToken'         => 'ClientToken',
-        'description'         => 'Description',
-        'httpVersion'         => 'HttpVersion',
-        'idleTimeout'         => 'IdleTimeout',
-        'listenerId'          => 'ListenerId',
-        'name'                => 'Name',
-        'portRanges'          => 'PortRanges',
-        'protocol'            => 'Protocol',
-        'proxyProtocol'       => 'ProxyProtocol',
-        'regionId'            => 'RegionId',
-        'requestTimeout'      => 'RequestTimeout',
-        'securityPolicyId'    => 'SecurityPolicyId',
+        'backendPorts' => 'BackendPorts',
+        'certificates' => 'Certificates',
+        'clientAffinity' => 'ClientAffinity',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'httpVersion' => 'HttpVersion',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerId' => 'ListenerId',
+        'name' => 'Name',
+        'portRanges' => 'PortRanges',
+        'protocol' => 'Protocol',
+        'proxyProtocol' => 'ProxyProtocol',
+        'regionId' => 'RegionId',
+        'requestTimeout' => 'RequestTimeout',
+        'securityPolicyId' => 'SecurityPolicyId',
         'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
     public function validate()
     {
+        if (\is_array($this->backendPorts)) {
+            Model::validateArray($this->backendPorts);
+        }
+        if (\is_array($this->certificates)) {
+            Model::validateArray($this->certificates);
+        }
+        if (\is_array($this->portRanges)) {
+            Model::validateArray($this->portRanges);
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $this->XForwardedForConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendPorts) {
-            $res['BackendPorts'] = [];
-            if (null !== $this->backendPorts && \is_array($this->backendPorts)) {
-                $n = 0;
-                foreach ($this->backendPorts as $item) {
-                    $res['BackendPorts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backendPorts)) {
+                $res['BackendPorts'] = [];
+                $n1 = 0;
+                foreach ($this->backendPorts as $item1) {
+                    $res['BackendPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->certificates) {
-            $res['Certificates'] = [];
-            if (null !== $this->certificates && \is_array($this->certificates)) {
-                $n = 0;
-                foreach ($this->certificates as $item) {
-                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certificates)) {
+                $res['Certificates'] = [];
+                $n1 = 0;
+                foreach ($this->certificates as $item1) {
+                    $res['Certificates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->clientAffinity) {
             $res['ClientAffinity'] = $this->clientAffinity;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->httpVersion) {
             $res['HttpVersion'] = $this->httpVersion;
         }
+
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->portRanges) {
-            $res['PortRanges'] = [];
-            if (null !== $this->portRanges && \is_array($this->portRanges)) {
-                $n = 0;
-                foreach ($this->portRanges as $item) {
-                    $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portRanges)) {
+                $res['PortRanges'] = [];
+                $n1 = 0;
+                foreach ($this->portRanges as $item1) {
+                    $res['PortRanges'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->proxyProtocol) {
             $res['ProxyProtocol'] = $this->proxyProtocol;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestTimeout) {
             $res['RequestTimeout'] = $this->requestTimeout;
         }
+
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
+
         if (null !== $this->XForwardedForConfig) {
-            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toArray($noStream) : $this->XForwardedForConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateListenerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendPorts'])) {
             if (!empty($map['BackendPorts'])) {
                 $model->backendPorts = [];
-                $n                   = 0;
-                foreach ($map['BackendPorts'] as $item) {
-                    $model->backendPorts[$n++] = null !== $item ? backendPorts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackendPorts'] as $item1) {
+                    $model->backendPorts[$n1] = backendPorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n                   = 0;
-                foreach ($map['Certificates'] as $item) {
-                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Certificates'] as $item1) {
+                    $model->certificates[$n1] = certificates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ClientAffinity'])) {
             $model->clientAffinity = $map['ClientAffinity'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HttpVersion'])) {
             $model->httpVersion = $map['HttpVersion'];
         }
+
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PortRanges'])) {
             if (!empty($map['PortRanges'])) {
                 $model->portRanges = [];
-                $n                 = 0;
-                foreach ($map['PortRanges'] as $item) {
-                    $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PortRanges'] as $item1) {
+                    $model->portRanges[$n1] = portRanges::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['ProxyProtocol'])) {
             $model->proxyProtocol = $map['ProxyProtocol'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestTimeout'])) {
             $model->requestTimeout = $map['RequestTimeout'];
         }
+
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
         }
+
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
         }

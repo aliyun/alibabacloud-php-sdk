@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipSetConfig extends Model
 {
     /**
-     * @description The access mode of the acceleration area. Valid values:
-     *
-     *   **UserDefine**: custom nearby access mode. You can select acceleration areas and regions based on your business requirements. GA allocates a separate elastic IP address (EIP) to each acceleration region.
-     *   **Anycast**: automatic nearby access mode. You do not need to specify an acceleration area. GA allocates an Anycast EIP to multiple regions across the globe. Users can connect to the nearest access point of the Alibaba Cloud global transmission network by sending requests to the Anycast EIP.
-     *
-     * @example UserDefine
-     *
      * @var string
      */
     public $accessMode;
@@ -25,9 +18,10 @@ class ipSetConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessMode) {
@@ -37,11 +31,11 @@ class ipSetConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipSetConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,140 +4,116 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * This parameter is required.
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The ID of the endpoint group.
-     *
-     * @example epg-bp16jdc00bhe97sr5****
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description The start port of the backend service port range of the endpoint group.
-     *
-     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
-     * @example 80
-     *
      * @var int
      */
     public $fromPort;
 
     /**
-     * @description The ID of the listener.
-     *
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The backend service protocols of the endpoint group. Valid values:
-     *
-     * - **TCP**: TCP.
-     * - **UDP**: UDP.
-     * - **TCP,UDP**: TCP and UDP.
-     *
-     * You can specify up to 10 protocols.
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The end port of the backend service port range of the endpoint group.
-     *
-     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
-     * @example 80
-     *
      * @var int
      */
     public $toPort;
     protected $_name = [
-        'acceleratorId'   => 'AcceleratorId',
+        'acceleratorId' => 'AcceleratorId',
         'endpointGroupId' => 'EndpointGroupId',
-        'fromPort'        => 'FromPort',
-        'listenerId'      => 'ListenerId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'protocols'       => 'Protocols',
-        'regionId'        => 'RegionId',
-        'toPort'          => 'ToPort',
+        'fromPort' => 'FromPort',
+        'listenerId' => 'ListenerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'protocols' => 'Protocols',
+        'regionId' => 'RegionId',
+        'toPort' => 'ToPort',
     ];
 
     public function validate()
     {
+        if (\is_array($this->protocols)) {
+            Model::validateArray($this->protocols);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
         }
+
         if (null !== $this->fromPort) {
             $res['FromPort'] = $this->fromPort;
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->protocols) {
-            $res['Protocols'] = $this->protocols;
+            if (\is_array($this->protocols)) {
+                $res['Protocols'] = [];
+                $n1 = 0;
+                foreach ($this->protocols as $item1) {
+                    $res['Protocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->toPort) {
             $res['ToPort'] = $this->toPort;
         }
@@ -145,40 +121,53 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomRoutingEndpointGroupDestinationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
         }
+
         if (isset($map['FromPort'])) {
             $model->fromPort = $map['FromPort'];
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Protocols'])) {
             if (!empty($map['Protocols'])) {
-                $model->protocols = $map['Protocols'];
+                $model->protocols = [];
+                $n1 = 0;
+                foreach ($map['Protocols'] as $item1) {
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ToPort'])) {
             $model->toPort = $map['ToPort'];
         }

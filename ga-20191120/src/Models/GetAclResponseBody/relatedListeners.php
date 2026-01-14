@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedListeners extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The type of the ACL. Valid values:
-     *
-     *   **white**: Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists are suitable for scenarios in which you want to allow access from specific IP addresses to an application. If a whitelist is improperly configured, risks may arise. After a whitelist is configured for a listener, only requests from the IP addresses that are added to the whitelist are distributed by the listener. If a whitelist is enabled but no IP address is added to the whitelist, the listener forwards all requests.
-     *   **black**: All requests from the IP addresses or CIDR blocks in the ACL are rejected. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses to an application. If a blacklist is enabled but no IP address is added to the blacklist, the listener forwards all requests.
-     *
-     * @example White
-     *
      * @var string
      */
     public $aclType;
 
     /**
-     * @description The ID of the listener.
-     *
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
-        'aclType'       => 'AclType',
-        'listenerId'    => 'ListenerId',
+        'aclType' => 'AclType',
+        'listenerId' => 'ListenerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
@@ -63,20 +51,22 @@ class relatedListeners extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedListeners
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }

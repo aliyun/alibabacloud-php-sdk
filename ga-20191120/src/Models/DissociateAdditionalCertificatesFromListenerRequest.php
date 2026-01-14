@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DissociateAdditionalCertificatesFromListenerRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
-     * This parameter is required.
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The domain name associated with the additional certificate.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $domains;
 
     /**
-     * @description The ID of the listener.
-     *
-     * This parameter is required.
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'acceleratorId' => 'AcceleratorId',
-        'clientToken'   => 'ClientToken',
-        'domains'       => 'Domains',
-        'listenerId'    => 'ListenerId',
-        'regionId'      => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'domains' => 'Domains',
+        'listenerId' => 'ListenerId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -91,28 +81,37 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DissociateAdditionalCertificatesFromListenerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
+                $model->domains = [];
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

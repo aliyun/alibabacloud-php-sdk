@@ -4,63 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCommodityResponseBody\components\properties;
-use AlibabaCloud\Tea\Model;
 
 class components extends Model
 {
     /**
-     * @description The code of the commodity module.
-     *
-     * The returned information varies based on the commodity module.
-     * @example Duration
-     *
      * @var string
      */
     public $componentCode;
 
     /**
-     * @description The name of the commodity module.
-     *
-     * The returned information varies based on the commodity module.
-     * @example Duration
-     *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description The attributes of the commodity module.
-     *
-     * The returned information varies based on the commodity module.
      * @var properties[]
      */
     public $properties;
     protected $_name = [
         'componentCode' => 'ComponentCode',
         'componentName' => 'ComponentName',
-        'properties'    => 'Properties',
+        'properties' => 'Properties',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentCode) {
             $res['ComponentCode'] = $this->componentCode;
         }
+
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = [];
-            if (null !== $this->properties && \is_array($this->properties)) {
-                $n = 0;
-                foreach ($this->properties as $item) {
-                    $res['Properties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                $n1 = 0;
+                foreach ($this->properties as $item1) {
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,26 +62,29 @@ class components extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return components
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentCode'])) {
             $model->componentCode = $map['ComponentCode'];
         }
+
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
+
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n                 = 0;
-                foreach ($map['Properties'] as $item) {
-                    $model->properties[$n++] = null !== $item ? properties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Properties'] as $item1) {
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

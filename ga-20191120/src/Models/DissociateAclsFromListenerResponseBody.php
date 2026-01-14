@@ -4,53 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DissociateAclsFromListenerResponseBody extends Model
 {
     /**
-     * @description The IDs of the ACL.
-     *
      * @var string[]
      */
     public $aclIds;
 
     /**
-     * @description The ID of the listener.
-     *
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aclIds'     => 'AclIds',
+        'aclIds' => 'AclIds',
         'listenerId' => 'ListenerId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aclIds)) {
+            Model::validateArray($this->aclIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclIds) {
-            $res['AclIds'] = $this->aclIds;
+            if (\is_array($this->aclIds)) {
+                $res['AclIds'] = [];
+                $n1 = 0;
+                foreach ($this->aclIds as $item1) {
+                    $res['AclIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +61,29 @@ class DissociateAclsFromListenerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DissociateAclsFromListenerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclIds'])) {
             if (!empty($map['AclIds'])) {
-                $model->aclIds = $map['AclIds'];
+                $model->aclIds = [];
+                $n1 = 0;
+                foreach ($map['AclIds'] as $item1) {
+                    $model->aclIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

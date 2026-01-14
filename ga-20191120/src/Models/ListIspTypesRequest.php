@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIspTypesRequest extends Model
 {
     /**
-     * @description The ID of the GA instance that you want to query.
-     *
-     * @example ga-bp1odcab8tmno0hdq****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The type of the Global Accelerator (GA) instance to be queried. Valid values:
-     *
-     *   **basic**: basic GA instance
-     *   **standard**: standard GA instance
-     *
-     * @example basic
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description The ID of the acceleration region to be queried.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $businessRegionId;
     protected $_name = [
-        'acceleratorId'    => 'AcceleratorId',
-        'acceleratorType'  => 'AcceleratorType',
+        'acceleratorId' => 'AcceleratorId',
+        'acceleratorType' => 'AcceleratorType',
         'businessRegionId' => 'BusinessRegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
         }
+
         if (null !== $this->businessRegionId) {
             $res['BusinessRegionId'] = $this->businessRegionId;
         }
@@ -64,20 +51,22 @@ class ListIspTypesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIspTypesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
         }
+
         if (isset($map['BusinessRegionId'])) {
             $model->businessRegionId = $map['BusinessRegionId'];
         }

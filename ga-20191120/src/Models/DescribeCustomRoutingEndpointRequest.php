@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCustomRoutingEndpointRequest extends Model
 {
     /**
-     * @description The ID of the endpoint group.
-     *
-     * @example epg-bp1j184jhb9i9ubwf****
-     *
      * @var string
      */
     public $endpointGroup;
 
     /**
-     * @description The ID of the endpoint.
-     *
-     * This parameter is required.
-     * @example ep-bp1dmlohjjz4kqaun****
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'endpointGroup' => 'EndpointGroup',
-        'endpointId'    => 'EndpointId',
-        'regionId'      => 'RegionId',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointGroup) {
             $res['EndpointGroup'] = $this->endpointGroup;
         }
+
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,20 +51,22 @@ class DescribeCustomRoutingEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustomRoutingEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointGroup'])) {
             $model->endpointGroup = $map['EndpointGroup'];
         }
+
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

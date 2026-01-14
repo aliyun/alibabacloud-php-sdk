@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEndpointGroupsResponseBody extends Model
 {
     /**
-     * @description The IDs of the endpoint groups.
-     *
      * @var string[]
      */
     public $endpointGroupIds;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'endpointGroupIds' => 'EndpointGroupIds',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpointGroupIds)) {
+            Model::validateArray($this->endpointGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointGroupIds) {
-            $res['EndpointGroupIds'] = $this->endpointGroupIds;
+            if (\is_array($this->endpointGroupIds)) {
+                $res['EndpointGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->endpointGroupIds as $item1) {
+                    $res['EndpointGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +51,25 @@ class UpdateEndpointGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEndpointGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointGroupIds'])) {
             if (!empty($map['EndpointGroupIds'])) {
-                $model->endpointGroupIds = $map['EndpointGroupIds'];
+                $model->endpointGroupIds = [];
+                $n1 = 0;
+                foreach ($map['EndpointGroupIds'] as $item1) {
+                    $model->endpointGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

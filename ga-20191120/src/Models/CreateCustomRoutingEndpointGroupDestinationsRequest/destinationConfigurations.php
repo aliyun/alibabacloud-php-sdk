@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupDestinationsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class destinationConfigurations extends Model
 {
     /**
-     * @description The last port of the backend service port range.
-     *
-     * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
-     *
-     * This parameter is required.
-     * @example 80
-     *
      * @var int
      */
     public $fromPort;
 
     /**
-     * @description The backend service protocol of the endpoint group. Valid values:
-     *
-     *   **TCP**
-     *   **UDP**
-     *   **TCP+UDP: the TCP and UDP protocols.**
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The response parameters.
-     *
-     * This parameter is required.
-     * @example 80
-     *
      * @var int
      */
     public $toPort;
     protected $_name = [
-        'fromPort'  => 'FromPort',
+        'fromPort' => 'FromPort',
         'protocols' => 'Protocols',
-        'toPort'    => 'ToPort',
+        'toPort' => 'ToPort',
     ];
 
     public function validate()
     {
+        if (\is_array($this->protocols)) {
+            Model::validateArray($this->protocols);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromPort) {
             $res['FromPort'] = $this->fromPort;
         }
+
         if (null !== $this->protocols) {
-            $res['Protocols'] = $this->protocols;
+            if (\is_array($this->protocols)) {
+                $res['Protocols'] = [];
+                $n1 = 0;
+                foreach ($this->protocols as $item1) {
+                    $res['Protocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->toPort) {
             $res['ToPort'] = $this->toPort;
         }
@@ -67,22 +61,29 @@ class destinationConfigurations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return destinationConfigurations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromPort'])) {
             $model->fromPort = $map['FromPort'];
         }
+
         if (isset($map['Protocols'])) {
             if (!empty($map['Protocols'])) {
-                $model->protocols = $map['Protocols'];
+                $model->protocols = [];
+                $n1 = 0;
+                foreach ($map['Protocols'] as $item1) {
+                    $model->protocols[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ToPort'])) {
             $model->toPort = $map['ToPort'];
         }

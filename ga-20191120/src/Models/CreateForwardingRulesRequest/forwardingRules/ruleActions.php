@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesRequest\forwardingRules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateForwardingRulesRequest\forwardingRules\ruleActions\forwardGroupConfig;
-use AlibabaCloud\Tea\Model;
 
 class ruleActions extends Model
 {
@@ -15,15 +15,11 @@ class ruleActions extends Model
     public $forwardGroupConfig;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $order;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $ruleActionType;
@@ -34,27 +30,34 @@ class ruleActions extends Model
     public $ruleActionValue;
     protected $_name = [
         'forwardGroupConfig' => 'ForwardGroupConfig',
-        'order'              => 'Order',
-        'ruleActionType'     => 'RuleActionType',
-        'ruleActionValue'    => 'RuleActionValue',
+        'order' => 'Order',
+        'ruleActionType' => 'RuleActionType',
+        'ruleActionValue' => 'RuleActionValue',
     ];
 
     public function validate()
     {
+        if (null !== $this->forwardGroupConfig) {
+            $this->forwardGroupConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forwardGroupConfig) {
-            $res['ForwardGroupConfig'] = null !== $this->forwardGroupConfig ? $this->forwardGroupConfig->toMap() : null;
+            $res['ForwardGroupConfig'] = null !== $this->forwardGroupConfig ? $this->forwardGroupConfig->toArray($noStream) : $this->forwardGroupConfig;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->ruleActionType) {
             $res['RuleActionType'] = $this->ruleActionType;
         }
+
         if (null !== $this->ruleActionValue) {
             $res['RuleActionValue'] = $this->ruleActionValue;
         }
@@ -62,23 +65,26 @@ class ruleActions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleActions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardGroupConfig'])) {
             $model->forwardGroupConfig = forwardGroupConfig::fromMap($map['ForwardGroupConfig']);
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['RuleActionType'])) {
             $model->ruleActionType = $map['RuleActionType'];
         }
+
         if (isset($map['RuleActionValue'])) {
             $model->ruleActionValue = $map['RuleActionValue'];
         }

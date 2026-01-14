@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backendPorts extends Model
 {
     /**
-     * @description The first port in the range of ports that are used by the backend server to receive requests.
-     *
-     * This parameter is returned only if an HTTPS listener is configured and the listener port is the same as the service port of the backend server.
-     * @example 80
-     *
      * @var string
      */
     public $fromPort;
 
     /**
-     * @description The last port in the range of ports that are used by the backend server to receive requests.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $toPort;
     protected $_name = [
         'fromPort' => 'FromPort',
-        'toPort'   => 'ToPort',
+        'toPort' => 'ToPort',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromPort) {
             $res['FromPort'] = $this->fromPort;
         }
+
         if (null !== $this->toPort) {
             $res['ToPort'] = $this->toPort;
         }
@@ -48,17 +41,18 @@ class backendPorts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendPorts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromPort'])) {
             $model->fromPort = $map['FromPort'];
         }
+
         if (isset($map['ToPort'])) {
             $model->toPort = $map['ToPort'];
         }

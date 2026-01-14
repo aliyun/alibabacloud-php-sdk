@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBasicIpSetResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6D2BFF54-6AF2-4679-88C4-2F2E187F16CB
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteBasicIpSetResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteBasicIpSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBasicIpSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

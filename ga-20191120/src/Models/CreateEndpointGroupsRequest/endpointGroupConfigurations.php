@@ -4,24 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\portOverrides;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\systemTag;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\tag;
-use AlibabaCloud\Tea\Model;
 
 class endpointGroupConfigurations extends Model
 {
-    /**
-     * @var bool
-     */
-    public $enableClientIPPreservationProxyProtocol;
-
-    /**
-     * @var bool
-     */
-    public $enableClientIPPreservationToa;
-
     /**
      * @var endpointConfigurations[]
      */
@@ -38,8 +28,6 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $endpointGroupRegion;
@@ -48,6 +36,11 @@ class endpointGroupConfigurations extends Model
      * @var string
      */
     public $endpointGroupType;
+
+    /**
+     * @var string
+     */
+    public $endpointIpVersion;
 
     /**
      * @var string
@@ -63,6 +56,11 @@ class endpointGroupConfigurations extends Model
      * @var bool
      */
     public $healthCheckEnabled;
+
+    /**
+     * @var string
+     */
+    public $healthCheckHost;
 
     /**
      * @var int
@@ -109,112 +107,147 @@ class endpointGroupConfigurations extends Model
      */
     public $trafficPercentage;
     protected $_name = [
-        'enableClientIPPreservationProxyProtocol' => 'EnableClientIPPreservationProxyProtocol',
-        'enableClientIPPreservationToa'           => 'EnableClientIPPreservationToa',
-        'endpointConfigurations'                  => 'EndpointConfigurations',
-        'endpointGroupDescription'                => 'EndpointGroupDescription',
-        'endpointGroupName'                       => 'EndpointGroupName',
-        'endpointGroupRegion'                     => 'EndpointGroupRegion',
-        'endpointGroupType'                       => 'EndpointGroupType',
-        'endpointProtocolVersion'                 => 'EndpointProtocolVersion',
-        'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
-        'healthCheckEnabled'                      => 'HealthCheckEnabled',
-        'healthCheckIntervalSeconds'              => 'HealthCheckIntervalSeconds',
-        'healthCheckPath'                         => 'HealthCheckPath',
-        'healthCheckPort'                         => 'HealthCheckPort',
-        'healthCheckProtocol'                     => 'HealthCheckProtocol',
-        'portOverrides'                           => 'PortOverrides',
-        'systemTag'                               => 'SystemTag',
-        'tag'                                     => 'Tag',
-        'thresholdCount'                          => 'ThresholdCount',
-        'trafficPercentage'                       => 'TrafficPercentage',
+        'endpointConfigurations' => 'EndpointConfigurations',
+        'endpointGroupDescription' => 'EndpointGroupDescription',
+        'endpointGroupName' => 'EndpointGroupName',
+        'endpointGroupRegion' => 'EndpointGroupRegion',
+        'endpointGroupType' => 'EndpointGroupType',
+        'endpointIpVersion' => 'EndpointIpVersion',
+        'endpointProtocolVersion' => 'EndpointProtocolVersion',
+        'endpointRequestProtocol' => 'EndpointRequestProtocol',
+        'healthCheckEnabled' => 'HealthCheckEnabled',
+        'healthCheckHost' => 'HealthCheckHost',
+        'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
+        'healthCheckPath' => 'HealthCheckPath',
+        'healthCheckPort' => 'HealthCheckPort',
+        'healthCheckProtocol' => 'HealthCheckProtocol',
+        'portOverrides' => 'PortOverrides',
+        'systemTag' => 'SystemTag',
+        'tag' => 'Tag',
+        'thresholdCount' => 'ThresholdCount',
+        'trafficPercentage' => 'TrafficPercentage',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpointConfigurations)) {
+            Model::validateArray($this->endpointConfigurations);
+        }
+        if (\is_array($this->portOverrides)) {
+            Model::validateArray($this->portOverrides);
+        }
+        if (\is_array($this->systemTag)) {
+            Model::validateArray($this->systemTag);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->enableClientIPPreservationProxyProtocol) {
-            $res['EnableClientIPPreservationProxyProtocol'] = $this->enableClientIPPreservationProxyProtocol;
-        }
-        if (null !== $this->enableClientIPPreservationToa) {
-            $res['EnableClientIPPreservationToa'] = $this->enableClientIPPreservationToa;
-        }
         if (null !== $this->endpointConfigurations) {
-            $res['EndpointConfigurations'] = [];
-            if (null !== $this->endpointConfigurations && \is_array($this->endpointConfigurations)) {
-                $n = 0;
-                foreach ($this->endpointConfigurations as $item) {
-                    $res['EndpointConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpointConfigurations)) {
+                $res['EndpointConfigurations'] = [];
+                $n1 = 0;
+                foreach ($this->endpointConfigurations as $item1) {
+                    $res['EndpointConfigurations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->endpointGroupDescription) {
             $res['EndpointGroupDescription'] = $this->endpointGroupDescription;
         }
+
         if (null !== $this->endpointGroupName) {
             $res['EndpointGroupName'] = $this->endpointGroupName;
         }
+
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
         }
+
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
         }
+
+        if (null !== $this->endpointIpVersion) {
+            $res['EndpointIpVersion'] = $this->endpointIpVersion;
+        }
+
         if (null !== $this->endpointProtocolVersion) {
             $res['EndpointProtocolVersion'] = $this->endpointProtocolVersion;
         }
+
         if (null !== $this->endpointRequestProtocol) {
             $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
         }
+
         if (null !== $this->healthCheckEnabled) {
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
+
+        if (null !== $this->healthCheckHost) {
+            $res['HealthCheckHost'] = $this->healthCheckHost;
+        }
+
         if (null !== $this->healthCheckIntervalSeconds) {
             $res['HealthCheckIntervalSeconds'] = $this->healthCheckIntervalSeconds;
         }
+
         if (null !== $this->healthCheckPath) {
             $res['HealthCheckPath'] = $this->healthCheckPath;
         }
+
         if (null !== $this->healthCheckPort) {
             $res['HealthCheckPort'] = $this->healthCheckPort;
         }
+
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
         }
+
         if (null !== $this->portOverrides) {
-            $res['PortOverrides'] = [];
-            if (null !== $this->portOverrides && \is_array($this->portOverrides)) {
-                $n = 0;
-                foreach ($this->portOverrides as $item) {
-                    $res['PortOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portOverrides)) {
+                $res['PortOverrides'] = [];
+                $n1 = 0;
+                foreach ($this->portOverrides as $item1) {
+                    $res['PortOverrides'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->systemTag) {
-            $res['SystemTag'] = [];
-            if (null !== $this->systemTag && \is_array($this->systemTag)) {
-                $n = 0;
-                foreach ($this->systemTag as $item) {
-                    $res['SystemTag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemTag)) {
+                $res['SystemTag'] = [];
+                $n1 = 0;
+                foreach ($this->systemTag as $item1) {
+                    $res['SystemTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->thresholdCount) {
             $res['ThresholdCount'] = $this->thresholdCount;
         }
+
         if (null !== $this->trafficPercentage) {
             $res['TrafficPercentage'] = $this->trafficPercentage;
         }
@@ -222,92 +255,114 @@ class endpointGroupConfigurations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointGroupConfigurations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnableClientIPPreservationProxyProtocol'])) {
-            $model->enableClientIPPreservationProxyProtocol = $map['EnableClientIPPreservationProxyProtocol'];
-        }
-        if (isset($map['EnableClientIPPreservationToa'])) {
-            $model->enableClientIPPreservationToa = $map['EnableClientIPPreservationToa'];
-        }
         if (isset($map['EndpointConfigurations'])) {
             if (!empty($map['EndpointConfigurations'])) {
                 $model->endpointConfigurations = [];
-                $n                             = 0;
-                foreach ($map['EndpointConfigurations'] as $item) {
-                    $model->endpointConfigurations[$n++] = null !== $item ? endpointConfigurations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EndpointConfigurations'] as $item1) {
+                    $model->endpointConfigurations[$n1] = endpointConfigurations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EndpointGroupDescription'])) {
             $model->endpointGroupDescription = $map['EndpointGroupDescription'];
         }
+
         if (isset($map['EndpointGroupName'])) {
             $model->endpointGroupName = $map['EndpointGroupName'];
         }
+
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
         }
+
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
         }
+
+        if (isset($map['EndpointIpVersion'])) {
+            $model->endpointIpVersion = $map['EndpointIpVersion'];
+        }
+
         if (isset($map['EndpointProtocolVersion'])) {
             $model->endpointProtocolVersion = $map['EndpointProtocolVersion'];
         }
+
         if (isset($map['EndpointRequestProtocol'])) {
             $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
         }
+
         if (isset($map['HealthCheckEnabled'])) {
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
+
+        if (isset($map['HealthCheckHost'])) {
+            $model->healthCheckHost = $map['HealthCheckHost'];
+        }
+
         if (isset($map['HealthCheckIntervalSeconds'])) {
             $model->healthCheckIntervalSeconds = $map['HealthCheckIntervalSeconds'];
         }
+
         if (isset($map['HealthCheckPath'])) {
             $model->healthCheckPath = $map['HealthCheckPath'];
         }
+
         if (isset($map['HealthCheckPort'])) {
             $model->healthCheckPort = $map['HealthCheckPort'];
         }
+
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
         }
+
         if (isset($map['PortOverrides'])) {
             if (!empty($map['PortOverrides'])) {
                 $model->portOverrides = [];
-                $n                    = 0;
-                foreach ($map['PortOverrides'] as $item) {
-                    $model->portOverrides[$n++] = null !== $item ? portOverrides::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PortOverrides'] as $item1) {
+                    $model->portOverrides[$n1] = portOverrides::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SystemTag'])) {
             if (!empty($map['SystemTag'])) {
                 $model->systemTag = [];
-                $n                = 0;
-                foreach ($map['SystemTag'] as $item) {
-                    $model->systemTag[$n++] = null !== $item ? systemTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemTag'] as $item1) {
+                    $model->systemTag[$n1] = systemTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ThresholdCount'])) {
             $model->thresholdCount = $map['ThresholdCount'];
         }
+
         if (isset($map['TrafficPercentage'])) {
             $model->trafficPercentage = $map['TrafficPercentage'];
         }

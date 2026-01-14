@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListSpareIpsResponseBody\spareIps;
-use AlibabaCloud\Tea\Model;
 
 class ListSpareIpsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The secondary IP addresses that are associated with the CNAME.
-     *
      * @var spareIps[]
      */
     public $spareIps;
     protected $_name = [
         'requestId' => 'RequestId',
-        'spareIps'  => 'SpareIps',
+        'spareIps' => 'SpareIps',
     ];
 
     public function validate()
     {
+        if (\is_array($this->spareIps)) {
+            Model::validateArray($this->spareIps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spareIps) {
-            $res['SpareIps'] = [];
-            if (null !== $this->spareIps && \is_array($this->spareIps)) {
-                $n = 0;
-                foreach ($this->spareIps as $item) {
-                    $res['SpareIps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->spareIps)) {
+                $res['SpareIps'] = [];
+                $n1 = 0;
+                foreach ($this->spareIps as $item1) {
+                    $res['SpareIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class ListSpareIpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSpareIpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SpareIps'])) {
             if (!empty($map['SpareIps'])) {
                 $model->spareIps = [];
-                $n               = 0;
-                foreach ($map['SpareIps'] as $item) {
-                    $model->spareIps[$n++] = null !== $item ? spareIps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpareIps'] as $item1) {
+                    $model->spareIps[$n1] = spareIps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

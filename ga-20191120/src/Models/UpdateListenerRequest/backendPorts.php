@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backendPorts extends Model
 {
     /**
-     * @description The first port in the range of ports that are used by backend servers to receive requests.
-     *
-     * > This parameter is required only when you configure an HTTPS or HTTP listener and the listener port is different from the service port of the backend servers. In this case, the first port that is used by the backend servers to receive requests must be the same as the last port.
-     * @example 80
-     *
      * @var int
      */
     public $fromPort;
 
     /**
-     * @description The last port in the range of ports that are used by backend servers to receive requests.
-     *
-     * > This parameter is required only when you configure an HTTPS or HTTP listener and the listener port is different from the service port of the backend servers. In this case, the first port that is used by the backend servers to receive requests must be the same as the last port.
-     * @example 80
-     *
      * @var int
      */
     public $toPort;
     protected $_name = [
         'fromPort' => 'FromPort',
-        'toPort'   => 'ToPort',
+        'toPort' => 'ToPort',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fromPort) {
             $res['FromPort'] = $this->fromPort;
         }
+
         if (null !== $this->toPort) {
             $res['ToPort'] = $this->toPort;
         }
@@ -49,17 +41,18 @@ class backendPorts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendPorts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FromPort'])) {
             $model->fromPort = $map['FromPort'];
         }
+
         if (isset($map['ToPort'])) {
             $model->toPort = $map['ToPort'];
         }

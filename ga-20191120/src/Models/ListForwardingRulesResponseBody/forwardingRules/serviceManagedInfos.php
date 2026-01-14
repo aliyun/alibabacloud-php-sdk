@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody\forwardingRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceManagedInfos extends Model
 {
     /**
-     * @description Managed policy action name, Valid values:
-     * - CreateChild
-     * @example Update
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description Sub resource type, Valid values:
-     *
-     * >Only valid when the Action parameter is CreateChild.
-     * @example Listener
-     *
      * @var string
      */
     public $childType;
 
     /**
-     * @description Is the managed policy action managed, Valid values:
-     *
-     * - false: The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
-     * @example false
-     *
      * @var bool
      */
     public $isManaged;
     protected $_name = [
-        'action'    => 'Action',
+        'action' => 'Action',
         'childType' => 'ChildType',
         'isManaged' => 'IsManaged',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->childType) {
             $res['ChildType'] = $this->childType;
         }
+
         if (null !== $this->isManaged) {
             $res['IsManaged'] = $this->isManaged;
         }
@@ -62,20 +51,22 @@ class serviceManagedInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceManagedInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ChildType'])) {
             $model->childType = $map['ChildType'];
         }
+
         if (isset($map['IsManaged'])) {
             $model->isManaged = $map['IsManaged'];
         }

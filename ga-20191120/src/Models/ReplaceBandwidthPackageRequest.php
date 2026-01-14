@@ -4,74 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReplaceBandwidthPackageRequest extends Model
 {
     /**
-     * @description The GA instance ID.
-     *
-     * @example ga-bp17frjjh0udz4qz****
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description The ID of the required bandwidth plan. When you specify a replacement bandwidth plan, take note of the following items:
-     *
-     *   Only a bandwidth plan that is not associated with a GA instance can be specified.
-     *   If you want to replace a basic bandwidth plan, make sure that the bandwidth provided by the replacement bandwidth plan is not less than the total bandwidth allocated to the acceleration area.
-     *
-     * This parameter is required.
-     * @example gbwp-bp176neb61yhcymow****
-     *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the bandwidth plan that you want to replace.
-     *
-     * This parameter is required.
-     * @example gbwp-o978hgeb61yhcymow****
-     *
      * @var string
      */
     public $targetBandwidthPackageId;
     protected $_name = [
-        'acceleratorId'            => 'AcceleratorId',
-        'bandwidthPackageId'       => 'BandwidthPackageId',
-        'regionId'                 => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'regionId' => 'RegionId',
         'targetBandwidthPackageId' => 'TargetBandwidthPackageId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->targetBandwidthPackageId) {
             $res['TargetBandwidthPackageId'] = $this->targetBandwidthPackageId;
         }
@@ -79,23 +61,26 @@ class ReplaceBandwidthPackageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReplaceBandwidthPackageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TargetBandwidthPackageId'])) {
             $model->targetBandwidthPackageId = $map['TargetBandwidthPackageId'];
         }
