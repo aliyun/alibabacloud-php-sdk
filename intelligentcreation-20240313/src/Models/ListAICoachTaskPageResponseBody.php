@@ -18,9 +18,15 @@ class ListAICoachTaskPageResponseBody extends Model
      * @var taskList[]
      */
     public $taskList;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'requestId' => 'requestId',
         'taskList' => 'taskList',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -49,6 +55,10 @@ class ListAICoachTaskPageResponseBody extends Model
             }
         }
 
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class ListAICoachTaskPageResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
 
         return $model;
