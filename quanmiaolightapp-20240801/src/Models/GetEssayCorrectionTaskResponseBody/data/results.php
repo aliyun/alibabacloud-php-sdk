@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionTaskResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ModelUsage;
 
 class results extends Model
 {
@@ -22,14 +23,23 @@ class results extends Model
      * @var int
      */
     public $score;
+
+    /**
+     * @var ModelUsage
+     */
+    public $usage;
     protected $_name = [
         'customId' => 'customId',
         'result' => 'result',
         'score' => 'score',
+        'usage' => 'usage',
     ];
 
     public function validate()
     {
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
         parent::validate();
     }
 
@@ -46,6 +56,10 @@ class results extends Model
 
         if (null !== $this->score) {
             $res['score'] = $this->score;
+        }
+
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
@@ -69,6 +83,10 @@ class results extends Model
 
         if (isset($map['score'])) {
             $model->score = $map['score'];
+        }
+
+        if (isset($map['usage'])) {
+            $model->usage = ModelUsage::fromMap($map['usage']);
         }
 
         return $model;

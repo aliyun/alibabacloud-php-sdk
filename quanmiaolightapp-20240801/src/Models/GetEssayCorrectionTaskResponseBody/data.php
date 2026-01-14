@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionT
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEssayCorrectionTaskResponseBody\data\results;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ModelUsage;
 
 class data extends Model
 {
@@ -23,16 +24,25 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var ModelUsage
+     */
+    public $totalUsage;
     protected $_name = [
         'errorMessage' => 'errorMessage',
         'results' => 'results',
         'status' => 'status',
+        'totalUsage' => 'totalUsage',
     ];
 
     public function validate()
     {
         if (\is_array($this->results)) {
             Model::validateArray($this->results);
+        }
+        if (null !== $this->totalUsage) {
+            $this->totalUsage->validate();
         }
         parent::validate();
     }
@@ -57,6 +67,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->totalUsage) {
+            $res['totalUsage'] = null !== $this->totalUsage ? $this->totalUsage->toArray($noStream) : $this->totalUsage;
         }
 
         return $res;
@@ -87,6 +101,10 @@ class data extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['totalUsage'])) {
+            $model->totalUsage = ModelUsage::fromMap($map['totalUsage']);
         }
 
         return $model;
