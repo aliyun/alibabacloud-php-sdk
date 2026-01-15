@@ -21,6 +21,11 @@ class QuotaConfig extends Model
     /**
      * @var string
      */
+    public $controlPlaneClusterId;
+
+    /**
+     * @var string
+     */
     public $defaultGPUDriver;
 
     /**
@@ -51,7 +56,7 @@ class QuotaConfig extends Model
     /**
      * @var OversoldUsageConfig
      */
-    public $oversoldUsageInfo;
+    public $oversoldUsageConfig;
 
     /**
      * @var WorkspaceSpecs[]
@@ -95,13 +100,14 @@ class QuotaConfig extends Model
     protected $_name = [
         'ACS' => 'ACS',
         'clusterId' => 'ClusterId',
+        'controlPlaneClusterId' => 'ControlPlaneClusterId',
         'defaultGPUDriver' => 'DefaultGPUDriver',
         'enableGPUShare' => 'EnableGPUShare',
         'enablePreemptSubquotaWorkloads' => 'EnablePreemptSubquotaWorkloads',
         'enableSelfQuotaPreemption' => 'EnableSelfQuotaPreemption',
         'enableSubQuotaPreemption' => 'EnableSubQuotaPreemption',
         'eniCacheConfig' => 'EniCacheConfig',
-        'oversoldUsageInfo' => 'OversoldUsageInfo',
+        'oversoldUsageConfig' => 'OversoldUsageConfig',
         'resourceSpecs' => 'ResourceSpecs',
         'sandboxCacheConfig' => 'SandboxCacheConfig',
         'selfQuotaPreemptionConfig' => 'SelfQuotaPreemptionConfig',
@@ -120,8 +126,8 @@ class QuotaConfig extends Model
         if (null !== $this->eniCacheConfig) {
             $this->eniCacheConfig->validate();
         }
-        if (null !== $this->oversoldUsageInfo) {
-            $this->oversoldUsageInfo->validate();
+        if (null !== $this->oversoldUsageConfig) {
+            $this->oversoldUsageConfig->validate();
         }
         if (\is_array($this->resourceSpecs)) {
             Model::validateArray($this->resourceSpecs);
@@ -155,6 +161,10 @@ class QuotaConfig extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
+        if (null !== $this->controlPlaneClusterId) {
+            $res['ControlPlaneClusterId'] = $this->controlPlaneClusterId;
+        }
+
         if (null !== $this->defaultGPUDriver) {
             $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
         }
@@ -179,8 +189,8 @@ class QuotaConfig extends Model
             $res['EniCacheConfig'] = null !== $this->eniCacheConfig ? $this->eniCacheConfig->toArray($noStream) : $this->eniCacheConfig;
         }
 
-        if (null !== $this->oversoldUsageInfo) {
-            $res['OversoldUsageInfo'] = null !== $this->oversoldUsageInfo ? $this->oversoldUsageInfo->toArray($noStream) : $this->oversoldUsageInfo;
+        if (null !== $this->oversoldUsageConfig) {
+            $res['OversoldUsageConfig'] = null !== $this->oversoldUsageConfig ? $this->oversoldUsageConfig->toArray($noStream) : $this->oversoldUsageConfig;
         }
 
         if (null !== $this->resourceSpecs) {
@@ -248,6 +258,10 @@ class QuotaConfig extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
+        if (isset($map['ControlPlaneClusterId'])) {
+            $model->controlPlaneClusterId = $map['ControlPlaneClusterId'];
+        }
+
         if (isset($map['DefaultGPUDriver'])) {
             $model->defaultGPUDriver = $map['DefaultGPUDriver'];
         }
@@ -272,8 +286,8 @@ class QuotaConfig extends Model
             $model->eniCacheConfig = EniCacheConfig::fromMap($map['EniCacheConfig']);
         }
 
-        if (isset($map['OversoldUsageInfo'])) {
-            $model->oversoldUsageInfo = OversoldUsageConfig::fromMap($map['OversoldUsageInfo']);
+        if (isset($map['OversoldUsageConfig'])) {
+            $model->oversoldUsageConfig = OversoldUsageConfig::fromMap($map['OversoldUsageConfig']);
         }
 
         if (isset($map['ResourceSpecs'])) {
