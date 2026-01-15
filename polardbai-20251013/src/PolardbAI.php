@@ -69,8 +69,12 @@ use AlibabaCloud\SDK\PolardbAI\V20251013\Models\GetUserTokenRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\GetUserTokenResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelModeRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelModeResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchModelRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchModelResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResultRequest;
@@ -2138,6 +2142,10 @@ class PolardbAI extends OpenApiClient
             @$query['Model'] = $request->model;
         }
 
+        if (null !== $request->modelMode) {
+            @$query['ModelMode'] = $request->modelMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2207,6 +2215,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->embeddingModel) {
             @$query['EmbeddingModel'] = $request->embeddingModel;
+        }
+
+        if (null !== $request->modelMode) {
+            @$query['ModelMode'] = $request->modelMode;
         }
 
         if (null !== $request->query) {
@@ -2637,6 +2649,128 @@ class PolardbAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMultimodalEmbeddingModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型mode可选列表.
+     *
+     * @param request - ListMultimodalEmbeddingModelModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultimodalEmbeddingModelModeResponse
+     *
+     * @param ListMultimodalEmbeddingModelModeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListMultimodalEmbeddingModelModeResponse
+     */
+    public function listMultimodalEmbeddingModelModeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultimodalEmbeddingModelMode',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultimodalEmbeddingModelModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型mode可选列表.
+     *
+     * @param request - ListMultimodalEmbeddingModelModeRequest
+     *
+     * @returns ListMultimodalEmbeddingModelModeResponse
+     *
+     * @param ListMultimodalEmbeddingModelModeRequest $request
+     *
+     * @return ListMultimodalEmbeddingModelModeResponse
+     */
+    public function listMultimodalEmbeddingModelMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultimodalEmbeddingModelModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询search模型列表.
+     *
+     * @param request - ListMultimodalSearchModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultimodalSearchModelResponse
+     *
+     * @param ListMultimodalSearchModelRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMultimodalSearchModelResponse
+     */
+    public function listMultimodalSearchModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultimodalSearchModel',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultimodalSearchModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询search模型列表.
+     *
+     * @param request - ListMultimodalSearchModelRequest
+     *
+     * @returns ListMultimodalSearchModelResponse
+     *
+     * @param ListMultimodalSearchModelRequest $request
+     *
+     * @return ListMultimodalSearchModelResponse
+     */
+    public function listMultimodalSearchModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultimodalSearchModelWithOptions($request, $runtime);
     }
 
     /**

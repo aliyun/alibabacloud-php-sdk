@@ -26,6 +26,11 @@ class CreateMultimodalSearchTaskRequest extends Model
     /**
      * @var string
      */
+    public $modelMode;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -41,6 +46,7 @@ class CreateMultimodalSearchTaskRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'datasetIds' => 'DatasetIds',
         'embeddingModel' => 'EmbeddingModel',
+        'modelMode' => 'ModelMode',
         'query' => 'Query',
         'searchModel' => 'SearchModel',
         'topK' => 'TopK',
@@ -74,6 +80,10 @@ class CreateMultimodalSearchTaskRequest extends Model
 
         if (null !== $this->embeddingModel) {
             $res['EmbeddingModel'] = $this->embeddingModel;
+        }
+
+        if (null !== $this->modelMode) {
+            $res['ModelMode'] = $this->modelMode;
         }
 
         if (null !== $this->query) {
@@ -116,6 +126,10 @@ class CreateMultimodalSearchTaskRequest extends Model
 
         if (isset($map['EmbeddingModel'])) {
             $model->embeddingModel = $map['EmbeddingModel'];
+        }
+
+        if (isset($map['ModelMode'])) {
+            $model->modelMode = $map['ModelMode'];
         }
 
         if (isset($map['Query'])) {

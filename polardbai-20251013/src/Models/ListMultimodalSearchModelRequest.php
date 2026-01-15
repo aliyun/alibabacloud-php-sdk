@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PolardbAI\V20251013\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateMultimodalDatasetEmbeddingRequest extends Model
+class ListMultimodalSearchModelRequest extends Model
 {
     /**
      * @var string
@@ -14,24 +14,18 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
     public $DBClusterId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $datasetId;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $model;
-
-    /**
-     * @var string
-     */
-    public $modelMode;
+    public $pageSize;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'datasetId' => 'DatasetId',
-        'model' => 'Model',
-        'modelMode' => 'ModelMode',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -46,16 +40,12 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->datasetId) {
-            $res['DatasetId'] = $this->datasetId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
 
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
-        }
-
-        if (null !== $this->modelMode) {
-            $res['ModelMode'] = $this->modelMode;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -73,16 +63,12 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['DatasetId'])) {
-            $model->datasetId = $map['DatasetId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
 
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
-        }
-
-        if (isset($map['ModelMode'])) {
-            $model->modelMode = $map['ModelMode'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

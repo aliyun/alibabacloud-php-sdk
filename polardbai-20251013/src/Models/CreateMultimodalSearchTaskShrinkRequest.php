@@ -26,6 +26,11 @@ class CreateMultimodalSearchTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modelMode;
+
+    /**
+     * @var string
+     */
     public $query;
 
     /**
@@ -41,6 +46,7 @@ class CreateMultimodalSearchTaskShrinkRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'datasetIdsShrink' => 'DatasetIds',
         'embeddingModel' => 'EmbeddingModel',
+        'modelMode' => 'ModelMode',
         'query' => 'Query',
         'searchModel' => 'SearchModel',
         'topK' => 'TopK',
@@ -64,6 +70,10 @@ class CreateMultimodalSearchTaskShrinkRequest extends Model
 
         if (null !== $this->embeddingModel) {
             $res['EmbeddingModel'] = $this->embeddingModel;
+        }
+
+        if (null !== $this->modelMode) {
+            $res['ModelMode'] = $this->modelMode;
         }
 
         if (null !== $this->query) {
@@ -99,6 +109,10 @@ class CreateMultimodalSearchTaskShrinkRequest extends Model
 
         if (isset($map['EmbeddingModel'])) {
             $model->embeddingModel = $map['EmbeddingModel'];
+        }
+
+        if (isset($map['ModelMode'])) {
+            $model->modelMode = $map['ModelMode'];
         }
 
         if (isset($map['Query'])) {
