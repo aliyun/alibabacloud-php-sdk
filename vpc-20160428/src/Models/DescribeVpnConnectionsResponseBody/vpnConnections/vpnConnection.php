@@ -135,6 +135,11 @@ class vpnConnection extends Model
     public $transitRouterName;
 
     /**
+     * @var string
+     */
+    public $tunnelBandwidth;
+
+    /**
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
@@ -183,6 +188,7 @@ class vpnConnection extends Model
         'tag' => 'Tag',
         'transitRouterId' => 'TransitRouterId',
         'transitRouterName' => 'TransitRouterName',
+        'tunnelBandwidth' => 'TunnelBandwidth',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
         'vcoHealthCheck' => 'VcoHealthCheck',
         'vpnBgpConfig' => 'VpnBgpConfig',
@@ -312,6 +318,10 @@ class vpnConnection extends Model
             $res['TransitRouterName'] = $this->transitRouterName;
         }
 
+        if (null !== $this->tunnelBandwidth) {
+            $res['TunnelBandwidth'] = $this->tunnelBandwidth;
+        }
+
         if (null !== $this->tunnelOptionsSpecification) {
             $res['TunnelOptionsSpecification'] = null !== $this->tunnelOptionsSpecification ? $this->tunnelOptionsSpecification->toArray($noStream) : $this->tunnelOptionsSpecification;
         }
@@ -437,6 +447,10 @@ class vpnConnection extends Model
 
         if (isset($map['TransitRouterName'])) {
             $model->transitRouterName = $map['TransitRouterName'];
+        }
+
+        if (isset($map['TunnelBandwidth'])) {
+            $model->tunnelBandwidth = $map['TunnelBandwidth'];
         }
 
         if (isset($map['TunnelOptionsSpecification'])) {

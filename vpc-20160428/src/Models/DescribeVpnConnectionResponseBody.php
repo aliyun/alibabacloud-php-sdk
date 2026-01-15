@@ -140,6 +140,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $transitRouterName;
 
     /**
+     * @var string
+     */
+    public $tunnelBandwidth;
+
+    /**
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
@@ -194,6 +199,7 @@ class DescribeVpnConnectionResponseBody extends Model
         'tags' => 'Tags',
         'transitRouterId' => 'TransitRouterId',
         'transitRouterName' => 'TransitRouterName',
+        'tunnelBandwidth' => 'TunnelBandwidth',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
         'vcoHealthCheck' => 'VcoHealthCheck',
         'vpnBgpConfig' => 'VpnBgpConfig',
@@ -326,6 +332,10 @@ class DescribeVpnConnectionResponseBody extends Model
 
         if (null !== $this->transitRouterName) {
             $res['TransitRouterName'] = $this->transitRouterName;
+        }
+
+        if (null !== $this->tunnelBandwidth) {
+            $res['TunnelBandwidth'] = $this->tunnelBandwidth;
         }
 
         if (null !== $this->tunnelOptionsSpecification) {
@@ -461,6 +471,10 @@ class DescribeVpnConnectionResponseBody extends Model
 
         if (isset($map['TransitRouterName'])) {
             $model->transitRouterName = $map['TransitRouterName'];
+        }
+
+        if (isset($map['TunnelBandwidth'])) {
+            $model->tunnelBandwidth = $map['TunnelBandwidth'];
         }
 
         if (isset($map['TunnelOptionsSpecification'])) {

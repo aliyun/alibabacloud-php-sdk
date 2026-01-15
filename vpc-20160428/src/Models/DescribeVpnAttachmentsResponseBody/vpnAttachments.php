@@ -53,6 +53,11 @@ class vpnAttachments extends Model
      * @var string
      */
     public $transitRouterName;
+
+    /**
+     * @var string
+     */
+    public $tunnelBandwidth;
     protected $_name = [
         'attachType' => 'AttachType',
         'crossAccountAuthorized' => 'CrossAccountAuthorized',
@@ -63,6 +68,7 @@ class vpnAttachments extends Model
         'tags' => 'Tags',
         'transitRouterId' => 'TransitRouterId',
         'transitRouterName' => 'TransitRouterName',
+        'tunnelBandwidth' => 'TunnelBandwidth',
     ];
 
     public function validate()
@@ -119,6 +125,10 @@ class vpnAttachments extends Model
             $res['TransitRouterName'] = $this->transitRouterName;
         }
 
+        if (null !== $this->tunnelBandwidth) {
+            $res['TunnelBandwidth'] = $this->tunnelBandwidth;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class vpnAttachments extends Model
 
         if (isset($map['TransitRouterName'])) {
             $model->transitRouterName = $map['TransitRouterName'];
+        }
+
+        if (isset($map['TunnelBandwidth'])) {
+            $model->tunnelBandwidth = $map['TunnelBandwidth'];
         }
 
         return $model;

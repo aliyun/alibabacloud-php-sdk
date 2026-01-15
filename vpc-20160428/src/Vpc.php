@@ -504,6 +504,10 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpAttributeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpCidrAttributeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpCidrAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusRequest;
@@ -11398,6 +11402,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->tags) {
             @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->tunnelBandwidth) {
+            @$query['TunnelBandwidth'] = $request->tunnelBandwidth;
         }
 
         $body = [];
@@ -24474,6 +24482,10 @@ class Vpc extends OpenApiClient
             @$query['BusinessStatus'] = $request->businessStatus;
         }
 
+        if (null !== $request->gatewayType) {
+            @$query['GatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->includeReservationData) {
             @$query['IncludeReservationData'] = $request->includeReservationData;
         }
@@ -26297,7 +26309,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询NAT详情信息.
+     * Queries information about a NAT gateway.
      *
      * @remarks
      * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
@@ -26363,7 +26375,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询NAT详情信息.
+     * Queries information about a NAT gateway.
      *
      * @remarks
      * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
@@ -26381,6 +26393,188 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNatGatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+     *
+     * @param request - GetNatIpAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNatIpAttributeResponse
+     *
+     * @param GetNatIpAttributeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetNatIpAttributeResponse
+     */
+    public function getNatIpAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->natIpId) {
+            @$query['NatIpId'] = $request->natIpId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNatIpAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNatIpAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
+     *
+     * @param request - GetNatIpAttributeRequest
+     *
+     * @returns GetNatIpAttributeResponse
+     *
+     * @param GetNatIpAttributeRequest $request
+     *
+     * @return GetNatIpAttributeResponse
+     */
+    public function getNatIpAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNatIpAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+     *
+     * @param request - GetNatIpCidrAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNatIpCidrAttributeResponse
+     *
+     * @param GetNatIpCidrAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetNatIpCidrAttributeResponse
+     */
+    public function getNatIpCidrAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->natIpCidr) {
+            @$query['NatIpCidr'] = $request->natIpCidr;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNatIpCidrAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNatIpCidrAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
+     *
+     * @param request - GetNatIpCidrAttributeRequest
+     *
+     * @returns GetNatIpCidrAttributeResponse
+     *
+     * @param GetNatIpCidrAttributeRequest $request
+     *
+     * @return GetNatIpCidrAttributeResponse
+     */
+    public function getNatIpCidrAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNatIpCidrAttributeWithOptions($request, $runtime);
     }
 
     /**

@@ -15,6 +15,11 @@ class DescribeVpnGatewaysRequest extends Model
     public $businessStatus;
 
     /**
+     * @var string
+     */
+    public $gatewayType;
+
+    /**
      * @var bool
      */
     public $includeReservationData;
@@ -80,6 +85,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $vpnGatewayId;
     protected $_name = [
         'businessStatus' => 'BusinessStatus',
+        'gatewayType' => 'GatewayType',
         'includeReservationData' => 'IncludeReservationData',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -108,6 +114,10 @@ class DescribeVpnGatewaysRequest extends Model
         $res = [];
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->includeReservationData) {
@@ -182,6 +192,10 @@ class DescribeVpnGatewaysRequest extends Model
         $model = new self();
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
+        }
+
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
         }
 
         if (isset($map['IncludeReservationData'])) {

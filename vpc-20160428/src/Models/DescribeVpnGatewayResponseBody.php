@@ -64,6 +64,11 @@ class DescribeVpnGatewayResponseBody extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $internetIp;
 
     /**
@@ -161,6 +166,7 @@ class DescribeVpnGatewayResponseBody extends Model
         'enableBgp' => 'EnableBgp',
         'endTime' => 'EndTime',
         'eniInstanceIds' => 'EniInstanceIds',
+        'gatewayType' => 'GatewayType',
         'internetIp' => 'InternetIp',
         'ipsecVpn' => 'IpsecVpn',
         'name' => 'Name',
@@ -236,6 +242,10 @@ class DescribeVpnGatewayResponseBody extends Model
 
         if (null !== $this->eniInstanceIds) {
             $res['EniInstanceIds'] = null !== $this->eniInstanceIds ? $this->eniInstanceIds->toArray($noStream) : $this->eniInstanceIds;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->internetIp) {
@@ -359,6 +369,10 @@ class DescribeVpnGatewayResponseBody extends Model
 
         if (isset($map['EniInstanceIds'])) {
             $model->eniInstanceIds = eniInstanceIds::fromMap($map['EniInstanceIds']);
+        }
+
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
         }
 
         if (isset($map['InternetIp'])) {

@@ -126,6 +126,11 @@ class CreateVpnAttachmentRequest extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $tunnelBandwidth;
+
+    /**
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
@@ -153,6 +158,7 @@ class CreateVpnAttachmentRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'tags' => 'Tags',
+        'tunnelBandwidth' => 'TunnelBandwidth',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
     ];
 
@@ -267,6 +273,10 @@ class CreateVpnAttachmentRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tunnelBandwidth) {
+            $res['TunnelBandwidth'] = $this->tunnelBandwidth;
         }
 
         if (null !== $this->tunnelOptionsSpecification) {
@@ -388,6 +398,10 @@ class CreateVpnAttachmentRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TunnelBandwidth'])) {
+            $model->tunnelBandwidth = $map['TunnelBandwidth'];
         }
 
         if (isset($map['TunnelOptionsSpecification'])) {
