@@ -169,7 +169,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建建站实例.
+     * Create a website instance.
      *
      * @param request - CreateAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -244,7 +244,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建建站实例.
+     * Create a website instance.
      *
      * @param request - CreateAppInstanceRequest
      *
