@@ -27,11 +27,17 @@ class ContainerConfiguration extends Model
      * @var string
      */
     public $imageRegistryType;
+
+    /**
+     * @var int
+     */
+    public $port;
     protected $_name = [
         'acrInstanceId' => 'acrInstanceId',
         'command' => 'command',
         'image' => 'image',
         'imageRegistryType' => 'imageRegistryType',
+        'port' => 'port',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class ContainerConfiguration extends Model
             $res['imageRegistryType'] = $this->imageRegistryType;
         }
 
+        if (null !== $this->port) {
+            $res['port'] = $this->port;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class ContainerConfiguration extends Model
 
         if (isset($map['imageRegistryType'])) {
             $model->imageRegistryType = $map['imageRegistryType'];
+        }
+
+        if (isset($map['port'])) {
+            $model->port = $map['port'];
         }
 
         return $model;
