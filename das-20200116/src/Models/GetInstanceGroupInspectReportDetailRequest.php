@@ -11,8 +11,14 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
     /**
      * @var string
      */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $reportId;
     protected $_name = [
+        'agentId' => 'AgentId',
         'reportId' => 'ReportId',
     ];
 
@@ -24,6 +30,10 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
+
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
@@ -39,6 +49,10 @@ class GetInstanceGroupInspectReportDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
+
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }

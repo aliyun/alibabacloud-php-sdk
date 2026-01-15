@@ -6373,12 +6373,18 @@ class DAS extends OpenApiClient
     public function getInstanceGroupInspectReportDetailWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
         $body = [];
         if (null !== $request->reportId) {
             @$body['ReportId'] = $request->reportId;
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
