@@ -36,6 +36,11 @@ class data extends Model
     public $dataJson;
 
     /**
+     * @var int
+     */
+    public $defaultAgent;
+
+    /**
      * @var string
      */
     public $description;
@@ -130,6 +135,7 @@ class data extends Model
         'creatorUserName' => 'CreatorUserName',
         'customAgentId' => 'CustomAgentId',
         'dataJson' => 'DataJson',
+        'defaultAgent' => 'DefaultAgent',
         'description' => 'Description',
         'dmsUnit' => 'DmsUnit',
         'executionConfig' => 'ExecutionConfig',
@@ -182,6 +188,10 @@ class data extends Model
 
         if (null !== $this->dataJson) {
             $res['DataJson'] = $this->dataJson;
+        }
+
+        if (null !== $this->defaultAgent) {
+            $res['DefaultAgent'] = $this->defaultAgent;
         }
 
         if (null !== $this->description) {
@@ -292,6 +302,10 @@ class data extends Model
 
         if (isset($map['DataJson'])) {
             $model->dataJson = $map['DataJson'];
+        }
+
+        if (isset($map['DefaultAgent'])) {
+            $model->defaultAgent = $map['DefaultAgent'];
         }
 
         if (isset($map['Description'])) {
