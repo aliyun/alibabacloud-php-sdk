@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\result\customizedHit;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\result\riskPositions;
 
 class result extends Model
 {
@@ -30,6 +31,11 @@ class result extends Model
     public $label;
 
     /**
+     * @var riskPositions[]
+     */
+    public $riskPositions;
+
+    /**
      * @var string
      */
     public $riskWords;
@@ -38,6 +44,7 @@ class result extends Model
         'customizedHit' => 'CustomizedHit',
         'description' => 'Description',
         'label' => 'Label',
+        'riskPositions' => 'RiskPositions',
         'riskWords' => 'RiskWords',
     ];
 
@@ -45,6 +52,9 @@ class result extends Model
     {
         if (\is_array($this->customizedHit)) {
             Model::validateArray($this->customizedHit);
+        }
+        if (\is_array($this->riskPositions)) {
+            Model::validateArray($this->riskPositions);
         }
         parent::validate();
     }
@@ -73,6 +83,17 @@ class result extends Model
 
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+
+        if (null !== $this->riskPositions) {
+            if (\is_array($this->riskPositions)) {
+                $res['RiskPositions'] = [];
+                $n1 = 0;
+                foreach ($this->riskPositions as $item1) {
+                    $res['RiskPositions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->riskWords) {
@@ -111,6 +132,17 @@ class result extends Model
 
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+
+        if (isset($map['RiskPositions'])) {
+            if (!empty($map['RiskPositions'])) {
+                $model->riskPositions = [];
+                $n1 = 0;
+                foreach ($map['RiskPositions'] as $item1) {
+                    $model->riskPositions[$n1] = riskPositions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RiskWords'])) {
