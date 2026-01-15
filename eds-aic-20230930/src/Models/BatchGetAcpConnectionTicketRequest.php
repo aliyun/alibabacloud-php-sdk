@@ -12,6 +12,11 @@ class BatchGetAcpConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $connectionMode;
+
+    /**
+     * @var string
+     */
     public $endUserId;
 
     /**
@@ -29,6 +34,7 @@ class BatchGetAcpConnectionTicketRequest extends Model
      */
     public $instanceTasks;
     protected $_name = [
+        'connectionMode' => 'ConnectionMode',
         'endUserId' => 'EndUserId',
         'instanceGroupId' => 'InstanceGroupId',
         'instanceIds' => 'InstanceIds',
@@ -49,6 +55,10 @@ class BatchGetAcpConnectionTicketRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectionMode) {
+            $res['ConnectionMode'] = $this->connectionMode;
+        }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -90,6 +100,10 @@ class BatchGetAcpConnectionTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionMode'])) {
+            $model->connectionMode = $map['ConnectionMode'];
+        }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }

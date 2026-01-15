@@ -645,6 +645,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->connectionMode) {
+            @$query['ConnectionMode'] = $request->connectionMode;
+        }
+
         if (null !== $request->endUserId) {
             @$query['EndUserId'] = $request->endUserId;
         }
@@ -5710,6 +5714,10 @@ class Edsaic extends OpenApiClient
             @$query['ForceStop'] = $request->forceStop;
         }
 
+        if (null !== $request->ignoreParamValidation) {
+            @$query['IgnoreParamValidation'] = $request->ignoreParamValidation;
+        }
+
         if (null !== $request->saleMode) {
             @$query['SaleMode'] = $request->saleMode;
         }
@@ -6156,6 +6164,10 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (null !== $request->androidInstanceIds) {
             @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        if (null !== $request->ignoreParamValidation) {
+            @$query['IgnoreParamValidation'] = $request->ignoreParamValidation;
         }
 
         if (null !== $request->saleMode) {
@@ -7162,6 +7174,10 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ignoreParamValidation) {
+            @$query['IgnoreParamValidation'] = $request->ignoreParamValidation;
+        }
+
         if (null !== $request->imageId) {
             @$query['ImageId'] = $request->imageId;
         }

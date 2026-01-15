@@ -19,12 +19,18 @@ class RebootAndroidInstancesInGroupRequest extends Model
     public $forceStop;
 
     /**
+     * @var bool
+     */
+    public $ignoreParamValidation;
+
+    /**
      * @var string
      */
     public $saleMode;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'forceStop' => 'ForceStop',
+        'ignoreParamValidation' => 'IgnoreParamValidation',
         'saleMode' => 'SaleMode',
     ];
 
@@ -52,6 +58,10 @@ class RebootAndroidInstancesInGroupRequest extends Model
 
         if (null !== $this->forceStop) {
             $res['ForceStop'] = $this->forceStop;
+        }
+
+        if (null !== $this->ignoreParamValidation) {
+            $res['IgnoreParamValidation'] = $this->ignoreParamValidation;
         }
 
         if (null !== $this->saleMode) {
@@ -82,6 +92,10 @@ class RebootAndroidInstancesInGroupRequest extends Model
 
         if (isset($map['ForceStop'])) {
             $model->forceStop = $map['ForceStop'];
+        }
+
+        if (isset($map['IgnoreParamValidation'])) {
+            $model->ignoreParamValidation = $map['IgnoreParamValidation'];
         }
 
         if (isset($map['SaleMode'])) {

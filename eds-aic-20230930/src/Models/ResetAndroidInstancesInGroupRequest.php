@@ -14,6 +14,11 @@ class ResetAndroidInstancesInGroupRequest extends Model
     public $androidInstanceIds;
 
     /**
+     * @var bool
+     */
+    public $ignoreParamValidation;
+
+    /**
      * @var string
      */
     public $saleMode;
@@ -24,6 +29,7 @@ class ResetAndroidInstancesInGroupRequest extends Model
     public $settingResetType;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
+        'ignoreParamValidation' => 'IgnoreParamValidation',
         'saleMode' => 'SaleMode',
         'settingResetType' => 'SettingResetType',
     ];
@@ -48,6 +54,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ignoreParamValidation) {
+            $res['IgnoreParamValidation'] = $this->ignoreParamValidation;
         }
 
         if (null !== $this->saleMode) {
@@ -78,6 +88,10 @@ class ResetAndroidInstancesInGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IgnoreParamValidation'])) {
+            $model->ignoreParamValidation = $map['IgnoreParamValidation'];
         }
 
         if (isset($map['SaleMode'])) {

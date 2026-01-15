@@ -34,6 +34,11 @@ class instanceConnectionModels extends Model
     public $persistentAppInstanceId;
 
     /**
+     * @var int
+     */
+    public $port;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -53,6 +58,7 @@ class instanceConnectionModels extends Model
         'errorCode' => 'ErrorCode',
         'instanceId' => 'InstanceId',
         'persistentAppInstanceId' => 'PersistentAppInstanceId',
+        'port' => 'Port',
         'taskId' => 'TaskId',
         'taskStatus' => 'TaskStatus',
         'ticket' => 'Ticket',
@@ -84,6 +90,10 @@ class instanceConnectionModels extends Model
 
         if (null !== $this->persistentAppInstanceId) {
             $res['PersistentAppInstanceId'] = $this->persistentAppInstanceId;
+        }
+
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         if (null !== $this->taskId) {
@@ -127,6 +137,10 @@ class instanceConnectionModels extends Model
 
         if (isset($map['PersistentAppInstanceId'])) {
             $model->persistentAppInstanceId = $map['PersistentAppInstanceId'];
+        }
+
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         if (isset($map['TaskId'])) {

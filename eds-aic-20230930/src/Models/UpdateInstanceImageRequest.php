@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateInstanceImageRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ignoreParamValidation;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -23,6 +28,7 @@ class UpdateInstanceImageRequest extends Model
      */
     public $reset;
     protected $_name = [
+        'ignoreParamValidation' => 'IgnoreParamValidation',
         'imageId' => 'ImageId',
         'instanceIdList' => 'InstanceIdList',
         'reset' => 'Reset',
@@ -39,6 +45,10 @@ class UpdateInstanceImageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ignoreParamValidation) {
+            $res['IgnoreParamValidation'] = $this->ignoreParamValidation;
+        }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -69,6 +79,10 @@ class UpdateInstanceImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IgnoreParamValidation'])) {
+            $model->ignoreParamValidation = $map['IgnoreParamValidation'];
+        }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
