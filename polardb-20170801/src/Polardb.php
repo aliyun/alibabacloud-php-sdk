@@ -15772,6 +15772,14 @@ class Polardb extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
