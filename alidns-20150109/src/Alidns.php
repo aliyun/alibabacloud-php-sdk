@@ -4137,6 +4137,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询全局流量管理告警配置.
+     *
      * @param request - DescribeCloudGtmGlobalAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4178,6 +4180,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 查询全局流量管理告警配置.
+     *
      * @param request - DescribeCloudGtmGlobalAlertRequest
      *
      * @returns DescribeCloudGtmGlobalAlertResponse
@@ -14498,6 +14502,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 更新全局流量管理告警设置.
+     *
      * @param tmpReq - UpdateCloudGtmGlobalAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14557,6 +14563,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 更新全局流量管理告警设置.
+     *
      * @param request - UpdateCloudGtmGlobalAlertRequest
      *
      * @returns UpdateCloudGtmGlobalAlertResponse

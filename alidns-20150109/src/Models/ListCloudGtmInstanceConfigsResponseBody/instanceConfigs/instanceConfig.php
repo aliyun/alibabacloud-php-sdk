@@ -37,6 +37,11 @@ class instanceConfig extends Model
     /**
      * @var string
      */
+    public $configLoggingSwitchStatus;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -119,6 +124,7 @@ class instanceConfig extends Model
         'availableStatus' => 'AvailableStatus',
         'commodityCode' => 'CommodityCode',
         'configId' => 'ConfigId',
+        'configLoggingSwitchStatus' => 'ConfigLoggingSwitchStatus',
         'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
         'enableStatus' => 'EnableStatus',
@@ -166,6 +172,10 @@ class instanceConfig extends Model
 
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
+        }
+
+        if (null !== $this->configLoggingSwitchStatus) {
+            $res['ConfigLoggingSwitchStatus'] = $this->configLoggingSwitchStatus;
         }
 
         if (null !== $this->createTime) {
@@ -261,6 +271,10 @@ class instanceConfig extends Model
 
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
+        }
+
+        if (isset($map['ConfigLoggingSwitchStatus'])) {
+            $model->configLoggingSwitchStatus = $map['ConfigLoggingSwitchStatus'];
         }
 
         if (isset($map['CreateTime'])) {

@@ -15,6 +15,11 @@ class log extends Model
     public $dnsMsgId;
 
     /**
+     * @var string
+     */
+    public $flags;
+
+    /**
      * @var int
      */
     public $logTime;
@@ -27,12 +32,22 @@ class log extends Model
     /**
      * @var string
      */
+    public $queryFlags;
+
+    /**
+     * @var string
+     */
     public $queryName;
 
     /**
      * @var string
      */
     public $queryType;
+
+    /**
+     * @var string
+     */
+    public $responseTimestamp;
 
     /**
      * @var int
@@ -70,10 +85,13 @@ class log extends Model
     public $zoneName;
     protected $_name = [
         'dnsMsgId' => 'DnsMsgId',
+        'flags' => 'Flags',
         'logTime' => 'LogTime',
         'protocol' => 'Protocol',
+        'queryFlags' => 'QueryFlags',
         'queryName' => 'QueryName',
         'queryType' => 'QueryType',
+        'responseTimestamp' => 'ResponseTimestamp',
         'rt' => 'Rt',
         'serverIp' => 'ServerIp',
         'sourceIp' => 'SourceIp',
@@ -98,6 +116,10 @@ class log extends Model
             $res['DnsMsgId'] = $this->dnsMsgId;
         }
 
+        if (null !== $this->flags) {
+            $res['Flags'] = $this->flags;
+        }
+
         if (null !== $this->logTime) {
             $res['LogTime'] = $this->logTime;
         }
@@ -106,12 +128,20 @@ class log extends Model
             $res['Protocol'] = $this->protocol;
         }
 
+        if (null !== $this->queryFlags) {
+            $res['QueryFlags'] = $this->queryFlags;
+        }
+
         if (null !== $this->queryName) {
             $res['QueryName'] = $this->queryName;
         }
 
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+
+        if (null !== $this->responseTimestamp) {
+            $res['ResponseTimestamp'] = $this->responseTimestamp;
         }
 
         if (null !== $this->rt) {
@@ -157,6 +187,10 @@ class log extends Model
             $model->dnsMsgId = $map['DnsMsgId'];
         }
 
+        if (isset($map['Flags'])) {
+            $model->flags = $map['Flags'];
+        }
+
         if (isset($map['LogTime'])) {
             $model->logTime = $map['LogTime'];
         }
@@ -165,12 +199,20 @@ class log extends Model
             $model->protocol = $map['Protocol'];
         }
 
+        if (isset($map['QueryFlags'])) {
+            $model->queryFlags = $map['QueryFlags'];
+        }
+
         if (isset($map['QueryName'])) {
             $model->queryName = $map['QueryName'];
         }
 
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+
+        if (isset($map['ResponseTimestamp'])) {
+            $model->responseTimestamp = $map['ResponseTimestamp'];
         }
 
         if (isset($map['Rt'])) {

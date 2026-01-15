@@ -27,11 +27,17 @@ class alertConfig extends Model
      * @var bool
      */
     public $smsNotice;
+
+    /**
+     * @var int
+     */
+    public $threshold;
     protected $_name = [
         'dingtalkNotice' => 'DingtalkNotice',
         'emailNotice' => 'EmailNotice',
         'noticeType' => 'NoticeType',
         'smsNotice' => 'SmsNotice',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class alertConfig extends Model
 
         if (null !== $this->smsNotice) {
             $res['SmsNotice'] = $this->smsNotice;
+        }
+
+        if (null !== $this->threshold) {
+            $res['Threshold'] = $this->threshold;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class alertConfig extends Model
 
         if (isset($map['SmsNotice'])) {
             $model->smsNotice = $map['SmsNotice'];
+        }
+
+        if (isset($map['Threshold'])) {
+            $model->threshold = $map['Threshold'];
         }
 
         return $model;
