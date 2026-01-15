@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $parseResultDownloadUrl;
+
+    /**
+     * @var string
+     */
     public $parser;
 
     /**
@@ -58,6 +63,7 @@ class data extends Model
         'fileId' => 'FileId',
         'fileName' => 'FileName',
         'fileType' => 'FileType',
+        'parseResultDownloadUrl' => 'ParseResultDownloadUrl',
         'parser' => 'Parser',
         'sizeInBytes' => 'SizeInBytes',
         'status' => 'Status',
@@ -93,6 +99,10 @@ class data extends Model
 
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+
+        if (null !== $this->parseResultDownloadUrl) {
+            $res['ParseResultDownloadUrl'] = $this->parseResultDownloadUrl;
         }
 
         if (null !== $this->parser) {
@@ -147,6 +157,10 @@ class data extends Model
 
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+
+        if (isset($map['ParseResultDownloadUrl'])) {
+            $model->parseResultDownloadUrl = $map['ParseResultDownloadUrl'];
         }
 
         if (isset($map['Parser'])) {
