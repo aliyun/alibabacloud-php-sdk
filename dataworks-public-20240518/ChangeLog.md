@@ -1,3 +1,6 @@
+2026-01-15 Version: 7.0.3
+- Generated php 2024-05-18 for dataworks-public.
+
 2026-01-07 Version: 7.0.2
 - Update API ListDIJobs: add request parameters SpecType.
 
