@@ -44,6 +44,11 @@ class SearchImageByNameRequest extends Model
     public $productId;
 
     /**
+     * @var string
+     */
+    public $scoreThreshold;
+
+    /**
      * @var int
      */
     public $start;
@@ -55,6 +60,7 @@ class SearchImageByNameRequest extends Model
         'num' => 'Num',
         'picName' => 'PicName',
         'productId' => 'ProductId',
+        'scoreThreshold' => 'ScoreThreshold',
         'start' => 'Start',
     ];
 
@@ -92,6 +98,10 @@ class SearchImageByNameRequest extends Model
 
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+
+        if (null !== $this->scoreThreshold) {
+            $res['ScoreThreshold'] = $this->scoreThreshold;
         }
 
         if (null !== $this->start) {
@@ -135,6 +145,10 @@ class SearchImageByNameRequest extends Model
 
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+
+        if (isset($map['ScoreThreshold'])) {
+            $model->scoreThreshold = $map['ScoreThreshold'];
         }
 
         if (isset($map['Start'])) {

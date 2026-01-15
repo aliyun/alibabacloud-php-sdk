@@ -77,7 +77,8 @@ class SearchImageByPicResponseBody extends Model
                 $res['Auctions'] = [];
                 $n1 = 0;
                 foreach ($this->auctions as $item1) {
-                    $res['Auctions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Auctions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class SearchImageByPicResponseBody extends Model
                 $model->auctions = [];
                 $n1 = 0;
                 foreach ($map['Auctions'] as $item1) {
-                    $model->auctions[$n1++] = auctions::fromMap($item1);
+                    $model->auctions[$n1] = auctions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -49,6 +49,11 @@ class SearchImageByPicRequest extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $scoreThreshold;
+
+    /**
      * @var int
      */
     public $start;
@@ -61,6 +66,7 @@ class SearchImageByPicRequest extends Model
         'num' => 'Num',
         'picContent' => 'PicContent',
         'region' => 'Region',
+        'scoreThreshold' => 'ScoreThreshold',
         'start' => 'Start',
     ];
 
@@ -102,6 +108,10 @@ class SearchImageByPicRequest extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->scoreThreshold) {
+            $res['ScoreThreshold'] = $this->scoreThreshold;
         }
 
         if (null !== $this->start) {
@@ -149,6 +159,10 @@ class SearchImageByPicRequest extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['ScoreThreshold'])) {
+            $model->scoreThreshold = $map['ScoreThreshold'];
         }
 
         if (isset($map['Start'])) {

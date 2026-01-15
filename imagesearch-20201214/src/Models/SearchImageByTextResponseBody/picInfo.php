@@ -33,7 +33,8 @@ class picInfo extends Model
                 $res['AllCategories'] = [];
                 $n1 = 0;
                 foreach ($this->allCategories as $item1) {
-                    $res['AllCategories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AllCategories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class picInfo extends Model
                 $model->allCategories = [];
                 $n1 = 0;
                 foreach ($map['AllCategories'] as $item1) {
-                    $model->allCategories[$n1++] = allCategories::fromMap($item1);
+                    $model->allCategories[$n1] = allCategories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

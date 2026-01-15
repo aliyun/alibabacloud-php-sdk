@@ -29,6 +29,11 @@ class SearchImageByTextRequest extends Model
     public $num;
 
     /**
+     * @var string
+     */
+    public $scoreThreshold;
+
+    /**
      * @var int
      */
     public $start;
@@ -42,6 +47,7 @@ class SearchImageByTextRequest extends Model
         'filter' => 'Filter',
         'instanceName' => 'InstanceName',
         'num' => 'Num',
+        'scoreThreshold' => 'ScoreThreshold',
         'start' => 'Start',
         'text' => 'Text',
     ];
@@ -68,6 +74,10 @@ class SearchImageByTextRequest extends Model
 
         if (null !== $this->num) {
             $res['Num'] = $this->num;
+        }
+
+        if (null !== $this->scoreThreshold) {
+            $res['ScoreThreshold'] = $this->scoreThreshold;
         }
 
         if (null !== $this->start) {
@@ -103,6 +113,10 @@ class SearchImageByTextRequest extends Model
 
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
+        }
+
+        if (isset($map['ScoreThreshold'])) {
+            $model->scoreThreshold = $map['ScoreThreshold'];
         }
 
         if (isset($map['Start'])) {

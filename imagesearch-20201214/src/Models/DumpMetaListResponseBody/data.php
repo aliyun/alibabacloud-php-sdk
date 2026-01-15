@@ -51,7 +51,8 @@ class data extends Model
                 $res['DumpMetaList'] = [];
                 $n1 = 0;
                 foreach ($this->dumpMetaList as $item1) {
-                    $res['DumpMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DumpMetaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->dumpMetaList = [];
                 $n1 = 0;
                 foreach ($map['DumpMetaList'] as $item1) {
-                    $model->dumpMetaList[$n1++] = dumpMetaList::fromMap($item1);
+                    $model->dumpMetaList[$n1] = dumpMetaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

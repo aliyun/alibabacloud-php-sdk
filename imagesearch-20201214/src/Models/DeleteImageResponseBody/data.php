@@ -32,7 +32,8 @@ class data extends Model
                 $res['PicNames'] = [];
                 $n1 = 0;
                 foreach ($this->picNames as $item1) {
-                    $res['PicNames'][$n1++] = $item1;
+                    $res['PicNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class data extends Model
                 $model->picNames = [];
                 $n1 = 0;
                 foreach ($map['PicNames'] as $item1) {
-                    $model->picNames[$n1++] = $item1;
+                    $model->picNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
