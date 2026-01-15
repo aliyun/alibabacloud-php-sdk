@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRe
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageRequest;
@@ -1552,6 +1554,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshAppInstanceTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * 渠道业务退款接口.
+     *
+     * @param request - RefundAppInstanceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefundAppInstanceForPartnerResponse
+     *
+     * @param RefundAppInstanceForPartnerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RefundAppInstanceForPartnerResponse
+     */
+    public function refundAppInstanceForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->refundReason) {
+            @$query['RefundReason'] = $request->refundReason;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefundAppInstanceForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefundAppInstanceForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 渠道业务退款接口.
+     *
+     * @param request - RefundAppInstanceForPartnerRequest
+     *
+     * @returns RefundAppInstanceForPartnerResponse
+     *
+     * @param RefundAppInstanceForPartnerRequest $request
+     *
+     * @return RefundAppInstanceForPartnerResponse
+     */
+    public function refundAppInstanceForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refundAppInstanceForPartnerWithOptions($request, $runtime);
     }
 
     /**
