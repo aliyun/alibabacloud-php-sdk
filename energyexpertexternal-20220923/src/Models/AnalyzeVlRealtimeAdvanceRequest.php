@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class AnalyzeVlRealtimeAdvanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fileName;
+
+    /**
      * @var Stream
      */
     public $fileUrlObject;
@@ -24,6 +29,7 @@ class AnalyzeVlRealtimeAdvanceRequest extends Model
      */
     public $templateId;
     protected $_name = [
+        'fileName' => 'fileName',
         'fileUrlObject' => 'fileUrl',
         'language' => 'language',
         'templateId' => 'templateId',
@@ -37,6 +43,10 @@ class AnalyzeVlRealtimeAdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileName) {
+            $res['fileName'] = $this->fileName;
+        }
+
         if (null !== $this->fileUrlObject) {
             $res['fileUrl'] = $this->fileUrlObject;
         }
@@ -60,6 +70,10 @@ class AnalyzeVlRealtimeAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fileName'])) {
+            $model->fileName = $map['fileName'];
+        }
+
         if (isset($map['fileUrl'])) {
             $model->fileUrlObject = $map['fileUrl'];
         }

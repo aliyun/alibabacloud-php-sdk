@@ -328,10 +328,10 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Document Results.
+     * Obtains the real-time parsing result of the Qwen VL model.
      *
      * @remarks
-     * Users obtain real-time VL results by uploading a document URL.
+     * You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
      *
      * @param Request - AnalyzeVlRealtimeRequest
      * @param headers - map
@@ -349,6 +349,10 @@ class EnergyExpertExternal extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
         if (null !== $request->fileUrl) {
             @$query['fileUrl'] = $request->fileUrl;
         }
@@ -381,10 +385,10 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Document Results.
+     * Obtains the real-time parsing result of the Qwen VL model.
      *
      * @remarks
-     * Users obtain real-time VL results by uploading a document URL.
+     * You need to upload a document URL to obtain the real-time parsing result of the Qwen VL model.
      *
      * @param Request - AnalyzeVlRealtimeRequest
      *
