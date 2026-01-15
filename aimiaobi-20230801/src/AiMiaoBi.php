@@ -3268,6 +3268,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->exportType) {
+            @$body['ExportType'] = $request->exportType;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }
@@ -16616,6 +16620,10 @@ class AiMiaoBi extends OpenApiClient
             $request->newsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->news, 'News', 'json');
         }
 
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+
         $body = [];
         if (null !== $request->analysisTypesShrink) {
             @$body['AnalysisTypes'] = $request->analysisTypesShrink;
@@ -16635,6 +16643,14 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->newsShrink) {
             @$body['News'] = $request->newsShrink;
+        }
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
+        }
+
+        if (null !== $request->topicsFileUrl) {
+            @$body['TopicsFileUrl'] = $request->topicsFileUrl;
         }
 
         if (null !== $request->workspaceId) {

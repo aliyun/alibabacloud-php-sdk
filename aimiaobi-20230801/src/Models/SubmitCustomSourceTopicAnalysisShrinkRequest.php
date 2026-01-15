@@ -36,6 +36,16 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $topicsShrink;
+
+    /**
+     * @var string
+     */
+    public $topicsFileUrl;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'analysisTypesShrink' => 'AnalysisTypes',
@@ -43,6 +53,8 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
         'fileUrl' => 'FileUrl',
         'maxTopicSize' => 'MaxTopicSize',
         'newsShrink' => 'News',
+        'topicsShrink' => 'Topics',
+        'topicsFileUrl' => 'TopicsFileUrl',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -72,6 +84,14 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
 
         if (null !== $this->newsShrink) {
             $res['News'] = $this->newsShrink;
+        }
+
+        if (null !== $this->topicsShrink) {
+            $res['Topics'] = $this->topicsShrink;
+        }
+
+        if (null !== $this->topicsFileUrl) {
+            $res['TopicsFileUrl'] = $this->topicsFileUrl;
         }
 
         if (null !== $this->workspaceId) {
@@ -107,6 +127,14 @@ class SubmitCustomSourceTopicAnalysisShrinkRequest extends Model
 
         if (isset($map['News'])) {
             $model->newsShrink = $map['News'];
+        }
+
+        if (isset($map['Topics'])) {
+            $model->topicsShrink = $map['Topics'];
+        }
+
+        if (isset($map['TopicsFileUrl'])) {
+            $model->topicsFileUrl = $map['TopicsFileUrl'];
         }
 
         if (isset($map['WorkspaceId'])) {

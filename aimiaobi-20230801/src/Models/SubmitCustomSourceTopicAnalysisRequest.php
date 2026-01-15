@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisRequest\news;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomSourceTopicAnalysisRequest\topics;
 
 class SubmitCustomSourceTopicAnalysisRequest extends Model
 {
@@ -35,6 +36,16 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
     public $news;
 
     /**
+     * @var topics[]
+     */
+    public $topics;
+
+    /**
+     * @var string
+     */
+    public $topicsFileUrl;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -44,6 +55,8 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
         'fileUrl' => 'FileUrl',
         'maxTopicSize' => 'MaxTopicSize',
         'news' => 'News',
+        'topics' => 'Topics',
+        'topicsFileUrl' => 'TopicsFileUrl',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -54,6 +67,9 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
         }
         if (\is_array($this->news)) {
             Model::validateArray($this->news);
+        }
+        if (\is_array($this->topics)) {
+            Model::validateArray($this->topics);
         }
         parent::validate();
     }
@@ -93,6 +109,21 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->topics) {
+            if (\is_array($this->topics)) {
+                $res['Topics'] = [];
+                $n1 = 0;
+                foreach ($this->topics as $item1) {
+                    $res['Topics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->topicsFileUrl) {
+            $res['TopicsFileUrl'] = $this->topicsFileUrl;
         }
 
         if (null !== $this->workspaceId) {
@@ -142,6 +173,21 @@ class SubmitCustomSourceTopicAnalysisRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Topics'])) {
+            if (!empty($map['Topics'])) {
+                $model->topics = [];
+                $n1 = 0;
+                foreach ($map['Topics'] as $item1) {
+                    $model->topics[$n1] = topics::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TopicsFileUrl'])) {
+            $model->topicsFileUrl = $map['TopicsFileUrl'];
         }
 
         if (isset($map['WorkspaceId'])) {

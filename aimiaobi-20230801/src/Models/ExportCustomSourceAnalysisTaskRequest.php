@@ -11,6 +11,11 @@ class ExportCustomSourceAnalysisTaskRequest extends Model
     /**
      * @var string
      */
+    public $exportType;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -18,6 +23,7 @@ class ExportCustomSourceAnalysisTaskRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'exportType' => 'ExportType',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +36,10 @@ class ExportCustomSourceAnalysisTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->exportType) {
+            $res['ExportType'] = $this->exportType;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -49,6 +59,10 @@ class ExportCustomSourceAnalysisTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExportType'])) {
+            $model->exportType = $map['ExportType'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
