@@ -89,6 +89,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetSecretResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSourceResponse;
@@ -3850,6 +3851,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getResourceOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询密钥.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecretResponse
+     *
+     * @param string         $secretId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSecretResponse
+     */
+    public function getSecretWithOptions($secretId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSecret',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/secrets/' . Url::percentEncode($secretId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询密钥.
+     *
+     * @returns GetSecretResponse
+     *
+     * @param string $secretId
+     *
+     * @return GetSecretResponse
+     */
+    public function getSecret($secretId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSecretWithOptions($secretId, $headers, $runtime);
     }
 
     /**

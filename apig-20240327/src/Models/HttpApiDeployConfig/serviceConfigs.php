@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiBackendMatchConditions;
 
 class serviceConfigs extends Model
 {
@@ -12,6 +13,11 @@ class serviceConfigs extends Model
      * @var string
      */
     public $intentCode;
+
+    /**
+     * @var HttpApiBackendMatchConditions
+     */
+    public $match;
 
     /**
      * @var string
@@ -34,6 +40,7 @@ class serviceConfigs extends Model
     public $weight;
     protected $_name = [
         'intentCode' => 'intentCode',
+        'match' => 'match',
         'modelName' => 'modelName',
         'modelNamePattern' => 'modelNamePattern',
         'serviceId' => 'serviceId',
@@ -42,6 +49,9 @@ class serviceConfigs extends Model
 
     public function validate()
     {
+        if (null !== $this->match) {
+            $this->match->validate();
+        }
         parent::validate();
     }
 
@@ -50,6 +60,10 @@ class serviceConfigs extends Model
         $res = [];
         if (null !== $this->intentCode) {
             $res['intentCode'] = $this->intentCode;
+        }
+
+        if (null !== $this->match) {
+            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
 
         if (null !== $this->modelName) {
@@ -81,6 +95,10 @@ class serviceConfigs extends Model
         $model = new self();
         if (isset($map['intentCode'])) {
             $model->intentCode = $map['intentCode'];
+        }
+
+        if (isset($map['match'])) {
+            $model->match = HttpApiBackendMatchConditions::fromMap($map['match']);
         }
 
         if (isset($map['modelName'])) {
